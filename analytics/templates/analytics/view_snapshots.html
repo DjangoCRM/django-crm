@@ -1,0 +1,15 @@
+{% load i18n %}
+{% if "view-snapshot" in request.path %}
+<style>
+#changelist-filter{display:none;}
+input[type="submit"] {display:none;}
+</style>
+{% endif %}
+{% translate 'Data' %}: {{ today|date:"d M Y" }}.&nbsp;&nbsp;
+{% translate 'Snapshots' %}:&nbsp;&nbsp;<a href="{% url 'site:analytics_incomestat_changelist' %}">{% translate 'Now' %},</a>
+{% if snapshots %} {# It's right place #}
+{% for s in snapshots %}
+<a href="{% url 'site:snapshot_view' s.id %}">&nbsp;&nbsp;{{ s.creation_date|date:"d M Y" }},</a>
+{% endfor %}
+{% endif %}<p></p>
+

@@ -1,0 +1,54 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+
+{% if original.incoming or original.uid %}
+     <li>
+        <a href="{%  url 'reply_email' original.id %}?act=reply" title="{% translate 'reply' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply</i> {% translate 'reply' %}</a>
+    </li>
+    <li>
+        <a href="{%  url 'reply_email' original.id %}?act=reply-all" title="{% translate 'reply all' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply_all</i> {% translate 'reply all' %}</a>
+    </li>
+    <li>
+        <a href="{%  url 'reply_email' original.id %}?act=forward" title="{% translate 'forward' %}">{% translate 'forward' %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">forward</i></a>
+     </li>
+{% endif %}
+{% if next_email_url %}
+ <li>
+  <a href="{{ next_email_url }}" title="{% translate 'View next email' %}">{% translate "Next" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">arrow_upward</i></a>
+ </li>
+ {% endif %} 
+ {% if prev_email_url %}
+ <li>
+  <a href="{{ prev_email_url }}" title="{% translate 'View previous email' %}">{% translate "Previous" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">arrow_downward</i></a>
+ </li>
+ {% endif %}
+{% if deal_url %}
+ <li>
+  <a href="{{ deal_url }}" title="{% translate 'View the deal' %}" target="_blank">{% translate "Deal" %}</a>
+ </li>
+{% elif request_url %}
+ <li>
+  <a href="{{ request_url }}" title="{% translate 'View the request' %}" target="_blank">{% translate "Request" %}</a>
+ </li>
+{% endif %}
+{% if original.uid and original.incoming %}
+ <li>
+  <a href="#" target="popup" title="{% translate "View original email" %}"
+  onclick="window.open('{% url 'view_original_email' object_id  %}','email{{ original.id }}','width=800,height=700')"
+  ><i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i>
+  </a>
+ </li>
+ <li>
+    <a href="{% url 'download_original_email' object_id %}" title="{% translate 'Download the original email as an EML file.' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">file_download</i></a>
+   </li>
+{% endif %}
+<li>
+    <a href="{%  url 'print_email' original.id %}" title="{% translate 'Print preview' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">print</i></a>
+</li>
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+
+{% if user.is_superuser %}<li><a href="{{ admin_url }}" class="viewsitelink">{% translate "Open in Admin" %}</a></li>{% endif %}
+{% endblock %}

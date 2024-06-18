@@ -1,0 +1,7 @@
+{% load i18n %}
+<li>
+<a href="#" title="{% translate "View the uploaded images on the CRM server" %}" onClick="window.open('{% url "show_uploaded_images" %}?content_type={{ content_type_id }}&object_id={{ original.pk }}&owner={{ request.user.id }}&_popup=1','chatmessage_add','width=800,height=700'); return false;"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">portrait</i> <i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i></a>
+</li>
+<li>
+<a href="#" title="{% translate "Upload an image file to the CRM server" %}" onClick="window.open('{% url "pic_upload" %}?content_type={{ content_type_id }}&object_id={{ original.pk }}&owner={{ request.user.id }}&_popup=1','chatmessage_add','width=800,height=700'); return false;"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">portrait</i> <i class="material-icons" style="font-size: 17px;vertical-align: middle;">file_upload</i></a>
+</li>

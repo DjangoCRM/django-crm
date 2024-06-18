@@ -1,0 +1,36 @@
+{% load i18n util %}
+
+<div style="width: 80%; margin: 30px auto; text-align: left;">
+    {% block header %}{% endblock %}
+    <p></p>
+    <hr>
+
+    <div style="margin: 30px 0 0 30px;">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% if obj.note %}
+        <p style="margin-top: 30px;">
+            <b>{% translate "Note" %}</b></p>
+        <hr><br>
+        <div>
+        <p>&emsp;{{ obj.note }}</p>
+        </div><br>
+    {% endif %}
+    <p></p>
+	<hr>
+
+    {% if obj.files.all %}
+        <h4>&#128206; {% translate 'Attachments' %}</h4>
+        <div style="margin: 30px 0 0 30px;">
+            {% for file in obj.files.all %}
+            {% if file|get_url %}
+                &#8681; <a href="https://{{domain}}{{ file.file.url }}" title="{% translate 'Download' %}">{{ file }}</a><br><br>
+            {% else %}
+                <span style='color: var(--error-fg)'>&#8681; {% translate "Error: the file is missing." %}</span>
+            {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>

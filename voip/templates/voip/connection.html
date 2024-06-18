@@ -1,0 +1,28 @@
+{% load i18n %}
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+</head>
+<div>
+	<div id="content" class="colM">
+		<br>
+		<h1>{% translate "Please select what's your phone number, caller display" %}</h1>
+		<hr>
+		<br><br>
+		<div id="content-main">
+		    <form action="" method="post">
+
+				<fieldset class="module aligned ">
+			        {% csrf_token %}
+			        {{ form }}
+				</fieldset>
+				<hr>
+				<br>
+                <div class="submit-row">
+		        <input type="submit" value={% translate "Submit" %}>
+                </div>
+		    </form>
+		</div>
+	</div>
+</div>

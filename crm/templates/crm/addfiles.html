@@ -1,0 +1,34 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify util %}
+
+{% block extrastyle %}
+    {{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
+    {{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'site:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'site:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; {% if has_view_permission %}<a href="{% url opts|crmadmin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% if add %}{% blocktranslate with name=opts.verbose_name %}Add {{ name }}{% endblocktranslate %}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+    <h1>{% translate "Please select files to attach to the letter." %}</h1>
+	<div id="content-main">
+		<br>
+		<form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+		        {{ form.non_field_errors }}
+				 {% for field in form %}
+				    <div class="fieldWrapper">
+				        <p>{{ field }}&nbsp;&nbsp;&nbsp;{{ field.label_tag }}</p> 
+				    </div>
+				{% endfor %} 
+		        <br>
+		        <input type="submit" value="Submit"> 
+		</form>
+	</div>
+{% endblock %}

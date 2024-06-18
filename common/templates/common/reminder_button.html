@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if is_reminder %}
+<li>
+    <a href="{% url 'site:common_reminder_changelist' %}?content_type__id__exact={{ content_type_id }}&object_id={{ original.id }}" title="{% translate "There are reminders" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i> <i class="material-icons" style="font-size: 17px;vertical-align:middle;color: var(--error-fg);">alarm</i>
+    </a>
+</li>
+{% else %}
+<li>
+<a href="#" title="{% translate "Create a reminder" %}" onClick="window.open('{% url "site:common_reminder_add" %}?content_type={{ content_type_id }}&object_id={{ original.id }}&_popup=1','reminder_add','width=800,height=700'); return false;"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">alarm_add</i></a>
+</li>
+{% endif %}

@@ -1,0 +1,26 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+  {% if toggle_sorting_url %}
+  <li>
+    <a href="{{toggle_sorting_url}}" title="{% translate 'Toggle default deal sorting' %}">
+      <i class="material-icons" style="font-size:17px;vertical-align:middle;">low_priority</i>
+    </a>
+  </li>
+  {% endif %}
+  {% if has_add_request_permission %}
+  <li>
+    <a href="{{ request_add_url }}" title="{% translate 'A deal is created based on a request' %}" class="addlink">
+      {% translate 'Add' %} {% translate 'Request' %} ({% translate 'Deal' %})
+    </a>
+  </li> 
+  {% endif %}  
+  {% if has_add_permission %}
+  <li>
+    {% url cl.opts|admin_urlname:'add' as add_url %}
+    <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink">
+      {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}
+    </a>
+  </li>
+  {% endif %}
+{% endblock %}

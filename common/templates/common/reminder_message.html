@@ -1,0 +1,8 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html><body>
+<p>{% translate "Regarding" %} - {{ content_obj_name }}: <a href="{{ content_obj_url }}">"{{content_obj}}"</a></p>
+<br>
+<p>{{ content|linebreaks }}</p>
+<br>
+</body></html>

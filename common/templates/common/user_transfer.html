@@ -1,0 +1,54 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify util %}
+{% load crm_list admin_modify %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static " admin/css/changelists.css" %}">
+{% endblock %}
+
+{% block breadcrumbs %}
+
+<div class="breadcrumbs">
+	<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+	&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+	&rsaquo; {% if has_view_permission %}<a href="{% url opts|crmadmin_urlname:'changelist' %}">{{
+		opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+	&rsaquo; {% if add %}{% blocktranslate with name=opts.verbose_name %}Add {{ name }}{% endblocktranslate %}{% else %}{{
+	original|truncatewords:"18" }}{% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>{% translate "Please select a user and a new department for him." %}</h1>
+<h3>{{ warning_message }}</h3>
+<br>
+<div id="content-main">
+	<form action="" method="post" id="select-emails">{% csrf_token %}
+		<div class="results">
+			<div class="row1">
+				<p>
+					<label class="inline" for="owner">{% translate "User" %}: </label>
+					<select name="owner" id="owner">
+						{% for id, owner in owners %}
+						<option value="{{ id }}" selected>{{ owner }}</option>
+						{% endfor %}
+					</select>
+				</p>
+			</div>
+			<div class="row2">
+				<p>
+					<label class="inline" for="department">{% translate "Department" %}: </label>
+					<select name="department" id="department">
+						{% for id, department in departments %}
+						<option value="{{ id }}" selected>{{ department }}</option>
+						{% endfor %}
+					</select>
+				</p>
+			</div>
+		</div>
+		<br>
+		<input type="submit" value=" {% translate 'Submit' %} ">
+	</form>
+</div>
+{% endblock %}

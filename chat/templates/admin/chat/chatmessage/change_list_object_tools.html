@@ -1,0 +1,17 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+    {% if view_button_url %}
+      <li>
+        <a href="{{view_button_url}}">{{ view_button_title }}</a>
+      </li>
+    {% endif %}
+  {% if has_add_permission %}
+  <li>
+    {% url cl.opts|admin_urlname:'add' as add_url %}
+    <a href="{% add_preserved_filters add_url is_popup to_field %}&content_type={{content_type_id}}&object_id={{object_id}}" class="addlink">
+      {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}
+    </a>
+  </li>
+  {% endif %}
+{% endblock %}

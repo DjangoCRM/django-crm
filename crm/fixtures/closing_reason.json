@@ -1,0 +1,102 @@
+[
+    {
+        "model": "crm.closingreason",
+        "pk": 1,
+        "fields": {
+            "department": 9,
+            "name": "The client is not responding",
+            "index_number": 1,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 2,
+        "fields": {
+            "department": 9,
+            "name": "Specifications are not suitable",
+            "index_number": 2,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 3,
+        "fields": {
+            "department": 9,
+            "name": "The deal was closed successfully",
+            "index_number": 3,
+            "success_reason": true
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 4,
+        "fields": {
+            "department": 9,
+            "name": "Purchase postponed",
+            "index_number": 4,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 5,
+        "fields": {
+            "department": 9,
+            "name": "The price is not competitive",
+            "index_number": 5,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 6,
+        "fields": {
+            "department": 10,
+            "name": "The client is not responding",
+            "index_number": 1,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 7,
+        "fields": {
+            "department": 10,
+            "name": "Specifications are not suitable",
+            "index_number": 2,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 8,
+        "fields": {
+            "department": 10,
+            "name": "The deal was closed successfully",
+            "index_number": 3,
+            "success_reason": true
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 9,
+        "fields": {
+            "department": 11,
+            "name": "Purchase postponed",
+            "index_number": 4,
+            "success_reason": false
+        }
+    },
+    {
+        "model": "crm.closingreason",
+        "pk": 10,
+        "fields": {
+            "department": 10,
+            "name": "The price is not competitive",
+            "index_number": 5,
+            "success_reason": false
+        }
+    }
+]

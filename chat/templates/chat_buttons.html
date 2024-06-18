@@ -1,0 +1,17 @@
+{% load i18n %}
+<li>
+<a href="#" title="{% translate "Add chat message" %}" onClick="window.open('{% url "site:chat_chatmessage_add" %}?content_type={{ content_type_id }}&object_id={{ original.pk }}&owner={{ request.user.id }}&_popup=1','chatmessage_add','width=800,height=700'); return false;"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">chat</i> {% translate "Message" %} +</a>
+</li>
+{% if is_chat %}
+<li>
+	{% if is_unread_chat %}
+    <a href="{% url 'site:chat_chatmessage_changelist' %}?content_type__id__exact={{ content_type_id }}&object_id={{ original.pk }}" title="{% translate "There are unread messages" %}" target="_blank">
+      {% translate "Chat" %} <i class="material-icons" style="font-size: 17px;vertical-align:middle;color: var(--error-fg);">forum</i>
+    </a>
+	{% else %}
+    <a href="{% url 'site:chat_chatmessage_changelist' %}?content_type__id__exact={{ content_type_id }}&object_id={{ original.pk }}" title="{% translate "View chat messages" %}" target="_blank">
+      {% translate "Chat" %} <i class="material-icons" style="font-size:17px;vertical-align:middle;">forum</i>
+    </a>
+	{% endif %}	
+</li>
+{% endif %}

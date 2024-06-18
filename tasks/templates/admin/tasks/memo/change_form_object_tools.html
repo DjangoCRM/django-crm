@@ -1,0 +1,31 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+{% if original.task %}
+{% include "chat_buttons.html" %}
+{% if deal_url %}
+<li>
+    <a href="{{ deal_url }}" target="_blank">
+      {% translate "View the deal" %}
+    </a>
+</li>
+{% endif %}
+<li>
+    <a href="{% url 'site:tasks_task_change' original.task_id %}" >
+      {% translate "View the task" %}
+    </a>
+</li>
+{% endif %}
+{% if original.project %}
+<li>
+    <a href="{% url 'site:tasks_project_change' original.project_id %}" >
+      {% translate "View the project" %}
+    </a>
+</li>
+{% endif %}
+<li>{{ content_copy_link }}</li>
+{% include "common/reminder_button.html" %}
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% endblock %}

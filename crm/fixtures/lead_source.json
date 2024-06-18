@@ -1,0 +1,112 @@
+[
+  {
+    "model": "crm.leadsource",
+    "pk": 1,
+    "fields": {
+      "name": "distributor",
+      "department": 9,
+      "uuid": "9e2bed05-9ef3-46bd-97a1-a20f9625f7b9",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 2,
+    "fields": {
+      "name": "website form",
+      "department": 9,
+      "uuid": "7a50a12f-6c55-4e3f-8304-03e2839a4563",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 3,
+    "fields": {
+      "name": "website email",
+      "department": 9,
+      "uuid": "a2ef765c-37a6-4836-91e4-6e0e3e57b557",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 4,
+    "fields": {
+      "name": "exhibition",
+      "department": 9,
+      "uuid": "2f292965-d483-4eb5-8fc3-adca24f4f2ac",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+    {
+    "model": "crm.leadsource",
+    "pk": 5,
+    "fields": {
+      "name": "website form (iframe)",
+      "department": 9,
+      "uuid": "206f5c03-3f16-4341-851e-d446dce45aa0",
+      "form_template": "crm/contact_form.html",
+      "success_template": "common/centered_msg.html"
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 6,
+    "fields": {
+      "name": "distributor",
+      "department": 10,
+      "uuid": "e810d081-a792-4a57-af97-06f299fa3246",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 7,
+    "fields": {
+      "name": "website form",
+      "department": 10,
+      "uuid": "587e68bf-4715-442f-a1ed-f17a0d98eba8",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 8,
+    "fields": {
+      "name": "website email",
+      "department": 10,
+      "uuid": "bf64678f-d80f-4d19-bfe4-b3a39bddccf1",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 9,
+    "fields": {
+      "name": "exhibition",
+      "department": 10,
+      "uuid": "84d69881-accc-4c19-9d13-d867e462c20d",
+      "form_template": "",
+      "success_template": ""
+    }
+  },
+  {
+    "model": "crm.leadsource",
+    "pk": 10,
+    "fields": {
+      "name": "website form (iframe)",
+      "department": 10,
+      "uuid": "16b810ba-a0b5-4959-997a-1aa1df8fb816",
+      "form_template": "crm/contact_form.html",
+      "success_template": "common/centered_msg.html"
+    }
+  }
+]

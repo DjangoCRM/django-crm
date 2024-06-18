@@ -1,0 +1,13 @@
+{% extends "common/email_notification_base.html" %}
+{% load i18n %}
+
+{% block header %}
+    <p>{% translate "From" %}: {{ obj.owner }}</p>
+    <h3>{{ regarding }} {{ content_obj_name }}: {{ content_obj }}"</h3>
+    <a href="{{ content_obj_url }}"><button>{% translate "View in CRM" %}</button></a>&emsp;
+{% endblock %}
+
+{% block content %}
+    {{ message }}
+    <a href="{{ absolute_uri }}"><button>{% translate "reply" %}</button></a>
+{% endblock %}

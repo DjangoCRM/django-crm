@@ -1,0 +1,3 @@
+{% load i18n %}
+{% translate "competitor" %}
+{% translate "price proposal" %}

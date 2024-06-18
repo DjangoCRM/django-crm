@@ -1,0 +1,45 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+<script type="text/javascript" src="/q7Dln_Wd1OOr-jsi18n/"></script>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=app_label %}">{{ app_label }}</a>
+&rsaquo; {{ verbose_name }}
+</div>
+{% endblock %}
+
+{% block content %}
+    <h1>{% translate "Make a choice" %}</h1>
+    <div id="content-main"><fieldset class="module aligned ">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="form-row">
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }}
+                <div class="related-widget-wrapper">
+                    {{ field }}
+                </div>
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    </fieldset></div>
+{% endblock %}

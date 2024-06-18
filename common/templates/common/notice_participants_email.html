@@ -1,0 +1,17 @@
+{% extends "common/email_notification_base.html" %}
+{% load i18n util %}
+
+{% block header %}
+	<h3>{{ obj|verbose_name }}: {{ obj.name }}{{ obj.request_for }}</h3>
+    <a href="https://{{domain}}{{obj.get_absolute_url}}"><button>{% translate "View in CRM" %}</button></a>&emsp;
+    {% if responsible %}{{ obj|task_completed_button:responsible }}{% endif %}
+{% endblock %}
+
+{% block content %}
+        {% if obj.due_date or obj.priority or obj.stage %}
+            <p>{% if obj.due_date %}<b>{% translate "Due date" %}:</b> {{ obj.due_date }}&emsp;{% endif %}{% if obj.priority %}<b>{% translate "Priority" %}:</b> {{ obj|priority }}&emsp;{% endif %}{% if obj.stage %}<b>{% translate "Stage" %}:</b> {{ obj|stage }}&emsp;{% endif %}</p>
+        {% endif %}
+        <p><b>{% translate "Description" %}:</b> {{ obj.description|linebreaks }}</p>
+        <p><b>{% translate "Owner" %}:</b> {{ obj.owner }}&emsp;{% if obj.co_owner %}<b>{% translate "Co-owner" %}:</b> {{ obj.co_owner }}{% endif %}</p>
+        {% if obj|responsible_list %}<p><b>{% translate "Responsible" %}:</b> {{ obj|responsible_list }}</p>{% endif %}
+{% endblock %}

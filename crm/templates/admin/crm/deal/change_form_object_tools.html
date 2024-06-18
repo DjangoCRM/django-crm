@@ -1,0 +1,41 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+<li>
+	{% if memo_num %}
+		<a href="{% url 'site:tasks_memo_changelist' %}?deal__id__exact={{ original.id }}" title="{% translate "View office memos" %}" target="_blank">
+      		<i class="material-icons" style="font-size:17px;vertical-align:middle;">note</i> {% translate "Office memos" %} ({{ memo_num }})
+		</a>
+	{% else %}
+		<a href="#" title="{% translate "Add" %} {% translate "Office memo" %}" onClick="window.open('{% url "site:tasks_memo_add" %}?deal={{ original.id }}&owner={{ request.user.id }}&_popup=1','deal{{ original.id }}','width=800,height=700'); return false;"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">note</i> {% translate "Office memo" %} +</a>
+	{% endif %}
+</li>
+{% include "chat_buttons.html" %}
+<li>
+    <a href="{% url 'site:crm_crmemail_changelist' %}?deal__id__exact={{ object_id }}" title="{% translate "View the correspondence on this Deal" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">swap_horiz</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>
+    </a>
+</li>
+{% if request.user.is_superuser or request.user.is_manager %}
+	  <li>
+	    <a href="{% url 'select_emails_import_request' %}?ticket={{ original.ticket }}&deal_id={{ original.id }}&next={{ request.get_full_path}}" title="{% translate "Import Email regarding this Deal" %}">
+	      {% translate "Import" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">email</i>
+	    </a>
+	</li>
+{% endif %}
+{% if original.company %}
+<li>
+    <a href="{% url 'site:crm_deal_changelist' %}?company__id__exact={{ original.company.id }}&active=all" title="{% translate "View Deals with this Company" %}" target="_blank">
+        <i class="material-icons" style="font-size: 17px;vertical-align: middle;">handshake</i>
+        {% translate "Deals" %} ({{ deal_num }})
+    </a>
+</li>
+{% endif %}
+{% include "common/reminder_button.html" %}
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink" title="{% translate "View the history of changes for this Deal" %}">{% translate "History" %}</a>
+</li>
+{% endblock %}
+{% comment %}{% endcomment %}

@@ -1,0 +1,24 @@
+[
+{
+  "model": "crm.currency",
+  "pk": 1,
+  "fields": {
+    "name": "USD",
+	"rate_to_state_currency": "0.83",
+	"rate_to_marketing_currency": "1.0",
+	"is_state_currency": false,
+	"is_marketing_currency": true
+  }
+},
+{
+  "model": "crm.currency",
+  "pk": 2,
+  "fields": {
+    "name": "EUR",
+	"rate_to_state_currency": "1.0",
+	"rate_to_marketing_currency": "1.2",
+	"is_state_currency": true,
+	"is_marketing_currency": false	
+  }
+}
+]

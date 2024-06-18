@@ -1,0 +1,12 @@
+{% load i18n %}
+{% translate "pending" %}
+{% translate "In progress" %}
+{% translate "done" %}
+{% translate "postponed" %}
+{% translate "canceled" %}
+{% translate "to make a decision" %}
+{% translate "payment of regular expenses" %}
+{% translate "on approval" %}
+{% translate "for consideration" %}
+{% translate "for information" %}
+{% translate "for the record" %}

@@ -1,0 +1,59 @@
+{% load i18n %}
+<style>
+	.tableFixHeadFoot {
+	  overflow-y: auto;
+	}
+	.tableFixHeadFoot thead th {
+	  position: sticky;
+	  top: 0;
+	}
+	.tableFixHeadFoot tfoot tr {
+		position: sticky;
+		bottom: 0;
+	  }
+    .tableFixHeadFoot tfoot td {
+        font-size: 0.875rem;
+    }
+</style>
+{% if data_tables %}
+  {% for table in data_tables %}
+    <br>
+    <h2>{{ table.title }}</h2>
+    <div class="results">
+      <div class="tableFixHeadFoot"{% if table.body|length > 11 %} style="height: 400px;"{% endif %}>
+        <table>
+          <thead>
+	      	<tr>
+	      	{% for header in table.headers %}
+	          <th>
+                <div class=”text”>
+                  <a href=”#”>{{ header }}</a>
+                </div>
+	       	  </th>
+	      	{% endfor %}
+	      	</tr>
+	      </thead>
+	      <tbody>
+	      {% for row in table.body %}
+	      	<tr >
+            {% for value in row %}
+              <td>{{ value }}</td>
+            {% endfor %}
+	      	</tr>
+	      {% endfor %}
+	      </tbody>
+		  <tfoot>
+			<tr>
+            {% if table.footers %}
+		      {% for footer in table.footers %}
+				<td>{{ footer }}</td>
+			  {% endfor %}
+			{% endif %}
+			</tr>
+		  </tfoot>
+	    </table>
+	  </div>
+	</div>
+  {% endfor %}
+{% endif %}
+<br><br>

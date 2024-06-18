@@ -1,0 +1,61 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    {# reCAPTCHA API #}
+    {% if recaptcha_site_key %}
+        <script src="https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}"></script>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+    <title></title>
+</head>
+<body>
+<div id="content-main"><fieldset class="module aligned ">
+    <form id="fc_form"
+          name="fc_form"
+          action="{{ request_url }}"
+          method=post {% if recaptcha_site_key %}onsubmit="onSubmit()"{% endif %}>
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {{ form.non_field_errors }}
+    <div class="results">
+        {% for field in form.visible_fields %}
+            <div class="form-row">
+                <div class="fieldWrapper">
+                    <div style="color: var(--error-fg)">{{ field.errors }}</div>
+                    {{ field.label_tag }}
+                <div class="related-widget-wrapper">
+                    {{ field }}
+                </div>
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        {# reCAPTCHA input #}
+        {% if recaptcha_site_key %}
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <button id="submit-btn" type="submit">Submit</button>
+        {% else %}
+            <input type=submit name=submit_button value={% translate "Send" %}>
+        {% endif %}
+    </div>
+    </form>
+    </fieldset>
+    {% if recaptcha_site_key %}
+         <script>
+           function onSubmit() {
+                    grecaptcha.execute('{{recaptcha_site_key}}', {action: 'submit'}).then(function(token) {
+                        document.getElementById('g-recaptcha-response').value = token;
+                        document.getElementById("fc_form").submit();
+                    });
+           }
+         </script>
+    {% endif %}
+</div>
+</body>
+</html>

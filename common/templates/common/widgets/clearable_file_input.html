@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if widget.is_initial %}
+<p class="file-upload">
+	{{ widget.initial_text }} 
+	<a class="button" href="{{ widget.value.url }}">
+		<span style="margin: 0 5px 0 5px;">
+			{% translate "Download" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">file_download</i>
+		</span>
+	</a>	
+</p>
+{% else %}<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+{% endif %}

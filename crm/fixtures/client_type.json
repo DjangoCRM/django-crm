@@ -1,0 +1,82 @@
+[
+  {
+    "model": "crm.clienttype",
+    "pk": 1,
+    "fields": {
+      "name": "distributor",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 2,
+    "fields": {
+      "name": "dealer",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 3,
+    "fields": {
+      "name": "reseller",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 4,
+    "fields": {
+      "name": "end customer",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 5,
+    "fields": {
+      "name": "competitor",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 6,
+    "fields": {
+      "name": "distributor",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 7,
+    "fields": {
+      "name": "dealer",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 8,
+    "fields": {
+      "name": "reseller",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 9,
+    "fields": {
+      "name": "end customer",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.clienttype",
+    "pk": 10,
+    "fields": {
+      "name": "competitor",
+      "department": 10
+    }
+  }
+]

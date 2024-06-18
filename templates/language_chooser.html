@@ -1,0 +1,16 @@
+{% load i18n util %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+{% if languages|length > 1 %}
+{% get_current_language as LANGUAGE_CODE %}
+    <label for="language_chooser"> </label>
+      <select id="language_chooser"
+              onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+                style="color: var(--header-color); background-color: var(--secondary); margin-left: 10px;">
+        {% for language in languages %}
+            <option value="{{ request.get_full_path|replace_lang:language.code }}"
+              {% if language.code == LANGUAGE_CODE %} selected{% endif %}>{{ language.code }}</option>
+        {% endfor %}
+      </select>
+{% endif %}

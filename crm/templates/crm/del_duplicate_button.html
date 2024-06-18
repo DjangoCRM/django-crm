@@ -1,0 +1,7 @@
+{% load i18n %}
+{% if has_change_permission %}
+{% if original and del_dup_url %}
+    <p class="deletelink-box">&nbsp;</p>
+    <p class="deletelink-box"><a title="{% translate "Correctly delete this object as a duplicate." %}" href="{{ del_dup_url }}" class="deletelink"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">layers_clear</i></a></p>
+{% endif %}
+{% endif %}

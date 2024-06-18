@@ -1,0 +1,38 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div style="width: 80%; margin: 30px auto; text-align: left;">
+
+	<h3>{{ subject }}</h3>
+
+	<div style="margin: 30px 0 0 30px;">
+        <p><b>From:</b> {{ from_field }}</p>
+        <p><b>Date:</b> {{ date }}</p>
+        <p><b>To:</b> {{ to }}</p>
+        {% if cc %}<b>CC:</b> {{ cc }}{% endif %}<br>
+    </div>
+	<p style="margin-top: 30px;">
+        {% if attachments %}<i class="material-icons" style="font-size: small; color: var(--body-quiet-color);">attach_file</i> {% endif %}
+        <b>Subject:</b> {{ subject }}</p>
+	<hr><br>
+	<div>
+	{{ body }}
+	</div><br>
+	<hr>
+	{% if attachments %}
+		<h4>{{ attachments|length }} {% translate 'Attachments' %}</h4>
+        <div style="margin: 0 0 60px 30px;">
+		{% for filename in attachments %}
+			<p><i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>{{ filename }}</p>
+		{% endfor  %}
+        </div>
+	{% endif %}
+</div>
+</body>
+</html>

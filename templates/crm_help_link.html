@@ -1,0 +1,6 @@
+{% load i18n %}
+{% if help_url %}
+<a href="{{ help_url }}" target="_blank" title="{% translate 'Help' %}" style="margin-left: 10px; vertical-align:middle;">
+    <i class="material-icons" style="color: var(--primary-fg);font-size: 28px;">help_outline</i>
+</a>
+{% endif %}

@@ -1,0 +1,4 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+{% if has_absolute_url and user.is_superuser %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% translate "Open in Admin" %}</a></li>{% endif %}
+{% endblock %}

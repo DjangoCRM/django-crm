@@ -1,0 +1,83 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify util %}
+{% load crm_list admin_modify %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
+	{# <script type="text/javascript" src="/static/admin/js/actions.min.js"></script> #}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'site:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'site:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; <a href="{% url opts|crmadmin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+{% if object_name %}&rsaquo; <a href={{ object_url }}>{{ object_name }}</a>{% endif %}
+&rsaquo; {{ post_name }}
+</div>
+{% endblock %}
+
+{% block content %}
+	{% if msg  %} 
+	{{ msg }}
+	{% else %}
+    <h1>{{ email_host_user }} <i class="material-icons" style="color: var(--green-fg);vertical-align: middle;">archive</i></h1>
+	<div id="content-main">
+	<form action="{{ request.get_full_path }}" method="post" id="select-emails">{% csrf_token %}
+	
+	<div style="padding: 12px 14px;margin: 0 0 20px;background: #f8f8f8;border: 1px solid #eee;border-radius: 4px;text-align: right;overflow: hidden;">
+	<button type="submit" class="button" name="action" value="import" style="padding: 9px 15px;">{% translate 'Import'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: top;font-size: 16px;">file_download</i></button>
+	<button type="submit" class="button" name="action" value="delete" style="padding: 9px 15px;">{% translate 'Delete'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: top;font-size: 16px;">delete</i></button>
+	<button type="submit" class="button"  name="action" value="spam" style="padding: 9px 15px;">{% translate 'Spam'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: top;font-size: 16px;">do_not_disturb_alt</i></button>
+	<button type="submit" class="button"  name="action" value="seen" style="padding: 9px 15px;" title="{% translate 'Mark as read' %}">{% translate 'Mark as'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: top;font-size: 16px;">visibility</i></button>
+	</div>
+	
+	<div class="results">
+	 <table id="result_list">
+		<thead>
+		<tr>
+            <th scope="col" class="column-is_exists"><i class="material-icons" style="color: var(--body-quiet-color)">check_box</i></th>
+            <th scope="col" class=""> </th>
+			<th scope="col" class="column-subject"><i class="material-icons" style="color: var(--body-quiet-color)">subject</i></th>
+			<th scope="col">{% translate "From" %}</th>
+			<th scope="col">{% translate "To" %}</th>
+			<th scope="col"><i class="material-icons" style="color: var(--body-quiet-color)">today</i></th>
+			<th scope="col">UID</th>
+		</tr>
+		</thead>
+		<tbody>
+			 {% for email in page.object_list %}
+				<tr class="{% cycle 'row1' 'row2' %}">
+					<td>{% if not email.is_exists %}
+						<label for="is_exists"></label>
+						<input type="checkbox" name="{{ email.uid }}" id="is_exists" value="{{ email.is_exists }}">
+					{% else %} {% endif %}</td>
+					<td>{% if email.is_exists %}<img title="{% translate "This email is already imported." %}" src="/static/admin/img/icon-yes.svg" alt="True">{% else %} {% endif %}</td>
+					<td>{% if email.unseen %}<b>{{ email.subject }}</b>{% else %}{{ email.subject }}{% endif %}</td>
+					<td>{{ email.from }}</td>
+					<td>{{ email.to }}</td>
+					<td>{{ email.date }}</td>
+					<td>{{ email.uid }}</td>
+				<tr>
+			{% endfor %} 
+			<input id="ea_id" type="hidden" name="ea_id" value="{{ ea_id }}">
+			<input id="url" type="hidden" name="url" value="{{ url }}">
+		 {% endif %} 
+        </tbody>
+</table>
+</div>
+<br>
+
+	<button type="submit" class="button" name="action" value="import" style="padding: 9px 15px;">{% translate 'Import'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: bottom;font-size: 16px;">file_download</i></button>
+	<button type="submit" class="button" name="action" value="delete" style="padding: 9px 15px;">{% translate 'Delete'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: bottom;font-size: 16px;">delete</i></button>
+	<button type="submit" class="button"  name="action" value="spam" style="padding: 9px 15px;">{% translate 'Spam'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: bottom;font-size: 16px;">do_not_disturb_alt</i></button>
+	<button type="submit" class="button"  name="action" value="seen" style="padding: 9px 15px;" title="{% translate 'Mark as read' %}">{% translate 'Mark as'|upper %} <i class="material-icons" style="color: var(--primary-fg);vertical-align: top;font-size: 16px;">visibility</i></button>
+<br>
+<br>
+	{% block pagination %}
+        {% pagination page %}
+	{% endblock %}
+</form>
+</div>
+{% endblock %}

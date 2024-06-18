@@ -1,0 +1,10 @@
+{% load crm_list %}
+{% load i18n %}
+<p class="paginator">
+
+{% for i in page_range %}
+    {% paginator_number page i %}
+{% endfor %}
+
+{{ page.result_count }}
+</p>

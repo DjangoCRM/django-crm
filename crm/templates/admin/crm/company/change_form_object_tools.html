@@ -1,0 +1,41 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+<li>
+    <a href="{% url 'create_email' object_id %}?object=company&recipient=company" class="addlink" title="{% translate "Email" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">email</i>
+    </a>
+</li>
+<li>
+    <a href="{% url 'site:crm_crmemail_changelist' %}?company__id__exact={{ object_id }}" title="{% translate "Сorrespondence" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">swap_horiz</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>
+    </a>
+</li>
+<li>
+    <a href="{% url 'site:crm_deal_changelist' %}?company__id__exact={{ object_id }}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">handshake</i>
+      {% translate "Deals" %} ({{ deal_num }})
+    </a>
+</li>
+<li>
+	<a href="{% url 'site:crm_contact_add' %}?company={{ object_id }}" class="addlink" title="{% translate "Contact" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">person</i>
+    </a>
+</li>
+<li>
+    <a href="{% url 'site:crm_contact_changelist' %}?company__id__exact={{ object_id }}" title="{% translate "Contacts" %}"  target="_blank">
+        <i class="material-icons" style="font-size: 17px;vertical-align: middle;">people</i> ({{ contact_num }})
+    </a>
+</li>
+<li>
+    <a href="{% url 'got_company_massmails' object_id %}" title="{% translate "Got massmails" %}" target="_blank">
+      {% translate "Massmails" %}
+    </a>
+</li>
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% if has_absolute_url and user.is_superuser %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% translate "Open in Admin" %}</a></li>{% endif %}
+{% endblock %}

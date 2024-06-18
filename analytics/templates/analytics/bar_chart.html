@@ -1,0 +1,79 @@
+{% load i18n %}
+<style>
+    .bar-chart {
+      display: flex;
+      justify-content: space-around;
+      height: 160px;
+      padding-top: 30px;
+	  padding-bottom:40px;
+      /*overflow: hidden;*/
+    }
+   .bar-chart .bar {
+       flex: 100%;
+       align-self: flex-end;
+       margin-right: 2px;
+       position: relative;
+       background-color: var(--primary);
+   }
+   .bar-chart .bar:last-child {
+       margin: 0;
+   }
+   .bar-chart .bar:hover {
+       background-color: var(--secondary);
+   }
+   .bar-chart .bar .bar-tooltip {
+       position: relative;
+       z-index: 999;
+   }
+   .bar-chart .bar .bar-tooltip {
+       position: absolute;
+       top: -20px;
+       left: 50%;
+       transform: translateX(-50%);
+       text-align: center;
+       /* font-weight: bold; */
+       opacity: 1;
+       white-space: nowrap;
+   }
+   .bar-chart .bar:hover .bar-tooltip {
+       opacity: 1;
+   }
+	.bar-tooltip-bottom{
+  		position: absolute;
+   		bottom: -35px;
+   		text-align: center;
+   		display: block;
+   		width: 100%;
+	}
+	.results-bar{
+		overflow-x: scroll;
+	}
+	
+	.results-bar .bar-chart{
+		min-width: 800px;
+	}
+</style>
+
+{% if charts %}
+	<h2>{% translate 'Charts' %}</h2>
+   {% for chart in charts %}
+       <br>
+       <p>{{ chart.title }}</p>
+       <div class="results results-bar">
+           <div class="bar-chart">
+           {% for x in chart.data %}
+               <div class="bar" style="height:{{x.pct}}%">
+                   <div class="bar-tooltip">
+                       {{x.total | default:0 }}
+                   </div>
+				<div class="bar-tooltip-bottom">
+                       {{x.period | date:"F"}}<br>{{x.period | date:"Y"}}
+				</div>
+               </div>
+           {% endfor %}
+           </div>
+       </div>
+       <p><p>
+	{% endfor %}
+	{% include "analytics/notice.html" %}
+{% endif %}

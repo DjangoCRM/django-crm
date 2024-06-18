@@ -1,0 +1,21 @@
+[
+  {
+    "model": "crm.country",
+    "pk": 183,
+    "fields": {
+        "name": "Turkiye",
+        "alternative_names": "Turkey",
+        "url_name": "Turkiye"
+    }
+},
+{
+  "model": "crm.country",
+  "pk": 190,
+  "fields": {
+    "name": "United States",
+    "alternative_names": "",
+    "url_name": "United_States"
+  }
+}
+
+]

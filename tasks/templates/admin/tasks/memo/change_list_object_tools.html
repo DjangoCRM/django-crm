@@ -1,0 +1,18 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+  {% if has_add_permission %}
+	
+  <li>
+    {% url cl.opts|admin_urlname:'add' as add_url %}
+	{% if deal_id %}
+    	<a href="{% add_preserved_filters add_url is_popup to_field %}&deal={{ deal_id }}" class="addlink">
+	{% else %}
+    	<a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink">
+	{% endif %}
+      {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}
+    </a>
+  </li>
+	
+  {% endif %}
+{% endblock %}

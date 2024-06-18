@@ -1,0 +1,84 @@
+{% load i18n %}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% translate "Print" %}</title>
+<style>
+    table{
+        width:700px;
+        }
+        table tr td{
+        border: 1px solid var(--body-quiet-color);
+        }
+        td{
+        padding: 5px;
+        width:50%;
+        }
+        @media print
+        {
+        button{
+        display:none;
+         }
+    }
+</style>
+</head>
+<body>
+<button onclick="myFunction()" style="background-color: var(--secondary);color: var(--primary);">{% translate "Print" %}</button>
+
+<table>
+<tbody>
+<tr>
+<td>
+<h2>{% translate "Request for" %}: {{ object.request_for }}</h2>
+	<p>ID {{object.deal.id}}</p>
+</td>
+<td>
+<p>{% translate "Received" %}: {{ object.receipt_date }}</p>
+<p>{% translate "Prepared" %}: {{ user.first_name }} {{ user.last_name }}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+
+<table>
+<tbody>
+<tr>
+<td>
+<p>{% translate "Company" %}: {{ object.company_name }}</p>
+<p>{% translate "Name" %}: {{ object.first_name }} {{ object.last_name }}</p>
+<p>Email: {{  object.email }}</p>
+<p>Tel: {{  object.phone }}</p>
+</td>
+<td>
+<p>{% translate "Country" %}: {% if object.country %}{{ object.country }}{% else %} {% endif %}</p>
+<p>website: {{ object.website }}</p>
+<p>{% translate "Responsible" %}: {{ object.owner.first_name }} {{ object.owner.last_name }}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<table>
+<tbody>
+<tr>
+<td>
+<p>{{ object.description|linebreaks }}</p>
+</td>
+<td>
+<p>{{ object.translation|linebreaks }}</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+</body>
+</html>

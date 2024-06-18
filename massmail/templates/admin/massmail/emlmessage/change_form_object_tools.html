@@ -1,0 +1,21 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+<li>
+    <a href="{% url 'send_test' object_id %}" >
+      <i class="material-icons" style="font-size: 12px;color: var(--primary-fg);">send</i> {% translate "Send a test" %}
+    </a>
+</li>
+{% if user != original.owner %}
+    <li>
+     <a href="{% url 'copy_message' object_id %}" >
+      <i class="material-icons" style="font-size: 12px;color: var(--primary-fg);">content_copy</i> {% translate "Copy message" %}
+    </a>
+    </li>
+{% endif %}
+{% include "massmail/pic_upload_buttons.html" %}
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% translate "View on site" %}</a></li>{% endif %}
+{% endblock %}

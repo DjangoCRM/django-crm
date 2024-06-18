@@ -1,0 +1,42 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% translate "Upload the image file to the CRM server" %}</title>
+    <link rel="stylesheet" href="{% static "admin/css/base.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+
+</head>
+<body>
+    <div id="content" class="colM">
+        <br><br>
+        <h1>{% translate "Please select an image file to upload." %}</h1>
+        <h3>{{ warning_message }}</h3>
+        <br><br>
+        <div id="content-main">
+        <form enctype="multipart/form-data" action="" method="post" id="select-emails">
+            {% csrf_token %}
+            <fieldset class="module aligned ">
+                <div class="form-row field-file">
+                    <div class="flex-container fieldBox field-file">
+                    {{ form.file.errors }}
+                    {{ form.file.label_tag }} {{ form.file }}<br>
+                    <p class="help">{{ form.file.help_text|safe }}</p>
+                    </div>
+                </div>
+            </fieldset>
+        <br><br><br>
+        <div class="submit-row">
+        <input type="submit" value=" {% translate 'Submit' %} ">
+        </div>
+        </form>
+            <br><br>
+            <h3>{% translate "To specify the address of the uploaded file, use the tag -" %} {% templatetag openblock %} cid_media 'pics/file_name.ext'  {% templatetag closeblock %}.</h3>
+            <h3>{% translate "Upload only files that will be used many times. For example, a company logo." %}</h3>
+        </div>
+	</div>
+
+</body>
+</html>

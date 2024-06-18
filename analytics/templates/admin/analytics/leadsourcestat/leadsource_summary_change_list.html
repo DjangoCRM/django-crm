@@ -1,0 +1,16 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+{% block content_title %}
+    <h1>{{ page_title }}</h1>
+{% endblock %}
+{% block result_list %}
+<div>
+    {% include "analytics/data_table.html" %}
+    <br>
+    <p></p>
+
+    {% include "analytics/bar_chart.html" %}
+    <p><p>
+</div>    
+{% endblock %}
+{% block pagination %}{% endblock %}

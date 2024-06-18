@@ -1,0 +1,268 @@
+[
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "request",
+            "default": true,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 1,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "analysis of request",
+            "default": false,
+            "second_default": true,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 2,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "clarification of the requirements",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 3,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "price offer",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 4,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "commercial proposal",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 5,
+            "department": 9
+        }
+    },
+        {
+        "model": "crm.stage",
+        "fields": {
+            "name": "commercial offer",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 6,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "agreement",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 7,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "invoice",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 8,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "receiving the first payment",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": true,
+            "goods_shipped": false,
+            "index_number": 9,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "shipment",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": true,
+            "index_number": 10,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "closed (successful)",
+            "default": false,
+            "success_stage": true,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 11,
+            "department": 9
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "request",
+            "default": true,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 1,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "analysis of request",
+            "default": false,
+            "second_default": true,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 2,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "clarification of the requirements",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 3,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "price offer",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 4,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "commercial proposal",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 5,
+            "department": 10
+        }
+    },
+        {
+        "model": "crm.stage",
+        "fields": {
+            "name": "commercial offer",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 6,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "agreement",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 7,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "invoice",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 8,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "receiving the first payment",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": true,
+            "goods_shipped": false,
+            "index_number": 9,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "shipment",
+            "default": false,
+            "success_stage": false,
+            "conditional_success_stage": false,
+            "goods_shipped": true,
+            "index_number": 10,
+            "department": 10
+        }
+    },
+    {
+        "model": "crm.stage",
+        "fields": {
+            "name": "closed (successful)",
+            "default": false,
+            "success_stage": true,
+            "conditional_success_stage": false,
+            "goods_shipped": false,
+            "index_number": 11,
+            "department": 10
+        }
+    }
+]

@@ -1,0 +1,38 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+{% if add_subtask_url %}
+    <li>
+        <a href="{{ add_subtask_url }}">
+          <i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment</i> {% translate "Create subtask" %}
+        </a>
+    </li>
+{% endif %}
+{% include "chat_buttons.html" %}
+{% if original.project %}
+<li>
+    <a href="{% url 'site:tasks_project_change' original.project_id %}">
+      {% translate "View the project" %}
+    </a>
+</li>
+{% endif %}
+{% if original.task %}
+<li>
+    <a href="{% url 'site:tasks_task_change' original.task_id %}" target="_blank">
+      {% translate "View main task" %}
+    </a>
+</li>
+{% endif %}
+{% if not original.task %}
+<li>
+    <a href="{% url 'site:tasks_task_changelist' %}?task__id__exact={{ object_id }}&active=all" target="_blank">
+      {% translate "Subtasks" %} ({{ subtask_num }})
+    </a>
+</li>
+{% endif %}
+<li>{{ content_copy_link }}</li>
+{% include "common/reminder_button.html" %}
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% endblock %}

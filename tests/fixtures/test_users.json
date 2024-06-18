@@ -1,0 +1,235 @@
+[
+    {
+        "_comment": "role: admin",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": true,
+            "username": "Adam.Admin",
+            "email": "admin@example.com",
+            "is_staff": true,
+            "is_active": true
+        }
+    },
+    {
+        "_comment": "roles: superoperators, co-worker;",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Eve.Superoperator.Co-worker",
+            "first_name": "",
+            "email": "Eve@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                3,
+                7,
+                9,
+                10
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: co-worker; department: Global sales",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Olga.Co-worker.Global",
+            "email": "Olga@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                7,
+                9
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: sales manager, co-worker; department: Global sales",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Andrew.Manager.Global",
+            "email": "andrew@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                1,
+                7,
+                9
+            ]
+        }
+    },
+    {
+        "_comment": "roles: department heads, sales manager, co-worker; department: Global sales",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Darian.Manager.Co-worker.Head.Global",
+            "email": "darian@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                1,
+                7,
+                8,
+                9
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: operator, co-worker; department: Global sales",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Valeria.Operator.Global",
+            "email": "valeria@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                3,
+                7,
+                9
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: co-worker; department: Global sales",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Marina.Co-worker.Global",
+            "email": "designer@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                7,
+                9
+            ]
+        }
+    },
+    {
+        "_comment": "role: chief",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Garry.Chief",
+            "email": "garry@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                5,
+                7
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: department heads, co-worker; department: Bookkeeping",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Sergey.Co-worker.Head.Bookkeeping",
+            "email": "Sergey@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                7,
+                8,
+                11
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: co-worker; department: Bookkeeping",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Masha.Co-worker.Bookkeeping",
+            "email": "Masha@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                7,
+                11
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "_comment": "roles: co-worker; department: Bookkeeping",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Tanya.Co-worker.Bookkeeping",
+            "email": "Tanya@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                7,
+                11
+            ],
+            "user_permissions": []
+        }
+    },
+    {   "_comment": "roles: Storekeeper by user_permissions",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Nadia.Storekeeper",
+            "email": "Nadia@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [7],
+            "user_permissions": [110, 112]
+        }
+    },
+    {
+        "_comment": "roles: Task_operator",
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Ekaterina.Task_operator",
+            "email": "Ekaterina@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                4,
+                7
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Elena.",
+            "email": "documentation@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                1,
+                7
+            ]
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "is_superuser": false,
+            "username": "Denys.",
+            "email": "denysl@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [
+                1,
+                7
+            ]
+        }
+    }
+]

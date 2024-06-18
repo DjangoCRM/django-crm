@@ -1,0 +1,24 @@
+{% load i18n admin_urls %}
+<div class="submit-row">
+{% block submit-row %}
+    {% if show_completed %}<input type="submit" value="{% translate 'Completed' %}" name="_completed" title="{% translate 'Mark the task as completed and save.' %}">{% endif %}
+{% if original.active and can_change %}
+<input type="submit" value="{% translate 'Create subtask' %}" name="_create-task" >
+{% if not original.task and not original.project %}
+{% if  request.user.chief or request.user.is_department_head %}
+<input type="submit" value="{% translate 'Create project' %}" name="_create-project" >
+{% endif %}
+{% endif %}
+{% endif %}
+{% if show_save %}<input type="submit" value="{% translate 'Save' %}" class="default" name="_save">{% endif %}
+{% if show_save_and_continue %}<input type="submit" value="{% if can_change %}{% translate 'Save and continue editing' %}{% else %}{% translate 'Save and view' %}{% endif %}" name="_continue">{% endif %}
+{% if show_close %}
+    {% url opts|admin_urlname:'changelist' as changelist_url %}
+    <a href="{% add_preserved_filters changelist_url %}" class="closelink">{% translate 'Close' %}</a>
+{% endif %}
+{% if show_delete_link and original %}
+    {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+    <a href="{% add_preserved_filters delete_url %}" class="deletelink">{% translate "Delete" %}</a>
+{% endif %}
+{% endblock %}
+</div>

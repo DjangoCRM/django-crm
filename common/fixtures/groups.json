@@ -1,0 +1,282 @@
+[
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "managers",
+            "permissions": [
+                ["view_closingreasonstat", "analytics", "closingreasonstat"],
+                ["view_conversionstat", "analytics", "conversionstat"],
+                ["view_dealstat", "analytics", "dealstat"],
+                ["view_incomestat", "analytics", "incomestat"],
+                ["view_leadsourcestat", "analytics", "leadsourcestat"],
+                ["view_outputstat", "analytics", "outputstat"],
+                ["view_requeststat", "analytics", "requeststat"],
+                ["view_salesfunnel", "analytics", "salesfunnel"],
+
+                ["add_city", "crm", "city"],
+                ["change_city", "crm", "city" ],
+                ["delete_city", "crm", "city"],
+                ["view_city", "crm", "city"],
+                ["add_company", "crm", "company"],
+                ["change_company", "crm", "company"],
+                ["delete_company", "crm", "company"],
+                ["view_company", "crm", "company"],
+                ["add_contact", "crm", "contact"],
+                ["change_contact", "crm", "contact"],
+                ["delete_contact", "crm", "contact"],
+                ["view_contact", "crm", "contact"],
+                ["add_currency", "crm", "currency"],
+                ["change_currency", "crm", "currency"],
+                ["view_currency", "crm", "currency"],
+                ["change_deal", "crm", "deal"],
+                ["delete_deal", "crm", "deal"],
+                ["view_deal", "crm", "deal"],
+                ["add_lead", "crm", "lead"],
+                ["change_lead","crm", "lead"],
+                ["delete_lead", "crm", "lead"],
+                ["view_lead", "crm", "lead"],
+                ["add_crmemail", "crm", "crmemail"],
+                ["change_crmemail", "crm", "crmemail"],
+                ["delete_crmemail", "crm", "crmemail"],
+                ["view_crmemail", "crm", "crmemail"],
+                ["add_output", "crm", "output"],
+                ["change_output", "crm", "output"],
+                ["delete_output", "crm", "output"],
+                ["view_output", "crm", "output"],
+                ["add_payment", "crm", "payment"],
+                ["change_payment", "crm", "payment"],
+                ["delete_payment", "crm", "payment"],
+                ["view_payment", "crm", "payment"],
+                ["add_product", "crm", "product"],
+                ["change_product", "crm", "product"],
+                ["delete_product", "crm", "product"],
+                ["view_product", "crm", "product"],
+                ["add_closingreason", "crm", "closingreason"],
+                ["change_closingreason", "crm", "closingreason"],
+                ["delete_closingreason", "crm", "closingreason"],
+                ["view_closingreason", "crm", "closingreason"],
+                ["add_request", "crm", "request"],
+                ["change_request", "crm", "request"],
+                ["view_request", "crm", "request"],
+                ["change_shipment", "crm", "shipment"],
+                ["view_shipment", "crm", "shipment"],
+                ["add_tag", "crm", "tag"],
+                ["change_tag", "crm", "tag"],
+                ["delete_tag", "crm", "tag"],
+                ["view_tag", "crm", "tag"],
+
+                ["view_emailaccount", "massmail","emailaccount"],
+                ["add_emlmessage", "massmail", "emlmessage"],
+                ["change_emlmessage","massmail","emlmessage"],
+                ["delete_emlmessage", "massmail", "emlmessage"],
+                ["view_emlmessage", "massmail", "emlmessage"],
+                ["change_mailingout", "massmail", "mailingout"],
+                ["delete_mailingout", "massmail", "mailingout"],
+                ["view_mailingout", "massmail", "mailingout"],
+                ["add_signature", "massmail","signature"],
+                ["change_signature", "massmail", "signature"],
+                ["delete_signature", "massmail", "signature"],
+                ["view_signature", "massmail", "signature"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 3,
+        "fields": {
+            "name": "operators",
+            "permissions": [
+                ["add_city", "crm", "city"],
+                ["change_city", "crm", "city"],
+                ["delete_city", "crm", "city"],
+                ["view_city", "crm", "city"],
+                ["add_company", "crm", "company"],
+                ["change_company", "crm", "company"],
+                ["delete_company", "crm", "company"],
+                ["view_company", "crm", "company"],
+                ["add_contact", "crm", "contact"],
+                ["change_contact", "crm", "contact"],
+                ["delete_contact", "crm", "contact"],
+                ["view_contact", "crm", "contact"],
+                ["change_deal", "crm", "deal"],
+                ["delete_deal", "crm", "deal"],
+                ["view_deal", "crm", "deal"],
+                ["add_lead", "crm", "lead"],
+                ["change_lead", "crm", "lead"],
+                ["delete_lead", "crm", "lead"],
+                ["view_lead", "crm", "lead"],
+                ["add_crmemail", "crm", "crmemail"],
+                ["change_crmemail", "crm", "crmemail"],
+                ["delete_crmemail", "crm", "crmemail"],
+                ["view_crmemail", "crm", "crmemail"],
+                ["add_product", "crm", "product"],
+                ["change_product", "crm", "product"],
+                ["delete_product", "crm", "product"],
+                ["view_product", "crm", "product"],
+                ["add_closingreason", "crm", "closingreason"],
+                ["change_closingreason", "crm", "closingreason"],
+                ["delete_closingreason", "crm", "closingreason"],
+                ["view_closingreason", "crm", "closingreason"],
+                ["add_request", "crm", "request"],
+                ["change_request", "crm", "request"],
+                ["delete_request", "crm", "request"],
+                ["view_request", "crm", "request"],
+
+                ["add_publicemaildomain", "settings", "publicemaildomain"],
+                ["change_publicemaildomain","settings","publicemaildomain"],
+                ["delete_publicemaildomain", "settings", "publicemaildomain"],
+                ["view_publicemaildomain","settings", "publicemaildomain"],
+                ["add_stopphrase", "settings", "stopphrase"],
+                ["change_stopphrase","settings","stopphrase"],
+                ["delete_stopphrase", "settings", "stopphrase"],
+                ["view_stopphrase","settings", "stopphrase"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 4,
+        "fields": {
+            "name": "task_operators",
+            "permissions": [
+                ["view_shipment", "crm", "shipment"],
+
+                ["add_projectstage", "tasks", "projectstage"],
+                ["change_projectstage", "tasks", "projectstage"],
+                ["delete_projectstage", "tasks", "projectstage"],
+                ["view_projectstage", "tasks", "projectstage"],
+                ["add_resolution", "tasks", "resolution"],
+                ["change_resolution", "tasks", "resolution"],
+                ["delete_resolution", "tasks", "resolution"],
+                ["view_resolution", "tasks", "resolution"],
+                ["add_taskstage", "tasks", "taskstage"],
+                ["change_taskstage", "tasks", "taskstage"],
+                ["delete_taskstage", "tasks", "taskstage"],
+                ["view_taskstage", "tasks", "taskstage"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 5,
+        "fields": {
+            "name": "chiefs",
+            "permissions": [
+                ["view_closingreasonstat", "analytics", "closingreasonstat"],
+                ["view_conversionstat", "analytics","conversionstat"],
+                ["view_dealstat", "analytics", "dealstat"],
+                ["view_incomestat", "analytics", "incomestat"],
+                ["view_leadsourcestat", "analytics", "leadsourcestat"],
+                ["view_outputstat", "analytics", "outputstat"],
+                ["view_requeststat", "analytics", "requeststat"],
+                ["view_salesfunnel", "analytics", "salesfunnel"],
+
+                ["view_company", "crm", "company"],
+                ["view_contact", "crm", "contact"],
+                ["change_deal", "crm", "deal"],
+                ["view_deal", "crm", "deal"],
+                ["view_lead", "crm", "lead"],
+                ["view_crmemail", "crm", "crmemail"],
+                ["view_output", "crm", "output"],
+                ["view_payment","crm", "payment"],
+                ["view_product", "crm", "product"],
+                ["view_request","crm", "request"],
+                ["view_shipment", "crm", "shipment"],
+
+                ["view_emlmessage", "massmail", "emlmessage"],
+                ["view_mailingout", "massmail", "mailingout"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 6,
+        "fields": {
+            "name": "accountants",
+            "permissions": [
+                ["view_incomestat", "analytics", "incomestat"],
+                ["view_incomestatsnapshot", "analytics", "incomestatsnapshot"],
+                ["add_currency", "crm", "currency"],
+                ["change_currency", "crm", "currency"],
+                ["view_currency", "crm", "currency"],
+                ["change_payment", "crm", "payment"],
+                ["view_payment", "crm", "payment"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 7,
+        "fields": {
+            "name": "co-workers",
+            "permissions": [
+                ["add_chatmessage", "chat", "chatmessage"],
+                ["change_chatmessage", "chat", "chatmessage"],
+                ["delete_chatmessage", "chat", "chatmessage"],
+                ["view_chatmessage", "chat", "chatmessage"],
+
+                ["add_reminder", "common", "reminder"],
+                ["change_reminder","common","reminder"],
+                ["delete_reminder", "common", "reminder"],
+                ["view_reminder","common", "reminder"],
+                ["add_thefile", "common", "thefile"],
+                ["change_thefile", "common", "thefile"],
+                ["delete_thefile", "common", "thefile"],
+                ["view_thefile", "common", "thefile"],
+
+                ["view_page", "help", "page"],
+                ["view_paragraph", "help", "paragraph"],
+
+                ["add_memo","tasks", "memo"],
+                ["change_memo", "tasks", "memo"],
+                ["delete_memo", "tasks", "memo"],
+                ["view_memo", "tasks", "memo"],
+                ["add_project", "tasks", "project"],
+                ["change_project", "tasks", "project"],
+                ["delete_project", "tasks", "project"],
+                ["view_project", "tasks", "project"],
+                ["add_tag", "tasks", "tag"],
+                ["change_tag", "tasks", "tag"],
+                ["delete_tag", "tasks", "tag"],
+                ["view_tag", "tasks", "tag"],
+                ["add_task", "tasks", "task"],
+                [ "change_task", "tasks", "task"],
+                ["delete_task", "tasks", "task"],
+                ["view_task", "tasks","task"]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 8,
+        "fields": {
+            "name": "department heads",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 9,
+        "fields": {
+            "name": "Global sales",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 10,
+        "fields": {
+            "name": "Local sales",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 11,
+        "fields": {
+            "name": "Bookkeeping",
+            "permissions": []
+        }
+    }
+]

@@ -1,0 +1,22 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+    {% if button_title %}
+	<li>
+    <form action="{% url 'site:currency_switching' %}" method="post">
+        {% csrf_token %}
+    <input id="next" type="hidden" name="next" value="{{ next }}">
+    <input type="submit" value="{{ button_title }}" title="{% translate 'Switch currency' %}">
+    </form>
+	</li>
+    {% endif %}
+	<li>
+    <form action="{% url 'site:save_snapshot' %}" method="post">
+        {% csrf_token %}
+    <input id="snapshot" type="hidden" name="snapshot" value="{{ snapshot }}">
+    <input id="username" type="hidden" name="username" value="{{ username }}">
+    <input id="next" type="hidden" name="next" value="{{ next }}">
+    <input type="submit" value="{% translate "Save snapshot" %}">
+    </form>
+	</li>
+{% endblock %}

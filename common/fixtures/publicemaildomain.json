@@ -1,0 +1,254 @@
+[
+{
+    "model": "settings.publicemaildomain",
+    "pk": 1,
+    "fields": {
+        "domain": "icloud.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 2,
+    "fields": {
+        "domain": "gmail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 3,
+    "fields": {
+        "domain": "outlook.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 4,
+    "fields": {
+        "domain": "foxmail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 5,
+    "fields": {
+        "domain": "hotmail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 6,
+    "fields": {
+        "domain": "hanmail.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 7,
+    "fields": {
+        "domain": "yahoo.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 8,
+    "fields": {
+        "domain": "yahoo.co.uk"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 9,
+    "fields": {
+        "domain": "yahoo.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 10,
+    "fields": {
+        "domain": "mail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 11,
+    "fields": {
+        "domain": "email.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 12,
+    "fields": {
+        "domain": "usa.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 13,
+    "fields": {
+        "domain": "myself.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 14,
+    "fields": {
+        "domain": "post.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 15,
+    "fields": {
+        "domain": "europe.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 16,
+    "fields": {
+        "domain": "asia.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 17,
+    "fields": {
+        "domain": "iname.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 18,
+    "fields": {
+        "domain": "writeme.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 19,
+    "fields": {
+        "domain": "dr.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 20,
+    "fields": {
+        "domain": "cheerful.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 21,
+    "fields": {
+        "domain": "engineer.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 22,
+    "fields": {
+        "domain": "163.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 23,
+    "fields": {
+        "domain": "orange.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 24,
+    "fields": {
+        "domain": "yandex.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 25,
+    "fields": {
+        "domain": "yandex.ru"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 26,
+    "fields": {
+        "domain": "mail.ru"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 27,
+    "fields": {
+        "domain": "ukr.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 28,
+    "fields": {
+        "domain": "meta.ua"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 29,
+    "fields": {
+        "domain": "i.ua"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 30,
+    "fields": {
+        "domain": "abv.bg"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 31,
+    "fields": {
+        "domain": "naver.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 32,
+    "fields": {
+        "domain": "aol.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 33,
+    "fields": {
+        "domain": "teleworm.us"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 34,
+    "fields": {
+        "domain": "reagan.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 35,
+    "fields": {
+        "domain": "126.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 36,
+    "fields": {
+        "domain": "vip.126.com"
+    }
+}
+]

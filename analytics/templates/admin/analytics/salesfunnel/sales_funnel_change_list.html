@@ -1,0 +1,75 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+{% block content_title %}
+    <h1>{% translate 'Sales funnel for last 365 days' %}</h1>
+
+{% endblock %}
+{% block result_list %}
+
+    <style>
+    .bar-chart {
+      /*display: flex;*/
+      justify-content: space-around;
+      height: 100%;
+      padding-top: 60px;
+      overflow: hidden;
+    }
+    .bar-chart .bar {
+        flex: 100%;
+        align-self: flex-end;
+        position: relative;
+        background-color: var(--primary);
+        height: 60px;
+        margin: 0 auto;
+    }
+   
+    .bar-chart .bar:hover {
+        background-color: var(--secondary);
+    }
+    .bar-chart .bar .bar-tooltip {
+        position: relative;
+        z-index: 999;
+    }
+    .bar-chart .bar .bar-tooltip {
+        position: absolute;
+        /*top: -60px;*/
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-weight: bold;
+        opacity: 1;
+		white-space: nowrap;
+    }
+    .bar-chart .bar:hover .bar-tooltip {
+        opacity: 1;
+    }
+    </style>
+     
+<div class="results">
+    <h2>{% translate 'The number of closed deals in stages' %}:</h2>
+    <h3>{% translate 'Total closed deals' %}: {{ total }}</h3>
+
+    <br>
+	{% for n, v in summary.items %}
+    	<p>{{ n }} = {{ v }}</p>
+    {% endfor %}
+    <br>
+    <div class="results">
+	<h2>{% translate 'Chart' %}</h2>
+	<h3>{% translate 'The percentages show the number of "lost" deals at each stage.' %}</h3>
+        <div class="bar-chart">
+        {% for x in sales_funnel %}
+            <div class="bar" style="width:{{x.pct}}%">
+                <div class="bar-tooltip">
+                    {{x.stage__name}}
+					<br>
+					{{ x.perc }}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>    
+    
+{% endblock %}
+{% block pagination %}{% endblock %}

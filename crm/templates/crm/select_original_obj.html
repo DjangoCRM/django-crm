@@ -1,0 +1,51 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify util %}
+
+{% block extrahead %}
+	<script src="/ru/q7Dln_Wd1OOr-jsi18n/"></script>
+	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+	<script src="/static/admin/js/jquery.init.js"></script>
+	<script src="/static/admin/js/core.js"></script>
+	<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+	<script src="/static/admin/js/actions.js"></script>
+	<script src="/static/admin/js/urlify.js"></script>
+	<script src="/static/admin/js/prepopulate.js"></script>
+	<script src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+    {{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'site:index' %}">{% translate 'Home' %}</a>
+&rsaquo; <a href="{% url 'site:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; {% if has_view_permission %}<a href="{% url opts|crmadmin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% if add %}{% blocktranslate with name=opts.verbose_name %}Add {{ name }}{% endblocktranslate %}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+    <h1>{% translate "Select the original to which the linked objects will be reconnected." %}</h1>
+	<div id="content-main">
+		<br>
+		<form action="{{ app_path }}" method="post" id="login-form">
+            {% csrf_token %}
+            {{ form }}
+
+            <script id="django-admin-form-add-constants"
+                src="/static/admin/js/change_form.js">
+            </script>
+            <script id="django-admin-prepopulated-fields-constants"
+                    src="/static/admin/js/prepopulate_init.js"
+                    data-prepopulated-fields="[]">
+            </script>
+
+            <br><br>
+            <input type="submit" value=" {% translate 'Submit' %} ">
+		</form>
+	</div>
+{% endblock %}

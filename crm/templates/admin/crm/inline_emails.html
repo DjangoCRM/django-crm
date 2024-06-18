@@ -1,0 +1,72 @@
+{% load i18n util %}
+{% if emails %}
+<div>
+    {# <fieldset class="module collapse"> #}
+    <fieldset class="module" id="Emails">
+    <h2><i class="material-icons" style="color: var(--primary-fg)">mail_outline</i> {% translate 'Last few letters' %}</h2>
+    {% for email in emails %}
+        <div class="inline-related has_original">
+			<div style="background-color: var(--darkened-bg); border-top: 1px solid #eee; border-bottom: 1px solid #eee; height: 65px;">
+            <h3 style="float: left;">
+                {% if email.sent %}
+                    <i class="material-icons" style="color: var(--primary)">unarchive</i>
+                {% elif email.incoming %}
+                    <i class="material-icons" style="color: var(--green-fg)">archive</i>
+                {% else %}
+                <i class="material-icons" style="color: var(--error-fg)">unarchive</i>
+                {% endif %}
+                    <b>{% translate 'Email' %}:</b>&nbsp;
+                <span class="inline_label">{% if email.inquiry %}<span style="color: var(--green-fg)">{{ email.subject }}</span>{% else %}{{ email.subject }}{% endif %}&nbsp;&nbsp;&nbsp;
+                    {% if email.is_attachment %}<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>&nbsp;&nbsp;{% endif %}
+                
+				</span>
+            </h3>
+			
+			<ul class="object-tools" style="margin: 5px auto;float: left;display: inline-block;">
+				{% if email.uid and email.incoming %}
+				  <li><a href="#" target="popup" title="{% translate "View original email" %}"
+					  onclick="window.open('{% url 'view_original_email' email.id  %}', '{{ email.id }}','width=800,height=700')"
+					  ><i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i>
+				  </a></li>
+                  <li>
+                    <a href="{% url 'download_original_email' email.id %}" title="{% translate 'Download the original email as an EML file.' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">file_download</i></a>
+                  </li>&nbsp;&nbsp;
+                {% endif %}
+                  <li><a href="{%  url 'site:crm_crmemail_change' email.id %}" title="{% translate 'Change' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">border_color</i></a></li>
+                  <li><a href="{%  url 'reply_email' email.id %}?act=reply" title="{% translate 'reply' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply</i></a></li>
+                  <li><a href="{%  url 'reply_email' email.id %}?act=reply-all" title="{% translate 'reply all' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply_all</i></a></li>
+                  <li><a href="{%  url 'reply_email' email.id %}?act=forward" title="{% translate 'forward' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">forward</i></a></li>
+                  <li><a href="{%  url 'print_email' email.id %}" title="{% translate 'Print preview' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">print</i></a></li>
+                </ul>
+			</div>
+			
+            <fieldset class="module aligned">
+                <div class="form-row field-from_field">
+                    <div class="readonly"><b>{% translate 'From' %}:</b> &nbsp{{ email.from_field }}</div>
+                </div>
+                <div class="form-row field-to">
+                    <div class="readonly"><b>{% translate 'To' %}:</b> &nbsp{{ email.to }}</div>
+                </div>
+                <div class="form-row field-creation_date">
+                <div class="readonly"><b>{% translate 'Date' %}:</b> &nbsp{{ email.creation_date }}</div>
+                </div>
+                <div class="form-row field-content">
+                    <label>{% translate 'Content' %}:</label>
+                    <label>
+                        <textarea name="deal_emails-0-content" cols="95" rows="18">{{ email.content }}</textarea>
+                    </label>
+                </div>
+            {% for file in email.files.all %}
+                {% if file|get_url %}
+                    <a href="{{ file.file.url }}" title="{% translate 'View or Download' %}"><i class="material-icons" style="color: var(--body-quiet-color)">file_download</i> {{ file }}</a>&nbsp;&nbsp;
+                {% else %}
+                    <i class="material-icons" style="color: var(--error-fg)">file_download</i><i class="material-icons" style="color: var(--error-fg)">error_outline</i> <span style='color: var(--error-fg)'>{% translate "Error: the file is missing." %}</span>&nbsp;&nbsp;
+                {% endif %}
+            {% endfor %}
+            <br><br><p></p>
+            </fieldset>
+        </div>
+    {% endfor %}
+    </fieldset>
+{% endif %}
+		</div>

@@ -1,0 +1,30 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% translate "Uploaded images" %}</title>
+    <link rel="stylesheet" href="{% static "/admin/css/base.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+
+</head>
+<body>
+    <div id="content" class="colM">
+        <br><br>
+        <h1>{% translate "Uploaded images" %}</h1>
+        <br><br>
+        <div id="content-main">
+
+                {% for file in files %}
+                <div class="submit-row">
+                    <img src="/media/pics/{{ file.name }}" alt="">
+                </div>
+                <h3>{% templatetag openblock %} cid_media 'pics/{{ file.name }}'  {% templatetag closeblock %}</h3>
+                <br><br>
+                {% endfor %}
+        <br><br><br>
+        </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+[
+  {
+    "model": "crm.industry",
+    "pk": 1,
+    "fields": {
+      "name": "railway",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 2,
+    "fields": {
+      "name": "aviation",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 3,
+    "fields": {
+      "name": "oil & gas",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 4,
+    "fields": {
+      "name": "power generation",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 5,
+    "fields": {
+      "name": "metallurgy",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 6,
+    "fields": {
+      "name": "shipbuilding",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 7,
+    "fields": {
+      "name": "automotive industry",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 8,
+    "fields": {
+      "name": "capital construction",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 9,
+    "fields": {
+      "name": "service companies",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 10,
+    "fields": {
+      "name": "educational institutions",
+      "department": 9
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 11,
+    "fields": {
+      "name": "railway",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 12,
+    "fields": {
+      "name": "aviation",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 13,
+    "fields": {
+      "name": "oil & gas",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 14,
+    "fields": {
+      "name": "power generation",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 15,
+    "fields": {
+      "name": "metallurgy",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 16,
+    "fields": {
+      "name": "shipbuilding",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 17,
+    "fields": {
+      "name": "automotive industry",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 18,
+    "fields": {
+      "name": "capital construction",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 19,
+    "fields": {
+      "name": "service companies",
+      "department": 10
+    }
+  },
+  {
+    "model": "crm.industry",
+    "pk": 20,
+    "fields": {
+      "name": "educational institutions",
+      "department": 10
+    }
+  }
+]

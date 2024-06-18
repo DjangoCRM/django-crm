@@ -1,0 +1,71 @@
+{% load i18n %}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>{% translate "Print" %}</title>
+<style>
+    table{
+        width:700px;
+        }
+        table tr td{
+        border: 1px solid var(--body-quiet-color);
+        }
+        td{
+        padding: 5px;
+        width:50%;
+        }
+        @media print
+        {
+        button{
+        display:none;
+         }
+    }
+</style>
+</head>
+<body>
+<button onclick="myFunction()" style="background-color: var(--secondary);color: var(--primary);">{% translate "Print" %}</button>
+
+<table>
+<tbody>
+<tr>
+<td>
+    <p><b>From:</b> {{ object.from_field }}</p>
+    <p><b>Date:</b> {{ object.creation_date }}</p>
+    <p><b>To:</b> {{ object.to }}</p>
+</td>
+</tr>
+</tbody>
+
+</table>
+<br/>
+<table>
+<tbody>
+<tr>
+<td>
+<p><b>Subject:</b> {{ object.subject }}</p>
+<p>{{ object.content|safe|linebreaks }}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+{% if object.signature %}
+<table>
+<tbody>
+<tr>
+<td>
+<p>{{ object.signature.content|safe|linebreaks }}</p>
+</td>
+</tr>
+</tbody>
+</table>
+{% endif %}
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+</body>
+</html>

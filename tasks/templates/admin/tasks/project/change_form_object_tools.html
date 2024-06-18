@@ -1,0 +1,14 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+{% include "chat_buttons.html" %}
+<li>
+    <a href="{% url 'site:tasks_task_changelist' %}?project__id__exact={{ object_id }}&active=all" target="_blank">
+      {% translate "Tasks" %} ({{ task_num }})
+    </a>
+</li>
+{% include "common/reminder_button.html" %}
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% endblock %}

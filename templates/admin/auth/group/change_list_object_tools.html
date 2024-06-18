@@ -1,0 +1,17 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+  {% if has_add_permission %}
+  <li>
+    {% url cl.opts|admin_urlname:'add' as add_url %}
+    <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink">
+      {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'copy_department' %}" title="{% translate 'Creates a copy of the department' %}">
+    {% translate "Copy department" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">content_copy</i>
+    </a>
+  </li>
+  {% endif %}
+{% endblock %}

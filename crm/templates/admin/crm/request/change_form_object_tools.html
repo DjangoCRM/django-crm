@@ -1,0 +1,40 @@
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+{% if original.deal %}
+<li>
+    <a href="{% url 'site:crm_deal_change' original.deal_id %}" title="{% translate 'View the deal' %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">handshake</i>
+      {% translate "Deal" %}
+    </a>
+</li>
+{% endif %}
+{% if original.email %}
+<li>
+    <a href="{% url 'site:crm_crmemail_add' %}?to={{original.email}}&subject={{original.request_for}}&ticket={{original.ticket}}&request={{original.id}}" class="addlink" title="{% translate "Email" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">drafts</i>
+    </a>
+</li>
+{% endif %}
+<li>
+    <a href="{% url 'site:crm_crmemail_changelist' %}?request__id__exact={{ object_id }}" title="{% translate "Сorrespondence" %}" target="_blank">
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">swap_horiz</i>
+      <i class="material-icons" style="font-size: 17px;vertical-align: middle;">mail_outline</i>      
+    </a>
+</li>
+{% if request.user.is_superuser or request.user.is_manager %}
+	  <li>
+	    <a href="{% url 'select_emails_import_request' %}?ticket={{ original.ticket }}&request_id={{ original.id }}&next={{ request.get_full_path}}" title="{% translate "Import Email regarding this Request" %}">
+	      {% translate "Import" %} <i class="material-icons" style="font-size: 17px;vertical-align: middle;">email</i>
+	    </a>
+	</li>
+{% endif %}
+<li>
+    <a href="{% url 'print_request' object_id %}" title="{% translate 'Print preview' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">print</i></a>
+</li>
+<li>
+    {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
+</li>
+{% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% translate "View on site" %}</a></li>{% endif %}
+{% endblock %}

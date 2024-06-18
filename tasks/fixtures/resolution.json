@@ -1,0 +1,40 @@
+[
+{
+    "model": "tasks.resolution",
+    "fields": {
+        "name": "to make a decision",
+        "index_number": 3
+    }
+},{
+    "model": "tasks.resolution",
+    "fields": {
+        "name": "payment of regular expenses",
+        "index_number": 4
+    }
+},{
+    "model": "tasks.resolution",
+    "fields": {
+        "name": "on approval",
+        "index_number": 1
+    }
+},{
+    "model": "tasks.resolution",
+    "fields": {
+        "name": "for consideration",
+        "index_number": 2
+    }
+},{
+    "model": "tasks.resolution",
+    "fields": {
+        "name": "for information",
+        "index_number": 5
+    }
+},
+    {
+        "model": "tasks.resolution",
+        "fields": {
+            "name": "for the record",
+            "index_number": 6
+        }
+    }
+]

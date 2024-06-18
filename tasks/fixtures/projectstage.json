@@ -1,0 +1,48 @@
+[
+{
+    "model": "tasks.projectstage",
+    "fields": {
+        "name": "pending",
+        "active": true,
+        "default": true,
+        "done": false,
+        "in_progress": false
+    }
+},{
+    "model": "tasks.projectstage",
+    "fields": {
+        "name": "in progress",
+        "active": true,
+        "default": false,
+        "done": false,
+        "in_progress": true
+    }
+},{
+    "model": "tasks.projectstage",
+    "fields": {
+        "name": "completed",
+        "active": false,
+        "default": false,
+        "done": true,
+        "in_progress": false
+    }
+},{
+    "model": "tasks.projectstage",
+    "fields": {
+        "name": "postponed",
+        "active": true,
+        "default": false,
+        "done": false,
+        "in_progress": false
+    }
+},{
+    "model": "tasks.projectstage",
+    "fields": {
+        "name": "canceled",
+        "active": true,
+        "default": false,
+        "done": false,
+        "in_progress": false
+    }
+}
+]
