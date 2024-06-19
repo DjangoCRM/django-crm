@@ -89,7 +89,7 @@ class ChatMessageAdmin(admin.ModelAdmin):
             _thread_local.reply_to_message = msg.content
             fieldsets[0][1]['fields'].insert(0, 'reply_to_message')
             fieldsets.append((_('Additional information'), {
-                'classes': ('collapse',),
+                # 'classes': ('collapse',),
                 'fields': ['recipients']
             }))
         else:
@@ -313,8 +313,11 @@ def get_recipients_queryset(request: WSGIRequest) -> QuerySet:
     if initial.get('answer_to', None):
         answer_to_id = int(initial['answer_to'])
         msg = ChatMessage.objects.get(id=answer_to_id)
+        ids = msg.to.exclude(id=request.user.id).values_list('id', flat=True)
+        ids = list(ids)
+        ids.append(msg.owner_id)
         return USER_MODEL.objects.filter(
-            id=msg.owner_id
+            id__in=ids
         )
 
     if initial.get('content_type', None):
