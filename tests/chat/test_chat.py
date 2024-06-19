@@ -173,6 +173,7 @@ class TestChat(BaseTestCase):
         # fill in the form
         reply_content = random()
         data['content'] = reply_content
+        data['recipients'] = [str(self.andrew.id), str(self.chief.id)]
         # submit form
         reply_url = response.wsgi_request.get_full_path()
         response = self.client.post(reply_url, data, follow=True)
@@ -182,13 +183,14 @@ class TestChat(BaseTestCase):
             ChatMessage.objects.filter(
                 content=reply_content,
                 object_id=task.id,
-                recipients=self.andrew
+                recipients__in=(self.andrew, self.chief)
             ).exists(),
             "The chat message is not created"
         )
         # notification email sent?
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to[0], self.andrew.email)
+        self.assertEqual(mail.outbox[0].to, [
+                         self.andrew.email, self.chief.email])
         mail.outbox = []
         file.file.delete()
         
