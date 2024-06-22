@@ -1,0 +1,1999 @@
+[
+{
+    "model": "help.page",
+    "pk": 51,
+    "fields": {
+        "app_label": "",
+        "model": "",
+        "page": "",
+        "title": "CRM Home Page",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 52,
+    "fields": {
+        "app_label": "crm",
+        "model": "Request",
+        "page": "l",
+        "title": "List of Requests",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 53,
+    "fields": {
+        "app_label": "crm",
+        "model": "Deal",
+        "page": "l",
+        "title": "List of Deals",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 54,
+    "fields": {
+        "app_label": "analytics",
+        "model": "",
+        "page": "i",
+        "title": "Sales funnel",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 55,
+    "fields": {
+        "app_label": "",
+        "model": "",
+        "page": "",
+        "title": "Which query is not relevant",
+        "main": false,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 56,
+    "fields": {
+        "app_label": "",
+        "model": "",
+        "page": "",
+        "title": "Definition of primary/secondary requests",
+        "main": false,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 57,
+    "fields": {
+        "app_label": "crm",
+        "model": "Company",
+        "page": "l",
+        "title": "List of Companies",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 58,
+    "fields": {
+        "app_label": "crm",
+        "model": "Lead",
+        "page": "i",
+        "title": "Converting Lead",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 59,
+    "fields": {
+        "app_label": "tasks",
+        "model": "Task",
+        "page": "l",
+        "title": "Task List",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 60,
+    "fields": {
+        "app_label": "tasks",
+        "model": "Task",
+        "page": "i",
+        "title": "Task",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 61,
+    "fields": {
+        "app_label": "crm",
+        "model": "Currency",
+        "page": "l",
+        "title": "List of Currencies",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 62,
+    "fields": {
+        "app_label": "crm",
+        "model": "Currency",
+        "page": "i",
+        "title": "Currency",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 63,
+    "fields": {
+        "app_label": "crm",
+        "model": "Payment",
+        "page": "l",
+        "title": "Payment",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 64,
+    "fields": {
+        "app_label": "massmail",
+        "model": "EmailAccount",
+        "page": "i",
+        "title": "Mail account",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 65,
+    "fields": {
+        "app_label": "tasks",
+        "model": "Memo",
+        "page": "i",
+        "title": "Memo",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 66,
+    "fields": {
+        "app_label": "settings",
+        "model": "PublicEmailDomain",
+        "page": "l",
+        "title": "Public email domains",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 67,
+    "fields": {
+        "app_label": "settings",
+        "model": "StopPhrase",
+        "page": "l",
+        "title": "Stop phrases",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 68,
+    "fields": {
+        "app_label": "tasks",
+        "model": "Memo",
+        "page": "l",
+        "title": "List of memos",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 69,
+    "fields": {
+        "app_label": "crm",
+        "model": "Request",
+        "page": "i",
+        "title": "Request",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 70,
+    "fields": {
+        "app_label": "crm",
+        "model": "CrmEmail",
+        "page": "l",
+        "title": "Mail in CRM",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 71,
+    "fields": {
+        "app_label": "crm",
+        "model": "Deal",
+        "page": "i",
+        "title": "Deal",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 72,
+    "fields": {
+        "app_label": "settings",
+        "model": "BannedCompanyName",
+        "page": "l",
+        "title": "Banned company names",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 73,
+    "fields": {
+        "app_label": "massmail",
+        "model": "MailingOut",
+        "page": "l",
+        "title": "Mailings",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.page",
+    "pk": 74,
+    "fields": {
+        "app_label": "crm",
+        "model": "Shipment",
+        "page": "l",
+        "title": "Shipments",
+        "main": true,
+        "language_code": "en"
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 153,
+    "fields": {
+        "document": 51,
+        "title": "User access to sections and objects",
+        "content": "<div>CRM may contain commercial and confidential information.</div><div>Therefore, a user's access to sections and objects is determined by his role (set of rights).</div><div>Users can have several roles.</div><div>The rights can be permanent or dynamic.</div><div>For example, the owner (author) of a memo can always see it.</div><div>But he loses the right to modify it and the right to delete it after it has been reviewed by the chief.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 154,
+    "fields": {
+        "document": 51,
+        "title": "Hints",
+        "content": "<div>CRM provides help pages (like this one) and tooltips to make your work easier.</div><div>When you move the mouse cursor over some page elements, such as icons, buttons, etc., tooltips may appear.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 155,
+    "fields": {
+        "document": 51,
+        "title": "Filters",
+        "content": "<div>On the right side of each object list page is a filter panel.</div><div>Note that some filters may have a default value.</div><div>For example, the default task list contains only active tasks.</div><div>Therefore, if the object you are looking for is not in the list, you may need to change the value of the filters.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 156,
+    "fields": {
+        "document": 51,
+        "title": "Sorting",
+        "content": "<div>Most of the column headers of the object tables are active.</div><div>Clicking on them changes the sorting of objects.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 157,
+    "fields": {
+        "document": 51,
+        "title": "Search for an object by its ID",
+        "content": "<div>Any object can be found by its ID.</div><div>To do this, write \"ID\" and its value in the search line.</div><div>For example, ID1234.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 158,
+    "fields": {
+        "document": 51,
+        "title": "Search for an object by ticket",
+        "content": "<div>When a Request is saved to the database, it is assigned a ticket (a unique set of characters).</div><div>Later, the same ticket is assigned to the Deal and all e-mails.</div><div>These objects can be found by this ticket.</div><div>To do this, insert \"ticket:\" and the ticket value into the search string.</div><div>For example, ticket:tWRMaat3n8Y</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 6,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 159,
+    "fields": {
+        "document": 52,
+        "title": "Overview of the \"Requests\" page",
+        "content": "<div>The request contains basic information: What - By whom - When it was requested.</div><div><br></div><div>When created, the Request receives the status \"pending\".</div><div>This means that the Request is waiting for the operator to check the correctness of the data contained in it.</div><div>When the Request is verified, a Deal is created and passed to the assigned sales manager.  </div><div>Each time a Request is saved, the database is searched: Company, Contact Person or Lead and creates a link between all objects.<br></div><div>Thus, the more complete data a Request contains, the more likely it is to identify counterparties in the CRM database.</div><div>The \"pending\" status is removed automatically when a Deal is created or the request status is set to \"duplicate\".</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 160,
+    "fields": {
+        "document": 52,
+        "title": "How to create a Request",
+        "content": "<div>CRM provides automatic creation of Requests coming from website forms.</div><div>You can also create Requests from emails received by e-mail.</div><div>In this case, click the \"Import request from email\" button in the request list section.</div><div>The selected emails will be imported into the database and Requests will be created on their basis.</div><div>You can create a request manually in CRM. For example, when a client called by phone.</div><div>To do this, click the \"ADD REQUEST +\" button</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 161,
+    "fields": {
+        "document": 52,
+        "title": "Request counter",
+        "content": "<div>The counter shows the number of Requests waiting for you to process.</div><div>Requests in which you are listed as the owner or co-owner are totaled.</div><div>Normal numbers show the number of Requests received today. Red numbers show the number of Requests received earlier.</div>",
+        "language_code": "en",
+        "draft": true,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 162,
+    "fields": {
+        "document": 53,
+        "title": "Deal",
+        "content": "<div>The \"Deal\" object in CRM is not a document about concluding a deal with a client.</div><div>It is the main place for a sales manager to work on concluding  a deal.</div><div>All details and results of this work are stored in this object.</div><div>Therefore, this object should be created immediately after processing a request.</div><div>And not to continue working with the Request until the deal with the client is concluded.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 163,
+    "fields": {
+        "document": 53,
+        "title": "How to create a Deal",
+        "content": "<div>A Deal is created on the basis of a Request.</div><div>The Deal  will be created if you press the \"Create deal  \" button in the Request.</div><div>Before doing this, you should carefully check the fields in the Request.</div><div>If you do not specify the contact person explicitly, CRM will search for the Company,  </div><div>Contact person or Lead in the database using the Request data.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 164,
+    "fields": {
+        "document": 53,
+        "title": "Default sorting of deals",
+        "content": "<div>By default, new deals are placed at the top of the list.</div><div>This is convenient for novice users.</div><div>In the future it is recommended to use sorting by the date of the next step.</div><div>You can switch the default sorting by the trigger button in the upper right corner.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 165,
+    "fields": {
+        "document": 53,
+        "title": "Icon description",
+        "content": "<div>CRM regularly analyzes each Deal.</div><div>The result is displayed on the deals list page in the form of icons with pop-up tips.</div><div><br></div><div><i class=\"material-icons\" style=\"font-size:small;color:grey\">mail_outline</i>  - \"Unanswered email\" - appears when the last email in the correspondence is incoming.</div><div><br></div><div><i class=\"material-icons\" style=\"font-size:small;color:grey\">sentiment_neutral</i> - \"Unanswered request\" - appears when the last email in the correspondence is a request.</div><div>The icon's mood changes depending on the number of days that have passed - <i class=\"material-icons\" style=\"font-size:small;color:grey\">sentiment_dissatisfied</i> <i class=\"material-icons\" style=\"font-size:small;color:grey\">sentiment_very_dissatisfied</i> <i class=\"material-icons\" style=\"font-size:small;color:red\">mood_bad</i><br><br></div><div><i class=\"material-icons\" style=\"font-size:small;color:grey\">local_shipping</i> - \"Specify shipment date\" - appears when there is a payment received, but no shipment date is specified in the product.</div><div><br></div><div><i class=\"material-icons\" style=\"font-size:small;color:red\">local_shipping</i> - \"Expired Shipping Date\" - appears when the shipping date has expired and the deal is not at the \"products shipped\" stage.</div><div><br></div><div><i class=\"material-icons\" style=\"font-size:small;color:red\">add_shopping_cart</i> - \"Specify products\" - appears when there is a payment received, but no products are specified in the deal.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 166,
+    "fields": {
+        "document": 53,
+        "title": "By default, only active deals are shown",
+        "content": "To see all or only inactive deals, change the filter values by activity.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 167,
+    "fields": {
+        "document": 54,
+        "title": "Review",
+        "content": "<div>The sales funnel shows in percentage terms the number of deals remaining after passing the next stage.</div><div>This allows you to determine at which stage the most deals are lost. The goal is to identify and correct the cause of these losses.</div><div>Deals that meet the following criteria are used to build the diagram:</div><div>- closed (not active),</div><div>- relevant,</div><div>- primary.</div><div>Subsequent deals are not used in the analysis.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 168,
+    "fields": {
+        "document": 55,
+        "title": "Irrelevant Request",
+        "content": "A request, and therefore a Deal, may be deemed irrelevant if there is nothing in the request from your company's range of products or services and there is no possibility to offer something even as an alternative.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 169,
+    "fields": {
+        "document": 56,
+        "title": "Definition of primary/secondary requests",
+        "content": "<div>A request is called primary if it is received through the company's contact information.</div><div>If a request is received via the contact details of a sales manager from a customer he/she works with, then such a request is considered a follow-up request.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 170,
+    "fields": {
+        "document": 57,
+        "title": "Company creation",
+        "content": "<div>When a request is received, CRM checks if the Company is available in the database and, in case of its absence, creates a Lead.</div><div><br></div><div>After verification, the Lead can be automatically converted to a Company and a Contact.</div><div>In this case, the relationships between the entities: Letter, Request, Deal, Company and Contact Person will also be changed.</div><div>Therefore, when creating a Company manually, make sure that there is no Lead with the same Company in the database.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 171,
+    "fields": {
+        "document": 57,
+        "title": "Transfer of companies to another manager",
+        "content": "<div>To transfer a Company and its Contacts to another manager, change the owner on that Company's page.</div><div>The option to transfer selected Companies to another manager is available for the administrator in the \"Action\" menu.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 172,
+    "fields": {
+        "document": 57,
+        "title": "Search for a company by ID",
+        "content": "<div>To get unambiguous results when searching for a Company by ID, add \"ID\" or \"id\" to the ID number without a space.</div><div>For example, to search for a Company with ID 4444, enter ID4444 or id4444 in the search field.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 173,
+    "fields": {
+        "document": 58,
+        "title": "Lead",
+        "content": "<div>If the received request does not contain sufficient data to identify the company and contact person.</div><div>And also if these data are not enough to create new companies in the database and a contact person.</div><div>In this case, a Lead is created.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 174,
+    "fields": {
+        "document": 58,
+        "title": "Conversion",
+        "content": "<div>After validation, the Lead can be converted to a company and contact person.</div><div>Links to other objects will be migrated and the Lead will be deleted.</div><div>Before creating a new company, a check will be performed to see if such a company exists in the CRM database  </div><div>(by name and country match).</div><div>Similarly for the contact person (by matching first name, last name and Email address).</div><div><br></div><div>If these objects are found, connections will be set on them (regardless of department).</div><div>You can specify these objects yourself. Then CRM will not perform a search.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 175,
+    "fields": {
+        "document": 59,
+        "title": "Types of tasks",
+        "content": "<div>Tasks are personal and collective.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 176,
+    "fields": {
+        "document": 59,
+        "title": "User Roles",
+        "content": "<div>Regarding Tasks, there are the following CRM user roles:</div><div>- Task owners and co-owners - those who create tasks.</div><div>- Executors.</div><div>- Subscribers - those who should be notified about task execution (besides task owners).</div><div>- Task Operators (optional role) - task administrators with owners' rights.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 177,
+    "fields": {
+        "document": 59,
+        "title": "Who can create tasks",
+        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a collective task, performers can create subtasks for each other.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 178,
+    "fields": {
+        "document": 59,
+        "title": "Task Stages",
+        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by the task owners or operator.</div><div>In a collective task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if a task is not completely completed, the owner can specify the next step in the \"next step\" field.</div><div>this in the \"next step\" field, and change the \"completed\" stage to \"in progress\".</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 179,
+    "fields": {
+        "document": 59,
+        "title": "Automatic CRM notifications",
+        "content": "<div>All task participants are notified about task creation and its completion in CRM and by e-mail.</div><div>Task chat messages are delivered in the same way.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 180,
+    "fields": {
+        "document": 59,
+        "title": "Task chat",
+        "content": "<div>All task participants can exchange messages and files in the task chat.</div><div>For example, using the chat a subscriber can participate in discussion of the task progress or its results.</div><div>To create a message, you should press the \"Message +\" button and select recipients.</div><div>After the first message is created, the \"Chat\" button will appear next to this button.</div><div>This button allows the user to see all his correspondence.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 6,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 181,
+    "fields": {
+        "document": 59,
+        "title": "Working in a collective task",
+        "content": "<div>The executors of the collective task should create a subtask for themselves, and all other executors of the main task will be added as subscribers.  </div><div>all other executors of the main task.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the executor may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this executor.</div><div>The executors of a collective task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each execution has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 7,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 182,
+    "fields": {
+        "document": 59,
+        "title": "Task filters",
+        "content": "<div>To the right of the task list is the filters panel.</div><div>Filters help in searching for tasks.</div><div>Also with their help managers can see</div><div>the current task list of a particular employee.</div><div>Keep in mind that some filters have a default value.</div><div>For example, the default task list contains only active tasks.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 8,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 183,
+    "fields": {
+        "document": 59,
+        "title": "Labels",
+        "content": "<div>Users can create shortcuts and</div><div>and label tasks with them.</div><div>For example, you can create a label \"production meeting\" and label tasks to be discussed at the next meeting.</div><div>Tasks can be filtered by any label.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 9,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 184,
+    "fields": {
+        "document": 59,
+        "title": "Sorting tasks",
+        "content": "<div>By default, new tasks are placed at the top of the list.</div><div>This is convenient for novice users.</div><div>In the future it is recommended to use sorting by the date of the next step.</div><div>The default sorting can be switched by the trigger button in the upper right corner.</div>",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 10,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 185,
+    "fields": {
+        "document": 60,
+        "title": "\"Next step\" field",
+        "content": "<div>In the \"Next step\" field you should enter the action that you plan to do next.</div><div>And in the \"Step date\" field you should enter the date by which you plan to do it.</div><div>This information is automatically saved in the \"Workflow\" field.</div><div>If you are working in a subtask, this is also saved in the workflow of the main task.</div><div>Your default list of tasks can be sorted by step date.  </div><div>At the top of the list will be tasks with the next step date approaching.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 186,
+    "fields": {
+        "document": 60,
+        "title": "Working in a collective task",
+        "content": "<div><div>If there are other people responsible for the task besides you, then you should create a subtask for yourself to work on.</div><div>Or other performers of this task can do this for you.</div></div><div>Within the main task, performers are authorized to create subtasks for each other to transfer their completed part of the task.</div><div>It is not required to belong to the same department.</div><div>A subtask cannot be a collective task.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 187,
+    "fields": {
+        "document": 60,
+        "title": "Why set tasks for ourselves",
+        "content": "<div>If you have received a task verbally, it is recommended to create a task in CRM yourself,  </div><div>and add the person who set this task to the co-owner.</div><div>The co-owner will be automatically notified about the creation of this task and its fulfillment.</div><div>In addition, records of all tasks you have completed will be accumulated in the database and managers will see them.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 188,
+    "fields": {
+        "document": 60,
+        "title": "Tags",
+        "content": "<div>You can assign tags to a task.</div><div><br></div><div>For example, you can create a tag called \"Production Meeting\" and use it to label tasks that you want to discuss at the meeting.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 189,
+    "fields": {
+        "document": 60,
+        "title": "Hide the main task",
+        "content": "<div>If you are one of the executors of a collective task, but your part of the task does not depend on the other executors, then you can choose not to create a subtask and click the \"Done\" button.</div><div>Or create a subtask and check the \"Hide main task\" checkbox.</div><div>In these cases, the main task will be hidden in your task list.</div><div>You will also not receive notifications about opening/closing subtasks by other executors.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 190,
+    "fields": {
+        "document": 60,
+        "title": "Check off completed tasks",
+        "content": "<div>Be sure to mark completed tasks.</div><div>The task will disappear from your list of active tasks,  </div><div>and other task participants (owners, subscribers, and executors) will receive a notification that the task has been completed.</div><div>To do this, you can press the \"Done\" button in the email or task.</div><div>You can also change the task status to \"Done\".</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 6,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 191,
+    "fields": {
+        "document": 60,
+        "title": "Change the stage of the tasks",
+        "content": "<div>Setting a task stage allows other task participants to orient themselves as to which tasks are still pending, which are now in progress, and which have already been completed.</div><div>This is important for teamwork.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 7,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 192,
+    "fields": {
+        "document": 61,
+        "title": "What currencies are required",
+        "content": "<div>The currencies in which payments are made must be added.</div><div>As well as the currency that is used to create marketing reports.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 193,
+    "fields": {
+        "document": 61,
+        "title": "How currency rates are updated",
+        "content": "<div>Exchange rate values can be updated automatically or manually as needed.</div><div><br></div><div>Automatic update requires additional software to be connected (contact the Administrator).</div><div>Each new exchange rate value is saved to the database with the date.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "chiefs"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 194,
+    "fields": {
+        "document": 61,
+        "title": "Algorithm of using exchange rate value in CRM",
+        "content": "<div>CRM analytical reports are generated in government and marketing currencies.</div><div>Exchange rate values, which are contained in the Currency instance or in the Exchange rate instance, are used for conversion.</div><div>When saving a new payment with the status \"received\", a check is performed to see if the currency of the payment as of the current date is available in the Exchange Rate database.  </div><div>If the corresponding Exchange rate is absent, it is created with the value of the rates copied from the Currency and with the status \"approximate\".</div><div>If automatic updating is enabled, the values in such copies of the Rates will be updated within a day.</div><div>Their status will be changed to \"official\". The values of the rates in the instances of Currencies will also be updated.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "chiefs"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 195,
+    "fields": {
+        "document": 62,
+        "title": "Currency name",
+        "content": "<div>Use only its alphabetic code as the currency name.</div><div>Specify the national currency and currency for marketing reports.</div><div><br></div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 196,
+    "fields": {
+        "document": 62,
+        "title": "Specify the national currency and currency for marketing reports",
+        "content": "<div>These can be different currencies or the same currency.<br></div><div><br></div><div>All currencies contain an exchange rate to the state and marketing currencies.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": []
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 197,
+    "fields": {
+        "document": 63,
+        "title": "Overview",
+        "content": "<div>A payment can be created on the Deals page, and it will be automatically linked to the corresponding deal, or it can be created on the Payments list page.</div><div>To do this, press the \"ADD PAYMENT +\" button and fill in the form.</div><div>Analytical reports are generated on the data contained in the Payments.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "chiefs"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 198,
+    "fields": {
+        "document": 64,
+        "title": "Appointment of a co-owner of a mail account",
+        "content": "<div>Assigning a co-owner to a mail account will allow the co-owner to view incoming mails in this account on the mail server and import selected ones.</div><div>But the owner of imported mails and queries created on their basis will be assigned to the owner of this mail account.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 199,
+    "fields": {
+        "document": 64,
+        "title": "Using Gmail email accounts",
+        "content": "<div>Using Gmail email accounts requires setting up two-step authentication.</div><div>Contact your CRM administrator.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 200,
+    "fields": {
+        "document": 64,
+        "title": "Configuring Gmail two-step authentication",
+        "content": "<div>Mailing can work through email accounts with two-step user authentication, e.g. gmail.</div><div>To do this, the CRM application needs to be registered on a corresponding OAuth2 authentication server, for example, Google APIs Console.</div><div>Then create OAuth 2.0 Client IDs settings for the Web client in the Credentials section.  </div><div>In the settings, specify Authorized redirect URIs with the parameter user=box@example.com</div><div>(instead of box@example.com, specify the account for which CRM needs to access)</div><div>In the CRM settings of this email account, enable two-step authentication.</div><div>You do not need to create an application password.</div><div>After saving the settings, a gray button \"Get or update the upgrade token\" will appear in the top right corner.  </div><div>Click it and authenticate with the account owner.</div><div>After successful authentication, CRM will be able to send emails through this account.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": []
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 201,
+    "fields": {
+        "document": 65,
+        "title": "Deleting a memo",
+        "content": "<div>It is not recommended to delete memos.</div><div>You can select the status \"reviewed\" without taking a decision.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 202,
+    "fields": {
+        "document": 65,
+        "title": "You can set tasks for your subordinates",
+        "content": "<div>You can create a task for yourself or for your subordinates (personal or collective).</div><div>This is convenient, because the department head can see the tasks of his/her employees in addition to his/her own tasks and receive notifications about their fulfillment.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "chiefs"
+            ],
+            [
+                "department heads"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 203,
+    "fields": {
+        "document": 65,
+        "title": "Draft",
+        "content": "A memo saved with the status \"draft\" will be available only to its owner and CRM administrator.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 204,
+    "fields": {
+        "document": 66,
+        "title": "Public email domains",
+        "content": "",
+        "language_code": "ru",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 205,
+    "fields": {
+        "document": 66,
+        "title": "Public email domains",
+        "content": "<div>When a request is received, CRM tries to automatically identify the contact person and company.  </div><div>For this purpose, it uses, among other things, the domain of the e-mail specified in the request.  </div><div>If it is a public domain, for example, \"gmail.com\", in some cases the identification result will be incorrect.  </div><div>Since public domains can be used by many contact persons and even companies.</div><div>To avoid the mistake, domains added to the list of public domains are not used in the identification process.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 206,
+    "fields": {
+        "document": 67,
+        "title": "Stop phrases",
+        "content": "<div>To prevent CRM from creating Requests based on spam messages, add a phrase by which these messages can be identified.</div><div>Stop phrases can consist of one or more words.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 207,
+    "fields": {
+        "document": 68,
+        "title": "User roles",
+        "content": "<div>Regarding memos, there are the following CRM user roles:</div><div>- Owners - those who create memos.</div><div>- Recipients - those to whom the memos are intended.</div><div>- Subscribers - those who should be notified about the memo and possibly about the execution of a task created as a result of reviewing the memo.</div><div>- Task operators (not a mandatory role)  - task administrators with owner rights.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 208,
+    "fields": {
+        "document": 68,
+        "title": "Who can create memos",
+        "content": "Any CRM user can create memos.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 209,
+    "fields": {
+        "document": 68,
+        "title": "Who can be the recipient of a memo",
+        "content": "Recipients of memos can be department heads or company executives.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 210,
+    "fields": {
+        "document": 68,
+        "title": "Stages/status of the memo",
+        "content": "<div>When creating a memo, the owner can set the status to \"draft\".</div><div>In this case, the memo will be available only to its owner.</div><div>The following stages are provided for informing participants:</div><div>“pending”, “postponed”, “considered”.</div><div>The stage of the memo is changed by the recipient.</div><div>Once the \"reviewed\" stage is set, the owner of the memo loses the ability to make changes to it (including changing files).</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 211,
+    "fields": {
+        "document": 68,
+        "title": "Automatic CRM notifications",
+        "content": "<div>All participants are notified in CRM and by email when a memo is created and reviewed.</div><div>The memo chat messages are delivered in the same way.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 212,
+    "fields": {
+        "document": 68,
+        "title": "Memo chat",
+        "content": "<div>All participants can exchange messages and files in the memo chat.</div><div>For example, you can notify about changes that have occurred after reviewing a memo.</div><div>But if a task has been created as a result of the memo review, then messages should be exchanged in the task chat.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 6,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 213,
+    "fields": {
+        "document": 68,
+        "title": "Visual control of tasks created as a result of reviewing the memo",
+        "content": "<div>In the memo list, a \"view task\" button will appear next to the memos that resulted in the task.</div><div>The color of this button depends on the  task  stage.</div><div>Also the stage of the task will appear in the tooltip when you put the mouse cursor over this button.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 7,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 214,
+    "fields": {
+        "document": 69,
+        "title": "Deleting requests",
+        "content": "<div>Since requests are used in marketing analysis, deleting them is undesirable.</div><div>Only irrelevant requests should be deleted.</div><div>Operators and administrators have the right to delete requests, but not sales managers.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 215,
+    "fields": {
+        "document": 69,
+        "title": "Creating a deal",
+        "content": "<div>A deal should be created for all requests except duplicate requests.</div><div>Before creating a deal, you should fill in as many request fields as possible and check the correctness of the specified data.</div><div>Using this data, each time the request is saved, the objects of contact person, company and lead are searched in the database to establish relations.</div><div>These relations  will be passed to the deal.</div><div>If the relations are not established, the Lead will be created when creating the deal.</div><div><div>Before clicking the \"Create Deal\" button, you must select the sales manager from the \"owner\" drop-down menu,  who will work with this deal.</div></div><div>If the request status is set to \"duplicate\", then the deal will not be created.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 216,
+    "fields": {
+        "document": 69,
+        "title": "Name, patronymic, surname of the contact person",
+        "content": "<div>People's names can contain a different number of words.</div><div>The CRM saves the first word as a name when it is automatically defined.</div><div>The last word is saved as last name.</div><div>All words between the first and last word are saved as middle name.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 217,
+    "fields": {
+        "document": 69,
+        "title": "Algorithm for automatic search of Company and Contact Person",
+        "content": "<div>CRM searches the Contact, Lead, and Company databases each time a Request is saved.</div><div>The following are used for identification:</div><div>- first name,  </div><div>- Email,  </div><div>- phone number,  </div><div>- web site,  </div><div>- Email domain if it is not on a public domain list (such as 'gmail.com', 'yahoo.com', etc.).</div><div>- Company name,</div><div>- country.</div><div>When saving a Request with the status 'pending' removed, if a Company is found, a Contact will be created for it.</div><div>Otherwise, a Lead will be created.</div><div>A Deal will also be created and links to the Contact and Company or Lead will be passed to it.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 218,
+    "fields": {
+        "document": 70,
+        "title": "Mail in CRM",
+        "content": "<div>In this section you can view emails stored in the CRM database.</div><div>CRM sends and receives e-mails through user e-mail accounts.</div><div><br></div><div>Access to accounts must be configured by the CRM administrator.</div><div><br></div><div>CRM automatically imports text copies of emails containing CRM tickets from user accounts.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 219,
+    "fields": {
+        "document": 70,
+        "title": "Viewing original incoming e-mails",
+        "content": "<div>For a number of reasons, incoming emails are saved to the CRM database in text format.</div><div>Therefore, emails containing tables, images and complex HTML format may not be displayed correctly.</div><div>To view the original of such an email, use the button with the eye icon.</div><div>In this case, the e-mail will be downloaded from the user account, not from the CRM database.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 220,
+    "fields": {
+        "document": 71,
+        "title": "How to close a deal",
+        "content": "<div>When work on a deal is completed, it should be \"closed\".</div><div>To do this, select one of the values in the \"Reason for closing\" drop-down menu and save the deal.</div><div>It will disappear from the default list of deals.  </div><div>However, it will still be stored in the database and will be available when you change the filter of deals by activity to \"all\" or \"none\".</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ],
+            [
+                "chiefs"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 221,
+    "fields": {
+        "document": 72,
+        "title": "Banned company names",
+        "content": "<div>Sometimes spam sent through the contact form uses the same company name. Add it to the banned list.</div><div>This will prevent CRM from creating requests based on these messages.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 222,
+    "fields": {
+        "document": 73,
+        "title": "Overview",
+        "content": "<div>This application allows you to send company news by e-mail.</div><div>As recipients you can select companies, contacts or leads available in the CRM database.</div><div>Mailings are sent via email accounts of sales managers.</div><div>Recipients have an opportunity to unsubscribe from receiving such mailings.</div><div>To prevent blocking of email accounts, the following is provided:</div><div>- mailing using the main email account of sales managers is only sent to recipients marked as VIP;</div><div>- the number of mails sent through one account is limited and they are sent evenly during working hours.</div><div>On Friday, Saturday and Sunday the mailing is automatically suspended.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 223,
+    "fields": {
+        "document": 73,
+        "title": "How to create a mailing list",
+        "content": "<div>To create a mailing, you need to create a message</div><div>      Home ' Mass mail ' Email Messages</div><div><br></div><div><br></div><div>You will also need to have a signature for your emails</div><div>      Home ' Mass mail ' Signatures</div><div><br></div><div>Then, depending on the selected type of recipients, open the corresponding section. For example, for companies</div><div>      Home ' Crm ' Companies</div><div>The mailing can be created using the \"Create mailing\" button or using the drop-down menu of actions (for selected companies).</div><div>In the created mailing object select the prepared message to be sent and the signature.</div><div>Change the status to \"Active\" and save the mailing object.</div><div>The first emails will be sent in about 5 minutes.</div><div>To see the progress of the mailing, refresh the mailing page</div><div>      Home ' Mass mail ' Mailing Outs</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "operators"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 224,
+    "fields": {
+        "document": 74,
+        "title": "Shipments",
+        "content": "Only shipments with the specified contract ship date are available in this section.<br>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "managers"
+            ],
+            [
+                "chiefs"
+            ],
+            [
+                "accountants"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 228,
+    "fields": {
+        "document": 59,
+        "title": "Types of task",
+        "content": "<div>Tasks are personal and collective.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 1,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 229,
+    "fields": {
+        "document": 59,
+        "title": "User roles",
+        "content": "<div>Regarding Tasks, there are the following CRM user roles:</div><div>- Task owners and co-owners - those who create tasks.</div><div>- Responsible - executors.</div><div>- Subscribers - those who should be notified about task execution (besides task owners).</div><div>- Task Operators (optional role) - task administrators with owners' rights.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 2,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 230,
+    "fields": {
+        "document": 59,
+        "title": "Who can create tasks",
+        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a collective task, performers can create subtasks for each other.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 3,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 231,
+    "fields": {
+        "document": 59,
+        "title": "Task stages",
+        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by task owners or operator.</div><div>In a collective task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if the task is not completely completed, the owner can specify this in the \"next step\" field and change the \"completed\" stage to \"in progress\".</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 4,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 232,
+    "fields": {
+        "document": 59,
+        "title": "Automatic CRM notifications",
+        "content": "<div>All task participants are notified about task creation and its completion in CRM and by e-mail.</div><div>Task chat messages are delivered in the same way.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 5,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 233,
+    "fields": {
+        "document": 59,
+        "title": "Task chat",
+        "content": "<div>All task participants can exchange messages and files in the task chat.</div><div>For example, using the chat a subscriber can participate in discussion of the task progress or its results.</div><div>To create a message, you should press the \"Message +\" button and select recipients.</div><div>After the first message is created, the \"Chat\" button will appear next to this button.</div><div>This button allows the user to see all his correspondence.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 6,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 234,
+    "fields": {
+        "document": 59,
+        "title": "Working in a collective task",
+        "content": "<div>Working in a collective task.</div><div>The responsible of a collective task must create a subtask for themselves, and all other executors of the main task will be added as subscribers.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the responsible  may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this responsible.</div><div>The responsible  of a collective task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each responsible  has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 7,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 235,
+    "fields": {
+        "document": 59,
+        "title": "Task filters",
+        "content": "<div>To the right of the task list is the filters panel.</div><div>Filters help in searching for tasks.</div><div>They can also be used by company managers to see an employee's current task list.<br></div><div>Keep in mind that some filters have a default value.</div><div>For example, the default task list contains only active tasks.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 8,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 236,
+    "fields": {
+        "document": 59,
+        "title": "Tags",
+        "content": "<div>Users can create tags and</div><div>and label tasks with them.</div><div>For example, you can create a tag \"production meeting\" and tag tasks that need to be discussed at the next meeting.</div><div>Tasks can be filtered by any tag.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 9,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+},
+{
+    "model": "help.paragraph",
+    "pk": 237,
+    "fields": {
+        "document": 59,
+        "title": "Sorting tasks",
+        "content": "<div>By default, new tasks are placed at the top of the list.</div><div>This is convenient for novice users.</div><div>In the future it is recommended to use sorting by the date of the next step.</div><div>The default sorting can be switched by the trigger button in the upper right corner.</div>",
+        "language_code": "en",
+        "draft": false,
+        "verification_required": true,
+        "index_number": 10,
+        "link1": null,
+        "groups": [
+            [
+                "co-workers"
+            ]
+        ]
+    }
+}
+]

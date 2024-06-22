@@ -19,3 +19,4 @@ class Command(BaseCommand):
         call_command('loaddata', 'industry.json', verbosity=0)
         call_command('loaddata', 'lead_source.json', verbosity=0)
         call_command('loaddata', 'publicemaildomain.json', verbosity=0)
+        call_command('loaddata', 'help_en.json', verbosity=0)
