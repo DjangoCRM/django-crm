@@ -266,7 +266,6 @@ INDEX_TITLE = _('Main Menu')
 
 
 # This is copyright information. Please don't change it!
-COPYRIGHT_STRING = "Copyright (c) 2024 Vadym Kharchenko"
+COPYRIGHT_STRING = "Django-CRM. Copyright (c) 2024 Vadym Kharchenko"
 PROJECT_NAME = "Django-CRM"
 PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
-
