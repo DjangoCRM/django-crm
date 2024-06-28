@@ -1,4 +1,4 @@
-﻿# <a name="_1j2nz82cafxg"></a>Django-CRM
+﻿# Django-CRM
 
 *(Customer Relationship Management)*
 
@@ -17,7 +17,7 @@ All this ensures:
 
 The project code is stable (has been in practical use for many years).
 
-## <a name="_lut8yyphyz5w"></a>Main applications
+## Main applications
 CRM the project consists of the following **main applications**:
 
 - TASKS:
@@ -50,14 +50,14 @@ CRM the project consists of the following **main applications**:
   - Email Signatures;
   - Mailing Outs.
 
-## <a name="_4qdj55n3d9nr"></a>Supporting applications
+## Supporting applications
 The project also contains **supporting applications** such as:
 
 Chat, VoIP, Help, …
 
 In total, at the moment, there are 79 tables in the database.
 
-## <a name="_1ivb2zqc88l3"></a>Auxiliary functionality
+## Auxiliary functionality
 - Web form integration.
   - CRM form has built-in reCAPTCHA v3 protection;
   - Automatic detection of the country and city of the user who filled out the form;
@@ -66,23 +66,23 @@ In total, at the moment, there are 79 tables in the database.
 - Sending messages via messengers (like: Viber, WhatsApp, Skype).
 - Work with Excel files to import / export company contact details.
 
-## <a name="_pbnixmokjxq6"></a>Email client
+## Email client
 There is a built-in Email client using **SMTP** and **IMAP** protocols.
 Among other things, this allows the Django CRM to automatically save a copy of all correspondence for each request and deal in its database. Even if the correspondence was carried out in the user’s mail account (out of the CRM). The ticket mechanism is used for this.
 
 CRM is able to work with email accounts **protected by two-factor authentication,** like gmail.
 
-## <a name="_aao76z38b40y"></a>User Assistance
+## User Assistance
 - On the CRM pages, there is a link to a help page.
   Help pages are dynamic. Their content depends on the user's role.
 - Tooltips appear when you hover the mouse over many page elements, such as icons, buttons, links, table headings, etc.
 - There is also a user guide file.
 
-## <a name="_14d3vmjc7j3f"></a>Project localization
+## Project localization
 
 Django CRM has [full support](https://docs.djangoproject.com/en/dev/topics/i18n/) for translation of interface, formatting of dates, times and time zones.
 
-## <a name="_gho5ftcpdfoq"></a>Getting started
+## Getting started
 
 This project is deployed as a regular django project.
 
@@ -90,10 +90,10 @@ Please refer to:
 - the CRM  installation and configuration guide;
 - the Django-CRM user guide.
 
-## <a name="_eug0qcvc0jxj"></a>Contributing
+## Contributing
 Any type of contributions are welcome.
 
-## <a name="_y1bcb2krtrk"></a>Credits
+## Credits
 
 - Uses Google material [icons](https://fonts.google.com/icons).
 - Includes [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
