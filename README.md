@@ -87,7 +87,7 @@ Django CRM has [full support](https://docs.djangoproject.com/en/dev/topics/i18n/
 This project is deployed as a regular django project.
 
 Please refer to:
-- the CRM  installation and configuration guide;
+- [the CRM installation and configuration guide](docs/installation_and_configuration_guide.md);
 - the Django-CRM user guide.
 
 ## Contributing
