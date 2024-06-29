@@ -47,7 +47,7 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (Customer Relationship Management)  is an open source web application.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (Customer Relationship Management) is an open source web application.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
@@ -77,7 +77,7 @@ To use all the features of these applications, you need to set up CRM integratio
 
 ## Download the project
 
-Download or clone the latest version of Django-CRM from Github.
+Download or clone the latest version of Django-CRM from GitHub.
 
  <https://github.com/DjangoCRM/django-crm/>
 
@@ -132,10 +132,10 @@ Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/
 ### For MySQL database, it is recommended to:  
 - setup the timezone table;  
 - sset the extended encoding:
-  - scharset 'utf8mb4'
-  - scollation  'utf8mb4_general_ci'
+  - charset 'utf8mb4'
+  - collation  'utf8mb4_general_ci'
 
-And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to 'ONLY_FULL_GROUP_BY'.
+And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to "ONLY_FULL_GROUP_BY".
 
 ### Optimizing PostgreSQL's configuration.
 You'll need the [psycopg](https://www.psycopg.org/psycopg3/) or [psycopg2](https://www.psycopg.org/) package.
@@ -183,7 +183,7 @@ python manage.py test --noinput
 
 ## Installing the initial data
 
-To fill CRM with initial data you need to execute the command "setupdata" in the root directory of the project:  
+To fill CRM with initial data, you need to execute the command "setupdata" in the root directory of the project:  
 ```
 python manage.py setupdata
 ```
@@ -216,7 +216,7 @@ To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a 
 
 In the SITES section for administrators (superusers):  
 `(ADMIN site) Home > Sites > Sites`  
-Add a CRM  site and specify its domain name.
+Add a CRM site and specify its domain name.
 
 ## Ability to translate Django CRM interface into another language
 
@@ -224,7 +224,7 @@ Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/d
 The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:    
 `webcrm/settings.py`
 
-Add the desired language, e.g. German:  
+Add the desired language, e.g., German:  
 ```
 LANGUAGES = [
     ("de", _("German")),
@@ -264,7 +264,7 @@ Please review the following sections before adding users.
 
 ### Permissions for users
 
-There are four permissions for users in relation to objects (e.g. Tasks, Deals, etc.):  
+There are four permissions for users in relation to objects (e.g., Tasks, Deals, etc.):  
 - add (create),
 - view,
 - change,
@@ -334,7 +334,7 @@ CRM may contain commercial information or confidential information. Therefore, a
 The rights can be permanent or dynamic.  
 For example, if a company has two sales departments, sales managers can always see only objects (Requests, Deals, Reports, etc.) related to their department.
 
-Dynamic rights can depend on many factors. For example, the value of filters. Even company managers or CRM administrators who can see all objects will not be able to see an object belonging to a department different from the current one selected in the department filter. In order to see this object, you need to select the corresponding department in the filter or select the "all" value.
+Dynamic rights can depend on many factors. For example, the value of filters. Even company managers or CRM administrators who can see all objects will not be able to see an object belonging to a department different from the current one selected in the department filter. To see this object, you need to select the corresponding department in the filter or select the "all" value.
 
 ## Helping users to master Django CRM
 
@@ -344,7 +344,7 @@ Before starting to work in Django CRM, users should be informed about the follow
 - Many page elements such as buttons, icons, links have tooltips. To do this, you need to hover the mouse cursor over them.  
 It is also important for the administrator to help users to master the CRM.
 
-**Pay attention!** Help pages are dynamic. Their content depends on the user's role. Users who are assigned rights individually (without role assignment) will not be able to access the help page. Such users should be instructed to work in CRM by the administrator.
+**Pay attention!** Help pages are dynamic. Their content depends on the user's role. Users who are assigned rights individually (without a role assignment) will not be able to access the help page. Such users should be instructed to work in CRM by the administrator.
 
 ## Setting up adding commercial requests in Django CRM
 
@@ -362,7 +362,7 @@ CRM automatically assigns the owner of the imported request to the owner of the 
 `(ADMIN) Home > Crm > Lead Sources`  
 For marketing purposes, each "Request", "Lead", "Contact" and "Company" has a link to the corresponding "Lead Source".  
 Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
-For convenience, CRM has a number of pre-defined "Leads Source". These can be edited.
+For convenience, CRM has a number of pre-defined "Leads Sources". These can be edited.
 Each "Lead Source" has a link to a "Department". Therefore, each department can have its own set of lead sources.  
 The "Form template name" and "Success page template name" fields are only populated when [adding a custom iframe form](#adding-a-custom-form-for-iframe).  
 The "Email" field is only specified in the "Lead Source" of your website. You need to specify the Email value indicated on your site.
@@ -411,7 +411,7 @@ To activate it, specify the values of keys received during registration on this 
 
 #### Activation of geolocation of the country and city of the counterparty by its IP
 
-CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP. For this purpose GeoIP2 module is used.  
+CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP.  For this purpose, GeoIP2 module is used.  
 To activate its work:
 
 - save the [MaxMind](https://dev.maxmind.com/geoip/docs/databases) files of the city and country databases (GeoLite2-Country.mmdb and GeoLite2-City.mmdb) to the media/geodb directory;
@@ -446,7 +446,7 @@ Mass mailing can be sent through all accounts marked "Massmail".
 #### "Do import"
 The mark "Do import" should be made for accounts through which managers conduct business correspondence or for accounts specified on the company's website, as they may receive requests from customers.
 #### "Email app password"
-The "Email app password" field value is specified for those accounts where you can set a password for applications. In this case CRM will use it when logging in to the user account.
+The "Email app password" field value is specified for those accounts where you can set a password for applications.  In this case, CRM will use it when logging in to the user account.
 
 #### Section "Service information"
 This section displays statistics and service information of CRM activity in this account.
@@ -472,7 +472,7 @@ Visit the [Google API Console](https://console.developers.google.com/). Create "
  for "Web application" to specify the Authorized redirect URI in the format:  
  `https://<yourCRM.domain>/OAuth-2/authorize/?user=<box_name>@gmail.com`
 
-And also get the credentials OAuth 2.0  "CLIENT_ID" and "CLIENT_SECRET". Save them in the project settings  
+And also get the credentials OAuth 2.0 "CLIENT_ID" and "CLIENT_SECRET". Save them in the project settings  
 `<crmproject>/webcrm/settings.py`
 
 Then on the desired "Email Account" page  
@@ -498,7 +498,7 @@ But it is also possible to configure CRM to automatically receive accurate excha
 To do this, you need to create a backend file, put it in the directory  
 `crm/backends`  
 You can use already existing backends as a basis.  
-Then in the settings file specify the name of the backend class in the setting  
+Then in the settings file, specify the name of the backend class in the setting  
 LOAD_RATE_BACKEND
 
 ## Newsletter
@@ -511,7 +511,7 @@ The Massmail application requires:
 - configured [email accounts](#setting-up-email-accounts) for sales managers (marked "Massmail");
 
 The application provides recipients with an opportunity to unsubscribe from mailings.  
-In order not to disclose the address of your CRM (on the Internet) it is necessary to create a page on your company's website, where users who clicked the "unsubscribe" button will be forwarded. This page should show a message that the user unsubscribed successfully.
+In order not to disclose the address of your CRM (on the Internet), it is necessary to create a page on your company's website, where users who clicked the "unsubscribe" button will be forwarded.  This page should show a message that the user unsubscribed successfully.
 The address of this page should be specified in the settings (massmail/settings.py)  
 `UNSUBSCRIBE_URL = 'https://<www.your_site.com>/unsubscribe'`
 
@@ -520,7 +520,7 @@ Each message template must contain the UNSUBSCRIBE button with this url.
 ## VoIP telephony
 
 A properly configured application allows you to make calls directly from Django CRM.
-This application allows you to integrate CRM with the services of VoIP provider ZADARMA. But, it can also be used to create integration files with other providers.
+This application allows you to integrate CRM with the services of VoIP provider ZADARMA.  But it can also be used to create integration files with other providers.
 
 It is necessary to receive from the provider (zadarma.com) and to specify in voip/settings.py file the following values: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
 FORWARD settings are specified independently, but only if you have a second instance of working CRM (for example, for a subsidiary company).
@@ -535,5 +535,5 @@ And also add provider data to the VOIP list in the file
 
 ## CRM integration with messengers
 
-Django CRM has the ability to send messages via messengers. Such as:  
+Django CRM has the ability to send messages via messengers.  Such as  
 Viber, WhatsApp, Skype. To do this, these applications must be installed on the user's device.
