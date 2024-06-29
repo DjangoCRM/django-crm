@@ -88,7 +88,7 @@ This project is deployed as a regular django project.
 
 Please refer to:
 - [the CRM installation and configuration guide](docs/installation_and_configuration_guide.md);
-- the Django-CRM user guide.
+- [the Django-CRM user guide](docs/django-crm_user_guide.md).
 
 ## Contributing
 All types of contributions are welcome.
