@@ -2,7 +2,7 @@
 
 *(Customer Relationship Management)*
 
-The use of CRM by companies allows them to improve the sales performance of their products and services. The more complex and time-consuming the sales process is, the greater the improvement.
+The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.
 
 ![](docs/pics/deals_screenshot.png)
 Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
@@ -91,7 +91,7 @@ Please refer to:
 - the Django-CRM user guide.
 
 ## Contributing
-Any type of contributions are welcome.
+All types of contributions are welcome.
 
 ## Credits
 
