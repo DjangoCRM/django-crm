@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.contrib import admin
 from django.db.models import Q
+from django.urls import reverse
 from django.utils import translation
 from django.utils.safestring import mark_safe
 
@@ -17,10 +18,11 @@ class ParagraphInlineForm(forms.ModelForm):
 
 class ParagraphInline(admin.StackedInline):
     extra = 0
-    fields = ('html',)
+    empty_value_display = ""
+    fields = ['safe_content', 'links']
     form = ParagraphInlineForm
     model = Paragraph
-    readonly_fields = ('content', 'html')
+    readonly_fields = ('content', 'safe_content', 'links')
     template = "admin/help/stacked.html"
 
     # -- ModelAdmin methods -- #
@@ -56,9 +58,20 @@ class ParagraphInline(admin.StackedInline):
     # -- ModelAdmin Callables -- #
     
     @admin.display(description='')
-    def html(self, obj):
+    def safe_content(self, obj):
         html = obj.content.replace(
             'SECRET_CRM_PREFIX/',
             settings.SECRET_CRM_PREFIX
         )
         return mark_safe(html)
+
+    @admin.display(description='')
+    def links(self, obj):
+        paragraph = Paragraph.objects.get(id=obj.link1_id)
+        anchor = f"#paragraph-{paragraph.id}"
+        page_id = paragraph.document_id
+        url = reverse("site:help_page_change", args=(page_id,))
+        title = paragraph.title
+        return mark_safe(
+            f'<a href={url + anchor}>{title}</a>'
+        )
