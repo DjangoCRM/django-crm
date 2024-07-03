@@ -152,7 +152,7 @@ def get_email_headers_page(ea: EmailAccount, page_num) -> tuple:
             crmimap.release()
             return page, crmimap.error
 
-        # Unfortunately the SORT command is not supported by all servers
+        # Unfortunately, the SORT command is not supported by all servers
         # result, data = imap.uid('SORT', '(REVERSE ARRIVAL)', 'UTF-8', 'All')
         result, data, err = crmimap.search('UNSEEN')
         if result != 'OK':
@@ -166,8 +166,11 @@ def get_email_headers_page(ea: EmailAccount, page_num) -> tuple:
             crmimap.release()
             return data, err
         if data:
-            uid_list = data[0].split()
-            uid_list.sort(key=lambda x: int(x), reverse=True)
+            if data != [b'']:
+                uid_list = data[0].split()
+                uid_list.sort(key=lambda x: int(x), reverse=True)
+            else:
+                uid_list = []
             paginator = Paginator(uid_list, per_page)
             try:
                 page = paginator.get_page(page_num + 1)  # uids
@@ -175,39 +178,42 @@ def get_email_headers_page(ea: EmailAccount, page_num) -> tuple:
                 page = paginator.page(paginator.num_pages)
             uids_str = b','.join(page)
 
-        result, data, err = crmimap.uid_fetch(uids_str, '(BODY.PEEK[HEADER])')
-        crmimap.release()
-        if result == 'OK' and data:
-            # emails = []
-            parser = BytesHeaderParser(policy=email.policy.compat32)
-            for item in data:
-                if isinstance(item, tuple):
-                    uid = item[0].split(b'UID ')[1].split()[0]
-                    msg = parser.parsebytes(item[1])
-                    subject = ensure_decoding(msg["Subject"])
-                    subject = subject if subject else gettext('No subject')
-                    date = get_email_date(msg)
-                    url = reverse('view_original_email_uid', args=(ea.id, int(uid)))
-                    win_id = 'Window' + uid.decode()
-                    onclick = popup_window(url, win_id)
-                    subject_str = mark_safe(
-                        f'<a href="#" onClick="{onclick}">{subject}</a>'
-                    )
-                    is_exists = CrmEmail.objects.filter(
-                        incoming=True,
-                        creation_date=date,
-                        email_host_user=ea.email_host_user
-                    ).exists()
-                    emails.append({
-                        'subject': subject_str,
-                        'from': ensure_decoding(msg['From']),
-                        'to': ensure_decoding(msg['To']),
-                        'date': date,
-                        'uid': int(uid),
-                        'is_exists': is_exists,
-                        'unseen': uid in unseen_list
-                    })
-                emails.sort(key=lambda x: x['uid'], reverse=True)
+        if uids_str:
+            result, data, err = crmimap.uid_fetch(uids_str, '(BODY.PEEK[HEADER])')
+            crmimap.release()
+            if result == 'OK' and data:
+                # emails = []
+                parser = BytesHeaderParser(policy=email.policy.compat32)
+                for item in data:
+                    if isinstance(item, tuple):
+                        uid = item[0].split(b'UID ')[1].split()[0]
+                        msg = parser.parsebytes(item[1])
+                        subject = ensure_decoding(msg["Subject"])
+                        subject = subject if subject else gettext('No subject')
+                        date = get_email_date(msg)
+                        url = reverse('view_original_email_uid', args=(ea.id, int(uid)))
+                        win_id = 'Window' + uid.decode()
+                        onclick = popup_window(url, win_id)
+                        subject_str = mark_safe(
+                            f'<a href="#" onClick="{onclick}">{subject}</a>'
+                        )
+                        is_exists = CrmEmail.objects.filter(
+                            incoming=True,
+                            creation_date=date,
+                            email_host_user=ea.email_host_user
+                        ).exists()
+                        emails.append({
+                            'subject': subject_str,
+                            'from': ensure_decoding(msg['From']),
+                            'to': ensure_decoding(msg['To']),
+                            'date': date,
+                            'uid': int(uid),
+                            'is_exists': is_exists,
+                            'unseen': uid in unseen_list
+                        })
+                    emails.sort(key=lambda x: x['uid'], reverse=True)
+            else:
+                crmimap.release()
     else:
         paginator = Paginator([], per_page)
         page = paginator.get_page(page_num + 1)
