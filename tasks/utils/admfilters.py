@@ -23,13 +23,22 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
             qs = qs.filter(task__id__exact=task_id)
         if project_id:
             qs = qs.filter(project__id__exact=project_id)
-        if not request.user.is_chief or any((task_id, project_id)):
-            owner_lookups = self.get_owner_lookups(qs)
-            lookups = [(None, _('All')), *owner_lookups]
+
+        excluded_qs = qs.exclude(owner=request.user)
+        owner_lookups = self.get_owner_lookups(excluded_qs)
+        if request.user.is_chief:
+            lookups = [('all', _('All')), *owner_lookups]
+            if qs.filter(owner=request.user).exists():
+                lookups.insert(
+                    1, (None, request.user.username)
+                )
         else:
-            excluded_qs = qs.exclude(owner=request.user)
-            owner_lookups = self.get_owner_lookups(excluded_qs)
-            lookups = [('all', _('All')), (None, request.user.username), *owner_lookups]
+
+            lookups = [(None, _('All')), *owner_lookups]
+            if qs.filter(owner=request.user).exists():
+                lookups.insert(
+                    1, (request.user.username, request.user.username)
+                )
 
         if qs.filter(owner=None).exists():
             lookups.append(('IsNull', LEADERS))
