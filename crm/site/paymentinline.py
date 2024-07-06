@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext_lazy as _
 
 from crm.models import Payment
 from crm.site.crmstackedinline import CrmStackedInline
@@ -22,14 +21,13 @@ class PaymentInline(CrmStackedInline):
     name_plural = model._meta.verbose_name_plural
     verbose_name_plural = mark_safe(f'{icon} {name_plural}')
 
-
     def get_fieldsets(self, request, obj=None):
         fieldsets = [
             (None, {
                 'fields': [
-                ('amount', 'currency'),
-                ('payment_date', 'status'),
-                ('contract_number', 'invoice_number'),
+                    ('amount', 'currency'),
+                    ('payment_date', 'status'),
+                    ('contract_number', 'invoice_number'),
                 ]
             }),
         ]
@@ -40,5 +38,5 @@ class PaymentInline(CrmStackedInline):
         return fieldsets
 
     def get_formset(self, request, obj=None, **kwargs):
-        self.parent_obj = obj   # NOQA
+        self.parent_obj = obj  # NOQA
         return super().get_formset(request, obj, **kwargs)
