@@ -50,8 +50,8 @@ from tasks.models import Memo
 
 closing_date_str = _("Closing date")
 closing_date_safe_icon = mark_safe(
-        f'<i class="material-icons" title="{closing_date_str}" '
-        f'style="color: var(--body-quiet-color)">event_busy</i>'
+    f'<i class="material-icons" title="{closing_date_str}" '
+    f'style="color: var(--body-quiet-color)">event_busy</i>'
 )
 icon_str = '<i class="material-icons" style="color: var(--body-quiet-color)">{}</i>'
 contact_tip = _("View Contact in new tab")
@@ -62,23 +62,23 @@ deal_counter_title = _("Deal counter")
 lead_tip = _("View Lead in new tab")
 unanswered_email_str = _('Unanswered email')
 mail_outline_small_icon = f'<i class="material-icons" title="{unanswered_email_str}" ' \
-                   f'style="font-size:small;color: var(--body-quiet-color)">mail_outline</i>'
+                          f'style="font-size:small;color: var(--body-quiet-color)">mail_outline</i>'
 mail_outline_safe_icon = mark_safe(icon_str.format('mail_outline'))
 unread_chat_message_str = _('Unread chat message')
 message_icon = f'<i class="material-icons" title="{unread_chat_message_str}" ' \
-                   f'style="font-size:small;color: var(--error-fg)">message</i>'
+               f'style="font-size:small;color: var(--error-fg)">message</i>'
 payment_received_str = _('Payment received')
 payment_received_icon = f'<i class="material-icons" title="{payment_received_str}" ' \
-        f'style="font-size:small;color:green">payments</i>'
-specify_shipment_str = _('Specify the date of shipment')        
+                        f'style="font-size:small;color:green">payments</i>'
+specify_shipment_str = _('Specify the date of shipment')
 local_shipping_icon = f'<i class="material-icons" title="{specify_shipment_str}" ' \
-                       f'style="font-size:small;color: var(--body-quiet-color)">local_shipping</i>'
+                      f'style="font-size:small;color: var(--body-quiet-color)">local_shipping</i>'
 specify_products_str = _('Specify products')
 add_shopping_cart_icon = f'<i class="material-icons" title="{specify_products_str}" ' \
-                       f'style="font-size:small;color: var(--error-fg)">add_shopping_cart</i>'
+                         f'style="font-size:small;color: var(--error-fg)">add_shopping_cart</i>'
 expired_shipment_date_str = _('Expired shipment date')
 expired_local_shipping_icon = f'<i class="material-icons" title="{expired_shipment_date_str}" ' \
-                   f'style="font-size:small;color: var(--error-fg)">local_shipping</i>'
+                              f'style="font-size:small;color: var(--error-fg)">local_shipping</i>'
 perm_phone_msg_safe_icon = mark_safe(icon_str.format('perm_phone_msg'))
 person_outline_safe_icon = mark_safe(icon_str.format('person_outline'))
 textarea_tag = '<textarea name="description" cols="80" rows="5" class="vLargeTextField">{}</textarea>'
@@ -131,6 +131,19 @@ class DealAdmin(CrmModelAdmin):
 
     # -- ModelAdmin methods -- #
 
+    def _create_formsets(self, request, obj, change):
+        formsets, inline_instances = super()._create_formsets(request, obj, change)
+        p = Payment.objects.filter(deal=obj).last()
+        if p:
+            # change initial data for an empty inline form of payment
+            d = formsets[1].empty_form.base_fields
+            d['amount'].initial = p.amount
+            d['contract_number'].initial = p.contract_number
+            d['invoice_number'].initial = p.invoice_number
+            d['order_number'].initial = p.order_number
+            d['through_representation'].initial = p.through_representation
+        return formsets, inline_instances
+
     def change_view(self, request, object_id, form_url='', extra_context=None):
         extra_context = extra_context or {}
         extra_context['emails'] = self.get_latest_emails('deal_id', object_id)
@@ -160,7 +173,7 @@ class DealAdmin(CrmModelAdmin):
         if settings.USE_I18N:
             for inline in self.inlines:
                 inline.verbose_name_plural = mark_safe(
-                    f'{inline.icon} {inline.model._meta.verbose_name_plural}'   # NOQA
+                    f'{inline.icon} {inline.model._meta.verbose_name_plural}'  # NOQA
                 )
         return super().change_view(
             request, object_id, form_url, extra_context=extra_context,
@@ -175,10 +188,10 @@ class DealAdmin(CrmModelAdmin):
         extra_context['request_add_url'] = url
         has_add_permission = request.user.has_perm('crm.add_request')
         extra_context['has_add_request_permission'] = has_add_permission
-                
+
         func = getattr(self.__class__, 'dynamic_name')
         title = gettext(
-            self.model._meta.get_field("name").help_text._args[0]      # NOQA
+            self.model._meta.get_field("name").help_text._args[0]  # NOQA
         )
         func.short_description = mark_safe(
             f'<i title="{title}" class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
@@ -190,7 +203,7 @@ class DealAdmin(CrmModelAdmin):
         if db_field.name == "stage":
             kwargs["empty_label"] = None
             if db_field.name == 'currency':
-                set_currency_initial(request, kwargs)        
+                set_currency_initial(request, kwargs)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def get_fieldsets(self, request, obj=None):
@@ -285,10 +298,10 @@ class DealAdmin(CrmModelAdmin):
 
     def get_ordering(self, request):
         if hasattr(request, 'session') and \
-            "deal_step_date_sorting" in request.session:
+                "deal_step_date_sorting" in request.session:
             return 'next_step_date',
         return '-id',
-    
+
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         newest = CrmEmail.objects.filter(
@@ -439,8 +452,8 @@ class DealAdmin(CrmModelAdmin):
                 obj.lead.save()
         if change:
             if obj.stage and obj.stage == Stage.objects.get(
-                default=True,
-                department=obj.department
+                    default=True,
+                    department=obj.department
             ):
                 second_default_stage = Stage.objects.filter(
                     second_default=True,
@@ -488,7 +501,7 @@ class DealAdmin(CrmModelAdmin):
             else:
                 url = reverse("site:crm_deal_changelist")
                 _thread_local.deal_changelist_url = url
-            url += f"?{counterparty._meta.model_name}={counterparty.id}&active=all"     # NOQA
+            url += f"?{counterparty._meta.model_name}={counterparty.id}&active=all"  # NOQA
             name = counterparty.full_name
             if obj.department:
 
@@ -508,16 +521,16 @@ class DealAdmin(CrmModelAdmin):
         if obj.id:
             recipient = title = ''
             if getattr(obj.contact, 'email', None):
-                recipient = obj.contact._meta.model_name    # NOQA
+                recipient = obj.contact._meta.model_name  # NOQA
                 title = _("Create Email to Contact")
             elif getattr(obj.lead, 'email', None):
-                recipient = obj.lead._meta.model_name       # NOQA
+                recipient = obj.lead._meta.model_name  # NOQA
                 title = _("Create Email to Lead")
             if recipient:
                 url = reverse(
                     'create_email', args=(obj.id,)
                 ) + f"?object=deal&recipient={recipient}"
-                if url: 
+                if url:
                     return mark_safe(
                         f'<ul class="object-tools" style="margin-left: 0px;margin-top: 0px;">\
                         <li><a title="{title}" href="#" onClick="{popup_window(url)}"> '
@@ -636,7 +649,7 @@ class DealAdmin(CrmModelAdmin):
     )
     def rel(self, obj):
         return obj.relevant
-    
+
     @admin.display(
         description=closing_date_safe_icon,
         ordering='closing_date'
