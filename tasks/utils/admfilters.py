@@ -33,7 +33,6 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
                     1, (None, request.user.username)
                 )
         else:
-
             lookups = [(None, _('All')), *owner_lookups]
             if qs.filter(owner=request.user).exists():
                 lookups.insert(
@@ -44,6 +43,7 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
             lookups.append(('IsNull', LEADERS))
         if len(lookups) > 9:
             self.template = "crm/filter_scroll.html"
+
         return lookups
 
     def queryset(self, request, queryset):
@@ -91,23 +91,33 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
     def lookups(self, request, model_admin):
         task_id = request.GET.get('task__id__exact')
         project_id = request.GET.get('project__id__exact')
+        owner = request.GET.get('owner')
         qs = model_admin.get_queryset(request)
         if task_id:
             qs = qs.filter(task__id__exact=task_id)
         if project_id:
             qs = qs.filter(project__id__exact=project_id)
-            
+        if owner:
+            qs = qs.filter(owner__username=owner)
+
         filtered_qs = qs.filter(responsible=OuterRef('pk'))
         responsible = USER_MODEL.objects.annotate(
             user_exists=Exists(filtered_qs)
         ).filter(user_exists=True).order_by('username')
-        
+        excluded_qs = responsible.exclude(id=request.user.id)
+        resp_lookups = ((x.username, x.username) for x in excluded_qs)
         if any((task_id, project_id)):
-            lookups = [(None, _('All')), *((x.username, x.username) for x in responsible)]
+            lookups = [(None, _('All')), *resp_lookups]
         else:
-            responsible = responsible.exclude(id=request.user.id)
-            lookups = [('all', _('All')), (None, request.user.username),
-                       *((x.username, x.username) for x in responsible)]
+            username = request.user.username
+            if request.user.is_chief:
+                lookups = [(None, _('All')), *resp_lookups]
+                if responsible.filter(id=request.user.id).exists():
+                    lookups.insert(1, (username, username))
+            else:
+                lookups = [('all', _('All')), *resp_lookups]
+                if responsible.filter(id=request.user.id).exists():
+                    lookups.insert(1, (None, username))
         if qs.filter(responsible=None).exists():
             lookups.append(('IsNull', LEADERS))
         return lookups
@@ -125,6 +135,7 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
             username = request.user.username
             if queryset.filter(responsible__username=username).exists():
                 return queryset.filter(responsible__username=username)
+
             return queryset
 
         if value == 'all':
