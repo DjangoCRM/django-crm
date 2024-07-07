@@ -57,7 +57,7 @@ Chat, VoIP, Help, …
 
 In total, at the moment, there are 79 tables in the database.
 
-## Auxiliary functionality
+## Additional functionality
 - Web form integration.
   - CRM form has built-in reCAPTCHA v3 protection;
   - Automatic detection of the country and city of the user who filled out the form;
@@ -89,6 +89,11 @@ This project is deployed as a regular django project.
 Please refer to:
 - [the CRM installation and configuration guide](docs/installation_and_configuration_guide.md);
 - [the Django-CRM user guide](docs/django-crm_user_guide.md).
+
+Compatibility  
+- Django 5.0.x
+- Python 3.9+
+- MySQL 8.0.11+ and PostgreSQL 12+
 
 ## Contributing
 All types of contributions are welcome.
