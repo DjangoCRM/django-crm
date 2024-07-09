@@ -159,6 +159,7 @@ class ParagraphAdmin(admin.ModelAdmin):
     )
     raw_id_fields = ('document',)
     save_on_top = True
+    search_fields = ('content', 'title')
 
 
 admin.site.register(Page, PageAdmin)
