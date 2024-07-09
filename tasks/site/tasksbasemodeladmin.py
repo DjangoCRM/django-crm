@@ -646,7 +646,10 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
 
     recipient_list = []
     if obj.__class__ == Task:
-        task_is_closed_str = _("The task is closed")
+        if obj.task:
+            task_is_closed_str = _("The subtask is closed")
+        else:
+            task_is_closed_str = _("The task is closed")
     else:
         task_is_closed_str = _("The project is closed")
     subscribers = obj.subscribers.all()
