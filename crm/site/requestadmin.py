@@ -152,7 +152,7 @@ class RequestAdmin(CrmModelAdmin):
         if request.method == "POST" and '_create-deal' in request.POST:
             department_id = request.user.department_id
             works_globally = Department.objects.get(
-                    id=department_id).works_globally
+                id=department_id).works_globally
             if works_globally:
                 form.country_must_be_specified = True
         return form
@@ -270,6 +270,13 @@ class RequestAdmin(CrmModelAdmin):
                 if obj.deal:
                     _notify_deal_owners(request, obj)
 
+        if 'contact' in form.changed_data and obj.contact and obj.deal:
+            _update_deal_attr(obj, 'contact')
+        if 'lead' in form.changed_data and obj.lead and obj.deal:
+            _update_deal_attr(obj, 'lead')
+        if 'company' in form.changed_data and obj.company and obj.deal:
+            _update_deal_attr(obj, 'company')
+
     # -- ModelAdmin callables -- #
 
     @admin.display(description=get_counterparty_header())
@@ -281,7 +288,7 @@ class RequestAdmin(CrmModelAdmin):
             else:
                 url = reverse("site:crm_request_changelist")
                 _thread_local.deal_changelist_url = url
-            url += f"?{counterparty._meta.model_name}={counterparty.id}"    # NOQA
+            url += f"?{counterparty._meta.model_name}={counterparty.id}"  # NOQA
             link = f'<a href="{url}">{counterparty.full_name}</a>'
         else:
             link = obj.company_name
@@ -296,8 +303,8 @@ class RequestAdmin(CrmModelAdmin):
                 loyalty_icon.format(subsequent_title)
             )
         return mark_safe(
-                primary_icon.format(primary_title)
-            )
+            primary_icon.format(primary_title)
+        )
 
     @staticmethod
     @admin.display(description='')
@@ -391,9 +398,9 @@ def _get_or_create_deal(obj: Request, request: WSGIRequest) -> Deal:
             stages_dates=f'{date} - {stage}\n',
             workflow=f'{date} - {msg}\n'
         )
-        if request.user.department_id:          # NOQA
+        if request.user.department_id:  # NOQA
             deal.currency_id = Department.objects.get(
-                id=request.user.department_id   # NOQA
+                id=request.user.department_id  # NOQA
             ).default_currency_id
         else:
             deal.currency_id = Currency.objects.get(
@@ -449,6 +456,11 @@ def notify_request_owners(obj: Request) -> None:
     if obj.co_owner:
         subject = compose_subject(obj, REQUEST_CO_OWNER_NOTICE)
         notify_user(obj, obj.co_owner, subject)
+
+
+def _update_deal_attr(obj: Request, attr: str) -> None:
+    setattr(obj.deal, attr, getattr(obj, attr))
+    obj.deal.save(update_fields=[attr])
 
 
 def _update_request_email(obj: Request) -> None:
