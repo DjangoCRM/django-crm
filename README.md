@@ -3,7 +3,7 @@
 *(Customer Relationship Management)*
 
 The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
-This CRM is designed for individual use by your company. Access to your company's business data remains solely under your control.
+This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by your company. Access to your company's business data remains solely under your control.
 
 
 ![](docs/pics/deals_screenshot.png)
