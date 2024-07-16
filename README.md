@@ -94,7 +94,7 @@ Please refer to:
 
 Compatibility  
 - Django 5.0.x
-- Python 3.9+
+- Python 3.10+
 - MySQL 8.0.11+ and PostgreSQL 12+
 
 ## Contributing
