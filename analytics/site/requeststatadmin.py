@@ -12,6 +12,7 @@ from django.utils.translation import gettext
 
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_values_over_time
+from common.models import Department
 from crm.utils.admfilters import ByOwnerFilter
 
 page_title = _("Request source statistics")
@@ -122,44 +123,47 @@ class RequestStatAdmin(BaseRequestStatAdmin):
         )
         response.context_data['page_title'] = self.page_title
 
-        # Summary over country
+        # Summary over countries
+        department_id = request.GET.get(
+            'department') or request.user.department_id     # NOQA
+        if department_id and department_id != 'all':
+            if Department.objects.get(id=department_id).works_globally:
+                requests = queryset
+                summary_over_country = requests.values('country__name').annotate(
+                    request_total=Count('pk'),
+                    won_deals_total=Count(
+                        'pk',
+                        filter=Q(deal__closing_reason__success_reason=True)
+                        | Q(deal__stage__conditional_success_stage=True)
+                    ),
+                    year_request_total=Count('pk', filter=Q(creation_date__gte=self.year_ago_date)),
+                    year_won_deals_total=Count(
+                        'pk',
+                        filter=(Q(deal__closing_reason__success_reason=True)
+                                | Q(deal__stage__conditional_success_stage=True))
+                        & Q(creation_date__gte=self.year_ago_date)
+                    ),
+                    conversion=Round(
+                        F('won_deals_total') * 100 / F('request_total'),
+                        precision=1, output_field=FloatField()
+                    ),
+                    year_conversion=Round(
+                        F('year_won_deals_total') * 100 / F('year_request_total'),
+                        precision=1, output_field=FloatField()
+                    )
+                ).order_by('-request_total', 'country__name')
 
-        requests = queryset
-        summary_over_country = requests.values('country__name').annotate(
-            request_total=Count('pk'),
-            won_deals_total=Count(
-                'pk',
-                filter=Q(deal__closing_reason__success_reason=True)
-                | Q(deal__stage__conditional_success_stage=True)
-            ),
-            year_request_total=Count('pk', filter=Q(creation_date__gte=self.year_ago_date)),
-            year_won_deals_total=Count(
-                'pk',
-                filter=(Q(deal__closing_reason__success_reason=True)
-                        | Q(deal__stage__conditional_success_stage=True))
-                & Q(creation_date__gte=self.year_ago_date)
-            ),
-            conversion=Round(
-                F('won_deals_total') * 100 / F('request_total'),
-                precision=1, output_field=FloatField()
-            ),
-            year_conversion=Round(
-                F('year_won_deals_total') * 100 / F('year_request_total'),
-                precision=1, output_field=FloatField()
-            )
-        ).order_by('-request_total', 'country__name')
-
-        country_table = {
-            'title': country_table_title,
-            'headers': (name_safe_title, year_pcs_title, all_period_pcs_title),
-            'body': [
-                (
-                    country['country__name'],
-                    f"{country['year_request_total']} ({conversion_str} "
-                    f"{country['year_conversion'] if country['year_conversion'] is not None else 0}%)",
-                    f"{country['request_total']} ({conversion_str} {country['conversion']}%)"
-                )
-                for country in summary_over_country
-            ]
-        }
-        response.context_data['data_tables'] = (country_table,)
+                country_table = {
+                    'title': country_table_title,
+                    'headers': (name_safe_title, year_pcs_title, all_period_pcs_title),
+                    'body': [
+                        (
+                            country['country__name'],
+                            f"{country['year_request_total']} ({conversion_str} "
+                            f"{country['year_conversion'] if country['year_conversion'] is not None else 0}%)",
+                            f"{country['request_total']} ({conversion_str} {country['conversion']}%)"
+                        )
+                        for country in summary_over_country
+                    ]
+                }
+                response.context_data['data_tables'] = (country_table,)
