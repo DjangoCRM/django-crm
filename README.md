@@ -11,13 +11,14 @@ Django CRM is an open-source [Django](https://www.djangoproject.com/start/overvi
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 CRM uses adaptive Admin HTML templates out-of-the-box.
 Django is an excellently documented framework with lots of examples.
-The documentation on the Admin site takes up only one web page.
+The documentation on the Admin site takes up only one web page.  
+The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.      
 
 All this ensures:
 - significantly easier project customization and development;
 - simpler project deployment and production server support.
 
-The project code is stable (has been in practical use for many years).
+The **project code is stable** (has been in practical use for many years).
 
 ## Main applications
 CRM the project consists of the following **main applications**:
