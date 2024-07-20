@@ -1,0 +1,22 @@
+include LICENSE
+include README.md
+include requirements.txt
+graft locale
+graft static
+graft templates
+recursive-include **/fixtures *
+recursive-include **/static *
+recursive-include **/templates *
+recursive-include locale/**/django.po
+global-exclude .gitignore
+exclude webcrm/local*.py
+prune **/__pycache__
+prune media
+include media/docs/empty_file.txt
+include media/exported/empty_file.txt
+include media/geodb/empty_file.txt
+include media/pics/empty_file.txt
+include manage.py
+include crm/forms/iso_currency_codes.json
+include crm/models/to_translate.txt
+include tasks/models/to_translate.txt
