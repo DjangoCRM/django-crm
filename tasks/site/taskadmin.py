@@ -313,6 +313,12 @@ class TaskAdmin(TasksBaseModelAdmin):
                 if not main_task.active:
                     notify_task_or_project_closed(request, main_task)
 
+        # make a file attached to a closed subtask available in the main task
+        if main_task and all((not obj.active,
+                              "stage" not in form.changed_data,
+                              "_completed" not in request.POST)):
+            obj.copy_files_to_maintask()
+
     # -- ModelAdmin callables -- #
 
     @admin.display(
