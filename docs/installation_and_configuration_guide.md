@@ -3,8 +3,9 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Download the project](#download-the-project)
-- [Installation](#installation)
+- [Project installation](#project-installation)
+  - [Download or clone the project](#download-or-clone-the-project)
+  - [Install the requirements](#install-the-requirements)
 - [Settings of Django CRM](#settings-of-django-crm)
 - [Collecting static project files](#collecting-static-project-files)
 - [CRM and database testing](#crm-and-database-testing)
@@ -75,20 +76,52 @@ To use all the features of these applications, you need to set up CRM integratio
 - with the service of receiving current exchange rates (if necessary);
 - with VoIP telephony service (if necessary).
 
-## Download the project
-
-Download or clone the latest version of Django-CRM from GitHub.
-
- <https://github.com/DjangoCRM/django-crm/>
-
-## Installation
+## Project installation
 
 The CRM code is a ready Django project.  
-To deploy the project you will need: [Django](https://www.djangoproject.com/start/overview/), [Python](https://www.python.org/), website server (for example [Apache](https://httpd.apache.org/)) and database.  
-CRM is developed and used with [MySQL](https://www.mysql.com/) database but taking into account compatibility with PostgreSQL (passes the current set of tests).
-
+To deploy the project, you will need: [Python](https://www.python.org/), and database.  
+CRM is developed and used with [MySQL](https://www.mysql.com/) database
+but taking into account compatibility with PostgreSQL
+(passes the current set of tests).  
 After downloading, you need to deploy and customize the CRM code like a normal Django project.  
+If the project is deployed on a production server, a website server will also be required
+(for example [Apache](https://httpd.apache.org/)).  
 Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
+
+### Download or clone the project
+
+Clone the GitHub repository:
+
+```
+git clone https://github.com/DjangoCRM/django-crm.git
+```
+
+Or download the zip file and unpack it:
+
+```
+wget https://github.com/DjangoCRM/django-crm/archive/main.zip
+unzip main.zip
+```
+
+### Install the requirements
+
+It is recommended to first create a virtual environment:
+```
+python -m venv ./myvenv
+```
+
+and activate it:
+```
+cd ./myvenv/bin
+source activate
+```
+
+then install the project requirements:
+
+```
+cd <path to project directory>
+pip install -r requirements.txt
+```
 
 ## Settings of Django CRM
 
@@ -114,6 +147,7 @@ The following are the settings that need to be changed for correct operation of 
 
 Change the value of SECRET_KEY.  
 Run the following commands in the Python console to get the new SECRET_KEY value:  
+
 ```python
 from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
@@ -129,7 +163,8 @@ Add your host to the list. For example
 Specify data for database connection.  
 Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).  
 
-### For MySQL database, it is recommended to:  
+### For MySQL database, it is recommended to  
+
 - setup the timezone table;  
 - sset the extended encoding:
   - charset 'utf8mb4'
@@ -137,7 +172,8 @@ Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/
 
 And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to "ONLY_FULL_GROUP_BY".
 
-### Optimizing PostgreSQL's configuration.
+### Optimizing PostgreSQL's configuration
+
 You'll need the [psycopg](https://www.psycopg.org/psycopg3/) or [psycopg2](https://www.psycopg.org/) package.
 Set the timezone to 'UTC' (when USE_TZ is True),
 default_transaction_isolation: 'read committed'.  
@@ -164,6 +200,7 @@ Specify your time zone
 
 To service static files by the site server on the production site, it is necessary to collect all static files of the project into the static directory.  
 To do this, run the following command in the terminal in the root directory of the project:  
+
 ```
 python manage.py collectstatic
 ```
@@ -172,11 +209,13 @@ python manage.py collectstatic
 
 Configure the user specified in the DATABASES setting to have the right to create and delete databases.  
 When the database configuration is complete, perform the migration:  
+
 ```
 python manage.py migrate
 ```
 
 Run the built-in tests:  
+
 ```
 python manage.py test --noinput
 ```
@@ -184,9 +223,11 @@ python manage.py test --noinput
 ## Installing the initial data
 
 To fill CRM with initial data, you need to execute the command "setupdata" in the root directory of the project:  
+
 ```
 python manage.py setupdata
 ```
+
 Objects of such models as:  
 Countries, Currencies, Departments, Industries, etc.  
 You will be able to modify or add your own.
@@ -205,9 +246,11 @@ are on file `<crmproject>/webcrm/settings.py`
 
 Use the superuser credentials to log in.  
 If it has not been created, execute the following command in the terminal in the root directory of the project:  
+
 ```
 python manage.py createsuperuser
 ```
+
 **Attention!** Do not attempt to access the bare `<your CRM host>` address.  
 This address is not supported.  
 To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
@@ -221,21 +264,25 @@ Add a CRM site and specify its domain name.
 ## Ability to translate Django CRM interface into another language
 
 Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/) interface.  
-The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:    
+The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:
 `webcrm/settings.py`
 
 Add the desired language, e.g., German:  
+
 ```
 LANGUAGES = [
     ("de", _("German")),
     ("en", _("English")),
 ]
 ```
+
 Save the file.  
 Run the following command in the terminal in the root directory of the project:
+
 ```
 python manage.py makemessages -l de
 ```
+
 In the directory  
 `locale/de/LC_MESSAGES`  
 django.po file will appear.  
@@ -265,6 +312,7 @@ Please review the following sections before adding users.
 ### Permissions for users
 
 There are four permissions for users in relation to objects (e.g., Tasks, Deals, etc.):  
+
 - add (create),
 - view,
 - change,
@@ -281,6 +329,7 @@ The "managers" (sales managers) group provides its members with sets of permissi
 A group that gives its members certain rights is called a role.
 
 The following roles are available:
+
 - chiefs (company executives),
 - managers (sales managers),
 - operators (employees who receive commercial requests coming to the company. For example, a secretary or receptionist),
@@ -305,6 +354,7 @@ You need to create a department on the page:
 When creating a department, a group with the same name is automatically created.  
 **Please note** that creating a group for use as a department without creating a Department object will result in CRM not working correctly.
 The following departments are preinstalled in CRM:  
+
 - Global sales,
 - Local sales,
 - Bookkeeping.
@@ -339,6 +389,7 @@ Dynamic rights can depend on many factors. For example, the value of filters. Ev
 ## Helping users to master Django CRM
 
 Before starting to work in Django CRM, users should be informed about the following:  
+
 - It is important to familiarize yourself with the user guide to learn the CRM more easily.
 - Many CRM pages have a button to go to the help page - (?). It is located in the upper right corner. Help pages should be read.
 - Many page elements such as buttons, icons, links have tooltips. To do this, you need to hover the mouse cursor over them.  
@@ -359,6 +410,7 @@ To do this, you need to specify the details of their [mail accounts](#setting-up
 CRM automatically assigns the owner of the imported request to the owner of the email account.
 
 ### Sources of Leads
+
 `(ADMIN) Home > Crm > Lead Sources`  
 For marketing purposes, each "Request", "Lead", "Contact" and "Company" has a link to the corresponding "Lead Source".  
 Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
@@ -368,20 +420,22 @@ The "Form template name" and "Success page template name" fields are only popula
 The "Email" field is only specified in the "Lead Source" of your website. You need to specify the Email value indicated on your site.
 
 ### Forms
+
 CRM can automatically receive data from forms on your company's websites and, based on it, create commercial requests in the database.
 To do this, you need to configure the site to send POST form data via a request to CRM. Or use CRM forms by adding them to sites via iframe.
 
 #### Submitting form data with a POST request
+
 Your site can pass the values of the following form fields to CRM by POST request:  
 `"name" - CharField (max_length=200, required)`  
-`"email" - EmailField / CharField (max_length=254, required)`   
+`"email" - EmailField / CharField (max_length=254, required)`
 `"subject" - CharField(max_length=200, required)`  
 `"phone" - CharField(max_length=400, required)`  
 `"company" - CharField(max_length=200,  required)`  
 `"message" - TextField`  
 `"country" - CharField(max_length=40)`  
 `"city"- CharField(max_length=40)`  
-`"leadsource_token" - UUIDField(required, hidden Input) ` 
+`"leadsource_token" - UUIDField(required, hidden Input)`
 
 The value of the "leadsource_token" field must match the value of the "UUID" field of the corresponding (selected by you) "Leadsource".  
 `(ADMIN site) Home > Crm > Lead Sources`
@@ -432,6 +486,7 @@ Save the names of these files in the "Form template name" and "Success page temp
 
 Mail accounts must be set up for users with the roles "Operator", "Super Operator" and "Manager" (Sales Manager).
 This will allow the following to be realized:
+
 - Users will be able to send emails from CRM through their email account.
 - CRM will have access to the user's account and will be able to import and link to Deals letters sent not from CRM (if there is a corresponding ticket in the letters).
 - Users will be able to import requests from email into CRM.
@@ -440,22 +495,32 @@ This will allow the following to be realized:
 ### Fields
 
 #### "Main"
+
 One user can have several accounts, but sending work emails from CRM will be done only through the account marked as "Main".
+
 #### "Massmail"
+
 Mass mailing can be sent through all accounts marked "Massmail".
+
 #### "Do import"
+
 The mark "Do import" should be made for accounts through which managers conduct business correspondence or for accounts specified on the company's website, as they may receive requests from customers.
+
 #### "Email app password"
+
 The "Email app password" field value is specified for those accounts where you can set a password for applications.  In this case, CRM will use it when logging in to the user account.
 
 #### Section "Service information"
+
 This section displays statistics and service information of CRM activity in this account.
 
 #### Section "Additional information"
+
 Here you need to specify the account owner and its department.  
 The other fields are described in detail in the "[Settings](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-EMAIL_HOST)" section of Django documentation.
 
 ## IMAP4 protocol client
+
 Django CRM uses an IMAP4 protocol client to allow users to view, import and delete emails in their email account.  
 Unfortunately, the operation of the IMAP4 client depends on the mail service. Because not all email services strictly adhere to the IMAP4 protocol.  
 In some cases, changing CRM settings will not help. You need to either make changes to the code or change the service provider. For example, if the service does not support IMAP4 or only supports some commands.
