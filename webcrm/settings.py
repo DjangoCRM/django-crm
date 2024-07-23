@@ -252,7 +252,7 @@ NO_NAME_STR = _('Untitled')
 # For automated getting currency exchange rate
 LOAD_EXCHANGE_RATE = False
 LOADING_EXCHANGE_RATE_TIME = "6:30"
-LOAD_RATE_BACKEND = "crm.backends.<specify_backend>.<specify_class>"
+LOAD_RATE_BACKEND = ""  # "crm.backends.<specify_backend>.<specify_class>"
 
 # Ability to mark payments through a representation
 MARK_PAYMENTS_THROUGH_REP = False

@@ -14,7 +14,10 @@ from crm.models import Currency
 from crm.models import Payment
 from crm.models import Rate
 
-BACKEND = import_string(settings.LOAD_RATE_BACKEND)
+
+BACKEND = ""
+if settings.LOAD_RATE_BACKEND:
+    BACKEND = import_string(settings.LOAD_RATE_BACKEND)
 
 
 class RatesLoader(threading.Thread, SingleInstance):
