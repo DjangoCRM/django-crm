@@ -24,7 +24,8 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
         if project_id:
             qs = qs.filter(project__id__exact=project_id)
 
-        excluded_qs = qs.exclude(owner=request.user)
+        excluded_qs = qs.exclude(
+            owner=request.user).exclude(co_owner=request.user)
         owner_lookups = self.get_owner_lookups(excluded_qs)
         if request.user.is_chief:
             lookups = [('all', _('All')), *owner_lookups]
