@@ -198,6 +198,9 @@ Specify your time zone
 
 ## Collecting static project files
 
+For deployment on a production server only.
+Skip this for Django development server.  
+
 To service static files by the site server on the production site, it is necessary to collect all static files of the project into the static directory.  
 To do this, run the following command in the terminal in the root directory of the project:  
 
