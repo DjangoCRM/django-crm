@@ -10,6 +10,7 @@
 - [Collecting static project files](#collecting-static-project-files)
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
+- [Launch CRM on the development server](#launch-crm-on-the-development-server)
 - [Access to CRM and admin sites](#access-to-crm-and-admin-sites)
 - [Specify CRM site domain](#specify-crm-site-domain)
 - [Ability to translate Django CRM interface into another language](#ability-to-translate-django-crm-interface-into-another-language)
@@ -81,7 +82,7 @@ To use all the features of these applications, you need to set up CRM integratio
 The CRM code is a ready Django project.  
 To deploy the project, you will need: [Python](https://www.python.org/), and database.  
 CRM is developed and used with [MySQL](https://www.mysql.com/) database
-but taking into account compatibility with PostgreSQL
+but taking into account compatibility with [PostgreSQL](https://www.postgresql.org)
 (passes the current set of tests).  
 After downloading, you need to deploy and customize the CRM code like a normal Django project.  
 If the project is deployed on a production server, a website server will also be required
@@ -92,13 +93,13 @@ Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
 
 Clone the GitHub repository:
 
-```
+```cmd
 git clone https://github.com/DjangoCRM/django-crm.git
 ```
 
 Or download the zip file and unpack it:
 
-```
+```cmd
 wget https://github.com/DjangoCRM/django-crm/archive/main.zip
 unzip main.zip
 ```
@@ -106,19 +107,21 @@ unzip main.zip
 ### Install the requirements
 
 It is recommended to first create a virtual environment:
-```
+
+```cmd
 python -m venv ./myvenv
 ```
 
 and activate it:
-```
+
+```cmd
 cd ./myvenv/bin
 source activate
 ```
 
 then install the project requirements:
 
-```
+```cmd
 cd <path to project directory>
 pip install -r requirements.txt
 ```
@@ -140,7 +143,7 @@ Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).
 The settings missing in this list are CRM specific settings. Explanations can be found in the comments to them.  
 Most of the settings can be left at their default values.
 
-The following are the settings that need to be changed for correct operation of CRM or application security.  
+Below are the settings that need to be changed for the CRM to work correctly or for security reasons.
 `webcrm/settings.py`
 
 ### SECRET_KEY
@@ -160,13 +163,13 @@ Add your host to the list. For example
 
 ### DATABASES
 
-Specify data for database connection.  
+Provide data to connect to the database.  
 Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).  
 
 ### For MySQL database, it is recommended to  
 
 - setup the timezone table;  
-- sset the extended encoding:
+- set the extended encoding:
   - charset 'utf8mb4'
   - collation  'utf8mb4_general_ci'
 
@@ -181,7 +184,11 @@ You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/m
 
 ### EMAIL_HOST
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users.
+Specify details for connecting to an email account through which CRM will be able to send notifications to users and admins.  
+
+- EMAIL_HOST (smtp server)
+- EMAIL_HOST_PASSWORD
+- EMAIL_HOST_USER (login)
 
 ### ADMINS
 
@@ -190,11 +197,21 @@ Add the addresses of CRM administrators to the list, so they can receive error l
 
 ### CRM_IP
 
-Specify the ip address of your CRM host to prevent automatic import of emails sent through CRM.
+Specify the ip address of your CRM host to prevent automatic import of emails sent through CRM.  
+For example, for the localhost  
+
+```python
+CRM_IP = "127.0.0.1"
+```
 
 ### TIME_ZONE
 
-Specify your time zone
+Specify your time zone.  
+For example  
+
+```python
+TIME_ZONE = 'Europe/Madrid'
+```
 
 ## Collecting static project files
 
@@ -204,7 +221,7 @@ Skip this for Django development server.
 To service static files by the site server on the production site, it is necessary to collect all static files of the project into the static directory.  
 To do this, run the following command in the terminal in the root directory of the project:  
 
-```
+```cmd
 python manage.py collectstatic
 ```
 
@@ -213,13 +230,13 @@ python manage.py collectstatic
 Configure the user specified in the DATABASES setting to have the right to create and delete databases.  
 When the database configuration is complete, perform the migration:  
 
-```
+```cmd
 python manage.py migrate
 ```
 
 Run the built-in tests:  
 
-```
+```cmd
 python manage.py test --noinput
 ```
 
@@ -227,7 +244,7 @@ python manage.py test --noinput
 
 To fill CRM with initial data, you need to execute the command "setupdata" in the root directory of the project:  
 
-```
+```cmd
 python manage.py setupdata
 ```
 
@@ -235,9 +252,28 @@ Objects of such models as:
 Countries, Currencies, Departments, Industries, etc.  
 You will be able to modify or add your own.
 
+## Creating a superuser  
+
+Execute the following command in the terminal in the root directory of the project:  
+
+```cmd
+python manage.py createsuperuser
+```
+
+## Launch CRM on the development server
+
+Don’t use this server in anything resembling a production environment.  
+It’s intended only for use while developing.  
+
+ ```cmd
+python manage.py runserver
+ ```
+
 ## Access to CRM and admin sites
 
 Now you have two websites.  
+Use the superuser credentials to log in.  
+
 CRM site for all users:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
@@ -246,13 +282,6 @@ and Admin site for administrators (superusers):
 
 LANGUAGE_CODE, SECRET_CRM_PREFIX and SECRET_ADMIN_PREFIX
 are on file `<crmproject>/webcrm/settings.py`
-
-Use the superuser credentials to log in.  
-If it has not been created, execute the following command in the terminal in the root directory of the project:  
-
-```
-python manage.py createsuperuser
-```
 
 **Attention!** Do not attempt to access the bare `<your CRM host>` address.  
 This address is not supported.  
@@ -272,7 +301,7 @@ The list of available languages (LANGUAGES) and the default language (LANGUAGE_C
 
 Add the desired language, e.g., German:  
 
-```
+```cmd
 LANGUAGES = [
     ("de", _("German")),
     ("en", _("English")),
@@ -282,7 +311,7 @@ LANGUAGES = [
 Save the file.  
 Run the following command in the terminal in the root directory of the project:
 
-```
+```cmd
 python manage.py makemessages -l de
 ```
 
