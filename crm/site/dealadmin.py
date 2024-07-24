@@ -141,7 +141,8 @@ class DealAdmin(CrmModelAdmin):
             d['contract_number'].initial = p.contract_number
             d['invoice_number'].initial = p.invoice_number
             d['order_number'].initial = p.order_number
-            d['through_representation'].initial = p.through_representation
+            if settings.MARK_PAYMENTS_THROUGH_REP:
+                d['through_representation'].initial = p.through_representation
         return formsets, inline_instances
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
