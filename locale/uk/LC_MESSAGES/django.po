@@ -8,15 +8,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-08 19:29+0300\n"
+"POT-Creation-Date: 2024-07-25 08:38+0300\n"
 "PO-Revision-Date: 2024-07-08 19:31+0300\n"
-"Last-Translator: Вадим Иванович Харченко <marketing@oko-ndt.com>\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: analytics/apps.py:10
@@ -96,7 +99,7 @@ msgstr "Конверсія"
 
 #: analytics/site/conversionadmin.py:43
 #: analytics/site/leadsourcestatadmin.py:21
-#: analytics/site/requeststatadmin.py:23 analytics/site/requeststatadmin.py:93
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
 msgid "Total requests"
 msgstr "Всього запитів"
 
@@ -190,38 +193,38 @@ msgid "Total amount"
 msgstr "Разом"
 
 #: analytics/site/leadsourcestatadmin.py:15
-#: analytics/site/requeststatadmin.py:17
+#: analytics/site/requeststatadmin.py:18
 msgid "Request source statistics"
 msgstr "Статистика джерел запитів"
 
 #: analytics/site/leadsourcestatadmin.py:16
-#: analytics/site/requeststatadmin.py:18
+#: analytics/site/requeststatadmin.py:19
 msgid "Number of requests for each source"
 msgstr "Кількість запитів щодо кожного джерела"
 
 #: analytics/site/leadsourcestatadmin.py:17
-#: analytics/site/requeststatadmin.py:19
+#: analytics/site/requeststatadmin.py:20
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
 msgid "Requests over country"
 msgstr "Запити по країнах"
 
 #: analytics/site/leadsourcestatadmin.py:18
-#: analytics/site/requeststatadmin.py:20
+#: analytics/site/requeststatadmin.py:21
 msgid "for all period"
 msgstr "за весь період"
 
 #: analytics/site/leadsourcestatadmin.py:19
-#: analytics/site/requeststatadmin.py:21
+#: analytics/site/requeststatadmin.py:22
 msgid "for last 365 days"
 msgstr "за останні 365 днів"
 
 #: analytics/site/leadsourcestatadmin.py:20
-#: analytics/site/requeststatadmin.py:22
+#: analytics/site/requeststatadmin.py:23
 msgid "conversion"
 msgstr "конверсія"
 
 #: analytics/site/leadsourcestatadmin.py:22
-#: analytics/site/requeststatadmin.py:24
+#: analytics/site/requeststatadmin.py:25
 msgid "Not specified"
 msgstr "Не вказано"
 
@@ -249,18 +252,18 @@ msgstr "Країна"
 #: crm/utils/admfilters.py:471 crm/utils/admfilters.py:491
 #: crm/utils/admfilters.py:504 crm/utils/admfilters.py:518
 #: crm/utils/admfilters.py:537 crm/utils/admfilters.py:542
-#: tasks/utils/admfilters.py:30 tasks/utils/admfilters.py:36
-#: tasks/utils/admfilters.py:110 tasks/utils/admfilters.py:114
-#: tasks/utils/admfilters.py:118 tasks/utils/admfilters.py:155
-#: tasks/utils/admfilters.py:164 tasks/utils/admfilters.py:215
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
 msgid "All"
 msgstr "Усе"
 
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:346 voip/models.py:49
+#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:346
+#: voip/models.py:49
 msgid "Owner"
 msgstr "Власник"
 
@@ -281,35 +284,35 @@ msgstr "Реалізована продукція"
 msgid "Price"
 msgstr "Ціна"
 
-#: analytics/site/requeststatadmin.py:56
+#: analytics/site/requeststatadmin.py:57
 msgid "Request Summary for last 365 days"
 msgstr "Статистика запитів за останні 365 днів"
 
-#: analytics/site/requeststatadmin.py:90
+#: analytics/site/requeststatadmin.py:91
 msgid "Conversion of primary requests into successful deals"
 msgstr "Конверсія первинних запитів в успішні угоди"
 
-#: analytics/site/requeststatadmin.py:94
+#: analytics/site/requeststatadmin.py:95
 msgid "Primary requests"
 msgstr "Первинні запити"
 
-#: analytics/site/requeststatadmin.py:96
+#: analytics/site/requeststatadmin.py:97
 msgid "Subsequent requests"
 msgstr "Подальші запити"
 
-#: analytics/site/requeststatadmin.py:97
+#: analytics/site/requeststatadmin.py:98
 msgid "Conversion of subsequent requests"
 msgstr "Конверсія подальших запитів"
 
-#: analytics/site/requeststatadmin.py:100
+#: analytics/site/requeststatadmin.py:101
 msgid "average monthly value"
 msgstr "середньомісячне значення"
 
-#: analytics/site/requeststatadmin.py:101
+#: analytics/site/requeststatadmin.py:102
 msgid "Requests by month"
 msgstr "Запити за місяцями"
 
-#: analytics/site/requeststatadmin.py:115
+#: analytics/site/requeststatadmin.py:116
 msgid "Relevant requests"
 msgstr "Релевантних запитів"
 
@@ -426,7 +429,7 @@ msgstr "Ви отримали повідомлення щодо -"
 
 #: chat/site/chatmessageadmin.py:91 crm/admin.py:109 crm/admin.py:180
 #: crm/admin.py:225 crm/admin.py:268 crm/site/companyadmin.py:129
-#: crm/site/contactadmin.py:121 crm/site/dealadmin.py:277
+#: crm/site/contactadmin.py:121 crm/site/dealadmin.py:278
 #: crm/site/leadadmin.py:131 crm/site/productadmin.py:18
 #: crm/site/requestadmin.py:98 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
@@ -644,7 +647,7 @@ msgstr "Дата нагадування"
 #: crm/utils/admfilters.py:525 massmail/models/mailing_out.py:16
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
-#: tasks/utils/admfilters.py:208 voip/models.py:25
+#: tasks/utils/admfilters.py:209 voip/models.py:25
 msgid "Active"
 msgstr "Активно"
 
@@ -727,7 +730,7 @@ msgid "Tags"
 msgstr "Ярлики"
 
 #: common/site/basemodeladmin.py:20 crm/admin.py:96 crm/admin.py:169
-#: crm/admin.py:213 crm/admin.py:256 crm/site/dealadmin.py:265
+#: crm/admin.py:213 crm/admin.py:256 crm/site/dealadmin.py:266
 #: tasks/site/tasksbasemodeladmin.py:212
 msgid "Add tags"
 msgstr "Додати ярлики"
@@ -905,7 +908,7 @@ msgstr "Співвласник"
 
 #: common/templates/common/notice_participants_email.html:16
 #: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
-#: tasks/utils/admfilters.py:88
+#: tasks/utils/admfilters.py:89
 msgid "Responsible"
 msgstr "Відповідальні"
 
@@ -955,7 +958,7 @@ msgid "Mark as"
 msgstr "Позначити як"
 
 #: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
-#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:151
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
 msgid "To"
 msgstr "Кому"
 
@@ -979,14 +982,13 @@ msgstr "Задача виконана"
 msgid "I completed the task"
 msgstr "Я виконав завдання"
 
-#: common/templatetags/util.py:103 tasks/site/taskadmin.py:359
+#: common/templatetags/util.py:103 tasks/site/taskadmin.py:365
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "Виконано"
 
 #: common/utils/for_translation.py:24
-msgid ""
-"The name has been added for translation. Please update po and mo files."
+msgid "The name has been added for translation. Please update po and mo files."
 msgstr "Ім'я додано для перекладу. Будь ласка, оновіть файли po та mo."
 
 #: common/utils/helpers.py:24 tasks/site/memoadmin.py:38
@@ -1021,7 +1023,8 @@ msgstr ""
 "\n"
 "Увага! Дані для таких фільтрів, як:\n"
 "етапи платежів, причини закриття, теги тощо.\n"
-"будуть перенесені тільки в тому випадку, якщо в новому відділі є дані з такою самою назвою.\n"
+"будуть перенесені тільки в тому випадку, якщо в новому відділі є дані з "
+"такою самою назвою.\n"
 "Крім того, це не вплине на Результат, Платіж та Продукт.\n"
 
 #: common/views/user_transfer.py:131
@@ -1040,11 +1043,11 @@ msgstr "Контактні дані"
 msgid "Name"
 msgstr "Назва"
 
-#: crm/admin.py:152 crm/site/dealadmin.py:245
+#: crm/admin.py:152 crm/site/dealadmin.py:246
 msgid "Contact info"
 msgstr "Контактна інформація"
 
-#: crm/admin.py:173 crm/site/crmemailadmin.py:213 crm/site/dealadmin.py:269
+#: crm/admin.py:173 crm/site/crmemailadmin.py:213 crm/site/dealadmin.py:270
 #: crm/site/requestadmin.py:89
 msgid "Relations"
 msgstr "Зв'язки"
@@ -1500,7 +1503,7 @@ msgid "Contact"
 msgstr "Контактна особа"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:374
+#: crm/site/requestadmin.py:381
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1887,7 +1890,7 @@ msgstr "Дата отримання"
 msgid "Date of receipt of the request."
 msgstr "Дата отримання запиту"
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:660
+#: crm/models/request.py:107 crm/site/dealadmin.py:668
 msgid "Translation"
 msgstr "Переклад"
 
@@ -1948,8 +1951,7 @@ msgid "Establish the first contact with the client."
 msgstr "Встановити перший контакт із клієнтом"
 
 #: crm/site/companyadmin.py:26
-msgid ""
-"Attention! You can only view companies associated with your department."
+msgid "Attention! You can only view companies associated with your department."
 msgstr "Ви можете переглядати лише компанії, пов’язані з вашим відділом."
 
 #: crm/site/companyadmin.py:195 crm/site/leadadmin.py:239
@@ -1993,7 +1995,7 @@ msgstr "Зміст"
 msgid "Previous correspondence"
 msgstr "Попереднє листування"
 
-#: crm/site/crmemailadmin.py:412 crm/site/requestadmin.py:321
+#: crm/site/crmemailadmin.py:412 crm/site/requestadmin.py:328
 #: crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "Без теми"
@@ -2051,8 +2053,8 @@ msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
 msgstr ""
-"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
-" неділя."
+"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота, "
+"неділя."
 
 #: crm/site/crmmodeladmin.py:327
 msgid "Bad result - no recipients! Make another choice."
@@ -2118,40 +2120,40 @@ msgstr "Вийшов термін відвантаження"
 msgid "Relevant deal"
 msgstr "Релевантна угода"
 
-#: crm/site/dealadmin.py:156
+#: crm/site/dealadmin.py:157
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "Угода з ID «{}» не існує. Можливо, її видалили?"
 
-#: crm/site/dealadmin.py:219
+#: crm/site/dealadmin.py:220
 msgid "View the Request"
 msgstr "Дивитися Запит"
 
-#: crm/site/dealadmin.py:525
+#: crm/site/dealadmin.py:533
 msgid "Create Email to Contact"
 msgstr "Створити лист Контакту"
 
-#: crm/site/dealadmin.py:528
+#: crm/site/dealadmin.py:536
 msgid "Create Email to Lead"
 msgstr "Створити лист Ліду"
 
-#: crm/site/dealadmin.py:568
+#: crm/site/dealadmin.py:576
 msgid "Important deal"
 msgstr "Важлива угода"
 
-#: crm/site/dealadmin.py:592
+#: crm/site/dealadmin.py:600
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Я чекаю відповіді на запит %d дня"
 
-#: crm/site/dealadmin.py:622
+#: crm/site/dealadmin.py:630
 msgid "Expected"
 msgstr "Очікується"
 
-#: crm/site/dealadmin.py:630
+#: crm/site/dealadmin.py:638
 msgid "Paid"
 msgstr "Сплачено"
 
-#: crm/site/dealadmin.py:685
+#: crm/site/dealadmin.py:693
 msgid "Contact is Lead (no company)"
 msgstr "Контактна особа - Lead (без компанії)"
 
@@ -2212,7 +2214,7 @@ msgstr "Ви отримали запит"
 msgid "Subsequent request"
 msgstr "Подальший запит"
 
-#: crm/site/requestadmin.py:427
+#: crm/site/requestadmin.py:434
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} “{obj}” успішно додано."
@@ -2388,8 +2390,7 @@ msgstr "Попередній перегляд друку"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16
-#: massmail/site/signatureadmin.py:31
+#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
 msgid "Change"
 msgstr "Змінити"
 
@@ -2521,8 +2522,8 @@ msgstr "Виберіть файл, який потрібно імпортува�
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't"
-" matter):"
+"Only the following columns will be imported if they exist (the order doesn't "
+"matter):"
 msgstr ""
 "Будуть імпортовані лише такі стовпці, якщо вони існують (порядок не має "
 "значення):"
@@ -2572,7 +2573,7 @@ msgstr "Змінено керівництвом"
 #: crm/utils/admfilters.py:426 crm/utils/admfilters.py:472
 #: crm/utils/admfilters.py:492 crm/utils/admfilters.py:505
 #: crm/utils/admfilters.py:519 crm/utils/admfilters.py:538
-#: crm/utils/admfilters.py:543 tasks/utils/admfilters.py:216
+#: crm/utils/admfilters.py:543 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "Так"
 
@@ -2582,7 +2583,7 @@ msgstr "Партнер"
 
 #: crm/utils/admfilters.py:473 crm/utils/admfilters.py:506
 #: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "Ні"
 
@@ -2702,8 +2703,8 @@ msgid ""
 "You do not have an email account in CRM for sending Emails. Contact your "
 "administrator."
 msgstr ""
-"У вас немає облікового запису електронної пошти в CRM для надсилання листів."
-" Зв'яжіться зі своїм адміністратором."
+"У вас немає облікового запису електронної пошти в CRM для надсилання листів. "
+"Зв'яжіться зі своїм адміністратором."
 
 #: crm/views/view_original_email.py:24
 msgid "Something went wrong"
@@ -2712,8 +2713,8 @@ msgstr "Щось пішло не так"
 #: help/admin.py:78
 msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
 msgstr ""
-"Щоб додати коректне посилання, використовуйте ярлик /SECRET_CRM_PREFIX/ якщо"
-" потрібно"
+"Щоб додати коректне посилання, використовуйте ярлик /SECRET_CRM_PREFIX/ якщо "
+"потрібно"
 
 #: help/models.py:13
 msgid "list"
@@ -2753,8 +2754,8 @@ msgstr "Доступно на сторінці CRM"
 
 #: help/models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
-" from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
+"from another help page."
 msgstr ""
 "Доступний на одній із сторінок CRM. В іншому випадку доступ до нього можна "
 "отримати лише за посиланням з іншої сторінки довідки."
@@ -2828,8 +2829,8 @@ msgid ""
 "Note massmail is not performed on the following days: Friday, Saturday, "
 "Sunday."
 msgstr ""
-"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
-" неділя."
+"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота, "
+"неділя."
 
 #: massmail/admin_actions.py:55
 msgid "Merge selected mailing outs"
@@ -2915,8 +2916,7 @@ msgstr ""
 
 #: massmail/models/email_account.py:28
 msgid "Allow to use this account for massmail."
-msgstr ""
-"Дозволити використовувати цей обліковий запис для масового розсилання."
+msgstr "Дозволити використовувати цей обліковий запис для масового розсилання."
 
 #: massmail/models/email_account.py:32
 msgid "Import emails from this account."
@@ -2932,8 +2932,7 @@ msgstr "Ім'я користувача для автентифікації на 
 
 #: massmail/models/email_account.py:48
 msgid "The auth_password to use to authenticate to the SMTP server."
-msgstr ""
-"auth_password для використання під час аутентифікації на SMTP-сервері."
+msgstr "auth_password для використання під час аутентифікації на SMTP-сервері."
 
 #: massmail/models/email_account.py:52
 msgid "The application password to use to authenticate to the SMTP server."
@@ -2949,23 +2948,23 @@ msgstr "Поле from_email."
 
 #: massmail/models/email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted certificate chain file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted certificate chain file to use "
+"for the SSL connection."
 msgstr ""
-"Якщо EMAIL_USE_SSL або EMAIL_USE_TLS - True, ви можете вказати шлях до файлу"
-" ланцюжка сертифікатів у форматі PEM, який буде використовуватися для "
+"Якщо EMAIL_USE_SSL або EMAIL_USE_TLS - True, ви можете вказати шлях до файлу "
+"ланцюжка сертифікатів у форматі PEM, який буде використовуватися для "
 "з'єднання SSL"
 
 #: massmail/models/email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted private key file to use for the SSL "
-"connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted private key file to use for the "
+"SSL connection."
 msgstr ""
 "Якщо EMAIL_USE_SSL або EMAIL_USE_TLS має значення True, ви можете вказати "
-"шлях до файлу закритого ключа у форматі PEM, який буде використовуватися для"
-" з'єднання SSL."
+"шлях до файлу закритого ключа у форматі PEM, який буде використовуватися для "
+"з'єднання SSL."
 
 #: massmail/models/email_account.py:79
 msgid "OAuth 2.0 token for obtaining an access token."
@@ -2982,13 +2981,17 @@ msgstr "Вкажіть хост imap"
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте {% cid_media 'path/to/pic.png' %}.<br>\n"
-"Можна вбудовувати файли завантажені на сервер CRM у папку 'media/pics/' або прикріплені до цього повідомлення."
+"Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте "
+"{% cid_media 'path/to/pic.png' %}.<br>\n"
+"Можна вбудовувати файли завантажені на сервер CRM у папку 'media/pics/' або "
+"прикріплені до цього повідомлення."
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
@@ -3051,12 +3054,15 @@ msgstr "Звіт"
 #: massmail/models/signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder.\n"
 "    "
 msgstr ""
 "\n"
-"Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте {% cid_media 'path/to/pic.png' %}.<br>\n"
+"Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте "
+"{% cid_media 'path/to/pic.png' %}.<br>\n"
 "Можна вбудовувати файли завантажені на сервер CRM у папку 'media/pics/'."
 
 #: massmail/models/signature.py:17
@@ -3101,8 +3107,8 @@ msgid ""
 "Note massmail is not performed on the following days: \n"
 "                Friday, Saturday, Sunday."
 msgstr ""
-"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
-" неділя."
+"Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота, "
+"неділя."
 
 #: massmail/site/mailingoutadmin.py:110
 msgid "notification"
@@ -3289,7 +3295,7 @@ msgid "For what"
 msgstr "Для чого"
 
 #: tasks/models/memo.py:58 tasks/models/project.py:9
-#: tasks/utils/admfilters.py:66
+#: tasks/utils/admfilters.py:67
 msgid "Project"
 msgstr "Проект"
 
@@ -3386,8 +3392,8 @@ msgstr "Приховати основне завдання"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "Приховати основне завдання, коли це підзавдання буде виконано."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:340
-#: tasks/site/taskadmin.py:346
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
 msgid "Lead time"
 msgstr "Витрачений час"
 
@@ -3539,17 +3545,17 @@ msgstr "пізніше терміну виконання основного за
 msgid "The subtask"
 msgstr "Підзавдання"
 
-#: tasks/site/taskadmin.py:328
+#: tasks/site/taskadmin.py:334
 msgid "Main task"
 msgstr "Основна задача"
 
-#: tasks/site/taskadmin.py:355 tasks/site/taskadmin.py:356
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "Створити підзавдання"
 
-#: tasks/site/taskadmin.py:366
+#: tasks/site/taskadmin.py:372
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3601,7 +3607,6 @@ msgid "Attach files"
 msgstr "Прикріпити файли"
 
 #: tasks/site/tasksbasemodeladmin.py:650
-#| msgid "The task is closed"
 msgid "The subtask is closed"
 msgstr "Підзадачу закрито"
 
@@ -3754,8 +3759,8 @@ msgstr "АВН"
 
 #: voip/models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you"
-" call"
+"Specify the number to be displayed as             your phone number when you "
+"call"
 msgstr ""
 "Вкажіть номер, який буде відображатися як номер телефону під час дзвінка"
 
@@ -3800,15 +3805,15 @@ msgstr "Вхідний дзвінок від"
 msgid "(duration: {duration} minutes)"
 msgstr "(тривалість: {duration} хвилин)"
 
-#: webcrm/local_settings.py:59
+#: webcrm/local_settings.py:65
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: webcrm/local_settings.py:60
+#: webcrm/local_settings.py:66
 msgid "Russian"
 msgstr "Руський"
 
-#: webcrm/local_settings.py:61 webcrm/settings.py:60
+#: webcrm/local_settings.py:67 webcrm/settings.py:60
 msgid "English"
 msgstr "Англійська"
 
