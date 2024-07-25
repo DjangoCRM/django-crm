@@ -316,7 +316,7 @@ class DealAdmin(CrmModelAdmin):
         ).values('id')
         received_payments = Payment.objects.filter(
             deal=OuterRef('pk'),
-            status='r',
+            status=Payment.RECEIVED,
         ).values('id')
         product = Output.objects.filter(
             deal=OuterRef('pk')
@@ -470,6 +470,13 @@ class DealAdmin(CrmModelAdmin):
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         remind_me(request, form, change)
+        # If the deal is closed as unsuccessful, delete unreceived payments
+        obj = form.instance
+        if 'closing_reason' in form.changed_data and not obj.active:
+            if not obj.closing_reason.success_reason:
+                Payment.objects.filter(deal=obj).exclude(
+                    status=Payment.RECEIVED,
+                ).delete()
 
     # -- ModelAdmin Callables -- #
 
