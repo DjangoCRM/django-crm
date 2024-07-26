@@ -321,8 +321,8 @@ class CrmEmailAdmin(CrmModelAdmin):
         if file_formset:
             for file_form in file_formset:
                 if 'attached_to_deal' in file_form.changed_data:
+                    file = file_form.instance
                     if file_form.cleaned_data['attached_to_deal']:
-                        file = file_form.instance
                         file.id = None
                         file.content_object = obj.deal
                         file.save()
@@ -330,7 +330,7 @@ class CrmEmailAdmin(CrmModelAdmin):
                         files = obj.deal.files.all()
                         file = next((
                             f for f in files
-                            if f.file == file_form.instance.file
+                            if f.file.name.split('/')[-1].split('.')[0] in file.file.name
                         ), None)
                         if file:
                             file.delete()
