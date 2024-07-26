@@ -7,7 +7,6 @@
   - [Download or clone the project](#download-or-clone-the-project)
   - [Install the requirements](#install-the-requirements)
 - [Settings of Django CRM](#settings-of-django-crm)
-- [Collecting static project files](#collecting-static-project-files)
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
 - [Launch CRM on the development server](#launch-crm-on-the-development-server)
@@ -91,11 +90,12 @@ Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
 
 ### Download or clone the project
 
-Clone the GitHub repository:
+Create Clone the GitHub repository:
 
 ```cmd
 git clone https://github.com/DjangoCRM/django-crm.git
 ```
+(the project will be cloned into the 'django-crm' folder)
 
 Or download the zip file and unpack it:
 
@@ -103,13 +103,15 @@ Or download the zip file and unpack it:
 wget https://github.com/DjangoCRM/django-crm/archive/main.zip
 unzip main.zip
 ```
+The project will be unzipped into the 'django-crm-main' folder.  
+Rename the folder to "django-crm".  
 
 ### Install the requirements
 
 It is recommended to first create a virtual environment:
 
 ```cmd
-python -m venv ./myvenv
+python3 -m venv ./myvenv
 ```
 
 and activate it:
@@ -117,12 +119,12 @@ and activate it:
 ```cmd
 cd ./myvenv/bin
 source activate
+cd ../../django-crm
 ```
 
 then install the project requirements:
 
 ```cmd
-cd <path to project directory>
 pip install -r requirements.txt
 ```
 
@@ -143,23 +145,12 @@ Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).
 The settings missing in this list are CRM specific settings. Explanations can be found in the comments to them.  
 Most of the settings can be left at their default values.
 
-Below are the settings that need to be changed for the CRM to work correctly or for security reasons.
-`webcrm/settings.py`
+The default settings are for running the project on a development server.
+Change them for the production server.  
 
-### SECRET_KEY
-
-Change the value of SECRET_KEY.  
-Run the following commands in the Python console to get the new SECRET_KEY value:  
-
-```python
-from django.core.management.utils import get_random_secret_key
-print(get_random_secret_key())
-```
-
-### ALLOWED_HOSTS
-
-Add your host to the list. For example  
-`['localhost', 'www.crm.example.com']`
+To start the project for the first time, it is enough to specify the database settings in the file
+`webcrm/settings.py`  
+But in the future, you'll need to specify at least EMAIL_HOST and ADMINS settings.
 
 ### DATABASES
 
@@ -195,35 +186,6 @@ Specify details for connecting to an email account through which CRM will be abl
 Add the addresses of CRM administrators to the list, so they can receive error logs.  
 `ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
 
-### CRM_IP
-
-Specify the ip address of your CRM host to prevent automatic import of emails sent through CRM.  
-For example, for the localhost  
-
-```python
-CRM_IP = "127.0.0.1"
-```
-
-### TIME_ZONE
-
-Specify your time zone.  
-For example  
-
-```python
-TIME_ZONE = 'Europe/Madrid'
-```
-
-## Collecting static project files
-
-For deployment on a production server only.
-Skip this for Django development server.  
-
-To service static files by the site server on the production site, it is necessary to collect all static files of the project into the static directory.  
-To do this, run the following command in the terminal in the root directory of the project:  
-
-```cmd
-python manage.py collectstatic
-```
 
 ## CRM and database testing
 
@@ -275,9 +237,12 @@ Now you have two websites.
 Use the superuser credentials to log in.  
 
 CRM site for all users:  
+`http://127.0.0.1:8000/en/123/`  
+It's according to the template  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
 and Admin site for administrators (superusers):  
+`http://127.0.0.1:8000/en/456-admin`  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 LANGUAGE_CODE, SECRET_CRM_PREFIX and SECRET_ADMIN_PREFIX
