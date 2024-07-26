@@ -19,10 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # To get new value of key use code:
 # from django.core.management.utils import get_random_secret_key
 # print(get_random_secret_key())
-SECRET_KEY = '<specify key>'
+SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
 
 # Add your hosts to the list.
-ALLOWED_HOSTS = ['<specify host>']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Database
 DATABASES = {
@@ -47,10 +47,10 @@ EMAIL_USE_TLS = True
 SERVER_EMAIL = 'crm@example.com'
 DEFAULT_FROM_EMAIL = 'crm@example.com'
 
-ADMINS = ['<specify admin>', ]
+ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 FORMS_URLFIELD_ASSUME_HTTPS = True
 
@@ -153,25 +153,25 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 SITE_ID = 1
 
-SECURE_HSTS_SECONDS = 31536000  # set to 0 for development server
-# set to False for development server
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 0  # set to 31536000 for production server
+# set to True for production server
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_HSTS_PRELOAD = False
 
 
 # ---- CRM settings ---- #
 
 # For more security, replace the url prefixes
 # with your own unique value.
-SECRET_CRM_PREFIX = '123'
+SECRET_CRM_PREFIX = '123/'
 SECRET_ADMIN_PREFIX = '456-admin/'
 SECRET_LOGIN_PREFIX = '789-login/'
 
 # Specify ip of host to avoid importing emails sent by CRM
-CRM_IP = '1.1.1.1'
+CRM_IP = "127.0.0.1"
 
 CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
 
