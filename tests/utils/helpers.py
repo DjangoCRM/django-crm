@@ -7,7 +7,6 @@ from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.forms import models
 from django.utils import timezone
-from common.models import TheFile
 from common.utils.helpers import USER_MODEL
 from crm.models import Country
 
@@ -94,14 +93,15 @@ def get_random_file_name() -> str:
     return f'test_file{int(random() * 1E5)}.txt'
 
 
-def get_form_initials(form, data):
+def get_form_initials(form, data: dict):
     for key, value in form.base_fields.items():
         if value.initial is not None:
             if value.__class__ in field_func:
                 func = field_func[value.__class__]
                 data[key] = func(value.initial)
             else:
-                data[key] = value.initial
+                _set_form_initial_value(form, data, key, value.initial)
+
     if 'token' in data:
         data['token'] = data['token']()
     if getattr(form, 'declared_fields'):
@@ -111,12 +111,12 @@ def get_form_initials(form, data):
     initials = form.initial
     for key, value in initials.items():
         if value is not None:
-            data[key] = value
+            _set_form_initial_value(form, data, key, value)
             if key in form.base_fields and value != []:
                 field = form.base_fields[key]
                 func = field_func.get(field.__class__, None)
                 if func is not None:
-                    data[key] = func(value)
+                    _set_form_initial_value(form, data, key, func(value))
 
 
 def get_adminform_initials(response) -> dict:
@@ -132,11 +132,13 @@ def get_adminform_initials(response) -> dict:
 
             for form in formset:
                 get_form_initials(form, data)
-                if formset.model == TheFile:
-                    data[f"{form.prefix}-id"] = str(form.instance.id)
-                    if 'attached_to_deal' in form.initial:
-                        if form.initial['attached_to_deal']:
-                            data[f"{form.prefix}-attached_to_deal"] = True
-                        else:
-                            data[f"{form.prefix}-attached_to_deal"] = False
+                data[f"{form.prefix}-id"] = str(form.instance.id)
+
     return data
+
+
+def _set_form_initial_value(form, data: dict, key:str, value) -> None:
+    if form.prefix:
+        data[f"{form.prefix}-{key}"] = value
+    else:
+        data[key] = value
