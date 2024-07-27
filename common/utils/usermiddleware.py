@@ -23,7 +23,6 @@ class UserMiddleware:
             set_user_department(request, groups)
             iem = apps.get_app_config('crm')
             iem.import_emails(request.user)
-            profile = request.user.profile  # NOQA
             activate_stored_messages_to_user(request, profile)
             check_user_language(profile)
         return self.get_response(request)
