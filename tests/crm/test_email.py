@@ -130,7 +130,7 @@ class TestEmail(BaseTestCase):
             "Email object not saved"
         )
 
-    def test_attach_file_from_email_to_deal(self):
+    def test_attach_email_file_to_deal(self):
         deal = Deal.objects.create(
             name="Test deal",
             next_step=settings.FIRST_STEP,
@@ -165,14 +165,14 @@ class TestEmail(BaseTestCase):
         # submit 'save' button
         data['_save'] = ''
         response = self.client.post(url, data, follow=True)
-        data['file'].file.close()
-        # self.assertNoFormErrors(response)
+        data['common-thefile-content_type-object_id-0-file'].file.close()
+        self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         deal_file = deal.files.first()
         if deal_file is None:
             self.fail('There is no attached file.')
         else:
-            self.assertIn(file_name, deal_file.file.name)
+            self.assertIn(file_name.split('.')[0], deal_file.file.name)
 
         # detach the file from a deal
         response = self.client.get(url, follow=True)
@@ -181,7 +181,7 @@ class TestEmail(BaseTestCase):
         del data['common-thefile-content_type-object_id-0-attached_to_deal']
         data['_save'] = ''
         response = self.client.post(url, data, follow=True)
-        data['file'].file.close()
+        data['common-thefile-content_type-object_id-0-file'].file.close()
         # self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertFalse(deal.files.exists(), 'The file is attached to deal.')
