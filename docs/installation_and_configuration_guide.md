@@ -148,23 +148,27 @@ Most of the settings can be left at their default values.
 The default settings are for running the project on a development server.
 Change them for the production server.  
 
-To start the project for the first time, it is enough to specify the database settings in the file
+To start the project for the first time, it is enough to specify the database settings in the file  
 `webcrm/settings.py`  
-But in the future, you'll need to specify at least EMAIL_HOST and ADMINS settings.
+But in the following, you will need to specify at least the `EMAIL_HOST` and `ADMINS` settings.
 
 ### DATABASES
 
 Provide data to connect to the database.  
 Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).  
+Configure the `USER` specified in the `DATABASES` setting to have the right to create and drop databases.  
+Running tests will create
+and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database).
 
 ### For MySQL database, it is recommended to  
 
 - setup the timezone table;  
 - set the extended encoding:
-  - charset 'utf8mb4'
-  - collation  'utf8mb4_general_ci'
+  - charset `utf8mb4`
+  - collation  `utf8mb4_general_ci`
 
-And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to "ONLY_FULL_GROUP_BY".
+And also if an aggregation or annotation error occurs when running the tests, 
+you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
 
 ### Optimizing PostgreSQL's configuration
 
@@ -175,11 +179,12 @@ You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/m
 
 ### EMAIL_HOST
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and admins.  
+Specify details for connecting to an email account 
+through which CRM will be able to send notifications to users and administrators.  
 
-- EMAIL_HOST (smtp server)
-- EMAIL_HOST_PASSWORD
-- EMAIL_HOST_USER (login)
+- `EMAIL_HOST` (smtp server)
+- `EMAIL_HOST_PASSWORD`
+- `EMAIL_HOST_USER` (login)
 
 ### ADMINS
 
@@ -188,13 +193,6 @@ Add the addresses of CRM administrators to the list, so they can receive error l
 
 
 ## CRM and database testing
-
-Configure the user specified in the DATABASES setting to have the right to create and delete databases.  
-When the database configuration is complete, perform the migration:  
-
-```cmd
-python manage.py migrate
-```
 
 Run the built-in tests:  
 
@@ -209,18 +207,13 @@ To fill CRM with initial data, you need to execute the command "setupdata" in th
 ```cmd
 python manage.py setupdata
 ```
+This command will execute `migrate`, `loaddata` and `createsuperuser`.
+As a result, the database will be populated with objects such as  
+countries, currencies, departments, industries, etc.  
+Also the superuser will be created.
+You will be able to modify them or add your own.  
+Use the superuser credentials from the output to log into the CRM site.
 
-Objects of such models as:  
-Countries, Currencies, Departments, Industries, etc.  
-You will be able to modify or add your own.
-
-## Creating a superuser  
-
-Execute the following command in the terminal in the root directory of the project:  
-
-```cmd
-python manage.py createsuperuser
-```
 
 ## Launch CRM on the development server
 
@@ -245,10 +238,11 @@ and Admin site for administrators (superusers):
 `http://127.0.0.1:8000/en/456-admin`  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
-LANGUAGE_CODE, SECRET_CRM_PREFIX and SECRET_ADMIN_PREFIX
-are on file `<crmproject>/webcrm/settings.py`
+`LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
+are on file `webcrm/settings.py`
 
-**Attention!** Do not attempt to access the bare `<your CRM host>` address.  
+**Attention!** 
+Do not attempt to access the bare `<your CRM host>` address (http://127.0.0.1:8000/).  
 This address is not supported.  
 To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
 
