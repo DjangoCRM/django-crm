@@ -215,7 +215,9 @@ class TheFile(models.Model):
         return 'File'
 
     def delete(self, *args, **kwargs):
-        self.file.delete(save=False)
+        file_num = TheFile.objects.filter(file=self.file).count()
+        if file_num == 1:
+            self.file.delete(save=False)
         super().delete(*args, **kwargs)
 
 
