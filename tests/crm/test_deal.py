@@ -20,9 +20,11 @@ from crm.models import Payment
 from crm.models import Product
 from crm.models import Request
 from crm.models import Stage
+from crm.models.others import ClosingReason
 from tests.crm.test_request_methods import populate_db
 from tests.base_test_classes import BaseTestCase
 from tests.utils.helpers import get_adminform_initials
+
 
 # python manage.py test tests.crm.test_deal --keepdb
 
@@ -87,6 +89,37 @@ class TestDeal(BaseTestCase):
         self.deal_change_url = reverse(
             "site:crm_deal_change", args=(self.deal.id,)
         )
+
+    def test_unreceived_payments_deletion_of_deactivated_deal(self):
+        payment = Payment.objects.create(
+            amount=500,
+            currency=self.currency,
+            payment_date=self.now.date(),
+            status=Payment.LOW_PROBABILITY,
+            deal=self.deal,
+        )
+        payment_id = payment.id
+        response = self.client.get(self.deal_change_url, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        closing_reason = ClosingReason.objects.filter(
+            success_reason=False,
+            department=self.deal.department
+        ).first()
+        data = get_adminform_initials(response)
+        data['closing_reason'] = str(closing_reason.id)
+        data['_save'] = ''
+        response = self.client.post(self.deal_change_url, data, follow=True)
+        # self.assertNoFormErrors(response)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        self.assertTrue(Payment.objects.filter(
+            deal=self.deal,
+            status=Payment.RECEIVED,
+            amount=100,
+            currency=self.currency
+        ).exists())
+        self.assertFalse(Payment.objects.filter(
+            id=payment_id,
+        ).exists())
 
     def test_deal_changelist(self):
         response = self.client.get(self.deal_changelist_url, follow=True)
@@ -164,7 +197,7 @@ class TestDeal(BaseTestCase):
             response = self.client.post(shipment_change_url, data, follow=True)
             self.assertNoFormErrors(response)
             self.assertEqual(response.status_code, 200, response.reason_phrase)
-            self.assertEqual(len(mail.outbox), 2)   # NOQA
+            self.assertEqual(len(mail.outbox), 2)  # NOQA
             mail.outbox = []
         stage = Stage.objects.get(
             goods_shipped=True,
