@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.messages.storage import default_storage
 from django.core import mail
 from django.test import override_settings
 from django.test import RequestFactory
@@ -163,7 +164,6 @@ class TestEmail(BaseTestCase):
         data = get_adminform_initials(response)
         data['common-thefile-content_type-object_id-0-attached_to_deal'] = True
         # submit 'save' button
-        data['_save'] = ''
         response = self.client.post(url, data, follow=True)
         data['common-thefile-content_type-object_id-0-file'].file.close()
         self.assertNoFormErrors(response)
@@ -179,11 +179,26 @@ class TestEmail(BaseTestCase):
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         data = get_adminform_initials(response)
         del data['common-thefile-content_type-object_id-0-attached_to_deal']
-        data['_save'] = ''
-        response = self.client.post(url, data, follow=True)
+        # `RequestFactory` is used instead of `self.client` to avoid "PermissionError: [WinError 32]
+        # The process cannot access the file because it is being used by another process"
+        request = self.factory.post(url, data)
+        request.user = self.owner
+        request.user.department_id = self.department_id
+        request.user.is_superoperator = False
+        request.user.is_chief = False
+        request.user.is_manager = True
+        request.user.is_operator = False
+        context = response.context or response.context_data
+        request.COOKIES[settings.CSRF_COOKIE_NAME] = str(context['csrf_token'])
+        request.META[settings.CSRF_HEADER_NAME] = str(context['csrf_token'])
         data['common-thefile-content_type-object_id-0-file'].file.close()
-        # self.assertNoFormErrors(response)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
+
+        with self.settings(
+                MESSAGE_STORAGE='django.contrib.messages.storage.cookie.CookieStorage'
+        ):
+            request._messages = default_storage(request)
+            response = email_admin.change_view(request, str(eml.id))
+        self.assertEqual(response.status_code, 302, response.reason_phrase)
         self.assertFalse(deal.files.exists(), 'The file is attached to deal.')
         file.file.delete()
 
