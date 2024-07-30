@@ -9,7 +9,7 @@
 
  
 <div>
-	<p><b>{{ summary.requests }} (100%) - всего запросов</b></p>
+	<p><b>{{ summary.requests }} (100%) - {% translate 'total requests' %}</b></p>
 	{% for l in summary.total %}
     <p>{{ l.total }} ({{ l.pers }}%)  - {{ l.name }}</p>
     {% endfor %}
