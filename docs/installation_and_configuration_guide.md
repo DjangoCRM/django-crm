@@ -68,7 +68,8 @@ The TASKS application does not require complicated CRM configuration and allows 
 
 Access to this application is available to all CRM users.
 
-Access to the rest of the applications is only available to users with the appropriate roles, such as sales managers, company executives, etc.  
+Access to the rest of the applications is only available to users with the appropriate roles, 
+such as sales managers, company executives, etc.   
 To use all the features of these applications, you need to set up CRM integration:
 
 - with your company's websites;
@@ -197,7 +198,7 @@ Add the addresses of CRM administrators to the list, so they can receive error l
 Run the built-in tests:  
 
 ```cmd
-python manage.py test --noinput
+python manage.py test tests/ --noinput
 ```
 
 ## Installing the initial data
