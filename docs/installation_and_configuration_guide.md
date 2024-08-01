@@ -445,7 +445,7 @@ Here is an example of a simple string:
 ```
 
 url must follow the format:  
-`https://<yourCRM.domain>/<language_code>/contact-form/<uuid>/`
+`https://<language_code>/<yourCRM.domain>/contact-form/<uuid>/`
 where uuid is the values of the "UUID" field of the selected "Lead Source".
 
 #### Activate form protection with Google's reCAPTCHA v3
