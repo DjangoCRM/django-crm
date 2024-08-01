@@ -183,7 +183,7 @@ def get_recipient(
 def get_recipient_ids(mailing_out: MailingOut) -> list:
     recipient_ids = mailing_out.get_recipient_ids()
     if not recipient_ids:
-        report_msg = 'Done successfully.'
+        report_msg = 'Done successfully.\n'
         mailing_out.report = report_msg + mailing_out.report
         mailing_out.status = 'D'
         mailing_out.save()
@@ -251,13 +251,14 @@ def report(
 {now}
 {e}
 {mc.content_object}
-{email_account.email_host_user}\r\n\r\n
+{email_account.email_host_user}\n\n
 """
-    email_account.report = report_str + email_account.report
+
     if off:
         email_account.massmail = False
-        report_str = 'Account OFF!\r\n' + report_str
-    email_account.save()
+        report_str = '\nAccount OFF!\n' + report_str
+        email_account.report = report_str + email_account.report
+        email_account.save()
     mailing_out.report = report_str + mailing_out.report
     mailing_out.status = 'E'
     if off:
@@ -269,7 +270,7 @@ def report(
 
 
 def get_extra_context(mc: MassContact) -> dict:
-    DATA = {
+    data = {
         ContentType.objects.get_for_model(Contact): [
             'email', 'first_name', 'first_middle_name',
             'last_name', 'full_name',
@@ -292,7 +293,7 @@ def get_extra_context(mc: MassContact) -> dict:
             pk=settings.SITE_ID
         ).domain + url
     }
-    fields = DATA[mc.content_type].copy()
+    fields = data[mc.content_type].copy()
     field = fields.pop(0)
     extra_context['to'] = getattr(mc.content_object, field)
     for field in fields:
