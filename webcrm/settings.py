@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from decouple import config
 from django.utils.translation import gettext_lazy as _
 
 from crm.settings import *          # NOQA
@@ -19,38 +20,38 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # To get new value of key use code:
 # from django.core.management.utils import get_random_secret_key
 # print(get_random_secret_key())
-SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
+SECRET_KEY = config('SECRET_KEY', 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn')
 
 # Add your hosts to the list.
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',
+                       '*',
+                       cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Database
 DATABASES = {
-    'default': {    # for MySQl
-        'ENGINE': 'django.db.backends.mysql',
-        # "ENGINE": "django.db.backends.postgresql",  # for PostgreSQL
-        'PORT': '3306',
-        # 'PORT': '5432',   # for PostgreSQL
-        'NAME': 'crm_db',
-        'USER': '<specify user>',
-        'PASSWORD': '<specify password>',
-        'HOST': '<specify host>',
+    'default': {
+        'ENGINE': config('DATABASES_ENGINE', 'django.db.backends.mysql'),
+        'PORT': config('DATABASES_PORT', '3306', cast=int),
+        'NAME': config('DATABASES_NAME', 'crm_db'),
+        'USER': config('DATABASES_USER', 'crm'),
+        'PASSWORD': config('DATABASES_PASSWORD', 'crm'),
+        'HOST': config('DATABASES_HOST', 'localhost'),
     }
 }
 
-EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
-EMAIL_HOST_PASSWORD = '<specify password>'
-EMAIL_HOST_USER = 'crm@example.com'
-EMAIL_PORT = 587
-EMAIL_SUBJECT_PREFIX = 'CRM: '
-EMAIL_USE_TLS = True
-SERVER_EMAIL = 'crm@example.com'
-DEFAULT_FROM_EMAIL = 'crm@example.com'
+EMAIL_HOST = config('EMAIL_HOST', '')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'crm@example.com')
+EMAIL_PORT = config('EMAIL_PORT', '587', cast=int)
+EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX', 'CRM: ')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', True, cast=bool)
+SERVER_EMAIL = config('SERVER_EMAIL', 'crm@example.com')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', 'crm@example.com')
 
 ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', 'True', cast=bool)
 
 FORMS_URLFIELD_ASSUME_HTTPS = True
 
@@ -235,11 +236,11 @@ OAUTH2_DATA = {
     }
 }
 # Hardcoded dummy redirect URI for non-web apps.
-REDIRECT_URI = ''
+REDIRECT_URI = config('REDIRECT_URI','')
 
 # Credentials for Google reCAPTCHA.
-GOOGLE_RECAPTCHA_SITE_KEY = ''
-GOOGLE_RECAPTCHA_SECRET_KEY = ''
+GOOGLE_RECAPTCHA_SITE_KEY = config('GOOGLE_RECAPTCHA_SITE_KEY','')
+GOOGLE_RECAPTCHA_SECRET_KEY = config('GOOGLE_RECAPTCHA_SECRET_KEY','')
 
 GEOIP = False
 GEOIP_PATH = MEDIA_ROOT / 'geodb'
@@ -252,7 +253,7 @@ NO_NAME_STR = _('Untitled')
 # For automated getting currency exchange rate
 LOAD_EXCHANGE_RATE = False
 LOADING_EXCHANGE_RATE_TIME = "6:30"
-LOAD_RATE_BACKEND = ""  # "crm.backends.<specify_backend>.<specify_class>"
+LOAD_RATE_BACKEND = config('LOAD_RATE_BACKEND', 'crm.backends.basebackend.BaseBackend')  # "crm.backends.<specify_backend>.<specify_class>"
 
 # Ability to mark payments through a representation
 MARK_PAYMENTS_THROUGH_REP = False

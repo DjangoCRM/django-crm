@@ -1,0 +1,47 @@
+services:
+  web:
+    build: .
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    container_name: django_crm
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - ./.env.db
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  # Uncomment for mysql
+  # db:
+  #   image: mysql:9.0.1
+  #   container_name: mysql_db
+  #   restart: always
+  #   env_file:
+  #     - ./.env.db
+  #   ports:
+  #     - "3306:3306"
+  #   expose:
+  #     - "3306"
+  #   volumes:
+  #     - db:/var/lib/mysql
+
+volumes:
+  db:
