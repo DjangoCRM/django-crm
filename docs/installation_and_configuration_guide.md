@@ -308,7 +308,7 @@ There are four permissions for users in relation to objects (e.g., Tasks, Deals,
 - add (create),
 - view,
 - change,
-- change.
+- delete.
 
 Permissions can be assigned to individual users or groups of users.  
 In relation to a particular object instance, CRM can dynamically change the permissions set for the object type. For example, a user who has permission to modify emails will not be able to modify an email if it is an incoming email.
