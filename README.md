@@ -41,9 +41,9 @@ CRM the project consists of the following **main applications**:
   - Emails;
   - Products;
   - Payments;
-  - … (+ *12 more models*).
+  - … (*+ 12 more models*).
 - ANALYTICS
-  - Income Summary report;
+  - Income Summary report ( :desktop_computer: *see [screenshot](docs/pics/income_summary_screenshot.png)* );
   - Sales funnel report;
   - Lead source Summary report;
   - … (+ *5 more reports*).
