@@ -1,19 +1,16 @@
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
-from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.models import UserProfile
+from common.utils.chat_link import get_chat_link
 from common.utils.helpers import add_chat_context
 from common.utils.helpers import annotate_chat
 from common.utils.helpers import LEADERS
 
 icon_str = '<i class="material-icons" style="color: var(--body-quiet-color)">%s</i>'
-chat_red_icon = '<i class="material-icons" style="font-size: 17px;color: var(--error-fg);">forum</i>'
-chat_icon = '<i class="material-icons" style="font-size: 17px;color: var(--body-quiet-color);">forum</i>'
-chat_link_str = '<a href="{}?content_type__id={}&object_id={}" title="{}" target="_blank">{}</a>'
 contact_mail_icon = mark_safe(icon_str % 'contact_mail')
 contact_phone_icon = mark_safe(icon_str % 'contact_phone')
 person_icon = mark_safe(icon_str % 'person')
@@ -107,16 +104,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     @admin.display(description='')
     def chat_link(self, obj):
-        value = ''
-        content_type = ContentType.objects.get_for_model(self.model)
-        url = reverse('site:chat_chatmessage_changelist')
-        if getattr(obj, 'is_chat'):
-            value = mark_safe(chat_link_str.format(
-                url, content_type.id, obj.pk, view_chat_str, chat_icon))
-        if getattr(obj, 'is_unread_chat'):
-            value = mark_safe(chat_link_str.format(
-                url, content_type.id, obj.pk, view_chat_str, chat_red_icon))
-        return value
+        return get_chat_link(obj)
 
     @admin.display(description=_(contact_mail_icon),
                    ordering='user__email')
