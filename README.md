@@ -1,6 +1,6 @@
 ﻿# Django-CRM
 
-*(Customer Relationship Management)*
+*(Customer Relationship Management app)*
 
 The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
 This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company. Access to the company's business data remains solely under its control.
@@ -42,7 +42,7 @@ CRM the project consists of the following **main applications**:
   - Products;
   - Payments;
   - … (*+ 12 more models*).
-[<img src="docs/pics/income_summary_thumbnail.png" alt="snapshot detail page" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
+[<img src="docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
 - ANALYTICS
   - Income Summary report (*see [screenshot](docs/pics/income_summary_thumbnail.png)*);
   - Sales funnel report;
