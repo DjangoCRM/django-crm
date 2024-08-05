@@ -3,7 +3,6 @@ from typing import Union
 from urllib.parse import urlencode
 from django import forms
 from django.contrib import admin
-from django.contrib.contenttypes.models import ContentType
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Exists
 from django.db.models import Q
@@ -19,6 +18,7 @@ from django.utils.translation import gettext_lazy as _
 from common.admin import FileInline
 from common.models import TheFile
 from common.site.basemodeladmin import BaseModelAdmin
+from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.utils.helpers import compose_subject
 from common.utils.helpers import CRM_NOTICE
@@ -40,9 +40,6 @@ from tasks.utils.admfilters import IsActiveTaskFilter
 from tasks.utils.admfilters import ByOwnerFilter
 from tasks.utils.admfilters import TaskTagFilter
 
-chat_icon = '<i class="material-icons" style="font-size: 17px;color: var(--body-quiet-color)">forum</i>'
-chat_red_icon = '<i class="material-icons" style="font-size: 17px;color: var(--error-fg)">forum</i>'
-chat_link_str = '<a href="{}?content_type__id={}&object_id={}" title="{}" target="_blank">{}</a>'
 co_owner_subject = _("You have been assigned as the task co-owner")
 due_date_str = _("Due date")
 TASK_NEXT_STEP = _("Acquainted with the task")
@@ -339,8 +336,7 @@ class TasksBaseModelAdmin(BaseModelAdmin):
             return True
 
         if obj.__class__ == Task:
-            # Task participants can see sub-tasks
-            # of other participants.
+            # Task participants can see subtasks of other participants.
             # A subscriber to the main task can also see all subtasks.
             if obj.task:
                 tasks = self.model.objects.filter(
@@ -451,16 +447,7 @@ class TasksBaseModelAdmin(BaseModelAdmin):
 
     @admin.display(description='')
     def chat_link(self, obj):
-        value = ''
-        content_type = ContentType.objects.get_for_model(self.model)
-        url = reverse('site:chat_chatmessage_changelist')
-        if getattr(obj, 'is_chat'):
-            value = mark_safe(chat_link_str.format(
-                url, content_type.id, obj.id, view_chat_str, chat_icon))
-        if getattr(obj, 'is_unread_chat'):
-            value = mark_safe(chat_link_str.format(
-                url, content_type.id, obj.id, view_chat_str, chat_red_icon))
-        return value
+        return get_chat_link(obj)
 
     @admin.display(description=mark_safe(
         f'<i class="material-icons" title="{due_date_str}"'
