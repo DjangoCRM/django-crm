@@ -136,7 +136,7 @@ class FileInline(GenericStackedInline):
     # -- GenericStackedInline methods -- #
 
     def has_add_permission(self, request, obj):
-        # who can change parent object should
+        # who can change a parent object should
         # have permission to add inline
         return self.has_change_permission(request, obj)
 
@@ -147,7 +147,7 @@ class FileInline(GenericStackedInline):
         return self.clarify_permission(request, obj)
 
     def has_delete_permission(self, request, obj=None):
-        # who can change parent object should
+        # who can change a parent object should
         # have permission to delete inline
         return self.has_change_permission(request, obj)
 
@@ -182,6 +182,27 @@ class FileInline(GenericStackedInline):
 
 class UserProfileAdmin(userprofileadmin.UserProfileAdmin):
     fields = ('user', 'pbx_number', 'utc_timezone', 'activate_timezone')
+
+    # -- ModelAdmin methods -- #
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        list_display.extend(('staff', 'superuser'))
+        return list_display
+
+    # -- ModelAdmin Callables -- #
+
+    @admin.display(description=_("staff status"),
+                   ordering='user__is_staff',
+                   boolean=True, )
+    def staff(self, obj):
+        return obj.user.is_staff
+
+    @admin.display(description=_("superuser status"),
+                   ordering='user__is_superuser',
+                   boolean=True, )
+    def superuser(self, obj):
+        return obj.user.is_superuser
 
 
 crm_site.register(Reminder, reminderadmin.ReminderAdmin)
