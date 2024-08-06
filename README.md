@@ -26,21 +26,21 @@ CRM the project consists of the following **main applications**:
 - TASKS:
   - Task
     - subtasks;
-  - Memo
+  - Memo (office memo)
     - tasks / project
   - Project (*tasks collection*):
     - tasks
   - Tags;
   - … (+ *3 more models*).
 - CRM:
-  - Requests;
+  - Requests (commercial inquiries);
   - Leads;
   - Companies;
   - Contact persons;
   - Deals;
   - Emails;
-  - Products;
-  - Payments;
+  - Products (goods and services);
+  - Payments (received, guaranteed, high and low probability);
   - … (*+ 12 more models*).
 [<img src="docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
 - ANALYTICS
