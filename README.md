@@ -5,8 +5,16 @@
 The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
 This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company. Access to the company's business data remains solely under its control.
 
-
 ![](docs/pics/deals_screenshot.png)
+## Key Features of client relationship software (features of crm)
+
+|                           |                                                         |                          |
+|---------------------------|---------------------------------------------------------|--------------------------|
+| **Team tasks & projects** | **Lead management**                                     | **Email-marketing**      |
+| **Contact management**    | **Deal management (instant overview all active deals)** | **Sales forecasting**    |
+| **Email sync & tracking** | **Marketing activities (Lead sources)**                 | **Sales pipeline**       |
+| **Apps & integrations**   | **Sales Performance Management**                        | **Analytical reporting** |  
+
 Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 CRM uses adaptive Admin HTML templates out-of-the-box.
