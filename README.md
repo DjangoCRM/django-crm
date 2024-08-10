@@ -8,12 +8,12 @@ This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual u
 ![](docs/pics/deals_screenshot.png)
 ## Key Features of client relationship software (features of crm)
 
-|                           |                                                         |                          |
-|---------------------------|---------------------------------------------------------|--------------------------|
-| **Team tasks & projects** | **Lead management**                                     | **Email-marketing**      |
-| **Contact management**    | **Deal management (instant overview all active deals)** | **Sales forecasting**    |
-| **Email sync & tracking** | **Marketing activities (Lead sources)**                 | **Sales pipeline**       |
-| **Apps & integrations**   | **Sales Performance Management**                        | **Analytical reporting** |  
+|                                                   |                                                                                 |                                                  |
+|---------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------|
+| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                     | :ballot_box_with_check: **Email-marketing**      |
+| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management (instant overview all active deals)** | :ballot_box_with_check: **Sales forecasting**    |
+| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities (Lead sources)**                 | :ballot_box_with_check: **Sales pipeline**       |
+| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Analytical reporting** |  
 
 Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
@@ -29,43 +29,48 @@ All this ensures:
 The **project code is stable** (has been in practical use for many years).
 
 ## Main applications
-CRM the project consists of the following **main applications**:
+The CRM software consists of the following **main applications**:
 
 - TASKS:
   - Task
-    - subtasks;
+    - subtasks
   - Memo (office memo)
     - tasks / project
   - Project (*tasks collection*):
     - tasks
-  - Tags;
+  - Tags
   - … (+ *3 more models*).
 - CRM:
-  - Requests (commercial inquiries);
-  - Leads;
-  - Companies;
-  - Contact persons;
-  - Deals;
-  - Emails;
-  - Products (goods and services);
-  - Payments (received, guaranteed, high and low probability);
+  - Requests (commercial inquiries)
+  - Leads (potential customers)
+  - Companies
+  - Contact persons
+  - Deals
+  - Emails
+  - Products (goods and services)
+  - Payments (received, guaranteed, high and low probability)
   - … (*+ 12 more models*).
 [<img src="docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
 - ANALYTICS
-  - Income Summary report (*see [screenshot](docs/pics/income_summary_thumbnail.png)*);
-  - Sales funnel report;
-  - Lead source Summary report;
+  - Income Summary report (*see [screenshot](docs/pics/income_summary_thumbnail.png)*)
+  - Sales funnel report
+  - Lead source Summary report
   - … (+ *5 more reports*).
 - MASS MAIL:
-  - Email Accounts;
-  - Email Messages;
-  - Email Signatures;
-  - Mailing Outs.
+  - Email Accounts
+  - Email Messages
+  - Email Signatures
+  - Mailing Outs
 
 ## Supporting applications
-The project also contains **supporting applications** such as:
+The crm package also contains **supporting applications** such as:
 
-Chat, VoIP, Help, …
+- Chat (chat is available in every instance of a task, project, office memo and deal)
+- VoIP (contact clients from deals)
+- Help (dynamic help pages depending on user role)
+- Common:
+  - User profiles
+  - Reminders (for tasks, projects, office memos and deals)
 
 In total, at the moment, there are 79 tables in the database.
 
@@ -105,7 +110,9 @@ Please refer to:
 Compatibility  
 - Django 5.0.x
 - Python 3.10+
-- MySQL 8.0.11+ and PostgreSQL 12+
+- MySQL 8.0.11+ and PostgreSQL 12+  
+
+⭐️ Don't forget to **star** and **fork** the project if you like it.
 
 ## Contributing
 All types of contributions are welcome.
