@@ -4,9 +4,13 @@
 
 - [Introduction](#introduction)
 - [Project installation](#project-installation)
-  - [Download or clone the project](#download-or-clone-the-project)
+  - [Fork the Repository](#fork-the-repository)
+  - [Clone the project](#clone-the-project)
   - [Install the requirements](#install-the-requirements)
 - [Settings of Django CRM](#settings-of-django-crm)
+  - [DATABASES settings](#databases-settings)
+  - [EMAIL_HOST settings](#email_host-settings)
+  - [ADMINS settings](#admins-settings)
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
 - [Launch CRM on the development server](#launch-crm-on-the-development-server)
@@ -17,7 +21,7 @@
 - [Adding Django CRM users](#adding-django-crm-users)
   - [Permissions for users](#permissions-for-users)
   - [User groups](#user-groups)
-  - [Departments](#departments)
+  - [Departments ](#departments)
   - [Adding users](#adding-users)
 - [User access to applications and objects](#user-access-to-applications-and-objects)
 - [Helping users to master Django CRM](#helping-users-to-master-django-crm)
@@ -48,25 +52,31 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (Customer Relationship Management) is an open source web application.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source web application.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
 
-- TASKS;
-- CRM;
-- ANALYTICS;
-- MASS MAIL.
+- TASKS
+- CRM
+- ANALYTICS
+- MASS MAIL
 
-The TASKS application does not require complicated CRM configuration and allows users to work with the following objects:
+The TASKS application does not require complicated CRM configuration and allows teams to work with the following objects:
 
-- Memos;
-- Tasks;
-- Projects;
-- Chat;
-- Tags.
+- Memos (office memo)
+- Tasks / subtasks
+- Projects
 
-Access to this application is available to all CRM users.
+Each instance of these objects also contains:
+
+- Chat
+- Tags
+- Remainders
+- Files
+
+Notifications within CRM and to Email are also available.  
+All CRM users have access to this application by default.
 
 Access to the rest of the applications is only available to users with the appropriate roles, 
 such as sales managers, company executives, etc.   
@@ -79,66 +89,52 @@ To use all the features of these applications, you need to set up CRM integratio
 
 ## Project installation
 
-The CRM code is a ready Django project.  
+The CRM software is a ready Django project.  
 To deploy the project, you will need: [Python](https://www.python.org/), and database.  
 CRM is developed and used with [MySQL](https://www.mysql.com/) database
 but taking into account compatibility with [PostgreSQL](https://www.postgresql.org)
-(passes the current set of tests).  
-After downloading, you need to deploy and customize the CRM code like a normal Django project.  
-If the project is deployed on a production server, a website server will also be required
-(for example [Apache](https://httpd.apache.org/)).  
-Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
+(passes the current set of tests).   
 
-### Download or clone the project
+### Fork the Repository
 
-Create Clone the GitHub repository:
+Click the Fork button in the upper right corner of the repository's home page.  
+You now have a copy of the repository in your personal GitHub account.
 
-```cmd
-git clone https://github.com/DjangoCRM/django-crm.git
-```
-(the project will be cloned into the 'django-crm' folder)
+### Clone the project
 
-Or download the zip file and unpack it:
+To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system.   
+Clone the copied GitHub repository:
 
 ```cmd
-wget https://github.com/DjangoCRM/django-crm/archive/main.zip
-unzip main.zip
+git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
 ```
-The project will be unzipped into the 'django-crm-main' folder.  
-Rename the folder to "django-crm".  
+The project will be cloned into the 'django-crm' folder.
 
 ### Install the requirements
 
 It is recommended to first create a virtual environment:
-
 ```cmd
 python3 -m venv ./myvenv
 ```
-
 and activate it:
-
 ```cmd
 cd ./myvenv/bin
 source activate
 cd ../../django-crm
 ```
-
 then install the project requirements:
-
 ```cmd
 pip install -r requirements.txt
 ```
+If the project is deployed on a production server, a website server will also be required
+(for example, [Apache](https://httpd.apache.org/)).  
+Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
 
 ## Settings of Django CRM
 
-The project settings are contained in the file  
-`webcrm/settings.py`
-
-As well as in the Django CRM application files:  
-`common/settings.py`  
-`crm/settings.py`  
-`massmai/settings.py`  
-`voip/settings.py`  
+Project settings are contained in files `settings.py`.  
+The main project settings are contained in the file  
+`webcrm/settings.py`  
 The syntax of the data in these files must match the syntax of the Python language.
 
 Most of the project settings are Django settings.
@@ -153,7 +149,7 @@ To start the project for the first time, it is enough to specify the database se
 `webcrm/settings.py`  
 But in the following, you will need to specify at least the `EMAIL_HOST` and `ADMINS` settings.
 
-### DATABASES
+### DATABASES settings
 
 Provide data to connect to the database.  
 Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).  
@@ -161,7 +157,7 @@ Configure the `USER` specified in the `DATABASES` setting to have the right to c
 Running tests will create
 and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database).
 
-### For MySQL database, it is recommended to  
+#### For MySQL database, it is recommended to  
 
 - setup the timezone table;  
 - set the extended encoding:
@@ -171,14 +167,14 @@ and then destroy a separate [test database](https://docs.djangoproject.com/en/de
 And also if an aggregation or annotation error occurs when running the tests, 
 you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
 
-### Optimizing PostgreSQL's configuration
+#### Optimizing PostgreSQL's configuration
 
 You'll need the [psycopg](https://www.psycopg.org/psycopg3/) or [psycopg2](https://www.psycopg.org/) package.
 Set the timezone to 'UTC' (when USE_TZ is True),
 default_transaction_isolation: 'read committed'.  
 You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`
 
-### EMAIL_HOST
+### EMAIL_HOST settings
 
 Specify details for connecting to an email account 
 through which CRM will be able to send notifications to users and administrators.  
@@ -187,7 +183,7 @@ through which CRM will be able to send notifications to users and administrators
 - `EMAIL_HOST_PASSWORD`
 - `EMAIL_HOST_USER` (login)
 
-### ADMINS
+### ADMINS settings
 
 Add the addresses of CRM administrators to the list, so they can receive error logs.  
 `ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
