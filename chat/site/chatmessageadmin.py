@@ -45,6 +45,7 @@ red_download_icon = '<i class="material-icons" ' \
                     'style="font-size:17px;vertical-align:middle;color: var(--error-fg);">file_download</i>'
 error_outline_icon = '<i class="material-icons" ' \
                      'style="font-size:17px;vertical-align:middle;color: var(--error-fg)">error_outline</i>'
+recipients_title_str = _('recipients')
 file_error = f'<span style="color: var(--error-fg)">{_("Error: the file is missing.")}</span>'
 today_icon = '<i class="material-icons" title="Creation date" style="color: var(--body-quiet-color)">today</i>'
 task_operator_str = _("task operator")
@@ -55,7 +56,7 @@ crm_prefix = _(settings.EMAIL_SUBJECT_PREFIX)
 class ChatMessageAdmin(admin.ModelAdmin):
     form = ChatMessageForm
     list_display = (
-        'envelope', 'message', 'person',
+        'envelope', 'message', 'person', 'recipient_list',
         'reply', 'files', 'created', 'id'
     )
     list_display_links = ('message',)
@@ -261,6 +262,16 @@ class ChatMessageAdmin(admin.ModelAdmin):
                 f'<span style="font-weight:normal;font-size:120%;margin-left:30px;display:block;">{text}</span>'
             )
         return LEADERS
+
+    @admin.display(description=mark_safe(
+        f'<a title="{recipients_title_str}">'
+        '<i class="material-icons" style="color: '
+        'var(--body-quiet-color)">people_outline</i></a>'
+    ))
+    def recipient_list(self, obj):
+        return mark_safe(
+            f'{", ".join([str(u) for u in obj.to.all()])}'
+        )
 
     @admin.display(description=mark_safe(
         f'<ul class="object-tools" style="margin-top:0px;">{_("reply")}</ul>'
