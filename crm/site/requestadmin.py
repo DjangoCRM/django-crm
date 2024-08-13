@@ -12,6 +12,8 @@ from django.urls import reverse
 from common.admin import FileInline
 from common.models import Department
 from common.utils.helpers import compose_message
+from common.utils.helpers import get_trans_for_lang
+from common.utils.helpers import get_user_language_code
 from common.utils.helpers import compose_subject
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_department_id
@@ -20,8 +22,8 @@ from common.utils.notify_user import notify_user
 from common.utils.parse_full_name import parse_contacts_name
 from crm.forms.admin_forms import RequestForm
 from crm.models import Currency
-from crm.models import Deal
 from crm.models import CrmEmail
+from crm.models import Deal
 from crm.models import Output
 from crm.models import Request
 from crm.models import Stage
@@ -55,7 +57,7 @@ primary_title = _("Primary request")
 request_counter_title = _("Request counter")
 request_counter_icon = '<span title="{}">({})</span>'
 REQUEST_CO_OWNER_NOTICE = _('You are the co-owner of the request')
-REQUEST_OWNER_NOTICE = _('You received the request')
+REQUEST_OWNER_NOTICE = 'You received the request'
 
 subject_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
@@ -451,7 +453,9 @@ def _notify_deal_owners(request: WSGIRequest, obj: Request) -> None:
 
 
 def notify_request_owners(obj: Request) -> None:
-    subject = compose_subject(obj, REQUEST_OWNER_NOTICE)
+    code = get_user_language_code(obj.owner)
+    notice = get_trans_for_lang(REQUEST_OWNER_NOTICE, code)
+    subject = compose_subject(obj, notice)
     notify_user(obj, obj.owner, subject)
     if obj.co_owner:
         subject = compose_subject(obj, REQUEST_CO_OWNER_NOTICE)
