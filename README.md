@@ -116,6 +116,7 @@ Compatibility
 
 ## Contributing
 All types of contributions are welcome.
+Please see the [Contributing guide](CONTRIBUTING.md).
 
 ## Credits
 
