@@ -46,6 +46,18 @@ def add_chat_context(request, extra_context, object_id, content_type):
         ).exists()
 
 
+def add_phone_q_params(phone: str, q_params: Q = None) -> Q:
+    q_params = q_params or Q()
+    digits = [i for i in phone if i.isdigit()]
+    if len(digits) > 4:
+        digits_re = ''.join((f'[^0-9]*[{i}]{{1}}' for i in digits))
+        phone_re = fr"{digits_re}"
+        q_params |= Q(phone__iregex=phone_re)
+        q_params |= Q(other_phone__iregex=phone_re)
+        q_params |= Q(mobile__iregex=phone_re)
+    return q_params
+
+
 def annotate_chat(request: WSGIRequest, queryset: QuerySet) -> QuerySet:
     content_type = ContentType.objects.get_for_model(queryset.model)
     chat = ChatMessage.objects.filter(
@@ -102,16 +114,8 @@ def get_trans_for_lang(text: str, language_code: str) -> str:
         return gettext(text)
 
 
-def add_phone_q_params(phone: str, q_params: Q = None) -> Q:
-    q_params = q_params or Q()
-    digits = [i for i in phone if i.isdigit()]
-    if len(digits) > 4:
-        digits_re = ''.join((f'[^0-9]*[{i}]{{1}}' for i in digits))
-        phone_re = fr"{digits_re}"
-        q_params |= Q(phone__iregex=phone_re)
-        q_params |= Q(other_phone__iregex=phone_re)
-        q_params |= Q(mobile__iregex=phone_re)
-    return q_params
+def get_user_language_code(user) -> str:
+    return user.profile.language_code
 
 
 def get_verbose_name(model, field: str) -> str:
