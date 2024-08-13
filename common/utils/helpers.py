@@ -18,6 +18,7 @@ from django.utils.timezone import localtime
 from django.utils.timezone import now
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy
+from django.utils.translation import override
 
 from chat.models import ChatMessage
 
@@ -93,6 +94,12 @@ def get_formatted_short_date():
         format='SHORT_DATE_FORMAT',
         use_l10n=True
     )
+
+
+def get_trans_for_lang(text: str, language_code: str) -> str:
+    """Get translation for a specific language"""
+    with override(language_code):
+        return gettext(text)
 
 
 def add_phone_q_params(phone: str, q_params: Q = None) -> Q:
