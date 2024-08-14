@@ -114,6 +114,12 @@ def get_trans_for_lang(text: str, language_code: str) -> str:
         return gettext(text)
 
 
+def get_trans_for_user(text: str, user) -> str:
+    """Translation function into the user's language"""
+    code = get_user_language_code(user)
+    return get_trans_for_lang(text, code)
+
+
 def get_user_language_code(user) -> str:
     return user.profile.language_code
 
