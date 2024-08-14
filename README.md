@@ -26,13 +26,14 @@ All this ensures:
 - significantly easier project customization and development;
 - simpler project deployment and production server support.
 
+The software package provides two websites: a CRM site for all users and a site for administrators.
 The **project code is stable** (has been in practical use for many years).
 
 ## Main applications
 The CRM software consists of the following **main applications**:
 
-- TASKS:
-  - Task
+- TASKS app:
+  - Task (with related: files, chat, reminders, tags)
     - subtasks
   - Memo (office memo)
     - tasks / project
@@ -40,35 +41,35 @@ The CRM software consists of the following **main applications**:
     - tasks
   - Tags
   - … (+ *3 more models*).
-- CRM:
+- CRM app:
   - Requests (commercial inquiries)
   - Leads (potential customers)
   - Companies
-  - Contact persons
-  - Deals
+  - Contact persons (associated with their companies)
+  - Deals (like "Opportunities")
   - Emails
   - Products (goods and services)
   - Payments (received, guaranteed, high and low probability)
   - … (*+ 12 more models*).
 [<img src="docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
-- ANALYTICS
+- ANALYTICS app:
   - Income Summary report (*see [screenshot](docs/pics/income_summary_thumbnail.png)*)
   - Sales funnel report
   - Lead source Summary report
   - … (+ *5 more reports*).
-- MASS MAIL:
+- MASS MAIL app:
   - Email Accounts
-  - Email Messages
-  - Email Signatures
+  - Email Messages (newsletters)
+  - Email Signatures (user signatures)
   - Mailing Outs
 
 ## Supporting applications
 The crm package also contains **supporting applications** such as:
 
-- Chat (chat is available in every instance of a task, project, office memo and deal)
-- VoIP (contact clients from deals)
-- Help (dynamic help pages depending on user role)
-- Common:
+- Chat app (chat is available in every instance of a task, project, office memo and deal)
+- VoIP app (contact clients from deals)
+- Help app (dynamic help pages depending on user role)
+- Common app:
   - User profiles
   - Reminders (for tasks, projects, office memos and deals)
 
