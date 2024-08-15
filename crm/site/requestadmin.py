@@ -12,8 +12,7 @@ from django.urls import reverse
 from common.admin import FileInline
 from common.models import Department
 from common.utils.helpers import compose_message
-from common.utils.helpers import get_trans_for_lang
-from common.utils.helpers import get_user_language_code
+from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import compose_subject
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_department_id
@@ -453,8 +452,7 @@ def _notify_deal_owners(request: WSGIRequest, obj: Request) -> None:
 
 
 def notify_request_owners(obj: Request) -> None:
-    code = get_user_language_code(obj.owner)
-    notice = get_trans_for_lang(REQUEST_OWNER_NOTICE, code)
+    notice = get_trans_for_user(REQUEST_OWNER_NOTICE, obj.owner)
     subject = compose_subject(obj, notice)
     notify_user(obj, obj.owner, subject)
     if obj.co_owner:
