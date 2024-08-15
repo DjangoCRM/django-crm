@@ -11,6 +11,7 @@ from crm.models import Country
 from crm.models import LeadSource
 from crm.models import CrmEmail
 from crm.models import Request
+from crm.site.requestadmin import notify_request_owners
 from crm.utils.check_city import check_city
 from crm.utils.helpers import is_text_relevant
 from crm.utils.ticketproc import new_ticket
@@ -45,6 +46,8 @@ def create_form_request(lead_source: LeadSource, form: ContactForm) -> None:
         request.save()
         request_email.request = request
         request_email.owner = request.owner
+        if request.owner:
+            notify_request_owners(request)
         request_email.save()
 
 
