@@ -45,6 +45,18 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     # -- ModelAdmin methods -- #
 
+    def changelist_view(self, request, extra_context=None):
+        if hasattr(self.model, 'active'):
+            self.set_callable_description('act', 'active')
+        if hasattr(self.model, 'creation_date'):
+            self.set_callable_description('created', 'creation_date', 'today')
+        if hasattr(self.model, 'owner'):
+            self.set_callable_description('person', 'owner', 'person')
+
+        return super().changelist_view(
+            request, extra_context=extra_context,
+        )
+
     def delete_model(self, request, obj):
         try:
             files = obj.files.all()
