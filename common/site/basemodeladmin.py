@@ -210,6 +210,23 @@ class BaseModelAdmin(admin.ModelAdmin):
             )
         return ''
 
+    def set_callable_description(self, callable_name: str, field: str, icon_name: str ='') -> None:
+        """
+        To bring up the name and tooltip (title) translated into a current session language
+        """
+        if hasattr(self.__class__, callable_name):
+            func = getattr(self.__class__, callable_name)
+            title = get_verbose_name(self.model, field)
+            if icon_name:
+                func.short_description = mark_safe(
+                    f'<i title="{title}" class="material-icons" '
+                    f'style="color: var(--body-quiet-color)">{icon_name}</i>'
+                )
+            else:
+                func.short_description = mark_safe(
+                    f'<span title="{title}">{callable_name}</span>'
+                )
+
     @staticmethod
     def set_owner(request: WSGIRequest, obj):
         if request.user.is_authenticated:
