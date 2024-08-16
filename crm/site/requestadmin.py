@@ -55,7 +55,7 @@ primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;colo
 primary_title = _("Primary request")
 request_counter_title = _("Request counter")
 request_counter_icon = '<span title="{}">({})</span>'
-REQUEST_CO_OWNER_NOTICE = _('You are the co-owner of the request')
+REQUEST_CO_OWNER_NOTICE = 'You are the co-owner of the request'
 REQUEST_OWNER_NOTICE = 'You received the request'
 
 subject_safe_icon = mark_safe(
@@ -456,7 +456,8 @@ def notify_request_owners(obj: Request) -> None:
     subject = compose_subject(obj, notice)
     notify_user(obj, obj.owner, subject)
     if obj.co_owner:
-        subject = compose_subject(obj, REQUEST_CO_OWNER_NOTICE)
+        notice = get_trans_for_user(REQUEST_CO_OWNER_NOTICE, obj.co_owner)
+        subject = compose_subject(obj, notice)
         notify_user(obj, obj.co_owner, subject)
 
 

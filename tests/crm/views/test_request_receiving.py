@@ -10,7 +10,8 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 
 from common.models import Department
-from common.utils.helpers import USER_MODEL, get_user_language_code, get_trans_for_lang
+from common.utils.helpers import get_trans_for_user
+from common.utils.helpers import USER_MODEL
 from crm.models.others import LeadSource
 from crm.models import City
 from crm.models import CrmEmail
@@ -115,15 +116,15 @@ class TestRequestReceiving(BaseTestCase):
         # Test that two messages has been sent.
         self.assertEqual(len(mail.outbox), 2)
         msg = "The subject of the notifying message is not correct."
-        code = get_user_language_code(self.manager)
-        notice = get_trans_for_lang(REQUEST_OWNER_NOTICE, code)
+        notice = get_trans_for_user(REQUEST_OWNER_NOTICE, self.manager)
         self.assertIn(
             str(notice),
             mail.outbox[0].subject,
             msg
         )
+        notice = get_trans_for_user(REQUEST_CO_OWNER_NOTICE, self.manager)
         self.assertIn(
-            str(REQUEST_CO_OWNER_NOTICE),
+            str(notice),
             mail.outbox[1].subject,
             msg
         )
