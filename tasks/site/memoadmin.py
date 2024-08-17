@@ -335,7 +335,7 @@ class MemoAdmin(BaseModelAdmin):
             message = _("You've received a office memo")
             save_message(obj.to, f"{message} - {link}")
             subject = compose_subject(obj, message)
-            email_to_participants(obj, subject, [obj.to.email])
+            email_to_participants(obj, subject, [obj.to])
             obj.notified = True
             obj.save(update_fields=['notified'])
 
@@ -351,7 +351,7 @@ class MemoAdmin(BaseModelAdmin):
                     for user in difference:
                         save_message(user, msg, "INFO")
                         if getattr(user, "email"):
-                            recipient_list.append(user.email)
+                            recipient_list.append(user)
                             notified.append(user)
                         else:
                             notify_admins_no_email(user)

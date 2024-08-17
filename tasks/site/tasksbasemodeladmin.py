@@ -587,7 +587,7 @@ def notify_co_owner(obj: Union[Task, Project]) -> None:
     msg = f'{CRM_NOTICE} {_(co_owner_subject)}: {link}'
     save_message(obj.co_owner, msg, 'INFO')
     subject = compose_subject(obj, co_owner_subject)
-    email_to_participants(obj, subject, [obj.co_owner.email])
+    email_to_participants(obj, subject, [obj.co_owner])
 
 
 def notify_participants(obj: Union[Task, Project], field: str) -> bool:
@@ -617,7 +617,7 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
             else:
                 save_message(user, msg, "INFO")
                 if getattr(user, "email"):
-                    recipient_list.append(user.email)
+                    recipient_list.append(user)
                     notified.append(user)
                 else:
                     notify_admins_no_email(user)
@@ -651,7 +651,7 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
     for u in users:
         save_message(u, msg, "INFO")
         if getattr(u, "email"):
-            recipient_list.append(u.email)
+            recipient_list.append(u)
         else:
             notify_admins_no_email(u)
     if recipient_list:

@@ -18,6 +18,6 @@ def notify_user(obj, user: User, subject: str, message='', *,
     else:
         save_message(user, message or subject, level)
     if hasattr(user, 'email'):
-        email_to_participants(obj, subject, [user.email], responsible)
+        email_to_participants(obj, subject, [user], responsible)
     else:
         notify_admins_no_email(user)

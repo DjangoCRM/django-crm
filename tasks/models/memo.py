@@ -123,8 +123,8 @@ class Memo(Base):
         """Send review notification to memo owner."""
         message = _("The office memo has been reviewed")
         subject = compose_subject(self, message)
-        participants = [self.owner.email]
-        subscribers = self.subscribers.values_list('email', flat=True)  # NOQA
+        participants = [self.owner]
+        subscribers = self.subscribers.all()
         if subscribers:
             participants.extend([*subscribers])
         email_to_participants(self, subject, participants)

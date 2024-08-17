@@ -196,7 +196,7 @@ class ShipmentAdmin(admin.ModelAdmin):
                             'INFO'
                         )
                         if getattr(user, 'email'):
-                            recipient_list.append(user.email)
+                            recipient_list.append(user)
                     if recipient_list:
                         subject = compose_subject(obj.deal, product_is_shipped)
                         email_to_participants(obj.deal, subject, recipient_list)
