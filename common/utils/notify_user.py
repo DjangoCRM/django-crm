@@ -12,7 +12,7 @@ SessionStore = import_module(settings.SESSION_ENGINE).SessionStore
 
 
 def notify_user(obj, user: User, subject: str, message='', *,
-                level='INFO', responsible=None, request: WSGIRequest = None) -> None:
+                level='INFO', responsible: User =None, request: WSGIRequest = None) -> None:
     if request and request.user == user:
         messages.info(request, message)
     else:
