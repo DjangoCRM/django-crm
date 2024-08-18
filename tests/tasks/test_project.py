@@ -173,9 +173,9 @@ class TestProject(BaseTestCase):
         response = self.client.post(change_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, [
-                         self.chief.email, self.sergey.email])
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(mail.outbox[0].to, [self.sergey.email])
+        self.assertEqual(mail.outbox[1].to, [self.chief.email])
         self.assertIn(project.name, mail.outbox[0].subject)
         mail.outbox = []
    

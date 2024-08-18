@@ -13,8 +13,18 @@ def email_to_participants(obj, subject: str, recipient_list: List[User],
     template = loader.get_template("common/notice_participants_email.html")
     site = Site.objects.get_current()
     context = {'obj': obj, 'domain': site.domain, 'responsible': responsible}
-    # with override(language_code):
-    html_message = template.render(context)
-
-    to = [u.email for u in recipient_list]
-    send_crm_email(subject, html_message, to)
+    while recipient_list:
+        user = recipient_list.pop()
+        to = [user.email]
+        code = user.profile.language_code   # NOQA
+        with override(code):
+            html_message = template.render(context)
+        temp_list = []
+        while recipient_list:
+            u = recipient_list.pop()
+            if u.profile.language_code == code: # NOQA
+                to.append(u.email)
+            else:
+                temp_list.append(u)
+        send_crm_email(subject, html_message, to)
+        recipient_list.extend(temp_list)

@@ -317,9 +317,9 @@ class TestTask(BaseTestCase):
         response = self.client.post(change_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, [
-                         self.chief.email, self.sergey.email])
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(mail.outbox[0].to, [self.sergey.email])
+        self.assertEqual(mail.outbox[1].to, [self.chief.email])
         self.assertIn(task.name, mail.outbox[0].subject)
         mail.outbox = []
 
@@ -555,7 +555,7 @@ class TestTask(BaseTestCase):
         self.assertNoFormErrors(response)
         self.assertEqual(len(mail.outbox), 2)
         # subscription notifications
-        self.assertEqual(mail.outbox[0].to, [self.sergey.email, self.masha.email])
+        self.assertEqual(set(mail.outbox[0].to), {self.sergey.email, self.masha.email})
         self.assertEqual(mail.outbox[1].to, [self.chief.email])
         mail.outbox = []
         change_url = response.redirect_chain[-1][0]        
@@ -570,7 +570,7 @@ class TestTask(BaseTestCase):
 
         # completed task notifications
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, [self.sergey.email, self.masha.email, self.chief.email])
+        self.assertEqual(set(mail.outbox[0].to), {self.sergey.email, self.masha.email, self.chief.email})
         mail.outbox = []        
                 
         self.client.force_login(self.masha)
@@ -640,7 +640,7 @@ class TestTask(BaseTestCase):
         # notice of appointment as co-owner
         self.assertEqual([self.chief.email], mail.outbox[1].to)
         # completed task notifications
-        self.assertEqual([self.masha.email, self.chief.email], mail.outbox[2].to)
+        self.assertEqual([self.chief.email], mail.outbox[2].to)
         mail.outbox = []
 
     def test_create_task_for_yourself(self):

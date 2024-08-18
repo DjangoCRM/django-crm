@@ -143,7 +143,7 @@ class TestMemo(BaseTestCase):
         # notification email sent?
         self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(mail.outbox[0].to[0], self.chief.email)
-        self.assertEqual(mail.outbox[1].to, [self.olga.email, self.valeria.email])
+        self.assertEqual(set(mail.outbox[1].to), {self.olga.email, self.valeria.email})
         self.assertIn(file.file.url, mail.outbox[0].body)
         file.file.delete()
         mail.outbox = []
@@ -166,8 +166,10 @@ class TestMemo(BaseTestCase):
         )
         # notification emails sent?
         self.assertEqual(len(mail.outbox), 2)
-        self.assertEqual(mail.outbox[0].to[0], self.owner.email)
-        self.assertEqual(mail.outbox[1].to, [self.olga.email, self.valeria.email])
+        email_set = {self.olga.email, self.valeria.email}
+        self.assertEqual(set(mail.outbox[1].to), email_set)
+        email_set.add(self.owner.email)
+        self.assertEqual(set(mail.outbox[0].to), email_set)
         mail.outbox = []
         self.assertEqual(response.redirect_chain[-1][0], self.memo_changelist_url)
 
