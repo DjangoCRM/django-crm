@@ -173,7 +173,7 @@ def get_obj_name(obj):
 def compose_message(obj, message: str) -> SafeString:
     obj_name = get_obj_name(obj)
     link = f'<a href="{obj.get_absolute_url()}">{obj_name}.</a>'
-    msg = mark_safe(f"CRM: {message} - {link} ({obj.owner})")
+    msg = mark_safe(f"CRM: {message} - {link}")
     return msg
 
 
@@ -181,7 +181,7 @@ def compose_subject(obj, message) -> str:
     obj_name = get_obj_name(obj)
     obj_name = " ".join(obj_name.splitlines())
     obj_name = truncatechars(obj_name, 90)
-    subject = f"CRM: {message} - {obj_name} ({obj.owner})"
+    subject = f"CRM: {message} - {obj_name}"
     return subject
 
 
