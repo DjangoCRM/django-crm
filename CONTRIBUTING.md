@@ -7,6 +7,7 @@
 
 - Just add a star ⭐️ and fork the repository, this will already be a valuable help for the project.
 - Submit GitHub issues about bugs or desired new features.
+  - Please follow the [security policy](https://github.com/DjangoCRM/django-crm?tab=security-ov-file#security-ov-file).
 - Improving [Documentation](https://github.com/DjangoCRM/django-crm/tree/main/docs)  and help pages.
 - Localization - performing translation (in context) CRM interface and help pages.
 - Taking part in creating the project website on the github.io
