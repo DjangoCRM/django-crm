@@ -20,8 +20,8 @@ from common.models import TheFile
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
+from common.utils.helpers import compose_message
 from common.utils.helpers import compose_subject
-from common.utils.helpers import CRM_NOTICE
 from common.utils.helpers import USER_MODEL
 from common.utils.helpers import get_active_users
 from common.utils.helpers import get_department_id
@@ -583,11 +583,10 @@ def exclude_some_users(obj: Task, qs: QuerySet) -> QuerySet:
 
 
 def notify_co_owner(obj: Union[Task, Project]) -> None:
-    link = f'<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>'
-    msg = f'{CRM_NOTICE} {_(co_owner_subject)}: {link}'
-    save_message(obj.co_owner, msg, 'INFO')
+    msg = _(co_owner_subject)
+    message = compose_message(obj, msg)
     subject = compose_subject(obj, co_owner_subject)
-    email_to_participants(obj, subject, [obj.co_owner])
+    notify_user(obj, obj.co_owner, subject, message)
 
 
 def notify_participants(obj: Union[Task, Project], field: str) -> bool:
@@ -607,9 +606,7 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
         difference = exclude_some_users(obj, difference)
         recipient_list, notified = [], []
         subject = compose_subject(obj, globals()[field + '_subject'])
-        msg = (
-            f'{subject}<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>'
-        )
+        msg = compose_message(obj, subject)
         for user in difference:
             if field == "responsible":
                 notify_user(obj, user, subject, responsible=user)
@@ -647,7 +644,7 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         users.append(obj.owner)
     if obj.co_owner and obj.co_owner != request.user:
         users.append(obj.co_owner)
-    msg = f'{task_is_closed_str}<a href="{obj.get_absolute_url()}"> {obj.name} ({obj.owner})</a>'
+    msg = compose_message(obj, task_is_closed_str)
     for u in users:
         save_message(u, msg, "INFO")
         if getattr(u, "email"):

@@ -17,6 +17,7 @@ from common.admin import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.email_to_participants import email_to_participants
 from common.utils.helpers import add_chat_context
+from common.utils.helpers import compose_message
 from common.utils.helpers import CONTENT_COPY_ICON
 from common.utils.helpers import CONTENT_COPY_LINK
 from common.utils.helpers import COPY_STR
@@ -331,9 +332,9 @@ class MemoAdmin(BaseModelAdmin):
                 not obj.notified,
                 request.user == obj.owner
         )):
-            link = f'<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>'
-            message = _("You've received a office memo")
-            save_message(obj.to, f"{message} - {link}")
+            msg = _("You've received a office memo")
+            message = compose_message(obj, msg)
+            save_message(obj.to, message)
             subject = compose_subject(obj, message)
             email_to_participants(obj, subject, [obj.to])
             obj.notified = True
@@ -346,8 +347,7 @@ class MemoAdmin(BaseModelAdmin):
                 if difference:
                     recipient_list, notified = [], []
                     subject = compose_subject(obj, subscribers_subject)
-                    msg = (subject
-                           + f'<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>')
+                    msg = compose_message(obj, subject)
                     for user in difference:
                         save_message(user, msg, "INFO")
                         if getattr(user, "email"):
