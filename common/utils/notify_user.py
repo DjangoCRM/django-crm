@@ -15,13 +15,15 @@ SessionStore = import_module(settings.SESSION_ENGINE).SessionStore
 
 def notify_user(obj, user: User, subject: str, message='', *,
                 level='INFO', responsible: User =None, request: WSGIRequest = None) -> None:
+    composed_subject = composed_message = ''
     if subject:
         composed_subject = compose_subject(obj, subject)
+    if message:
+        composed_message = compose_message(obj, message)
     if request and request.user == user:
-        msg = compose_message(obj, message)
-        messages.info(request, msg)
+        messages.info(request, composed_message)
     else:
-        save_message(user, message or composed_subject, level)
+        save_message(user, composed_message or composed_subject, level)
     if hasattr(user, 'email'):
         email_to_participants(obj, composed_subject, [user], responsible)
     else:
