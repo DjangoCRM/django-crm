@@ -13,6 +13,7 @@ from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from common.admin import FileInline
@@ -583,10 +584,8 @@ def exclude_some_users(obj: Task, qs: QuerySet) -> QuerySet:
 
 
 def notify_co_owner(obj: Union[Task, Project]) -> None:
-    msg = _(co_owner_subject)
-    message = compose_message(obj, msg)
-    subject = compose_subject(obj, co_owner_subject)
-    notify_user(obj, obj.co_owner, subject, message)
+    msg = gettext(co_owner_subject)
+    notify_user(obj, obj.co_owner, co_owner_subject, msg)
 
 
 def notify_participants(obj: Union[Task, Project], field: str) -> bool:
@@ -609,7 +608,8 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
         msg = compose_message(obj, subject)
         for user in difference:
             if field == "responsible":
-                notify_user(obj, user, subject, responsible=user)
+                notify_user(obj, user, globals()[
+                            field + '_subject'], responsible=user)
                 notified.append(user)
             else:
                 save_message(user, msg, "INFO")

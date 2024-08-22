@@ -11,9 +11,7 @@ from django.urls import reverse
 
 from common.admin import FileInline
 from common.models import Department
-from common.utils.helpers import compose_message
 from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import compose_subject
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_department_id
 from common.utils.copy_files import copy_files
@@ -442,23 +440,21 @@ def _get_or_create_deal(obj: Request, request: WSGIRequest) -> Deal:
 def _notify_deal_owners(request: WSGIRequest, obj: Request) -> None:
     deal = obj.deal
     if request.user != deal.owner:
-        message = compose_message(deal, DEAL_OWNER_NOTICE)
-        subject = compose_subject(deal, DEAL_OWNER_NOTICE)
-        notify_user(deal, deal.owner, subject, message, request=request)
+        message = str(DEAL_OWNER_NOTICE)
+        notify_user(deal, deal.owner, message,
+                    message, request=request)
     if deal.co_owner and request.user != deal.co_owner:
-        message = compose_message(deal, DEAL_CO_OWNER_NOTICE)
-        subject = compose_subject(deal, DEAL_CO_OWNER_NOTICE)
-        notify_user(deal, deal.co_owner, subject, message, request=request)
+        message = str(DEAL_CO_OWNER_NOTICE)
+        notify_user(deal, deal.co_owner, message,
+                    message, request=request)
 
 
 def notify_request_owners(obj: Request) -> None:
     notice = get_trans_for_user(REQUEST_OWNER_NOTICE, obj.owner)
-    subject = compose_subject(obj, notice)
-    notify_user(obj, obj.owner, subject)
+    notify_user(obj, obj.owner, notice)
     if obj.co_owner:
         notice = get_trans_for_user(REQUEST_CO_OWNER_NOTICE, obj.co_owner)
-        subject = compose_subject(obj, notice)
-        notify_user(obj, obj.co_owner, subject)
+        notify_user(obj, obj.co_owner, notice)
 
 
 def _update_deal_attr(obj: Request, attr: str) -> None:
