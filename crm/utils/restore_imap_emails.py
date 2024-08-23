@@ -160,7 +160,7 @@ class RestoreImapEmails(threading.Thread):
             if t in ('incoming', 'inquiry'):
                 msg = _('Received an email from "%s"') % crm_eml.from_field
                 if t == 'incoming':
-                    notify_user(crm_eml, msg)
+                    _notify_user(crm_eml, msg)
 
             elif t == 'sent':
                 msg = _('The Email has been sent to "%s"') % crm_eml.to
@@ -170,7 +170,7 @@ class RestoreImapEmails(threading.Thread):
             )
 
 
-def notify_user(crm_eml: CrmEmail, msg: str) -> None:
+def _notify_user(crm_eml: CrmEmail, msg: str) -> None:
     if crm_eml.deal:
         url = f"{crm_eml.deal.get_absolute_url()}#Emails"
     elif crm_eml.request:
