@@ -11,7 +11,6 @@ from django.urls import reverse
 
 from common.admin import FileInline
 from common.models import Department
-from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_department_id
 from common.utils.copy_files import copy_files
@@ -43,8 +42,8 @@ CONTACT_ATTR_LIST = (
     'phone'
 )
 country_not_specified = _("Country not specified in request")
-DEAL_OWNER_NOTICE = _('You received the deal')
-DEAL_CO_OWNER_NOTICE = _('You are the co-owner of the deal')
+DEAL_OWNER_NOTICE = "You received the deal"
+DEAL_CO_OWNER_NOTICE = "You are the co-owner of the deal"
 LEAD_ATTR_LIST = CONTACT_ATTR_LIST + ('country', 'company_name')
 table_loyalty_icon = '<i title="{}" class="material-icons" ' \
                      'style="color: var(--body-quiet-color)">loyalty</i>'.format(client_loyalty_title)
@@ -53,8 +52,8 @@ primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;colo
 primary_title = _("Primary request")
 request_counter_title = _("Request counter")
 request_counter_icon = '<span title="{}">({})</span>'
-REQUEST_CO_OWNER_NOTICE = 'You are the co-owner of the request'
-REQUEST_OWNER_NOTICE = 'You received the request'
+REQUEST_CO_OWNER_NOTICE = "You are the co-owner of the request"
+REQUEST_OWNER_NOTICE = "You received the request"
 
 subject_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
@@ -440,21 +439,17 @@ def _get_or_create_deal(obj: Request, request: WSGIRequest) -> Deal:
 def _notify_deal_owners(request: WSGIRequest, obj: Request) -> None:
     deal = obj.deal
     if request.user != deal.owner:
-        message = str(DEAL_OWNER_NOTICE)
-        notify_user(deal, deal.owner, message,
-                    message, request=request)
+        notify_user(deal, deal.owner, DEAL_OWNER_NOTICE,
+                    DEAL_OWNER_NOTICE, request=request)
     if deal.co_owner and request.user != deal.co_owner:
-        message = str(DEAL_CO_OWNER_NOTICE)
-        notify_user(deal, deal.co_owner, message,
-                    message, request=request)
+        notify_user(deal, deal.co_owner, DEAL_CO_OWNER_NOTICE,
+                    DEAL_CO_OWNER_NOTICE, request=request)
 
 
 def notify_request_owners(obj: Request) -> None:
-    notice = get_trans_for_user(REQUEST_OWNER_NOTICE, obj.owner)
-    notify_user(obj, obj.owner, notice)
+    notify_user(obj, obj.owner, REQUEST_OWNER_NOTICE)
     if obj.co_owner:
-        notice = get_trans_for_user(REQUEST_CO_OWNER_NOTICE, obj.co_owner)
-        notify_user(obj, obj.co_owner, notice)
+        notify_user(obj, obj.co_owner, REQUEST_CO_OWNER_NOTICE)
 
 
 def _update_deal_attr(obj: Request, attr: str) -> None:

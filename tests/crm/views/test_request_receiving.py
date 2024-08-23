@@ -197,22 +197,19 @@ class TestRequestReceiving(BaseTestCase):
         self.assertTrue(deal, msg)
         msg = "Wrong deal name"
         self.assertEqual(deal.name, self.request_data['subject'], msg)
-        msg = "The Deal is not active"
-        self.assertTrue(deal.active, msg)
+        self.assertTrue(deal.active, "The Deal is not active")
 
         # Test that one message has been sent.
         self.assertEqual(len(mail.outbox), 1)
-        msg = "The subject of the notifying message is not correct."
         self.assertIn(
-            str(DEAL_OWNER_NOTICE),
+            get_trans_for_user(DEAL_OWNER_NOTICE, self.manager),
             mail.outbox[0].subject,
-            msg
+            "The subject of the notifying message is not correct."
         )
-        msg = "The email address of the notifying message is not correct."
         self.assertEqual(
             mail.outbox[0].to[0],
             self.manager.email,
-            msg
+            "The email address of the notifying message is not correct."
         )
         mail.outbox = []
 

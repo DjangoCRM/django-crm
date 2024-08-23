@@ -13,7 +13,6 @@ from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from common.admin import FileInline
@@ -41,12 +40,12 @@ from tasks.utils.admfilters import IsActiveTaskFilter
 from tasks.utils.admfilters import ByOwnerFilter
 from tasks.utils.admfilters import TaskTagFilter
 
-co_owner_subject = _("You have been assigned as the task co-owner")
+co_owner_subject = "You have been assigned as the task co-owner"
 due_date_str = _("Due date")
 TASK_NEXT_STEP = _("Acquainted with the task")
 NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
-subscribers_subject = _("You are subscribed to a new task")
-responsible_subject = _("You have a new task assigned")
+subscribers_subject = "You are subscribed to a new task"
+responsible_subject = "You have a new task assigned"
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
 view_chat_str = _("View chat messages")
@@ -584,8 +583,7 @@ def exclude_some_users(obj: Task, qs: QuerySet) -> QuerySet:
 
 
 def notify_co_owner(obj: Union[Task, Project]) -> None:
-    msg = gettext(co_owner_subject)
-    notify_user(obj, obj.co_owner, co_owner_subject, msg)
+    notify_user(obj, obj.co_owner, co_owner_subject, co_owner_subject)
 
 
 def notify_participants(obj: Union[Task, Project], field: str) -> bool:
