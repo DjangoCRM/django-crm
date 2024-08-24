@@ -2,13 +2,15 @@ from typing import List
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.template import loader
+from django.utils.translation import gettext as _
 from django.utils.translation import override
 
+from common.utils.helpers import compose_subject
 from common.utils.helpers import send_crm_email
 
 
 def email_to_participants(obj, subject: str, recipient_list: List[User],
-                          responsible: User =None) -> None:
+                          composed_subject: str = '', responsible: User =None) -> None:
     
     template = loader.get_template("common/notice_participants_email.html")
     site = Site.objects.get_current()
@@ -18,6 +20,8 @@ def email_to_participants(obj, subject: str, recipient_list: List[User],
         to = [user.email]
         code = user.profile.language_code   # NOQA
         with override(code):
+            if not composed_subject:
+                composed_subject = compose_subject(obj, _(subject))
             html_message = template.render(context)
         temp_list = []
         while recipient_list:
@@ -26,5 +30,5 @@ def email_to_participants(obj, subject: str, recipient_list: List[User],
                 to.append(u.email)
             else:
                 temp_list.append(u)
-        send_crm_email(subject, html_message, to)
+        send_crm_email(composed_subject, html_message, to)
         recipient_list.extend(temp_list)
