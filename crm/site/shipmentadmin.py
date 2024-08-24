@@ -9,7 +9,7 @@ from django.utils.formats import date_format
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.email_to_participants import email_to_participants
-from common.utils.helpers import compose_subject
+from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import get_today
 from common.utils.helpers import LEADERS
 from crm.models import Payment
@@ -171,17 +171,18 @@ class ShipmentAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
         if change and 'actual_shipping_date' in form.changed_data:
             if obj.product_is_shipped:
-                product_is_shipped = _("The product has been shipped.")
+                product_is_shipped_str = "The product has been shipped."
                 date = get_today()
                 deal = obj.deal
                 stage = Stage.objects.get(
                     goods_shipped=True,
                     department=deal.department,
                 )
+                trans_msg = get_trans_for_user(product_is_shipped_str, deal.owner)
                 if deal.stage != stage:
                     deal.stage = stage
                     deal.change_stage_data(date)
-                    deal.next_step = product_is_shipped + f' ({request.user})'
+                    deal.next_step = f'{trans_msg} ({request.user})'
                     deal.next_step_date = date
                     deal.save()
                 recipient_list = []
@@ -189,17 +190,18 @@ class ShipmentAdmin(admin.ModelAdmin):
 
                 for user in (obj.deal.owner, obj.deal.co_owner):
                     if user and user != request.user:
+                        if user == obj.deal.co_owner:
+                            trans_msg = get_trans_for_user(product_is_shipped_str, deal.co_owner)
                         save_message(
                             user,
-                            f'{product_is_shipped} {_("Deal")} - <a href="{url}"> '
+                            f'{trans_msg} {_("Deal")} - <a href="{url}"> '
                             f'{deal.name}</a>',
                             'INFO'
                         )
                         if getattr(user, 'email'):
                             recipient_list.append(user)
                     if recipient_list:
-                        subject = compose_subject(obj.deal, product_is_shipped)
-                        email_to_participants(obj.deal, subject, recipient_list)
+                        email_to_participants(obj.deal, product_is_shipped_str, recipient_list)
 
     # -- ModelAdmin Callables -- #
 
