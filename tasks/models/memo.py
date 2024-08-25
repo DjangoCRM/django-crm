@@ -6,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 
 from common.models import Base
 from common.utils.email_to_participants import email_to_participants
-from common.utils.helpers import compose_subject
 
 
 class Memo(Base):
@@ -121,10 +120,9 @@ class Memo(Base):
 
     def send_review_notification(self) -> None:
         """Send review notification to memo owner."""
-        message = _("The office memo has been reviewed")
-        subject = compose_subject(self, message)
+        message = "The office memo has been reviewed"
         participants = [self.owner]
-        subscribers = self.subscribers.all()
+        subscribers = self.subscribers.all()    # NOQA
         if subscribers:
             participants.extend([*subscribers])
-        email_to_participants(self, subject, participants)
+        email_to_participants(self, message, participants)
