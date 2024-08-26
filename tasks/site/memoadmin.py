@@ -16,7 +16,7 @@ from django.utils.safestring import mark_safe
 from common.admin import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.email_to_participants import email_to_participants
-from common.utils.helpers import add_chat_context
+from common.utils.helpers import add_chat_context, get_trans_for_user
 from common.utils.helpers import compose_message
 from common.utils.helpers import CONTENT_COPY_ICON
 from common.utils.helpers import CONTENT_COPY_LINK
@@ -43,7 +43,7 @@ event_available_icon = '<i class="material-icons" title="{}">event_available</i>
 overdue_str = _('overdue')
 postponed_str = _('postponed')
 status_str = _('Status')
-subscribers_subject = _("You are subscribed to a new office memo")
+subscribers_subject = "You are subscribed to a new office memo"
 reviewed_str = _('reviewed')
 unreviewed_str = _('unreviewed')
 
@@ -324,7 +324,7 @@ class MemoAdmin(BaseModelAdmin):
         if not change:
             if obj.deal:
                 deal = obj.deal
-                message = _("The office memo was written")
+                message = get_trans_for_user("The office memo was written", deal.owner)
                 deal.add_to_workflow(f"{message} - {obj.name}")
                 deal.save(update_fields=['workflow'])
         if all((
@@ -332,11 +332,11 @@ class MemoAdmin(BaseModelAdmin):
                 not obj.notified,
                 request.user == obj.owner
         )):
-            msg = _("You've received a office memo")
+            msg = get_trans_for_user("You've received a office memo", obj.to)
             message = compose_message(obj, msg)
             save_message(obj.to, message)
-            subject = compose_subject(obj, message)
-            email_to_participants(obj, subject, [obj.to])
+            composed_subject = compose_subject(obj, message)
+            email_to_participants(obj, '', [obj.to], composed_subject)
             obj.notified = True
             obj.save(update_fields=['notified'])
 
