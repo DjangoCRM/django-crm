@@ -346,17 +346,17 @@ class MemoAdmin(BaseModelAdmin):
                 difference = obj.subscribers.exclude(id__in=notified)
                 if difference:
                     recipient_list, notified = [], []
-                    subject = compose_subject(obj, subscribers_subject)
-                    msg = compose_message(obj, subject)
                     for user in difference:
-                        save_message(user, msg, "INFO")
+                        trans_msg = get_trans_for_user(subscribers_subject, user)
+                        composed_msg = compose_message(obj, trans_msg)
+                        save_message(user, composed_msg, "INFO")
                         if getattr(user, "email"):
                             recipient_list.append(user)
                             notified.append(user)
                         else:
                             notify_admins_no_email(user)
                     if recipient_list:
-                        email_to_participants(obj, subject, recipient_list)
+                        email_to_participants(obj, subscribers_subject, recipient_list)
                     if notified:
                         obj.notified_subscribers.add(*notified)
 
