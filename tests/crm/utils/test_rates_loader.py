@@ -30,6 +30,7 @@ class TestGetRates(TransactionTestCase):
 
     def test_get_rates(self):
         if not settings.LOAD_EXCHANGE_RATE:
+            print("Currency exchange rate download test skipped due to settings.")
             return
         Currency.objects.bulk_create([
             Currency(
