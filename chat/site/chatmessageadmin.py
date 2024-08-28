@@ -30,7 +30,9 @@ from chat.models import ChatMessage
 from common.models import UserProfile
 from crm.models import Deal
 from common.admin import FileInline
-from common.utils.helpers import CRM_NOTICE, LEADERS
+from common.utils.helpers import CRM_NOTICE
+from common.utils.helpers import get_trans_for_user
+from common.utils.helpers import LEADERS
 from common.utils.helpers import send_crm_email
 from common.utils.helpers import USER_MODEL
 from common.utils.helpers import save_message
@@ -187,14 +189,14 @@ class ChatMessageAdmin(admin.ModelAdmin):
             'site:chat_chatmessage_changelist'
         ) + f'?{urlencode(params)}'
         recipient_list = []
-        regarding = _('regarding - ')
         recipients = obj.recipients.all()
         for user in recipients:
-            you_received = _("You received a ")
+            regarding = get_trans_for_user("regarding - ", user)
+            you_received = get_trans_for_user("You received a ", user)
             save_message(
                 user,
                 f'{CRM_NOTICE} {you_received}<a href="{url}"> '
-                f'{_("message")}'
+                f'{get_trans_for_user("message", user)}'
                 f'</a> {regarding}{content_obj_name}: {content_obj}',
                 'INFO'
             )
