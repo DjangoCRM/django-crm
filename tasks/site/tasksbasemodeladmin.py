@@ -21,6 +21,7 @@ from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.utils.helpers import compose_message
+from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import compose_subject
 from common.utils.helpers import USER_MODEL
 from common.utils.helpers import get_active_users
@@ -629,11 +630,11 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
     recipient_list = []
     if obj.__class__ == Task:
         if obj.task:
-            task_is_closed_str = _("The subtask is closed")
+            task_is_closed_str = "The subtask is closed"
         else:
-            task_is_closed_str = _("The task is closed")
+            task_is_closed_str = "The task is closed"
     else:
-        task_is_closed_str = _("The project is closed")
+        task_is_closed_str = "The project is closed"
     subscribers = obj.subscribers.all()
     subscribers = exclude_some_users(obj, subscribers)
 
@@ -642,13 +643,14 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         users.append(obj.owner)
     if obj.co_owner and obj.co_owner != request.user:
         users.append(obj.co_owner)
-    msg = compose_message(obj, task_is_closed_str)
+    
     for u in users:
+        trans_msg = get_trans_for_user(task_is_closed_str, u)
+        msg = compose_message(obj, trans_msg)
         save_message(u, msg, "INFO")
         if getattr(u, "email"):
             recipient_list.append(u)
         else:
             notify_admins_no_email(u)
     if recipient_list:
-        subject = compose_subject(obj, task_is_closed_str)
-        email_to_participants(obj, subject, recipient_list)
+        email_to_participants(obj, task_is_closed_str, recipient_list)
