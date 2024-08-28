@@ -3,7 +3,7 @@
 *(Customer Relationship Management app)*
 
 The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
-This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company. Access to the company's business data remains solely under its control.
+This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company - Enterprise CRM. Access to the company's business data remains solely under its control.
 
 ![](docs/pics/deals_screenshot.png)
 ## Key Features of client relationship software (features of crm)
@@ -11,13 +11,13 @@ This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual u
 |                                                   |                                                                                 |                                                  |
 |---------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------|
 | :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                     | :ballot_box_with_check: **Email-marketing**      |
-| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management (instant overview all active deals)** | :ballot_box_with_check: **Sales forecasting**    |
-| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities (Lead sources)**                 | :ballot_box_with_check: **Sales pipeline**       |
+| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals**  | :ballot_box_with_check: **Sales forecasting**    |
+| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                  | :ballot_box_with_check: **Sales pipeline**       |
 | :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Analytical reporting** |  
 
 Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
-CRM uses adaptive Admin HTML templates out-of-the-box.
+CRM app uses adaptive Admin HTML templates out-of-the-box.
 Django is an excellently documented framework with lots of examples.
 The documentation on the Admin site takes up only one web page.  
 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.      
