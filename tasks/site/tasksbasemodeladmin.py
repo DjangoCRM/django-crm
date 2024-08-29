@@ -44,7 +44,7 @@ from tasks.utils.admfilters import TaskTagFilter
 co_owner_subject = "You have been assigned as the task co-owner"
 due_date_str = _("Due date")
 TASK_NEXT_STEP = _("Acquainted with the task")
-NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
+NEXT_STEP_DATE_WARNING = "The next step date should not be later than due date."
 subscribers_subject = "You are subscribed to a new task"
 responsible_subject = "You have a new task assigned"
 priority_icon = '<i class="material-icons">flash_on</i>'
@@ -393,8 +393,8 @@ class TasksBaseModelAdmin(BaseModelAdmin):
                     and obj.next_step_date > obj.due_date
             ):
                 html_msg = (
-                        NEXT_STEP_DATE_WARNING
-                        + f'<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>'
+                    get_trans_for_user(NEXT_STEP_DATE_WARNING, request.user)
+                    + f'<a href="{obj.get_absolute_url()}"> {obj.name}  ({obj.owner})</a>'
                 )
                 save_message(request.user, html_msg, "INFO")
 
