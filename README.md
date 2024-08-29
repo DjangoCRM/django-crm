@@ -29,6 +29,9 @@ All this ensures:
 The software package provides two websites: a CRM site for all users and a site for administrators.
 The **project code is stable** (has been in practical use for many years).
 
+## Elevate Your Team's Productivity with Collaborative CRM Solution
+This CRM is designed to enhance collaboration within teams and streamline project management processes. As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease. Office memos can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors. Tasks can be individual or collective. Tasks provide features such as chat discussions, file sharing, creating subtasks, and sharing results. Users receive notifications directly in the CRM and via email, ensuring they stay informed. Each user has a clear view of their task stack, including priorities, statuses, and next steps, thereby enhancing productivity and accountability in collaborative customer relationship management.
+
 ## Main applications
 The CRM software consists of the following **main applications**:
 
