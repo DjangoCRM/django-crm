@@ -6,11 +6,12 @@ from django.urls import reverse
 from django.template import loader
 from django.utils import timezone
 from django.utils.translation import gettext as _
-from django.core.mail import send_mail, mail_admins
+from django.core.mail import mail_admins
 from django.conf import settings
 
 from common.models import Reminder
 from common.utils.helpers import save_message
+from common.utils.helpers import send_crm_email
 
 
 class RemindersSender(threading.Thread, SingleInstance):
@@ -66,13 +67,10 @@ def send_remainders() -> None:
                 }
                 u = r.owner
                 if u.email:
-                    send_mail(
+                    send_crm_email(
                         subject,
-                        r.description if r.description else subject,
-                        settings.DEFAULT_FROM_EMAIL,
-                        (u.email,),
-                        fail_silently=True,
-                        html_message=template.render(context)
+                        template.render(context),
+                        [u.email]
                     )
                     r.send_notification_email = False
                 else:
