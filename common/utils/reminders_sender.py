@@ -5,12 +5,11 @@ from django.contrib.sites.models import Site
 from django.urls import reverse
 from django.template import loader
 from django.utils import timezone
-from django.utils.translation import gettext as _
 from django.core.mail import mail_admins
 from django.conf import settings
 
 from common.models import Reminder
-from common.utils.helpers import save_message
+from common.utils.helpers import save_message, get_trans_for_user
 from common.utils.helpers import send_crm_email
 
 
@@ -44,38 +43,41 @@ def send_remainders() -> None:
         template = loader.get_template("common/reminder_message.html")
         for r in reminders:
             content_obj = r.content_object
-            content_obj_name = content_obj._meta.verbose_name   # NOQA
             r_url = reverse('site:common_reminder_change', args=(r.id,))
             obj_url = reverse(
                 f'site:{content_obj._meta.app_label}_{content_obj._meta.model_name}_change',    # NOQA
                 args=(content_obj.id,)
             )
-            content_obj_url = f'https://{site.domain}{obj_url}'
-            subject = 'CRM Remainder: ' + " ".join(r.subject.splitlines())
+            model_name = Reminder._meta.object_name
+            user = r.owner
+            trans_name = get_trans_for_user(model_name, user)
+            subject = f'CRM {trans_name}: ' + " ".join(r.subject.splitlines())
+            trans_regarding = get_trans_for_user('Regarding', user)
+            content_obj_name = get_trans_for_user(content_obj._meta.object_name, user)  # NOQA
             save_message(
                 r.owner,
                 '<i class ="material-icons" style="font-size: 17px;vertical-align: middle;">alarm_on</i>'
-                f'<a href="{r_url}"> {subject}</a> {_("Regarding")} - {content_obj_name}: {content_obj}',
+                f'<a href="{r_url}"> {subject}</a> {trans_regarding} - {content_obj_name}: {content_obj}',
                 'INFO'
             )
             if r.send_notification_email:
+                content_obj_url = f'https://{site.domain}{obj_url}'
                 context = {
                     'content_obj': content_obj,
                     'content_obj_name': content_obj_name,
                     'content_obj_url': content_obj_url,
                     'content': r.description if r.description else subject
                 }
-                u = r.owner
-                if u.email:
+                if user.email:
                     send_crm_email(
                         subject,
                         template.render(context),
-                        [u.email]
+                        [user.email]
                     )
                     r.send_notification_email = False
                 else:
                     mail_admins(
-                        'No email address for User - %s.' % u,
+                        'No email address for User - %s.' % user,
                         'CRM reminder can not send him messages',
                         fail_silently=False,
                     )
