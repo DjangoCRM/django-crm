@@ -190,8 +190,7 @@ class ShipmentAdmin(admin.ModelAdmin):
 
                 for user in (obj.deal.owner, obj.deal.co_owner):
                     if user and user != request.user:
-                        if user == obj.deal.co_owner:
-                            trans_msg = get_trans_for_user(product_is_shipped_str, deal.co_owner)
+                        trans_msg = get_trans_for_user(product_is_shipped_str, user)
                         save_message(
                             user,
                             f'{trans_msg} {_("Deal")} - <a href="{url}"> '
