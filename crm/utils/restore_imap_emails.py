@@ -19,7 +19,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.templatetags.util import replace_lang
-from common.utils.helpers import get_formatted_short_date
+from common.utils.helpers import get_formatted_short_date, get_trans_for_user
 from common.utils.helpers import save_message
 from common.models import TheFile
 from crm.models import CrmEmail
@@ -158,9 +158,10 @@ class RestoreImapEmails(threading.Thread):
             f_date = get_formatted_short_date()
             msg = ''
             if t in ('incoming', 'inquiry'):
-                msg = _('Received an email from "%s"') % crm_eml.from_field
+                msg = get_trans_for_user('Received an email from "%s"', crm_eml.owner)
+                formated_msg = msg % crm_eml.from_field
                 if t == 'incoming':
-                    _notify_user(crm_eml, msg)
+                    _notify_user(crm_eml, formated_msg)
 
             elif t == 'sent':
                 msg = _('The Email has been sent to "%s"') % crm_eml.to
