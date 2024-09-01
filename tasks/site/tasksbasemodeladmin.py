@@ -604,14 +604,15 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
         difference = exclude_some_users(obj, difference)
         recipient_list, notified = [], []
         subject = compose_subject(obj, globals()[field + '_subject'])
-        msg = compose_message(obj, globals()[field + '_subject'])
         for user in difference:
             if field == "responsible":
                 notify_user(obj, user, globals()[
                             field + '_subject'], responsible=user)
                 notified.append(user)
             else:
-                save_message(user, msg, "INFO")
+                msg = get_trans_for_user(globals()[field + '_subject'], user)
+                composed_msg = compose_message(obj, msg)
+                save_message(user, composed_msg, "INFO")
                 if getattr(user, "email"):
                     recipient_list.append(user)
                     notified.append(user)
