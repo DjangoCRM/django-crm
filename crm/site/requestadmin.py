@@ -50,11 +50,8 @@ table_loyalty_icon = '<i title="{}" class="material-icons" ' \
 loyalty_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: var(--green-fg)">loyalty</i>'
 primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: #ECBA82">local_offer</i>'
 primary_title = _("Primary request")
-request_counter_title = _("Request counter")
-request_counter_icon = '<span title="{}">({})</span>'
 REQUEST_CO_OWNER_NOTICE = "You are the co-owner of the request"
 REQUEST_OWNER_NOTICE = "You received the request"
-
 subject_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
 )
@@ -281,16 +278,8 @@ class RequestAdmin(CrmModelAdmin):
     def counterparty(self, obj):
         counterparty = obj.lead if obj.lead else obj.company
         if counterparty:
-            if hasattr(_thread_local, 'deal_changelist_url'):
-                url = _thread_local.deal_changelist_url
-            else:
-                url = reverse("site:crm_request_changelist")
-                _thread_local.deal_changelist_url = url
-            url += f"?{counterparty._meta.model_name}={counterparty.id}"  # NOQA
-            link = f'<a href="{url}">{counterparty.full_name}</a>'
-        else:
-            link = obj.company_name
-        return mark_safe(link)
+            return counterparty.full_name
+        return obj.company_name
 
     @staticmethod
     @admin.display(description=mark_safe(
@@ -307,15 +296,27 @@ class RequestAdmin(CrmModelAdmin):
     @staticmethod
     @admin.display(description='')
     def request_counter(obj):
-        counter = None
+        counter = counterparty = None
         if obj.company:
+            counterparty = obj.company
             counter = Request.objects.filter(company=obj.company).count()
         elif obj.lead:
+            counterparty = obj.lead
             counter = Request.objects.filter(lead=obj.lead).count()
-
-        return mark_safe(
-            request_counter_icon.format(request_counter_title, counter)
-        ) if counter else ''
+        if counter:
+            obj_plural_name = obj._meta.verbose_name_plural     # NOQA
+            if counter > 1:
+                if hasattr(_thread_local, 'request_changelist_url'):
+                    url = _thread_local.request_changelist_url
+                else:
+                    url = reverse("site:crm_request_changelist")
+                    _thread_local.request_changelist_url = url
+                url += f"?{counterparty._meta.model_name}={counterparty.id}"  # NOQA
+                link = f'<a href="{url}" title="{obj_plural_name}">({counter})</a>'
+                return mark_safe(link)
+            elif counter == 1:
+                return mark_safe(f'<span title="{obj_plural_name}">(1)</span>')
+        return ''
 
     @admin.display(
         description=subject_safe_icon,
