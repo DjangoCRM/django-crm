@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from common.models import Base1
 from common.utils.helpers import token_default
@@ -89,6 +90,9 @@ class Lead(BaseContact, Base1):
             return f"{self.full_name}, {self.company_name}," \
                    f" {self.country}"
         return self.full_name
+
+    def get_absolute_url(self):
+        return reverse('admin:crm_lead_change', args=(self.id,))
 
     @property
     def full_name(self):
