@@ -119,8 +119,10 @@ Compatibility
 ⭐️ Don't forget to **star** and **fork** the project if you like it.
 
 ## Contributing
-All types of contributions are welcome.
-Please see the [Contributing guide](CONTRIBUTING.md).
+
+We’re excited to have you contribute to Django-CRM!  
+Whether you're a developer, designer, or simply passionate about CRM systems, there are many ways you can help. You can contribute by adding new features, fixing bugs, improving documentation, or even providing feedback on the project.  
+Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started. Every contribution, big or small, makes a difference
 
 ## Credits
 
