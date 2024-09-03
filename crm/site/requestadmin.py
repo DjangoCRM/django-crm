@@ -278,7 +278,10 @@ class RequestAdmin(CrmModelAdmin):
     def counterparty(self, obj):
         counterparty = obj.lead if obj.lead else obj.company
         if counterparty:
-            return counterparty.full_name
+            url = counterparty.get_absolute_url()
+            return mark_safe(
+                f'<a href="{url}">{counterparty.full_name}</a>'
+                )
         return obj.company_name
 
     @staticmethod
