@@ -85,6 +85,7 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
             (None, {
                 'fields': (
                     ('full_name', 'country'),
+                    'alternative_names',
                     'lead_source',
                     ('active', 'was_in_touch'),
                     'description', 'industry',
