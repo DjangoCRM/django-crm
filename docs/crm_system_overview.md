@@ -40,7 +40,7 @@ Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is desi
 ### **Deals Management**
 
 - **Creating and Managing Deal Objects**: A Deal object is created from a Request and serves as the primary working area where sales managers work towards concluding a successful deal. Details of the work done are stored within the Deal object. Icons provide visual cues about the deal status and required actions.
-  - **Deal Lifecycle:** [Deals](docs/pics/deals_screenshot.png) are tracked through various stages until closed. They can be sorted by default settings or customized according to user preference.
+  - **Deal Lifecycle:** [Deals](pics/deals_screenshot.png) are tracked through various stages until closed. They can be sorted by default settings or customized according to user preference.
   - **Closing a Deal**: Once work on a deal is finished, it should be closed with a reason selected from a dropdown menu. Closed deals will be hidden from the active deals list but will remain in the database and can be accessed by adjusting the activity filters.
 - **Default Sorting of Deals**: New deals are sorted by default at the top of the list, but sorting by the next step date is recommended.
 
@@ -89,3 +89,5 @@ Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is desi
   - **Mail Account Setup:** Gmail accounts require two-step authentication and OAuth2 setup. Co-owners can be assigned to manage email accounts.
 
 - **Mailings:** Users can create and manage email campaigns, with options to select recipients and track mailing progress. Mailings are sent through sales managers' accounts with limitations to prevent spam.
+
+(***The content is being supplemented.***)
