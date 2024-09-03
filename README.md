@@ -15,6 +15,8 @@ This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual u
 | :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                  | :ballot_box_with_check: **Sales pipeline**       |
 | :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Analytical reporting** |  
 
+***For a more detailed software overview, click [here](docs/crm_system_overview.md)***.
+
 Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 CRM app uses adaptive Admin HTML templates out-of-the-box.
@@ -122,7 +124,7 @@ Compatibility
 
 We’re excited to have you contribute to Django-CRM!  
 Whether you're a developer, designer, or simply passionate about CRM systems, there are many ways you can help. You can contribute by adding new features, fixing bugs, improving documentation, or even providing feedback on the project.  
-Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started. Every contribution, big or small, makes a difference
+Check out our [Contributing Guide](CONTRIBUTING.md) to learn how to get started. Every contribution, big or small, makes a difference
 
 ## Credits
 
