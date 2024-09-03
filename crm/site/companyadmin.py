@@ -109,7 +109,7 @@ class CompanyAdmin(CrmModelAdmin):
         return [
             (None, {
                 'fields': (
-                    'full_name',
+                    'full_name', 'alternative_names',
                     ('type', 'lead_source'),
                     'registration_number',
                     ('active', 'was_in_touch'),
