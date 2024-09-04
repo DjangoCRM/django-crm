@@ -57,3 +57,9 @@ class StopPhrase(models.Model):
 
     def __str__(self):
         return self.phrase
+    
+class Reminders(models.Model):
+    setting_value = models.PositiveBigIntegerField()
+
+    def __str__(self):
+        return f"Reminder {self.setting_value}"
