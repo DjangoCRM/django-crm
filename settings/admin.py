@@ -1,12 +1,10 @@
 from django.contrib import admin
-from django.http.request import HttpRequest
 
 from crm.site.crmadminsite import crm_site
 from settings.models import BannedCompanyName
 from settings.models import PublicEmailDomain
 from settings.models import StopPhrase
-
-from models import Reminders
+# from settings.models import Reminders
 
 
 class BannedCompanyNameAdmin(admin.ModelAdmin):
@@ -17,6 +15,17 @@ class BannedCompanyNameAdmin(admin.ModelAdmin):
 class PublicEmailDomainAdmin(admin.ModelAdmin):
     list_display = ('domain',)
     search_fields = ('domain',)
+
+
+class RemindersAdmin(admin.ModelAdmin):
+
+    # -- ModelAdmin methods -- #
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 class StopPhraseAdmin(admin.ModelAdmin):
@@ -30,13 +39,5 @@ crm_site.register(StopPhrase, StopPhraseAdmin)
 
 admin.site.register(BannedCompanyName, BannedCompanyNameAdmin)
 admin.site.register(PublicEmailDomain, PublicEmailDomainAdmin)
+# admin.site.register(Reminders, RemindersAdmin)
 admin.site.register(StopPhrase, StopPhraseAdmin)
-
-class RemindersAdmin(admin.ModelAdmin):
-    def has_add_permission(self, request: HttpRequest) -> bool:
-        return False
-    
-    def has_delete_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
-        return False
-    
-admin.site.register(Reminders, RemindersAdmin)
