@@ -114,13 +114,11 @@ The project will be cloned into the 'django-crm' folder.
 
 It is recommended to first create a virtual environment:
 ```cmd
-python3 -m venv ./myvenv
+python3 -m venv myvenv
 ```
 and activate it:
 ```cmd
-cd ./myvenv/bin
-source activate
-cd ../../django-crm
+source /myvenv/bin/activate
 ```
 then install the project requirements:
 ```cmd
