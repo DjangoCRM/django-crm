@@ -36,6 +36,21 @@ class PublicEmailDomain(models.Model):
         return self.domain
 
 
+class Reminders(models.Model):
+    class Meta:
+        verbose_name = _('Reminder settings')
+        verbose_name_plural = _('Reminder settings')
+
+    check_interval = models.PositiveBigIntegerField(
+        null=False, blank=False,
+        default='300',
+        verbose_name=_("Check interval"),
+        help_text=_(
+            "Specify the interval in seconds to check if it's time for a reminder."
+        )
+    )
+
+
 class StopPhrase(models.Model):
     class Meta:
         verbose_name = _('Stop Phrase')
@@ -57,9 +72,3 @@ class StopPhrase(models.Model):
 
     def __str__(self):
         return self.phrase
-    
-class Reminders(models.Model):
-    setting_value = models.PositiveBigIntegerField()
-
-    def __str__(self):
-        return f"Reminder {self.setting_value}"
