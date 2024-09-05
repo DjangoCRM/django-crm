@@ -109,7 +109,7 @@ class TestDeal(BaseTestCase):
         data['closing_reason'] = str(closing_reason.id)
         data['_save'] = ''
         response = self.client.post(self.deal_change_url, data, follow=True)
-        # self.assertNoFormErrors(response)
+        self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertTrue(Payment.objects.filter(
             deal=self.deal,
