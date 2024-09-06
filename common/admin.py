@@ -192,14 +192,14 @@ class UserProfileAdmin(userprofileadmin.UserProfileAdmin):
 
     # -- ModelAdmin Callables -- #
 
-    @admin.display(description=_("staff status"),
-                   ordering='user__is_staff',
+    @admin.display(description=_('staff'),
+                   ordering="user__is_staff",
                    boolean=True, )
     def staff(self, obj):
         return obj.user.is_staff
 
-    @admin.display(description=_("superuser status"),
-                   ordering='user__is_superuser',
+    @admin.display(description=_('superuser'),
+                   ordering="user__is_superuser",
                    boolean=True, )
     def superuser(self, obj):
         return obj.user.is_superuser
