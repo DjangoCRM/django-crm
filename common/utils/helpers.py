@@ -121,7 +121,9 @@ def get_trans_for_user(text: str, user) -> str:
 
 
 def get_user_language_code(user) -> str:
-    return user.profile.language_code
+    if settings.USE_I18N:
+        return user.profile.language_code
+    return settings.LANGUAGE_CODE
 
 
 def get_verbose_name(model, field: str) -> str:
