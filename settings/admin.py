@@ -4,7 +4,7 @@ from crm.site.crmadminsite import crm_site
 from settings.models import BannedCompanyName
 from settings.models import PublicEmailDomain
 from settings.models import StopPhrase
-# from settings.models import Reminders
+from settings.models import Reminders
 
 
 class BannedCompanyNameAdmin(admin.ModelAdmin):
@@ -39,5 +39,5 @@ crm_site.register(StopPhrase, StopPhraseAdmin)
 
 admin.site.register(BannedCompanyName, BannedCompanyNameAdmin)
 admin.site.register(PublicEmailDomain, PublicEmailDomainAdmin)
-# admin.site.register(Reminders, RemindersAdmin)
+admin.site.register(Reminders, RemindersAdmin)
 admin.site.register(StopPhrase, StopPhraseAdmin)

@@ -1168,6 +1168,14 @@ ADMIN_DATA = [
                 'view_only': False
             },
             {
+                'name': 'Reminder settings',
+                'object_name': 'Reminders',
+                'perms': get_perms(add=False, delete=False),
+                'admin_url': f'/en/{ADMIN_PREFIX}settings/reminders/',
+                'add_url': None,
+                'view_only': False
+            },
+            {
                 'name': 'Stop Phrases',
                 'object_name': 'StopPhrase',
                 'perms': get_perms(),
