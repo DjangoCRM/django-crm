@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import add_chat_context
@@ -14,6 +15,7 @@ from tasks.forms import ProjectForm
 from tasks.site.tasksbasemodeladmin import TasksBaseModelAdmin
 
 PROJECT_NEXT_STEP = 'Acquainted with the project'
+project_was_created_str = gettext("The project was created")
 
 
 class ProjectAdmin(TasksBaseModelAdmin):
@@ -74,6 +76,5 @@ class ProjectAdmin(TasksBaseModelAdmin):
             obj.closing_date = get_today()
 
         if not change:
-            msg = _("The project was created")
-            obj.add_to_workflow(f'{msg} ({request.user})')
+            obj.add_to_workflow(f'{project_was_created_str} ({request.user})')
         super().save_model(request, obj, form, change)
