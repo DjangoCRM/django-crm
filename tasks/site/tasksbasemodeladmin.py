@@ -13,6 +13,7 @@ from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from common.admin import FileInline
@@ -43,7 +44,7 @@ from tasks.utils.admfilters import TaskTagFilter
 
 co_owner_subject = "You have been assigned as the task co-owner"
 due_date_str = _("Due date")
-TASK_NEXT_STEP = _("Acquainted with the task")
+TASK_NEXT_STEP = gettext("Acquainted with the task")
 NEXT_STEP_DATE_WARNING = "The next step date should not be later than due date."
 subscribers_subject = "You are subscribed to a new task"
 responsible_subject = "You have a new task assigned"

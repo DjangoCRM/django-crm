@@ -34,6 +34,9 @@ from tasks.utils.admfilters import ByProject
 
 COMPLETED_TITLE = gettext_lazy("I completed my part of the task")
 copy_str = _("Copy")
+task_was_created_str = _("The task was created")
+subtask_was_created_str = _("The subtask was created")
+the_subtask_str = _("The subtask")
 
 
 class TaskAdmin(TasksBaseModelAdmin):
@@ -155,7 +158,7 @@ class TaskAdmin(TasksBaseModelAdmin):
     def get_changeform_initial_data(self, request):
         # for use in the admin add and change views
         initial = super().get_changeform_initial_data(request)
-        initial['next_step'] = _(TASK_NEXT_STEP)
+        initial['next_step'] = TASK_NEXT_STEP
         initial['next_step_date'] = get_delta_date(1)
         initial['stage'] = TaskStage.objects.filter(default=True).first()
         task_id = request.GET.get('copy_task')
@@ -215,9 +218,9 @@ class TaskAdmin(TasksBaseModelAdmin):
         main_task = obj.task
 
         if not change:
-            msg = _("The task was created")
+            msg = task_was_created_str
             if main_task:
-                msg = _("The subtask was created")
+                msg = subtask_was_created_str
                 obj.co_owner = main_task.task.owner if main_task.task else main_task.owner
                 if request.user in form.cleaned_data['responsible']:
                     if obj.stage.active:
@@ -245,12 +248,12 @@ class TaskAdmin(TasksBaseModelAdmin):
             if main_task:
                 main_task.add_to_workflow(f'{obj.next_step}. ({request.user})')
                 main_task_changed = True
-                if main_task.next_step == _(TASK_NEXT_STEP) and obj.next_step != _(TASK_NEXT_STEP) \
+                if main_task.next_step == TASK_NEXT_STEP and obj.next_step != TASK_NEXT_STEP \
                         or main_task.next_step_date > obj.next_step_date:  # it's right
                     main_task.next_step = obj.next_step
                     main_task.next_step_date = obj.next_step_date
         elif not obj.next_step:
-            obj.next_step = _(TASK_NEXT_STEP)
+            obj.next_step = TASK_NEXT_STEP
 
         if '_completed' in request.POST:
             obj.stage = TaskStage.objects.filter(done=True).first()
@@ -270,8 +273,7 @@ class TaskAdmin(TasksBaseModelAdmin):
             main_task.save()
         if not change and request.GET.get("parent_project_id"):
             obj.project_id = request.GET.get("parent_project_id")
-            msg = _("The task was created")
-            obj.project.add_to_workflow(f'{msg} ({request.user})')
+            obj.project.add_to_workflow(f'{task_was_created_str} ({request.user})')
             obj.project.save()
 
     def save_related(self, request, form, formsets, change):
@@ -281,8 +283,8 @@ class TaskAdmin(TasksBaseModelAdmin):
         main_task_update_fields = []
         if main_task:
             if not change:
-                msg = _("The subtask was created")
-                main_task.add_to_workflow(f"{msg}: {obj.name} ({request.user})")
+                main_task.add_to_workflow(
+                    f"{subtask_was_created_str}: {obj.name} ({request.user})")
                 main_task_update_fields.append('workflow')
 
             if main_task.stage.default and obj.stage.in_progress \
@@ -294,11 +296,9 @@ class TaskAdmin(TasksBaseModelAdmin):
 
             if '_completed' in request.POST or "stage" in form.changed_data:
                 if "next_step" not in form.changed_data \
-                        or obj.next_step == _(TASK_NEXT_STEP):
-                    subtask = _("The subtask")
+                        or obj.next_step == TASK_NEXT_STEP:
                     main_task.add_to_workflow(
-                        f"{obj.next_step}. {subtask}: {obj.name} ({request.user})"
-                    )
+                        f"{obj.next_step}. {the_subtask_str}: {obj.name} ({request.user})")
                     main_task_update_fields.append('workflow')
             main_task.save(update_fields=main_task_update_fields)
 
@@ -401,7 +401,7 @@ class TaskAdmin(TasksBaseModelAdmin):
     def update_next_step_and_workflow(request: WSGIRequest,
                                       obj: Task, form: TaskForm) -> None:
         if "next_step" not in form.changed_data \
-                or obj.next_step == _(TASK_NEXT_STEP):
+                or obj.next_step == TASK_NEXT_STEP:
             
             field_name = ''
             if obj.stage.in_progress:
