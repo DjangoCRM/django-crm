@@ -45,11 +45,13 @@ from tasks.utils.admfilters import TaskTagFilter
 co_owner_subject = "You have been assigned as the task co-owner"
 due_date_str = _("Due date")
 TASK_NEXT_STEP = gettext("Acquainted with the task")
+task_was_created_str = gettext("The task was created")
 NEXT_STEP_DATE_WARNING = "The next step date should not be later than due date."
 subscribers_subject = "You are subscribed to a new task"
 responsible_subject = "You have a new task assigned"
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
+project_was_created_str = gettext("The Project was created")
 view_chat_str = _("View chat messages")
 
 
@@ -415,10 +417,10 @@ class TasksBaseModelAdmin(BaseModelAdmin):
                 memo.stage = memo.REVIEWED
                 if obj.__class__ == Task:
                     memo.task = obj
-                    msg = _("The task was created")
+                    msg = task_was_created_str
                 else:
                     memo.project = obj
-                    msg = _("The Project was created")
+                    msg = project_was_created_str
                 date = get_formatted_short_date()
                 memo.note = f"{date} - {msg}\n\n" + obj.note
                 memo.review_date = get_today()
