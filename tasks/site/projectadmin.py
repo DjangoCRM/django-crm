@@ -14,7 +14,7 @@ from tasks.models import Task
 from tasks.forms import ProjectForm
 from tasks.site.tasksbasemodeladmin import TasksBaseModelAdmin
 
-PROJECT_NEXT_STEP = 'Acquainted with the project'
+PROJECT_NEXT_STEP = _('Acquainted with the project')
 project_was_created_str = gettext("The project was created")
 
 

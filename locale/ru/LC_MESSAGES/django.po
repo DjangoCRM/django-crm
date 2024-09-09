@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-06 09:40+0300\n"
+"POT-Creation-Date: 2024-09-09 20:53+0300\n"
 "PO-Revision-Date: 2024-09-06 10:24+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: analytics/apps.py:10
@@ -259,8 +261,8 @@ msgstr "Все"
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:346 voip/models.py:49
+#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:346
+#: voip/models.py:49
 msgid "Owner"
 msgstr "Владелец"
 
@@ -435,7 +437,7 @@ msgstr "Вы получили сообщение относительно -"
 #: crm/site/requestadmin.py:93 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:172
-#: tasks/site/tasksbasemodeladmin.py:217
+#: tasks/site/tasksbasemodeladmin.py:220
 msgid "Additional information"
 msgstr "Дополнительная информация"
 
@@ -543,7 +545,7 @@ msgid "There are unread messages"
 msgstr "Есть непрочитанные сообщения"
 
 #: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
-#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:52
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
 msgid "View chat messages"
 msgstr "Просмотр сообщений чата"
 
@@ -731,7 +733,7 @@ msgstr "Ярлыки"
 
 #: common/site/basemodeladmin.py:20 crm/admin.py:97 crm/admin.py:170
 #: crm/admin.py:214 crm/admin.py:257 crm/site/dealadmin.py:266
-#: tasks/site/tasksbasemodeladmin.py:210
+#: tasks/site/tasksbasemodeladmin.py:213
 msgid "Add tags"
 msgstr "Добавить ярлыки"
 
@@ -891,7 +893,7 @@ msgid "Error: the file is missing."
 msgstr "Ошибка! Файл отсутствует."
 
 #: common/templates/common/notice_participants_email.html:12
-#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:46
 msgid "Due date"
 msgstr "Срок выполнения"
 
@@ -921,6 +923,7 @@ msgid "Create a reminder"
 msgstr "Создать напоминание"
 
 #: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:17
 msgid "Regarding"
 msgstr "Касательно"
 
@@ -988,8 +991,7 @@ msgid "Completed"
 msgstr "Выполнено"
 
 #: common/utils/for_translation.py:24
-msgid ""
-"The name has been added for translation. Please update po and mo files."
+msgid "The name has been added for translation. Please update po and mo files."
 msgstr "Имя добавлено для перевода. Пожалуйста, обновите файлы po и mo."
 
 #: common/utils/helpers.py:25 tasks/site/memoadmin.py:39
@@ -1024,7 +1026,8 @@ msgstr ""
 "\n"
 "Внимание! Данные для таких фильтров, как:\n"
 "этапы платежей, причины закрытия, теги и т. д.\n"
-"будут перенесены только в том случае, если в новом отделе есть данные с таким же названием.\n"
+"будут перенесены только в том случае, если в новом отделе есть данные с "
+"таким же названием.\n"
 "Кроме того, это не повлияет на Результат, Платеж и Продукт.\n"
 
 #: common/views/user_transfer.py:131
@@ -1952,8 +1955,7 @@ msgid "Establish the first contact with the client."
 msgstr "Установить первый контакт с клиентом"
 
 #: crm/site/companyadmin.py:26
-msgid ""
-"Attention! You can only view companies associated with your department."
+msgid "Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
 #: crm/site/companyadmin.py:195 crm/site/leadadmin.py:239
@@ -2188,9 +2190,25 @@ msgstr "Лояльность клиентов"
 msgid "Country not specified in request"
 msgstr "В запросе не указана страна"
 
+#: crm/site/requestadmin.py:45
+msgid "You received the deal"
+msgstr "Вы получили сделку"
+
+#: crm/site/requestadmin.py:46
+msgid "You are the co-owner of the deal"
+msgstr "Вы назначены совладельцем новой сделки"
+
 #: crm/site/requestadmin.py:52
 msgid "Primary request"
 msgstr "Первичный запрос"
+
+#: crm/site/requestadmin.py:53
+msgid "You are the co-owner of the request"
+msgstr "Вы назначены совладельцем нового запроса"
+
+#: crm/site/requestadmin.py:54
+msgid "You received the request"
+msgstr "Вы получили запрос"
 
 #: crm/site/requestadmin.py:58
 msgid "Subsequent request"
@@ -2372,8 +2390,7 @@ msgstr "Предварительный просмотр печати"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16
-#: massmail/site/signatureadmin.py:31
+#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
 msgid "Change"
 msgstr "Изменить"
 
@@ -2487,8 +2504,8 @@ msgstr "Пожалуйста, выберите, какие файлы прикр
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
-"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных"
-" лиц"
+"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных "
+"лиц"
 
 #: crm/templates/crm/del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
@@ -2505,8 +2522,8 @@ msgstr "Выберите файл для импорта."
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't"
-" matter):"
+"Only the following columns will be imported if they exist (the order doesn't "
+"matter):"
 msgstr ""
 "Будут импортированы только следующие столбцы, если они существуют (порядок "
 "не имеет значения):"
@@ -2733,8 +2750,8 @@ msgstr "Доступно на странице CRM"
 
 #: help/models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
-" from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
+"from another help page."
 msgstr ""
 "Доступен на одной из страниц CRM. В противном случае к нему можно получить "
 "доступ только по ссылке с другой страницы справки."
@@ -2925,9 +2942,9 @@ msgstr "Поле from_email."
 
 #: massmail/models/email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted certificate chain file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted certificate chain file to use "
+"for the SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS - True, вы можете при желании указать "
 "путь к файлу цепочки сертификатов в формате PEM, который будет "
@@ -2935,9 +2952,9 @@ msgstr ""
 
 #: massmail/models/email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted private key file to use for the SSL "
-"connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted private key file to use for the "
+"SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS имеет значение True, вы можете при "
 "желании указать путь к файлу закрытого ключа в формате PEM, который будет "
@@ -2958,13 +2975,17 @@ msgstr "Укажите хост imap"
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или прикрепленные к этому сообщению."
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
+"cid_media ‘path/to/pic.png' %}.<br>\n"
+"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или "
+"прикрепленные к этому сообщению."
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
@@ -3027,12 +3048,15 @@ msgstr "Отчет"
 #: massmail/models/signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
+"cid_media ‘path/to/pic.png' %}.<br>\n"
 "Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’."
 
 #: massmail/models/signature.py:17
@@ -3219,12 +3243,12 @@ msgstr "Дата последнего случая"
 msgid "Date of last occurrence of the phrase"
 msgstr "Дата последнего появления фразы"
 
-#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:157
+#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:160
 msgid "Change responsible"
 msgstr "Изменить ответственных"
 
 #: tasks/admin.py:72 tasks/admin.py:125 tasks/site/memoadmin.py:169
-#: tasks/site/tasksbasemodeladmin.py:165 tasks/site/tasksbasemodeladmin.py:206
+#: tasks/site/tasksbasemodeladmin.py:168 tasks/site/tasksbasemodeladmin.py:209
 msgid "Change subscribers"
 msgstr "Изменить подписчиков"
 
@@ -3308,7 +3332,7 @@ msgid "Review date"
 msgstr "Дата рассмотрения "
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:437 tasks/site/tasksbasemodeladmin.py:501
+#: tasks/site/memoadmin.py:437 tasks/site/tasksbasemodeladmin.py:504
 msgid "subscribers"
 msgstr "подписчики"
 
@@ -3389,15 +3413,15 @@ msgstr "Задача не может быть закрыта поскольку 
 msgid "The main task is closed automatically."
 msgstr "Главная задача закрыта автоматически."
 
-#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:487
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:490
 msgid "Low"
 msgstr "Низкий"
 
-#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:488
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:491
 msgid "Middle"
 msgstr "Средний"
 
-#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:489
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:492
 msgid "High"
 msgstr "Высокий"
 
@@ -3488,7 +3512,11 @@ msgstr "Смотреть проект"
 msgid "View the "
 msgstr "Смотреть"
 
-#: tasks/site/projectadmin.py:77
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "Ознакомиться с проектом"
+
+#: tasks/site/projectadmin.py:18
 msgid "The project was created"
 msgstr "Проект был создан"
 
@@ -3496,22 +3524,21 @@ msgstr "Проект был создан"
 msgid "I completed my part of the task"
 msgstr "Я выполнил свою часть задачи"
 
-#: tasks/site/taskadmin.py:218 tasks/site/taskadmin.py:273
-#: tasks/site/tasksbasemodeladmin.py:417
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:48
 msgid "The task was created"
 msgstr "Создана задача"
 
-#: tasks/site/taskadmin.py:220 tasks/site/taskadmin.py:284
+#: tasks/site/taskadmin.py:38
 msgid "The subtask was created"
 msgstr "Создана подзадача"
 
-#: tasks/site/taskadmin.py:239
-msgid "later than due date of parent task."
-msgstr "позже срока выполнения основной задачи."
-
-#: tasks/site/taskadmin.py:298
+#: tasks/site/taskadmin.py:39
 msgid "The subtask"
 msgstr "Подзадача"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "позже срока выполнения основной задачи."
 
 #: tasks/site/taskadmin.py:334
 msgid "Main task"
@@ -3534,15 +3561,31 @@ msgstr ""
 "Пожалуйста, для работы, создайте себе подзадачу.\n"
 "Или нажмите следующую кнопку, когда выполните свою работу."
 
-#: tasks/site/tasksbasemodeladmin.py:46
+#: tasks/site/tasksbasemodeladmin.py:45
+msgid "You have been assigned as the task co-owner"
+msgstr "Вы назначены совладельцем задачи"
+
+#: tasks/site/tasksbasemodeladmin.py:47
 msgid "Acquainted with the task"
 msgstr "Ознакомиться с задачей"
 
-#: tasks/site/tasksbasemodeladmin.py:420
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The next step date should not be later than due date."
+msgstr "Дата следующего шага не должна быть позже установленной даты."
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "You are subscribed to a new task"
+msgstr "Вы подписаны на новую задачу"
+
+#: tasks/site/tasksbasemodeladmin.py:51
+msgid "You have a new task assigned"
+msgstr "Вам назначено новое задание"
+
+#: tasks/site/tasksbasemodeladmin.py:54
 msgid "The Project was created"
 msgstr "Проект был создан"
 
-#: tasks/site/tasksbasemodeladmin.py:477
+#: tasks/site/tasksbasemodeladmin.py:480
 msgid ""
 "Please edit the title and description to make it clear to other users what "
 "part of the overall task will be completed."
@@ -3550,11 +3593,11 @@ msgstr ""
 "Пожалуйста, отредактируйте название и описание, чтобы другим пользователям "
 "было понятно, какая часть общей задачи будет выполнена."
 
-#: tasks/site/tasksbasemodeladmin.py:495
+#: tasks/site/tasksbasemodeladmin.py:498
 msgid "responsible"
 msgstr "ответственные"
 
-#: tasks/site/tasksbasemodeladmin.py:529
+#: tasks/site/tasksbasemodeladmin.py:532
 msgid "Attach files"
 msgstr "Прикрепить файлы"
 
@@ -3701,8 +3744,8 @@ msgstr "АОН"
 
 #: voip/models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you"
-" call"
+"Specify the number to be displayed as             your phone number when you "
+"call"
 msgstr ""
 "Укажите номер, который будет отображаться в качестве вашего номера телефона "
 "при звонке"
@@ -3778,20 +3821,8 @@ msgstr "Главное меню"
 #~ msgid "You received a "
 #~ msgstr "Вы получили"
 
-#~ msgid "You received the deal"
-#~ msgstr "Вы получили сделку"
-
-#~ msgid "You are the co-owner of the deal"
-#~ msgstr "Вы назначены совладельцем новой сделки"
-
 #~ msgid "Request counter"
 #~ msgstr "Счетчик запросов"
-
-#~ msgid "You are the co-owner of the request"
-#~ msgstr "Вы назначены совладельцем нового запроса"
-
-#~ msgid "You received the request"
-#~ msgstr "Вы получили запрос"
 
 #, python-format
 #~ msgid "Received an email from \"%s\""
@@ -3808,18 +3839,6 @@ msgstr "Главное меню"
 
 #~ msgid "You've received a office memo"
 #~ msgstr "Вы получили служебную записку"
-
-#~ msgid "You have been assigned as the task co-owner"
-#~ msgstr "Вы назначены совладельцем задачи"
-
-#~ msgid "The next step date should not be later than due date."
-#~ msgstr "Дата следующего шага не должна быть позже установленной даты."
-
-#~ msgid "You are subscribed to a new task"
-#~ msgstr "Вы подписаны на новую задачу"
-
-#~ msgid "You have a new task assigned"
-#~ msgstr "Вам назначено новое задание"
 
 #~ msgid "The subtask is closed"
 #~ msgstr "Подзадача закрыта"
@@ -3894,7 +3913,8 @@ msgstr "Главное меню"
 #~ msgstr "Подзадача создана"
 
 #~ msgid "For imbedding images use tag {% cid_media 'name.jpg' %}"
-#~ msgstr "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
+#~ msgstr ""
+#~ "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
 
 #~ msgid "Primary requests over country"
 #~ msgstr "Первичные запросы по странам"
@@ -3913,9 +3933,6 @@ msgstr "Главное меню"
 
 #~ msgid "Mark the project as completed and save."
 #~ msgstr "Отметить проект как завершенный и сохранить."
-
-#~ msgid "Acquainted with the project"
-#~ msgstr "Ознакомиться с проектом"
 
 #~ msgid "Payment of the contract."
 #~ msgstr "Оплата договора."
@@ -3993,11 +4010,11 @@ msgstr "Главное меню"
 #~ msgstr "приоритет"
 
 #~ msgid ""
-#~ "This is a sub-task. It cannot be collective, so specify only one responsible"
-#~ " person."
+#~ "This is a sub-task. It cannot be collective, so specify only one "
+#~ "responsible person."
 #~ msgstr ""
-#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только одно "
-#~ "ответственное лицо."
+#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только "
+#~ "одно ответственное лицо."
 
 #~ msgid "Task start date"
 #~ msgstr "Дата начала задачи"
@@ -4219,8 +4236,8 @@ msgstr "Главное меню"
 
 #~ msgid "Error: Please specify a imap host in main Email account in CRM"
 #~ msgstr ""
-#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи электронной "
-#~ "почты в CRM"
+#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи "
+#~ "электронной почты в CRM"
 
 #~ msgid "Found {num} Emails to import. Refresh this page."
 #~ msgstr "Найдено {num} Emails для импорта. Обновить эту страницу."

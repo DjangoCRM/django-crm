@@ -42,13 +42,13 @@ from tasks.utils.admfilters import IsActiveTaskFilter
 from tasks.utils.admfilters import ByOwnerFilter
 from tasks.utils.admfilters import TaskTagFilter
 
-co_owner_subject = "You have been assigned as the task co-owner"
+co_owner_subject = _("You have been assigned as the task co-owner")
 due_date_str = _("Due date")
 TASK_NEXT_STEP = gettext("Acquainted with the task")
 task_was_created_str = gettext("The task was created")
-NEXT_STEP_DATE_WARNING = "The next step date should not be later than due date."
-subscribers_subject = "You are subscribed to a new task"
-responsible_subject = "You have a new task assigned"
+NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
+subscribers_subject = _("You are subscribed to a new task")
+responsible_subject = _("You have a new task assigned")
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
 project_was_created_str = gettext("The Project was created")

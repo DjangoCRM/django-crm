@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-06 09:40+0300\n"
-"PO-Revision-Date: 2024-09-07 16:13+0300\n"
+"POT-Creation-Date: 2024-09-09 20:54+0300\n"
+"PO-Revision-Date: 2024-09-09 21:00+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -435,7 +435,7 @@ msgstr "Ви отримали повідомлення щодо -"
 #: crm/site/requestadmin.py:93 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:172
-#: tasks/site/tasksbasemodeladmin.py:217
+#: tasks/site/tasksbasemodeladmin.py:220
 msgid "Additional information"
 msgstr "Додаткова інформація"
 
@@ -543,7 +543,7 @@ msgid "There are unread messages"
 msgstr "Є непрочитані повідомлення"
 
 #: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
-#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:52
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
 msgid "View chat messages"
 msgstr "Перегляд повідомлень чату"
 
@@ -731,7 +731,7 @@ msgstr "Ярлики"
 
 #: common/site/basemodeladmin.py:20 crm/admin.py:97 crm/admin.py:170
 #: crm/admin.py:214 crm/admin.py:257 crm/site/dealadmin.py:266
-#: tasks/site/tasksbasemodeladmin.py:210
+#: tasks/site/tasksbasemodeladmin.py:213
 msgid "Add tags"
 msgstr "Додати ярлики"
 
@@ -891,7 +891,7 @@ msgid "Error: the file is missing."
 msgstr "Помилка! Файл відсутній."
 
 #: common/templates/common/notice_participants_email.html:12
-#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:46
 msgid "Due date"
 msgstr "Термін виконання"
 
@@ -921,6 +921,7 @@ msgid "Create a reminder"
 msgstr "Створити нагадування"
 
 #: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:17
 msgid "Regarding"
 msgstr "Щодо"
 
@@ -2187,9 +2188,25 @@ msgstr "Лояльність клієнтів"
 msgid "Country not specified in request"
 msgstr "У запиті не вказано країну"
 
+#: crm/site/requestadmin.py:45
+msgid "You received the deal"
+msgstr "Ви отримали угоду"
+
+#: crm/site/requestadmin.py:46
+msgid "You are the co-owner of the deal"
+msgstr "Ви призначені співвласником нової угоди"
+
 #: crm/site/requestadmin.py:52
 msgid "Primary request"
 msgstr "Первинний запит"
+
+#: crm/site/requestadmin.py:53
+msgid "You are the co-owner of the request"
+msgstr "Ви призначені співвласником нового запиту"
+
+#: crm/site/requestadmin.py:54
+msgid "You received the request"
+msgstr "Ви отримали запит"
 
 #: crm/site/requestadmin.py:58
 msgid "Subsequent request"
@@ -3220,12 +3237,12 @@ msgstr "Дата останньої появи"
 msgid "Date of last occurrence of the phrase"
 msgstr "Дата останньої появи фрази"
 
-#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:157
+#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:160
 msgid "Change responsible"
 msgstr "Змінити відповідальних"
 
 #: tasks/admin.py:72 tasks/admin.py:125 tasks/site/memoadmin.py:169
-#: tasks/site/tasksbasemodeladmin.py:165 tasks/site/tasksbasemodeladmin.py:206
+#: tasks/site/tasksbasemodeladmin.py:168 tasks/site/tasksbasemodeladmin.py:209
 msgid "Change subscribers"
 msgstr "Змінити підписників"
 
@@ -3302,14 +3319,14 @@ msgstr "Повідомлено"
 
 #: tasks/models/memo.py:82
 msgid "The recipient and subscribers are notified."
-msgstr "Одержувача та передплатників повідомлено."
+msgstr "Одержувача та підписників повідомлено."
 
 #: tasks/models/memo.py:92
 msgid "Review date"
 msgstr "Дата розгляду"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:437 tasks/site/tasksbasemodeladmin.py:501
+#: tasks/site/memoadmin.py:437 tasks/site/tasksbasemodeladmin.py:504
 msgid "subscribers"
 msgstr "підписники"
 
@@ -3390,15 +3407,15 @@ msgstr "Завдання не може бути закрите, оскільки
 msgid "The main task is closed automatically."
 msgstr "Головне завдання закрите автоматично."
 
-#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:487
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:490
 msgid "Low"
 msgstr "Низький"
 
-#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:488
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:491
 msgid "Middle"
 msgstr "Середній"
 
-#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:489
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:492
 msgid "High"
 msgstr "Високий"
 
@@ -3489,7 +3506,11 @@ msgstr "Дивитись проект"
 msgid "View the "
 msgstr "Дивитись"
 
-#: tasks/site/projectadmin.py:77
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "Ознайомитись із проектом"
+
+#: tasks/site/projectadmin.py:18
 msgid "The project was created"
 msgstr "Проект було створено"
 
@@ -3497,22 +3518,21 @@ msgstr "Проект було створено"
 msgid "I completed my part of the task"
 msgstr "Я виконав свою частину завдання"
 
-#: tasks/site/taskadmin.py:218 tasks/site/taskadmin.py:273
-#: tasks/site/tasksbasemodeladmin.py:417
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:48
 msgid "The task was created"
 msgstr "Створено завдання"
 
-#: tasks/site/taskadmin.py:220 tasks/site/taskadmin.py:284
+#: tasks/site/taskadmin.py:38
 msgid "The subtask was created"
 msgstr "Створено підзавдання."
 
-#: tasks/site/taskadmin.py:239
-msgid "later than due date of parent task."
-msgstr "пізніше терміну виконання основного завдання."
-
-#: tasks/site/taskadmin.py:298
+#: tasks/site/taskadmin.py:39
 msgid "The subtask"
 msgstr "Підзавдання"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "пізніше терміну виконання основного завдання."
 
 #: tasks/site/taskadmin.py:334
 msgid "Main task"
@@ -3535,15 +3555,31 @@ msgstr ""
 "Будь ласка, для роботи, створіть собі підзавдання.\n"
 "Або натисніть наступну кнопку, коли виконайте свою роботу."
 
-#: tasks/site/tasksbasemodeladmin.py:46
+#: tasks/site/tasksbasemodeladmin.py:45
+msgid "You have been assigned as the task co-owner"
+msgstr "Ви призначені співвласником завдання"
+
+#: tasks/site/tasksbasemodeladmin.py:47
 msgid "Acquainted with the task"
 msgstr "Ознайомитись із завданням"
 
-#: tasks/site/tasksbasemodeladmin.py:420
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The next step date should not be later than due date."
+msgstr "Дата наступного кроку не повинна бути пізніше встановленої дати."
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "You are subscribed to a new task"
+msgstr "Ви підписані на нове завдання"
+
+#: tasks/site/tasksbasemodeladmin.py:51
+msgid "You have a new task assigned"
+msgstr "Вам призначено нове завдання"
+
+#: tasks/site/tasksbasemodeladmin.py:54
 msgid "The Project was created"
 msgstr "Проект було створено"
 
-#: tasks/site/tasksbasemodeladmin.py:477
+#: tasks/site/tasksbasemodeladmin.py:480
 msgid ""
 "Please edit the title and description to make it clear to other users what "
 "part of the overall task will be completed."
@@ -3551,11 +3587,11 @@ msgstr ""
 "Будь ласка, відредагуйте назву та опис, щоб іншим користувачам було "
 "зрозуміло, яку частину спільного завдання буде виконано."
 
-#: tasks/site/tasksbasemodeladmin.py:495
+#: tasks/site/tasksbasemodeladmin.py:498
 msgid "responsible"
 msgstr "відповідальні"
 
-#: tasks/site/tasksbasemodeladmin.py:529
+#: tasks/site/tasksbasemodeladmin.py:532
 msgid "Attach files"
 msgstr "Прикріпити файли"
 
@@ -3779,20 +3815,8 @@ msgstr "Головне меню"
 #~ msgid "You received a "
 #~ msgstr "Ви отримали"
 
-#~ msgid "You received the deal"
-#~ msgstr "Ви отримали угоду"
-
-#~ msgid "You are the co-owner of the deal"
-#~ msgstr "Ви призначені співвласником нової угоди"
-
 #~ msgid "Request counter"
 #~ msgstr "Лічильник запитів"
-
-#~ msgid "You are the co-owner of the request"
-#~ msgstr "Ви призначені співвласником нового запиту"
-
-#~ msgid "You received the request"
-#~ msgstr "Ви отримали запит"
 
 #, python-format
 #~ msgid "Received an email from \"%s\""
@@ -3809,18 +3833,6 @@ msgstr "Головне меню"
 
 #~ msgid "You've received a office memo"
 #~ msgstr "Ви отримали службову записку"
-
-#~ msgid "You have been assigned as the task co-owner"
-#~ msgstr "Ви призначені співвласником завдання"
-
-#~ msgid "The next step date should not be later than due date."
-#~ msgstr "Дата наступного кроку не повинна бути пізніше встановленої дати."
-
-#~ msgid "You are subscribed to a new task"
-#~ msgstr "Ви підписані на нове завдання"
-
-#~ msgid "You have a new task assigned"
-#~ msgstr "Вам призначено нове завдання"
 
 #~ msgid "The subtask is closed"
 #~ msgstr "Підзадачу закрито"
@@ -3915,9 +3927,6 @@ msgstr "Головне меню"
 
 #~ msgid "Mark the project as completed and save."
 #~ msgstr "Позначити проект як завершений та зберегти."
-
-#~ msgid "Acquainted with the project"
-#~ msgstr "Ознайомитись із проектом"
 
 #~ msgid "Payment of the contract."
 #~ msgstr "Оплата угоди."

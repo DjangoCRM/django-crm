@@ -7,10 +7,14 @@ from django.template import loader
 from django.utils import timezone
 from django.core.mail import mail_admins
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 from common.models import Reminder
-from common.utils.helpers import save_message, get_trans_for_user
+from common.utils.helpers import get_trans_for_user
+from common.utils.helpers import save_message
 from common.utils.helpers import send_crm_email
+
+Regarding = _('Regarding')
 
 
 class RemindersSender(threading.Thread, SingleInstance):

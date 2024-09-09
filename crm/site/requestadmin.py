@@ -42,16 +42,16 @@ CONTACT_ATTR_LIST = (
     'phone'
 )
 country_not_specified = _("Country not specified in request")
-DEAL_OWNER_NOTICE = "You received the deal"
-DEAL_CO_OWNER_NOTICE = "You are the co-owner of the deal"
+DEAL_OWNER_NOTICE = _("You received the deal")
+DEAL_CO_OWNER_NOTICE = _("You are the co-owner of the deal")
 LEAD_ATTR_LIST = CONTACT_ATTR_LIST + ('country', 'company_name')
 table_loyalty_icon = '<i title="{}" class="material-icons" ' \
                      'style="color: var(--body-quiet-color)">loyalty</i>'.format(client_loyalty_title)
 loyalty_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: var(--green-fg)">loyalty</i>'
 primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: #ECBA82">local_offer</i>'
 primary_title = _("Primary request")
-REQUEST_CO_OWNER_NOTICE = "You are the co-owner of the request"
-REQUEST_OWNER_NOTICE = "You received the request"
+REQUEST_CO_OWNER_NOTICE = _("You are the co-owner of the request")
+REQUEST_OWNER_NOTICE = _("You received the request")
 subject_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
 )
