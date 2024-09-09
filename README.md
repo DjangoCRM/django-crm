@@ -8,12 +8,13 @@ This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual u
 ![](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 ## Key Features of client relationship software (features of crm)
 
-|                                                   |                                                                                 |                                                  |
-|---------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------|
-| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                     | :ballot_box_with_check: **Email-marketing**      |
-| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals**  | :ballot_box_with_check: **Sales forecasting**    |
-| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                  | :ballot_box_with_check: **Sales pipeline**       |
-| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Analytical reporting** |  
+|                                                   |                                                                                 |                                                      |
+|---------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------|
+| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                     | :ballot_box_with_check: **Email marketing**          |
+| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals**  | :ballot_box_with_check: **Sales forecasting**        |
+| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                  | :ballot_box_with_check: **Internal Chat Integration**|
+| :ballot_box_with_check: **Reminder System**       | :ballot_box_with_check: **Role based access control**                           | :ballot_box_with_check: **Analytical reporting**     |
+| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Mobile Access**            |  
 
 ***For a more detailed software overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md)***.
 
