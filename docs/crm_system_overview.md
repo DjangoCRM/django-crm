@@ -91,3 +91,5 @@ Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is desi
 - **Mailings:** Users can create and manage email campaigns, with options to select recipients and track mailing progress. Mailings are sent through sales managers' accounts with limitations to prevent spam.
 
 (***The content is being supplemented.***)
+
+You can get more detailed information from [**the user manual**](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).
