@@ -404,14 +404,14 @@ class DealAdmin(CrmModelAdmin):
             )
         if 'next_step' in form.changed_data:
             if request.user != obj.owner:
-                next_step = obj.next_step + f' ({request.user})'
+                next_step = obj.next_step + f' ({request.user.username})'
                 next_step_len = len(next_step)
                 delta = next_step_len - 250
                 if delta > 0:
                     obj.next_step = truncatechars(
                         obj.next_step, len(obj.next_step) - delta
                     )
-                obj.next_step += f' ({request.user})'
+                obj.next_step += f' ({request.user.username})'
             obj.add_to_workflow(obj.next_step)
         if 'closing_reason' in form.changed_data:
             obj.active = not bool(obj.closing_reason)
