@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-09 20:54+0300\n"
-"PO-Revision-Date: 2024-09-09 21:00+0300\n"
+"PO-Revision-Date: 2024-09-10 08:27+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -401,7 +401,7 @@ msgstr "повідомлення"
 #: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:31
 #: massmail/site/emlmessageadmin.py:121
 msgid "Message"
-msgstr "Сообщение"
+msgstr "Повідомлення"
 
 #: chat/models.py:34
 msgid "answer to"
