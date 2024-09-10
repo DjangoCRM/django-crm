@@ -1,20 +1,21 @@
 import time
 import threading
 from tendo.singleton import SingleInstance
-from django.contrib.sites.models import Site
-from django.urls import reverse
-from django.template import loader
-from django.utils import timezone
-from django.core.mail import mail_admins
 from django.conf import settings
+from django.core.mail import mail_admins
+from django.contrib.sites.models import Site
+from django.template import loader
+from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import override
 
 from common.models import Reminder
 from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import save_message
 from common.utils.helpers import send_crm_email
 
-Regarding = _('Regarding')
+regarding_str = _('Regarding')
 
 
 class RemindersSender(threading.Thread, SingleInstance):
@@ -56,7 +57,7 @@ def send_remainders() -> None:
             user = r.owner
             trans_name = get_trans_for_user(model_name, user)
             subject = f'CRM {trans_name}: ' + " ".join(r.subject.splitlines())
-            trans_regarding = get_trans_for_user('Regarding', user)
+            trans_regarding = get_trans_for_user(regarding_str, user)
             content_obj_name = get_trans_for_user(content_obj._meta.object_name, user)  # NOQA
             save_message(
                 r.owner,
@@ -73,9 +74,12 @@ def send_remainders() -> None:
                     'content': r.description if r.description else subject
                 }
                 if user.email:
+                    code = user.profile.language_code  # NOQA
+                    with override(code):
+                        body = template.render(context)
                     send_crm_email(
                         subject,
-                        template.render(context),
+                        body,
                         [user.email]
                     )
                     r.send_notification_email = False
