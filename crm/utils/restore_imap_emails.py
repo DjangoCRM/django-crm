@@ -34,6 +34,7 @@ from crm.utils.helpers import get_uid_data
 from massmail.models import EmailAccount
 
 EXCEPT_SUBJECT = 'RestoreImapEmails Exception'
+received_email_from_str = _('Received an email from "%s"')
 
 
 class RestoreImapEmails(threading.Thread):
@@ -158,7 +159,8 @@ class RestoreImapEmails(threading.Thread):
             f_date = get_formatted_short_date()
             msg = ''
             if t in ('incoming', 'inquiry'):
-                msg = get_trans_for_user('Received an email from "%s"', crm_eml.owner)
+                msg = get_trans_for_user(
+                    received_email_from_str, crm_eml.owner)
                 formated_msg = msg % crm_eml.from_field
                 if t == 'incoming':
                     _notify_user(crm_eml, formated_msg)
