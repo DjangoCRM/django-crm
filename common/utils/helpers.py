@@ -122,7 +122,7 @@ def get_trans_for_user(text: str, user) -> str:
 
 def get_user_language_code(user) -> str:
     if settings.USE_I18N:
-        return user.profile.language_code
+        return user.profile.language_code or settings.LANGUAGE_CODE
     return settings.LANGUAGE_CODE
 
 
