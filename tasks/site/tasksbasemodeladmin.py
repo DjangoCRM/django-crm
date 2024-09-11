@@ -46,12 +46,15 @@ co_owner_subject = _("You have been assigned as the task co-owner")
 due_date_str = _("Due date")
 TASK_NEXT_STEP = gettext("Acquainted with the task")
 task_was_created_str = gettext("The task was created")
+task_is_closed_str = _("The task is closed")
+subtask_is_closed_str = _("The subtask is closed")
 NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
 subscribers_subject = _("You are subscribed to a new task")
 responsible_subject = _("You have a new task assigned")
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
 project_was_created_str = gettext("The Project was created")
+project_is_closed_str = _("The project is closed")
 view_chat_str = _("View chat messages")
 
 
@@ -634,11 +637,11 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
     recipient_list = []
     if obj.__class__ == Task:
         if obj.task:
-            task_is_closed_str = "The subtask is closed"
+            task_is_closed = subtask_is_closed_str
         else:
-            task_is_closed_str = "The task is closed"
+            task_is_closed = task_is_closed_str
     else:
-        task_is_closed_str = "The project is closed"
+        task_is_closed = project_is_closed_str
     subscribers = obj.subscribers.all()
     subscribers = exclude_some_users(obj, subscribers)
 
@@ -649,7 +652,7 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         users.append(obj.co_owner)
     
     for u in users:
-        trans_msg = get_trans_for_user(task_is_closed_str, u)
+        trans_msg = get_trans_for_user(task_is_closed, u)
         msg = compose_message(obj, trans_msg)
         save_message(u, msg, "INFO")
         if getattr(u, "email"):
@@ -657,4 +660,4 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         else:
             notify_admins_no_email(u)
     if recipient_list:
-        email_to_participants(obj, task_is_closed_str, recipient_list)
+        email_to_participants(obj, task_is_closed, recipient_list)
