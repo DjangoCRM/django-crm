@@ -37,6 +37,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         'user_full_name',
         'contact_email',
         'contact_phone',
+        'language',
     ]
     ordering = ('user__username',)
     search_fields = (
@@ -45,7 +46,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         'user__last_name',
         'user__email'
     )
-    readonly_fields = ('contact_email', 'language_code')
+    readonly_fields = ('contact_email', 'language_code', 'language')
 
     # -- ModelAdmin methods -- #
 
@@ -115,22 +116,29 @@ class UserProfileAdmin(admin.ModelAdmin):
     def contact_phone(self, obj):
         return obj.pbx_number
 
-    @admin.display(description=person_outline_icon)
-    def user_full_name(self, obj):
-        return f"{obj.user.first_name} {obj.user.last_name}"
+    @admin.display(description=_('Language'))
+    def language(self, obj):
+        lang = next((
+            lang[1] for lang in settings.LANGUAGES
+            if lang[0] == obj.language_code
+        ), LEADERS)
+        return lang
 
     @admin.display(description=timezone_icon)
     def timezone(self, obj):
-
         if obj.activate_timezone:
             return mark_safe(
                 f'<div title="{timezone_title}" style="color:#ff8000">'
                 f'{obj.get_utc_timezone_display()}</div>'
             )
         return mark_safe(
-                f'<div title="{timezone_title}">'
-                f'{settings.TIME_ZONE}</div>'
-            )
+            f'<div title="{timezone_title}">'
+            f'{settings.TIME_ZONE}</div>'
+        )
+
+    @admin.display(description=person_outline_icon)
+    def user_full_name(self, obj):
+        return f"{obj.user.first_name} {obj.user.last_name}"
 
     @admin.display(description=person_icon,
                    ordering='user__username')
