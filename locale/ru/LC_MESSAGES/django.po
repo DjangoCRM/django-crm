@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-10 17:17+0300\n"
-"PO-Revision-Date: 2024-09-06 10:24+0300\n"
-"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"PO-Revision-Date: 2024-09-12 15:10+0300\n"
+"Last-Translator: Вадим Иванович Харченко <marketing@oko-ndt.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\analytics\apps.py:10
@@ -70,8 +68,8 @@ msgstr "Воронка продаж"
 msgid "Conversion Summary"
 msgstr "Статистика по конверсии"
 
-#: .\analytics\site\anlmodeladmin.py:105 .\analytics\site\outputstatadmin.py:39
-#: .\crm\models\payment.py:108
+#: .\analytics\site\anlmodeladmin.py:105
+#: .\analytics\site\outputstatadmin.py:39 .\crm\models\payment.py:108
 msgid "Payment date"
 msgstr "Дата оплаты"
 
@@ -1000,7 +998,8 @@ msgid "Completed"
 msgstr "Выполнено"
 
 #: .\common\utils\for_translation.py:24
-msgid "The name has been added for translation. Please update po and mo files."
+msgid ""
+"The name has been added for translation. Please update po and mo files."
 msgstr "Имя добавлено для перевода. Пожалуйста, обновите файлы po и mo."
 
 #: .\common\utils\helpers.py:25 .\tasks\site\memoadmin.py:39
@@ -1035,8 +1034,7 @@ msgstr ""
 "\n"
 "Внимание! Данные для таких фильтров, как:\n"
 "этапы платежей, причины закрытия, теги и т. д.\n"
-"будут перенесены только в том случае, если в новом отделе есть данные с "
-"таким же названием.\n"
+"будут перенесены только в том случае, если в новом отделе есть данные с таким же названием.\n"
 "Кроме того, это не повлияет на Результат, Платеж и Продукт.\n"
 
 #: .\common\views\user_transfer.py:131
@@ -1505,13 +1503,13 @@ msgstr "Поддерживается не всеми почтовыми серв
 msgid "Deal"
 msgstr "Сделка"
 
-#: .\crm\models\crmemail.py:49 .\crm\models\deal.py:117 .\crm\models\lead.py:13
-#: .\crm\models\request.py:64
+#: .\crm\models\crmemail.py:49 .\crm\models\deal.py:117
+#: .\crm\models\lead.py:13 .\crm\models\request.py:64
 msgid "Lead"
 msgstr "Лид"
 
-#: .\crm\models\crmemail.py:54 .\crm\models\deal.py:124 .\crm\models\lead.py:77
-#: .\crm\models\request.py:68
+#: .\crm\models\crmemail.py:54 .\crm\models\deal.py:124
+#: .\crm\models\lead.py:77 .\crm\models\request.py:68
 #: .\crm\templates\admin\crm\company\change_form_object_tools.html:22
 msgid "Contact"
 msgstr "Контактное лицо"
@@ -1967,7 +1965,8 @@ msgid "Establish the first contact with the client."
 msgstr "Установить первый контакт с клиентом"
 
 #: .\crm\site\companyadmin.py:26
-msgid "Attention! You can only view companies associated with your department."
+msgid ""
+"Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
 #: .\crm\site\companyadmin.py:195 .\crm\site\leadadmin.py:239
@@ -2518,8 +2517,8 @@ msgstr "Пожалуйста, выберите, какие файлы прикр
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
-"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных "
-"лиц"
+"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных"
+" лиц"
 
 #: .\crm\templates\crm\del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
@@ -2536,8 +2535,8 @@ msgstr "Выберите файл для импорта."
 
 #: .\crm\templates\crm\import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't "
-"matter):"
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
 msgstr ""
 "Будут импортированы только следующие столбцы, если они существуют (порядок "
 "не имеет значения):"
@@ -2772,8 +2771,8 @@ msgstr "Доступно на странице CRM"
 
 #: .\help\models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
-"from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
 msgstr ""
 "Доступен на одной из страниц CRM. В противном случае к нему можно получить "
 "доступ только по ссылке с другой страницы справки."
@@ -2964,9 +2963,9 @@ msgstr "Поле from_email."
 
 #: .\massmail\models\email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted certificate chain file to use "
-"for the SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS - True, вы можете при желании указать "
 "путь к файлу цепочки сертификатов в формате PEM, который будет "
@@ -2974,9 +2973,9 @@ msgstr ""
 
 #: .\massmail\models\email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted private key file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS имеет значение True, вы можете при "
 "желании указать путь к файлу закрытого ключа в формате PEM, который будет "
@@ -2997,17 +2996,13 @@ msgstr "Укажите хост imap"
 #: .\massmail\models\email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
-"cid_media ‘path/to/pic.png' %}.<br>\n"
-"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или "
-"прикрепленные к этому сообщению."
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или прикрепленные к этому сообщению."
 
 #: .\massmail\models\email_message.py:19
 msgid "Email Message"
@@ -3070,15 +3065,12 @@ msgstr "Отчет"
 #: .\massmail\models\signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
-"cid_media ‘path/to/pic.png' %}.<br>\n"
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
 "Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’."
 
 #: .\massmail\models\signature.py:17
@@ -3780,8 +3772,8 @@ msgstr "АОН"
 
 #: .\voip\models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you "
-"call"
+"Specify the number to be displayed as             your phone number when you"
+" call"
 msgstr ""
 "Укажите номер, который будет отображаться в качестве вашего номера телефона "
 "при звонке"
@@ -3939,8 +3931,7 @@ msgstr "Главное меню"
 #~ msgstr "Подзадача создана"
 
 #~ msgid "For imbedding images use tag {% cid_media 'name.jpg' %}"
-#~ msgstr ""
-#~ "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
+#~ msgstr "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
 
 #~ msgid "Primary requests over country"
 #~ msgstr "Первичные запросы по странам"
@@ -4036,11 +4027,11 @@ msgstr "Главное меню"
 #~ msgstr "приоритет"
 
 #~ msgid ""
-#~ "This is a sub-task. It cannot be collective, so specify only one "
-#~ "responsible person."
+#~ "This is a sub-task. It cannot be collective, so specify only one responsible"
+#~ " person."
 #~ msgstr ""
-#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только "
-#~ "одно ответственное лицо."
+#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только одно "
+#~ "ответственное лицо."
 
 #~ msgid "Task start date"
 #~ msgstr "Дата начала задачи"
@@ -4262,8 +4253,8 @@ msgstr "Главное меню"
 
 #~ msgid "Error: Please specify a imap host in main Email account in CRM"
 #~ msgstr ""
-#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи "
-#~ "электронной почты в CRM"
+#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи электронной "
+#~ "почты в CRM"
 
 #~ msgid "Found {num} Emails to import. Refresh this page."
 #~ msgstr "Найдено {num} Emails для импорта. Обновить эту страницу."
