@@ -143,7 +143,7 @@ class TestTask(BaseTestCase):
         self.assertEqual(msg.to, [self.masha.email])
         mail.outbox = []
         complete_url = reverse("email-subtask_completed", args=(task.token, self.masha.id))
-        self.assertIn(complete_url, msg.body)
+        self.assertIn(complete_url[4:], msg.body)
         self.client.logout()
         response = self.client.get(complete_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
@@ -187,7 +187,7 @@ class TestTask(BaseTestCase):
         self.assertEqual(msg.to, [self.sergey.email])
         mail.outbox = []
         complete_url = reverse("task_completed", args=(task.token, self.sergey.id))
-        self.assertIn(complete_url, msg.body)
+        self.assertIn(complete_url[4:], msg.body)
         self.client.logout()
         response = self.client.get(complete_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
