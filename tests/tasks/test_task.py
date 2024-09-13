@@ -7,13 +7,17 @@ from django.test import tag
 from django.test import override_settings
 from django.urls import reverse
 from django.utils.formats import date_format
+from django.utils.translation import override
 
 from common.models import TheFile
 from common.utils.helpers import get_active_users
+from common.utils.helpers import get_trans_for_lang
 from common.utils.helpers import USER_MODEL
 from common.utils.helpers import get_today
 from common.utils.usermiddleware import set_user_groups
 from tasks.site.taskadmin import TaskAdmin
+from tasks.site.tasksbasemodeladmin import subscribers_subject
+from tasks.site.tasksbasemodeladmin import TASK_IS_CLOSED_str
 from tasks.site.tasksbasemodeladmin import TasksBaseModelAdmin
 from tasks.models import Task
 from tasks.models import TaskStage
@@ -55,7 +59,7 @@ class TestTask(BaseTestCase):
         cls.factory = RequestFactory()
 
     def setUp(self):
-        print("Run Test Method:", self._testMethodName)
+        print(" Run Test Method:", self._testMethodName)
 
     def test_co_owner_task(self):
         """Checking the appointment of the head of the department
@@ -283,27 +287,31 @@ class TestTask(BaseTestCase):
 
     def test_close_task(self):
         """Test for closing a task and sending notifications about it."""
+        self.sergey.profile.language_code = 'uk'
+        self.sergey.profile.save(update_fields=['language_code'])
         self.client.force_login(self.sergey)
-        # open add task view
-        response = self.client.get(self.add_url, follow=True)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
-        data = get_adminform_initials(response)
-        content = random()
-        # fill the form
-        data['name'] = 'Test task for change and close'
-        data['description'] = content
-        data['responsible'] = [str(self.masha.id)]
-        data['subscribers'] = [str(self.chief.id)]
-        # submit the form
-        response = self.client.post(self.add_url, data, follow=True)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
-        self.assertNoFormErrors(response)
-        self.assertEqual(len(mail.outbox), 2)
-        mail.outbox = []
-        try:
-            task = Task.objects.get(description=content, owner=self.sergey)
-        except Task.DoesNotExist as e:
-            self.fail(e)
+        # open add task view in uk language
+        add_url = '/uk/' + self.add_url[4:]
+        with override('uk'):
+            response = self.client.get(add_url, follow=True)
+            self.assertEqual(response.status_code, 200, response.reason_phrase)
+            data = get_adminform_initials(response)
+            content = random()
+            # fill the form
+            data['name'] = 'Test task for change and close'
+            data['description'] = content
+            data['responsible'] = [str(self.masha.id)]
+            data['subscribers'] = [str(self.chief.id)]
+            # submit the form
+            response = self.client.post(add_url, data, follow=True)
+            self.assertEqual(response.status_code, 200, response.reason_phrase)
+            self.assertNoFormErrors(response)
+            self.assertEqual(len(mail.outbox), 2)
+            mail.outbox = []
+            try:
+                task = Task.objects.get(description=content, owner=self.sergey)
+            except Task.DoesNotExist as e:
+                self.fail(e)
             
         self.client.force_login(self.masha)
         change_url = task.get_absolute_url()
@@ -319,6 +327,10 @@ class TestTask(BaseTestCase):
         self.assertNoFormErrors(response)
         self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(mail.outbox[0].to, [self.sergey.email])
+        uk_subj = get_trans_for_lang(TASK_IS_CLOSED_str, 'uk')
+        en_subj = get_trans_for_lang(TASK_IS_CLOSED_str, 'en')
+        self.assertNotEqual(uk_subj, en_subj)
+        self.assertIn(uk_subj, mail.outbox[0].subject)
         self.assertEqual(mail.outbox[1].to, [self.chief.email])
         self.assertIn(task.name, mail.outbox[0].subject)
         mail.outbox = []
@@ -344,7 +356,7 @@ class TestTask(BaseTestCase):
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         data = get_adminform_initials(response)
         data['_completed'] = ''
-        # the file for copy to main task
+        # the file for copy to the main task
         file_name = add_file_to_form(self._testMethodName, data)
         response = self.client.post(change_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
@@ -537,7 +549,6 @@ class TestTask(BaseTestCase):
         
         add_subtask_url = TaskAdmin.get_add_subtask_url(main_task.id)
         self.assertEqual(add_subtask_url, response.context_data['add_subtask_url'])
-        
         response = self.client.get(add_subtask_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         data = get_adminform_initials(response)
@@ -558,7 +569,7 @@ class TestTask(BaseTestCase):
         self.assertEqual(set(mail.outbox[0].to), {self.sergey.email, self.masha.email})
         self.assertEqual(mail.outbox[1].to, [self.chief.email])
         mail.outbox = []
-        change_url = response.redirect_chain[-1][0]        
+        change_url = response.redirect_chain[-1][0]
         response = self.client.get(change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         data = get_adminform_initials(response)
@@ -584,6 +595,11 @@ class TestTask(BaseTestCase):
             self.masha, add_subtask_url, response.resolver_match)
         self.assertQuerySetEqual(queryset, responsible)
         self.assertEqual(initials, [self.masha.id])
+
+        sergey_code = self.sergey.profile.language_code
+        self.sergey.profile.language_code = 'uk'
+        self.sergey.profile.save(update_fields=['language_code'])
+
         # submit the form
         response = self.client.post(add_subtask_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
@@ -591,6 +607,10 @@ class TestTask(BaseTestCase):
         # subscription notifications
         self.assertEqual(len(mail.outbox), 2)
         self.assertNotIn(self.eve.email, mail.outbox[0].to)
+        uk_subj = get_trans_for_lang(subscribers_subject, 'uk')
+        en_subj = get_trans_for_lang(subscribers_subject, 'en')
+        self.assertNotEqual(uk_subj, en_subj)
+        self.assertIn(uk_subj, mail.outbox[0].subject)
         mail.outbox = []
         change_url = response.redirect_chain[-1][0]
         response = self.client.get(change_url, follow=True)
@@ -601,7 +621,7 @@ class TestTask(BaseTestCase):
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
         # completed task notifications
-        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(len(mail.outbox), 2)
         self.assertNotIn(self.eve.email, mail.outbox[0].to)
         mail.outbox = []
 
@@ -642,6 +662,8 @@ class TestTask(BaseTestCase):
         # completed task notifications
         self.assertEqual([self.chief.email], mail.outbox[2].to)
         mail.outbox = []
+        self.sergey.profile.language_code = sergey_code
+        self.sergey.profile.save(update_fields=['language_code'])
 
     def test_create_task_for_yourself(self):
         # user is not department head

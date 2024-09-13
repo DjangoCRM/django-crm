@@ -23,7 +23,6 @@ from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.utils.helpers import compose_message
 from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import compose_subject
 from common.utils.helpers import USER_MODEL
 from common.utils.helpers import get_active_users
 from common.utils.helpers import get_department_id
@@ -46,16 +45,17 @@ co_owner_subject = _("You have been assigned as the task co-owner")
 due_date_str = _("Due date")
 TASK_NEXT_STEP = gettext("Acquainted with the task")
 task_was_created_str = gettext("The task was created")
-task_is_closed_str = _("The task is closed")
+TASK_IS_CLOSED_str = _("The task is closed")
 subtask_is_closed_str = _("The subtask is closed")
 NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
-subscribers_subject = _("You are subscribed to a new task")
-responsible_subject = _("You have a new task assigned")
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
 project_was_created_str = gettext("The Project was created")
 project_is_closed_str = _("The project is closed")
 view_chat_str = _("View chat messages")
+# don't rewrite this in caps lock
+subscribers_subject = _("You are subscribed to a new task")
+responsible_subject = _("You have a new task assigned")
 
 
 class TasksBaseModelAdmin(BaseModelAdmin):
@@ -609,7 +609,6 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
     if difference:
         difference = exclude_some_users(obj, difference)
         recipient_list, notified = [], []
-        subject = compose_subject(obj, globals()[field + '_subject'])
         for user in difference:
             if field == "responsible":
                 notify_user(obj, user, globals()[
@@ -625,7 +624,7 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
                 else:
                     notify_admins_no_email(user)
         if recipient_list and not field == "responsible":
-            email_to_participants(obj, subject, recipient_list)
+            email_to_participants(obj, globals()[field + '_subject'], recipient_list)
         if notified:
             notified_field.add(*notified)
             obj_modified = True
@@ -639,7 +638,7 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         if obj.task:
             task_is_closed = subtask_is_closed_str
         else:
-            task_is_closed = task_is_closed_str
+            task_is_closed = TASK_IS_CLOSED_str
     else:
         task_is_closed = project_is_closed_str
     subscribers = obj.subscribers.all()
