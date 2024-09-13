@@ -29,7 +29,8 @@ class UserProfileAdmin(admin.ModelAdmin):
         'contact_email',
         'pbx_number',
         'utc_timezone',
-        'activate_timezone'
+        'activate_timezone',
+        'language',
     )
     list_display = [
         'username',
