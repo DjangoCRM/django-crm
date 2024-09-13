@@ -13,7 +13,7 @@
   - [ADMINS settings](#admins-settings)
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
-- [Launch CRM on the development server](#launch-crm-on-the-development-server)
+- [Launch CRM on the development server](#run-crm-on-the-built-in-server)
 - [Access to CRM and admin sites](#access-to-crm-and-admin-sites)
 - [Specify CRM site domain](#specify-crm-site-domain)
 - [Ability to translate Django CRM interface into another language](#ability-to-translate-django-crm-interface-into-another-language)
@@ -62,13 +62,14 @@ The CRM project consists of the following main applications:
 - ANALYTICS
 - MASS MAIL
 
-The TASKS application does not require complicated CRM configuration and allows teams to work with the following objects:
+The TASKS application does not require CRM configuration 
+and allows individual users or teams to work with the following objects:
 
-- Memos (office memo)
 - Tasks / subtasks
 - Projects
+- Memos (office memos)
 
-Each instance of these objects also contains:
+Each instance of these objects also has integration with:
 
 - Chat
 - Tags
@@ -102,8 +103,13 @@ You now have a copy of the repository in your personal GitHub account.
 
 ### Clone the project
 
-To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system.   
-Clone the copied GitHub repository:
+To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system and use terminal or cmd.   
+Clone this GitHub repository:
+
+```cmd
+git clone https://github.com/DjangoCRM/django-crm.git
+```
+Or clone your forked GitHub repository:
 
 ```cmd
 git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
@@ -210,13 +216,21 @@ You will be able to modify them or add your own.
 Use the superuser credentials from the output to log into the CRM site.
 
 
-## Launch CRM on the development server
+## Run CRM on the built-in server
 
-Don’t use this server in anything resembling a production environment.  
-It’s intended only for use while developing.  
+Don’t use this server in anything resembling a production environment (with internet access to the CRM).  
+It is intended only for use on a personal computer or in a private local network (during development, for example).
 
  ```cmd
 python manage.py runserver
+ ```
+
+In this case, CRM will be available only on your computer on the IP address 127.0.0.1.
+If you need to provide access to CRM from a local network, specify the IP address of your network card and port.
+For example:
+
+ ```cmd
+python manage.py runserver 1.2.3.4:8000
  ```
 
 ## Access to CRM and admin sites
@@ -234,7 +248,7 @@ and Admin site for administrators (superusers):
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
-are on file `webcrm/settings.py`
+can be changed in the file `webcrm/settings.py`
 
 **Attention!** 
 Do not attempt to access the bare `<your CRM host>` address (http://127.0.0.1:8000/).  
