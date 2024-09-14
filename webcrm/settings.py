@@ -28,7 +28,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 DATABASES = {
     'default': {    # for MySQl
         'ENGINE': 'django.db.backends.mysql',
-        # "ENGINE": "django.db.backends.postgresql",  # for PostgreSQL
+        # "ENGINE": "django.db.backends.postgresql", # for PostgreSQL
         'PORT': '3306',
         # 'PORT': '5432',   # for PostgreSQL
         'NAME': 'crm_db',
@@ -178,10 +178,6 @@ CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
 # List of addresses to which users are not allowed to send mail.
 NOT_ALLOWED_EMAILS = []
 
-TESTING = sys.argv[1:2] == ['test']
-if TESTING:
-    SECURE_SSL_REDIRECT = False
-
 # List of applications on the main page and in the left sidebar.
 APP_ON_INDEX_PAGE = [
     'tasks', 'crm', 'analytics',
@@ -266,6 +262,12 @@ INDEX_TITLE = _('Main Menu')
 
 
 # This is copyright information. Please don't change it!
-COPYRIGHT_STRING = "Django-CRM. Copyright (c) 2024 Vadym Kharchenko"
+COPYRIGHT_STRING = "Django-CRM. Copyright (c) 2024"
 PROJECT_NAME = "Django-CRM"
 PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
+
+
+TESTING = sys.argv[1:2] == ['test']
+if TESTING:
+    SECURE_SSL_REDIRECT = False
+    LANGUAGES.append(('uk', ''))
