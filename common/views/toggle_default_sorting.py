@@ -1,6 +1,8 @@
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
 
+from common.utils.secure_url import secure_url
+
 data = {
     'Task': "task_step_date_sorting",
     'Deal': "deal_step_date_sorting",
@@ -25,4 +27,4 @@ def toggle_default_sorting(request: WSGIRequest) -> HttpResponseRedirect:
         sml = '&' if '?' in next_url else '?'
         next_url += f'{sml}{query_dict.urlencode()}'
                
-    return HttpResponseRedirect(next_url)
+    return HttpResponseRedirect(secure_url(next_url, request))
