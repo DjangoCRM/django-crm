@@ -12,12 +12,18 @@ class MailingOut(Base1):
         verbose_name = _('Mailing Out')
         verbose_name_plural = _('Mailing Outs')
 
+    ACTIVE = 'A'
+    ACTIVE_BUT_ERROR = 'E'
+    PAUSED = 'P'
+    INTERRUPTED = 'I'
+    DONE = 'D'
+
     STATUS_CHOICES = (
-        ('A', _('Active')),
-        ('E', _('Active but Error')),
-        ('P', _('Paused')),
-        ('I', _('Interrupted')),
-        ('D', _('Done')),
+        (ACTIVE, _('Active')),
+        (ACTIVE_BUT_ERROR, _('Active but Error')),
+        (PAUSED, _('Paused')),
+        (INTERRUPTED, _('Interrupted')),
+        (DONE, _('Done')),
     )
     name = models.CharField(
         max_length=100, null=False, blank=False,
