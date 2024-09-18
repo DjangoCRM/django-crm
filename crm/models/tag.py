@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from common.models import Department
 from django.utils.translation import gettext_lazy as _
 from common.models import Base1
 
@@ -12,6 +13,9 @@ class Tag(Base1):
     name = models.CharField(
         max_length=70, default='', blank=False,
         verbose_name=_("Tag name") 
+    )
+    department = models.ForeignKey(
+        Department, on_delete=models.CASCADE,
     )
 
     def __str__(self):

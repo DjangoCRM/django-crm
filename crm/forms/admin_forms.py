@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from common.models import Department
 from crm.models import ClosingReason
 from crm.models import Company
 from crm.models import Contact
@@ -312,11 +313,16 @@ class CurrencyForm(forms.ModelForm):
 
 
 class TagForm(forms.ModelForm):
-
+    department = forms.ModelChoiceField(
+        queryset=Department.objects.all(),
+        required=True,
+        label=_("Department"),
+        help_text=_("Select a department for the tag.")
+    )
     class Meta:
         model = Tag
         fields = ('name', 'department')
-        widgets = {'department': forms.HiddenInput()}
+        # widgets = {'department': forms.HiddenInput()}
 
     def clean(self):
         super().clean()

@@ -8,19 +8,19 @@ from crm.site.crmmodeladmin import CrmModelAdmin
 class TagAdmin(CrmModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('name',)
+            'fields': ('name', 'department')
         }),
         (_('Additional information'), {
             'classes': ('collapse',),
             'fields': (
                 ('owner', 'modified_by'),
                 ('creation_date', 'update_date'),
-                'department'
+                # 'department'
             )
         }),
     )
     form = TagForm
-    list_display = ('name',)
+    list_display = ('name','department')
     readonly_fields = (
         'owner',
         'modified_by',
