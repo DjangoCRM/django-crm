@@ -20,6 +20,7 @@ from django.db import connection
 from django.utils import timezone
 from django.contrib.sites.models import Site
 
+from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_now
 from crm.models import Company
 from crm.models import Contact
@@ -183,9 +184,10 @@ def get_recipient(
 def get_recipient_ids(mailing_out: MailingOut) -> list:
     recipient_ids = mailing_out.get_recipient_ids()
     if not recipient_ids:
-        report_msg = 'Done successfully.\n'
+        date = get_formatted_short_date()
+        report_msg = f"{date} Done successfully.\n"
         mailing_out.report = report_msg + mailing_out.report
-        mailing_out.status = 'D'
+        mailing_out.status = mailing_out.DONE
         mailing_out.save()
     return recipient_ids
 
