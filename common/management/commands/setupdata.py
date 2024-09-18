@@ -29,6 +29,7 @@ class Command(BaseCommand):
             'lead_source.json',
             'publicemaildomain.json',
             'help_en.json',
+            'sites.json',
             verbosity=1
         )
         if not settings.TESTING:
