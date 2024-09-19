@@ -1,4 +1,5 @@
 from django.contrib.auth.models import Group
+from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.test import TransactionTestCase
 
@@ -20,7 +21,7 @@ from tasks.models import Resolution
 class TestSetupData(TransactionTestCase):
 
     def setUp(self):
-        print("Run Test Method:", self._testMethodName)
+        print(" Run Test Method:", self._testMethodName)
 
     def test_setupdata(self):
         call_command("setupdata")
@@ -36,3 +37,4 @@ class TestSetupData(TransactionTestCase):
         self.assertTrue(ClosingReason.objects.filter(name="The deal was closed successfully").exists())
         self.assertTrue(Industry.objects.filter(name="metallurgy").exists())
         self.assertTrue(LeadSource.objects.filter(name="website form").exists())
+        self.assertTrue(Site.objects.filter(domain="localhost:8000").exists())
