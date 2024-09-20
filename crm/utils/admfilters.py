@@ -454,11 +454,15 @@ class ByPartnerFilter(SimpleListFilter):
                 'company__full_name', V(', '), 'country__name',
                 output_field=CharField()
             )).values_list('id', 'screen_name').order_by('first_name')
-        return [*objects]
+        return [*objects, ('IsNull',  _('No'))]
 
     def queryset(self, request, queryset):
+        if self.value() == 'IsNull':
+            return queryset.filter(partner_contact_id__isnull=True)
+        
         if self.value() is not None:
-            queryset = queryset.filter(partner_contact_id=self.value())
+            return queryset.filter(partner_contact_id=self.value())
+        
         return queryset
 
 
