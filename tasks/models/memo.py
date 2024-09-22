@@ -120,7 +120,7 @@ class Memo(Base):
 
     def send_review_notification(self) -> None:
         """Send review notification to memo owner."""
-        message = "The office memo has been reviewed"
+        message = _("The office memo has been reviewed")
         participants = [self.owner]
         subscribers = self.subscribers.all()    # NOQA
         if subscribers:

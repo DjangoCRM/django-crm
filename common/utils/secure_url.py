@@ -17,11 +17,8 @@ def secure_url(url: str, request: WSGIRequest) -> str:
             return '/'
         
         if scheme == 'http':
-            if settings.TESTING:
-                # the request factory always uses http
-                url = 'https' + url[4:]
-
-            else:
+            if not settings.TESTING:
+                # the testing request factory always uses http
                 if scheme != request.scheme:
                     url = 'https' + url[4:]
 

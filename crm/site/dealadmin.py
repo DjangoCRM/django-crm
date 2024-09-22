@@ -12,6 +12,7 @@ from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.template.defaultfilters import truncatechars
 from django.utils import timezone
+from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
@@ -397,6 +398,11 @@ class DealAdmin(CrmModelAdmin):
     def save_model(self, request, obj, form, change):
         now = get_now()
         today = get_today()
+        formatted_today = date_format(
+            today,
+            format="SHORT_DATE_FORMAT",
+            use_l10n=True
+        )
         if not obj.stage:
             obj.stage = Stage.objects.get(
                 default=True,
@@ -425,12 +431,12 @@ class DealAdmin(CrmModelAdmin):
                         success_stage=True,
                         department=obj.department
                     )
-                    obj.change_stage_data(today)
+                    obj.change_stage_data(formatted_today)
                     obj.win_closing_date = now
             else:
                 obj.closing_date = None
         if 'stage' in form.changed_data:
-            obj.change_stage_data(today)
+            obj.change_stage_data(formatted_today)
             if obj.stage:
                 success_stages = Stage.objects.filter(
                     Q(success_stage=True) |

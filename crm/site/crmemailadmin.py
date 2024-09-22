@@ -33,6 +33,13 @@ inbox_icon = '<i class="material-icons" style="color: var(--green-fg)">archive</
 sentbox_icon = '<i class="material-icons" style="color: var(--primary)">unarchive</i>'
 outbox_icon = '<i class="material-icons" style="color: var(--error-fg)">unarchive</i>'
 trashbox_icon = '<i class="material-icons" style="color: var(--close-button-bg)">delete_forever</i>'
+blank_help_texts = {
+    'to': '',
+    'from_field': '',
+    'cc': '',
+    'bcc': '',
+    'subject': '',
+}
 
 
 class TheMailFileForm(InlineFileForm):
@@ -223,10 +230,13 @@ class CrmEmailAdmin(CrmModelAdmin):
         ]
 
     def get_form(self, request, obj=None, **kwargs):
+        if obj and obj.incoming:
+            kwargs.update({'help_texts': blank_help_texts})
         form = super().get_form(request, obj, **kwargs)
         if 'signature' in form.base_fields:
             field = form.base_fields['signature']
             field.widget.can_view_related = False
+
         return form
 
     def get_readonly_fields(self, request, obj=None):

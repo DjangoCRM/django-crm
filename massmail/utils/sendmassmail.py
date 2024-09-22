@@ -1,38 +1,41 @@
 import random
-import time
 import threading
+import time
+from datetime import datetime
 from datetime import timedelta
 from email.errors import HeaderParseError
-from typing import Union
 from smtplib import SMTPAuthenticationError
 from smtplib import SMTPDataError
 from smtplib import SMTPRecipientsRefused
 from smtplib import SMTPServerDisconnected
 from smtplib import SMTPSenderRefused
 from tendo.singleton import SingleInstance
-from django.urls import reverse
+from typing import Union
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.sites.models import Site
 from django.core.mail import mail_admins
 from django.core.mail.message import BadHeaderError
 from django.db import connection
+from django.urls import reverse
 from django.utils import timezone
-from django.contrib.sites.models import Site
+from django.utils.formats import date_format
 
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_now
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Lead
-from massmail.settings import BUSINESS_TIME_START
-from massmail.settings import BUSINESS_TIME_END
-from massmail.settings import EMAILS_PER_DAY
-from massmail.models import MailingOut
-from massmail.models import MassContact
 from massmail.models import EmailAccount
 from massmail.models import EmlAccountsQueue
-from .email_creators import email_creator
+from massmail.models import MailingOut
+from massmail.models import MassContact
+from massmail.settings import BUSINESS_TIME_END
+from massmail.settings import BUSINESS_TIME_START
+from massmail.settings import EMAILS_PER_DAY
+from massmail.utils.email_creators import email_creator
 
 USER_MODEL = get_user_model()
 
@@ -248,10 +251,18 @@ def get_seconds_to_business_time() -> float:
 def report(
         email_account: EmailAccount,
         mailing_out: MailingOut,
-        mc: MassContact, now, e, off=False):
+        mc: MassContact,
+        now: datetime,
+        error: Exception,
+        off: bool=False):
+    formatted_now = date_format(
+        now,
+        format='SHORT_DATETIME_FORMAT',
+        use_l10n=True
+    )
     report_str = f"""
-{now}
-{e}
+{formatted_now}
+{error}
 {mc.content_object}
 {email_account.email_host_user}\n\n
 """

@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
-from django.utils import timezone
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
@@ -12,6 +11,7 @@ from django.urls import reverse
 from common.admin import FileInline
 from common.models import Department
 from common.utils.helpers import get_delta_date
+from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_department_id
 from common.utils.copy_files import copy_files
 from common.utils.notify_user import notify_user
@@ -378,8 +378,7 @@ def _get_or_create_deal(obj: Request, request: WSGIRequest) -> Deal:
             ticket=obj.ticket
         )
     except Deal.DoesNotExist:
-        now = timezone.now()
-        date = now.date()
+        date = get_formatted_short_date()
         msg = _('Request')
         department_id = get_department_id(obj.owner)
         stage = Stage.objects.filter(

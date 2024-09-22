@@ -4,13 +4,15 @@
 
 {% if languages|length > 1 %}
 {% get_current_language as LANGUAGE_CODE %}
-    <label for="language_chooser"> </label>
-      <select id="language_chooser"
-              onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
-                style="color: var(--header-color); background-color: var(--secondary); margin-left: 10px;">
+    <label for="language_chooser"></label>
+    <select id="language_chooser"
+            onchange="const value = this.options[this.selectedIndex].value; if(value){ window.location = value;}"
+            style="color: var(--header-color); background-color: var(--secondary); margin-left: 10px;">
         {% for language in languages %}
-            <option value="{{ request.get_full_path|replace_lang:language.code }}"
-              {% if language.code == LANGUAGE_CODE %} selected{% endif %}>{{ language.code }}</option>
+            <option value="{{ request.get_full_path|replace_lang:language.code|escape }}"
+                {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.code }}
+            </option>
         {% endfor %}
-      </select>
+    </select>
 {% endif %}
