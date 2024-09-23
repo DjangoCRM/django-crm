@@ -225,8 +225,9 @@ It is intended only for use on a personal computer or in a private local network
 python manage.py runserver
  ```
 
-In this case, CRM will be available only on your computer on the IP address 127.0.0.1.
-If you need to provide access to CRM from a local network, specify the IP address of your network card and port.
+In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
+If you need to provide access to CRM from a local network, specify the IP address of your network card and port 
+(but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
 
  ```cmd
@@ -257,9 +258,14 @@ To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a 
 
 ## Specify CRM site domain
 
-In the SITES section for administrators (superusers):  
+By default, CRM software is configured to work on a domain "localhost" (ip: 127.0.0.1). 
+To work on another domain (or IP address), you need to do the following:  
+- In the SITES section for administrators (superusers):  
 `(ADMIN site) Home > Sites > Sites`  
 Add a CRM site and specify its domain name.
+- In the file `webcrm/settings.py`:
+  - specify its id in the setting `SITE_ID`,
+  - add it to the setting `ALLOWED_HOSTS`.
 
 ## Ability to translate Django CRM interface into another language
 
