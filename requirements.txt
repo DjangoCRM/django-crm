@@ -14,7 +14,7 @@
     mysqlclient==2.2.4
     numpy==2.1.1
     openpyxl==3.1.5
-    pandas==2.2.2
+    pandas==2.2.3
     polib==1.2.0
     python-dateutil==2.9.0.post0
     pytz==2024.2
