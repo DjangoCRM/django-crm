@@ -6,7 +6,7 @@ The use of CRM by companies allows them to improve the sales performance of thei
 This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company - Enterprise CRM. Access to the company's business data remains solely under its control.
 
 ![](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
-## Key Features of client relationship software (features of crm)
+## Customer relationship management features
 
 |                                                   |                                                                                 |                                                      |
 |---------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------|
@@ -18,7 +18,7 @@ This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual u
 
 ***For a more detailed software overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md)***.
 
-Django CRM is an open-source [Django](https://www.djangoproject.com/start/overview/)-based project. It is written in [Python](https://www.python.org) (python crm).
+Django CRM is an open-source client relationship software. It is written in [Python](https://www.python.org) (python crm).  
 Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 CRM app uses adaptive Admin HTML templates out-of-the-box.
 Django is an excellently documented framework with lots of examples.
@@ -29,7 +29,7 @@ All this ensures:
 - significantly easier project customization and development;
 - simpler project deployment and production server support.
 
-The software package provides two websites: a CRM site for all users and a site for administrators.
+The software package provides two websites: a CRM site for all users and a site for administrators.  
 The **project code is stable** (has been in practical use for many years).
 
 ## Elevate Your Team's Productivity with Collaborative CRM Solution
@@ -115,7 +115,7 @@ Please refer to:
 - [the Django-CRM user guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).
 
 Compatibility  
-- Django 5.0.x
+- Django 5.1.x
 - Python 3.10+
 - MySQL 8.0.11+ and PostgreSQL 12+  
 
