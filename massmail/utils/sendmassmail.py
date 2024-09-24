@@ -11,7 +11,6 @@ from smtplib import SMTPServerDisconnected
 from smtplib import SMTPSenderRefused
 from tendo.singleton import SingleInstance
 from typing import Union
-
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
@@ -22,9 +21,11 @@ from django.db import connection
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.formats import date_format
+from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_now
+from common.utils.helpers import get_trans_for_user
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Lead
@@ -38,6 +39,7 @@ from massmail.settings import EMAILS_PER_DAY
 from massmail.utils.email_creators import email_creator
 
 USER_MODEL = get_user_model()
+report_str = _("Done successfully.")
 
 
 class SendMassmail(threading.Thread, SingleInstance):
@@ -187,11 +189,8 @@ def get_recipient(
 def get_recipient_ids(mailing_out: MailingOut) -> list:
     recipient_ids = mailing_out.get_recipient_ids()
     if not recipient_ids:
-        date = get_formatted_short_date()
-        report_msg = f"{date} Done successfully.\n"
-        mailing_out.report = report_msg + mailing_out.report
-        mailing_out.status = mailing_out.DONE
-        mailing_out.save()
+        _success_report(mailing_out)
+
     return recipient_ids
 
 
@@ -312,3 +311,13 @@ def get_extra_context(mc: MassContact) -> dict:
     for field in fields:
         extra_context[field] = getattr(mc.content_object, field)
     return extra_context
+
+
+def _success_report(mailing_out: MailingOut) -> None:
+    """Adds a "Done successfully" message to the report."""
+    date = get_formatted_short_date()
+    msg = get_trans_for_user(report_str, mailing_out.owner)
+    report_msg = f"{date} {msg}\n"
+    mailing_out.report = report_msg + mailing_out.report
+    mailing_out.status = mailing_out.DONE
+    mailing_out.save()
