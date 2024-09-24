@@ -37,6 +37,15 @@ class TagAdmin(CrmModelAdmin):
 
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+
+    def get_form(self, request, obj=None, **kwargs):
+     form = super().get_form(request, obj=None, **kwargs)
+     if request.user.department_id:
+         form.base_fields['department'].widget = forms.HiddenInput()
+     else:
+        form.base_fields['department'].widget = forms.Select()
+     return form
+
     def has_change_permission(self, request, obj=None):
         if request.user.is_superuser:
             return True
@@ -54,11 +63,3 @@ class TagAdmin(CrmModelAdmin):
         if request.user.is_superuser:
             return True
         return False
-    
-    def get_form(self,request, obj=None):
-        form = TagForm
-        if not request.user.department_id:
-            form.base_fields['department'].widget = forms.Select()
-        else:
-            form.base_fields['department'].widget = forms.HiddenInput()
-        return form
