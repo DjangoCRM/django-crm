@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 15:38+0300\n"
-"PO-Revision-Date: 2024-09-24 15:40+0300\n"
+"POT-Creation-Date: 2024-09-25 16:00+0300\n"
+"PO-Revision-Date: 2024-09-25 16:04+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -237,7 +237,7 @@ msgstr "Релевантные запросы по месяцам"
 msgid "pcs"
 msgstr "шт."
 
-#: .\analytics\site\outputstatadmin.py:45 .\crm\models\base_contact.py:84
+#: .\analytics\site\outputstatadmin.py:45 .\crm\models\base_contact.py:76
 #: .\crm\models\country.py:31 .\crm\models\country.py:49
 #: .\crm\models\deal.py:110 .\crm\models\request.py:86
 #: .\crm\templates\crm\print_request.html:55 .\crm\utils\admfilters.py:113
@@ -440,7 +440,7 @@ msgstr "Вы получили сообщение относительно -"
 #: .\crm\site\requestadmin.py:93 .\crm\site\tagadmin.py:13
 #: .\massmail\admin.py:37 .\massmail\site\emlmessageadmin.py:80
 #: .\massmail\site\signatureadmin.py:37 .\tasks\admin.py:76
-#: .\tasks\admin.py:129 .\tasks\site\memoadmin.py:172
+#: .\tasks\admin.py:129 .\tasks\site\memoadmin.py:173
 #: .\tasks\site\tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "Дополнительная информация"
@@ -639,7 +639,7 @@ msgstr "Кратко о чем это напоминание"
 
 #: .\common\models.py:164
 #: .\common\templates\common\notice_participants_email.html:14
-#: .\crm\models\company.py:80 .\crm\models\deal.py:35 .\crm\models\lead.py:26
+#: .\crm\models\base_contact.py:114 .\crm\models\deal.py:35
 #: .\crm\models\product.py:19 .\crm\models\product.py:41
 #: .\crm\models\request.py:103 .\tasks\models\memo.py:68
 #: .\tasks\models\taskbase.py:38
@@ -729,10 +729,9 @@ msgstr "Активировать этот часовой пояс"
 msgid "Field for temporary storage of messages to the user"
 msgstr "Поле для временного хранения сообщений пользователю"
 
-#: .\common\site\basemodeladmin.py:19 .\crm\models\company.py:119
-#: .\crm\models\contact.py:32 .\crm\models\deal.py:169 .\crm\models\lead.py:68
-#: .\crm\models\tag.py:10 .\tasks\models\memo.py:87 .\tasks\models\tag.py:9
-#: .\tasks\models\taskbase.py:100
+#: .\common\site\basemodeladmin.py:19 .\crm\models\base_contact.py:141
+#: .\crm\models\deal.py:169 .\crm\models\tag.py:10 .\tasks\models\memo.py:87
+#: .\tasks\models\tag.py:9 .\tasks\models\taskbase.py:100
 msgid "Tags"
 msgstr "Ярлыки"
 
@@ -1145,7 +1144,7 @@ msgid "Phone number(with country code)"
 msgstr "Номер телефона (с кодом страны)"
 
 #: .\crm\forms\contact_form.py:28 .\crm\models\company.py:21
-#: .\crm\models\lead.py:36 .\crm\models\request.py:55
+#: .\crm\models\lead.py:22 .\crm\models\request.py:55
 msgid "Company name"
 msgstr "Название Компании"
 
@@ -1310,81 +1309,99 @@ msgstr "электронная почта веб-сайта"
 msgid "exhibition"
 msgstr "выставка"
 
-#: .\crm\models\base_contact.py:12 .\crm\models\request.py:29
+#: .\crm\models\base_contact.py:14 .\crm\models\request.py:29
 msgid "The name of the contact person (one word)."
 msgstr "Имя контактного лица (одно слово)."
 
-#: .\crm\models\base_contact.py:13 .\crm\models\request.py:28
+#: .\crm\models\base_contact.py:15 .\crm\models\request.py:28
 msgid "First name"
 msgstr "Имя"
 
-#: .\crm\models\base_contact.py:17 .\crm\models\request.py:33
+#: .\crm\models\base_contact.py:19 .\crm\models\request.py:33
 msgid "Middle name"
 msgstr "Отчество"
 
-#: .\crm\models\base_contact.py:18 .\crm\models\request.py:34
+#: .\crm\models\base_contact.py:20 .\crm\models\request.py:34
 msgid "The middle name of the contact person."
 msgstr "Отчество контактного лица."
 
-#: .\crm\models\base_contact.py:22 .\crm\models\request.py:39
+#: .\crm\models\base_contact.py:24 .\crm\models\request.py:39
 msgid "The last name of the contact person (one word)."
 msgstr "Фамилия контактного лица (одно слово)."
 
-#: .\crm\models\base_contact.py:23 .\crm\models\request.py:38
+#: .\crm\models\base_contact.py:25 .\crm\models\request.py:38
 msgid "Last name"
 msgstr "Фамилия"
 
-#: .\crm\models\base_contact.py:27
+#: .\crm\models\base_contact.py:29
 msgid "The title (position) of the contact person."
 msgstr "Должность контактного лица."
 
-#: .\crm\models\base_contact.py:28
+#: .\crm\models\base_contact.py:30
 msgid "Title / Position"
 msgstr "Должность"
 
-#: .\crm\models\base_contact.py:38
+#: .\crm\models\base_contact.py:40
 msgid "Sex"
 msgstr "Пол"
 
-#: .\crm\models\base_contact.py:42
+#: .\crm\models\base_contact.py:44
 msgid "Date of Birth"
 msgstr "Дата рождения"
 
-#: .\crm\models\base_contact.py:46 .\crm\models\company.py:93
-#: .\crm\models\company.py:94
-msgid "Last contact date"
-msgstr "Дата последнего контакта"
-
-#: .\crm\models\base_contact.py:51 .\crm\models\company.py:68
-msgid "Use comma to separate Emails."
-msgstr "Используйте запятую для разделения адресов."
-
-#: .\crm\models\base_contact.py:55
+#: .\crm\models\base_contact.py:48
 msgid "Secondary email"
 msgstr "Дополнительный email"
 
-#: .\crm\models\base_contact.py:60 .\crm\models\company.py:44
+#: .\crm\models\base_contact.py:52 .\crm\models\company.py:44
 msgid "Phone"
 msgstr "Телефон"
 
-#: .\crm\models\base_contact.py:66
+#: .\crm\models\base_contact.py:58
 msgid "Mobile phone"
 msgstr "Мобильный телефон"
 
-#: .\crm\models\base_contact.py:73 .\crm\models\company.py:56
+#: .\crm\models\base_contact.py:65 .\crm\models\company.py:56
 #: .\crm\models\country.py:43 .\crm\models\deal.py:101
 #: .\crm\models\request.py:92 .\crm\models\request.py:99
 #: .\crm\utils\admfilters.py:33
 msgid "City"
 msgstr "Город"
 
-#: .\crm\models\base_contact.py:78
+#: .\crm\models\base_contact.py:70
 msgid "Company city"
 msgstr "Город компании"
 
-#: .\crm\models\base_contact.py:79 .\crm\models\request.py:93
+#: .\crm\models\base_contact.py:71 .\crm\models\request.py:93
 msgid "Object of City in database"
 msgstr "Объект города в базе данных"
+
+#: .\crm\models\base_contact.py:109
+msgid "Address"
+msgstr "Адрес"
+
+#: .\crm\models\base_contact.py:118 .\crm\models\lead.py:18
+#: .\crm\utils\admfilters.py:515
+msgid "Disqualified"
+msgstr "Дисквалифицирован"
+
+#: .\crm\models\base_contact.py:125
+msgid "Use comma to separate Emails."
+msgstr "Используйте запятую для разделения адресов."
+
+#: .\crm\models\base_contact.py:132 .\crm\models\others.py:63
+#: .\crm\models\request.py:51
+msgid "Lead Source"
+msgstr "Источник Лида"
+
+#: .\crm\models\base_contact.py:136
+#| msgid "Failed recipients"
+msgid "Mailing list recipient."
+msgstr "Получатель рассылки."
+
+#: .\crm\models\base_contact.py:151
+msgid "Last contact date"
+msgstr "Дата последнего контакта"
 
 #: .\crm\models\company.py:13 .\crm\models\crmemail.py:59
 #: .\crm\templates\admin\crm\contact\change_form_object_tools.html:7
@@ -1412,37 +1429,27 @@ msgstr "Веб-сайт"
 msgid "City name"
 msgstr "Название города"
 
-#: .\crm\models\company.py:61 .\crm\models\lead.py:22
-msgid "Address"
-msgstr "Адрес"
-
-#: .\crm\models\company.py:74
+#: .\crm\models\company.py:63
 msgid "Registration number"
 msgstr "Регистрационный код"
 
-#: .\crm\models\company.py:75
+#: .\crm\models\company.py:64
 msgid "Registration number of Company"
 msgstr "Регистрационный код компании"
 
-#: .\crm\models\company.py:87 .\crm\models\company.py:88
-#: .\crm\models\contact.py:28 .\crm\models\lead.py:31 .\crm\models\lead.py:32
-#: .\crm\models\others.py:63 .\crm\models\request.py:51
-msgid "Lead Source"
-msgstr "Источник Лида"
-
-#: .\crm\models\company.py:101 .\crm\models\deal.py:109
+#: .\crm\models\company.py:71 .\crm\models\deal.py:109
 msgid "country"
 msgstr "страна"
 
-#: .\crm\models\company.py:102
+#: .\crm\models\company.py:72
 msgid "Company Country"
 msgstr "Страна компании"
 
-#: .\crm\models\company.py:109 .\crm\models\lead.py:59
+#: .\crm\models\company.py:79 .\crm\models\lead.py:45
 msgid "Type of company"
 msgstr "Тип компании"
 
-#: .\crm\models\company.py:114 .\crm\models\lead.py:64
+#: .\crm\models\company.py:84 .\crm\models\lead.py:50
 msgid "Industry of company"
 msgstr "Отрасль Компании"
 
@@ -1454,7 +1461,7 @@ msgstr "Контактное лицо"
 msgid "Contact persons"
 msgstr "Контактные лица"
 
-#: .\crm\models\contact.py:20 .\crm\models\deal.py:141 .\crm\models\lead.py:81
+#: .\crm\models\contact.py:20 .\crm\models\deal.py:141 .\crm\models\lead.py:58
 #: .\crm\models\request.py:73
 msgid "Company of contact"
 msgstr "Компания контактного лица"
@@ -1514,7 +1521,7 @@ msgid "Lead"
 msgstr "Лид"
 
 #: .\crm\models\crmemail.py:54 .\crm\models\deal.py:124
-#: .\crm\models\lead.py:77 .\crm\models\request.py:68
+#: .\crm\models\lead.py:54 .\crm\models\request.py:68
 #: .\crm\templates\admin\crm\company\change_form_object_tools.html:22
 msgid "Contact"
 msgstr "Контактное лицо"
@@ -1612,19 +1619,15 @@ msgstr "Напомнить мне."
 msgid "Leads"
 msgstr "Лиды"
 
-#: .\crm\models\lead.py:18 .\crm\utils\admfilters.py:515
-msgid "Disqualified"
-msgstr "Дисквалифицирован"
-
-#: .\crm\models\lead.py:44
+#: .\crm\models\lead.py:30
 msgid "Company phone"
 msgstr "Телефон компании"
 
-#: .\crm\models\lead.py:48
+#: .\crm\models\lead.py:34
 msgid "Company address"
 msgstr "Адрес компании"
 
-#: .\crm\models\lead.py:52
+#: .\crm\models\lead.py:38
 msgid "Company email"
 msgstr "Email компании"
 
@@ -3180,8 +3183,7 @@ msgstr "Загрузите файл изображения на CRM-сервер
 msgid "Uploaded images"
 msgstr "Загруженные изображения"
 
-#: .\massmail\utils\sendmassmail.py:42
-#| msgid "was added successfully."
+#: .\massmail\utils\sendmassmail.py:43
 msgid "Done successfully."
 msgstr "Выполнено успешно."
 
@@ -3269,7 +3271,7 @@ msgstr "Дата последнего появления фразы"
 msgid "Change responsible"
 msgstr "Изменить ответственных"
 
-#: .\tasks\admin.py:72 .\tasks\admin.py:125 .\tasks\site\memoadmin.py:169
+#: .\tasks\admin.py:72 .\tasks\admin.py:125 .\tasks\site\memoadmin.py:170
 #: .\tasks\site\tasksbasemodeladmin.py:171
 #: .\tasks\site\tasksbasemodeladmin.py:212
 msgid "Change subscribers"
@@ -3355,7 +3357,7 @@ msgid "Review date"
 msgstr "Дата рассмотрения "
 
 #: .\tasks\models\memo.py:104 .\tasks\models\taskbase.py:61
-#: .\tasks\site\memoadmin.py:437 .\tasks\site\tasksbasemodeladmin.py:507
+#: .\tasks\site\memoadmin.py:438 .\tasks\site\tasksbasemodeladmin.py:507
 msgid "subscribers"
 msgstr "подписчики"
 
@@ -3516,26 +3518,38 @@ msgstr "для учета"
 msgid "overdue"
 msgstr "просрочено"
 
+#: .\tasks\site\memoadmin.py:46
+msgid "You are subscribed to a new office memo"
+msgstr "Вы подписаны на новую служебную записку"
+
 #: .\tasks\site\memoadmin.py:48
 msgid "unreviewed"
 msgstr "не рассмотрена"
 
-#: .\tasks\site\memoadmin.py:116
+#: .\tasks\site\memoadmin.py:49
+msgid "The office memo was written"
+msgstr "Служебная записка была написана"
+
+#: .\tasks\site\memoadmin.py:50
+msgid "You've received a office memo"
+msgstr "Вы получили служебную записку"
+
+#: .\tasks\site\memoadmin.py:117
 msgid "Your office memo has been deleted"
 msgstr "Ваша служебная записка была удалена"
 
-#: .\tasks\site\memoadmin.py:369
+#: .\tasks\site\memoadmin.py:370
 #: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:14
 msgid "View the task"
 msgstr "Смотреть задачу"
 
-#: .\tasks\site\memoadmin.py:373
+#: .\tasks\site\memoadmin.py:374
 #: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:21
 #: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:14
 msgid "View the project"
 msgstr "Смотреть проект"
 
-#: .\tasks\site\memoadmin.py:450
+#: .\tasks\site\memoadmin.py:451
 msgid "View the "
 msgstr "Смотреть"
 
@@ -3862,15 +3876,6 @@ msgstr "Главное меню"
 
 #~ msgid "Request counter"
 #~ msgstr "Счетчик запросов"
-
-#~ msgid "You are subscribed to a new office memo"
-#~ msgstr "Вы подписаны на новую служебную записку"
-
-#~ msgid "The office memo was written"
-#~ msgstr "Служебная записка была написана"
-
-#~ msgid "You've received a office memo"
-#~ msgstr "Вы получили служебную записку"
 
 #~ msgid "Office notes"
 #~ msgstr "Служебные записки"
