@@ -10,6 +10,7 @@ from smtplib import SMTPRecipientsRefused
 from smtplib import SMTPServerDisconnected
 from smtplib import SMTPSenderRefused
 from tendo.singleton import SingleInstance
+from typing import Optional
 from typing import Union
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -39,7 +40,7 @@ from massmail.settings import EMAILS_PER_DAY
 from massmail.utils.email_creators import email_creator
 
 USER_MODEL = get_user_model()
-report_str = _("Done successfully.")
+done_str = _("Done successfully.")
 
 
 class SendMassmail(threading.Thread, SingleInstance):
@@ -90,27 +91,26 @@ def send_massmail() -> None:
                 owner=mailing_out.owner,
                 massmail=True
             )
-            for email_account in email_accounts:
-                if email_account.today_date == today:
-                    if email_account.today_count > EMAILS_PER_DAY:
+            for ea in email_accounts:
+                if ea.today_date == today:
+                    if ea.today_count > EMAILS_PER_DAY:
                         continue
                 else:
-                    email_account.today_count = 0
-                mc = MassContact.objects.filter(
-                    content_type=mailing_out.content_type,
-                    object_id__in=recipient_ids,
-                    email_account=email_account
-                ).first()
+                    ea.today_count = 0
+                mc = _get_masscontact(
+                    mailing_out, recipient_ids, ea)
                 if not mc:
                     continue
+
                 recipient = get_recipient(mailing_out, mc)
                 if not recipient:
                     continue
+
                 extra_context = get_extra_context(mc)
                 to = extra_context['to'].split(',')
                 try:
                     msg = email_creator(
-                        mailing_out.message, email_account, to=to,
+                        mailing_out.message, ea, to=to,
                         extra_context=extra_context,
                         force_multipart=True, inline_images=True
                     )
@@ -119,7 +119,7 @@ def send_massmail() -> None:
                     mailing_out.move_to_successful_ids(mc.object_id)
                 except (SMTPAuthenticationError, SMTPSenderRefused) as e:
                     off = True
-                    report(email_account, mailing_out, mc, now, e, off)
+                    report(ea, mailing_out, mc, now, e, off)
                     continue
 
                 except (
@@ -127,14 +127,14 @@ def send_massmail() -> None:
                         SMTPServerDisconnected, IndexError, HeaderParseError,
                         FileNotFoundError
                 ) as e:
-                    report(email_account, mailing_out, mc, now, e)
+                    report(ea, mailing_out, mc, now, e)
                     continue
 
                 except Exception as e:
-                    report(email_account, mailing_out, mc, now, e)
+                    report(ea, mailing_out, mc, now, e)
                     continue
 
-                counter_increment(email_account, mailing_out, today)
+                counter_increment(ea, mailing_out, today)
 
                 if not any((settings.DEBUG, settings.TESTING)):
                     time.sleep(random.randint(5, 25))
@@ -313,10 +313,23 @@ def get_extra_context(mc: MassContact) -> dict:
     return extra_context
 
 
+def _get_masscontact(
+        mailing_out: MailingOut,
+        recipient_ids: list,
+        email_account: EmailAccount) -> Optional[MassContact]:
+
+    return MassContact.objects.filter(
+        content_type=mailing_out.content_type,
+        object_id__in=recipient_ids,
+        email_account=email_account,
+        massmail=True
+    ).first()
+
+
 def _success_report(mailing_out: MailingOut) -> None:
     """Adds a "Done successfully" message to the report."""
     date = get_formatted_short_date()
-    msg = get_trans_for_user(report_str, mailing_out.owner)
+    msg = get_trans_for_user(done_str, mailing_out.owner)
     report_msg = f"{date} {msg}\n"
     mailing_out.report = report_msg + mailing_out.report
     mailing_out.status = mailing_out.DONE
