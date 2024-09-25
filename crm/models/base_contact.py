@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from common.utils.helpers import get_today
+from common.utils.helpers import token_default
 
 
 class BaseContact(models.Model):
@@ -41,37 +43,27 @@ class BaseContact(models.Model):
         blank=True, null=True,
         verbose_name=_("Date of Birth")
     )
-    was_in_touch = models.DateField(
-        blank=True, null=True,
-        verbose_name=_("Last contact date")
-    )
-    email = models.CharField(
-        max_length=200, null=False, blank=False,
-        verbose_name="Email",
-        help_text=_("Use comma to separate Emails.")
-    )
     secondary_email = models.EmailField(
         blank=True, default='',
         verbose_name=_("Secondary email")
-        )
-
+    )
     phone = models.CharField(
         max_length=100, blank=True, default='',
         verbose_name=_("Phone")
-        )
+    )
     other_phone = models.CharField(max_length=100, blank=True, default='')
 
     mobile = models.CharField(
         max_length=100, blank=True, default='',
         verbose_name=_("Mobile phone")
-        )
+    )
 
     skype = models.CharField(max_length=50, blank=True, default='')
 
     city_name = models.CharField(
         max_length=50, blank=True, default='',
         verbose_name=_("City")
-        )
+    )
     city = models.ForeignKey(
         'City', blank=True, null=True,
         on_delete=models.SET_NULL,
@@ -102,3 +94,59 @@ class BaseContact(models.Model):
             None, 
             (self.first_name, self.middle_name)
         ))
+
+
+class BaseCounterparty(models.Model):
+    """
+    Common fields for models: Company, Contact, Lead
+    """
+    class Meta:
+        abstract = True
+
+    address = models.TextField(
+        blank=True,
+        default='',
+        verbose_name=_("Address")
+    )
+    description = models.TextField(
+        blank=True,
+        default='',
+        verbose_name=_("Description")
+    )
+    disqualified = models.BooleanField(
+        default=False,
+        verbose_name=_("Disqualified"),
+    )
+    email = models.CharField(
+        max_length=200,
+        null=False,
+        blank=False,
+        verbose_name="Email",
+        help_text=_("Use comma to separate Emails.")
+    )
+    lead_source = models.ForeignKey(
+        'LeadSource',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        verbose_name=_("Lead Source")
+    )
+    massmail = models.BooleanField(
+        default=True,
+        help_text=_("Mailing list recipient.")
+    )
+    tags = models.ManyToManyField(
+        'Tag',
+        blank=True,
+        verbose_name=_("Tags")
+    )
+    token = models.CharField(
+        max_length=11,
+        default=token_default,
+        unique=True
+    )
+    was_in_touch = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name=_("Last contact date")
+    )

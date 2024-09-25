@@ -4,11 +4,11 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 
 from common.models import Base1
-from common.utils.helpers import token_default
+from crm.models.base_contact import BaseCounterparty
 from crm.utils.helpers import delete_rel_mc
 
 
-class Company(Base1):
+class Company(BaseCounterparty, Base1):
     class Meta:
         verbose_name = _("Company")
         verbose_name_plural = _("Companies")
@@ -55,17 +55,6 @@ class Company(Base1):
         null=True,
         verbose_name=_("City"),
         on_delete=models.SET_NULL
-    )    
-    address = models.TextField(
-        blank=True, default='',
-        verbose_name=_("Address")
-    )
-    email = models.CharField(
-        max_length=200, 
-        null=False, 
-        blank=False,
-        verbose_name="Email",
-        help_text=_("Use comma to separate Emails.")
     )
     registration_number = models.CharField(
         max_length=30, 
@@ -73,25 +62,6 @@ class Company(Base1):
         blank=True,
         verbose_name=_("Registration number"),
         help_text=_("Registration number of Company")
-    )
-    description = models.TextField(
-        blank=True, 
-        default='',
-        verbose_name=_("Description"),
-    )
-    lead_source = models.ForeignKey(
-        'LeadSource', 
-        blank=True, 
-        null=True,
-        on_delete=models.SET_NULL,
-        verbose_name=_("Lead Source"),
-        help_text=_("Lead Source")
-    )
-    was_in_touch = models.DateField(
-        blank=True, 
-        null=True,
-        verbose_name=_("Last contact date"),
-        help_text=_("Last contact date")
     )
     country = models.ForeignKey(
         'Country', 
@@ -112,16 +82,6 @@ class Company(Base1):
         'Industry', 
         blank=True,
         verbose_name=_("Industry of company")
-    )
-    tags = models.ManyToManyField(
-        'Tag', 
-        blank=True,
-        verbose_name=_("Tags")
-    )
-    token = models.CharField(
-        max_length=11, 
-        default=token_default,
-        unique=True,
     )
     files = GenericRelation('common.TheFile')
 

@@ -3,12 +3,12 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from common.models import Base1
-from common.utils.helpers import token_default
 from crm.models.base_contact import BaseContact
+from crm.models.base_contact import BaseCounterparty
 from crm.utils.helpers import delete_rel_mc
 
 
-class Lead(BaseContact, Base1):
+class Lead(BaseCounterparty, BaseContact, Base1):
     class Meta:
         verbose_name = _("Lead")
         verbose_name_plural = _("Leads")
@@ -16,20 +16,6 @@ class Lead(BaseContact, Base1):
     disqualified = models.BooleanField(
         default=False,
         verbose_name=_("Disqualified"),
-    )
-    address = models.TextField(
-        blank=True, default='',
-        verbose_name=_("Address"),
-    )
-    description = models.TextField(
-        blank=True, default='',
-        verbose_name=_("Description"),
-    )
-    lead_source = models.ForeignKey(
-        'LeadSource', blank=True,
-        null=True, on_delete=models.SET_NULL,
-        verbose_name=_("Lead Source"),
-        help_text=_("Lead Source")
     )
     company_name = models.CharField(
         max_length=200, blank=True, default='',
@@ -62,15 +48,6 @@ class Lead(BaseContact, Base1):
         'Industry', 
         blank=True,
         verbose_name=_("Industry of company")
-    )
-    tags = models.ManyToManyField(
-        'Tag', blank=True,
-        verbose_name=_("Tags"),
-    )
-    token = models.CharField(
-        max_length=11, 
-        default=token_default,
-        unique=True,
     )
     contact = models.ForeignKey(
         'Contact', blank=True, null=True, on_delete=models.CASCADE,
