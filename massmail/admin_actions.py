@@ -133,7 +133,7 @@ def specify_vip_recipients(modeladmin, request, queryset):
             mc.save()
     messages.success(
         request,
-        'The main email account have been successfully appointed for selected recipients.'
+        _("The main email address has been successfully assigned to the selected recipients.")
     )
     return HttpResponseRedirect(request.path)
 
