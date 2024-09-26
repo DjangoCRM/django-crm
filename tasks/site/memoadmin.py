@@ -16,7 +16,8 @@ from django.utils.safestring import mark_safe
 from common.admin import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.email_to_participants import email_to_participants
-from common.utils.helpers import add_chat_context, get_trans_for_user
+from common.utils.helpers import add_chat_context
+from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import compose_message
 from common.utils.helpers import CONTENT_COPY_ICON
 from common.utils.helpers import CONTENT_COPY_LINK
@@ -43,10 +44,11 @@ event_available_icon = '<i class="material-icons" title="{}">event_available</i>
 overdue_str = _('overdue')
 postponed_str = _('postponed')
 status_str = _('Status')
-subscribers_subject = "You are subscribed to a new office memo"
+subscribers_subject = _("You are subscribed to a new office memo")
 reviewed_str = _('reviewed')
 unreviewed_str = _('unreviewed')
-
+memo_was_written_str = _("The office memo was written")
+you_received_memo_str = _("You've received a office memo")
 
 class MemoAdmin(BaseModelAdmin):
 
@@ -184,18 +186,28 @@ class MemoAdmin(BaseModelAdmin):
                     1, ('creation_date', 'stage'))
             else:
                 if request.user == obj.owner:
-                    fieldsets[0][1]['fields'].insert(1, ('creation_date', 'draft'))
+                    fieldsets[0][1]['fields'].insert(
+                        1, ('creation_date', 'draft')
+                    )
                 else:
-                    fieldsets[0][1]['fields'].insert(1, 'creation_date')
-            fieldsets[0][1]['fields'].insert(4, 'note')
+                    fieldsets[0][1]['fields'].insert(
+                        1, 'creation_date'
+                    )
+            fieldsets[0][1]['fields'].insert(
+                4, 'note'
+            )
             if any((obj.task, obj.project, obj.deal)):
-                fieldsets[0][1]['fields'].insert(5, 'view_button')
+                fieldsets[0][1]['fields'].insert(
+                    5, 'view_button'
+                )
                 if obj.subscribers.exists():
                     fieldsets.append(
                         (None, {"fields": ("subscribers_list",)}),
                     )
         else:
-            fieldsets[0][1]['fields'].insert(1, ('creation_date', 'draft'))
+            fieldsets[0][1]['fields'].insert(
+                1, ('creation_date', 'draft')
+            )
         return fieldsets
 
     def get_list_display(self, request):
@@ -324,7 +336,7 @@ class MemoAdmin(BaseModelAdmin):
         if not change:
             if obj.deal:
                 deal = obj.deal
-                message = get_trans_for_user("The office memo was written", deal.owner)
+                message = get_trans_for_user(memo_was_written_str, deal.owner)
                 deal.add_to_workflow(f"{message} - {obj.name}")
                 deal.save(update_fields=['workflow'])
         if all((
@@ -332,16 +344,18 @@ class MemoAdmin(BaseModelAdmin):
                 not obj.notified,
                 request.user == obj.owner
         )):
-            msg = get_trans_for_user("You've received a office memo", obj.to)
+            msg = get_trans_for_user(you_received_memo_str, obj.to)
             message = compose_message(obj, msg)
             save_message(obj.to, message)
             composed_subject = compose_subject(obj, message)
-            email_to_participants(obj, '', [obj.to], composed_subject)
+            email_to_participants(obj, '',
+                        [obj.to], composed_subject)
             obj.notified = True
             obj.save(update_fields=['notified'])
 
         if not obj.draft and obj.subscribers.exists():
-            if "subscribers" in form.changed_data or 'draft' in form.changed_data:
+            if ("subscribers" in form.changed_data
+                    or 'draft' in form.changed_data):
                 notified = obj.notified_subscribers.all()
                 difference = obj.subscribers.exclude(id__in=notified)
                 if difference:
@@ -356,7 +370,8 @@ class MemoAdmin(BaseModelAdmin):
                         else:
                             notify_admins_no_email(user)
                     if recipient_list:
-                        email_to_participants(obj, subscribers_subject, recipient_list)
+                        email_to_participants(obj, subscribers_subject,
+                                              recipient_list)
                     if notified:
                         obj.notified_subscribers.add(*notified)
 
@@ -385,7 +400,9 @@ class MemoAdmin(BaseModelAdmin):
     @admin.display(description='')
     def content_copy(self, obj):
         url = reverse("site:tasks_memo_add") + f"?copy_memo={obj.id}"
-        return mark_safe(CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON))
+        return mark_safe(
+            CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON)
+        )
 
     @staticmethod
     @admin.display(description=mark_safe(
@@ -396,7 +413,9 @@ class MemoAdmin(BaseModelAdmin):
             return mark_safe(
                 '<div title="{}">{}</div>'.format(
                     get_verbose_name(Memo, "review_date"),
-                    date_format(obj.review_date, format="SHORT_DATE_FORMAT", use_l10n=True)
+                    date_format(
+                        obj.review_date, format="SHORT_DATE_FORMAT", use_l10n=True
+                    )
                 )
             )
         return ''
@@ -465,13 +484,17 @@ class MemoAdmin(BaseModelAdmin):
 
         if '_create-task' in request.POST:
             if memo.task:
-                add_view_url = reverse("site:tasks_task_change", args=(memo.task.id,))
+                add_view_url = reverse(
+                    "site:tasks_task_change", args=(memo.task.id,)
+                )
             else:
                 add_view_url = reverse("site:tasks_task_add")
 
         elif '_create-project' in request.POST:
             if memo.project:
-                add_view_url = reverse("site:tasks_project_change", args=(memo.project.id,))
+                add_view_url = reverse(
+                    "site:tasks_project_change", args=(memo.project.id,)
+                )
             else:
                 add_view_url = reverse("site:tasks_project_add")
 
