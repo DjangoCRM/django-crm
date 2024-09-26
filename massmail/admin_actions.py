@@ -8,7 +8,10 @@ from django.http import HttpResponseRedirect
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from massmail.models import MailingOut, MassContact, EmailAccount
+
+from massmail.models import EmailAccount
+from massmail.models import MailingOut
+from massmail.models import MassContact
 
 MULTIPLE_OWNERS_MSG = 'Please select recipients only with the same owner.'
 
@@ -16,7 +19,7 @@ MULTIPLE_OWNERS_MSG = 'Please select recipients only with the same owner.'
 @admin.action(description=_(
     "Create a mailing out for selected objects"))
 def make_mailing_out(modeladmin, request, queryset):
-    if not check_massmail_account_num(request)\
+    if not have_massmail_accounts(request)\
             or multiple_owners(request, queryset):
         return HttpResponseRedirect(request.path)
     selected_ids = queryset.values_list('id', flat=True)
@@ -109,7 +112,6 @@ def specify_vip_recipients(modeladmin, request, queryset):
     if multiple_owners(request, queryset):
         return HttpResponseRedirect(request.path)
 
-    # selected = list(set(request.POST.getlist(admin.ACTION_CHECKBOX_NAME)))
     selected = list(set(request.POST.getlist(ACTION_CHECKBOX_NAME)))
     selected_ids = [int(x) for x in selected]
     content_type = ContentType.objects.get_for_model(queryset.model)
@@ -159,9 +161,9 @@ def multiple_value(request, queryset, value, message):
     return False
 
 
-def check_massmail_account_num(request: HttpRequest) -> int:
+def have_massmail_accounts(request: HttpRequest) -> bool:
     """Check if there are user's Email accounts
-     available for the mass mail"""
+     available for the massmail"""
 
     accounts = EmailAccount.objects.filter(
         massmail=True,
@@ -183,4 +185,5 @@ def check_massmail_account_num(request: HttpRequest) -> int:
                 " Please contact your administrator."
             )
         )
-    return accounts.count()
+    num = accounts.count()
+    return bool(num)

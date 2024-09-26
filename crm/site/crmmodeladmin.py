@@ -45,7 +45,7 @@ from crm.utils.helpers import html2txt
 from crm.utils.admfilters import ByCityFilter
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.make_massmail_form import get_massmail_form
-from massmail.admin_actions import check_massmail_account_num
+from massmail.admin_actions import have_massmail_accounts
 from massmail.models import MailingOut
 from massmail.models import MassContact
 
@@ -327,7 +327,7 @@ class CrmModelAdmin(BaseModelAdmin):
                     _('Bad result - no recipients! Make another choice.')
                 )
         else:
-            if not check_massmail_account_num(request):
+            if not have_massmail_accounts(request):
                 return HttpResponseRedirect(reverse(
                     'site:app_list',
                     args=('crm',))
