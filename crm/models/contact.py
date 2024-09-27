@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 from common.models import Base1
 from crm.models.base_contact import BaseContact
 from crm.models.base_contact import BaseCounterparty
-from crm.utils.helpers import delete_rel_mc
 
 
 class Contact(BaseCounterparty, BaseContact, Base1):
@@ -23,10 +22,6 @@ class Contact(BaseCounterparty, BaseContact, Base1):
     @property
     def company_country(self):
         return self.company.country
-
-    def delete(self, *args, **kwargs):
-        delete_rel_mc(self)
-        super().delete(*args, **kwargs)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}, {self.company}, {self.country}"

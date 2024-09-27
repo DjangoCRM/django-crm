@@ -5,7 +5,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 
 from common.models import Base1
 from crm.models.base_contact import BaseCounterparty
-from crm.utils.helpers import delete_rel_mc
+
 
 
 class Company(BaseCounterparty, Base1):
@@ -84,10 +84,6 @@ class Company(BaseCounterparty, Base1):
         verbose_name=_("Industry of company")
     )
     files = GenericRelation('common.TheFile')
-
-    def delete(self, *args, **kwargs):
-        delete_rel_mc(self)
-        super().delete(*args, **kwargs)
 
     def get_absolute_url(self):  
         return reverse('admin:crm_company_change', args=(self.id,))

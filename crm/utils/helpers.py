@@ -9,7 +9,6 @@ from email.utils import parseaddr
 from typing import Optional
 from django import forms
 from django.apps import apps
-from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import CharField
@@ -24,7 +23,6 @@ from django.utils.translation import gettext_lazy
 from common.utils.helpers import USER_MODEL
 from crm.utils.crm_imap import CrmIMAP
 from massmail.models import EmailAccount
-from massmail.models import MassContact
 from settings.models import BannedCompanyName
 from settings.models import PublicEmailDomain
 from settings.models import StopPhrase
@@ -52,15 +50,6 @@ def add_id_to_raw_id_field_label(admin_obj, form) -> None:
 def delete3enters(text):
     text = re.sub(r"[\xc2\xa0\x8b]|cid:[a-zA-Z0-9.@]+", '', text)
     return re.sub(r"[\r\n]+\s+[\r\n]+", '\r\n\r\n', text)
-
-
-def delete_rel_mc(obj) -> None:  # obj: Union[Company, Contact, Lead]
-    """Delete related object"""
-    content_type = ContentType.objects.get_for_model(obj)
-    MassContact.objects.filter(
-        content_type=content_type,
-        object_id=obj.id,
-    ).delete()
 
 
 def ensure_decoding(string):

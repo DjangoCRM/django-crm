@@ -5,7 +5,6 @@ from django.urls import reverse
 from common.models import Base1
 from crm.models.base_contact import BaseContact
 from crm.models.base_contact import BaseCounterparty
-from crm.utils.helpers import delete_rel_mc
 
 
 class Lead(BaseCounterparty, BaseContact, Base1):
@@ -57,10 +56,6 @@ class Lead(BaseCounterparty, BaseContact, Base1):
         'Company', blank=True, null=True, on_delete=models.CASCADE,
         verbose_name=_("Company of contact")
     )
-    
-    def delete(self, *args, **kwargs):
-        delete_rel_mc(self)
-        super().delete(*args, **kwargs)
 
     def __str__(self):
         if self.company_name:

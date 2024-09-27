@@ -1,8 +1,10 @@
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import get_today
 from common.utils.helpers import token_default
+from massmail.models import MassContact
 
 
 class BaseContact(models.Model):
@@ -150,3 +152,14 @@ class BaseCounterparty(models.Model):
         null=True,
         verbose_name=_("Last contact date")
     )
+
+    def delete(self, *args, **kwargs):
+        content_type = ContentType.objects.get_for_model(self)
+        try:
+            MassContact.objects.get(
+                content_type=content_type,
+                object_id=self.id,
+            ).delete()
+        except MassContact.DoesNotExist:
+            pass
+        super().delete(*args, **kwargs)
