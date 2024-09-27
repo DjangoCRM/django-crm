@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.admin.helpers import ACTION_CHECKBOX_NAME
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import messages
+from django.db.models import Q
 from django.http import HttpRequest
 from django.http import HttpResponseRedirect
 from django.template.defaultfilters import truncatechars
@@ -13,8 +14,8 @@ from massmail.models import EmailAccount
 from massmail.models import MailingOut
 from massmail.models import MassContact
 
-MULTIPLE_OWNERS_MSG = 'Please select recipients only with the same owner.'
-
+MULTIPLE_OWNERS_MSG = _("Please select recipients only with the same owner.")
+BAD_RESULT_MSG = _("Bad result - no recipients! Make another choice.")
 
 @admin.action(description=_(
     "Create a mailing out for selected objects"))
@@ -22,20 +23,23 @@ def make_mailing_out(modeladmin, request, queryset):
     if not have_massmail_accounts(request)\
             or multiple_owners(request, queryset):
         return HttpResponseRedirect(request.path)
-    selected_ids = queryset.values_list('id', flat=True)
-    content_type = ContentType.objects.get_for_model(queryset.model)
-    mc_ids = MassContact.objects.filter(
-        content_type=content_type,
-        object_id__in=selected_ids,
-        massmail=False
-    ).values_list('object_id', flat=True)
 
-    if mc_ids:
-        queryset = queryset.exclude(id__in=mc_ids)
+    q_params = Q(massmail=False)
+    q_params |= Q(disqualified=True)
+    if queryset.filter(q_params).exists():
+        queryset= queryset.exclude(q_params)
         messages.warning(
             request,
             _("Unsubscribed users were excluded from the mailing list.")
-        )       
+        )
+    if not queryset.exists():
+        messages.error(
+            request,
+            _(BAD_RESULT_MSG)
+        )
+        return HttpResponseRedirect(request.path)
+
+    content_type = ContentType.objects.get_for_model(queryset.model)
     mailing_out = MailingOut.objects.create(
         name=settings.NO_NAME_STR,
         content_type=content_type,
@@ -44,14 +48,17 @@ def make_mailing_out(modeladmin, request, queryset):
         department_id=request.user.department_id,
         recipient_ids=",".join([str(obj.id) for obj in queryset]),
         recipients_number=queryset.count()
-    )       
+    )
     messages.info(
         request,
         _("Note massmail is not performed on the following days:"
           " Friday, Saturday, Sunday.")
     )
     return HttpResponseRedirect(
-        reverse('site:massmail_mailingout_change', args=(mailing_out.id,))
+        reverse(
+            'site:massmail_mailingout_change',
+            args=(mailing_out.id,)
+        )
     )
 
 

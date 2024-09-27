@@ -144,7 +144,8 @@ class TesttestAdminActions(BaseTestCase):
             first_name='Michael',
             email='Michael@testcompany.com',
             phone='+0182345678',
-            owner=self.owner
+            owner=self.owner,
+            massmail=False
         )
         mc = MassContact.objects.create(
             content_type=self.lead_content_type,
@@ -154,7 +155,7 @@ class TesttestAdminActions(BaseTestCase):
         )
         queryset = Lead.objects.all()
         with self.settings(
-                MESSAGE_STORAGE='django.contrib.messages.storage.cookie.CookieStorage'
+            MESSAGE_STORAGE='django.contrib.messages.storage.cookie.CookieStorage'
         ):
             self.request = self.factory.get(
                 reverse('site:crm_lead_changelist'))
