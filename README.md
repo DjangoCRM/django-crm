@@ -5,16 +5,17 @@
 The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
 This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company - Enterprise CRM. Access to the company's business data remains solely under its control.
 
-![](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
+[<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
+
 ## Customer relationship management features
 
-|                                                   |                                                                                 |                                                      |
-|---------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------|
-| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                     | :ballot_box_with_check: **Email marketing**          |
-| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals**  | :ballot_box_with_check: **Sales forecasting**        |
-| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                  | :ballot_box_with_check: **Internal Chat Integration**|
-| :ballot_box_with_check: **Reminder System**       | :ballot_box_with_check: **Role based access control**                           | :ballot_box_with_check: **Analytical reporting**     |
-| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                        | :ballot_box_with_check: **Mobile Access**            |  
+|                                                   |                                                                                |                                                       |
+|---------------------------------------------------|--------------------------------------------------------------------------------|-------------------------------------------------------|
+| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                    | :ballot_box_with_check: **Email marketing**           |
+| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals** | :ballot_box_with_check: **Sales forecasting**         |
+| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                 | :ballot_box_with_check: **Internal Chat Integration** |
+| :ballot_box_with_check: **Reminder System**       | :ballot_box_with_check: **Role based access control**                          | :ballot_box_with_check: **Analytical reporting**      |
+| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                       | :ballot_box_with_check: **Mobile Access**             |  
 
 ***For a more detailed software overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md)***.
 
@@ -38,7 +39,7 @@ This CRM is designed to enhance collaboration within teams and streamline projec
 ## Main applications
 The CRM software consists of the following **main applications** and their models:
 
-- TASKS app:
+- **TASKS app**:
   - Task (with related: files, chat, reminders, tags)
     - subtasks
   - Memo (office memo)
@@ -47,7 +48,7 @@ The CRM software consists of the following **main applications** and their model
     - tasks
   - Tags
   - … (+ *3 more models*).
-- CRM app:
+- **CRM app**:
   - Requests (commercial inquiries)
   - Leads (potential customers)
   - Companies
@@ -58,12 +59,12 @@ The CRM software consists of the following **main applications** and their model
   - Payments (received, guaranteed, high and low probability)
   - … (*+ 12 more models*).
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- ANALYTICS app:
+- **ANALYTICS app**:
   - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
   - Sales funnel report
   - Lead source Summary report
   - … (+ *5 more reports*).
-- MASS MAIL app:
+- **MASS MAIL app**:
   - Email Accounts
   - Email Messages (newsletters)
   - Email Signatures (user signatures)
