@@ -8,9 +8,14 @@
   - [Clone the project](#clone-the-project)
   - [Install the requirements](#install-the-requirements)
 - [Settings of Django CRM](#settings-of-django-crm)
+  <details>
+
   - [DATABASES settings](#databases-settings)
   - [EMAIL_HOST settings](#email_host-settings)
   - [ADMINS settings](#admins-settings)
+
+  </details>
+
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
 - [Launch CRM on the development server](#run-crm-on-the-built-in-server)
@@ -19,21 +24,37 @@
 - [Ability to translate Django CRM interface into another language](#ability-to-translate-django-crm-interface-into-another-language)
 - [Built-in assistance system](#built-in-assistance-system)
 - [Adding Django CRM users](#adding-django-crm-users)
+    <details>
+
+    <summary>Permissions, Groups, Departments</summary>
+  
   - [Permissions for users](#permissions-for-users)
   - [User groups](#user-groups)
   - [Departments ](#departments)
   - [Adding users](#adding-users)
+
+  </details>
+  
 - [User access to applications and objects](#user-access-to-applications-and-objects)
 - [Helping users to master Django CRM](#helping-users-to-master-django-crm)
 - [Setting up adding commercial requests in Django CRM](#setting-up-adding-commercial-requests-in-django-crm)
   - [Sources of Leads](#sources-of-leads)
   - [Forms](#forms)
+    <details>
+
     - [Submitting form data with a POST request](#submitting-form-data-with-a-post-request)
     - [Embedding CRM form in an iframe of a website page](#embedding-crm-form-in-an-iframe-of-a-website-page)
     - [Activate form protection with Google's reCAPTCHA v3](#activate-form-protection-with-googles-recaptcha-v3)
     - [Activation of geolocation of the country and city of the counterparty by its IP](#activation-of-geolocation-of-the-country-and-city-of-the-counterparty-by-its-ip)
     - [Adding a custom form for iframe](#adding-a-custom-form-for-iframe)
+    
+    </details>
+  
 - [Setting up email accounts](#setting-up-email-accounts)
+  <details>
+
+  <summary>Fields</summary>
+
   - [Fields](#fields)
     - ["Main"](#main)
     - ["Massmail"](#massmail)
@@ -41,6 +62,9 @@
     - ["Email app password"](#email-app-password)
     - [Section "Service information"](#section-service-information)
     - [Section "Additional information"](#section-additional-information)
+  
+  </details>
+
 - [IMAP4 protocol client](#imap4-protocol-client)
 - [Configuring two-step OAuth 2.0 authentication](#configuring-two-step-oauth-20-authentication)
 - [Company product categories](#company-product-categories)
@@ -52,7 +76,7 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source web application.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with web interface.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
@@ -90,11 +114,10 @@ To use all the features of these applications, you need to set up CRM integratio
 
 ## Project installation
 
-The CRM software is a ready Django project.  
-To deploy the project, you will need: [Python](https://www.python.org/), and database.  
-CRM is developed and used with [MySQL](https://www.mysql.com/) database
+To deploy the project, you will need: [Python](https://www.python.org/) and database.  
+The CRM software is developed and used with [MySQL](https://www.mysql.com/) database
 but taking into account compatibility with [PostgreSQL](https://www.postgresql.org)
-(passes the current set of tests).   
+(passes the project tests).   
 
 ### Fork the Repository
 
@@ -109,27 +132,35 @@ Clone this GitHub repository:
 ```cmd
 git clone https://github.com/DjangoCRM/django-crm.git
 ```
+
 Or clone your forked GitHub repository:
 
 ```cmd
 git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
 ```
+
 The project will be cloned into the 'django-crm' folder.
 
 ### Install the requirements
 
 It is recommended to first create a virtual environment:
+
 ```cmd
 python3 -m venv myvenv
 ```
+
 and activate it:
+
 ```cmd
 source /myvenv/bin/activate
 ```
+
 then install the project requirements:
+
 ```cmd
 pip install -r requirements.txt
 ```
+
 If the project is deployed on a production server, a website server will also be required
 (for example, [Apache](https://httpd.apache.org/)).  
 Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
@@ -141,7 +172,7 @@ The main project settings are contained in the file
 `webcrm/settings.py`  
 The syntax of the data in these files must match the syntax of the Python language.
 
-Most of the project settings are Django settings.
+Most of the project settings are Django framework settings.
 Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).  
 The settings missing in this list are CRM specific settings. Explanations can be found in the comments to them.  
 Most of the settings can be left at their default values.
@@ -149,7 +180,7 @@ Most of the settings can be left at their default values.
 The default settings are for running the project on a development server.
 Change them for the production server.  
 
-To start the project for the first time, it is enough to specify the database settings in the file  
+To start the project for the first time, it is enough to specify the `DATABASES` settings in the file  
 `webcrm/settings.py`  
 But in the following, you will need to specify at least the `EMAIL_HOST` and `ADMINS` settings.
 
@@ -252,7 +283,7 @@ and Admin site for administrators (superusers):
 can be changed in the file `webcrm/settings.py`
 
 **Attention!** 
-Do not attempt to access the bare `<your CRM host>` address (http://127.0.0.1:8000/).  
+Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
 This address is not supported.  
 To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
 
