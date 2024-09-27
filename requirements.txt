@@ -25,4 +25,4 @@
     tzdata==2024.2
     urllib3==2.2.3
     XlsxWriter==3.2.0
-    yarl==1.12.1
+    yarl==1.13.0
