@@ -45,6 +45,7 @@ from crm.utils.helpers import html2txt
 from crm.utils.admfilters import ByCityFilter
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.make_massmail_form import get_massmail_form
+from massmail.admin_actions import BAD_RESULT_MSG
 from massmail.admin_actions import have_massmail_accounts
 from massmail.models import MailingOut
 from massmail.models import MassContact
@@ -324,7 +325,7 @@ class CrmModelAdmin(BaseModelAdmin):
                     )
                 messages.warning(
                     request,
-                    _('Bad result - no recipients! Make another choice.')
+                    _(BAD_RESULT_MSG)
                 )
         else:
             if not have_massmail_accounts(request):
