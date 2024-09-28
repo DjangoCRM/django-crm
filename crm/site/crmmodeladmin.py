@@ -48,7 +48,6 @@ from crm.utils.make_massmail_form import get_massmail_form
 from massmail.admin_actions import BAD_RESULT_MSG
 from massmail.admin_actions import have_massmail_accounts
 from massmail.models import MailingOut
-from massmail.models import MassContact
 
 _thread_local = threading.local()
 _fields = {
@@ -271,7 +270,6 @@ class CrmModelAdmin(BaseModelAdmin):
             form = get_massmail_form(request, model)
             form = form(request.POST)
             if form.is_valid():
-                # current_tz = pytz.timezone(settings.TIME_ZONE)
                 industries = form.cleaned_data['industries']
                 countries = form.cleaned_data['countries']
                 types = form.cleaned_data['types']
@@ -282,7 +280,9 @@ class CrmModelAdmin(BaseModelAdmin):
                     'country__in': countries,
                     'creation_date__gte': timezone.make_aware(after, current_tz),
                     'creation_date__lte': timezone.make_aware(before, current_tz),
-                    'owner': request.user
+                    'owner': request.user,
+                    'massmail': True,
+                    'disqualified': False
                 }
                 if model == Contact:
                     params['company__type__in'] = types
@@ -295,14 +295,7 @@ class CrmModelAdmin(BaseModelAdmin):
                 qs = queryset.filter(**params)
                 selected_ids = qs.values_list('id', flat=True).distinct()
                 content_type = ContentType.objects.get_for_model(model)
-                mcs_ids = MassContact.objects.filter(
-                    massmail=False,
-                    content_type=content_type,
-                    # the list is a fix for some MySQL
-                    object_id__in=list(selected_ids),
-                ).values_list('object_id', flat=True).distinct()
-                if mcs_ids:
-                    selected_ids.difference(mcs_ids)
+
                 recipients_number = selected_ids.count()
                 if recipients_number:
                     mailing_out = MailingOut(
@@ -323,10 +316,7 @@ class CrmModelAdmin(BaseModelAdmin):
                         'site:massmail_mailingout_change',
                         args=(mailing_out.id,))
                     )
-                messages.warning(
-                    request,
-                    _(BAD_RESULT_MSG)
-                )
+                messages.warning(request, _(BAD_RESULT_MSG))
         else:
             if not have_massmail_accounts(request):
                 return HttpResponseRedirect(reverse(
