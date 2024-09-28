@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-26 20:42+0300\n"
-"PO-Revision-Date: 2024-09-26 20:44+0300\n"
+"POT-Creation-Date: 2024-09-28 21:32+0300\n"
+"PO-Revision-Date: 2024-09-28 21:39+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -430,7 +430,7 @@ msgstr "Вы получили сообщение относительно -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:110 crm/admin.py:181
 #: crm/admin.py:226 crm/admin.py:269 crm/site/companyadmin.py:129
-#: crm/site/contactadmin.py:121 crm/site/dealadmin.py:279
+#: crm/site/contactadmin.py:122 crm/site/dealadmin.py:279
 #: crm/site/leadadmin.py:131 crm/site/productadmin.py:18
 #: crm/site/requestadmin.py:93 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
@@ -1382,7 +1382,7 @@ msgstr "Используйте запятую для разделения адр
 msgid "Lead Source"
 msgstr "Источник Лида"
 
-#: crm/models/base_contact.py:138
+#: crm/models/base_contact.py:138 crm/site/crmmodeladmin.py:73
 msgid "Mailing list recipient."
 msgstr "Получатель рассылки."
 
@@ -2053,11 +2053,19 @@ msgstr "WhatsApp чат"
 msgid "Chat or WhatsApp call"
 msgstr "Чат или WhatsApp звонок"
 
-#: crm/site/crmmodeladmin.py:247
+#: crm/site/crmmodeladmin.py:75
+msgid "Signed up for email newsletters"
+msgstr "Подписан на рассылку новостей"
+
+#: crm/site/crmmodeladmin.py:77
+msgid "Unsubscribed from email newsletters"
+msgstr "Отписан на рассылку новостей"
+
+#: crm/site/crmmodeladmin.py:254
 msgid "Create Email"
 msgstr "Создать письмо"
 
-#: crm/site/crmmodeladmin.py:318
+#: crm/site/crmmodeladmin.py:319
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
@@ -2065,11 +2073,7 @@ msgstr ""
 "Обратите внимание, что рассылка не производится в следующие дни: пятница, "
 "суббота, воскресенье."
 
-#: crm/site/crmmodeladmin.py:327
-msgid "Bad result - no recipients! Make another choice."
-msgstr "Плохой результат - нет получателей! Сделайте другой выбор."
-
-#: crm/site/crmmodeladmin.py:351
+#: crm/site/crmmodeladmin.py:349
 msgid "Messengers"
 msgstr "Мессенджеры"
 
@@ -2820,15 +2824,23 @@ msgstr "Ссылка на связанный абзац, если существ
 msgid "Service information"
 msgstr "Для информации"
 
-#: massmail/admin_actions.py:20
+#: massmail/admin_actions.py:17
+msgid "Please select recipients only with the same owner."
+msgstr "Пожалуйста, выберите получателей, которые имеют одного владельца."
+
+#: massmail/admin_actions.py:18
+msgid "Bad result - no recipients! Make another choice."
+msgstr "Плохой результат - нет получателей! Сделайте другой выбор."
+
+#: massmail/admin_actions.py:21
 msgid "Create a mailing out for selected objects"
 msgstr "Создать рассылку для выбранных объектов"
 
-#: massmail/admin_actions.py:37
+#: massmail/admin_actions.py:33
 msgid "Unsubscribed users were excluded from the mailing list."
 msgstr "Из рассылки были исключены отписавшиеся пользователи."
 
-#: massmail/admin_actions.py:50
+#: massmail/admin_actions.py:54
 msgid ""
 "Note massmail is not performed on the following days: Friday, Saturday, "
 "Sunday."
@@ -2836,38 +2848,38 @@ msgstr ""
 "Обратите внимание, что рассылка не производится в следующие дни: пятница, "
 "суббота, воскресенье."
 
-#: massmail/admin_actions.py:58
+#: massmail/admin_actions.py:65
 msgid "Merge selected mailing outs"
 msgstr "Объединить выбранные рассылки"
 
-#: massmail/admin_actions.py:78
+#: massmail/admin_actions.py:85
 msgid "united"
 msgstr "объединенная"
 
-#: massmail/admin_actions.py:100
+#: massmail/admin_actions.py:107
 msgid "Specify VIP recipients"
 msgstr "Указать VIP получателей"
 
-#: massmail/admin_actions.py:108
+#: massmail/admin_actions.py:115
 msgid "Please first add your main email account."
 msgstr "Пожалуйста, сначала добавьте ваш основной аккаунт электронной почты."
 
-#: massmail/admin_actions.py:136
+#: massmail/admin_actions.py:143
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
 msgstr ""
 "Основной адрес электронной почты был успешно назначен выбранным получателям."
 
-#: massmail/admin_actions.py:142
+#: massmail/admin_actions.py:149
 msgid "Please select mailings with only the same recipient type."
 msgstr "Пожалуйста, выберите рассылки только с одинаковым типом получателей."
 
-#: massmail/admin_actions.py:147
+#: massmail/admin_actions.py:154
 msgid "Please select only mailings with the same message."
 msgstr "Пожалуйста, выбирайте только рассылки с одинаковым сообщением."
 
-#: massmail/admin_actions.py:176
+#: massmail/admin_actions.py:183
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
@@ -2875,7 +2887,7 @@ msgstr ""
 "Нет почтовых аккаунтов, доступных для рассылки. Обратитесь к CRM "
 "администратору."
 
-#: massmail/admin_actions.py:184
+#: massmail/admin_actions.py:191
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
@@ -4143,9 +4155,6 @@ msgstr "Главное меню"
 
 #~ msgid "Add products"
 #~ msgstr "Добавить продукты"
-
-#~ msgid "Please select recipients only with the same owner."
-#~ msgstr "Пожалуйста, выберите получателей только с тем же владельцем."
 
 #~ msgid ""
 #~ "To send a test message you need to register at least two email accounts."
