@@ -135,6 +135,7 @@ class BaseCounterparty(models.Model):
     )
     massmail = models.BooleanField(
         default=True,
+        verbose_name=_("Mass mailing"),
         help_text=_("Mailing list recipient.")
     )
     tags = models.ManyToManyField(
