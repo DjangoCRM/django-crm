@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-28 21:33+0300\n"
-"PO-Revision-Date: 2024-09-28 21:39+0300\n"
+"PO-Revision-Date: 2024-09-29 12:47+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2058,7 +2058,7 @@ msgstr "Підписаний на розсилку новин"
 
 #: crm/site/crmmodeladmin.py:77
 msgid "Unsubscribed from email newsletters"
-msgstr "Відписаний на розсилку новин"
+msgstr "Відписаний від розсилки новин"
 
 #: crm/site/crmmodeladmin.py:254
 msgid "Create Email"
