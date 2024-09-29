@@ -25,22 +25,31 @@ class ContactAdmin(CrmModelAdmin):
     ]
     form = ContactForm
     list_display = [
-        'the_full_name', 'the_email',
-        'the_phone', 'contact_company',
-        'created', 'person',
+        'the_full_name',
+        'the_email',
+        'the_phone',
+        'contact_company',
+        'newsletters_subscriptions',
+        'created',
+        'person',
     ]
     list_filter = (
-        ByOwnerFilter, TagFilter,
+        ByOwnerFilter,
+        TagFilter,
         ('company__industry', ScrollRelatedOnlyFieldListFilter),
         ('company__type', admin.RelatedOnlyFieldListFilter),
     )
     radio_fields = {"sex": admin.HORIZONTAL}
     raw_id_fields = ('city', 'company')
     readonly_fields = [
-        'owner', 'modified_by',
-        'creation_date', 'update_date',
-        'tag_list', 'the_full_name',
-        'the_email', 'contact_company',
+        'owner',
+        'modified_by',
+        'creation_date',
+        'update_date',
+        'tag_list',
+        'the_full_name',
+        'the_email',
+        'contact_company',
         'connections_to_phone',
         'connections_to_other_phone',
         'connections_to_mobile',
