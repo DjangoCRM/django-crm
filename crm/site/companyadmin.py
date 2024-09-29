@@ -45,8 +45,13 @@ class ContactInline(CrmStackedInline):
 class CompanyAdmin(CrmModelAdmin):
     form = CompanyForm
     list_display = [
-        'company', 'type', 'created',
-        'person', 'id', 'registration_number'
+        'company',
+        'type',
+        'created',
+        'person',
+        'newsletters_subscriptions',
+        'id',
+        'registration_number'
     ]
     list_filter = [
         HasContactsFilter, ByOwnerFilter, TagFilter,
@@ -55,9 +60,13 @@ class CompanyAdmin(CrmModelAdmin):
         ('type', admin.RelatedOnlyFieldListFilter),
     ]    
     readonly_fields = (
-        'modified_by', 'creation_date',
-        'update_date', 'view_website_button',
-        'warning', 'tag_list', 'company',
+        'modified_by',
+        'creation_date',
+        'update_date',
+        'view_website_button',
+        'warning',
+        'tag_list',
+        'company',
         'connections_to_phone'
     )
     actions = [
