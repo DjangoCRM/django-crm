@@ -69,6 +69,13 @@ viber_chat_tip = _("Chat or viber call")
 whatsapp_chat = _("WhatsApp chat")
 whatsapp_chat_tip = _("Chat or WhatsApp call")
 
+email_icon = '<i title="{}" class="material-icons" style="color: var(--body-quiet-color)">email</i>'
+email_title = _("Mailing list recipient.")
+subscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--green-fg)">markunread_mailbox</i>'
+subscribed_title = _("Signed up for email newsletters")
+unsubscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--body-quiet-color)">markunread_mailbox</i>'
+unsubscribed_title = _("Unsubscribed from email newsletters")
+
 
 class CrmModelAdmin(BaseModelAdmin):
 
@@ -190,7 +197,8 @@ class CrmModelAdmin(BaseModelAdmin):
             country_filter_needed = self.get_country_filter_needed(request)
             if country_filter_needed:
                 list_filter.append(('country', ScrollRelatedOnlyFieldListFilter))
-
+            if self.model in (Company, Contact, Lead):
+                list_filter.append('massmail')
             if hasattr(self.model, 'city'):
                 if "country__id__exact" in request.GET or \
                         "city__id__exact" in request.GET or \
@@ -357,6 +365,19 @@ class CrmModelAdmin(BaseModelAdmin):
                 <li><a title="{whatsapp_chat_tip}" href="https://wa.me/{number}/?text=Hi!" target="_blank">\
                 {whatsapp_chat}</a></li>\
             </ul>'
+        )
+
+    @staticmethod
+    @admin.display(description=mark_safe(
+        email_icon.format(email_title)
+    ))
+    def newsletters_subscriptions(obj):
+        if obj.massmail:
+            return mark_safe(
+                subscribed_icon.format(subscribed_title)
+            )
+        return mark_safe(
+            unsubscribed_icon.format(unsubscribed_title)
         )
 
     @admin.display(description=mark_safe(
