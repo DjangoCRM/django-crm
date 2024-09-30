@@ -118,11 +118,13 @@ class CompanyAdmin(CrmModelAdmin):
         return [
             (None, {
                 'fields': (
-                    'full_name', 'alternative_names',
+                    ('full_name', 'disqualified'),
+                    'alternative_names',
                     ('type', 'lead_source'),
                     'registration_number',
-                    ('active', 'was_in_touch'),
-                    'description', 'industry',
+                    'was_in_touch',
+                    'description',
+                    'industry',
                 )
             }),
             *self.get_tag_fieldsets(obj),
