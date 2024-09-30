@@ -71,7 +71,7 @@ whatsapp_chat_tip = _("Chat or WhatsApp call")
 
 email_icon = '<i title="{}" class="material-icons" style="color: var(--body-quiet-color)">email</i>'
 email_title = _("Mailing list recipient.")
-subscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--green-fg)">markunread_mailbox</i>'
+subscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--primary)">markunread_mailbox</i>'
 subscribed_title = _("Signed up for email newsletters")
 unsubscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--body-quiet-color)">markunread_mailbox</i>'
 unsubscribed_title = _("Unsubscribed from email newsletters")
