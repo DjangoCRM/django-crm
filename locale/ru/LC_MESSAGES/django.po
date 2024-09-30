@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-28 21:32+0300\n"
-"PO-Revision-Date: 2024-09-28 21:39+0300\n"
+"POT-Creation-Date: 2024-09-29 22:49+0300\n"
+"PO-Revision-Date: 2024-09-29 22:50+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -429,9 +429,9 @@ msgid "You received a message regarding - "
 msgstr "Вы получили сообщение относительно -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:110 crm/admin.py:181
-#: crm/admin.py:226 crm/admin.py:269 crm/site/companyadmin.py:129
-#: crm/site/contactadmin.py:122 crm/site/dealadmin.py:279
-#: crm/site/leadadmin.py:131 crm/site/productadmin.py:18
+#: crm/admin.py:226 crm/admin.py:269 crm/site/companyadmin.py:138
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:279
+#: crm/site/leadadmin.py:149 crm/site/productadmin.py:18
 #: crm/site/requestadmin.py:93 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:174
@@ -722,7 +722,7 @@ msgstr "Активировать этот часовой пояс"
 msgid "Field for temporary storage of messages to the user"
 msgstr "Поле для временного хранения сообщений пользователю"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:143
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -1035,7 +1035,7 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "Пользователь успешно перенесен"
 
-#: crm/admin.py:101 crm/admin.py:261 crm/site/companyadmin.py:120
+#: crm/admin.py:101 crm/admin.py:261 crm/site/companyadmin.py:129
 msgid "Contact details"
 msgstr "Контактные данные"
 
@@ -1382,11 +1382,16 @@ msgstr "Используйте запятую для разделения адр
 msgid "Lead Source"
 msgstr "Источник Лида"
 
-#: crm/models/base_contact.py:138 crm/site/crmmodeladmin.py:73
+#: crm/models/base_contact.py:138
+#| msgid "Mass mail"
+msgid "Mass mailing"
+msgstr "Почтовая рассылка"
+
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:73
 msgid "Mailing list recipient."
 msgstr "Получатель рассылки."
 
-#: crm/models/base_contact.py:153
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "Дата последнего контакта"
 
@@ -1963,15 +1968,15 @@ msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
-#: crm/site/companyadmin.py:195 crm/site/leadadmin.py:239
+#: crm/site/companyadmin.py:204 crm/site/leadadmin.py:257
 msgid "Warning:"
 msgstr "Внимание:"
 
-#: crm/site/companyadmin.py:197
+#: crm/site/companyadmin.py:206
 msgid "Owner will also be changed for contact persons."
 msgstr "Владелец контактных лиц будет также изменен."
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:219
 msgid "Change owner of selected Companies"
 msgstr "Сменить владельца выбранных компаний"
 
@@ -2061,11 +2066,11 @@ msgstr "Подписан на рассылку новостей"
 msgid "Unsubscribed from email newsletters"
 msgstr "Отписан на рассылку новостей"
 
-#: crm/site/crmmodeladmin.py:254
+#: crm/site/crmmodeladmin.py:255
 msgid "Create Email"
 msgstr "Создать письмо"
 
-#: crm/site/crmmodeladmin.py:319
+#: crm/site/crmmodeladmin.py:320
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
@@ -2073,7 +2078,7 @@ msgstr ""
 "Обратите внимание, что рассылка не производится в следующие дни: пятница, "
 "суббота, воскресенье."
 
-#: crm/site/crmmodeladmin.py:349
+#: crm/site/crmmodeladmin.py:350
 msgid "Messengers"
 msgstr "Мессенджеры"
 
@@ -2170,24 +2175,24 @@ msgstr "Оплаченно"
 msgid "Contact is Lead (no company)"
 msgstr "Контакт - Лид (без компании)"
 
-#: crm/site/leadadmin.py:95
+#: crm/site/leadadmin.py:113
 msgid "Person contact details"
 msgstr "Контактные данные лица"
 
-#: crm/site/leadadmin.py:104
+#: crm/site/leadadmin.py:122
 msgid "Additional person details"
 msgstr "Дополнительные данные о человеке"
 
-#: crm/site/leadadmin.py:117
+#: crm/site/leadadmin.py:135
 msgid "Company contact details"
 msgstr "Контактные данные компании"
 
-#: crm/site/leadadmin.py:226
+#: crm/site/leadadmin.py:244
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Лид \"{obj}\" успешно конвертирован."
 
-#: crm/site/leadadmin.py:241
+#: crm/site/leadadmin.py:259
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Этот Лид дисквалифицирован! Пожалуйста, прочтите описание."
 
