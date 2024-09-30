@@ -119,7 +119,7 @@ class CompanyAdmin(CrmModelAdmin):
             (None, {
                 'fields': (
                     ('full_name', 'disqualified'),
-                    'alternative_names',
+                    ('alternative_names', 'massmail'),
                     ('type', 'lead_source'),
                     'registration_number',
                     'was_in_touch',
