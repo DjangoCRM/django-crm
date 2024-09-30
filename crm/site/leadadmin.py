@@ -40,9 +40,12 @@ class LeadAdmin(CrmModelAdmin):
     filter_horizontal = ('industry',)
     form = LeadForm
     list_display = [
-        'the_full_name', 'the_email',
+        'the_full_name',
+        'the_email',
         'display_company_name',
-        'person', 'created'
+        'person',
+        'newsletters_subscriptions',
+        'created'
     ]
     list_display_links = ('the_full_name',)
     list_filter = (
@@ -52,17 +55,32 @@ class LeadAdmin(CrmModelAdmin):
     )
     raw_id_fields = ('city', 'contact', 'company')
     readonly_fields = (
-        'modified_by', 'warning', 'creation_date',
-        'update_date', 'tag_list', 'the_full_name',
-        'the_email', 'display_company_name',
-        'connections_to_phone', 'connections_to_other_phone',
-        'connections_to_mobile', 'create_email'
+        'modified_by',
+        'warning',
+        'creation_date',
+        'update_date',
+        'tag_list',
+        'the_full_name',
+        'the_email',
+        'display_company_name',
+        'connections_to_phone',
+        'connections_to_other_phone',
+        'connections_to_mobile',
+        'create_email'
     )
     search_fields = [
-        'first_name', 'last_name', 'email',
-        'secondary_email', 'company_name',
-        'description', 'phone', 'other_phone',
-        'mobile', 'skype', 'city_name', 'address'
+        'first_name',
+        'last_name',
+        'email',
+        'secondary_email',
+        'company_name',
+        'description',
+        'phone',
+        'other_phone',
+        'mobile',
+        'skype',
+        'city_name',
+        'address'
     ]
 
     # -- ModelAdmin methods -- #
