@@ -207,6 +207,14 @@ class CrmModelAdmin(BaseModelAdmin):
 
         return list_filter
 
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = super().get_readonly_fields(request, obj)
+        if obj and hasattr(obj, 'massmail'):
+            if not obj.massmail:
+                readonly_fields += ('massmail',)
+
+        return readonly_fields
+
     def has_change_permission(self, request, obj=None):
         value = super().has_change_permission(request, obj)
         if value is False or not obj:
