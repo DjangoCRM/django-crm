@@ -53,7 +53,11 @@ class LeadAdmin(CrmModelAdmin):
         ByOwnerFilter,
         TagFilter
     )
-    raw_id_fields = ('city', 'contact', 'company')
+    raw_id_fields = (
+        'city',
+        'contact',
+        'company'
+        )
     readonly_fields = (
         'modified_by',
         'warning',
@@ -106,7 +110,7 @@ class LeadAdmin(CrmModelAdmin):
         fieldsets = (
             (None, {
                 'fields': [
-                    ('lead_source', 'disqualified'),
+                    ('lead_source', 'disqualified', 'massmail'),
                     ('contact', 'company')
                 ],
             }),
