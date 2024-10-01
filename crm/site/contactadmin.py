@@ -107,7 +107,7 @@ class ContactAdmin(CrmModelAdmin):
                     ('title', 'sex'),
                     ('birth_date', 'was_in_touch'),
                     'description',
-                    'disqualified'
+                    ('disqualified', 'massmail')
                 )
             }],
             *self.get_tag_fieldsets(obj),
