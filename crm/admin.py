@@ -209,26 +209,28 @@ class ContactAdmin(contactadmin.ContactAdmin):
         return (
             [None, {
                 'fields': (
-                    ('first_name', 'last_name'), ('title', 'sex'),
-                    ('birth_date', 'was_in_touch'), 'description',
+                    ('first_name', 'middle_name', 'last_name'),
+                    ('title', 'sex'),
+                    ('birth_date', 'was_in_touch'),
+                    ('disqualified', 'massmail')
                 )
             }],
             (_('Add tags'), {
-                # 'classes': ('collapse',),
                 'fields': ('tags',)
             }),
             ('Contact details', {
                 'fields': (
                     ('email', 'secondary_email'),
                     ('skype', 'phone'),
+                    ('other_phone', 'mobile'),
                     ('lead_source', 'company'),
                     'address', 'country'
                 )
             }),
             (_('Additional information'), {
-                # 'classes': ('collapse',),
                 'fields': (
-                    ('owner', 'department'), 'modified_by',
+                    ('owner', 'department'),
+                    'modified_by',
                     ('creation_date', 'update_date'),
                 )
             }),
