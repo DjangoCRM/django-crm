@@ -84,11 +84,13 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
         return (
             (None, {
                 'fields': (
-                    ('full_name', 'country'),
-                    'alternative_names',
-                    'lead_source',
-                    ('active', 'was_in_touch'),
-                    'description', 'industry',
+                    ('full_name', 'disqualified'),
+                    ('alternative_names', 'massmail'),
+                    ('type', 'lead_source'),
+                    'registration_number',
+                    'was_in_touch',
+                    'description',
+                    'industry',
                 )
             }),
             (None, {
@@ -101,9 +103,9 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
             (_('Contact details'), {
                 'fields': (
                     ('email', 'phone'),
-                    # 'skype_call',
                     'website',
-                    'city_name', 'city',
+                    'city_name',
+                    ('city', 'country'),
                     'address',
                 )
             }),
