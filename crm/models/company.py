@@ -33,6 +33,7 @@ class Company(BaseCounterparty, Base1):
         default='',
         verbose_name=_("Website")
     )
+    # TODO: The 'active' field is not used and can be removed.
     active = models.BooleanField(
         default=True,
         verbose_name=_("Active"),
