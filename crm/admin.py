@@ -250,8 +250,15 @@ class LeadAdmin(leadadmin.LeadAdmin):
         return (
             (None, {
                 'fields': [
-                    ('first_name', 'last_name'), ('title', 'sex'),
-                    'disqualified', ('birth_date', 'was_in_touch'),
+                    ('lead_source', 'disqualified', 'massmail'),
+                    ('contact', 'company')
+                ],
+            }),
+            (None, {
+                'fields': [
+                    ('first_name', 'middle_name', 'last_name'),
+                    ('title', 'sex'),
+                    ('birth_date', 'was_in_touch'),
                     'description'
                 ],
             }),
@@ -265,9 +272,12 @@ class LeadAdmin(leadadmin.LeadAdmin):
             (_('Contact details'), {
 
                 'fields': (
-                    ('email', 'secondary_email'), ('skype', 'phone'),
-                    'lead_source', ('company_name', 'website'),
-                    ('company_email', 'country'), 'address',
+                    ('email', 'secondary_email'),
+                    ('phone', 'other_phone'),
+                    'skype',
+                    ('company_name', 'website'),
+                    ('company_email', 'country'),
+                    'address',
                 )
             }),
             (_('Additional information'), {
