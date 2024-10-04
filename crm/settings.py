@@ -11,7 +11,7 @@ CONTACT_COLUMNS = [
     'was_in_touch', 'phone', 'other_phone', 'mobile', 'skype',
     'email', 'secondary_email', 'city_name', 'address',
     'country', 'description', 'birth_date', 'owner',
-    'company', 'department'
+    'company', 'department', 'disqualified', 'massmail'
 ]
 
 # List of fields, the value of which will be saved
@@ -19,7 +19,8 @@ CONTACT_COLUMNS = [
 COMPANY_COLUMNS = [
     'full_name', 'website', 'phone', 'city_name', 'address',
     'email', 'description', 'lead_source', 'was_in_touch',
-    'country',  'owner', 'type', 'industry', 'department'
+    'country',  'owner', 'type', 'industry', 'department',
+    'disqualified', 'massmail'
 ]
 
 # List of fields, the value of which will be saved
@@ -30,8 +31,8 @@ LEAD_COLUMNS = [
     'other_phone', 'mobile', 'skype', 'city_name', 'country',
     'address', 'description', 'lead_source', 'website',
     'company_phone', 'city_name', 'company_address',
-    'company_email', 'owner',
-    'company_name', 'department'
+    'company_email', 'owner', 'company_name', 'department',
+    'disqualified', 'massmail'
 ]
 
 # List of fields, the value of which will be saved
