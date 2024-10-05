@@ -280,7 +280,9 @@ def create_company(obj: Lead) -> Company:
         country=obj.country,
         type=obj.type,
         owner=obj.owner,
-        department=obj.department
+        department=obj.department,
+        disqualified=obj.disqualified,
+        massmail=obj.massmail
     )
 
 
@@ -303,5 +305,7 @@ def create_contact(obj: Lead, company: Company) -> Contact:
         description=obj.description,
         lead_source=obj.lead_source,
         owner=obj.owner,
-        department=obj.department
+        department=obj.department,
+        disqualified=obj.disqualified,
+        massmail=obj.massmail
     )
