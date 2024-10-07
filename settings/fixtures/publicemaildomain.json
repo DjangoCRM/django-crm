@@ -278,5 +278,635 @@
     "fields": {
         "domain": "dokidoki.ne.jp"
     }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 41,
+    "fields": {
+        "domain": "yahoo.es"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 42,
+    "fields": {
+        "domain": "live.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 43,
+    "fields": {
+        "domain": "zohomail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 44,
+    "fields": {
+        "domain": "rediff.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 45,
+    "fields": {
+        "domain": "hotmail.co.uk"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 46,
+    "fields": {
+        "domain": "hotmail.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 47,
+    "fields": {
+        "domain": "msn.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 48,
+    "fields": {
+        "domain": "wanadoo.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 49,
+    "fields": {
+        "domain": "comcast.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 50,
+    "fields": {
+        "domain": "yahoo.com.br"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 51,
+    "fields": {
+        "domain": "yahoo.co.in"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 52,
+    "fields": {
+        "domain": "rediffmail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 53,
+    "fields": {
+        "domain": "free.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 54,
+    "fields": {
+        "domain": "gmx.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 55,
+    "fields": {
+        "domain": "web.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 56,
+    "fields": {
+        "domain": "ymail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 57,
+    "fields": {
+        "domain": "libero.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 58,
+    "fields": {
+        "domain": "uol.com.br"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 59,
+    "fields": {
+        "domain": "bol.com.br"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 60,
+    "fields": {
+        "domain": "cox.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 61,
+    "fields": {
+        "domain": "hotmail.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 62,
+    "fields": {
+        "domain": "sbcglobal.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 63,
+    "fields": {
+        "domain": "sfr.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 64,
+    "fields": {
+        "domain": "live.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 65,
+    "fields": {
+        "domain": "verizon.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 66,
+    "fields": {
+        "domain": "live.co.uk"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 67,
+    "fields": {
+        "domain": "googlemail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 68,
+    "fields": {
+        "domain": "ig.com.br"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 69,
+    "fields": {
+        "domain": "live.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 70,
+    "fields": {
+        "domain": "bigpond.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 71,
+    "fields": {
+        "domain": "terra.com.br"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 72,
+    "fields": {
+        "domain": "yahoo.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 73,
+    "fields": {
+        "domain": "neuf.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 74,
+    "fields": {
+        "domain": "yahoo.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 75,
+    "fields": {
+        "domain": "alice.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 76,
+    "fields": {
+        "domain": "rocketmail.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 77,
+    "fields": {
+        "domain": "att.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 78,
+    "fields": {
+        "domain": "laposte.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 79,
+    "fields": {
+        "domain": "facebook.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 80,
+    "fields": {
+        "domain": "bellsouth.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 81,
+    "fields": {
+        "domain": "yahoo.in"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 82,
+    "fields": {
+        "domain": "hotmail.es"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 83,
+    "fields": {
+        "domain": "charter.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 84,
+    "fields": {
+        "domain": "yahoo.ca"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 85,
+    "fields": {
+        "domain": "yahoo.com.au"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 86,
+    "fields": {
+        "domain": "rambler.ru"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 87,
+    "fields": {
+        "domain": "hotmail.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 88,
+    "fields": {
+        "domain": "tiscali.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 89,
+    "fields": {
+        "domain": "shaw.ca"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 90,
+    "fields": {
+        "domain": "yahoo.co.jp"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 91,
+    "fields": {
+        "domain": "sky.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 92,
+    "fields": {
+        "domain": "earthlink.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 93,
+    "fields": {
+        "domain": "optonline.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 94,
+    "fields": {
+        "domain": "freenet.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 95,
+    "fields": {
+        "domain": "t-online.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 96,
+    "fields": {
+        "domain": "aliceadsl.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 97,
+    "fields": {
+        "domain": "virgilio.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 98,
+    "fields": {
+        "domain": "home.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 99,
+    "fields": {
+        "domain": "telenet.be"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 100,
+    "fields": {
+        "domain": "me.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 101,
+    "fields": {
+        "domain": "yahoo.com.ar"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 102,
+    "fields": {
+        "domain": "tiscali.co.uk"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 103,
+    "fields": {
+        "domain": "yahoo.com.mx"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 104,
+    "fields": {
+        "domain": "voila.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 105,
+    "fields": {
+        "domain": "mx.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 106,
+    "fields": {
+        "domain": "planet.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 107,
+    "fields": {
+        "domain": "tin.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 108,
+    "fields": {
+        "domain": "live.it"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 109,
+    "fields": {
+        "domain": "ntlworld.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 110,
+    "fields": {
+        "domain": "arcor.de"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 111,
+    "fields": {
+        "domain": "yahoo.co.id"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 112,
+    "fields": {
+        "domain": "frontiernet.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 113,
+    "fields": {
+        "domain": "hetnet.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 114,
+    "fields": {
+        "domain": "live.com.au"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 115,
+    "fields": {
+        "domain": "yahoo.com.sg"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 116,
+    "fields": {
+        "domain": "zonnet.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 117,
+    "fields": {
+        "domain": "club-internet.fr"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 118,
+    "fields": {
+        "domain": "juno.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 119,
+    "fields": {
+        "domain": "optusnet.com.au"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 120,
+    "fields": {
+        "domain": "blueyonder.co.uk"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 121,
+    "fields": {
+        "domain": "bluewin.ch"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 122,
+    "fields": {
+        "domain": "skynet.be"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 123,
+    "fields": {
+        "domain": "sympatico.ca"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 124,
+    "fields": {
+        "domain": "windstream.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 125,
+    "fields": {
+        "domain": "mac.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 126,
+    "fields": {
+        "domain": "centurytel.net"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 127,
+    "fields": {
+        "domain": "chello.nl"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 128,
+    "fields": {
+        "domain": "live.ca"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 129,
+    "fields": {
+        "domain": "aim.com"
+    }
+},
+{
+    "model": "settings.publicemaildomain",
+    "pk": 130,
+    "fields": {
+        "domain": "bigpond.net.au"
+    }
 }
 ]
