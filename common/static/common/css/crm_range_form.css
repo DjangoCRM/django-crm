@@ -1,0 +1,20 @@
+.justify-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.justify-row label,
+.justify-row input {
+  flex: 1;
+}
+
+.justify-row input {
+  margin-left: 10px;  /* Optional: adjust spacing between label and input */
+}
