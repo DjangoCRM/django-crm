@@ -1,3 +1,4 @@
+import re
 from django.core.mail import mail_admins
 from django.contrib.sites.models import Site
 from django.db import models
@@ -7,7 +8,6 @@ from django.utils.translation import gettext as _
 from django.utils.safestring import mark_safe
 
 from common.models import TheFile
-from common.utils.helpers import USER_MODEL
 from tasks.models import Task
 from tasks.site.taskadmin import COMPLETED_TITLE
 
@@ -15,17 +15,10 @@ register = Library()
 FILE_ERROR_SUBJ = "TheFile error: ID{}"
 
 
+
 @register.filter
 def crmadmin_urlname(value, arg):
     return 'site:%s_%s_%s' % (value.app_label, value.model_name, arg)
-
-
-@register.filter
-def priority(obj) -> int:
-    value = None
-    if hasattr(obj, 'priority'):
-        value = next(p for i, p in obj.PRIORITY_CHOICES if i == obj.priority)
-    return value
 
 
 @register.filter
@@ -44,8 +37,8 @@ def get_url(file: TheFile) -> str:
         mail_admins(
             FILE_ERROR_SUBJ.format(file.id),
             f"""
-            \n     Error: {err}            
-            \n     Content object of the file: 
+            \n     Error: {err}
+            \n     Content object of the file:
             \n     {content_object._meta.label}: "{content_object}"
             \n     {content_object_url}
             \n     File name: {file.file.name}
@@ -54,6 +47,28 @@ def get_url(file: TheFile) -> str:
             fail_silently=True
         )
     return url
+
+
+@register.filter
+def param(choices: list, arg: str) -> str:
+    """Parsing a query string parameter"""
+    query_string = choices[1]['query_string']
+    if arg == "from":
+        pattern = r'([^?&]*__gte[^?&=]*)'
+    else:
+        pattern = r'([^?&]*__lt[^?&=]*)'
+    match = re.search(pattern, query_string)
+    if match:
+        return match.group(1)
+    return ''
+
+
+@register.filter
+def priority(obj) -> int:
+    value = None
+    if hasattr(obj, 'priority'):
+        value = next(p for i, p in obj.PRIORITY_CHOICES if i == obj.priority)
+    return value
 
 
 @register.filter
@@ -66,7 +81,7 @@ def replace_lang(value: str, language_code: str) -> str:
     url_str_lst.insert(0, language_code_str)
     url = "/".join(url_str_lst)
     return url
-    
+
 
 @register.filter
 def responsible_list(obj) -> str:
@@ -88,9 +103,9 @@ def stage(obj) -> str:
 
 
 @register.filter
-def task_completed_button(obj: Task, responsible: USER_MODEL) -> str:
+def task_completed_button(obj: Task, responsible) -> str:
     """It is used to generate the button code in the template 
-    of the notification email to the responsible."""
+    of the notification email to the responsible (user)."""
     button_code = ''
     if obj.__class__ == Task:
         site = Site.objects.get_current()
