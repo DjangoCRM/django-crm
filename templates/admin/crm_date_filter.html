@@ -1,0 +1,62 @@
+{% load i18n util static %}
+{# CRM load crm_range_form.css #}
+<link rel="stylesheet" href="{% static "common/css/crm_range_form.css" %}">
+
+<details data-filter-title="{{ title }}" open>
+  <summary>
+    {% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}
+  </summary>
+  <ul>
+  {% for choice in choices %}
+    <li{% if choice.selected %} class="selected"{% endif %}>
+    <a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a></li>
+  {% endfor %}
+  
+  {# CRM range form #}
+  {% with from_field=choices|param:"from" to_field=choices|param:"to" %}
+    {# Translators: Specify dates of date range #}
+    <li><br>{% translate "Specify dates" %}
+      <form id="rangeForm" action="" method="get">
+        <div class="justify-container">
+          <div class="justify-row">
+            {# Translators: Start of date range #}
+            <label for="from_input">{% translate 'from' %}:</label>
+            <input name="{{from_field}}" id="from_input" maxlength="10" size="10">
+            <span class="justify-helper"></span>
+          </div>
+          <div class="justify-row">
+            {# Translators: End of date range #}
+            <label for="to_input">{% translate 'before' %}:</label>
+            <input name="actual_shipping_date__lt" id="to_input" maxlength="10" size="10">
+          </div>
+          {# Translators: Year-Month Day #}
+          <div class="justify-row">({% translate "YYYY-MM-DD" %})
+            <input type="submit" value={% translate "Send" %}>
+          </div>
+        </div>
+      </form>
+    </li>
+  </ul>
+</details>
+
+<script>
+  {# Overriding the default form submission behavior #}
+  document.getElementById('rangeForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    {# Getting the current URL #}
+    const currentUrl = new URL(window.location.href);
+
+    {# Getting values from form fields #}
+    const from_value = document.getElementById('from_input').value;
+    const to_value = document.getElementById('to_input').value;
+
+    {# Create a new URL with the required parameters #}
+    currentUrl.searchParams.set('{{from_field}}', from_value);
+    currentUrl.searchParams.set('{{to_field}}', to_value);
+
+    {# Sending the user to a new URL #}
+    window.location.href = currentUrl.toString();
+  });
+</script>
+{% endwith %}
