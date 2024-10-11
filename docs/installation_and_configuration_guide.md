@@ -21,6 +21,7 @@
 - [Launch CRM on the development server](#run-crm-on-the-built-in-server)
 - [Access to CRM and admin sites](#access-to-crm-and-admin-sites)
 - [Specify CRM site domain](#specify-crm-site-domain)
+- [Updating Django CRM software](#updating-django-crm-software)
 - [Ability to translate Django CRM interface into another language](#ability-to-translate-django-crm-interface-into-another-language)
 - [Built-in assistance system](#built-in-assistance-system)
 - [Adding Django CRM users](#adding-django-crm-users)
@@ -47,7 +48,7 @@
     - [Activate form protection with Google's reCAPTCHA v3](#activate-form-protection-with-googles-recaptcha-v3)
     - [Activation of geolocation of the country and city of the counterparty by its IP](#activation-of-geolocation-of-the-country-and-city-of-the-counterparty-by-its-ip)
     - [Adding a custom form for iframe](#adding-a-custom-form-for-iframe)
-    
+
     </details>
   
 - [Setting up email accounts](#setting-up-email-accounts)
@@ -86,8 +87,7 @@ The CRM project consists of the following main applications:
 - ANALYTICS
 - MASS MAIL
 
-The TASKS application does not require CRM configuration 
-and allows individual users or teams to work with the following objects:
+The TASKS application does not require CRM configuration and allows individual users or teams to work with the following objects:
 
 - Tasks / subtasks
 - Projects
@@ -103,8 +103,7 @@ Each instance of these objects also has integration with:
 Notifications within CRM and to Email are also available.  
 All CRM users have access to this application by default.
 
-Access to the rest of the applications is only available to users with the appropriate roles, 
-such as sales managers, company executives, etc.   
+Access to the rest of the applications is only available to users with the appropriate roles, such as sales managers, company executives, etc.  
 To use all the features of these applications, you need to set up CRM integration:
 
 - with your company's websites;
@@ -117,7 +116,7 @@ To use all the features of these applications, you need to set up CRM integratio
 To deploy the project, you will need: [Python](https://www.python.org/) and database.  
 The CRM software is developed and used with [MySQL](https://www.mysql.com/) database
 but taking into account compatibility with [PostgreSQL](https://www.postgresql.org)
-(passes the project tests).   
+(passes the project tests).  
 
 ### Fork the Repository
 
@@ -126,7 +125,7 @@ You now have a copy of the repository in your personal GitHub account.
 
 ### Clone the project
 
-To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system and use terminal or cmd.   
+To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system and use terminal or cmd.  
 Clone this GitHub repository:
 
 ```cmd
@@ -199,8 +198,7 @@ and then destroy a separate [test database](https://docs.djangoproject.com/en/de
   - charset `utf8mb4`
   - collation  `utf8mb4_general_ci`
 
-And also if an aggregation or annotation error occurs when running the tests, 
-you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
+And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
 
 #### Optimizing PostgreSQL's configuration
 
@@ -211,8 +209,7 @@ You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/m
 
 ### EMAIL_HOST settings
 
-Specify details for connecting to an email account 
-through which CRM will be able to send notifications to users and administrators.  
+Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
 
 - `EMAIL_HOST` (smtp server)
 - `EMAIL_HOST_PASSWORD`
@@ -222,7 +219,6 @@ through which CRM will be able to send notifications to users and administrators
 
 Add the addresses of CRM administrators to the list, so they can receive error logs.  
 `ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
-
 
 ## CRM and database testing
 
@@ -239,6 +235,7 @@ To fill CRM with initial data, you need to execute the command "setupdata" in th
 ```cmd
 python manage.py setupdata
 ```
+
 This command will execute `migrate`, `loaddata` and `createsuperuser`.
 As a result, the database will be populated with objects such as  
 countries, currencies, departments, industries, etc.  
@@ -246,10 +243,9 @@ Also the superuser will be created.
 You will be able to modify them or add your own.  
 Use the superuser credentials from the output to log into the CRM site.
 
-
 ## Run CRM on the built-in server
 
-Don’t use this server in anything resembling a production environment (with internet access to the CRM).  
+Don't use this server in anything resembling a production environment (with internet access to the CRM).  
 It is intended only for use on a personal computer or in a private local network (during development, for example).
 
  ```cmd
@@ -257,7 +253,7 @@ python manage.py runserver
  ```
 
 In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
-If you need to provide access to CRM from a local network, specify the IP address of your network card and port 
+If you need to provide access to CRM from a local network, specify the IP address of your network card and port  
 (but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
 
@@ -282,21 +278,51 @@ and Admin site for administrators (superusers):
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
 can be changed in the file `webcrm/settings.py`
 
-**Attention!** 
+**Attention!**  
 Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
 This address is not supported.  
 To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
 
 ## Specify CRM site domain
 
-By default, CRM software is configured to work on a domain "localhost" (ip: 127.0.0.1). 
+By default, CRM software is configured to work on a domain "localhost" (ip: 127.0.0.1).  
 To work on another domain (or IP address), you need to do the following:  
+
 - In the SITES section for administrators (superusers):  
 `(ADMIN site) Home > Sites > Sites`  
 Add a CRM site and specify its domain name.
 - In the file `webcrm/settings.py`:
   - specify its id in the setting `SITE_ID`,
   - add it to the setting `ALLOWED_HOSTS`.
+
+## Updating Django CRM software
+
+Django-CRM is actively developing: existing functionality is being improved, new functionality is being added, and bugs are being fixed.
+In addition, the versions of software used by CRM are updated.
+Therefore, it is important to set up system updates based on new releases of Django-CRM.
+Here are some tips on how to do it better:
+
+- To prevent your system settings from being overwritten when you upgrade CRM, it is recommended that you save them in a separate settings file, such as local_settings.py.
+In this file, add the line `from .settings import *` and save all your settings. In this way, the default project settings contained in the settings.py file will be overwritten by your settings.
+In the future, specify your settings file when launching CRM.
+
+```cmd
+python manage.py runserver --settings=webcrm.local_settings
+```
+
+- The new release may contain database migration files, so you need to run the migration command.
+
+```cmd
+python manage.py migrate --settings=webcrm.local_settings
+```
+
+- A new release may contain new or modified static files. Therefore, the static files collection command must be run on the production server.
+
+```cmd
+python manage.py collectstatic --settings=webcrm.local_settings
+```
+
+- Provide meaningful comments on the code you are modifying. This will help in case of conflict when merging your project with a new Django-CRM release.
 
 ## Ability to translate Django CRM interface into another language
 
