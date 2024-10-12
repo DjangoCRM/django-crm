@@ -174,10 +174,10 @@ class CrmDateFieldListFilter(DateFieldListFilter):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        self.template = "admin/crm_date_filter.html"
         now = timezone.now()
         # When time zone support is enabled, convert "now" to the user's time
-        # zone so Django's definition of "Today" matches what the user expects.
+        #  zone, so Django's definition of "Today" matches what the user expects.
         if timezone.is_aware(now):
             now = timezone.localtime(now)
         today = now.date()
