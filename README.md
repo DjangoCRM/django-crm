@@ -1,7 +1,3 @@
-Here's a simplified and user-friendly version of your Django-CRM overview, focusing on clarity and readability:
-
----
-
 # Django-CRM
 
 *(Customer Relationship Management App)*
