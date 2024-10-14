@@ -264,10 +264,7 @@ class DealAdmin(CrmModelAdmin):
             (' ', {
                 'fields': ('tag_list',)
             }),
-            (_('Add tags'), {
-                'classes': ('collapse',),
-                'fields': ('tags',)
-            }),
+            *self.get_tag_fieldsets(obj),
             (_('Relations'), {
                 'classes': ('collapse',),
                 'fields': (
