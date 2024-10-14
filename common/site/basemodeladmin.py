@@ -189,10 +189,12 @@ class BaseModelAdmin(admin.ModelAdmin):
             owner=request.user
         ).exists()
 
-    def get_tag_fieldsets(self, obj=None):
+    def get_tag_fieldsets(self, obj=None) -> list:
         """Hides the tag list if it is empty"""
         tag_fieldsets = []
         if hasattr(self.model, 'tags'):
+            if obj and obj.tags.exists():
+                tag_fieldsets.append((None, {'fields': ('tag_list',)}))
             tag_fieldsets.append(
                 (mark_safe(f'{white_tag_icon} {add_tags_str}'),
                     {
@@ -200,8 +202,6 @@ class BaseModelAdmin(admin.ModelAdmin):
                         'fields': ('tags',)
                     })
             )
-            if obj and obj.tags.exists():
-                tag_fieldsets.insert(0, (None, {'fields': ('tag_list',)}))
         return tag_fieldsets
 
     def get_url_if_no_object(self, request: WSGIRequest, object_id: int) -> str:
