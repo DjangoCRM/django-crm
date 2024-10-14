@@ -1,5 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import get_today
@@ -164,3 +165,7 @@ class BaseCounterparty(models.Model):
         except MassContact.DoesNotExist:
             pass
         super().delete(*args, **kwargs)
+
+    def get_crm_url(self) -> str:
+        """Returns the URL of an object on the CRM site"""
+        return reverse(f'site:crm_{self._meta.model_name}_change', args=(self.id,))
