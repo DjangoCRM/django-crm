@@ -433,23 +433,23 @@ class MemoAdmin(BaseModelAdmin):
     def status(self, obj):
         if obj.stage == obj.REVIEWED:
             return mark_safe(
-                f'<i class="material-icons" title="{_("Status")}: {reviewed_str}"'
+                f'<i class="material-icons" title="{status_str}: {reviewed_str}"'
                 ' style="color: var(--green-fg)">assignment_turned_in</i>'
             )
         if obj.stage == obj.POSTPONED:
             return mark_safe(
-                f'<i class="material-icons" title="{_("Status")}: {postponed_str}"'
+                f'<i class="material-icons" title="{status_str}: {postponed_str}"'
                 ' style="color: var(--green-fg)">low_priority</i>'
             )
         if obj.draft:
             return mark_safe(
-                f'<i class="material-icons" title="{_("Status")}: {draft_str}"'
+                f'<i class="material-icons" title="{status_str}: {draft_str}"'
                 ' style="color: var(--error-fg)">visibility_off</i>'
             )
 
         else:
             return mark_safe(
-                f'<i class="material-icons" title="{_("Status")}: {unreviewed_str}"'
+                f'<i class="material-icons" title="{status_str}: {unreviewed_str}"'
                 ' style="color: var(--error-fg)">assignment_late</i>'
             )
 
