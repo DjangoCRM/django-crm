@@ -40,6 +40,7 @@ from crm.models import ClosingReason
 from crm.models import CrmEmail
 from crm.models.request import Request
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+from crm.utils.admfilters import TagFilter
 from crm.utils.clarify_permission import clarify_permission
 from crm.utils.helpers import html2txt
 from crm.utils.admfilters import ByCityFilter
@@ -204,7 +205,10 @@ class CrmModelAdmin(BaseModelAdmin):
                         "city__id__exact" in request.GET or \
                         not country_filter_needed:
                     list_filter.append(ByCityFilter)
-
+        if hasattr(self.model, 'tags'):
+            if request.user.department_id or request.GET.get('department'):
+                list_filter.append(TagFilter)
+        
         return list_filter
 
     def get_readonly_fields(self, request, obj=None):

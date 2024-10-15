@@ -54,7 +54,8 @@ class CompanyAdmin(CrmModelAdmin):
         'registration_number'
     ]
     list_filter = [
-        HasContactsFilter, ByOwnerFilter, TagFilter,
+        HasContactsFilter,
+        ByOwnerFilter,
         'update_date',
         ('industry', ScrollRelatedOnlyFieldListFilter),
         ('type', admin.RelatedOnlyFieldListFilter),

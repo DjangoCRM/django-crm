@@ -35,7 +35,6 @@ class ContactAdmin(CrmModelAdmin):
     ]
     list_filter = (
         ByOwnerFilter,
-        TagFilter,
         ('company__industry', ScrollRelatedOnlyFieldListFilter),
         ('company__type', admin.RelatedOnlyFieldListFilter),
     )
