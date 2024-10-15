@@ -52,6 +52,9 @@ primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;colo
 primary_title = _("Primary request")
 REQUEST_CO_OWNER_NOTICE = _("You are the co-owner of the request")
 REQUEST_OWNER_NOTICE = _("You received the request")
+pending_str = _('pending')
+processed_str = _('processed')
+status_str = _('Status')
 subject_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
 )
@@ -163,7 +166,7 @@ class RequestAdmin(CrmModelAdmin):
         list_display.extend(('the_full_name', 'the_receipt_date'))
         if not (request.user.is_manager and 'owner' not in request.GET):
             list_display.append('person')
-        list_display.append('pending')
+        list_display.append('status')
         self.list_display = list_display
         return super().get_list_display(request)
 
@@ -329,6 +332,22 @@ class RequestAdmin(CrmModelAdmin):
         if not obj.request_for:
             obj.request_for = _('No subject')
         return obj.request_for
+
+    @admin.display(description=status_str)
+    def status(self, obj):
+        if obj.pending:
+            return mark_safe(
+                f'<i class="material-icons" title="{
+                    status_str}: {pending_str}"'
+                ' style="font-size: 17px; color: var(--error-fg)">assignment_late</i>'
+            )
+        else:
+            return mark_safe(
+                f'<i class="material-icons" title="{
+                    status_str}: {processed_str}"'
+                ' style="font-size: 17px; color: var(--green-fg)">assignment_turned_in</i>'
+            )
+           
 
     @admin.display(
         description=today_safe_icon,
