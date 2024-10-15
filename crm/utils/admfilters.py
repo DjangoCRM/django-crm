@@ -255,12 +255,9 @@ class TagFilter(SimpleListFilter):
         return lookups
 
     def queryset(self, request, queryset):
-        if self.value() is not None:
-            department_id = request.user.department_id
-            tag = Tag.objects.get(id=self.value())
-            if department_id and department_id != 'all':
-                if department_id == tag.department_id:
-                    queryset = queryset.filter(tags__id=self.value())
+        value = self.value()
+        if value is not None:
+            queryset = queryset.filter(tags__id=value)
         return queryset
 
 
