@@ -347,7 +347,7 @@ class MemoAdmin(BaseModelAdmin):
             msg = get_trans_for_user(you_received_memo_str, obj.to)
             message = compose_message(obj, msg)
             save_message(obj.to, message)
-            composed_subject = compose_subject(obj, message)
+            composed_subject = compose_subject(obj, msg)
             email_to_participants(obj, '',
                         [obj.to], composed_subject)
             obj.notified = True
