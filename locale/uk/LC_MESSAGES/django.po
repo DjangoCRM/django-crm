@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-15 20:08+0300\n"
-"PO-Revision-Date: 2024-10-15 20:10+0300\n"
+"POT-Creation-Date: 2024-10-16 11:25+0300\n"
+"PO-Revision-Date: 2024-10-16 11:34+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,344 +19,349 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: analytics/apps.py:10
+#: .\analytics\apps.py:10
 msgid "Analytics"
 msgstr "Аналітика"
 
-#: analytics/models.py:15
+#: .\analytics\models.py:15
 msgid "IncomeStat Snapshot"
 msgstr "Знімок IncomeStat"
 
-#: analytics/models.py:16
+#: .\analytics\models.py:16
 msgid "IncomeStat Snapshots"
 msgstr "Знімки IncomeStat"
 
-#: analytics/models.py:28 analytics/models.py:29
+#: .\analytics\models.py:28 .\analytics\models.py:29
 msgid "Sales Report"
 msgstr "Звіт про продаж"
 
-#: analytics/models.py:36
+#: .\analytics\models.py:36
 msgid "Request Summary"
 msgstr "Статистика запитів"
 
-#: analytics/models.py:37
+#: .\analytics\models.py:37
 msgid "Requests Summary"
 msgstr "Статистика запитів"
 
-#: analytics/models.py:44 analytics/models.py:45
+#: .\analytics\models.py:44 .\analytics\models.py:45
 msgid "Lead source Summary"
 msgstr "Статистика джерел запитів"
 
-#: analytics/models.py:52 analytics/models.py:53
+#: .\analytics\models.py:52 .\analytics\models.py:53
 msgid "Closing reason Summary"
 msgstr "Статистика з причин закриття"
 
-#: analytics/models.py:60 analytics/models.py:61
+#: .\analytics\models.py:60 .\analytics\models.py:61
 msgid "Deal Summary"
 msgstr "Статистика угод"
 
-#: analytics/models.py:68 analytics/models.py:69
-#: analytics/site/incomestatadmin.py:48
+#: .\analytics\models.py:68 .\analytics\models.py:69
+#: .\analytics\site\incomestatadmin.py:48
 msgid "Income Summary"
 msgstr "Зведення доходів"
 
-#: analytics/models.py:76 analytics/models.py:77
+#: .\analytics\models.py:76 .\analytics\models.py:77
 msgid "Sales funnel"
 msgstr "Воронка продажів"
 
-#: analytics/models.py:84 analytics/models.py:85
+#: .\analytics\models.py:84 .\analytics\models.py:85
 msgid "Conversion Summary"
 msgstr "Статистика конверсії"
 
-#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
-#: crm/models/payment.py:108
+#: .\analytics\site\anlmodeladmin.py:105
+#: .\analytics\site\outputstatadmin.py:39 .\crm\models\payment.py:108
 msgid "Payment date"
 msgstr "дата оплати"
 
-#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
-#: crm/models/request.py:82
+#: .\analytics\site\closingreasonstatadmin.py:15 .\crm\models\product.py:32
+#: .\crm\models\request.py:82
 msgid "Products"
 msgstr "Продукти"
 
-#: analytics/site/closingreasonstatadmin.py:63
+#: .\analytics\site\closingreasonstatadmin.py:63
 msgid "Closing reason over month"
 msgstr "Причини закриття за місяцями"
 
-#: analytics/site/conversionadmin.py:11
+#: .\analytics\site\conversionadmin.py:11
 msgid "Conversion of requests into successful deals (for the last 365 days)"
 msgstr "Конверсія запитів в успішні угоди (за останні 365 днів)."
 
-#: analytics/site/conversionadmin.py:39
+#: .\analytics\site\conversionadmin.py:39
 msgid "Conversion of primary requests"
 msgstr "Конверсія первинних запитів"
 
-#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+#: .\analytics\site\conversionadmin.py:41
+#: .\analytics\site\conversionadmin.py:56
 msgid "Conversion"
 msgstr "Конверсія"
 
-#: analytics/site/conversionadmin.py:43
-#: analytics/site/leadsourcestatadmin.py:21
-#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+#: .\analytics\site\conversionadmin.py:43
+#: .\analytics\site\leadsourcestatadmin.py:21
+#: .\analytics\site\requeststatadmin.py:24
+#: .\analytics\site\requeststatadmin.py:94
 msgid "Total requests"
 msgstr "Всього запитів"
 
-#: analytics/site/conversionadmin.py:44
+#: .\analytics\site\conversionadmin.py:44
 msgid "Total primary requests"
 msgstr "Загальна кількість первинних запитів"
 
-#: analytics/site/dealstatadmin.py:17
+#: .\analytics\site\dealstatadmin.py:17
 msgid "Deal Summary for last 365 days"
 msgstr "Статистика з операцій за останні 365 днів"
 
-#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+#: .\analytics\site\dealstatadmin.py:44 .\analytics\site\dealstatadmin.py:49
 msgid "Total deals"
 msgstr "Усього угод"
 
-#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+#: .\analytics\site\dealstatadmin.py:45 .\analytics\site\dealstatadmin.py:69
 msgid "Relevant deals"
 msgstr "Релевантні угоди"
 
-#: analytics/site/dealstatadmin.py:46
+#: .\analytics\site\dealstatadmin.py:46
 msgid "Closed successfully (primary)"
 msgstr "Закритих успішно (первинних)"
 
-#: analytics/site/dealstatadmin.py:47
+#: .\analytics\site\dealstatadmin.py:47
 msgid "Average days to close successfully (primary)"
 msgstr "Середня кількість днів для успішного закриття (первинних)"
 
-#: analytics/site/dealstatadmin.py:60
+#: .\analytics\site\dealstatadmin.py:60
 msgid "Irrelevant deals"
 msgstr "Нерелевантні угоди"
 
-#: analytics/site/dealstatadmin.py:78
+#: .\analytics\site\dealstatadmin.py:78
 msgid "Won deals"
 msgstr "Успішні угоди"
 
-#: analytics/site/incomestatadmin.py:135
+#: .\analytics\site\incomestatadmin.py:135
 msgid "The snapshot has been saved successfully."
 msgstr "Знімок успішно збережено."
 
-#: analytics/site/incomestatadmin.py:183
+#: .\analytics\site\incomestatadmin.py:183
 msgid "Income monthly (total amount for the current period: {} {} ({}))"
 msgstr "Щомісячний дохід (загальна сума за поточний період: {} {} ({}))"
 
-#: analytics/site/incomestatadmin.py:188
+#: .\analytics\site\incomestatadmin.py:188
 msgid "Income monthly in the previous period"
 msgstr "Щомісячний дохід у попередньому періоді"
 
-#: analytics/site/incomestatadmin.py:193
+#: .\analytics\site\incomestatadmin.py:193
 msgid "Payments received"
 msgstr "Отримані платежі"
 
-#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
-#: crm/models/payment.py:66 crm/site/paymentadmin.py:254
+#: .\analytics\site\incomestatadmin.py:207 .\crm\models\deal.py:70
+#: .\crm\models\payment.py:66 .\crm\site\paymentadmin.py:254
 msgid "Amount"
 msgstr "Сума"
 
-#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+#: .\analytics\site\incomestatadmin.py:208
+#: .\analytics\site\incomestatadmin.py:405
 msgid "Order"
 msgstr "Замовлення"
 
-#: analytics/site/incomestatadmin.py:239
+#: .\analytics\site\incomestatadmin.py:239
 msgid "Guaranteed income"
 msgstr "Гарантовані надходження"
 
-#: analytics/site/incomestatadmin.py:246
+#: .\analytics\site\incomestatadmin.py:246
 msgid "High probability income"
 msgstr "Дохід із високою ймовірністю"
 
-#: analytics/site/incomestatadmin.py:253
+#: .\analytics\site\incomestatadmin.py:253
 msgid "Low probability income"
 msgstr "Дохід із низькою ймовірністю"
 
-#: analytics/site/incomestatadmin.py:295
+#: .\analytics\site\incomestatadmin.py:295
 msgid "Income averaged over the year ({})."
 msgstr "Доход, усереднений протягом року ({})."
 
-#: analytics/site/incomestatadmin.py:307
+#: .\analytics\site\incomestatadmin.py:307
 msgid "Total won deals"
 msgstr "Усього успішних угод"
 
-#: analytics/site/incomestatadmin.py:308
+#: .\analytics\site\incomestatadmin.py:308
 msgid "Average won deals a month"
 msgstr "Середня кількість успішних угод на місяць"
 
-#: analytics/site/incomestatadmin.py:309
+#: .\analytics\site\incomestatadmin.py:309
 msgid "Average income amount a month"
 msgstr "Середня сума доходу на місяць"
 
-#: analytics/site/incomestatadmin.py:451
+#: .\analytics\site\incomestatadmin.py:451
 msgid "Total amount"
 msgstr "Разом"
 
-#: analytics/site/leadsourcestatadmin.py:15
-#: analytics/site/requeststatadmin.py:18
+#: .\analytics\site\leadsourcestatadmin.py:15
+#: .\analytics\site\requeststatadmin.py:18
 msgid "Request source statistics"
 msgstr "Статистика джерел запитів"
 
-#: analytics/site/leadsourcestatadmin.py:16
-#: analytics/site/requeststatadmin.py:19
+#: .\analytics\site\leadsourcestatadmin.py:16
+#: .\analytics\site\requeststatadmin.py:19
 msgid "Number of requests for each source"
 msgstr "Кількість запитів щодо кожного джерела"
 
-#: analytics/site/leadsourcestatadmin.py:17
-#: analytics/site/requeststatadmin.py:20
-#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+#: .\analytics\site\leadsourcestatadmin.py:17
+#: .\analytics\site\requeststatadmin.py:20
+#: .\analytics\templates\admin\analytics\closingreasonstat\closingreasons_summary_change_list.html:18
 msgid "Requests over country"
 msgstr "Запити по країнах"
 
-#: analytics/site/leadsourcestatadmin.py:18
-#: analytics/site/requeststatadmin.py:21
+#: .\analytics\site\leadsourcestatadmin.py:18
+#: .\analytics\site\requeststatadmin.py:21
 msgid "for all period"
 msgstr "за весь період"
 
-#: analytics/site/leadsourcestatadmin.py:19
-#: analytics/site/requeststatadmin.py:22
+#: .\analytics\site\leadsourcestatadmin.py:19
+#: .\analytics\site\requeststatadmin.py:22
 msgid "for last 365 days"
 msgstr "за останні 365 днів"
 
-#: analytics/site/leadsourcestatadmin.py:20
-#: analytics/site/requeststatadmin.py:23
+#: .\analytics\site\leadsourcestatadmin.py:20
+#: .\analytics\site\requeststatadmin.py:23
 msgid "conversion"
 msgstr "конверсія"
 
-#: analytics/site/leadsourcestatadmin.py:22
-#: analytics/site/requeststatadmin.py:25
+#: .\analytics\site\leadsourcestatadmin.py:22
+#: .\analytics\site\requeststatadmin.py:25
 msgid "Not specified"
 msgstr "Не вказано"
 
-#: analytics/site/leadsourcestatadmin.py:116
+#: .\analytics\site\leadsourcestatadmin.py:116
 msgid "Relevant requests over month"
 msgstr "Релевантні запити по місяцях"
 
-#: analytics/site/outputstatadmin.py:40 crm/models/output.py:51
-#: crm/site/shipmentadmin.py:36
+#: .\analytics\site\outputstatadmin.py:40 .\crm\models\output.py:51
+#: .\crm\site\shipmentadmin.py:36
 msgid "pcs"
 msgstr "шт."
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:79
-#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
-#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
-#: crm/utils/admfilters.py:113
+#: .\analytics\site\outputstatadmin.py:45 .\crm\models\base_contact.py:80
+#: .\crm\models\country.py:31 .\crm\models\country.py:49
+#: .\crm\models\deal.py:110 .\crm\models\request.py:86
+#: .\crm\templates\crm\print_request.html:55 .\crm\utils\admfilters.py:113
 msgid "Country"
 msgstr "Країна"
 
-#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
-#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
-#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
-#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
-#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
-#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
-#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
-#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+#: .\analytics\site\outputstatadmin.py:49
+#: .\analytics\site\outputstatadmin.py:77
+#: .\analytics\site\outputstatadmin.py:112
+#: .\analytics\site\outputstatadmin.py:122 .\crm\utils\admfilters.py:117
+#: .\crm\utils\admfilters.py:144 .\crm\utils\admfilters.py:308
+#: .\crm\utils\admfilters.py:348 .\crm\utils\admfilters.py:366
+#: .\crm\utils\admfilters.py:422 .\crm\utils\admfilters.py:472
+#: .\crm\utils\admfilters.py:492 .\crm\utils\admfilters.py:505
+#: .\crm\utils\admfilters.py:519 .\crm\utils\admfilters.py:538
+#: .\crm\utils\admfilters.py:543 .\tasks\utils\admfilters.py:31
+#: .\tasks\utils\admfilters.py:37 .\tasks\utils\admfilters.py:111
+#: .\tasks\utils\admfilters.py:115 .\tasks\utils\admfilters.py:119
+#: .\tasks\utils\admfilters.py:156 .\tasks\utils\admfilters.py:165
+#: .\tasks\utils\admfilters.py:216
 msgid "All"
 msgstr "Усе"
 
-#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
-#: common/models.py:185
-#: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:343 voip/models.py:49
+#: .\analytics\site\outputstatadmin.py:107 .\chat\models.py:28
+#: .\common\models.py:32 .\common\models.py:185
+#: .\common\templates\common\notice_participants_email.html:15
+#: .\crm\templates\crm\change_owner_companies.html:26
+#: .\crm\utils\admfilters.py:343 .\voip\models.py:49
 msgid "Owner"
 msgstr "Власник"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:19
-#: crm/models/product.py:31 crm/utils/admfilters.py:266
+#: .\analytics\site\outputstatadmin.py:169 .\crm\models\output.py:19
+#: .\crm\models\product.py:31 .\crm\utils\admfilters.py:266
 msgid "Product"
 msgstr "Продукт"
 
-#: analytics/site/outputstatadmin.py:199
+#: .\analytics\site\outputstatadmin.py:199
 msgid "Sold products summary (by date of payment receipt)"
 msgstr "Звіт про продані товари (за датою отримання оплати)"
 
-#: analytics/site/outputstatadmin.py:287
+#: .\analytics\site\outputstatadmin.py:287
 msgid "Sold products"
 msgstr "Реалізована продукція"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: .\analytics\site\outputstatadmin.py:293 .\crm\models\product.py:45
 msgid "Price"
 msgstr "Ціна"
 
-#: analytics/site/requeststatadmin.py:57
+#: .\analytics\site\requeststatadmin.py:57
 msgid "Request Summary for last 365 days"
 msgstr "Статистика запитів за останні 365 днів"
 
-#: analytics/site/requeststatadmin.py:91
+#: .\analytics\site\requeststatadmin.py:91
 msgid "Conversion of primary requests into successful deals"
 msgstr "Конверсія первинних запитів в успішні угоди"
 
-#: analytics/site/requeststatadmin.py:95
+#: .\analytics\site\requeststatadmin.py:95
 msgid "Primary requests"
 msgstr "Первинні запити"
 
-#: analytics/site/requeststatadmin.py:97
+#: .\analytics\site\requeststatadmin.py:97
 msgid "Subsequent requests"
 msgstr "Подальші запити"
 
-#: analytics/site/requeststatadmin.py:98
+#: .\analytics\site\requeststatadmin.py:98
 msgid "Conversion of subsequent requests"
 msgstr "Конверсія подальших запитів"
 
-#: analytics/site/requeststatadmin.py:101
+#: .\analytics\site\requeststatadmin.py:101
 msgid "average monthly value"
 msgstr "середньомісячне значення"
 
-#: analytics/site/requeststatadmin.py:102
+#: .\analytics\site\requeststatadmin.py:102
 msgid "Requests by month"
 msgstr "Запити за місяцями"
 
-#: analytics/site/requeststatadmin.py:116
+#: .\analytics\site\requeststatadmin.py:116
 msgid "Relevant requests"
 msgstr "Релевантних запитів"
 
-#: analytics/site/salesfunnelsadmin.py:42
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+#: .\analytics\site\salesfunnelsadmin.py:42
+#: .\analytics\templates\admin\analytics\salesfunnel\sales_funnel_change_list.html:50
 msgid "Total closed deals"
 msgstr "Усього закритих угод"
 
-#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+#: .\analytics\templates\admin\analytics\closingreasonstat\closingreasons_summary_change_list.html:4
 msgid "Statistics on the Closing reason of deals for all the time"
 msgstr "Статистика причин закриття за весь час"
 
-#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+#: .\analytics\templates\admin\analytics\closingreasonstat\closingreasons_summary_change_list.html:12
 msgid "total requests"
 msgstr "всього запитів"
 
-#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
-#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+#: .\analytics\templates\admin\analytics\incomestat\change_list_object_tools.html:9
+#: .\analytics\templates\admin\analytics\outputstat\change_list_object_tools.html:9
 msgid "Switch currency"
 msgstr "Змінити валюту"
 
-#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+#: .\analytics\templates\admin\analytics\incomestat\change_list_object_tools.html:19
 msgid "Save snapshot"
 msgstr "Зберегти знімок"
 
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+#: .\analytics\templates\admin\analytics\salesfunnel\sales_funnel_change_list.html:4
 msgid "Sales funnel for last 365 days"
 msgstr "Воронка продажів за останні 365 днів"
 
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+#: .\analytics\templates\admin\analytics\salesfunnel\sales_funnel_change_list.html:49
 msgid "The number of closed deals in stages"
 msgstr "Кількість закритих угод за етапами"
 
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+#: .\analytics\templates\admin\analytics\salesfunnel\sales_funnel_change_list.html:58
 msgid "Chart"
 msgstr "Діаграма"
 
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+#: .\analytics\templates\admin\analytics\salesfunnel\sales_funnel_change_list.html:59
 msgid "The percentages show the number of \"lost\" deals at each stage."
 msgstr "Відсотки показують кількість \"втрачених\" угод на кожному етапі. "
 
-#: analytics/templates/analytics/bar_chart.html:58
-#: analytics/templates/analytics/bar_chart_.html:51
+#: .\analytics\templates\analytics\bar_chart.html:58
+#: .\analytics\templates\analytics\bar_chart_.html:51
 msgid "Charts"
 msgstr "Діаграми"
 
-#: analytics/templates/analytics/notice.html:2
+#: .\analytics\templates\analytics\notice.html:2
 msgid ""
 "Note! The calculations use data for the whole year. But the charts begin on "
 "the first of the next month."
@@ -364,191 +369,192 @@ msgstr ""
 "Зверніть увагу! У розрахунках використовуються дані протягом року. Але "
 "діаграми розпочинаються з першого числа наступного місяця."
 
-#: analytics/templates/analytics/view_snapshots.html:8
+#: .\analytics\templates\analytics\view_snapshots.html:8
 msgid "Data"
 msgstr "Дата"
 
-#: analytics/templates/analytics/view_snapshots.html:9
+#: .\analytics\templates\analytics\view_snapshots.html:9
 msgid "Snapshots"
 msgstr "Знімки"
 
-#: analytics/templates/analytics/view_snapshots.html:9
+#: .\analytics\templates\analytics\view_snapshots.html:9
 msgid "Now"
 msgstr "Зараз"
 
-#: chat/apps.py:8 chat/templates/chat_buttons.html:9
-#: chat/templates/chat_buttons.html:13
+#: .\chat\apps.py:8 .\chat\templates\chat_buttons.html:9
+#: .\chat\templates\chat_buttons.html:13
 msgid "Chat"
 msgstr "Чат"
 
-#: chat/forms/chatmessageform.py:29
+#: .\chat\forms\chatmessageform.py:29
 msgid "Please write a message"
 msgstr "Будь ласка, напишіть повідомлення"
 
-#: chat/forms/chatmessageform.py:35
+#: .\chat\forms\chatmessageform.py:35
 msgid "Please select at least one recipient"
 msgstr "Будь ласка, виберіть хоча б одного одержувача"
 
-#: chat/models.py:15
+#: .\chat\models.py:15
 msgid "message"
 msgstr "повідомлення"
 
-#: chat/models.py:16
+#: .\chat\models.py:16
 msgid "messages"
 msgstr "повідомлення"
 
-#: chat/models.py:24 chat/templates/chat_buttons.html:3
-#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
-#: massmail/site/emlmessageadmin.py:121
+#: .\chat\models.py:24 .\chat\templates\chat_buttons.html:3
+#: .\crm\forms\contact_form.py:32 .\massmail\models\mailing_out.py:37
+#: .\massmail\site\emlmessageadmin.py:121
 msgid "Message"
 msgstr "Повідомлення"
 
-#: chat/models.py:34
+#: .\chat\models.py:34
 msgid "answer to"
 msgstr "відповідь для"
 
-#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+#: .\chat\models.py:42 .\chat\site\chatmessageadmin.py:50
 msgid "recipients"
 msgstr "одержувачі"
 
-#: chat/models.py:47
+#: .\chat\models.py:47
 msgid "to"
 msgstr "кому"
 
-#: chat/models.py:52 common/models.py:24 common/models.py:179
-#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+#: .\chat\models.py:52 .\common\models.py:24 .\common\models.py:179
+#: .\common\site\basemodeladmin.py:21 .\massmail\models\mailing_out.py:63
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: chat/site/chatmessageadmin.py:53
+#: .\chat\site\chatmessageadmin.py:53
 msgid "task operator"
 msgstr "оператор завдань"
 
-#: chat/site/chatmessageadmin.py:54
+#: .\chat\site\chatmessageadmin.py:54
 msgid "You received a message regarding - "
 msgstr "Ви отримали повідомлення щодо -"
 
-#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:141
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:153 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:96 crm/site/tagadmin.py:13 massmail/admin.py:37
-#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:174
-#: tasks/site/tasksbasemodeladmin.py:223
+#: .\chat\site\chatmessageadmin.py:94 .\crm\admin.py:112 .\crm\admin.py:183
+#: .\crm\admin.py:230 .\crm\admin.py:283 .\crm\site\companyadmin.py:141
+#: .\crm\site\contactadmin.py:130 .\crm\site\dealadmin.py:276
+#: .\crm\site\leadadmin.py:153 .\crm\site\productadmin.py:18
+#: .\crm\site\requestadmin.py:96 .\crm\site\tagadmin.py:13
+#: .\massmail\admin.py:37 .\massmail\site\emlmessageadmin.py:80
+#: .\massmail\site\signatureadmin.py:37 .\tasks\admin.py:76
+#: .\tasks\admin.py:129 .\tasks\site\memoadmin.py:174
+#: .\tasks\site\tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "Додаткова інформація"
 
-#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+#: .\chat\site\chatmessageadmin.py:121 .\massmail\models\mailing_out.py:44
 msgid "Recipients"
 msgstr "Одержувачі"
 
-#: chat/site/chatmessageadmin.py:283
-#: chat/templates/chat/chatmessage_email.html:12
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
-#: crm/templates/admin/crm/inline_emails.html:36
+#: .\chat\site\chatmessageadmin.py:283
+#: .\chat\templates\chat\chatmessage_email.html:12
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:6
+#: .\crm\templates\admin\crm\inline_emails.html:36
 msgid "reply"
 msgstr "Відповісти"
 
-#: chat/site/chatmessageadmin.py:293
+#: .\chat\site\chatmessageadmin.py:293
 msgid "Reply to"
 msgstr "Відповісти на"
 
-#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
-#: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
-#: common/templates/common/user_transfer.html:17
-#: crm/templates/admin/crm/change_form.html:21
-#: crm/templates/admin/crm/company/change_list_object_tools.html:8
-#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
-#: crm/templates/admin/crm/crmemail/change_form.html:21
-#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
-#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
-#: crm/templates/admin/crm/request/change_list_object_tools.html:8
-#: crm/templates/crm/addfiles.html:15
-#: crm/templates/crm/change_owner_companies.html:15
-#: crm/templates/crm/import_objects.html:15
-#: crm/templates/crm/select_original_obj.html:27
-#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
-#: templates/admin/auth/group/change_list_object_tools.html:8
-#: templates/admin/auth/user/change_list_object_tools.html:8
+#: .\chat\templates\admin\chat\chatmessage\change_list_object_tools.html:13
+#: .\common\templates\common\copy_department.html:17
+#: .\common\templates\common\select_email_account.html:15
+#: .\common\templates\common\user_transfer.html:17
+#: .\crm\templates\admin\crm\change_form.html:21
+#: .\crm\templates\admin\crm\company\change_list_object_tools.html:8
+#: .\crm\templates\admin\crm\contact\change_list_object_tools.html:8
+#: .\crm\templates\admin\crm\crmemail\change_form.html:21
+#: .\crm\templates\admin\crm\crmemail\change_list_object_tools.html:8
+#: .\crm\templates\admin\crm\lead\change_list_object_tools.html:8
+#: .\crm\templates\admin\crm\request\change_list_object_tools.html:8
+#: .\crm\templates\crm\addfiles.html:15
+#: .\crm\templates\crm\change_owner_companies.html:15
+#: .\crm\templates\crm\import_objects.html:15
+#: .\crm\templates\crm\select_original_obj.html:27
+#: .\tasks\templates\admin\tasks\memo\change_list_object_tools.html:13
+#: .\tasks\templates\admin\tasks\task\change_list_object_tools.html:15
+#: .\templates\admin\auth\group\change_list_object_tools.html:8
+#: .\templates\admin\auth\user\change_list_object_tools.html:8
 #, python-format
 msgid "Add %(name)s"
 msgstr "Додати %(name)s"
 
-#: chat/templates/admin/chat/chatmessage/submit_line.html:4
-#: crm/templates/admin/crm/crmemail/submit_line.html:12
-#: crm/templates/crm/contact_form.html:44
-#: templates/admin/crm_date_filter.html:34
+#: .\chat\templates\admin\chat\chatmessage\submit_line.html:4
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:12
+#: .\crm\templates\crm\contact_form.html:44
+#: .\templates\admin\crm_date_filter.html:34
 msgid "Send"
 msgstr "Відправити"
 
-#: chat/templates/admin/chat/chatmessage/submit_line.html:7
-#: common/templates/admin/common/reminder/submit_line.html:8
-#: common/templates/admin/common/userprofile/submit_line.html:8
-#: crm/templates/admin/crm/city/submit_line.html:10
-#: crm/templates/admin/crm/company/submit_line.html:10
-#: crm/templates/admin/crm/contact/submit_line.html:9
-#: crm/templates/admin/crm/crmemail/submit_line.html:19
-#: crm/templates/admin/crm/deal/submit_line.html:9
-#: crm/templates/admin/crm/lead/submit_line.html:13
-#: crm/templates/admin/crm/payment/submit_line.html:9
-#: crm/templates/admin/crm/request/submit_line.html:12
-#: crm/templates/admin/crm/shipment/submit_line.html:9
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
-#: tasks/templates/admin/tasks/memo/submit_line.html:12
-#: tasks/templates/admin/tasks/project/submit_line.html:9
-#: tasks/templates/admin/tasks/task/submit_line.html:17
+#: .\chat\templates\admin\chat\chatmessage\submit_line.html:7
+#: .\common\templates\admin\common\reminder\submit_line.html:8
+#: .\common\templates\admin\common\userprofile\submit_line.html:8
+#: .\crm\templates\admin\crm\city\submit_line.html:10
+#: .\crm\templates\admin\crm\company\submit_line.html:10
+#: .\crm\templates\admin\crm\contact\submit_line.html:9
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:19
+#: .\crm\templates\admin\crm\deal\submit_line.html:9
+#: .\crm\templates\admin\crm\lead\submit_line.html:13
+#: .\crm\templates\admin\crm\payment\submit_line.html:9
+#: .\crm\templates\admin\crm\request\submit_line.html:12
+#: .\crm\templates\admin\crm\shipment\submit_line.html:9
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:9
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:12
+#: .\tasks\templates\admin\tasks\project\submit_line.html:9
+#: .\tasks\templates\admin\tasks\task\submit_line.html:17
 msgid "Close"
 msgstr "Закрити"
 
-#: chat/templates/admin/chat/chatmessage/submit_line.html:11
-#: common/templates/admin/common/reminder/submit_line.html:12
-#: common/templates/admin/common/userprofile/submit_line.html:12
-#: common/templates/common/select_emails.html:31
-#: common/templates/common/select_emails.html:73
-#: crm/templates/admin/crm/city/submit_line.html:14
-#: crm/templates/admin/crm/company/submit_line.html:14
-#: crm/templates/admin/crm/contact/submit_line.html:13
-#: crm/templates/admin/crm/crmemail/submit_line.html:23
-#: crm/templates/admin/crm/deal/submit_line.html:13
-#: crm/templates/admin/crm/lead/submit_line.html:17
-#: crm/templates/admin/crm/payment/submit_line.html:13
-#: crm/templates/admin/crm/request/submit_line.html:16
-#: crm/templates/admin/crm/shipment/submit_line.html:13
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
-#: tasks/templates/admin/tasks/memo/submit_line.html:16
-#: tasks/templates/admin/tasks/project/submit_line.html:13
-#: tasks/templates/admin/tasks/task/submit_line.html:21
+#: .\chat\templates\admin\chat\chatmessage\submit_line.html:11
+#: .\common\templates\admin\common\reminder\submit_line.html:12
+#: .\common\templates\admin\common\userprofile\submit_line.html:12
+#: .\common\templates\common\select_emails.html:31
+#: .\common\templates\common\select_emails.html:73
+#: .\crm\templates\admin\crm\city\submit_line.html:14
+#: .\crm\templates\admin\crm\company\submit_line.html:14
+#: .\crm\templates\admin\crm\contact\submit_line.html:13
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:23
+#: .\crm\templates\admin\crm\deal\submit_line.html:13
+#: .\crm\templates\admin\crm\lead\submit_line.html:17
+#: .\crm\templates\admin\crm\payment\submit_line.html:13
+#: .\crm\templates\admin\crm\request\submit_line.html:16
+#: .\crm\templates\admin\crm\shipment\submit_line.html:13
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:13
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:16
+#: .\tasks\templates\admin\tasks\project\submit_line.html:13
+#: .\tasks\templates\admin\tasks\task\submit_line.html:21
 msgid "Delete"
 msgstr "Видалити"
 
-#: chat/templates/chat/chatmessage_email.html:5
-#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
-#: crm/templates/admin/crm/inline_emails.html:45
+#: .\chat\templates\chat\chatmessage_email.html:5
+#: .\common\templates\common\select_emails.html:43 .\crm\models\crmemail.py:21
+#: .\crm\templates\admin\crm\inline_emails.html:45
 msgid "From"
 msgstr "Від"
 
-#: chat/templates/chat/chatmessage_email.html:7
-#: common/templates/common/notice_participants_email.html:6
+#: .\chat\templates\chat\chatmessage_email.html:7
+#: .\common\templates\common\notice_participants_email.html:6
 msgid "View in CRM"
 msgstr "Дивитись у CRM"
 
-#: chat/templates/chat_buttons.html:3
+#: .\chat\templates\chat_buttons.html:3
 msgid "Add chat message"
 msgstr "Додати повідомлення до чату"
 
-#: chat/templates/chat_buttons.html:8
+#: .\chat\templates\chat_buttons.html:8
 msgid "There are unread messages"
 msgstr "Є непрочитані повідомлення"
 
-#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
-#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+#: .\chat\templates\chat_buttons.html:12 .\common\site\userprofileadmin.py:23
+#: .\common\utils\chat_link.py:9 .\tasks\site\tasksbasemodeladmin.py:55
 msgid "View chat messages"
 msgstr "Перегляд повідомлень чату"
 
-#: common/admin.py:85
+#: .\common\admin.py:85
 msgid ""
 "You can specify the name of an existing file on the server along with the "
 "path instead of uploading it."
@@ -556,142 +562,143 @@ msgstr ""
 "Ви можете вказати ім'я існуючого на сервері файлу разом із шляхом замість "
 "його завантаження."
 
-#: common/admin.py:195
+#: .\common\admin.py:195
 msgid "staff"
 msgstr "персонал"
 
-#: common/admin.py:201
+#: .\common\admin.py:201
 msgid "superuser"
 msgstr "суперкористувач"
 
-#: common/apps.py:9
+#: .\common\apps.py:9
 msgid "Common"
 msgstr "Загальне"
 
-#: common/models.py:28 crm/models/payment.py:45
+#: .\common\models.py:28 .\crm\models\payment.py:45
 msgid "Update date"
 msgstr "Дата оновлення"
 
-#: common/models.py:38
+#: .\common\models.py:38
 msgid "Modified By"
 msgstr "Змінив"
 
-#: common/models.py:56
+#: .\common\models.py:56
 msgid "was added successfully."
 msgstr "було успішно додано."
 
-#: common/models.py:57
+#: .\common\models.py:57
 msgid "Re-adding blocked."
 msgstr "Повторне додавання заблоковано."
 
-#: common/models.py:75 common/models.py:118
-#: common/templates/common/copy_department.html:30
-#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
-#: tasks/site/memoadmin.py:41
+#: .\common\models.py:75 .\common\models.py:118
+#: .\common\templates\common\copy_department.html:30
+#: .\common\templates\common\user_transfer.html:41
+#: .\crm\utils\admfilters.py:290 .\tasks\site\memoadmin.py:41
 msgid "Department"
 msgstr "Відділ"
 
-#: common/models.py:88 common/models.py:89 common/models.py:94
+#: .\common\models.py:88 .\common\models.py:89 .\common\models.py:94
 msgid "Department and Owner do not match"
 msgstr "Підрозділ та Власник не відповідають один одному"
 
-#: common/models.py:119
+#: .\common\models.py:119
 msgid "Departments"
 msgstr "Відділи"
 
-#: common/models.py:126
+#: .\common\models.py:126
 msgid "Default country"
 msgstr "Країна за замовчуванням"
 
-#: common/models.py:133
+#: .\common\models.py:133
 msgid "Default currency"
 msgstr "Валюта за замовчуванням"
 
-#: common/models.py:137
+#: .\common\models.py:137
 msgid "Works globally"
 msgstr "Працює глобально"
 
-#: common/models.py:138
+#: .\common\models.py:138
 msgid "The department operates in foreign markets."
 msgstr "Відділ працює на закордонних ринках."
 
-#: common/models.py:144
+#: .\common\models.py:144
 msgid "Reminder"
 msgstr "Нагадування"
 
-#: common/models.py:145
+#: .\common\models.py:145
 msgid "Reminders"
 msgstr "Нагадування"
 
-#: common/models.py:159 crm/forms/contact_form.py:20
-#: massmail/models/baseeml.py:16
+#: .\common\models.py:159 .\crm\forms\contact_form.py:20
+#: .\massmail\models\baseeml.py:16
 msgid "Subject"
 msgstr "Тема"
 
-#: common/models.py:160
+#: .\common\models.py:160
 msgid "Briefly what about is this reminder"
 msgstr "Коротко про що це нагадування"
 
-#: common/models.py:164
-#: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:117 crm/models/deal.py:35
-#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
-#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+#: .\common\models.py:164
+#: .\common\templates\common\notice_participants_email.html:14
+#: .\crm\models\base_contact.py:118 .\crm\models\deal.py:35
+#: .\crm\models\product.py:19 .\crm\models\product.py:41
+#: .\crm\models\request.py:103 .\tasks\models\memo.py:68
+#: .\tasks\models\taskbase.py:38
 msgid "Description"
 msgstr "Опис"
 
-#: common/models.py:167
+#: .\common\models.py:167
 msgid "Reminder date"
 msgstr "Дата нагадування"
 
-#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
-#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
-#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
-#: tasks/utils/admfilters.py:209 voip/models.py:25
+#: .\common\models.py:171 .\crm\models\company.py:39 .\crm\models\deal.py:160
+#: .\crm\utils\admfilters.py:526 .\massmail\models\mailing_out.py:22
+#: .\massmail\utils\adminfilters.py:11 .\tasks\models\projectstage.py:14
+#: .\tasks\models\taskbase.py:86 .\tasks\models\taskstage.py:14
+#: .\tasks\utils\admfilters.py:209 .\voip\models.py:25
 msgid "Active"
 msgstr "Активно"
 
-#: common/models.py:175
+#: .\common\models.py:175
 msgid "Send notification email"
 msgstr "Надіслати повідомлення електронною поштою"
 
-#: common/models.py:195
+#: .\common\models.py:195
 msgid "File"
 msgstr "Файл"
 
-#: common/models.py:196
+#: .\common\models.py:196
 msgid "Files"
 msgstr "Файли"
 
-#: common/models.py:200
+#: .\common\models.py:200
 msgid "Attached file"
 msgstr "Прикріплений файл"
 
-#: common/models.py:206
+#: .\common\models.py:206
 msgid "Attach to the deal"
 msgstr "Прикріпити до угоди"
 
-#: common/models.py:228
-#: common/templates/common/notice_participants_email.html:12
-#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
-#: tasks/models/task.py:35
+#: .\common\models.py:228
+#: .\common\templates\common\notice_participants_email.html:12
+#: .\crm\models\deal.py:46 .\tasks\models\memo.py:99
+#: .\tasks\models\project.py:17 .\tasks\models\task.py:35
 msgid "Stage"
 msgstr "Етап"
 
-#: common/models.py:229
+#: .\common\models.py:229
 msgid "Stages"
 msgstr "Етапи"
 
-#: common/models.py:233 tasks/models/stagebase.py:14
+#: .\common\models.py:233 .\tasks\models\stagebase.py:14
 msgid "Default"
 msgstr "За замовчуванням"
 
-#: common/models.py:234 tasks/models/stagebase.py:15
+#: .\common\models.py:234 .\tasks\models\stagebase.py:15
 msgid "Will be selected by default when creating a new task"
 msgstr "Буде обрано за замовчуванням під час створення нового завдання"
 
-#: common/models.py:239 tasks/models/stagebase.py:32
+#: .\common\models.py:239 .\tasks\models\stagebase.py:32
 msgid ""
 "The sequence number of the stage.         The indices of other instances "
 "will be sorted automatically."
@@ -699,317 +706,321 @@ msgstr ""
 "Порядковий номер етапу. Індекси інших екземплярів будуть відсортовані "
 "автоматично."
 
-#: common/models.py:250
+#: .\common\models.py:250
 msgid "User profile"
 msgstr "Профіль користувача"
 
-#: common/models.py:251
+#: .\common\models.py:251
 msgid "User profiles"
 msgstr "Профілі користувачів"
 
-#: common/models.py:302
+#: .\common\models.py:302
 msgid "PBX number"
 msgstr "номер міні-АТС"
 
-#: common/models.py:308
+#: .\common\models.py:308
 msgid "UTC time zone"
 msgstr "Часовий пояс UTC"
 
-#: common/models.py:312
+#: .\common\models.py:312
 msgid "Activate this time zone"
 msgstr "Активувати цей часовий пояс"
 
-#: common/models.py:316
+#: .\common\models.py:316
 msgid "Field for temporary storage of messages to the user"
 msgstr "Поле для тимчасового зберігання повідомлень користувачу"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:145
-#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
-#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+#: .\common\site\basemodeladmin.py:19 .\crm\models\base_contact.py:146
+#: .\crm\models\deal.py:169 .\crm\models\tag.py:10 .\tasks\models\memo.py:87
+#: .\tasks\models\tag.py:9 .\tasks\models\taskbase.py:100
 msgid "Tags"
 msgstr "Ярлики"
 
-#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
-#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+#: .\common\site\basemodeladmin.py:20 .\crm\admin.py:99 .\crm\admin.py:172
+#: .\crm\admin.py:218 .\crm\admin.py:268
+#: .\tasks\site\tasksbasemodeladmin.py:216
 msgid "Add tags"
 msgstr "Додати ярлики"
 
-#: common/site/basemodeladmin.py:22
+#: .\common\site\basemodeladmin.py:22
 msgid "Export selected objects"
 msgstr "Експортувати вибрані об'єкти"
 
-#: common/site/basemodeladmin.py:23
+#: .\common\site\basemodeladmin.py:23
 msgid "Next step deadline"
 msgstr "Строк виконання наступного кроку"
 
-#: common/site/basemodeladmin.py:87
+#: .\common\site\basemodeladmin.py:87
 msgid "Filters may affect search results."
 msgstr "Фільтри можуть впливати на результати пошуку."
 
-#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+#: .\common\site\basemodeladmin.py:103 .\common\site\userprofileadmin.py:101
 msgid "Act"
 msgstr "Акт"
 
-#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
-#: tasks/models/taskbase.py:73
+#: .\common\site\basemodeladmin.py:172 .\crm\models\deal.py:40
+#: .\tasks\models\taskbase.py:73
 msgid "Workflow"
 msgstr "Рабочий процесс"
 
-#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+#: .\common\site\userprofileadmin.py:120 .\help\models.py:62
+#: .\help\models.py:116
 msgid "Language"
 msgstr "Мова"
 
-#: common/templates/admin/common/reminder/submit_line.html:4
-#: common/templates/admin/common/userprofile/submit_line.html:4
-#: crm/templates/admin/crm/city/submit_line.html:4
-#: crm/templates/admin/crm/company/submit_line.html:4
-#: crm/templates/admin/crm/contact/submit_line.html:4
-#: crm/templates/admin/crm/crmemail/submit_line.html:14
-#: crm/templates/admin/crm/deal/submit_line.html:4
-#: crm/templates/admin/crm/lead/submit_line.html:4
-#: crm/templates/admin/crm/payment/submit_line.html:4
-#: crm/templates/admin/crm/request/submit_line.html:4
-#: crm/templates/admin/crm/shipment/submit_line.html:4
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
-#: tasks/templates/admin/tasks/memo/submit_line.html:8
-#: tasks/templates/admin/tasks/project/submit_line.html:4
-#: tasks/templates/admin/tasks/task/submit_line.html:13
+#: .\common\templates\admin\common\reminder\submit_line.html:4
+#: .\common\templates\admin\common\userprofile\submit_line.html:4
+#: .\crm\templates\admin\crm\city\submit_line.html:4
+#: .\crm\templates\admin\crm\company\submit_line.html:4
+#: .\crm\templates\admin\crm\contact\submit_line.html:4
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:14
+#: .\crm\templates\admin\crm\deal\submit_line.html:4
+#: .\crm\templates\admin\crm\lead\submit_line.html:4
+#: .\crm\templates\admin\crm\payment\submit_line.html:4
+#: .\crm\templates\admin\crm\request\submit_line.html:4
+#: .\crm\templates\admin\crm\shipment\submit_line.html:4
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:4
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:8
+#: .\tasks\templates\admin\tasks\project\submit_line.html:4
+#: .\tasks\templates\admin\tasks\task\submit_line.html:13
 msgid "Save"
 msgstr "Зберегти"
 
-#: common/templates/admin/common/reminder/submit_line.html:5
-#: common/templates/admin/common/userprofile/submit_line.html:5
-#: crm/templates/admin/crm/city/submit_line.html:7
-#: crm/templates/admin/crm/company/submit_line.html:7
-#: crm/templates/admin/crm/contact/submit_line.html:6
-#: crm/templates/admin/crm/crmemail/submit_line.html:16
-#: crm/templates/admin/crm/deal/submit_line.html:6
-#: crm/templates/admin/crm/lead/submit_line.html:7
-#: crm/templates/admin/crm/payment/submit_line.html:6
-#: crm/templates/admin/crm/request/submit_line.html:6
-#: crm/templates/admin/crm/shipment/submit_line.html:6
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
-#: tasks/templates/admin/tasks/memo/submit_line.html:9
-#: tasks/templates/admin/tasks/project/submit_line.html:5
-#: tasks/templates/admin/tasks/task/submit_line.html:14
+#: .\common\templates\admin\common\reminder\submit_line.html:5
+#: .\common\templates\admin\common\userprofile\submit_line.html:5
+#: .\crm\templates\admin\crm\city\submit_line.html:7
+#: .\crm\templates\admin\crm\company\submit_line.html:7
+#: .\crm\templates\admin\crm\contact\submit_line.html:6
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:16
+#: .\crm\templates\admin\crm\deal\submit_line.html:6
+#: .\crm\templates\admin\crm\lead\submit_line.html:7
+#: .\crm\templates\admin\crm\payment\submit_line.html:6
+#: .\crm\templates\admin\crm\request\submit_line.html:6
+#: .\crm\templates\admin\crm\shipment\submit_line.html:6
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:6
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:9
+#: .\tasks\templates\admin\tasks\project\submit_line.html:5
+#: .\tasks\templates\admin\tasks\task\submit_line.html:14
 msgid "Save and continue editing"
 msgstr "Зберегти та продовжити редагувати"
 
-#: common/templates/admin/common/reminder/submit_line.html:5
-#: common/templates/admin/common/userprofile/submit_line.html:5
-#: crm/templates/admin/crm/city/submit_line.html:7
-#: crm/templates/admin/crm/company/submit_line.html:7
-#: crm/templates/admin/crm/contact/submit_line.html:6
-#: crm/templates/admin/crm/crmemail/submit_line.html:16
-#: crm/templates/admin/crm/deal/submit_line.html:6
-#: crm/templates/admin/crm/lead/submit_line.html:7
-#: crm/templates/admin/crm/payment/submit_line.html:6
-#: crm/templates/admin/crm/request/submit_line.html:6
-#: crm/templates/admin/crm/shipment/submit_line.html:6
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
-#: tasks/templates/admin/tasks/memo/submit_line.html:9
-#: tasks/templates/admin/tasks/project/submit_line.html:5
-#: tasks/templates/admin/tasks/task/submit_line.html:14
+#: .\common\templates\admin\common\reminder\submit_line.html:5
+#: .\common\templates\admin\common\userprofile\submit_line.html:5
+#: .\crm\templates\admin\crm\city\submit_line.html:7
+#: .\crm\templates\admin\crm\company\submit_line.html:7
+#: .\crm\templates\admin\crm\contact\submit_line.html:6
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:16
+#: .\crm\templates\admin\crm\deal\submit_line.html:6
+#: .\crm\templates\admin\crm\lead\submit_line.html:7
+#: .\crm\templates\admin\crm\payment\submit_line.html:6
+#: .\crm\templates\admin\crm\request\submit_line.html:6
+#: .\crm\templates\admin\crm\shipment\submit_line.html:6
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:6
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:9
+#: .\tasks\templates\admin\tasks\project\submit_line.html:5
+#: .\tasks\templates\admin\tasks\task\submit_line.html:14
 msgid "Save and view"
 msgstr "Зберегти та подивитися"
 
-#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
-#: crm/templates/admin/crm/company/change_form_object_tools.html:38
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
-#: crm/templates/admin/crm/request/change_form_object_tools.html:37
-#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
-#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
-#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
-#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
-#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
-#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
-#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+#: .\common\templates\admin\common\userprofile\change_form_object_tools.html:6
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:38
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:32
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:50
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:38
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:23
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:37
+#: .\crm\templates\admin\crm\shipment\change_form_object_tools.html:12
+#: .\massmail\templates\admin\massmail\emailaccount\change_form_object_tools.html:8
+#: .\massmail\templates\admin\massmail\emlmessage\change_form_object_tools.html:18
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:31
+#: .\massmail\templates\admin\massmail\signature\change_form_object_tools.html:6
+#: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:29
+#: .\tasks\templates\admin\tasks\project\change_form_object_tools.html:12
+#: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:36
 msgid "History"
 msgstr "Історія"
 
-#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
-#: crm/templates/admin/crm/crmemail/stacked.html:14
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
-#: crm/templates/admin/crm/request/change_form_object_tools.html:39
-#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
-#: help/templates/admin/help/stacked.html:18
-#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
-#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
-#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+#: .\common\templates\admin\common\userprofile\change_form_object_tools.html:8
+#: .\crm\templates\admin\crm\crmemail\stacked.html:14
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:25
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:39
+#: .\crm\templates\admin\crm\shipment\change_form_object_tools.html:14
+#: .\help\templates\admin\help\stacked.html:18
+#: .\massmail\templates\admin\massmail\emailaccount\change_form_object_tools.html:10
+#: .\massmail\templates\admin\massmail\emlmessage\change_form_object_tools.html:20
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:33
+#: .\massmail\templates\admin\massmail\signature\change_form_object_tools.html:8
 msgid "View on site"
 msgstr "Переглянути на сайті"
 
-#: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
-#: common/templates/common/select_emails.html:13
-#: common/templates/common/user_transfer.html:13
-#: crm/templates/admin/crm/change_form.html:18
-#: crm/templates/admin/crm/crmemail/change_form.html:18
-#: crm/templates/admin/crm/payment/change_list.html:31
-#: crm/templates/crm/addfiles.html:12
-#: crm/templates/crm/change_owner_companies.html:12
-#: crm/templates/crm/import_objects.html:12
-#: crm/templates/crm/make_massmail.html:15
-#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+#: .\common\templates\common\copy_department.html:13
+#: .\common\templates\common\select_email_account.html:12
+#: .\common\templates\common\select_emails.html:13
+#: .\common\templates\common\user_transfer.html:13
+#: .\crm\templates\admin\crm\change_form.html:18
+#: .\crm\templates\admin\crm\crmemail\change_form.html:18
+#: .\crm\templates\admin\crm\payment\change_list.html:31
+#: .\crm\templates\crm\addfiles.html:12
+#: .\crm\templates\crm\change_owner_companies.html:12
+#: .\crm\templates\crm\import_objects.html:12
+#: .\crm\templates\crm\make_massmail.html:15
+#: .\crm\templates\crm\select_original_obj.html:24
+#: .\templates\admin\base.html:101
 msgid "Home"
 msgstr "Початок"
 
-#: common/templates/common/copy_department.html:23
+#: .\common\templates\common\copy_department.html:23
 msgid "Please select the department to copy."
 msgstr "Виберіть відділ копіювання."
 
-#: common/templates/common/copy_department.html:40
-#: common/templates/common/user_transfer.html:51
-#: crm/templates/crm/change_owner_companies.html:36
-#: crm/templates/crm/import_objects.html:31
-#: crm/templates/crm/select_original_obj.html:48
-#: massmail/templates/massmail/pic_upload.html:32
-#: voip/templates/voip/connection.html:23
+#: .\common\templates\common\copy_department.html:40
+#: .\common\templates\common\user_transfer.html:51
+#: .\crm\templates\crm\change_owner_companies.html:36
+#: .\crm\templates\crm\import_objects.html:31
+#: .\crm\templates\crm\select_original_obj.html:48
+#: .\massmail\templates\massmail\pic_upload.html:32
+#: .\voip\templates\voip\connection.html:23
 msgid "Submit"
 msgstr "Відправити"
 
-#: common/templates/common/email_notification_base.html:14
-#: tasks/models/taskbase.py:40
+#: .\common\templates\common\email_notification_base.html:14
+#: .\tasks\models\taskbase.py:40
 msgid "Note"
 msgstr "Примітка"
 
-#: common/templates/common/email_notification_base.html:24
-#: crm/templates/crm/email.html:29
+#: .\common\templates\common\email_notification_base.html:24
+#: .\crm\templates\crm\email.html:29
 msgid "Attachments"
 msgstr "Прикріплені файли"
 
-#: common/templates/common/email_notification_base.html:28
-#: common/templates/common/widgets/clearable_file_input.html:7
+#: .\common\templates\common\email_notification_base.html:28
+#: .\common\templates\common\widgets\clearable_file_input.html:7
 msgid "Download"
 msgstr "Завантажити"
 
-#: common/templates/common/email_notification_base.html:30
-#: crm/templates/admin/crm/inline_emails.html:63
+#: .\common\templates\common\email_notification_base.html:30
+#: .\crm\templates\admin\crm\inline_emails.html:63
 msgid "Error: the file is missing."
 msgstr "Помилка! Файл відсутній."
 
-#: common/templates/common/notice_participants_email.html:12
-#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+#: .\common\templates\common\notice_participants_email.html:12
+#: .\tasks\models\taskbase.py:41 .\tasks\site\tasksbasemodeladmin.py:45
 msgid "Due date"
 msgstr "Термін виконання"
 
-#: common/templates/common/notice_participants_email.html:12
-#: tasks/models/taskbase.py:26
+#: .\common\templates\common\notice_participants_email.html:12
+#: .\tasks\models\taskbase.py:26
 msgid "Priority"
 msgstr "Пріоритет"
 
-#: common/templates/common/notice_participants_email.html:15
-#: crm/models/deal.py:183 crm/models/request.py:139
-#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+#: .\common\templates\common\notice_participants_email.html:15
+#: .\crm\models\deal.py:183 .\crm\models\request.py:139
+#: .\massmail\models\email_account.py:110 .\tasks\models\taskbase.py:97
 msgid "Co-owner"
 msgstr "Співвласник"
 
-#: common/templates/common/notice_participants_email.html:16
-#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
-#: tasks/utils/admfilters.py:89
+#: .\common\templates\common\notice_participants_email.html:16
+#: .\crm\templates\crm\print_request.html:57 .\tasks\models\taskbase.py:49
+#: .\tasks\utils\admfilters.py:89
 msgid "Responsible"
 msgstr "Відповідальні"
 
-#: common/templates/common/reminder_button.html:4
+#: .\common\templates\common\reminder_button.html:4
 msgid "There are reminders"
 msgstr "Є нагадування"
 
-#: common/templates/common/reminder_button.html:10
+#: .\common\templates\common\reminder_button.html:10
 msgid "Create a reminder"
 msgstr "Створити нагадування"
 
-#: common/templates/common/reminder_message.html:4
-#: common/utils/reminders_sender.py:18
+#: .\common\templates\common\reminder_message.html:4
+#: .\common\utils\reminders_sender.py:18
 msgid "Regarding"
 msgstr "Щодо"
 
-#: common/templates/common/select_email_account.html:20
+#: .\common\templates\common\select_email_account.html:20
 msgid "Please select an Email account"
 msgstr "Будь ласка, виберіть обліковий запис електронної пошти"
 
-#: common/templates/common/select_email_account.html:38
+#: .\common\templates\common\select_email_account.html:38
 msgid "Select"
 msgstr "Вибрати"
 
-#: common/templates/common/select_emails.html:30
-#: common/templates/common/select_emails.html:72
-#: crm/templates/admin/crm/company/change_list_object_tools.html:20
-#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
-#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
-#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+#: .\common\templates\common\select_emails.html:30
+#: .\common\templates\common\select_emails.html:72
+#: .\crm\templates\admin\crm\company\change_list_object_tools.html:20
+#: .\crm\templates\admin\crm\contact\change_list_object_tools.html:20
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:23
+#: .\crm\templates\admin\crm\lead\change_list_object_tools.html:13
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:28
 msgid "Import"
 msgstr "Імпорт"
 
-#: common/templates/common/select_emails.html:32
-#: common/templates/common/select_emails.html:74
+#: .\common\templates\common\select_emails.html:32
+#: .\common\templates\common\select_emails.html:74
 msgid "Spam"
 msgstr "Спам"
 
-#: common/templates/common/select_emails.html:33
-#: common/templates/common/select_emails.html:75
+#: .\common\templates\common\select_emails.html:33
+#: .\common\templates\common\select_emails.html:75
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
 
-#: common/templates/common/select_emails.html:33
-#: common/templates/common/select_emails.html:75
+#: .\common\templates\common\select_emails.html:33
+#: .\common\templates\common\select_emails.html:75
 msgid "Mark as"
 msgstr "Позначити як"
 
-#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
-#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+#: .\common\templates\common\select_emails.html:44 .\crm\models\crmemail.py:16
+#: .\crm\templates\admin\crm\inline_emails.html:48
+#: .\tasks\utils\admfilters.py:152
 msgid "To"
 msgstr "Кому"
 
-#: common/templates/common/select_emails.html:56
+#: .\common\templates\common\select_emails.html:56
 msgid "This email is already imported."
 msgstr "Цей лист уже імпортовано."
 
-#: common/templates/common/user_transfer.html:23
+#: .\common\templates\common\user_transfer.html:23
 msgid "Please select a user and a new department for him."
 msgstr "Виберіть користувача та новий відділ для нього."
 
-#: common/templates/common/user_transfer.html:31
+#: .\common\templates\common\user_transfer.html:31
 msgid "User"
 msgstr "Користувач"
 
-#: common/templatetags/util.py:114
+#: .\common\templatetags\util.py:114
 msgid "Task completed"
 msgstr "Задача виконана"
 
-#: common/templatetags/util.py:115
+#: .\common\templatetags\util.py:115
 msgid "I completed the task"
 msgstr "Я виконав завдання"
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
-#: tasks/templates/admin/tasks/task/submit_line.html:4
+#: .\common\templatetags\util.py:118 .\tasks\site\taskadmin.py:365
+#: .\tasks\templates\admin\tasks\task\submit_line.html:4
 msgid "Completed"
 msgstr "Виконано"
 
-#: common/utils/for_translation.py:24
+#: .\common\utils\for_translation.py:24
 msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "Ім'я додано для перекладу. Будь ласка, оновіть файли po та mo."
 
-#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: .\common\utils\helpers.py:25 .\tasks\site\memoadmin.py:40
+#: .\tasks\site\taskadmin.py:36
 msgid "Copy"
 msgstr "Копіювати"
 
-#: common/utils/helpers.py:31
+#: .\common\utils\helpers.py:31
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} з ID '{}' немає. Можливо, його вилучили?"
 
-#: common/views/copy_department.py:48
+#: .\common\views\copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
 msgstr "Створено новий відділ - {}. Будь ласка, перейменуйте його."
 
-#: common/views/select_emails_import.py:118
+#: .\common\views\select_emails_import.py:118
 msgid ""
 "You do not have mail accounts marked for importing emails.Please contact "
 "your administrator."
@@ -1017,7 +1028,7 @@ msgstr ""
 "У вас немає поштових облікових записів, відмічених для імпорту листів. "
 "Зверніться до адміністратора."
 
-#: common/views/user_transfer.py:28
+#: .\common\views\user_transfer.py:28
 msgid ""
 "\n"
 "Attention! Data for filters such as: \n"
@@ -1031,1044 +1042,1052 @@ msgstr ""
 "будуть перенесені тільки в тому випадку, якщо в новому відділі є дані з такою самою назвою.\n"
 "Крім того, це не вплине на Результат, Платіж та Продукт.\n"
 
-#: common/views/user_transfer.py:131
+#: .\common\views\user_transfer.py:131
 msgid "User transferred successfully"
 msgstr "Користувач успішно перенесено"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:132
+#: .\crm\admin.py:103 .\crm\admin.py:272 .\crm\site\companyadmin.py:132
 msgid "Contact details"
 msgstr "Контактні дані"
 
-#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
-#: crm/models/product.py:15 crm/models/product.py:37
-#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
-#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
-#: tasks/models/taskbase.py:32
+#: .\crm\admin.py:125 .\crm\models\country.py:15 .\crm\models\deal.py:18
+#: .\crm\models\product.py:15 .\crm\models\product.py:37
+#: .\crm\templates\crm\print_request.html:50
+#: .\massmail\models\mailing_out.py:30 .\settings\models.py:13
+#: .\tasks\models\memo.py:27 .\tasks\models\resolution.py:13
+#: .\tasks\models\taskbase.py:32
 msgid "Name"
 msgstr "Назва"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: .\crm\admin.py:155 .\crm\site\dealadmin.py:247
 msgid "Contact info"
 msgstr "Контактна інформація"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:87
+#: .\crm\admin.py:176 .\crm\site\crmemailadmin.py:220
+#: .\crm\site\dealadmin.py:268 .\crm\site\requestadmin.py:87
 msgid "Relations"
 msgstr "Зв'язки"
 
-#: crm/forms/admin_forms.py:22
+#: .\crm\forms\admin_forms.py:22
 msgid "A country must be specified."
 msgstr "Потрібно вказати країну."
 
-#: crm/forms/admin_forms.py:23
+#: .\crm\forms\admin_forms.py:23
 msgid "Marketing currency already exists."
 msgstr "Маркетингова валюта вже існує."
 
-#: crm/forms/admin_forms.py:24
+#: .\crm\forms\admin_forms.py:24
 msgid "State currency already exists."
 msgstr "Державна валюта вже існує."
 
-#: crm/forms/admin_forms.py:25
+#: .\crm\forms\admin_forms.py:25
 msgid "Enter a valid alphabetic code."
 msgstr "Введіть дійсний літерний код."
 
-#: crm/forms/admin_forms.py:26
+#: .\crm\forms\admin_forms.py:26
 msgid "The currency cannot be both state and marketing."
 msgstr "Валюта не може бути одночасно державною і маркетинговою."
 
-#: crm/forms/admin_forms.py:70
+#: .\crm\forms\admin_forms.py:70
 msgid "Not allowed address"
 msgstr "Недозволена адреса"
 
-#: crm/forms/admin_forms.py:90
+#: .\crm\forms\admin_forms.py:90
 msgid "City does not match the country"
 msgstr "Місто не відповідає країні"
 
-#: crm/forms/admin_forms.py:138
+#: .\crm\forms\admin_forms.py:138
 msgid "Such an object already exists"
 msgstr "Такий об’єкт вже існує"
 
-#: crm/forms/admin_forms.py:164
+#: .\crm\forms\admin_forms.py:164
 msgid "Please fill in the field."
 msgstr "Будь ласка, заповніть поле."
 
-#: crm/forms/admin_forms.py:172
+#: .\crm\forms\admin_forms.py:172
 msgid "To convert, please fill in the fields below."
 msgstr "Для конвертації заповніть поля нижче."
 
-#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+#: .\crm\forms\admin_forms.py:207 .\crm\forms\admin_forms.py:208
 msgid "Specify the deal amount"
 msgstr "Вкажіть суму угоди"
 
-#: crm/forms/admin_forms.py:236
+#: .\crm\forms\admin_forms.py:236
 msgid "Contact does not match the company"
 msgstr "Контакт не відповідає компанії"
 
-#: crm/forms/admin_forms.py:241
+#: .\crm\forms\admin_forms.py:241
 msgid "Select only Contact or only Lead"
 msgstr "Виберіть лише Контакт або лише Лід"
 
-#: crm/forms/admin_forms.py:246
+#: .\crm\forms\admin_forms.py:246
 msgid "Select only Company or only Lead"
 msgstr "Виберіть тільки Компанія або тільки Лід"
 
-#: crm/forms/admin_forms.py:325
+#: .\crm\forms\admin_forms.py:325
 msgid "First select a department."
 msgstr "Спочатку виберіть відділ."
 
-#: crm/forms/admin_forms.py:331
+#: .\crm\forms\admin_forms.py:331
 msgid "That tag already exists."
 msgstr "Цей тег вже існує."
 
-#: crm/forms/contact_form.py:13
+#: .\crm\forms\contact_form.py:13
 msgid "Your name"
 msgstr "Ваше ім'я"
 
-#: crm/forms/contact_form.py:17
+#: .\crm\forms\contact_form.py:17
 msgid "Your E-mail"
 msgstr "Вашу адресу електронної пошти"
 
-#: crm/forms/contact_form.py:24
+#: .\crm\forms\contact_form.py:24
 msgid "Phone number(with country code)"
 msgstr "Номер телефону (з кодом країни)"
 
-#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
-#: crm/models/request.py:55
+#: .\crm\forms\contact_form.py:28 .\crm\models\company.py:21
+#: .\crm\models\lead.py:21 .\crm\models\request.py:55
 msgid "Company name"
 msgstr "Назва компанії"
 
-#: crm/forms/contact_form.py:72
+#: .\crm\forms\contact_form.py:72
 msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
 msgstr ""
 "На жаль, недійсна reCAPTCHA. Будь ласка, спробуйте ще раз або надішліть "
 "електронного листа."
 
-#: crm/models/_to_translate.txt:2 crm/models/to_translate.txt:2
-#: massmail/models/to_translate.txt:2
+#: .\crm\models\_to_translate.txt:2 .\crm\models\to_translate.txt:2
+#: .\massmail\models\to_translate.txt:2
 msgid "competitor"
 msgstr "конкурент"
 
-#: crm/models/_to_translate.txt:3 crm/models/to_translate.txt:3
+#: .\crm\models\_to_translate.txt:3 .\crm\models\to_translate.txt:3
 msgid "end customer"
 msgstr "кінцевий споживач"
 
-#: crm/models/_to_translate.txt:4 crm/models/to_translate.txt:4
+#: .\crm\models\_to_translate.txt:4 .\crm\models\to_translate.txt:4
 msgid "reseller"
 msgstr "посередник"
 
-#: crm/models/_to_translate.txt:5 crm/models/to_translate.txt:5
+#: .\crm\models\_to_translate.txt:5 .\crm\models\to_translate.txt:5
 msgid "dealer"
 msgstr "дилер"
 
-#: crm/models/_to_translate.txt:6 crm/models/_to_translate.txt:37
-#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+#: .\crm\models\_to_translate.txt:6 .\crm\models\_to_translate.txt:37
+#: .\crm\models\to_translate.txt:6 .\crm\models\to_translate.txt:37
 msgid "distributor"
 msgstr "дистриб'ютор"
 
-#: crm/models/_to_translate.txt:7 crm/models/to_translate.txt:7
+#: .\crm\models\_to_translate.txt:7 .\crm\models\to_translate.txt:7
 msgid "educational institutions"
 msgstr "навчальні заклади"
 
-#: crm/models/_to_translate.txt:8 crm/models/to_translate.txt:8
+#: .\crm\models\_to_translate.txt:8 .\crm\models\to_translate.txt:8
 msgid "service companies"
 msgstr "сервісні компанії"
 
-#: crm/models/_to_translate.txt:9 crm/models/to_translate.txt:9
+#: .\crm\models\_to_translate.txt:9 .\crm\models\to_translate.txt:9
 msgid "welders"
 msgstr "зварювальники"
 
-#: crm/models/_to_translate.txt:10 crm/models/to_translate.txt:10
+#: .\crm\models\_to_translate.txt:10 .\crm\models\to_translate.txt:10
 msgid "capital construction"
 msgstr "капитальное строительство"
 
-#: crm/models/_to_translate.txt:11 crm/models/to_translate.txt:11
+#: .\crm\models\_to_translate.txt:11 .\crm\models\to_translate.txt:11
 msgid "automotive industry"
 msgstr "автомобільна промисловість"
 
-#: crm/models/_to_translate.txt:12 crm/models/to_translate.txt:12
+#: .\crm\models\_to_translate.txt:12 .\crm\models\to_translate.txt:12
 msgid "shipbuilding"
 msgstr "суднобудування"
 
-#: crm/models/_to_translate.txt:13 crm/models/to_translate.txt:13
+#: .\crm\models\_to_translate.txt:13 .\crm\models\to_translate.txt:13
 msgid "metallurgy"
 msgstr "металургія"
 
-#: crm/models/_to_translate.txt:14 crm/models/to_translate.txt:14
+#: .\crm\models\_to_translate.txt:14 .\crm\models\to_translate.txt:14
 msgid "power generation"
 msgstr "енергогенерація"
 
-#: crm/models/_to_translate.txt:15 crm/models/to_translate.txt:15
+#: .\crm\models\_to_translate.txt:15 .\crm\models\to_translate.txt:15
 msgid "pipelines"
 msgstr "трубопроводи"
 
-#: crm/models/_to_translate.txt:16 crm/models/to_translate.txt:16
+#: .\crm\models\_to_translate.txt:16 .\crm\models\to_translate.txt:16
 msgid "pipe production"
 msgstr "виробництво труб"
 
-#: crm/models/_to_translate.txt:17 crm/models/to_translate.txt:17
+#: .\crm\models\_to_translate.txt:17 .\crm\models\to_translate.txt:17
 msgid "oil & gas"
 msgstr "нафтогаз"
 
-#: crm/models/_to_translate.txt:18 crm/models/to_translate.txt:18
+#: .\crm\models\_to_translate.txt:18 .\crm\models\to_translate.txt:18
 msgid "aviation"
 msgstr "авіація"
 
-#: crm/models/_to_translate.txt:19 crm/models/to_translate.txt:19
+#: .\crm\models\_to_translate.txt:19 .\crm\models\to_translate.txt:19
 msgid "railway"
 msgstr "Залізна дорога"
 
-#: crm/models/_to_translate.txt:20 crm/models/to_translate.txt:20
+#: .\crm\models\_to_translate.txt:20 .\crm\models\to_translate.txt:20
 msgid "mining"
 msgstr "гірничодобувна"
 
-#: crm/models/_to_translate.txt:21 crm/models/to_translate.txt:21
+#: .\crm\models\_to_translate.txt:21 .\crm\models\to_translate.txt:21
 msgid "request"
 msgstr "запит"
 
-#: crm/models/_to_translate.txt:22 crm/models/to_translate.txt:22
+#: .\crm\models\_to_translate.txt:22 .\crm\models\to_translate.txt:22
 msgid "analysis of request"
 msgstr "аналіз запиту"
 
-#: crm/models/_to_translate.txt:23 crm/models/to_translate.txt:23
+#: .\crm\models\_to_translate.txt:23 .\crm\models\to_translate.txt:23
 msgid "clarification of the requirements"
 msgstr "уточнення вимог"
 
-#: crm/models/_to_translate.txt:24 crm/models/to_translate.txt:24
+#: .\crm\models\_to_translate.txt:24 .\crm\models\to_translate.txt:24
 msgid "price offer"
 msgstr "пропозиція ціни"
 
-#: crm/models/_to_translate.txt:25 crm/models/to_translate.txt:25
+#: .\crm\models\_to_translate.txt:25 .\crm\models\to_translate.txt:25
 msgid "commercial proposal"
 msgstr "комерційна пропозиція"
 
-#: crm/models/_to_translate.txt:26 crm/models/to_translate.txt:26
+#: .\crm\models\_to_translate.txt:26 .\crm\models\to_translate.txt:26
 msgid "technical and commercial offer"
 msgstr "техніко-комерційна пропозиція"
 
-#: crm/models/_to_translate.txt:27 crm/models/to_translate.txt:27
+#: .\crm\models\_to_translate.txt:27 .\crm\models\to_translate.txt:27
 msgid "agreement"
 msgstr "угода"
 
-#: crm/models/_to_translate.txt:28 crm/models/to_translate.txt:28
+#: .\crm\models\_to_translate.txt:28 .\crm\models\to_translate.txt:28
 msgid "invoice"
 msgstr "рахунок"
 
-#: crm/models/_to_translate.txt:29 crm/models/to_translate.txt:29
+#: .\crm\models\_to_translate.txt:29 .\crm\models\to_translate.txt:29
 msgid "receiving the first payment"
 msgstr "отримання першого платежу"
 
-#: crm/models/_to_translate.txt:30 crm/models/to_translate.txt:30
-#: crm/site/shipmentadmin.py:39
+#: .\crm\models\_to_translate.txt:30 .\crm\models\to_translate.txt:30
+#: .\crm\site\shipmentadmin.py:39
 msgid "shipment"
 msgstr "відвантаження"
 
-#: crm/models/_to_translate.txt:31 crm/models/to_translate.txt:31
+#: .\crm\models\_to_translate.txt:31 .\crm\models\to_translate.txt:31
 msgid "closed (successful)"
 msgstr "закрита (успішно)"
 
-#: crm/models/_to_translate.txt:32 crm/models/to_translate.txt:32
+#: .\crm\models\_to_translate.txt:32 .\crm\models\to_translate.txt:32
 msgid "The client is not responding"
 msgstr "Клієнт не відповідає"
 
-#: crm/models/_to_translate.txt:33 crm/models/to_translate.txt:33
+#: .\crm\models\_to_translate.txt:33 .\crm\models\to_translate.txt:33
 msgid "Specifications are not suitable"
 msgstr "Технічні характеристики не підходять"
 
-#: crm/models/_to_translate.txt:34 crm/models/to_translate.txt:34
+#: .\crm\models\_to_translate.txt:34 .\crm\models\to_translate.txt:34
 msgid "The deal was closed successfully"
 msgstr "Угода успішно закрита"
 
-#: crm/models/_to_translate.txt:35 crm/models/to_translate.txt:35
+#: .\crm\models\_to_translate.txt:35 .\crm\models\to_translate.txt:35
 msgid "Purchase postponed"
 msgstr "Покупка відкладена"
 
-#: crm/models/_to_translate.txt:36 crm/models/to_translate.txt:36
+#: .\crm\models\_to_translate.txt:36 .\crm\models\to_translate.txt:36
 msgid "The price is not competitive"
 msgstr "Ціна не конкурентоспроможна"
 
-#: crm/models/_to_translate.txt:38 crm/models/to_translate.txt:38
+#: .\crm\models\_to_translate.txt:38 .\crm\models\to_translate.txt:38
 msgid "website form"
 msgstr "веб-форма"
 
-#: crm/models/_to_translate.txt:39 crm/models/to_translate.txt:39
+#: .\crm\models\_to_translate.txt:39 .\crm\models\to_translate.txt:39
 msgid "website email"
 msgstr "електронна пошта веб-сайту"
 
-#: crm/models/_to_translate.txt:40 crm/models/to_translate.txt:40
+#: .\crm\models\_to_translate.txt:40 .\crm\models\to_translate.txt:40
 msgid "exhibition"
 msgstr "виставка"
 
-#: crm/models/base_contact.py:17 crm/models/request.py:29
+#: .\crm\models\base_contact.py:18 .\crm\models\request.py:29
 msgid "The name of the contact person (one word)."
 msgstr "Ім'я контактної особи (одне слово)."
 
-#: crm/models/base_contact.py:18 crm/models/request.py:28
+#: .\crm\models\base_contact.py:19 .\crm\models\request.py:28
 msgid "First name"
 msgstr "Ім'я"
 
-#: crm/models/base_contact.py:22 crm/models/request.py:33
+#: .\crm\models\base_contact.py:23 .\crm\models\request.py:33
 msgid "Middle name"
 msgstr "По-батькові"
 
-#: crm/models/base_contact.py:23 crm/models/request.py:34
+#: .\crm\models\base_contact.py:24 .\crm\models\request.py:34
 msgid "The middle name of the contact person."
 msgstr "По-батькові контактної особи."
 
-#: crm/models/base_contact.py:27 crm/models/request.py:39
+#: .\crm\models\base_contact.py:28 .\crm\models\request.py:39
 msgid "The last name of the contact person (one word)."
 msgstr "Прізвище контактної особи (одне слово)."
 
-#: crm/models/base_contact.py:28 crm/models/request.py:38
+#: .\crm\models\base_contact.py:29 .\crm\models\request.py:38
 msgid "Last name"
 msgstr "Прізвище"
 
-#: crm/models/base_contact.py:32
+#: .\crm\models\base_contact.py:33
 msgid "The title (position) of the contact person."
 msgstr "Посада контактної особи."
 
-#: crm/models/base_contact.py:33
+#: .\crm\models\base_contact.py:34
 msgid "Title / Position"
 msgstr "Посада"
 
-#: crm/models/base_contact.py:43
+#: .\crm\models\base_contact.py:44
 msgid "Sex"
 msgstr "Стать"
 
-#: crm/models/base_contact.py:47
+#: .\crm\models\base_contact.py:48
 msgid "Date of Birth"
 msgstr "дата народження"
 
-#: crm/models/base_contact.py:51
+#: .\crm\models\base_contact.py:52
 msgid "Secondary email"
 msgstr "Додатковий email"
 
-#: crm/models/base_contact.py:55 crm/models/company.py:45
+#: .\crm\models\base_contact.py:56 .\crm\models\company.py:45
 msgid "Phone"
 msgstr "Телефон"
 
-#: crm/models/base_contact.py:61
+#: .\crm\models\base_contact.py:62
 msgid "Mobile phone"
 msgstr "Мобільний телефон"
 
-#: crm/models/base_contact.py:68 crm/models/company.py:57
-#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
-#: crm/models/request.py:99 crm/utils/admfilters.py:33
+#: .\crm\models\base_contact.py:69 .\crm\models\company.py:57
+#: .\crm\models\country.py:43 .\crm\models\deal.py:101
+#: .\crm\models\request.py:92 .\crm\models\request.py:99
+#: .\crm\utils\admfilters.py:33
 msgid "City"
 msgstr "Місто"
 
-#: crm/models/base_contact.py:73
+#: .\crm\models\base_contact.py:74
 msgid "Company city"
 msgstr "Місто компанії"
 
-#: crm/models/base_contact.py:74 crm/models/request.py:93
+#: .\crm\models\base_contact.py:75 .\crm\models\request.py:93
 msgid "Object of City in database"
 msgstr "Об'єкт міста у базі даних"
 
-#: crm/models/base_contact.py:112
+#: .\crm\models\base_contact.py:113
 msgid "Address"
 msgstr "Адреса"
 
-#: crm/models/base_contact.py:121 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: .\crm\models\base_contact.py:122 .\crm\models\lead.py:17
+#: .\crm\utils\admfilters.py:512
 msgid "Disqualified"
 msgstr "Дискваліфіковано"
 
-#: crm/models/base_contact.py:128
+#: .\crm\models\base_contact.py:129
 msgid "Use comma to separate Emails."
 msgstr "Використовуйте кому для розділення адрес."
 
-#: crm/models/base_contact.py:135 crm/models/others.py:63
-#: crm/models/request.py:51
+#: .\crm\models\base_contact.py:136 .\crm\models\others.py:63
+#: .\crm\models\request.py:51
 msgid "Lead Source"
 msgstr "Джерело Ліда"
 
-#: crm/models/base_contact.py:139
+#: .\crm\models\base_contact.py:140
 msgid "Mass mailing"
 msgstr "Поштова розсилка"
 
-#: crm/models/base_contact.py:140 crm/site/crmmodeladmin.py:74
+#: .\crm\models\base_contact.py:141 .\crm\site\crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "Отримувач розсилки."
 
-#: crm/models/base_contact.py:155
+#: .\crm\models\base_contact.py:156
 msgid "Last contact date"
 msgstr "Дата останнього контакту"
 
-#: crm/models/company.py:13 crm/models/crmemail.py:59
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
-#: crm/templates/crm/print_request.html:49
+#: .\crm\models\base_contact.py:163
+msgid "Assigned to"
+msgstr "Призначено"
+
+#: .\crm\models\company.py:13 .\crm\models\crmemail.py:59
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:7
+#: .\crm\templates\crm\print_request.html:49
 msgid "Company"
 msgstr "Компанія"
 
-#: crm/models/company.py:14
+#: .\crm\models\company.py:14
 msgid "Companies"
 msgstr "Компанії"
 
-#: crm/models/company.py:27 crm/models/country.py:21
+#: .\crm\models\company.py:27 .\crm\models\country.py:21
 msgid "Alternative names"
 msgstr "Альтернативні імена"
 
-#: crm/models/company.py:28 crm/models/country.py:22
+#: .\crm\models\company.py:28 .\crm\models\country.py:22
 msgid "Separate them with commas."
 msgstr "Розділіть їх комами."
 
-#: crm/models/company.py:34
+#: .\crm\models\company.py:34
 msgid "Website"
 msgstr "Веб-сайт"
 
-#: crm/models/company.py:51
+#: .\crm\models\company.py:51
 msgid "City name"
 msgstr "Назва міста"
 
-#: crm/models/company.py:64
+#: .\crm\models\company.py:64
 msgid "Registration number"
 msgstr "Реєстраційний код"
 
-#: crm/models/company.py:65
+#: .\crm\models\company.py:65
 msgid "Registration number of Company"
 msgstr "Реєстраційний код компанії"
 
-#: crm/models/company.py:72 crm/models/deal.py:109
+#: .\crm\models\company.py:72 .\crm\models\deal.py:109
 msgid "country"
 msgstr "країна"
 
-#: crm/models/company.py:73
+#: .\crm\models\company.py:73
 msgid "Company Country"
 msgstr "Країна компанії"
 
-#: crm/models/company.py:80 crm/models/lead.py:44
+#: .\crm\models\company.py:80 .\crm\models\lead.py:44
 msgid "Type of company"
 msgstr "Тип компанії"
 
-#: crm/models/company.py:85 crm/models/lead.py:49
+#: .\crm\models\company.py:85 .\crm\models\lead.py:49
 msgid "Industry of company"
 msgstr "Галузь Компанії"
 
-#: crm/models/contact.py:12
+#: .\crm\models\contact.py:12
 msgid "Contact person"
 msgstr "Контактна особа"
 
-#: crm/models/contact.py:13
+#: .\crm\models\contact.py:13
 msgid "Contact persons"
 msgstr "Контактні особи"
 
-#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
-#: crm/models/request.py:73
+#: .\crm\models\contact.py:19 .\crm\models\deal.py:141 .\crm\models\lead.py:57
+#: .\crm\models\request.py:73
 msgid "Company of contact"
 msgstr "Компанія контактної особи"
 
-#: crm/models/country.py:6
+#: .\crm\models\country.py:6
 msgid "has already been assigned to the city"
 msgstr "вже закріплено за містом"
 
-#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+#: .\crm\models\country.py:32 .\crm\utils\make_massmail_form.py:49
 msgid "Countries"
 msgstr "Країни"
 
-#: crm/models/country.py:44
+#: .\crm\models\country.py:44
 msgid "Cities"
 msgstr "Міста"
 
-#: crm/models/crmemail.py:11
-#: crm/templates/admin/crm/company/change_form_object_tools.html:4
-#: crm/templates/admin/crm/inline_emails.html:18
-#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+#: .\crm\models\crmemail.py:11
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:4
+#: .\crm\templates\admin\crm\inline_emails.html:18
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:13
 msgid "Email"
 msgstr "Лист"
 
-#: crm/models/crmemail.py:12
+#: .\crm\models\crmemail.py:12
 msgid "Emails in CRM"
 msgstr "Пошта в CRM"
 
-#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
-#: crm/models/crmemail.py:30
+#: .\crm\models\crmemail.py:17 .\crm\models\crmemail.py:26
+#: .\crm\models\crmemail.py:30
 msgid "You can specify multiple addresses, separated by commas"
 msgstr "Ви можете вказати кілька адрес, перерахувавши їх через кому"
 
-#: crm/models/crmemail.py:22
+#: .\crm\models\crmemail.py:22
 msgid "The Email address of sender"
 msgstr "Адреса електронної пошти відправника"
 
-#: crm/models/crmemail.py:38
+#: .\crm\models\crmemail.py:38
 msgid "Request a read receipt"
 msgstr "Запит повідомлення про прочитання"
 
-#: crm/models/crmemail.py:39
+#: .\crm\models\crmemail.py:39
 msgid "Not supported by all mail services."
 msgstr "Підтримується не всіма поштовими сервісами."
 
-#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
-#: crm/templates/admin/crm/request/change_form_object_tools.html:7
-#: tasks/models/memo.py:65
+#: .\crm\models\crmemail.py:44 .\crm\models\deal.py:13
+#: .\crm\models\request.py:77 .\crm\site\shipmentadmin.py:269
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:27
+#: .\crm\templates\admin\crm\deal\change_list_object_tools.html:14
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:7
+#: .\tasks\models\memo.py:65
 msgid "Deal"
 msgstr "Угода"
 
-#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
-#: crm/models/request.py:64
+#: .\crm\models\crmemail.py:49 .\crm\models\deal.py:117
+#: .\crm\models\lead.py:12 .\crm\models\request.py:64
 msgid "Lead"
 msgstr "Лід"
 
-#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
-#: crm/models/request.py:68
-#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+#: .\crm\models\crmemail.py:54 .\crm\models\deal.py:124
+#: .\crm\models\lead.py:53 .\crm\models\request.py:68
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:22
 msgid "Contact"
 msgstr "Контактна особа"
 
-#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:401
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: .\crm\models\crmemail.py:64 .\crm\models\deal.py:132
+#: .\crm\models\request.py:19 .\crm\site\requestadmin.py:401
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:31
+#: .\crm\templates\admin\crm\deal\change_list_object_tools.html:14
 msgid "Request"
 msgstr "Запит"
 
-#: crm/models/deal.py:14
-#: crm/templates/admin/crm/company/change_form_object_tools.html:18
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+#: .\crm\models\deal.py:14
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:18
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:14
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:31
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:6
 msgid "Deals"
 msgstr "Угоди"
 
-#: crm/models/deal.py:19
+#: .\crm\models\deal.py:19
 msgid "Deal name"
 msgstr "Назва угоди"
 
-#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+#: .\crm\models\deal.py:23 .\crm\models\deal.py:203
+#: .\tasks\models\taskbase.py:77
 msgid "Next step"
 msgstr "Наступний крок"
 
-#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+#: .\crm\models\deal.py:25 .\tasks\models\taskbase.py:78
 msgid "Describe briefly what needs to be done in the next step."
 msgstr "Стисло опишіть, що необхідно зробити на наступному кроці."
 
-#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+#: .\crm\models\deal.py:29 .\tasks\models\taskbase.py:81
 msgid "Step date"
 msgstr "Дата кроку"
 
-#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+#: .\crm\models\deal.py:30 .\tasks\models\taskbase.py:82
 msgid "Date to which the next step should be taken."
 msgstr "Дата, до якої має бути зроблено наступний крок"
 
-#: crm/models/deal.py:51
+#: .\crm\models\deal.py:51
 msgid "Dates of the stages"
 msgstr "Дата етапів"
 
-#: crm/models/deal.py:52
+#: .\crm\models\deal.py:52
 msgid "Dates of passing the stages"
 msgstr "Дати проходження етапів"
 
-#: crm/models/deal.py:57
+#: .\crm\models\deal.py:57
 msgid "Date of deal closing"
 msgstr "Дата закриття угоди"
 
-#: crm/models/deal.py:62
+#: .\crm\models\deal.py:62
 msgid "Date of won deal closing"
 msgstr "Дата закриття виграної угоди"
 
-#: crm/models/deal.py:71
+#: .\crm\models\deal.py:71
 msgid "Total deal amount without VAT"
 msgstr "Загальна сума угоди без ПДВ"
 
-#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:73
-#: crm/models/product.py:49
+#: .\crm\models\deal.py:78 .\crm\models\payment.py:16
+#: .\crm\models\payment.py:73 .\crm\models\product.py:49
 msgid "Currency"
 msgstr "Валюта"
 
-#: crm/models/deal.py:85 crm/models/others.py:101
+#: .\crm\models\deal.py:85 .\crm\models\others.py:101
 msgid "Closing reason"
 msgstr "Причина закриття"
 
-#: crm/models/deal.py:90
+#: .\crm\models\deal.py:90
 msgid "Probability (%)"
 msgstr "Ймовірність (%)"
 
-#: crm/models/deal.py:148
+#: .\crm\models\deal.py:148
 msgid "Partner contact"
 msgstr "Партнер"
 
-#: crm/models/deal.py:151
+#: .\crm\models\deal.py:151
 msgid "Contact person of dealer or distribution company"
 msgstr "Контактна особа дилерської чи дистриб'юторської компанії"
 
-#: crm/models/deal.py:156
+#: .\crm\models\deal.py:156
 msgid "Relevant"
 msgstr "Релевантна"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: .\crm\models\deal.py:164 .\crm\utils\admfilters.py:486
 msgid "Important"
 msgstr "Важлива"
 
-#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+#: .\crm\models\deal.py:176 .\tasks\models\taskbase.py:90
 msgid "Remind me."
 msgstr "Нагадати мені."
 
-#: crm/models/lead.py:13
+#: .\crm\models\lead.py:13
 msgid "Leads"
 msgstr "Ліди"
 
-#: crm/models/lead.py:29
+#: .\crm\models\lead.py:29
 msgid "Company phone"
 msgstr "Телефон компанії"
 
-#: crm/models/lead.py:33
+#: .\crm\models\lead.py:33
 msgid "Company address"
 msgstr "Адреса компанії"
 
-#: crm/models/lead.py:37
+#: .\crm\models\lead.py:37
 msgid "Company email"
 msgstr "Email компанії"
 
-#: crm/models/others.py:27
+#: .\crm\models\others.py:27
 msgid "Type of Clients"
 msgstr "Тип Компанії"
 
-#: crm/models/others.py:28
+#: .\crm\models\others.py:28
 msgid "Types of Clients"
 msgstr "Типи Клієнтів"
 
-#: crm/models/others.py:33
+#: .\crm\models\others.py:33
 msgid "Industry of Clients"
 msgstr "Галузь Компанії"
 
-#: crm/models/others.py:34
+#: .\crm\models\others.py:34
 msgid "Industries of Clients"
 msgstr "Галузі Компанії"
 
-#: crm/models/others.py:42
+#: .\crm\models\others.py:42
 msgid "Second default"
 msgstr "Другий за замовчуванням"
 
-#: crm/models/others.py:43
+#: .\crm\models\others.py:43
 msgid "Will be selected next after the default stage."
 msgstr "Буде обрано наступним після етапу за промовчанням."
 
-#: crm/models/others.py:47
+#: .\crm\models\others.py:47
 msgid "success stage"
 msgstr "етап успіху"
 
-#: crm/models/others.py:51
+#: .\crm\models\others.py:51
 msgid "conditional success stage"
 msgstr "етап умовного успіху"
 
-#: crm/models/others.py:52
+#: .\crm\models\others.py:52
 msgid "For example, receiving the first payment"
 msgstr "Наприклад, отримання першого платежу"
 
-#: crm/models/others.py:56
+#: .\crm\models\others.py:56
 msgid "goods shipped"
 msgstr "товари відправлені"
 
-#: crm/models/others.py:57
+#: .\crm\models\others.py:57
 msgid "Have the goods been shipped at this stage already?"
 msgstr "Товар уже надіслано на цьому етапі?"
 
-#: crm/models/others.py:64
+#: .\crm\models\others.py:64
 msgid "Lead Sources"
 msgstr "Джерела Лідів"
 
-#: crm/models/others.py:76
+#: .\crm\models\others.py:76
 msgid "form template name"
 msgstr "ім'я шаблону форми"
 
-#: crm/models/others.py:77 crm/models/others.py:82
+#: .\crm\models\others.py:77 .\crm\models\others.py:82
 msgid "The name of the html template file if needed."
 msgstr "Ім'я файлу шаблону html, якщо потрібно."
 
-#: crm/models/others.py:81
+#: .\crm\models\others.py:81
 msgid "success page template name"
 msgstr "ім'я шаблону сторінки успіху"
 
-#: crm/models/others.py:90
+#: .\crm\models\others.py:90
 msgid ""
 "Reason rating.         The indices of other instances will be sorted "
 "automatically."
 msgstr ""
 "Рейтинг причин. Індекси інших екземплярів будуть відсортовані автоматично."
 
-#: crm/models/others.py:95
+#: .\crm\models\others.py:95
 msgid "success reason"
 msgstr "причина – успіх"
 
-#: crm/models/others.py:102
+#: .\crm\models\others.py:102
 msgid "Closing reasons"
 msgstr "Причини закриття"
 
-#: crm/models/output.py:9
+#: .\crm\models\output.py:9
 msgid "Output"
 msgstr "Продукт"
 
-#: crm/models/output.py:10
+#: .\crm\models\output.py:10
 msgid "Outputs"
 msgstr "Продукція"
 
-#: crm/models/output.py:23
+#: .\crm\models\output.py:23
 msgid "Quantity"
 msgstr "Кількість"
 
-#: crm/models/output.py:27
+#: .\crm\models\output.py:27
 msgid "Shipping date"
 msgstr "дата відвантаження"
 
-#: crm/models/output.py:28
+#: .\crm\models\output.py:28
 msgid "Shipment date as per contract"
 msgstr "Дата відвантаження згідно з контрактом"
 
-#: crm/models/output.py:32
+#: .\crm\models\output.py:32
 msgid "Planned shipping date"
 msgstr "Запланована дата відвантаження"
 
-#: crm/models/output.py:36
+#: .\crm\models\output.py:36
 msgid "Actual shipping date"
 msgstr "Фактична дата відвантаження"
 
-#: crm/models/output.py:37
+#: .\crm\models\output.py:37
 msgid "Date when the product was shipped"
 msgstr "Дата відправки товару"
 
-#: crm/models/output.py:41
+#: .\crm\models\output.py:41
 msgid "Shipped"
 msgstr "Відвантажено"
 
-#: crm/models/output.py:42
+#: .\crm\models\output.py:42
 msgid "Product is shipped"
 msgstr "Товар відправлено"
 
-#: crm/models/output.py:46
+#: .\crm\models\output.py:46
 msgid "serial number"
 msgstr "серійний номер"
 
-#: crm/models/output.py:60
+#: .\crm\models\output.py:60
 msgid "Shipment"
 msgstr "Відвантаження"
 
-#: crm/models/output.py:61
+#: .\crm\models\output.py:61
 msgid "Shipments"
 msgstr "Відвантаження"
 
-#: crm/models/payment.py:17
+#: .\crm\models\payment.py:17
 msgid "Currencies"
 msgstr "Валюти"
 
-#: crm/models/payment.py:21
+#: .\crm\models\payment.py:21
 msgid "Alphabetic Code for the Representation of Currencies."
 msgstr "Алфавітний код для позначення валют."
 
-#: crm/models/payment.py:26 crm/models/payment.py:194
+#: .\crm\models\payment.py:26 .\crm\models\payment.py:194
 msgid "Rate to state currency"
 msgstr "Курс до державної валюти"
 
-#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:195
-#: crm/models/payment.py:200
+#: .\crm\models\payment.py:27 .\crm\models\payment.py:33
+#: .\crm\models\payment.py:195 .\crm\models\payment.py:200
 msgid "Exchange rate against the state currency."
 msgstr "Обмінний курс щодо державної валюти"
 
-#: crm/models/payment.py:32 crm/models/payment.py:199
+#: .\crm\models\payment.py:32 .\crm\models\payment.py:199
 msgid "Rate to marketing currency"
 msgstr "Курс до маркетингової валюти"
 
-#: crm/models/payment.py:37
+#: .\crm\models\payment.py:37
 msgid "Is it the state currency?"
 msgstr "Чи це державна валюта?"
 
-#: crm/models/payment.py:41
+#: .\crm\models\payment.py:41
 msgid "Is it the marketing currency?"
 msgstr "Чи це валюта маркетингу?"
 
-#: crm/models/payment.py:67
+#: .\crm\models\payment.py:67
 msgid "without VAT"
 msgstr "без НДС"
 
-#: crm/models/payment.py:78
+#: .\crm\models\payment.py:78
 msgid "Please specify a currency."
 msgstr "Будь ласка, вкажіть валюту."
 
-#: crm/models/payment.py:88
+#: .\crm\models\payment.py:88
 msgid "Payment"
 msgstr "Платіж"
 
-#: crm/models/payment.py:89
+#: .\crm\models\payment.py:89
 msgid "Payments"
 msgstr "Платежі"
 
-#: crm/models/payment.py:96
+#: .\crm\models\payment.py:96
 msgid "received"
 msgstr "отримано"
 
-#: crm/models/payment.py:97
+#: .\crm\models\payment.py:97
 msgid "guaranteed"
 msgstr "гарантований"
 
-#: crm/models/payment.py:98
+#: .\crm\models\payment.py:98
 msgid "high probability"
 msgstr "висока ймовірність"
 
-#: crm/models/payment.py:99
+#: .\crm\models\payment.py:99
 msgid "low probability"
 msgstr "низька ймовірність"
 
-#: crm/models/payment.py:114
+#: .\crm\models\payment.py:114
 msgid "Payment status"
 msgstr "Статус платежу"
 
-#: crm/models/payment.py:118 crm/site/shipmentadmin.py:245
+#: .\crm\models\payment.py:118 .\crm\site\shipmentadmin.py:245
 msgid "contract number"
 msgstr "номер контракту"
 
-#: crm/models/payment.py:122
+#: .\crm\models\payment.py:122
 msgid "invoice number"
 msgstr "номер рахунку"
 
-#: crm/models/payment.py:126
+#: .\crm\models\payment.py:126
 msgid "order number"
 msgstr "номер замовлення"
 
-#: crm/models/payment.py:130
+#: .\crm\models\payment.py:130
 msgid "Payment through representative office"
 msgstr "Оплата через представництво"
 
-#: crm/models/payment.py:153
+#: .\crm\models\payment.py:153
 msgid "Payment share"
 msgstr "Частка платежу"
 
-#: crm/models/payment.py:173
+#: .\crm\models\payment.py:173
 msgid "Currency rate"
 msgstr "Курс валюти"
 
-#: crm/models/payment.py:174
+#: .\crm\models\payment.py:174
 msgid "Currency rates"
 msgstr "Курси валют"
 
-#: crm/models/payment.py:179
+#: .\crm\models\payment.py:179
 msgid "approximate currency rate"
 msgstr "приблизний курс валюти"
 
-#: crm/models/payment.py:180
+#: .\crm\models\payment.py:180
 msgid "official currency rate"
 msgstr "офіційний курс валюти"
 
-#: crm/models/payment.py:190
+#: .\crm\models\payment.py:190
 msgid "Currency rate date"
 msgstr "Дата курсу валюти"
 
-#: crm/models/payment.py:206
+#: .\crm\models\payment.py:206
 msgid "Exchange rate type"
 msgstr "Тип обмінного курсу"
 
-#: crm/models/product.py:9 crm/models/product.py:69
+#: .\crm\models\product.py:9 .\crm\models\product.py:69
 msgid "Product category"
 msgstr "Категорія продукту"
 
-#: crm/models/product.py:10
+#: .\crm\models\product.py:10
 msgid "Product categories"
 msgstr "Категорії продуктів"
 
-#: crm/models/product.py:55
+#: .\crm\models\product.py:55
 msgid "On sale"
 msgstr "В продажі"
 
-#: crm/models/product.py:58
+#: .\crm\models\product.py:58
 msgid "Goods"
 msgstr "Товар"
 
-#: crm/models/product.py:59
+#: .\crm\models\product.py:59
 msgid "Service"
 msgstr "Послуга"
 
-#: crm/models/product.py:64 voip/models.py:21
+#: .\crm\models\product.py:64 .\voip\models.py:21
 msgid "Type"
 msgstr "Тип"
 
-#: crm/models/request.py:20
+#: .\crm\models\request.py:20
 msgid "Requests"
 msgstr "Запити"
 
-#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+#: .\crm\models\request.py:24 .\crm\templates\crm\print_request.html:32
 msgid "Request for"
 msgstr "Запит на"
 
-#: crm/models/request.py:50
+#: .\crm\models\request.py:50
 msgid "Lead source"
 msgstr "Джерело запиту"
 
-#: crm/models/request.py:59
+#: .\crm\models\request.py:59
 msgid "Date of receipt"
 msgstr "Дата отримання"
 
-#: crm/models/request.py:60
+#: .\crm\models\request.py:60
 msgid "Date of receipt of the request."
 msgstr "Дата отримання запиту"
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: .\crm\models\request.py:107 .\crm\site\dealadmin.py:671
 msgid "Translation"
 msgstr "Переклад"
 
-#: crm/models/request.py:111
+#: .\crm\models\request.py:111
 msgid "Remark"
 msgstr "Примітка"
 
-#: crm/models/request.py:115
+#: .\crm\models\request.py:115
 msgid "Pending"
 msgstr "В очікуванні"
 
-#: crm/models/request.py:116
+#: .\crm\models\request.py:116
 msgid "Waiting for validation of fields filling"
 msgstr "В очікуванні перевірки коректності заповнення полів"
 
-#: crm/models/request.py:120
+#: .\crm\models\request.py:120
 msgid "Subsequent"
 msgstr "Наступний"
 
-#: crm/models/request.py:122
+#: .\crm\models\request.py:122
 msgid "Received from the client with whom you are already cooperate"
 msgstr "Отримано від клієнта, з яким ви вже співпрацюєте"
 
-#: crm/models/request.py:126
+#: .\crm\models\request.py:126
 msgid "Duplicate"
 msgstr "Дублюючий"
 
-#: crm/models/request.py:127
+#: .\crm\models\request.py:127
 msgid "Duplicate request. The deal will not be created."
 msgstr "Дублюючий запит. Угода не буде створена."
 
-#: crm/models/request.py:131 help/models.py:125
+#: .\crm\models\request.py:131 .\help\models.py:125
 msgid "Verification required"
 msgstr "Потрібна перевірка"
 
-#: crm/models/request.py:132
+#: .\crm\models\request.py:132
 msgid "Links are set automatically and require verification."
 msgstr "Посилання встановлені автоматично та потребують перевірки."
 
-#: crm/models/request.py:148 crm/models/request.py:149
+#: .\crm\models\request.py:148 .\crm\models\request.py:149
 msgid "Company and contact person do not match."
 msgstr "Компанія та контактна особа не збігаються."
 
-#: crm/models/request.py:153 crm/models/request.py:154
+#: .\crm\models\request.py:153 .\crm\models\request.py:154
 msgid "Specify the contact person or lead. But not both."
 msgstr "Вкажіть контактну особу або лід. Але не обидва."
 
-#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+#: .\crm\models\tag.py:9 .\crm\utils\admfilters.py:232 .\tasks\models\tag.py:8
 msgid "Tag"
 msgstr "Ярлик"
 
-#: crm/models/tag.py:14 tasks/models/tag.py:12
+#: .\crm\models\tag.py:14 .\tasks\models\tag.py:12
 msgid "Tag name"
 msgstr "Назва ярлика"
 
-#: crm/settings.py:45
+#: .\crm\settings.py:45
 msgid "Establish the first contact with the client."
 msgstr "Встановити перший контакт із клієнтом"
 
-#: crm/site/companyadmin.py:26
+#: .\crm\site\companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "Ви можете переглядати лише компанії, пов’язані з вашим відділом."
 
-#: crm/site/companyadmin.py:207 crm/site/leadadmin.py:261
+#: .\crm\site\companyadmin.py:207 .\crm\site\leadadmin.py:261
 msgid "Warning:"
 msgstr "Увага:"
 
-#: crm/site/companyadmin.py:209
+#: .\crm\site\companyadmin.py:209
 msgid "Owner will also be changed for contact persons."
 msgstr "Також буде змінено власника контактних осіб."
 
-#: crm/site/companyadmin.py:222
+#: .\crm\site\companyadmin.py:222
 msgid "Change owner of selected Companies"
 msgstr "Змінити власника вибраних компаній"
 
-#: crm/site/crmadminsite.py:22
+#: .\crm\site\crmadminsite.py:22
 msgid "Your Excel file"
 msgstr "Ваш Excel файл"
 
-#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
-#: massmail/site/emlmessageadmin.py:133
+#: .\crm\site\crmemailadmin.py:30 .\massmail\models\signature.py:16
+#: .\massmail\site\emlmessageadmin.py:133
 msgid "Signature"
 msgstr "Підпис"
 
-#: crm/site/crmemailadmin.py:31
+#: .\crm\site\crmemailadmin.py:31
 msgid "Please note that this is a list of unsent emails."
 msgstr "Зверніть увагу, що це список ненаправлених листів."
 
-#: crm/site/crmemailadmin.py:143
+#: .\crm\site\crmemailadmin.py:143
 msgid "Emails in the CRM database."
 msgstr "Листи в базі CRM."
 
-#: crm/site/crmemailadmin.py:350
+#: .\crm\site\crmemailadmin.py:350
 msgid "Box"
 msgstr "Ящик"
 
-#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+#: .\crm\site\crmemailadmin.py:387
+#: .\crm\templates\admin\crm\inline_emails.html:54
 msgid "Content"
 msgstr "Зміст"
 
-#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+#: .\crm\site\crmemailadmin.py:397 .\massmail\models\baseeml.py:27
 msgid "Previous correspondence"
 msgstr "Попереднє листування"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:333
-#: crm/utils/import_emails.py:192
+#: .\crm\site\crmemailadmin.py:422 .\crm\site\requestadmin.py:333
+#: .\crm\utils\import_emails.py:192
 msgid "No subject"
 msgstr "Без теми"
 
-#: crm/site/crmmodeladmin.py:61
+#: .\crm\site\crmmodeladmin.py:61
 msgid "View website in new tab"
 msgstr "Переглянути сайт у новій вкладці"
 
-#: crm/site/crmmodeladmin.py:62
+#: .\crm\site\crmmodeladmin.py:62
 msgid "Callback to smartphone"
 msgstr "Зворотній дзвінок на смартфон"
 
-#: crm/site/crmmodeladmin.py:63
+#: .\crm\site\crmmodeladmin.py:63
 msgid "Callback to your smartphone"
 msgstr "Зворотній дзвінок на ваш смартфон"
 
-#: crm/site/crmmodeladmin.py:64
+#: .\crm\site\crmmodeladmin.py:64
 msgid "Skype chat"
 msgstr "Skype чат"
 
-#: crm/site/crmmodeladmin.py:65
+#: .\crm\site\crmmodeladmin.py:65
 msgid "Chat or Skype call"
 msgstr "Чат або Skype дзвінок"
 
-#: crm/site/crmmodeladmin.py:66
+#: .\crm\site\crmmodeladmin.py:66
 msgid "Skype call"
 msgstr "Skype дзвінок"
 
-#: crm/site/crmmodeladmin.py:67
+#: .\crm\site\crmmodeladmin.py:67
 msgid "To call a mobile or landline from Skype"
 msgstr "Зателефонувати на мобільний або стаціонарний телефон із Skype"
 
-#: crm/site/crmmodeladmin.py:68
+#: .\crm\site\crmmodeladmin.py:68
 msgid "Viber chat"
 msgstr "Viber чат"
 
-#: crm/site/crmmodeladmin.py:69
+#: .\crm\site\crmmodeladmin.py:69
 msgid "Chat or viber call"
 msgstr "Чат або Viber дзвінок"
 
-#: crm/site/crmmodeladmin.py:70
+#: .\crm\site\crmmodeladmin.py:70
 msgid "WhatsApp chat"
 msgstr "WhatsApp чат"
 
-#: crm/site/crmmodeladmin.py:71
+#: .\crm\site\crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
 msgstr "Чат або WhatsApp дзвінок"
 
-#: crm/site/crmmodeladmin.py:76
+#: .\crm\site\crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
 msgstr "Підписаний на розсилку новин"
 
-#: crm/site/crmmodeladmin.py:78
+#: .\crm\site\crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
 msgstr "Відписаний від розсилки новин"
 
-#: crm/site/crmmodeladmin.py:267
+#: .\crm\site\crmmodeladmin.py:267
 msgid "Create Email"
 msgstr "Створити лист"
 
-#: crm/site/crmmodeladmin.py:332
+#: .\crm\site\crmmodeladmin.py:332
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
@@ -2076,479 +2095,479 @@ msgstr ""
 "Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
 " неділя."
 
-#: crm/site/crmmodeladmin.py:362
+#: .\crm\site\crmmodeladmin.py:362
 msgid "Messengers"
 msgstr "Месенджери"
 
-#: crm/site/currencyadmin.py:35
+#: .\crm\site\currencyadmin.py:35
 msgid "State currency must be specified."
 msgstr "Необхідно зазначити державну валюту."
 
-#: crm/site/currencyadmin.py:40
+#: .\crm\site\currencyadmin.py:40
 msgid "Marketing currency must be specified."
 msgstr "Валюта маркетингу має бути вказана."
 
-#: crm/site/dealadmin.py:52
+#: .\crm\site\dealadmin.py:52
 msgid "Closing date"
 msgstr "Дата закриття"
 
-#: crm/site/dealadmin.py:58
+#: .\crm\site\dealadmin.py:58
 msgid "View Contact in new tab"
 msgstr "Переглянути контактну особу в новій вкладці"
 
-#: crm/site/dealadmin.py:59
+#: .\crm\site\dealadmin.py:59
 msgid "View Company in new tab"
 msgstr "Переглянути компанію у новій вкладці"
 
-#: crm/site/dealadmin.py:62
+#: .\crm\site\dealadmin.py:62
 msgid "Deal counter"
 msgstr "Лічильник угод"
 
-#: crm/site/dealadmin.py:63
+#: .\crm\site\dealadmin.py:63
 msgid "View Lead in new tab"
 msgstr "Подивитися ліда у новій вкладці"
 
-#: crm/site/dealadmin.py:64
+#: .\crm\site\dealadmin.py:64
 msgid "Unanswered email"
 msgstr "Лист без відповіді"
 
-#: crm/site/dealadmin.py:68
+#: .\crm\site\dealadmin.py:68
 msgid "Unread chat message"
 msgstr "Непрочитане повідомлення чату"
 
-#: crm/site/dealadmin.py:71
+#: .\crm\site\dealadmin.py:71
 msgid "Payment received"
 msgstr "Отримано платіж"
 
-#: crm/site/dealadmin.py:74
+#: .\crm\site\dealadmin.py:74
 msgid "Specify the date of shipment"
 msgstr "Вкажіть дату відвантаження"
 
-#: crm/site/dealadmin.py:77
+#: .\crm\site\dealadmin.py:77
 msgid "Specify products"
 msgstr "Вкажіть продукти"
 
-#: crm/site/dealadmin.py:80
+#: .\crm\site\dealadmin.py:80
 msgid "Expired shipment date"
 msgstr "Вийшов термін відвантаження"
 
-#: crm/site/dealadmin.py:87
+#: .\crm\site\dealadmin.py:87
 msgid "Relevant deal"
 msgstr "Релевантна угода"
 
-#: crm/site/dealadmin.py:158
+#: .\crm\site\dealadmin.py:158
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "Угода з ID «{}» не існує. Можливо, її видалили?"
 
-#: crm/site/dealadmin.py:221
+#: .\crm\site\dealadmin.py:221
 msgid "View the Request"
 msgstr "Дивитися Запит"
 
-#: crm/site/dealadmin.py:536
+#: .\crm\site\dealadmin.py:536
 msgid "Create Email to Contact"
 msgstr "Створити лист Контакту"
 
-#: crm/site/dealadmin.py:539
+#: .\crm\site\dealadmin.py:539
 msgid "Create Email to Lead"
 msgstr "Створити лист Ліду"
 
-#: crm/site/dealadmin.py:579
+#: .\crm\site\dealadmin.py:579
 msgid "Important deal"
 msgstr "Важлива угода"
 
-#: crm/site/dealadmin.py:603
+#: .\crm\site\dealadmin.py:603
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Я чекаю відповіді на запит %d дня"
 
-#: crm/site/dealadmin.py:633
+#: .\crm\site\dealadmin.py:633
 msgid "Expected"
 msgstr "Очікується"
 
-#: crm/site/dealadmin.py:641
+#: .\crm\site\dealadmin.py:641
 msgid "Paid"
 msgstr "Сплачено"
 
-#: crm/site/dealadmin.py:696
+#: .\crm\site\dealadmin.py:696
 msgid "Contact is Lead (no company)"
 msgstr "Контактна особа - Lead (без компанії)"
 
-#: crm/site/leadadmin.py:117
+#: .\crm\site\leadadmin.py:117
 msgid "Person contact details"
 msgstr "Контактні дані особи"
 
-#: crm/site/leadadmin.py:126
+#: .\crm\site\leadadmin.py:126
 msgid "Additional person details"
 msgstr "Додаткові дані про людину"
 
-#: crm/site/leadadmin.py:139
+#: .\crm\site\leadadmin.py:139
 msgid "Company contact details"
 msgstr "Контактні дані компанії"
 
-#: crm/site/leadadmin.py:248
+#: .\crm\site\leadadmin.py:248
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Лід \"{obj}\" успішно конвертовано."
 
-#: crm/site/leadadmin.py:263
+#: .\crm\site\leadadmin.py:263
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Цей Лід дискваліфікований! Будь ласка, прочитайте опис."
 
-#: crm/site/requestadmin.py:37
+#: .\crm\site\requestadmin.py:37
 msgid "Client Loyalty"
 msgstr "Лояльність клієнтів"
 
-#: crm/site/requestadmin.py:44
+#: .\crm\site\requestadmin.py:44
 msgid "Country not specified in request"
 msgstr "У запиті не вказано країну"
 
-#: crm/site/requestadmin.py:45
+#: .\crm\site\requestadmin.py:45
 msgid "You received the deal"
 msgstr "Ви отримали угоду"
 
-#: crm/site/requestadmin.py:46
+#: .\crm\site\requestadmin.py:46
 msgid "You are the co-owner of the deal"
 msgstr "Ви призначені співвласником нової угоди"
 
-#: crm/site/requestadmin.py:52
+#: .\crm\site\requestadmin.py:52
 msgid "Primary request"
 msgstr "Первинний запит"
 
-#: crm/site/requestadmin.py:53
+#: .\crm\site\requestadmin.py:53
 msgid "You are the co-owner of the request"
 msgstr "Ви призначені співвласником нового запиту"
 
-#: crm/site/requestadmin.py:54
+#: .\crm\site\requestadmin.py:54
 msgid "You received the request"
 msgstr "Ви отримали запит"
 
-#: crm/site/requestadmin.py:55 tasks/models/memo.py:20
-#: tasks/models/to_translate.txt:2
+#: .\crm\site\requestadmin.py:55 .\tasks\models\memo.py:20
+#: .\tasks\models\to_translate.txt:2
 msgid "pending"
 msgstr "в очікуванні"
 
-#: crm/site/requestadmin.py:56
+#: .\crm\site\requestadmin.py:56
 msgid "processed"
 msgstr "оброблено"
 
-#: crm/site/requestadmin.py:57 massmail/models/mailing_out.py:41
-#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+#: .\crm\site\requestadmin.py:57 .\massmail\models\mailing_out.py:41
+#: .\massmail\utils\adminfilters.py:6 .\tasks\site\memoadmin.py:46
 msgid "Status"
 msgstr "Статус"
 
-#: crm/site/requestadmin.py:61
+#: .\crm\site\requestadmin.py:61
 msgid "Subsequent request"
 msgstr "Подальший запит"
 
-#: crm/site/requestadmin.py:454
+#: .\crm\site\requestadmin.py:454
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} “{obj}” успішно додано."
 
-#: crm/site/shipmentadmin.py:26
+#: .\crm\site\shipmentadmin.py:26
 msgid "actual"
 msgstr "фактична"
 
-#: crm/site/shipmentadmin.py:27
+#: .\crm\site\shipmentadmin.py:27
 msgid "Actual shipping date."
 msgstr "Фактична дата відвантаження."
 
-#: crm/site/shipmentadmin.py:32
+#: .\crm\site\shipmentadmin.py:32
 msgid "Deal is paid."
 msgstr "Угода оплачена."
 
-#: crm/site/shipmentadmin.py:33
+#: .\crm\site\shipmentadmin.py:33
 msgid "Next<br>payment"
 msgstr "Наступний<br>платіж"
 
-#: crm/site/shipmentadmin.py:34
+#: .\crm\site\shipmentadmin.py:34
 msgid "order"
 msgstr "замовлення"
 
-#: crm/site/shipmentadmin.py:37
+#: .\crm\site\shipmentadmin.py:37
 msgid "The product has not been shipped yet."
 msgstr "Продукції ще не відправлена."
 
-#: crm/site/shipmentadmin.py:38
+#: .\crm\site\shipmentadmin.py:38
 msgid "The product has been shipped."
 msgstr "Товар відправлено."
 
-#: crm/site/shipmentadmin.py:40
+#: .\crm\site\shipmentadmin.py:40
 msgid "Product shipment"
 msgstr "Відвантаження продукції"
 
-#: crm/site/shipmentadmin.py:41
+#: .\crm\site\shipmentadmin.py:41
 msgid "to contract"
 msgstr "за угодою"
 
-#: crm/site/shipmentadmin.py:42
+#: .\crm\site\shipmentadmin.py:42
 msgid "Date of shipment according to a contract."
 msgstr "Дата відвантаження згідно договору."
 
-#: crm/site/shipmentadmin.py:47
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
-#: crm/templates/admin/crm/request/change_form_object_tools.html:5
-#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
-#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+#: .\crm\site\shipmentadmin.py:47
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:27
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:5
+#: .\crm\templates\admin\crm\shipment\change_form_object_tools.html:6
+#: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:8
 msgid "View the deal"
 msgstr "Дивитись угоду"
 
-#: crm/site/shipmentadmin.py:254
+#: .\crm\site\shipmentadmin.py:254
 msgid "paid"
 msgstr "оплачено"
 
-#: crm/templates/admin/crm/change_form.html:43
-#: crm/templates/admin/crm/crmemail/change_form.html:43
-#: crm/templates/admin/crm/payment/change_list.html:52
+#: .\crm\templates\admin\crm\change_form.html:43
+#: .\crm\templates\admin\crm\crmemail\change_form.html:43
+#: .\crm\templates\admin\crm\payment\change_list.html:52
 msgid "Please correct the error below."
 msgstr "Будь ласка, виправте помилку нижче."
 
-#: crm/templates/admin/crm/change_form.html:43
-#: crm/templates/admin/crm/crmemail/change_form.html:43
-#: crm/templates/admin/crm/payment/change_list.html:52
+#: .\crm\templates\admin\crm\change_form.html:43
+#: .\crm\templates\admin\crm\crmemail\change_form.html:43
+#: .\crm\templates\admin\crm\payment\change_list.html:52
 msgid "Please correct the errors below."
 msgstr "Будь ласка, виправте помилку нижче."
 
-#: crm/templates/admin/crm/city/submit_line.html:5
-#: crm/templates/admin/crm/company/submit_line.html:5
-#: crm/templates/admin/crm/contact/submit_line.html:5
-#: crm/templates/admin/crm/crmemail/submit_line.html:15
-#: crm/templates/admin/crm/deal/submit_line.html:5
-#: crm/templates/admin/crm/lead/submit_line.html:5
-#: crm/templates/admin/crm/payment/submit_line.html:5
-#: crm/templates/admin/crm/request/submit_line.html:5
-#: crm/templates/admin/crm/shipment/submit_line.html:5
-#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+#: .\crm\templates\admin\crm\city\submit_line.html:5
+#: .\crm\templates\admin\crm\company\submit_line.html:5
+#: .\crm\templates\admin\crm\contact\submit_line.html:5
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:15
+#: .\crm\templates\admin\crm\deal\submit_line.html:5
+#: .\crm\templates\admin\crm\lead\submit_line.html:5
+#: .\crm\templates\admin\crm\payment\submit_line.html:5
+#: .\crm\templates\admin\crm\request\submit_line.html:5
+#: .\crm\templates\admin\crm\shipment\submit_line.html:5
+#: .\massmail\templates\admin\massmail\mailingout\submit_line.html:5
 msgid "Save as new"
 msgstr "Зберегти як нове"
 
-#: crm/templates/admin/crm/city/submit_line.html:6
-#: crm/templates/admin/crm/company/submit_line.html:6
+#: .\crm\templates\admin\crm\city\submit_line.html:6
+#: .\crm\templates\admin\crm\company\submit_line.html:6
 msgid "Save and add another"
 msgstr "Зберегти та додати ще"
 
-#: crm/templates/admin/crm/company/change_form_object_tools.html:9
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
-#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:9
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:18
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:10
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:19
 msgid "Сorrespondence"
 msgstr "Листування"
 
-#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:27
 msgid "Contacts"
 msgstr "Контактні особи"
 
-#: crm/templates/admin/crm/company/change_form_object_tools.html:32
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:32
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:26
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:17
 msgid "Got massmails"
 msgstr "Отримані розсилки"
 
-#: crm/templates/admin/crm/company/change_form_object_tools.html:33
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:33
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:27
+#: .\crm\templates\admin\crm\lead\change_form_object_tools.html:18
 msgid "Massmails"
 msgstr "Поштова розсилка"
 
-#: crm/templates/admin/crm/company/change_form_object_tools.html:40
-#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
-#: help/templates/admin/help/page/change_form_object_tools.html:3
+#: .\crm\templates\admin\crm\company\change_form_object_tools.html:40
+#: .\crm\templates\admin\crm\contact\change_form_object_tools.html:34
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:53
+#: .\help\templates\admin\help\page\change_form_object_tools.html:3
 msgid "Open in Admin"
 msgstr "Відкрити в Адмінці"
 
-#: crm/templates/admin/crm/company/change_list_object_tools.html:14
-#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: .\crm\templates\admin\crm\company\change_list_object_tools.html:14
+#: .\crm\templates\admin\crm\contact\change_list_object_tools.html:14
 msgid "Make Massmail"
 msgstr "Створити розсилку"
 
-#: crm/templates/admin/crm/company/change_list_object_tools.html:25
-#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
-#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+#: .\crm\templates\admin\crm\company\change_list_object_tools.html:25
+#: .\crm\templates\admin\crm\contact\change_list_object_tools.html:25
+#: .\crm\templates\admin\crm\lead\change_list_object_tools.html:18
 msgid "Export all"
 msgstr "Експортувати все"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
-#: crm/templates/admin/crm/inline_emails.html:37
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:9
+#: .\crm\templates\admin\crm\inline_emails.html:37
 msgid "reply all"
 msgstr "Відповісти всім"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
-#: crm/templates/admin/crm/inline_emails.html:38
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:12
+#: .\crm\templates\admin\crm\inline_emails.html:38
 msgid "forward"
 msgstr "Переслати"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:17
 msgid "View next email"
 msgstr "Дивитись наступний лист"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:17
 msgid "Next"
 msgstr "Наступне"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:22
 msgid "View previous email"
 msgstr "Дивитись попередній лист"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:22
 msgid "Previous"
 msgstr "Попереднє"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:31
 msgid "View the request"
 msgstr "Дивитися Запит"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
-#: crm/templates/admin/crm/inline_emails.html:27
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:36
+#: .\crm\templates\admin\crm\inline_emails.html:27
 msgid "View original email"
 msgstr "Дивитись оригінал листа"
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
-#: crm/templates/admin/crm/inline_emails.html:32
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:42
+#: .\crm\templates\admin\crm\inline_emails.html:32
 msgid "Download the original email as an EML file."
 msgstr "Завантажити оригінал листа у вигляді файлу EML."
 
-#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
-#: crm/templates/admin/crm/inline_emails.html:39
-#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+#: .\crm\templates\admin\crm\crmemail\change_form_object_tools.html:46
+#: .\crm\templates\admin\crm\inline_emails.html:39
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:33
 msgid "Print preview"
 msgstr "Попередній перегляд друку"
 
-#: crm/templates/admin/crm/crmemail/stacked.html:12
-#: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16
-#: massmail/site/signatureadmin.py:31
+#: .\crm\templates\admin\crm\crmemail\stacked.html:12
+#: .\crm\templates\admin\crm\inline_emails.html:35
+#: .\help\templates\admin\help\stacked.html:16
+#: .\massmail\site\signatureadmin.py:31
 msgid "Change"
 msgstr "Змінити"
 
-#: crm/templates/admin/crm/crmemail/stacked.html:12
-#: help/templates/admin/help/stacked.html:16
+#: .\crm\templates\admin\crm\crmemail\stacked.html:12
+#: .\help\templates\admin\help\stacked.html:16
 msgid "View"
 msgstr "Дивитись"
 
-#: crm/templates/admin/crm/crmemail/submit_line.html:6
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:6
 msgid "Reply"
 msgstr "Відповісти"
 
-#: crm/templates/admin/crm/crmemail/submit_line.html:7
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:7
 msgid "Reply all"
 msgstr "Відповісти всім"
 
-#: crm/templates/admin/crm/crmemail/submit_line.html:8
+#: .\crm\templates\admin\crm\crmemail\submit_line.html:8
 msgid "Forward"
 msgstr "Переслати"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:5
 msgid "View office memos"
 msgstr "Дивитись службові записки"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:6
 msgid "Office memos"
 msgstr "Службові записки"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:9
+#: .\crm\templates\admin\crm\deal\change_list_object_tools.html:14
 msgid "Add"
 msgstr "Додати"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:9
 msgid "Office memo"
 msgstr "Службова записка"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:14
 msgid "View the correspondence on this Deal"
 msgstr "Дивитися листування за цією Угодою"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:22
 msgid "Import Email regarding this Deal"
 msgstr "Імпортувати лист щодо цієї угоди"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:29
 msgid "View Deals with this Company"
 msgstr "Дивитись угоди з цією Компанією"
 
-#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: .\crm\templates\admin\crm\deal\change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "Дивитися історію змін цієї Угоди"
 
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+#: .\crm\templates\admin\crm\deal\change_list_object_tools.html:6
 msgid "Toggle default deal sorting"
 msgstr "Переключити сортування угод за умовчанням"
 
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+#: .\crm\templates\admin\crm\deal\change_list_object_tools.html:13
 msgid "A deal is created based on a request"
 msgstr "Угода створюється на основі запиту"
 
-#: crm/templates/admin/crm/inline_emails.html:6
+#: .\crm\templates\admin\crm\inline_emails.html:6
 msgid "Last few letters"
 msgstr "Кілька останніх листів"
 
-#: crm/templates/admin/crm/inline_emails.html:51
+#: .\crm\templates\admin\crm\inline_emails.html:51
 msgid "Date"
 msgstr "Дата"
 
-#: crm/templates/admin/crm/inline_emails.html:61
+#: .\crm\templates\admin\crm\inline_emails.html:61
 msgid "View or Download"
 msgstr "Переглянути або завантажити"
 
-#: crm/templates/admin/crm/lead/submit_line.html:9
+#: .\crm\templates\admin\crm\lead\submit_line.html:9
 msgid "Convert"
 msgstr "Конвертувати"
 
-#: crm/templates/admin/crm/payment/change_list.html:41
+#: .\crm\templates\admin\crm\payment\change_list.html:41
 msgid "Total sum"
 msgstr "Загальна сума"
 
-#: crm/templates/admin/crm/payment/change_list.html:41
+#: .\crm\templates\admin\crm\payment\change_list.html:41
 msgid "with VAT"
 msgstr "з ПДВ"
 
-#: crm/templates/admin/crm/payment/change_list.html:63
+#: .\crm\templates\admin\crm\payment\change_list.html:63
 msgid "Filter"
 msgstr "Фільтр"
 
-#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+#: .\crm\templates\admin\crm\request\change_form_object_tools.html:27
 msgid "Import Email regarding this Request"
 msgstr "Імпортувати лист щодо цього Запиту"
 
-#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+#: .\crm\templates\admin\crm\request\change_list_object_tools.html:12
 msgid "Create a request based on an email."
 msgstr "Створити запит на основі листа."
 
-#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+#: .\crm\templates\admin\crm\request\change_list_object_tools.html:13
 msgid "Import request from"
 msgstr "Імпортувати запит з"
 
-#: crm/templates/admin/crm/request/submit_line.html:8
+#: .\crm\templates\admin\crm\request\submit_line.html:8
 msgid "Create deal"
 msgstr "Створити угоду"
 
-#: crm/templates/crm/addfiles.html:20
+#: .\crm\templates\crm\addfiles.html:20
 msgid "Please select files to attach to the letter."
 msgstr "Будь ласка, виберіть які файли прикріпити до листа."
 
-#: crm/templates/crm/change_owner_companies.html:20
+#: .\crm\templates\crm\change_owner_companies.html:20
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
 "Будь ласка, виберіть нового власника для вибраних компаній та їх контактних "
 "осіб"
 
-#: crm/templates/crm/del_duplicate_button.html:5
+#: .\crm\templates\crm\del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
 msgstr "Коректно видалити цей об'єкт як дублікат."
 
-#: crm/templates/crm/filter_scroll.html:4
-#: templates/admin/crm_date_filter.html:7
+#: .\crm\templates\crm\filter_scroll.html:4
+#: .\templates\admin\crm_date_filter.html:7
 #, python-format
 msgid " By %(filter_title)s "
 msgstr "За %(filter_title)s"
 
-#: crm/templates/crm/import_objects.html:20
+#: .\crm\templates\crm\import_objects.html:20
 msgid "Please select a file to import."
 msgstr "Виберіть файл, який потрібно імпортувати."
 
-#: crm/templates/crm/import_objects.html:34
+#: .\crm\templates\crm\import_objects.html:34
 msgid ""
 "Only the following columns will be imported if they exist (the order doesn't"
 " matter):"
@@ -2556,104 +2575,105 @@ msgstr ""
 "Будуть імпортовані лише такі стовпці, якщо вони існують (порядок не має "
 "значення):"
 
-#: crm/templates/crm/make_massmail.html:22
+#: .\crm\templates\crm\make_massmail.html:22
 msgid "Make a choice"
 msgstr "Зробіть вибір"
 
-#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
-#: crm/templates/crm/print_request.html:5
-#: crm/templates/crm/print_request.html:26
+#: .\crm\templates\crm\print_email.html:5
+#: .\crm\templates\crm\print_email.html:26
+#: .\crm\templates\crm\print_request.html:5
+#: .\crm\templates\crm\print_request.html:26
 msgid "Print"
 msgstr "Друк"
 
-#: crm/templates/crm/print_request.html:36
+#: .\crm\templates\crm\print_request.html:36
 msgid "Received"
 msgstr "Отримано"
 
-#: crm/templates/crm/print_request.html:37
+#: .\crm\templates\crm\print_request.html:37
 msgid "Prepared"
 msgstr "Підготовлений"
 
-#: crm/templates/crm/select_original_obj.html:32
+#: .\crm\templates\crm\select_original_obj.html:32
 msgid "Select the original to which the linked objects will be reconnected."
 msgstr "Виберіть оригінал, до якого буде підключено пов'язані об'єкти."
 
-#: crm/utils/admfilters.py:188
+#: .\crm\utils\admfilters.py:188
 msgid "Last month"
 msgstr "Минулий місяць"
 
-#: crm/utils/admfilters.py:197
+#: .\crm\utils\admfilters.py:197
 msgid "First half of the year"
 msgstr "Перша половина року"
 
-#: crm/utils/admfilters.py:206
+#: .\crm\utils\admfilters.py:206
 msgid "Nine months of this year"
 msgstr "Дев'ять місяців цього року"
 
-#: crm/utils/admfilters.py:214
+#: .\crm\utils\admfilters.py:214
 msgid "Second half of the last year"
 msgstr "Друга половина минулого року"
 
-#: crm/utils/admfilters.py:417
+#: .\crm\utils\admfilters.py:417
 msgid "changed by chiefs"
 msgstr "Змінено керівництвом"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: .\crm\utils\admfilters.py:423 .\crm\utils\admfilters.py:473
+#: .\crm\utils\admfilters.py:493 .\crm\utils\admfilters.py:506
+#: .\crm\utils\admfilters.py:520 .\crm\utils\admfilters.py:539
+#: .\crm\utils\admfilters.py:544 .\tasks\utils\admfilters.py:217
 msgid "Yes"
 msgstr "Так"
 
-#: crm/utils/admfilters.py:437
+#: .\crm\utils\admfilters.py:437
 msgid "Partner"
 msgstr "Партнер"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
-#: tasks/utils/admfilters.py:218
+#: .\crm\utils\admfilters.py:454 .\crm\utils\admfilters.py:474
+#: .\crm\utils\admfilters.py:507 .\crm\utils\admfilters.py:521
+#: .\crm\utils\admfilters.py:540 .\crm\utils\admfilters.py:545
+#: .\tasks\utils\admfilters.py:218
 msgid "No"
 msgstr "Ні"
 
-#: crm/utils/admfilters.py:498
+#: .\crm\utils\admfilters.py:498
 msgid "Has Contacts"
 msgstr "Є контактні особи"
 
-#: crm/utils/admfilters.py:564
+#: .\crm\utils\admfilters.py:564
 msgid "mailbox"
 msgstr "поштова скринька"
 
-#: crm/utils/admfilters.py:583
+#: .\crm\utils\admfilters.py:583
 msgid "inbox"
 msgstr "вхідні"
 
-#: crm/utils/admfilters.py:584
+#: .\crm\utils\admfilters.py:584
 msgid "sent"
 msgstr "відправлені"
 
-#: crm/utils/admfilters.py:585
+#: .\crm\utils\admfilters.py:585
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "чернетки ({num})"
 
-#: crm/utils/admfilters.py:586
+#: .\crm\utils\admfilters.py:586
 msgid "trash"
 msgstr "кошик"
 
-#: crm/utils/helpers.py:30
+#: .\crm\utils\helpers.py:30
 msgid "No deal amount"
 msgstr "Немає суми угоди"
 
-#: crm/utils/helpers.py:31
+#: .\crm\utils\helpers.py:31
 msgid "Unacceptable phone number value"
 msgstr "Неприпустиме значення номера телефону"
 
-#: crm/utils/helpers.py:32
+#: .\crm\utils\helpers.py:32
 msgid "Counterparty"
 msgstr "Контрагент"
 
-#: crm/utils/make_massmail_form.py:28
+#: .\crm\utils\make_massmail_form.py:28
 msgid ""
 "Error: The date you set as 'Created before' has to be later \n"
 "                than the date of 'Created after'."
@@ -2661,73 +2681,75 @@ msgstr ""
 "Помилка: Дата, яку ви встановили як «Створено раніше», має бути пізніше ніж "
 "дата «Створено після»."
 
-#: crm/utils/make_massmail_form.py:42
+#: .\crm\utils\make_massmail_form.py:42
 msgid "Industries"
 msgstr "Галузі"
 
-#: crm/utils/make_massmail_form.py:56
+#: .\crm\utils\make_massmail_form.py:56
 msgid "Types"
 msgstr "Типи"
 
-#: crm/utils/make_massmail_form.py:61
+#: .\crm\utils\make_massmail_form.py:61
 msgid "Created before"
 msgstr "Створено до"
 
-#: crm/utils/make_massmail_form.py:66
+#: .\crm\utils\make_massmail_form.py:66
 msgid "Created after"
 msgstr "Створено після"
 
-#: crm/utils/restore_imap_emails.py:37
+#: .\crm\utils\restore_imap_emails.py:37
 #, python-format
 msgid "Received an email from \"%s\""
 msgstr "Отримано листа від \"%s\""
 
-#: crm/utils/restore_imap_emails.py:169 crm/utils/send_email.py:51
+#: .\crm\utils\restore_imap_emails.py:169 .\crm\utils\send_email.py:51
 #, python-format
 msgid "The Email has been sent to \"%s\""
 msgstr "Лист був надісланий на %s"
 
-#: crm/utils/send_email.py:26
+#: .\crm\utils\send_email.py:26
 msgid "Please fill in the subject and text of the letter."
 msgstr "Будь ласка, вкажіть тему або зміст листа."
 
-#: crm/utils/send_email.py:30
+#: .\crm\utils\send_email.py:30
 msgid "To send a message you need to have an email account marked as main."
 msgstr ""
 "Для надсилання повідомлення вам необхідно мати обліковий запис електронної "
 "пошти, позначений як основний."
 
-#: crm/utils/send_email.py:47
+#: .\crm\utils\send_email.py:47
 #, python-format
 msgid "The Email has been sent to \"%(to)s\", \"%(cc)s\""
 msgstr "The Email має бути \"%(to)s\", \"%(cc)s\""
 
-#: crm/utils/send_email.py:69
+#: .\crm\utils\send_email.py:69
 #, python-format
 msgid "Failed: %s"
 msgstr "Помилка: %s"
 
-#: crm/views/change_owner_companies.py:33
+#: .\crm\views\change_owner_companies.py:33
 msgid "Owner changed successfully"
 msgstr "Власник успішно змінено"
 
-#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+#: .\crm\views\contact_form.py:39
+#: .\tests\crm\views\test_request_receiving.py:276
 msgid "Dear {}, thanks for your request!"
 msgstr "Шановний {}, дякую за ваш запит!"
 
-#: crm/views/create_email.py:35
+#: .\crm\views\create_email.py:35
 msgid "No recipient"
 msgstr "Немає одержувача"
 
-#: crm/views/delete_duplicate_object.py:80
+#: .\crm\views\delete_duplicate_object.py:80
 msgid "The duplicate object has been correctly deleted."
 msgstr "Дублюючий об'єкт було коректно видалено."
 
-#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+#: .\crm\views\download_original_email.py:12
+#: .\crm\views\view_original_email.py:22
 msgid "Not enough data to identify the email or email has been deleted"
 msgstr "Недостатньо даних для ідентифікації листа або цей лист видалено"
 
-#: crm/views/reply_email.py:126
+#: .\crm\views\reply_email.py:126
 msgid ""
 "You do not have an email account in CRM for sending Emails. Contact your "
 "administrator."
@@ -2735,53 +2757,53 @@ msgstr ""
 "У вас немає облікового запису електронної пошти в CRM для надсилання листів."
 " Зв'яжіться зі своїм адміністратором."
 
-#: crm/views/view_original_email.py:24
+#: .\crm\views\view_original_email.py:24
 msgid "Something went wrong"
 msgstr "Щось пішло не так"
 
-#: help/admin.py:78
+#: .\help\admin.py:78
 msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
 msgstr ""
 "Щоб додати коректне посилання, використовуйте ярлик /SECRET_CRM_PREFIX/ якщо"
 " потрібно"
 
-#: help/models.py:13
+#: .\help\models.py:13
 msgid "list"
 msgstr "перелік"
 
-#: help/models.py:14
+#: .\help\models.py:14
 msgid "instance"
 msgstr "екземпляр"
 
-#: help/models.py:24
+#: .\help\models.py:24
 msgid "Help page"
 msgstr "Сторінка довідки"
 
-#: help/models.py:25
+#: .\help\models.py:25
 msgid "Help pages"
 msgstr "Довідкові сторінки"
 
-#: help/models.py:31
+#: .\help\models.py:31
 msgid "app label"
 msgstr "ярлик програми"
 
-#: help/models.py:37
+#: .\help\models.py:37
 msgid "model"
 msgstr "Модель"
 
-#: help/models.py:44
+#: .\help\models.py:44
 msgid "page"
 msgstr "сторінка"
 
-#: help/models.py:49 help/models.py:106
+#: .\help\models.py:49 .\help\models.py:106
 msgid "Title"
 msgstr "Назва"
 
-#: help/models.py:53
+#: .\help\models.py:53
 msgid "Available on CRM page"
 msgstr "Доступно на сторінці CRM"
 
-#: help/models.py:55
+#: .\help\models.py:55
 msgid ""
 "Available on one of CRM pages. Otherwise, it can only be accessed via a link"
 " from another help page."
@@ -2789,19 +2811,19 @@ msgstr ""
 "Доступний на одній із сторінок CRM. В іншому випадку доступ до нього можна "
 "отримати лише за посиланням з іншої сторінки довідки."
 
-#: help/models.py:86
+#: .\help\models.py:86
 msgid "Paragraph"
 msgstr "Параграф"
 
-#: help/models.py:87
+#: .\help\models.py:87
 msgid "Paragraphs"
 msgstr "Параграфи"
 
-#: help/models.py:97
+#: .\help\models.py:97
 msgid "Groups"
 msgstr "Групи"
 
-#: help/models.py:99
+#: .\help\models.py:99
 msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
@@ -2809,55 +2831,55 @@ msgstr ""
 "Якщо не вибрано жодну групу користувачів, то параграф буде доступний тільки "
 "користувачу."
 
-#: help/models.py:105
+#: .\help\models.py:105
 msgid "Title of paragraph."
 msgstr "Назва абзацу."
 
-#: help/models.py:120 tasks/site/memoadmin.py:42
+#: .\help\models.py:120 .\tasks\site\memoadmin.py:42
 msgid "draft"
 msgstr "чернетка"
 
-#: help/models.py:121
+#: .\help\models.py:121
 msgid "Will not be published."
 msgstr "Не буде опубліковано."
 
-#: help/models.py:126
+#: .\help\models.py:126
 msgid "Content requires additional verification."
 msgstr "Зміст потребує додаткової перевірки."
 
-#: help/models.py:131
+#: .\help\models.py:131
 msgid "Index number"
 msgstr "Порядковий номер"
 
-#: help/models.py:132
+#: .\help\models.py:132
 msgid "The sequence number of the paragraph on the page."
 msgstr "Порядковий номер абзацу на сторінці."
 
-#: help/models.py:138
+#: .\help\models.py:138
 msgid "Link to a related paragraph if exists."
 msgstr "Посилання на пов'язаний абзац, якщо є."
 
-#: massmail/admin.py:31
+#: .\massmail\admin.py:31
 msgid "Service information"
 msgstr "Для інформації"
 
-#: massmail/admin_actions.py:17
+#: .\massmail\admin_actions.py:17
 msgid "Please select recipients only with the same owner."
 msgstr "Будь ласка, виберіть одержувачів, які мають одного власника."
 
-#: massmail/admin_actions.py:18
+#: .\massmail\admin_actions.py:18
 msgid "Bad result - no recipients! Make another choice."
 msgstr "Поганий результат – немає одержувачів! Зробіть інший вибір."
 
-#: massmail/admin_actions.py:21
+#: .\massmail\admin_actions.py:21
 msgid "Create a mailing out for selected objects"
 msgstr "Створити розсилку для вибраних об'єктів"
 
-#: massmail/admin_actions.py:33
+#: .\massmail\admin_actions.py:33
 msgid "Unsubscribed users were excluded from the mailing list."
 msgstr "З розсилки були виключені користувачі, які відписалися."
 
-#: massmail/admin_actions.py:54
+#: .\massmail\admin_actions.py:54
 msgid ""
 "Note massmail is not performed on the following days: Friday, Saturday, "
 "Sunday."
@@ -2865,39 +2887,39 @@ msgstr ""
 "Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
 " неділя."
 
-#: massmail/admin_actions.py:65
+#: .\massmail\admin_actions.py:65
 msgid "Merge selected mailing outs"
 msgstr "Об'єднати вибрані розсилки"
 
-#: massmail/admin_actions.py:85
+#: .\massmail\admin_actions.py:85
 msgid "united"
 msgstr "об'єднана"
 
-#: massmail/admin_actions.py:107
+#: .\massmail\admin_actions.py:107
 msgid "Specify VIP recipients"
 msgstr "Вказати VIP одержувачів"
 
-#: massmail/admin_actions.py:115
+#: .\massmail\admin_actions.py:115
 msgid "Please first add your main email account."
 msgstr ""
 "Будь ласка, спочатку додайте ваш основний обліковий запис електронної пошти."
 
-#: massmail/admin_actions.py:143
+#: .\massmail\admin_actions.py:143
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
 msgstr ""
 "Основну адресу електронної пошти успішно призначено вибраним одержувачам."
 
-#: massmail/admin_actions.py:149
+#: .\massmail\admin_actions.py:149
 msgid "Please select mailings with only the same recipient type."
 msgstr "Будь ласка, виберіть розсилки лише з однаковим типом одержувачів."
 
-#: massmail/admin_actions.py:154
+#: .\massmail\admin_actions.py:154
 msgid "Please select only mailings with the same message."
 msgstr "Виберіть лише розсилки з однаковим повідомленням."
 
-#: massmail/admin_actions.py:183
+#: .\massmail\admin_actions.py:183
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
@@ -2905,7 +2927,7 @@ msgstr ""
 "Немає поштових облікових записів, доступних для розсилки. Зверніться до "
 "адміністратора CRM."
 
-#: massmail/admin_actions.py:191
+#: .\massmail\admin_actions.py:191
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
@@ -2913,11 +2935,11 @@ msgstr ""
 "Немає поштових облікових записів, доступних для розсилки не VIP\n"
 "  одержувачам. Зверніться до адміністратора CRM."
 
-#: massmail/apps.py:8
+#: .\massmail\apps.py:8
 msgid "Mass mail"
 msgstr "Поштова розсилка"
 
-#: massmail/models/baseeml.py:14
+#: .\massmail\models\baseeml.py:14
 msgid ""
 "The subject of the message. You can use {{first_name}}, {{last_name}}, "
 "{{first_middle_name}} or {{full_name}}"
@@ -2925,70 +2947,70 @@ msgstr ""
 "Тема повідомлення. Ви можете використовувати {{first_name}}, {{last_name}}, "
 "{{first_middle_name}} або {{full_name}}"
 
-#: massmail/models/baseeml.py:22
+#: .\massmail\models\baseeml.py:22
 msgid "Choose signature"
 msgstr "Виберіть підпис"
 
-#: massmail/models/baseeml.py:23
+#: .\massmail\models\baseeml.py:23
 msgid "Sender's signature."
 msgstr "Підпис відправника"
 
-#: massmail/models/baseeml.py:28
+#: .\massmail\models\baseeml.py:28
 msgid "Previous correspondence. Will be added after signature"
 msgstr "Попереднє листування. Буде додано після підпису."
 
-#: massmail/models/email_account.py:15
+#: .\massmail\models\email_account.py:15
 msgid "Email Account"
 msgstr "Поштовий акаунт"
 
-#: massmail/models/email_account.py:16
+#: .\massmail\models\email_account.py:16
 msgid "Email Accounts"
 msgstr "Поштові облікові записи"
 
-#: massmail/models/email_account.py:20
+#: .\massmail\models\email_account.py:20
 msgid "The name of the Email Account. For example Gmail"
 msgstr "Назва облікового запису електронної пошти. Наприклад, Gmail"
 
-#: massmail/models/email_account.py:24
+#: .\massmail\models\email_account.py:24
 msgid "Use this account for regular business correspondence."
 msgstr ""
 "Використовувати цей обліковий запис для звичайного ділового листування."
 
-#: massmail/models/email_account.py:28
+#: .\massmail\models\email_account.py:28
 msgid "Allow to use this account for massmail."
 msgstr ""
 "Дозволити використовувати цей обліковий запис для масового розсилання."
 
-#: massmail/models/email_account.py:32
+#: .\massmail\models\email_account.py:32
 msgid "Import emails from this account."
 msgstr "Імпортувати електронні листи з цього облікового запису."
 
-#: massmail/models/email_account.py:40
+#: .\massmail\models\email_account.py:40
 msgid "The IMAP host"
 msgstr "Хост IMAP"
 
-#: massmail/models/email_account.py:44
+#: .\massmail\models\email_account.py:44
 msgid "The username to use to authenticate to the SMTP server."
 msgstr "Ім'я користувача для автентифікації на сервері SMTP."
 
-#: massmail/models/email_account.py:48
+#: .\massmail\models\email_account.py:48
 msgid "The auth_password to use to authenticate to the SMTP server."
 msgstr ""
 "auth_password для використання під час аутентифікації на SMTP-сервері."
 
-#: massmail/models/email_account.py:52
+#: .\massmail\models\email_account.py:52
 msgid "The application password to use to authenticate to the SMTP server."
 msgstr "Пароль програми для автентифікації на сервері SMTP."
 
-#: massmail/models/email_account.py:56
+#: .\massmail\models\email_account.py:56
 msgid "Port to use for the SMTP server"
 msgstr "Порт для сервера SMTP"
 
-#: massmail/models/email_account.py:60
+#: .\massmail\models\email_account.py:60
 msgid "The from_email field."
 msgstr "Поле from_email."
 
-#: massmail/models/email_account.py:68
+#: .\massmail\models\email_account.py:68
 msgid ""
 "If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
 "         the path to a PEM-formatted certificate chain file to use for the "
@@ -2998,7 +3020,7 @@ msgstr ""
 " ланцюжка сертифікатів у форматі PEM, який буде використовуватися для "
 "з'єднання SSL"
 
-#: massmail/models/email_account.py:73
+#: .\massmail\models\email_account.py:73
 msgid ""
 "If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
 "         the path to a PEM-formatted private key file to use for the SSL "
@@ -3008,19 +3030,19 @@ msgstr ""
 "шлях до файлу закритого ключа у форматі PEM, який буде використовуватися для"
 " з'єднання SSL."
 
-#: massmail/models/email_account.py:79
+#: .\massmail\models\email_account.py:79
 msgid "OAuth 2.0 token for obtaining an access token."
 msgstr "OAuth 2.0 токен для отримання токена доступу."
 
-#: massmail/models/email_account.py:106
+#: .\massmail\models\email_account.py:106
 msgid "DateTime of last import"
 msgstr "DateTime останнього імпорту"
 
-#: massmail/models/email_account.py:117
+#: .\massmail\models\email_account.py:117
 msgid "Specify the imap host"
 msgstr "Вкажіть хост imap"
 
-#: massmail/models/email_message.py:10
+#: .\massmail\models\email_message.py:10
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -3031,60 +3053,60 @@ msgstr ""
 "Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте {% cid_media 'path/to/pic.png' %}.<br>\n"
 "Можна вбудовувати файли завантажені на сервер CRM у папку 'media/pics/' або прикріплені до цього повідомлення."
 
-#: massmail/models/email_message.py:19
+#: .\massmail\models\email_message.py:19
 msgid "Email Message"
 msgstr "Повідомлення для розсилки"
 
-#: massmail/models/email_message.py:20
+#: .\massmail\models\email_message.py:20
 msgid "Email Messages"
 msgstr "Повідомлення для розсилки"
 
-#: massmail/models/eml_accounts_queue.py:19
+#: .\massmail\models\eml_accounts_queue.py:19
 msgid "The queue of the user email accounts."
 msgstr "Черга облікових записів користувачів електронної пошти."
 
-#: massmail/models/mailing_out.py:12
+#: .\massmail\models\mailing_out.py:12
 msgid "Mailing Out"
 msgstr "Розсилка"
 
-#: massmail/models/mailing_out.py:13
+#: .\massmail\models\mailing_out.py:13
 msgid "Mailing Outs"
 msgstr "Поштові розсилки"
 
-#: massmail/models/mailing_out.py:23
+#: .\massmail\models\mailing_out.py:23
 msgid "Active but Error"
 msgstr "Активна/Помилки"
 
-#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+#: .\massmail\models\mailing_out.py:24 .\massmail\utils\adminfilters.py:12
 msgid "Paused"
 msgstr "Припинено"
 
-#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+#: .\massmail\models\mailing_out.py:25 .\massmail\utils\adminfilters.py:13
 msgid "Interrupted"
 msgstr "Перервано"
 
-#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
-#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+#: .\massmail\models\mailing_out.py:26 .\massmail\utils\adminfilters.py:14
+#: .\tasks\models\stagebase.py:19 .\tasks\models\task.py:93
 msgid "Done"
 msgstr "Виконано"
 
-#: massmail/models/mailing_out.py:31
+#: .\massmail\models\mailing_out.py:31
 msgid "The name of the message."
 msgstr "Назва повідомлення."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+#: .\massmail\models\mailing_out.py:45 .\massmail\site\mailingoutadmin.py:26
 msgid "Number of recipients"
 msgstr "Кількість одержувачів"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+#: .\massmail\models\mailing_out.py:55 .\massmail\site\mailingoutadmin.py:21
 msgid "Recipients type"
 msgstr "Тип одержувачів"
 
-#: massmail/models/mailing_out.py:59
+#: .\massmail\models\mailing_out.py:59
 msgid "Report"
 msgstr "Звіт"
 
-#: massmail/models/signature.py:7
+#: .\massmail\models\signature.py:7
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -3095,44 +3117,44 @@ msgstr ""
 "Використовуйте HTML. Для вказівки адреси вбудованої картинки використовуйте {% cid_media 'path/to/pic.png' %}.<br>\n"
 "Можна вбудовувати файли завантажені на сервер CRM у папку 'media/pics/'."
 
-#: massmail/models/signature.py:17
+#: .\massmail\models\signature.py:17
 msgid "Signatures"
 msgstr "Підписи"
 
-#: massmail/models/signature.py:27
+#: .\massmail\models\signature.py:27
 msgid "The name of the signature."
 msgstr "Назва підпису."
 
-#: massmail/models/to_translate.txt:3
+#: .\massmail\models\to_translate.txt:3
 msgid "price proposal"
 msgstr "пропозиція ціни"
 
-#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+#: .\massmail\site\emlmessageadmin.py:68 .\massmail\site\signatureadmin.py:48
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:6
 msgid "Preview"
 msgstr "Попередній перегляд"
 
-#: massmail/site/emlmessageadmin.py:73
+#: .\massmail\site\emlmessageadmin.py:73
 msgid "Edit"
 msgstr "Редагувати"
 
-#: massmail/site/mailingoutadmin.py:17
+#: .\massmail\site\mailingoutadmin.py:17
 msgid "Available Email accounts for MassMail"
 msgstr "Доступні для розсилки облікові записи електронної пошти"
 
-#: massmail/site/mailingoutadmin.py:18
+#: .\massmail\site\mailingoutadmin.py:18
 msgid "Accounts"
 msgstr "Аккаунти"
 
-#: massmail/site/mailingoutadmin.py:27
+#: .\massmail\site\mailingoutadmin.py:27
 msgid "Today"
 msgstr "Сьогодні"
 
-#: massmail/site/mailingoutadmin.py:28
+#: .\massmail\site\mailingoutadmin.py:28
 msgid "Sent today"
 msgstr "Відправлено сьогодні"
 
-#: massmail/site/mailingoutadmin.py:72
+#: .\massmail\site\mailingoutadmin.py:72
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                Friday, Saturday, Sunday."
@@ -3140,468 +3162,470 @@ msgstr ""
 "Зверніть увагу, що розсилка не провадиться в наступні дні: п'ятниця, субота,"
 " неділя."
 
-#: massmail/site/mailingoutadmin.py:110
+#: .\massmail\site\mailingoutadmin.py:110
 msgid "notification"
 msgstr "повідомлення"
 
-#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+#: .\massmail\templates\admin\massmail\emailaccount\change_form_object_tools.html:4
 msgid "Get or update a refresh token"
 msgstr "Отримати або оновити токен оновлення"
 
-#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+#: .\massmail\templates\admin\massmail\emlmessage\change_form_object_tools.html:5
 msgid "Send a test"
 msgstr "Надіслати тест"
 
-#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+#: .\massmail\templates\admin\massmail\emlmessage\change_form_object_tools.html:11
 msgid "Copy message"
 msgstr "Копіювати повідомлення"
 
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:13
 msgid "Successful recipients"
 msgstr "Успішні одержувачі"
 
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:20
 msgid "Failed recipients"
 msgstr "Неуспішні одержувачі"
 
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+#: .\massmail\templates\admin\massmail\mailingout\change_form_object_tools.html:25
 msgid "Send failed recipients"
 msgstr "Повторити неуспішним одержувачам"
 
-#: massmail/templates/massmail/pic_upload.html:7
+#: .\massmail\templates\massmail\pic_upload.html:7
 msgid "Upload the image file to the CRM server"
 msgstr "Завантаження файлу зображення на сервер CRM."
 
-#: massmail/templates/massmail/pic_upload.html:15
+#: .\massmail\templates\massmail\pic_upload.html:15
 msgid "Please select an image file to upload."
 msgstr "Виберіть файл зображення для завантаження."
 
-#: massmail/templates/massmail/pic_upload.html:36
+#: .\massmail\templates\massmail\pic_upload.html:36
 msgid "To specify the address of the uploaded file, use the tag -"
 msgstr "Щоб вказати адресу завантаженого файлу, використовуйте тег -"
 
-#: massmail/templates/massmail/pic_upload.html:37
+#: .\massmail\templates\massmail\pic_upload.html:37
 msgid ""
 "Upload only files that will be used many times. For example, a company logo."
 msgstr ""
 "Завантажуйте лише ті файли, які використовуватимуться багато разів. "
 "Наприклад, логотип компанії."
 
-#: massmail/templates/massmail/pic_upload_buttons.html:3
+#: .\massmail\templates\massmail\pic_upload_buttons.html:3
 msgid "View the uploaded images on the CRM server"
 msgstr "Перегляд завантажених зображень на сервері CRM"
 
-#: massmail/templates/massmail/pic_upload_buttons.html:6
+#: .\massmail\templates\massmail\pic_upload_buttons.html:6
 msgid "Upload an image file to the CRM server"
 msgstr "Завантажте файл зображення на сервер CRM"
 
-#: massmail/templates/massmail/show_uploaded_images.html:7
-#: massmail/templates/massmail/show_uploaded_images.html:15
+#: .\massmail\templates\massmail\show_uploaded_images.html:7
+#: .\massmail\templates\massmail\show_uploaded_images.html:15
 msgid "Uploaded images"
 msgstr "Завантажені зображення"
 
-#: massmail/utils/sendmassmail.py:43
+#: .\massmail\utils\sendmassmail.py:43
 msgid "Done successfully."
 msgstr "Виконано успішно."
 
-#: massmail/views/file_upload.py:9
+#: .\massmail\views\file_upload.py:9
 msgid "Allowed file extensions: "
 msgstr "Дозволені розширення файлів:"
 
-#: massmail/views/get_oauth2_tokens.py:74
+#: .\massmail\views\get_oauth2_tokens.py:74
 msgid "Refresh token received successfully."
 msgstr "Токен оновлення успішно отримано."
 
-#: massmail/views/get_oauth2_tokens.py:79
+#: .\massmail\views\get_oauth2_tokens.py:79
 msgid "Error: Failed to get authorization code."
 msgstr "Помилка: Не вдалося отримати код авторизації."
 
-#: massmail/views/send_failed_recipients.py:14
+#: .\massmail\views\send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
 msgstr "Неуспішні одержувачі були успішно додані до розсилки"
 
-#: massmail/views/send_tests.py:49
+#: .\massmail\views\send_tests.py:49
 #, python-brace-format
 msgid "The Email test has been sent to {email_accounts}"
 msgstr "Тестове повідомлення було успішно надіслано на {email_accounts}"
 
-#: settings/apps.py:8
+#: .\settings\apps.py:8
 msgid "Settings"
 msgstr "Налаштування"
 
-#: settings/models.py:7
+#: .\settings\models.py:7
 msgid "Banned company name"
 msgstr "Заборонена назва компанії"
 
-#: settings/models.py:8
+#: .\settings\models.py:8
 msgid "Banned company names"
 msgstr "Заборонені назви компаній"
 
-#: settings/models.py:22
+#: .\settings\models.py:22
 msgid "Public email domain"
 msgstr "Публічний поштовий домен"
 
-#: settings/models.py:23
+#: .\settings\models.py:23
 msgid "Public email domains"
 msgstr "Публічні поштові домени"
 
-#: settings/models.py:28
+#: .\settings\models.py:28
 msgid "Domain"
 msgstr "Домен"
 
-#: settings/models.py:41 settings/models.py:42
+#: .\settings\models.py:41 .\settings\models.py:42
 msgid "Reminder settings"
 msgstr "Налаштування нагадувань"
 
-#: settings/models.py:47
+#: .\settings\models.py:47
 msgid "Check interval"
 msgstr "Інтервал перевірки"
 
-#: settings/models.py:49
+#: .\settings\models.py:49
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Вкажіть інтервал у секундах, щоб перевіряти, чи настав час для нагадування."
 
-#: settings/models.py:56
+#: .\settings\models.py:56
 msgid "Stop Phrase"
 msgstr "Стоп-фраза"
 
-#: settings/models.py:57
+#: .\settings\models.py:57
 msgid "Stop Phrases"
 msgstr "Стоп-фрази"
 
-#: settings/models.py:62
+#: .\settings\models.py:62
 msgid "Phrase"
 msgstr "Фраза"
 
-#: settings/models.py:66
+#: .\settings\models.py:66
 msgid "Last occurrence date"
 msgstr "Дата останньої появи"
 
-#: settings/models.py:67
+#: .\settings\models.py:67
 msgid "Date of last occurrence of the phrase"
 msgstr "Дата останньої появи фрази"
 
-#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:163
+#: .\tasks\admin.py:65 .\tasks\admin.py:118
+#: .\tasks\site\tasksbasemodeladmin.py:163
 msgid "Change responsible"
 msgstr "Змінити відповідальних"
 
-#: tasks/admin.py:72 tasks/admin.py:125 tasks/site/memoadmin.py:171
-#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+#: .\tasks\admin.py:72 .\tasks\admin.py:125 .\tasks\site\memoadmin.py:171
+#: .\tasks\site\tasksbasemodeladmin.py:171
+#: .\tasks\site\tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "Змінити підписників"
 
-#: tasks/apps.py:8 tasks/models/task.py:16
-#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+#: .\tasks\apps.py:8 .\tasks\models\task.py:16
+#: .\tasks\templates\admin\tasks\project\change_form_object_tools.html:6
 msgid "Tasks"
 msgstr "Завдання"
 
-#: tasks/forms.py:32
+#: .\tasks\forms.py:32
 msgid "Please specify a name"
 msgstr "Будь ласка, вкажіть назву"
 
-#: tasks/forms.py:38
+#: .\tasks\forms.py:38
 msgid "Please specify a responsible"
 msgstr "Будь ласка, вкажіть відповідальних"
 
-#: tasks/forms.py:48 tasks/forms.py:114
+#: .\tasks\forms.py:48 .\tasks\forms.py:114
 msgid "Date should not be in the past."
 msgstr "Дата не має бути в минулому"
 
-#: tasks/models/memo.py:13
+#: .\tasks\models\memo.py:13
 msgid "Memo"
 msgstr "Записка"
 
-#: tasks/models/memo.py:14
+#: .\tasks\models\memo.py:14
 msgid "Memos"
 msgstr "Записки"
 
-#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
-#: tasks/site/memoadmin.py:45
+#: .\tasks\models\memo.py:21 .\tasks\models\to_translate.txt:5
+#: .\tasks\site\memoadmin.py:45
 msgid "postponed"
 msgstr "відкладено"
 
-#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+#: .\tasks\models\memo.py:22 .\tasks\site\memoadmin.py:48
 msgid "reviewed"
 msgstr "розглянуто"
 
-#: tasks/models/memo.py:33
+#: .\tasks\models\memo.py:33
 msgid "to whom"
 msgstr "кому"
 
-#: tasks/models/memo.py:41 tasks/models/task.py:15
+#: .\tasks\models\memo.py:41 .\tasks\models\task.py:15
 msgid "Task"
 msgstr "Завдання"
 
-#: tasks/models/memo.py:49
+#: .\tasks\models\memo.py:49
 msgid "For what"
 msgstr "Для чого"
 
-#: tasks/models/memo.py:57 tasks/models/project.py:9
-#: tasks/utils/admfilters.py:67
+#: .\tasks\models\memo.py:57 .\tasks\models\project.py:9
+#: .\tasks\utils\admfilters.py:67
 msgid "Project"
 msgstr "Проект"
 
-#: tasks/models/memo.py:72
+#: .\tasks\models\memo.py:72
 msgid "Сonclusion"
 msgstr "Висновок"
 
-#: tasks/models/memo.py:76
+#: .\tasks\models\memo.py:76
 msgid "Draft"
 msgstr "Чернетка"
 
-#: tasks/models/memo.py:77
+#: .\tasks\models\memo.py:77
 msgid "Available only to the owner."
 msgstr "Доступно лише власнику."
 
-#: tasks/models/memo.py:81
+#: .\tasks\models\memo.py:81
 msgid "Notified"
 msgstr "Повідомлено"
 
-#: tasks/models/memo.py:82
+#: .\tasks\models\memo.py:82
 msgid "The recipient and subscribers are notified."
 msgstr "Одержувача та підписників повідомлено."
 
-#: tasks/models/memo.py:92
+#: .\tasks\models\memo.py:92
 msgid "Review date"
 msgstr "Дата розгляду"
 
-#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:456 tasks/site/tasksbasemodeladmin.py:507
+#: .\tasks\models\memo.py:104 .\tasks\models\taskbase.py:61
+#: .\tasks\site\memoadmin.py:456 .\tasks\site\tasksbasemodeladmin.py:507
 msgid "subscribers"
 msgstr "підписники"
 
-#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+#: .\tasks\models\memo.py:110 .\tasks\models\taskbase.py:67
 msgid "Notified subscribers"
 msgstr "Повідомлені підписники"
 
-#: tasks/models/memo.py:123
+#: .\tasks\models\memo.py:123
 msgid "The office memo has been reviewed"
 msgstr "Службова записка розглянута"
 
-#: tasks/models/project.py:10
+#: .\tasks\models\project.py:10
 msgid "Projects"
 msgstr "Проекти"
 
-#: tasks/models/projectstage.py:9
+#: .\tasks\models\projectstage.py:9
 msgid "Project stage"
 msgstr "Етап проекту"
 
-#: tasks/models/projectstage.py:10
+#: .\tasks\models\projectstage.py:10
 msgid "Project stages"
 msgstr "Етапи проекту"
 
-#: tasks/models/projectstage.py:15
+#: .\tasks\models\projectstage.py:15
 msgid "Is the project active at this stage?"
 msgstr "Чи активний проект на цьому етапі?"
 
-#: tasks/models/resolution.py:9
+#: .\tasks\models\resolution.py:9
 msgid "Resolution"
 msgstr "Резолюція"
 
-#: tasks/models/resolution.py:10
+#: .\tasks\models\resolution.py:10
 msgid "Resolutions"
 msgstr "Резолюції"
 
-#: tasks/models/stagebase.py:20
+#: .\tasks\models\stagebase.py:20
 msgid "Mark if this stage is \"done\""
 msgstr "Позначте, якщо цей етап \"Виконано\""
 
-#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+#: .\tasks\models\stagebase.py:24 .\tasks\models\to_translate.txt:3
 msgid "In progress"
 msgstr "В роботі"
 
-#: tasks/models/stagebase.py:25
+#: .\tasks\models\stagebase.py:25
 msgid "Mark if this stage is \"in progress\""
 msgstr "Позначте, якщо цей етап «у процесі»"
 
-#: tasks/models/tag.py:17
+#: .\tasks\models\tag.py:17
 msgid "Tag for"
 msgstr "Ярлик для"
 
-#: tasks/models/task.py:24
+#: .\tasks\models\task.py:24
 msgid "task"
 msgstr "Завдання"
 
-#: tasks/models/task.py:32
+#: .\tasks\models\task.py:32
 msgid "project"
 msgstr "Проект"
 
-#: tasks/models/task.py:39
+#: .\tasks\models\task.py:39
 msgid "Hide main task"
 msgstr "Приховати основне завдання"
 
-#: tasks/models/task.py:40
+#: .\tasks\models\task.py:40
 msgid "Hide the main task when this sub-task is closed."
 msgstr "Приховати основне завдання, коли це підзавдання буде виконано."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: .\tasks\models\task.py:46 .\tasks\site\taskadmin.py:346
+#: .\tasks\site\taskadmin.py:352
 msgid "Lead time"
 msgstr "Витрачений час"
 
-#: tasks/models/task.py:47
+#: .\tasks\models\task.py:47
 msgid "Task execution time in format - DD HH:MM:SS"
 msgstr "Час виконання завдання у форматі - ДД ГГ:ХХ:СС"
 
-#: tasks/models/task.py:64
+#: .\tasks\models\task.py:64
 msgid "The task cannot be closed because there is an active subtask."
 msgstr "Завдання не може бути закрите, оскільки є активне підзавдання."
 
-#: tasks/models/task.py:92
+#: .\tasks\models\task.py:92
 msgid "The main task is closed automatically."
 msgstr "Головне завдання закрите автоматично."
 
-#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:493
+#: .\tasks\models\taskbase.py:20 .\tasks\site\tasksbasemodeladmin.py:493
 msgid "Low"
 msgstr "Низький"
 
-#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:494
+#: .\tasks\models\taskbase.py:21 .\tasks\site\tasksbasemodeladmin.py:494
 msgid "Middle"
 msgstr "Середній"
 
-#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:495
+#: .\tasks\models\taskbase.py:22 .\tasks\site\tasksbasemodeladmin.py:495
 msgid "High"
 msgstr "Високий"
 
-#: tasks/models/taskbase.py:33
+#: .\tasks\models\taskbase.py:33
 msgid "Short title"
 msgstr "Коротка назва"
 
-#: tasks/models/taskbase.py:42
+#: .\tasks\models\taskbase.py:42
 msgid "Start date"
 msgstr "Дата початку"
 
-#: tasks/models/taskbase.py:44
+#: .\tasks\models\taskbase.py:44
 msgid "Date of task closing"
 msgstr "Дата закриття завдання"
 
-#: tasks/models/taskbase.py:55
+#: .\tasks\models\taskbase.py:55
 msgid "Notified responsible"
 msgstr "Повідомлені відповідальні"
 
-#: tasks/models/taskstage.py:9
+#: .\tasks\models\taskstage.py:9
 msgid "Task stage"
 msgstr "Етап завдання"
 
-#: tasks/models/taskstage.py:10
+#: .\tasks\models\taskstage.py:10
 msgid "Task stages"
 msgstr "Етапи завдання"
 
-#: tasks/models/taskstage.py:15
+#: .\tasks\models\taskstage.py:15
 msgid "Is the task active at this stage?"
 msgstr "Завдання активне цьому етапі?"
 
-#: tasks/models/to_translate.txt:4
+#: .\tasks\models\to_translate.txt:4
 msgid "done"
 msgstr "виконано"
 
-#: tasks/models/to_translate.txt:6
+#: .\tasks\models\to_translate.txt:6
 msgid "canceled"
 msgstr "скасовано"
 
-#: tasks/models/to_translate.txt:7
+#: .\tasks\models\to_translate.txt:7
 msgid "to make a decision"
 msgstr "для прийняття рішення"
 
-#: tasks/models/to_translate.txt:8
+#: .\tasks\models\to_translate.txt:8
 msgid "payment of regular expenses"
 msgstr "оплата регулярних витрат"
 
-#: tasks/models/to_translate.txt:9
+#: .\tasks\models\to_translate.txt:9
 msgid "on approval"
 msgstr "на затвердження"
 
-#: tasks/models/to_translate.txt:10
+#: .\tasks\models\to_translate.txt:10
 msgid "for consideration"
 msgstr "для розгляду"
 
-#: tasks/models/to_translate.txt:11
+#: .\tasks\models\to_translate.txt:11
 msgid "for information"
 msgstr "для інформації"
 
-#: tasks/models/to_translate.txt:12
+#: .\tasks\models\to_translate.txt:12
 msgid "for the record"
 msgstr "для обліку"
 
-#: tasks/site/memoadmin.py:44
+#: .\tasks\site\memoadmin.py:44
 msgid "overdue"
 msgstr "прострочено"
 
-#: tasks/site/memoadmin.py:47
+#: .\tasks\site\memoadmin.py:47
 msgid "You are subscribed to a new office memo"
 msgstr "Ви підписані на нову службову записку"
 
-#: tasks/site/memoadmin.py:49
+#: .\tasks\site\memoadmin.py:49
 msgid "unreviewed"
 msgstr "не розглянуто"
 
-#: tasks/site/memoadmin.py:50
+#: .\tasks\site\memoadmin.py:50
 msgid "The office memo was written"
 msgstr "Службова записка була написана"
 
-#: tasks/site/memoadmin.py:51
+#: .\tasks\site\memoadmin.py:51
 msgid "You've received a office memo"
 msgstr "Ви отримали службову записку"
 
-#: tasks/site/memoadmin.py:118
+#: .\tasks\site\memoadmin.py:118
 msgid "Your office memo has been deleted"
 msgstr "Вашу службову записку було видалено"
 
-#: tasks/site/memoadmin.py:384
-#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+#: .\tasks\site\memoadmin.py:384
+#: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:14
 msgid "View the task"
 msgstr "Дивитись завдання"
 
-#: tasks/site/memoadmin.py:388
-#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
-#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+#: .\tasks\site\memoadmin.py:388
+#: .\tasks\templates\admin\tasks\memo\change_form_object_tools.html:21
+#: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:14
 msgid "View the project"
 msgstr "Дивитись проект"
 
-#: tasks/site/memoadmin.py:469
+#: .\tasks\site\memoadmin.py:469
 msgid "View the "
 msgstr "Дивитись"
 
-#: tasks/site/projectadmin.py:17
+#: .\tasks\site\projectadmin.py:17
 msgid "Acquainted with the project"
 msgstr "Ознайомитись із проектом"
 
-#: tasks/site/projectadmin.py:18
+#: .\tasks\site\projectadmin.py:18
 msgid "The project was created"
 msgstr "Проект було створено"
 
-#: tasks/site/taskadmin.py:35
+#: .\tasks\site\taskadmin.py:35
 msgid "I completed my part of the task"
 msgstr "Я виконав свою частину завдання"
 
-#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+#: .\tasks\site\taskadmin.py:37 .\tasks\site\tasksbasemodeladmin.py:47
 msgid "The task was created"
 msgstr "Створено завдання"
 
-#: tasks/site/taskadmin.py:38
+#: .\tasks\site\taskadmin.py:38
 msgid "The subtask was created"
 msgstr "Створено підзавдання."
 
-#: tasks/site/taskadmin.py:39
+#: .\tasks\site\taskadmin.py:39
 msgid "The subtask"
 msgstr "Підзавдання"
 
-#: tasks/site/taskadmin.py:242
+#: .\tasks\site\taskadmin.py:242
 msgid "later than due date of parent task."
 msgstr "пізніше терміну виконання основного завдання."
 
-#: tasks/site/taskadmin.py:334
+#: .\tasks\site\taskadmin.py:334
 msgid "Main task"
 msgstr "Основна задача"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
-#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
-#: tasks/templates/admin/tasks/task/submit_line.html:6
+#: .\tasks\site\taskadmin.py:361 .\tasks\site\taskadmin.py:362
+#: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:6
+#: .\tasks\templates\admin\tasks\task\submit_line.html:6
 msgid "Create subtask"
 msgstr "Створити підзавдання"
 
-#: tasks/site/taskadmin.py:372
+#: .\tasks\site\taskadmin.py:372
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3612,44 +3636,45 @@ msgstr ""
 "Будь ласка, для роботи, створіть собі підзавдання.\n"
 "Або натисніть наступну кнопку, коли виконайте свою роботу."
 
-#: tasks/site/tasksbasemodeladmin.py:44
+#: .\tasks\site\tasksbasemodeladmin.py:44
 msgid "You have been assigned as the task co-owner"
 msgstr "Ви призначені співвласником завдання"
 
-#: tasks/site/tasksbasemodeladmin.py:46
+#: .\tasks\site\tasksbasemodeladmin.py:46
 msgid "Acquainted with the task"
 msgstr "Ознайомитись із завданням"
 
-#: tasks/site/tasksbasemodeladmin.py:48
-#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+#: .\tasks\site\tasksbasemodeladmin.py:48
+#: .\tasks\views\create_completed_subtask.py:78
+#: .\tasks\views\task_completed.py:30
 msgid "The task is closed"
 msgstr "Завдання закрите"
 
-#: tasks/site/tasksbasemodeladmin.py:49
+#: .\tasks\site\tasksbasemodeladmin.py:49
 msgid "The subtask is closed"
 msgstr "Підзадачу закрито"
 
-#: tasks/site/tasksbasemodeladmin.py:50
+#: .\tasks\site\tasksbasemodeladmin.py:50
 msgid "The next step date should not be later than due date."
 msgstr "Дата наступного кроку не повинна бути пізніше встановленої дати."
 
-#: tasks/site/tasksbasemodeladmin.py:53
+#: .\tasks\site\tasksbasemodeladmin.py:53
 msgid "The Project was created"
 msgstr "Проект було створено"
 
-#: tasks/site/tasksbasemodeladmin.py:54
+#: .\tasks\site\tasksbasemodeladmin.py:54
 msgid "The project is closed"
 msgstr "Проект закритий"
 
-#: tasks/site/tasksbasemodeladmin.py:57
+#: .\tasks\site\tasksbasemodeladmin.py:57
 msgid "You are subscribed to a new task"
 msgstr "Ви підписані на нове завдання"
 
-#: tasks/site/tasksbasemodeladmin.py:58
+#: .\tasks\site\tasksbasemodeladmin.py:58
 msgid "You have a new task assigned"
 msgstr "Вам призначено нове завдання"
 
-#: tasks/site/tasksbasemodeladmin.py:483
+#: .\tasks\site\tasksbasemodeladmin.py:483
 msgid ""
 "Please edit the title and description to make it clear to other users what "
 "part of the overall task will be completed."
@@ -3657,237 +3682,239 @@ msgstr ""
 "Будь ласка, відредагуйте назву та опис, щоб іншим користувачам було "
 "зрозуміло, яку частину спільного завдання буде виконано."
 
-#: tasks/site/tasksbasemodeladmin.py:501
+#: .\tasks\site\tasksbasemodeladmin.py:501
 msgid "responsible"
 msgstr "відповідальні"
 
-#: tasks/site/tasksbasemodeladmin.py:535
+#: .\tasks\site\tasksbasemodeladmin.py:535
 msgid "Attach files"
 msgstr "Прикріпити файли"
 
-#: tasks/templates/admin/tasks/memo/submit_line.html:5
-#: tasks/templates/admin/tasks/project/submit_line.html:6
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:5
+#: .\tasks\templates\admin\tasks\project\submit_line.html:6
 msgid "Create task"
 msgstr "Створити завдання"
 
-#: tasks/templates/admin/tasks/memo/submit_line.html:6
-#: tasks/templates/admin/tasks/task/submit_line.html:9
+#: .\tasks\templates\admin\tasks\memo\submit_line.html:6
+#: .\tasks\templates\admin\tasks\task\submit_line.html:9
 msgid "Create project"
 msgstr "Створити проект"
 
-#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+#: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:21
 msgid "View main task"
 msgstr "Дивитись основне завдання"
 
-#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+#: .\tasks\templates\admin\tasks\task\change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "Підзавдання"
 
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+#: .\tasks\templates\admin\tasks\task\change_list_object_tools.html:6
 msgid "Toggle default task sorting"
 msgstr "Переключити сортування завдань за умовчанням"
 
-#: tasks/templates/admin/tasks/task/submit_line.html:4
+#: .\tasks\templates\admin\tasks\task\submit_line.html:4
 msgid "Mark the task as completed and save."
 msgstr "Відзначити завдання як виконане та зберегти."
 
-#: tasks/views/create_completed_subtask.py:43
+#: .\tasks\views\create_completed_subtask.py:43
 msgid ""
 "The task cannot be marked as completed because you have an active subtask."
 msgstr "Завдання не може бути закрите, оскільки у вас є активне підзавдання."
 
-#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+#: .\tasks\views\create_completed_subtask.py:70
+#: .\tasks\views\task_completed.py:23
 msgid "The Task does not exist"
 msgstr "Завдання не існує"
 
-#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+#: .\tasks\views\create_completed_subtask.py:74
+#: .\tasks\views\task_completed.py:27
 msgid "The user does not exist"
 msgstr "Користувач не існує"
 
-#: tasks/views/create_completed_subtask.py:119
+#: .\tasks\views\create_completed_subtask.py:119
 msgid ""
 "An error occurred while creating the subtask. Contact the CRM Administrator."
 msgstr ""
 "Сталася помилка під час створення подзадачи. Зверніться до адміністратора "
 "CRM."
 
-#: templates/admin/auth/group/change_list_object_tools.html:12
+#: .\templates\admin\auth\group\change_list_object_tools.html:12
 msgid "Creates a copy of the department"
 msgstr "Створює копію відділу"
 
-#: templates/admin/auth/group/change_list_object_tools.html:13
+#: .\templates\admin\auth\group\change_list_object_tools.html:13
 msgid "Copy department"
 msgstr "Копіювати відділ"
 
-#: templates/admin/auth/user/change_list_object_tools.html:12
+#: .\templates\admin\auth\user\change_list_object_tools.html:12
 msgid "Transfer of a manager to another department"
 msgstr "Переклад менеджера в інший відділ"
 
-#: templates/admin/auth/user/change_list_object_tools.html:13
+#: .\templates\admin\auth\user\change_list_object_tools.html:13
 msgid "Transfer of a manager"
 msgstr "Перенести менеджера"
 
-#: templates/admin/base.html:50
+#: .\templates\admin\base.html:50
 msgid "Skip to main content"
 msgstr "Перейти до основного вмісту"
 
-#: templates/admin/base.html:65
+#: .\templates\admin\base.html:65
 msgid "Welcome,"
 msgstr "Ласкаво просимо"
 
-#: templates/admin/base.html:70
+#: .\templates\admin\base.html:70
 msgid "View site"
 msgstr "Переглянути на сайті"
 
-#: templates/admin/base.html:75
+#: .\templates\admin\base.html:75
 msgid "Documentation"
 msgstr "Документація"
 
-#: templates/admin/base.html:79
+#: .\templates\admin\base.html:79
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: templates/admin/base.html:83
+#: .\templates\admin\base.html:83
 msgid "Log out"
 msgstr "Вийти"
 
-#: templates/admin/base.html:98
+#: .\templates\admin\base.html:98
 msgid "Breadcrumbs"
 msgstr "Хлібні крихти"
 
-#: templates/admin/base_site.html:7
+#: .\templates\admin\base_site.html:7
 msgid "Django site admin"
 msgstr ""
 
-#: templates/admin/base_site.html:11
+#: .\templates\admin\base_site.html:11
 msgid "Django administration"
 msgstr ""
 
-#: templates/admin/color_theme_toggle.html:3
+#: .\templates\admin\color_theme_toggle.html:3
 msgid "Toggle theme (current theme: auto)"
 msgstr ""
 
-#: templates/admin/color_theme_toggle.html:4
+#: .\templates\admin\color_theme_toggle.html:4
 msgid "Toggle theme (current theme: light)"
 msgstr ""
 
-#: templates/admin/color_theme_toggle.html:5
+#: .\templates\admin\color_theme_toggle.html:5
 msgid "Toggle theme (current theme: dark)"
 msgstr ""
 
 #. Translators: Specify dates of date range
-#: templates/admin/crm_date_filter.html:18
+#: .\templates\admin\crm_date_filter.html:18
 msgid "Specify dates"
 msgstr "Вкажіть дати"
 
 #. Translators: Start of date range
-#: templates/admin/crm_date_filter.html:23
+#: .\templates\admin\crm_date_filter.html:23
 msgid "from"
 msgstr "від"
 
 #. Translators: End of date range
-#: templates/admin/crm_date_filter.html:29
+#: .\templates\admin\crm_date_filter.html:29
 msgid "before"
 msgstr "до"
 
 #. Translators: Year-Month Day
-#: templates/admin/crm_date_filter.html:33
+#: .\templates\admin\crm_date_filter.html:33
 msgid "YYYY-MM-DD"
 msgstr "РРРР-ММ-ДД"
 
-#: templates/crm_help_link.html:3
+#: .\templates\crm_help_link.html:3
 msgid "Help"
 msgstr "Довідка"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: .\tests\massmail\utils\test_send_massmail.py:122
 msgid "This field is required."
 msgstr "Це поле обов'язкове до заповнення."
 
-#: voip/models.py:9
+#: .\voip\models.py:9
 msgid "PBX extension"
 msgstr "Додатковий номер АТС"
 
-#: voip/models.py:10
+#: .\voip\models.py:10
 msgid "SIP connection"
 msgstr "SIP з'єднання"
 
-#: voip/models.py:11
+#: .\voip\models.py:11
 msgid "Virtual phone number"
 msgstr "Віртуальний номер телефону"
 
-#: voip/models.py:29
+#: .\voip\models.py:29
 msgid "Number"
 msgstr "Номер"
 
-#: voip/models.py:33
+#: .\voip\models.py:33
 msgid "Caller ID"
 msgstr "АВН"
 
-#: voip/models.py:35
+#: .\voip\models.py:35
 msgid ""
 "Specify the number to be displayed as             your phone number when you"
 " call"
 msgstr ""
 "Вкажіть номер, який буде відображатися як номер телефону під час дзвінка"
 
-#: voip/models.py:42
+#: .\voip\models.py:42
 msgid "Provider"
 msgstr "Провайдер"
 
-#: voip/models.py:43
+#: .\voip\models.py:43
 msgid "Specify VoIP service provider"
 msgstr "Вкажіть постачальника послуг VoIP"
 
-#: voip/templates/voip/connection.html:10
+#: .\voip\templates\voip\connection.html:10
 msgid "Please select what's your phone number, caller display"
 msgstr ""
 "Вкажіть номер, який буде відображатися як номер телефону під час дзвінка"
 
-#: voip/views/callback.py:21
+#: .\voip\views\callback.py:21
 msgid ""
 "You do not have a VoiP connection configured. Please contact your "
 "administrator."
 msgstr ""
 "У вас немає налаштованого VoiP з'єднання. Зверніться до адміністратора."
 
-#: voip/views/callback.py:88
+#: .\voip\views\callback.py:88
 msgid "That something is wrong ((. Notify the administrator."
 msgstr "Щось не так ((. Повідомте адміністратору."
 
-#: voip/views/callback.py:90
+#: .\voip\views\callback.py:90
 msgid "Expect a call to your smartphone"
 msgstr "Чекайте на дзвінок на свій смартфон"
 
-#: voip/views/voipwebhook.py:44
+#: .\voip\views\voipwebhook.py:44
 msgid "An outgoing call to"
 msgstr "Вихідний дзвінок контакту -"
 
-#: voip/views/voipwebhook.py:53
+#: .\voip\views\voipwebhook.py:53
 msgid "An incoming call from"
 msgstr "Вхідний дзвінок від"
 
-#: voip/views/voipwebhook.py:70
+#: .\voip\views\voipwebhook.py:70
 #, python-brace-format
 msgid "(duration: {duration} minutes)"
 msgstr "(тривалість: {duration} хвилин)"
 
-#: webcrm/local_settings.py:65
+#: .\webcrm\local_settings.py:59
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: webcrm/local_settings.py:66
+#: .\webcrm\local_settings.py:60
 msgid "Russian"
 msgstr "Руський"
 
-#: webcrm/local_settings.py:67 webcrm/settings.py:60
+#: .\webcrm\local_settings.py:61 .\webcrm\settings.py:60
 msgid "English"
 msgstr "Англійська"
 
-#: webcrm/settings.py:246
+#: .\webcrm\settings.py:246
 msgid "Untitled"
 msgstr "Без назви"
 
-#: webcrm/settings.py:261
+#: .\webcrm\settings.py:261
 msgid "Main Menu"
 msgstr "Головне меню"
 
