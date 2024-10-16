@@ -1,4 +1,5 @@
 from django.contrib.contenttypes.models import ContentType
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -153,6 +154,14 @@ class BaseCounterparty(models.Model):
         blank=True,
         null=True,
         verbose_name=_("Last contact date")
+    )
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("Assigned to"),
+        related_name="%(app_label)s_%(class)s_owner_related",
     )
 
     def delete(self, *args, **kwargs):
