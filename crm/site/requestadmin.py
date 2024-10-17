@@ -1,6 +1,7 @@
 import threading
 from django.contrib import admin
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
 from django.utils.html import format_html
@@ -140,6 +141,7 @@ class RequestAdmin(CrmModelAdmin):
         extra_context['has_change_deal_perm'] = request.user.has_perm(
             'crm.change_deal'
         )
+        check_for_counterparty_assignment(request, object_id)
         return super().change_view(
             request, object_id, form_url,
             extra_context=extra_context,
@@ -359,6 +361,36 @@ class RequestAdmin(CrmModelAdmin):
 
 
 # -- Custom methods -- #
+
+def check_for_counterparty_assignment(request: WSGIRequest, object_id: int) -> None:
+    """
+    Check if a counterparty is assigned to a request object and add a warning message
+    in case counterparty and request owners are different
+    or add an information message if a request owner is not assigned yet
+    """
+    if object_id:
+        data = Request.objects.values_list(
+            "owner",
+            "contact__owner",
+            "company__owner",
+            "lead__owner",
+        ).get(id=object_id)
+        owner_id = data[0]
+        counterparty_assigned_to = data[1] or data[2] or data[3]
+        if counterparty_assigned_to:
+            tag = None
+            if not owner_id:
+                tag = messages.INFO
+            elif owner_id != counterparty_assigned_to:
+                tag = messages.WARNING
+            if tag:
+                username = get_user_model().objects.get(id=counterparty_assigned_to).username
+                msg = _("Found the counterparty assigned to")
+                messages.add_message(
+                    request,
+                    tag,
+                    f"{msg} {username}"
+                )
 
 
 def copy_attrs(obj: Request, attr: str, attr_list) -> None:
