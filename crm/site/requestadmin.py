@@ -253,7 +253,8 @@ class RequestAdmin(CrmModelAdmin):
         if 'department' in form.changed_data:
             attrs.append('department')
         if 'owner' in form.changed_data:
-            attrs.append('owner')
+            if 'managers' in obj.owner.groups.values_list('name', flat=True):
+                attrs.append('owner')
         if attrs:
             _change_related_objs_attrs(obj, attrs)
 
