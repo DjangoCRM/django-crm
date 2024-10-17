@@ -482,7 +482,8 @@ class TasksBaseModelAdmin(BaseModelAdmin):
     def please_edit(obj):  # NOQA
         msg = _("Please edit the title and description to make it clear to "
                 "other users what part of the overall task will be completed.")
-        html_msg = linebreaks(f'<span style="color: var(--orange-fg)">{msg}</span>')
+        html_msg = linebreaks(
+            f'<span style="color: var(--primary)">{msg}</span>')
         return mark_safe(html_msg)
 
     @admin.display(description=mark_safe(
