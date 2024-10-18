@@ -1,135 +1,105 @@
-﻿# Django-CRM
+# Django-CRM
 
-*(Customer Relationship Management app)*
+*(Customer Relationship Management App)*
 
-The use of CRM by companies allows them to improve the sales performance of their products and services.  The more complex and time-consuming the sales process, the greater the improvement.  
-This [CRM](https://github.com/DjangoCRM/django-crm) is designed for individual use by any company - Enterprise CRM. Access to the company's business data remains solely under its control.
+Django-CRM helps companies improve their sales performance. 🚀 It's especially useful for complex sales processes. This **Enterprise CRM** is designed for individual use, ensuring your business data is securely managed. 🔐 
 
-[<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
+[![Django-CRM Screenshot](https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png)](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
-## Customer relationship management features
+## Key Features
 
-|                                                   |                                                                                |                                                       |
-|---------------------------------------------------|--------------------------------------------------------------------------------|-------------------------------------------------------|
-| :ballot_box_with_check: **Team tasks & projects** | :ballot_box_with_check: **Lead management**                                    | :ballot_box_with_check: **Email marketing**           |
-| :ballot_box_with_check: **Contact management**    | :ballot_box_with_check: **Deal management. Instant overview all active deals** | :ballot_box_with_check: **Sales forecasting**         |
-| :ballot_box_with_check: **Email sync & tracking** | :ballot_box_with_check: **Marketing activities. Lead sources**                 | :ballot_box_with_check: **Internal Chat Integration** |
-| :ballot_box_with_check: **Reminder System**       | :ballot_box_with_check: **Role based access control**                          | :ballot_box_with_check: **Analytical reporting**      |
-| :ballot_box_with_check: **Apps & integrations**   | :ballot_box_with_check: **Sales Performance Management**                       | :ballot_box_with_check: **Mobile Access**             |  
+Here are some of the standout features of Django-CRM:
 
-***For a more detailed software overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md)***.
+| **Feature**                                       | **Description**                                             |
+|---------------------------------------------------|------------------------------------------------------------|
+| ✅ **Team Tasks & Projects**                       | Manage tasks and projects collaboratively.                 |
+| ✅ **Lead Management**                             | Track potential customers efficiently.                     |
+| ✅ **Email Marketing**                             | Create and send marketing emails.                          |
+| ✅ **Contact Management**                          | Organize and manage customer contacts.                     |
+| ✅ **Deal Management**                             | Get an overview of all active deals.                       |
+| ✅ **Sales Forecasting**                           | Predict sales trends based on data.                        |
+| ✅ **Email Sync & Tracking**                       | Sync your email and track interactions.                    |
+| ✅ **Analytical Reporting**                        | Generate reports to analyze performance.                   |
+| ✅ **Mobile Access**                               | Access CRM features on your mobile device.                 |
 
-Django CRM is an open-source client relationship software. It is written in [Python](https://www.python.org) (python crm).  
-Frontend and backend are almost entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
-CRM app uses adaptive Admin HTML templates out-of-the-box.
-Django is an excellently documented framework with lots of examples.
-The documentation on the Admin site takes up only one web page.  
-The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.      
+For a more detailed overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
-All this ensures:
-- significantly easier project customization and development;
-- simpler project deployment and production server support.
+## Why Choose Django-CRM?
 
-The software package provides two websites: a CRM site for all users and a site for administrators.  
-The **project code is stable** (has been in practical use for many years).
+Django-CRM is open-source and built on [Python](https://www.python.org) with a focus on simplicity and flexibility. It leverages the robust [Django Admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) interface, making it easier to customize and deploy.
 
-## Elevate Your Team's Productivity with Collaborative CRM Solution
-This CRM is designed to enhance collaboration within teams and streamline project management processes. As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease. Office memos can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors. Tasks can be individual or collective. Tasks provide features such as chat discussions, file sharing, creating subtasks, and sharing results. Users receive notifications directly in the CRM and via email, ensuring they stay informed. Each user has a clear view of their task stack, including priorities, statuses, and next steps, thereby enhancing productivity and accountability in collaborative customer relationship management.
+### Benefits:
+- ⚙️ **Easier Customization:** Tailor the CRM to fit your business needs.
+- 🚀 **Quick Deployment:** Get your CRM up and running fast.
+- 🔒 **Data Control:** Keep your business data safe and under your control.
 
-## Main applications
-The CRM software consists of the following **main applications** and their models:
+## Boost Your Team's Productivity
 
-- **TASKS app**:
-  - Task (with related: files, chat, reminders, tags)
-    - subtasks
-  - Memo (office memo)
-    - tasks / project
-  - Project (*tasks collection*):
-    - tasks
-  - Tags
-  - … (+ *3 more models*).
-- **CRM app**:
-  - Requests (commercial inquiries)
-  - Leads (potential customers)
-  - Companies
-  - Contact persons (associated with their companies)
-  - Deals (like "Opportunities")
-  - Emails
-  - Products (goods and services)
-  - Payments (received, guaranteed, high and low probability)
-  - … (*+ 12 more models*).
-[<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **ANALYTICS app**:
-  - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
-  - Sales funnel report
-  - Lead source Summary report
-  - … (+ *5 more reports*).
-- **MASS MAIL app**:
-  - Email Accounts
-  - Email Messages (newsletters)
-  - Email Signatures (user signatures)
-  - Mailing Outs
+Django-CRM enhances team collaboration through features like:
 
-## Supporting applications
-The crm package also contains **supporting applications** such as:
+- **Task Management:** Create, assign, and track tasks easily. 📋
+- **Memos:** Share important information within the team. 📝
+- **Notifications:** Stay updated with real-time alerts via email and CRM. 🔔
 
-- Chat app (chat is available in every instance of a task, project, office memo and deal)
-- VoIP app (contact clients from deals)
-- Help app (dynamic help pages depending on user role)
-- Common app:
-  - User profiles
-  - Reminders (for tasks, projects, office memos and deals)
+## Main Applications
 
-In total, at the moment, there are 79 tables in the database.
+Django-CRM includes various applications to manage different aspects of your business:
 
-## Additional functionality
-- Web form integration.
-  - CRM form has built-in reCAPTCHA v3 protection;
-  - Automatic detection of the country and city of the user who filled out the form;
-- User’s email account integration;
-- VoIP callback to smartphone;
-- Sending messages via messengers (like: Viber, WhatsApp, Skype).
-- Work with Excel files to import / export company contact details.
+### 1. **Tasks App**
+- **Tasks:** Manage tasks with files, chat, and reminders.
+- **Memos:** Share important notes.
+- **Projects:** Organize related tasks into projects.
 
-## Email client
-There is a built-in Email client using **SMTP** and **IMAP** protocols.
-Among other things, this allows the Django CRM to automatically save a copy of all correspondence for each request and deal in its database. Even if the correspondence was carried out in the user’s mail account (out of the CRM). The ticket mechanism is used for this.
+### 2. **CRM App**
+- **Requests:** Handle commercial inquiries.
+- **Leads:** Track potential customers.
+- **Companies:** Store company information.
+- **Deals:** Manage sales opportunities.
+- **Products:** Organize goods and services.
 
-CRM is able to work with email accounts **protected by two-factor authentication,** like gmail.
+[![Analytics Report](https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png)](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
 
-## User Assistance
-- On the CRM pages, there is a link to a help page.
-  Help pages are dynamic. Their content depends on the user's role.
-- Tooltips appear when you hover the mouse over many page elements, such as icons, buttons, links, table headings, etc.
-- There is also a user guide file.
+### 3. **Analytics App**
+- **Income Reports:** Analyze your revenue. 📈
+- **Sales Funnel Reports:** Understand your sales process.
 
-## Project localization
+### 4. **Mass Mail App**
+- **Email Accounts:** Manage email communications.
+- **Email Messages:** Send newsletters and updates.
 
-Django CRM has [full support](https://docs.djangoproject.com/en/dev/topics/i18n/) for translation of interface, formatting of dates, times and time zones.
+## Supporting Applications
 
-## Getting started
+Django-CRM also features helpful applications like:
 
-This project is deployed as a regular django project.
+- **Chat App:** Communicate within tasks and projects. 💬
+- **VoIP App:** Contact clients directly. 📞
+- **Help App:** Access dynamic help pages based on your role. 🆘
 
-Please refer to:
-- [the CRM installation and configuration guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md);
-- [the Django-CRM user guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).
+## Additional Features
 
-Compatibility  
-- Django 5.1.x
-- Python 3.10+
-- MySQL 8.0.11+ and PostgreSQL 12+  
+- **Web Form Integration:** Easily collect information from users.
+- **Email Client:** Manage emails with SMTP and IMAP support.
+- **User Assistance:** Access help pages and tooltips throughout the app.
 
-⭐️ Don't forget to **star** and **fork** the project if you like it.
+## Getting Started
+
+Django-CRM can be easily deployed as a regular Django project. For installation and configuration, check the following guides:
+
+- [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
+- [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+
+### Compatibility:
+- **Django:** 5.1.x
+- **Python:** 3.10+
+- **Databases:** MySQL 8.0.11+ and PostgreSQL 12+
+
+⭐️ If you like Django-CRM, please **star** and **fork** the project!
 
 ## Contributing
 
-We’re excited to have you contribute to Django-CRM!  
-Whether you're a developer, designer, or simply passionate about CRM systems, there are many ways you can help. You can contribute by adding new features, fixing bugs, improving documentation, or even providing feedback on the project.  
-Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started. Every contribution, big or small, makes a difference
+We welcome contributions! 🎉 Whether you’re a developer, designer, or CRM enthusiast, your input is valuable. Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how you can help. Every contribution, big or small, makes a difference!
 
 ## Credits
 
-- Uses Google material [icons](https://fonts.google.com/icons).
-- Includes [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
-
+- Uses Google Material [icons](https://fonts.google.com/icons).
+- Includes [NicEdit](https://nicedit.com) - a WYSIWYG content editor.
