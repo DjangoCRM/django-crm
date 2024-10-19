@@ -262,9 +262,13 @@ class RequestAdmin(CrmModelAdmin):
 
         if '_create-deal' in request.POST:
             if not any((obj.pending, obj.deal, obj.duplicate)):
+                update_fields = ['deal']
                 d = _get_or_create_deal(obj, request)
                 obj.deal = d
-                obj.save(update_fields=['deal'])
+                if obj.contact and not obj.company:
+                    obj.company = obj.contact.company
+                    update_fields.append('company')
+                obj.save(update_fields=update_fields)
                 CrmEmail.objects.filter(
                     ticket=obj.ticket, deal__isnull=True
                 ).update(deal=d)
