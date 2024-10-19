@@ -297,9 +297,9 @@ class UserProfile(models.Model):
         related_name='profile'
     )
     pbx_number = models.CharField(
-        max_length=16, default='',
+        max_length=20, default='',
         null=False, blank=True,
-        verbose_name=_("PBX number")
+        verbose_name=_("Phone")
     )
     utc_timezone = models.CharField(
         max_length=19, default='',
