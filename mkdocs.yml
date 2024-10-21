@@ -1,0 +1,26 @@
+site_name: Django-CRM
+
+# Set the site URL by using a Read the Docs environment variable:
+# https://docs.readthedocs.io/en/stable/reference/environment-variables.html
+# site_url: !ENV READTHEDOCS_CANONICAL_URL
+
+# site_description: 'A short description of my project'
+repo_url: https://github.com/DjangoCRM/django-crm
+
+
+# Set the Material for MkDocs theme
+theme:
+  name: material
+  # https://squidfunk.github.io/mkdocs-material/customization/
+  # custom_dir: docs/overrides
+
+nav:
+  - Home: index.md
+
+# Include extra CSS to make some style adjustments
+extra_css:
+  - site/css/readthedocs.css
+
+# Include extra JS to set up Read the Docs addons integrations
+extra_javascript:
+  - site/js/readthedocs.js
