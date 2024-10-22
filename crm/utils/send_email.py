@@ -12,10 +12,13 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 from crm.models import CrmEmail
 from massmail.utils.email_creators import email_creator
 from massmail.models import EmailAccount
+
+EMAIL_SENT_TO_str = _('The Email has been sent to "%s"')
 
 
 def send_email(request: WSGIRequest, obj: CrmEmail) -> HttpResponseRedirect:
@@ -43,12 +46,10 @@ def send_email(request: WSGIRequest, obj: CrmEmail) -> HttpResponseRedirect:
         msg.send(fail_silently=False)
         obj.sent = True
         if obj.cc:
-            entry = gettext(
-                f'The Email has been sent to "%(to)s", "%(cc)s"'
-            ) % {'to': obj.to, 'cc': obj.cc}
+            entry = gettext(EMAIL_SENT_TO_str) + ', "%s"'
+            entry = entry % (obj.to, obj.cc)
         else:
-            entry = gettext(
-                f'The Email has been sent to "%s"') % obj.to
+            entry = gettext(EMAIL_SENT_TO_str) % obj.to
         messages.success(request, entry)
         deal = obj.deal
         if deal:
