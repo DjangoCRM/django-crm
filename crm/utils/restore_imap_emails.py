@@ -19,7 +19,8 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.templatetags.util import replace_lang
-from common.utils.helpers import get_formatted_short_date, get_trans_for_user
+from common.utils.helpers import get_formatted_short_date
+from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import save_message
 from common.models import TheFile
 from crm.models import CrmEmail
@@ -29,8 +30,9 @@ from crm.utils.helpers import ensure_decoding
 from crm.utils.helpers import delete3enters
 from crm.utils.helpers import html2txt
 from crm.utils.helpers import get_email_date
-from crm.utils.ticketproc import get_ticket
 from crm.utils.helpers import get_uid_data
+from crm.utils.ticketproc import get_ticket
+from crm.utils.send_email import EMAIL_SENT_TO_str
 from massmail.models import EmailAccount
 
 EXCEPT_SUBJECT = 'RestoreImapEmails Exception'
@@ -166,8 +168,11 @@ class RestoreImapEmails(threading.Thread):
                     _notify_user(crm_eml, formated_msg)
 
             elif t == 'sent':
-                msg = _('The Email has been sent to "%s"') % crm_eml.to
-            msg_str = f"{f_date} - {msg}\n"
+                msg = get_trans_for_user(
+                    EMAIL_SENT_TO_str, crm_eml.owner)
+                formated_msg = msg % crm_eml.to
+
+            msg_str = f"{f_date} - {formated_msg}\n"
             Deal.objects.filter(ticket=crm_eml.ticket).update(
                 workflow=Concat(Value(msg_str), F('workflow'),  output_field=TextField())
             )
