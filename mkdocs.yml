@@ -16,6 +16,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Installation: site/installation.md
 
 # Include extra CSS to make some style adjustments
 extra_css:
