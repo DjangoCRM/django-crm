@@ -114,13 +114,11 @@ To use all the features of these applications, you need to set up CRM integratio
 ## Project installation
 
 To deploy the project, you will need: [Python](https://www.python.org/) and database.  
-The CRM software is developed and used with [MySQL](https://www.mysql.com/) database
-but taking into account compatibility with [PostgreSQL](https://www.postgresql.org)
-(passes the project tests).  
+This Python CRM software is developed taking into account compatibility with [MySQL](https://www.mysql.com/) and [PostgreSQL](https://www.postgresql.org) databases.
 
 ### Fork the Repository
 
-Click the Fork button in the upper right corner of the repository's home page.  
+Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository's home page.
 You now have a copy of the repository in your personal GitHub account.
 
 ### Clone the project
@@ -253,7 +251,7 @@ python manage.py runserver
  ```
 
 In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
-If you need to provide access to CRM from a local network, specify the IP address of your network card and port  
+If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
 (but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
 
@@ -627,7 +625,7 @@ To do this, you need to create a backend file, put it in the directory
 `crm/backends`  
 You can use already existing backends as a basis.  
 Then in the settings file, specify the name of the backend class in the setting  
-LOAD_RATE_BACKEND
+`LOAD_RATE_BACKEND`
 
 ## Newsletter
 
