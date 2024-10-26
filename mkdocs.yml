@@ -1,27 +1,56 @@
-site_name: Django-CRM
+site_name: Django-CRM system
 
 # Set the site URL by using a Read the Docs environment variable:
 # https://docs.readthedocs.io/en/stable/reference/environment-variables.html
 # site_url: !ENV READTHEDOCS_CANONICAL_URL
 
-# site_description: 'A short description of my project'
+site_description: 'Django CRM is written in Python as open source software package, offers a vast suite CRM solutions, giving companies with all the essential tools to manage sales and workflows efficiently within one unified CRM platform.'
 repo_url: https://github.com/DjangoCRM/django-crm
+repo_name: Django CRM GitHub
+site_author: Vadym Kharchenko
 
+docs_dir: 'docs/site'
 
-# Set the Material for MkDocs theme
 theme:
-  name: material
+  name: readthedocs
+  # name: material
+  favicon: img/favicon.ico
   # https://squidfunk.github.io/mkdocs-material/customization/
-  # custom_dir: docs/overrides
+  custom_dir: docs/site/overrides/
+  features:
+    - navigation.indexes
 
 nav:
   - Home: index.md
-  - Installation: site/installation.md
+  - Installation and configuration:
+    - Software installation: installation.md
+#    - Settings of Django CRM: django_crm_settings.md
+#    - Start CRM using the embedded server: start_crm.md
+#    - Updating Django CRM software: updating_crm.md
+#    - Adding CRM users: adding_crm_users.md
+#    - Setting up adding commercial requests: setting_up_adding_requests.md
+#    - Setting up email accounts: setting_up_email_accounts.md
+#    - IMAP4 protocol client: imap4_protocol_client.md
+#    - Adding products, services and goods: adding_products_and_services.md
+#    - Currencies: currencies.md
+#    - Newsletter mailing: newsletter_mailing.md
+#    - VoIP telephony and messengers: voip_telephony_and_messengers.md
+#    - Translate the Django CRM interface: translate_django_crm.md
 
 # Include extra CSS to make some style adjustments
 extra_css:
-  - site/css/readthedocs.css
+  - css/readthedocs.css
 
 # Include extra JS to set up Read the Docs addons integrations
 extra_javascript:
-  - site/js/readthedocs.js
+  - js/readthedocs.js
+
+exclude_docs: |
+  installation_and_configuration_guide.md
+  crm_system_overview.md
+  django-crm_user_guide.md
+  /requirements.txt  # Top-level "docs/requirements.txt".
+
+validation:
+  links:
+    absolute_links: relative_to_docs
