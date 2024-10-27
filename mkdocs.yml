@@ -17,8 +17,8 @@ nav:
     - CRM Software installation: installation.md
     - Django CRM settings: django_crm_settings.md
     - Run CRM: start_crm.md
-#    - Updating Django CRM software: updating_crm.md
-#    - Adding CRM users: adding_crm_users.md
+    - Updating Django CRM software: updating_crm_software.md
+    - Adding CRM users: adding_crm_users.md
 #    - Setting up adding commercial requests: setting_up_adding_requests.md
 #    - Setting up email accounts: setting_up_email_accounts.md
 #    - IMAP4 protocol client: imap4_protocol_client.md
