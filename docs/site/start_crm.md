@@ -1,20 +1,21 @@
-!!! warning "Theme extension prerequisites"
+## Run CRM on the built-in server
 
-    Don't use this server in anything resembling a production environment (with internet access to the CRM).  
-    It is intended only for use on a personal computer or in a private local network (during development, for example).
+!!! note
+    Don't use this server in anything resembling a production environment (with access to the CRM from the Internet).  
+    It is intended only for use on a personal computer or in intranet - a private local network (for example, during development).
 
- ```cmd
+``` cmd
 python manage.py runserver
- ```
+```
 
 In this case, CRM will be available only on your computer on the IP address http://127.0.0.1:8000 (localhost with port 8000).  
 If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
 (but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
 
- ```cmd
+```cmd
 python manage.py runserver 1.2.3.4:8000
- ```
+```
 
 ## Access to CRM and admin sites
 
@@ -33,10 +34,10 @@ and Admin site for administrators (superusers):
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
 can be changed in the file `webcrm/settings.py`
 
-**Attention!**  
-Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
-This address is not supported.  
-To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
+!!! note 
+    Do not attempt to access the bare `<your CRM host>` address ( `http://127.0.0.1:8000/` ).  
+    This address is not supported.  
+    To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
 
 ## Specify CRM site domain
 
