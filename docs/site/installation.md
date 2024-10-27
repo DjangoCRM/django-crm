@@ -1,7 +1,8 @@
+## CRM Software installation
 
 To deploy the CRM, you will need: [Python](https://www.python.org/) and database.  
 This [Python CRM software](https://github.com/DjangoCRM/django-crm/) is developed taking into account compatibility with [MySQL](https://www.mysql.com/) and [PostgreSQL](https://www.postgresql.org) databases.
- 
+
 
 ### Fork the Repository
 
