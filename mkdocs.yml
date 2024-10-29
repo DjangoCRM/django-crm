@@ -23,10 +23,10 @@ nav:
     - Setting up email accounts: setting_up_email_accounts.md
     - IMAP4 protocol client: imap4_protocol_client.md
     - Adding products, services and goods: adding_products_and_services.md
-#   - Currencies: currencies.md
-#    - Newsletter mailing: newsletter_mailing.md
-#    - VoIP telephony and messengers: voip_telephony_and_messengers.md
-#    - Translate the Django CRM interface: translate_django_crm.md
+    - Currencies: currencies.md
+    - Newsletter mailing: newsletter_mailing.md
+    - VoIP telephony and messengers: voip_and_messengers.md
+    - Translate the Django CRM interface: translate_django_crm.md
 
 theme:
   name: readthedocs
@@ -40,6 +40,7 @@ theme:
     - content.code.copy
 
 markdown_extensions:
+  - attr_list
   - admonition
   - pymdownx.highlight:
       anchor_linenums: true
