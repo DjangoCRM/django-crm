@@ -27,6 +27,13 @@ nav:
     - Newsletter mailing: newsletter_mailing.md
     - VoIP telephony and messengers: voip_and_messengers.md
     - Translate the Django CRM interface: translate_django_crm.md
+  - User guide:
+    - Introduction: introduction.md
+    - TASKS section: tasks_section.md
+    - Guide for company executives: guide_for_company_executives.md
+    - Operator and Sales Manager Roles: operator_and_sales_manager_roles.md
+    - Guide for sales manager: guide_for_sales_manager.md
+    - Guide for CRM administrator: guide_for_crm_administrator.md
 
 theme:
   name: readthedocs
