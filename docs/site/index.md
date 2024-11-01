@@ -15,16 +15,16 @@ Django CRM offers a comprehensive CRM solution and consists of the following cor
 
 The TASKS application does not require CRM configuration and allows individual users or teams to work with the following objects:
 
-- Tasks -> Subtasks
+- [Tasks](tasks_section.md#tasks) -> Subtasks
 - Projects -> Tasks -> Subtasks
-- Memos (office memos) -> Projects or Tasks 
+- [Memos](tasks_section.md#memos) (office memos) -> Projects or Tasks 
 
 Each instance of these objects also has integration with:
 
-- Chat
-- Tags
-- Remainders
-- Files
+- 💬 Chat
+- 🏷 Tags
+- <span style='font-size:17px;'>&#9200;</span> Remainders
+- 📎 Files
 
 Notifications within CRM and to Email are also available.  
 All CRM users have access to this application by default.
@@ -37,3 +37,5 @@ To use all the features of these applications, you need to set up CRM software i
 - if necessary:
     - with the service of receiving current exchange rates
     - with VoIP telephony service 
+
+<button type="button"  style="margin-left: 20%">[CRM Software installation](installation.md)</button> <button type="button" style="float: right; margin-right: 30%">[User guide](introduction.md)</button>
