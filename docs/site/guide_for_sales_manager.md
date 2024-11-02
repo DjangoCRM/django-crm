@@ -8,11 +8,13 @@ A Deal object can be assigned to a co-owner - a second sales manager who can als
 The object of the deal allows:
 
 - see the customer's request
-- send and receive emails and see all correspondence related to this deal
+- <span style="vertical-align: baseline"><img src="/icons/envelope-check.svg" alt="alarm icon" width="17" height="17"></span> send and receive emails and see all correspondence related to this deal
 - contact the counterparty by phone and use messengers
-- store all files associated with this deal
-- create memos regarding the deal
-- exchange messages with company management, second sales manager and administrator.
+- <span style="vertical-align: baseline"><img src="/icons/paperclip.svg" alt="paperclip icon" width="17" height="17"></span> store all files associated with this deal
+- create office memos regarding the deal
+- <span style="vertical-align: baseline"><img src="/icons/chat-left-text.svg" alt="Chat icon" width="17" height="17"></span> exchange messages in the chat with company management, second sales manager and administrator
+- <span style="vertical-align: baseline"><img src="/icons/alarm.svg" alt="alarm icon" width="17" height="17"></span> create reminders
+- <span style="vertical-align: baseline"><img src="/icons/tags.svg" alt="alarm icon" width="17" height="17"></span> tag the deal
 
 The Deal object represents:
 
@@ -33,7 +35,7 @@ The data specified in deals is used in analytics. For example, the stages of a t
  `Home > Analytics > Sales funnel`
 
 
-At the moment, there are eight different reports available in the [Analytics section](guide_for_company_executives.md#analytics-section).
+At the moment, there are eight different reports available in the [CRM Analytics](guide_for_company_executives.md#crm-analytics).
 
 ### Payment object
 
@@ -47,12 +49,12 @@ In addition to the usual data, the payment can have one of the following statuse
 
 This is used to create a [summary of income](guide_for_company_executives.md#income-summary), including its forecast.  
 The income summary is important for management decision-making by the company's executives.  
- `Home > Analytics > Income Summary
+ `Home > Analytics > Income Summary`
 
 
 ### List of Deals
 
-By default, new Deals are placed at the top of the list. But by pressing the sort toggle trigger button, you can switch between this sort and sort by next step date. In this mode, transactions whose next step date is approaching will be pushed to the top of the list.
+By default, new [Deals](#deal-object) are placed at the top of the list. But by pressing the sort toggle trigger button, you can switch between this sort and sort by next step date. In this mode, transactions whose next step date is approaching will be pushed to the top of the list.
 
 By default, only active deals are shown in the list. When work on the deal is completed, you need to select the reason for closing the deal in the drop-down menu of the deal. Then the deal will no longer be active and will not appear in the list by default.
 
@@ -66,7 +68,7 @@ Uninterested recipients have the opportunity to unsubscribe from receiving furth
 
 Mailing is performed through the main and additional mail accounts of sales managers. Additional email accounts should be created and configured by the CRM administrator to reduce the risk of spam filters blocking the main accounts of managers. For the same purpose, mailings from the main account are only sent to recipients marked as VIP. This can be done through the drop-down menu of actions on the recipient list pages ([companies](operator_and_sales_manager_roles.md#company-object), [contacts](operator_and_sales_manager_roles.md#object-of-company-contact-persons) and [leads](operator_and_sales_manager_roles.md#lead-object)).
 
-If accounts that require two-step authentication for third-party applications are used for mailing, you should contact the administrator for assistance in passing it for the first time.
+If accounts that require [two-step authentication](imap4_protocol_client.md#configuring-two-step-oauth-20-authentication) for third-party applications are used for mailing, you should contact the administrator for assistance in passing it for the first time.
 
 Prepare a message for the newsletter:  
  `Home > Mass mail > Email Messages`
