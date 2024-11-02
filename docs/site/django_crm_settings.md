@@ -5,7 +5,7 @@ The main project settings are contained in the file
 `webcrm/settings.py`  
 
 !!! IMPORTANT
-    The syntax of the data in these files must match the syntax of the [Python](https://www.python.org/){target="_blank"} language.
+    The syntax of the data in these files must match the syntax of the [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} language.
 
 Most of the project settings are Django framework settings.
 Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/){target="_blank"}.  
@@ -29,7 +29,7 @@ and then destroy a separate [test database](https://docs.djangoproject.com/en/de
 
 #### MySQL database
 
-<img src="/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> For MySQL database, it is recommended to  
+<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> For MySQL database, it is recommended to  
 
 - setup the timezone table
 - set the extended encoding:
@@ -40,7 +40,7 @@ And also if an aggregation or annotation error occurs when running the tests, yo
 
 #### PostgreSQL
 
-<img src="/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration.
+<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration.
 You'll need the [psycopg](https://www.psycopg.org/psycopg3/){target="_blank"} or [psycopg2](https://www.psycopg.org/){target="_blank"} package.
 Set the timezone to 'UTC' (when USE_TZ is True),
 default_transaction_isolation: 'read committed'.  
