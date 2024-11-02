@@ -8,13 +8,13 @@ A Deal object can be assigned to a co-owner - a second sales manager who can als
 The object of the deal allows:
 
 - see the customer's request
-- <span style="vertical-align: baseline"><img src="/icons/envelope-check.svg" alt="alarm icon" width="17" height="17"></span> send and receive emails and see all correspondence related to this deal
+- <span style="vertical-align: baseline"><img src="../icons/envelope-check.svg" alt="alarm icon" width="17" height="17"></span> send and receive emails and see all correspondence related to this deal
 - contact the counterparty by phone and use messengers
-- <span style="vertical-align: baseline"><img src="/icons/paperclip.svg" alt="paperclip icon" width="17" height="17"></span> store all files associated with this deal
+- <span style="vertical-align: baseline"><img src="../icons/paperclip.svg" alt="paperclip icon" width="17" height="17"></span> store all files associated with this deal
 - create office memos regarding the deal
-- <span style="vertical-align: baseline"><img src="/icons/chat-left-text.svg" alt="Chat icon" width="17" height="17"></span> exchange messages in the chat with company management, second sales manager and administrator
-- <span style="vertical-align: baseline"><img src="/icons/alarm.svg" alt="alarm icon" width="17" height="17"></span> create reminders
-- <span style="vertical-align: baseline"><img src="/icons/tags.svg" alt="alarm icon" width="17" height="17"></span> tag the deal
+- <span style="vertical-align: baseline"><img src="../icons/chat-left-text.svg" alt="Chat icon" width="17" height="17"></span> exchange messages in the chat with company management, second sales manager and administrator
+- <span style="vertical-align: baseline"><img src="../icons/alarm.svg" alt="alarm icon" width="17" height="17"></span> create reminders
+- <span style="vertical-align: baseline"><img src="../icons/tags.svg" alt="alarm icon" width="17" height="17"></span> tag the deal
 
 The Deal object represents:
 
