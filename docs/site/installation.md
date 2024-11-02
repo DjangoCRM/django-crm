@@ -1,10 +1,10 @@
 ## CRM Software installation
 
-To deploy the customer CRM software, you will need: [<img src="icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} and database.  
+To deploy the customer CRM software, you will need: [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} and database.  
 This [Python CRM software](https://github.com/DjangoCRM/django-crm/){target="_blank"} is developed taking into account compatibility with databases:
 
-- [<img src="icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> MySQL](https://www.mysql.com/){target="_blank"}
-- [<img src="icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> PostgreSQL](https://www.postgresql.org){target="_blank"}
+- [<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> MySQL](https://www.mysql.com/){target="_blank"}
+- [<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> PostgreSQL](https://www.postgresql.org){target="_blank"}
 
 ### Fork the Repository
 
@@ -69,5 +69,4 @@ pip install -r requirements.txt
 ```
 
 If the project is deployed on a production server, a website server will also be required
-(for example, [Apache](https://httpd.apache.org/){target="_blank"}).  
-Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/){target="_blank"}.
+(for example, [Apache](https://httpd.apache.org/){target="_blank"}). Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/){target="_blank"}.
