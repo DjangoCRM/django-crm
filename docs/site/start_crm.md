@@ -1,6 +1,6 @@
 ## Run CRM on the built-in server
 
-!!! note
+!!! Note
     Don't use this server in anything resembling a production environment (with access to the CRM from the Internet).  
     It is intended only for use on a personal computer or in intranet - a private local network (for example, during development).
 
@@ -8,9 +8,13 @@
 python manage.py runserver
 ```
 
-In this case, CRM will be available only on your computer on the IP address http://127.0.0.1:8000 (localhost with port 8000).  
+In this case, [Django CRM](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} will be available only on your computer on the IP address `http://127.0.0.1:8000` (localhost with port 8000).  
+Open the web page at this address in your browser.  
 If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
-(but first, [specify the CRM website domain](#specify-crm-site-domain)).
+
+!!! Important
+    But first, [specify the CRM website domain](#specify-crm-site-domain).
+
 For example:
 
 ```cmd
@@ -34,10 +38,10 @@ and Admin site for administrators (superusers):
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
 can be changed in the file `webcrm/settings.py`
 
-!!! note 
+!!! Note 
     Do not attempt to access the bare `<your CRM host>` address ( `http://127.0.0.1:8000/` ).  
     This address is not supported.  
-    To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
+    To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/){target="_blank"}), a redirect to a fake login page can be placed on this address.
 
 ## Specify CRM site domain
 
