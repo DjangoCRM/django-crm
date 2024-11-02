@@ -1,7 +1,9 @@
 ## IMAP4 protocol client
 
-[Django CRM](https://github.com/DjangoCRM/django-crm/) uses an IMAP4 protocol client to allow users to view, import and delete emails in their email account.  
-Unfortunately, the operation of the IMAP4 client depends on the mail service. Because not all email services strictly adhere to the IMAP4 protocol.  
+[Django CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} uses an IMAP4 protocol client to allow users to view, import and delete emails in their email account.  
+
+!!! IMPORTANT
+    Unfortunately, the operation of the IMAP4 client depends on the mail service. Because not all email services strictly adhere to the [IMAP4 protocol](https://datatracker.ietf.org/doc/html/rfc3501){target="_blank"}.  
 In some cases, changing CRM settings will not help. You need to either make changes to the code or change the service provider. For example, if the service does not support IMAP4 or only supports some commands.
 
 The CRM settings related to IMAP4 client operation are in the file:  
@@ -11,15 +13,15 @@ In most cases, they do not need to be changed.
 ## Configuring two-step OAuth 2.0 authentication
 
 If users use gmail accounts, then to connect CRM to them via SMTP and IMAP protocols, you will need to set up access and pass two-step authentication once.  
-Google APIs use the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749) for authentication and authorization.
-Visit the [Google API Console](https://console.developers.google.com/). Create "OAuth 2.0 Client IDs" settings
+Google APIs use the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749){target="_blank"} for authentication and authorization.  
+Visit the [Google API Console](https://console.developers.google.com/){target="_blank"}. Create "OAuth 2.0 Client IDs" settings
  for "Web application" to specify the Authorized redirect URI in the format:  
  `https://<yourCRM.domain>/OAuth-2/authorize/?user=<box_name>@gmail.com`
 
 And also get the credentials OAuth 2.0 "CLIENT_ID" and "CLIENT_SECRET". Save them in the project settings  
 `<crmproject>/webcrm/settings.py`
 
-Then on the desired "Email Account" page  
+Then on the desired [Email Account](setting_up_email_accounts.md) page  
  `(ADMIN) Home > Mass mail > Email Accounts`  
 In the upper right corner, click the button "Get or update a refresh token".  
 CRM will open the authorization page. After successful authorization, the "Refresh token" value will be received and CRM will get access to this account.
