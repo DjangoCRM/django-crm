@@ -5,7 +5,7 @@
 Mail accounts must be set up for users with the [roles](adding_crm_users.md#user-groups-roles) "Operator", "Super Operator" and "Manager" (Sales Manager).
 This will allow the following to be realized:
 
-- Users will be able to send emails from [Django CRM](https://github.com/DjangoCRM/django-crm/) through their email account.
+- Users will be able to send emails from [Django CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} through their email account.
 - The CRM will have access to the user's account and will be able to import and link to Deals letters sent not from CRM (if there is a corresponding ticket in the letters).
 - Users will be able to [import requests from email into CRM](setting_up_adding_requests.md).
 - When performing a newsletter mailing, CRM will be able to send emails through the user's account on the user's behalf.
@@ -35,4 +35,4 @@ This section displays statistics and service information of CRM activity in this
 #### Section "Additional information"
 
 Here you need to specify the account owner and its department.  
-The other fields are described in detail in the "[Settings](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-EMAIL_HOST)" section of Django documentation.
+The other fields are described in detail in the [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-EMAIL_HOST){target="_blank"} section of Django documentation.
