@@ -5,7 +5,7 @@
 
 The Massmail application requires:
 
-- the existence of contact persons (recipients) in the [CRM](https://github.com/DjangoCRM/django-crm/) database;
+- the existence of contact persons (recipients) in the [CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} database;
 - configured [email accounts](setting_up_email_accounts.md) for sales managers (marked "Massmail");
 
 The application provides recipients with an opportunity to unsubscribe from mailings.  
