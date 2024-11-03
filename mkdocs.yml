@@ -32,8 +32,8 @@ nav:
     - TASKS section: tasks_section.md
     - Guide for company executives: guide_for_company_executives.md
     - Operator and Sales Manager Roles: operator_and_sales_manager_roles.md
-    - Guide for sales manager: guide_for_sales_manager.md
-    - Guide for CRM administrator: guide_for_crm_administrator.md
+    - Sales Manager's Guide: guide_for_sales_manager.md
+    - CRM Administrator's Guide: guide_for_crm_administrator.md
 
 theme:
   name: readthedocs
