@@ -70,3 +70,8 @@ pip install -r requirements.txt
 
 If the project is deployed on a production server, a website server will also be required
 (for example, [Apache](https://httpd.apache.org/){target="_blank"}). Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/){target="_blank"}.
+
+!!! Important
+
+    __Give this CRM project a star ⭐️ to support its developers!__  
+    Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository.  
