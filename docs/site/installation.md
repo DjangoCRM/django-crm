@@ -37,16 +37,10 @@ It is recommended to first create a virtual environment:
 python3 -m venv myvenv
 ```
 
-and activate it:
+activate it:
 
 ```cmd
 source /myvenv/bin/activate
-```
-
-then install the project requirements:
-
-```cmd
-pip install -r requirements.txt
 ```
 
 #### on Windows
@@ -56,7 +50,7 @@ py -3.12 -m venv myvenv
 ```
 _('-3.12' is the Python version, change it to yours)_
 
-and activate it:
+activate it:
 
 ```cmd
 myvenv\Scripts\activate
