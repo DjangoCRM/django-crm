@@ -77,7 +77,7 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with web interface.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} (client relationship software) is an open source application with web interface.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
@@ -118,7 +118,7 @@ This Python CRM software is developed taking into account compatibility with [My
 
 ### Fork the Repository
 
-Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository's home page.
+Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository's home page.
 You now have a copy of the repository in your personal GitHub account.
 
 ### Clone the project
@@ -142,6 +142,7 @@ The project will be cloned into the 'django-crm' folder.
 
 It is recommended to first create a virtual environment:
 
+#### on Ubuntu
 ```cmd
 python3 -m venv myvenv
 ```
@@ -152,7 +153,20 @@ and activate it:
 source /myvenv/bin/activate
 ```
 
-then install the project requirements:
+#### on Windows
+
+```cmd
+py -3.12 -m venv myvenv
+```
+_('-3.12' is the Python version, change it to yours)_
+
+and activate it:
+
+```cmd
+myvenv\Scripts\activate
+```
+
+#### Then install the project requirements:
 
 ```cmd
 pip install -r requirements.txt
@@ -161,6 +175,10 @@ pip install -r requirements.txt
 If the project is deployed on a production server, a website server will also be required
 (for example, [Apache](https://httpd.apache.org/)).  
 Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
+
+> [!IMPORTANT]
+> **Give this CRM project a star ⭐️ to support its developers!**  
+> Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository.  
 
 ## Settings of Django CRM
 
@@ -246,18 +264,18 @@ Use the superuser credentials from the output to log into the CRM site.
 Don't use this server in anything resembling a production environment (with internet access to the CRM).  
 It is intended only for use on a personal computer or in a private local network (during development, for example).
 
- ```cmd
+```cmd
 python manage.py runserver
- ```
+```
 
 In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
 If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
 (but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
 
- ```cmd
+```cmd
 python manage.py runserver 1.2.3.4:8000
- ```
+```
 
 ## Access to CRM and admin sites
 
@@ -324,7 +342,7 @@ python manage.py collectstatic --settings=webcrm.local_settings
 
 ## Ability to translate Django CRM interface into another language
 
-Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/) interface.  
+Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} interface.  
 The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:
 `webcrm/settings.py`
 
