@@ -77,7 +77,7 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} (client relationship software) is an open source application with web interface.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with web interface.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
@@ -118,7 +118,7 @@ This Python CRM software is developed taking into account compatibility with [My
 
 ### Fork the Repository
 
-Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository's home page.
+Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository's home page.
 You now have a copy of the repository in your personal GitHub account.
 
 ### Clone the project
@@ -178,7 +178,7 @@ Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
 
 > [!IMPORTANT]
 > **Give this CRM project a star ⭐️ to support its developers!**  
-> Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository.  
+> Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository.  
 
 ## Settings of Django CRM
 
@@ -294,10 +294,10 @@ and Admin site for administrators (superusers):
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
 can be changed in the file `webcrm/settings.py`
 
-**Attention!**  
-Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
-This address is not supported.  
-To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
+> [!NOTE]
+> Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
+> This address is not supported.  
+> To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
 
 ## Specify CRM site domain
 
@@ -342,7 +342,7 @@ python manage.py collectstatic --settings=webcrm.local_settings
 
 ## Ability to translate Django CRM interface into another language
 
-Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} interface.  
+Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/) interface.  
 The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:
 `webcrm/settings.py`
 
@@ -409,20 +409,29 @@ A group that gives its members certain rights is called a role.
 
 The following roles are available:
 
-- chiefs (company executives),
-- managers (sales managers),
-- operators (employees who receive commercial requests coming to the company. For example, a secretary or receptionist),
-- superoperators (the same as operator but with the rights to serve several sales departments),
-- accountants,
-- co-workers (this group is added to all users by default to work with TASKS),
-- task_operators (allows you to edit Memos (Office notes) and Tasks objects owned by other users).
+
+| Role           | Description                                                                      |
+|----------------|----------------------------------------------------------------------------------|
+| chiefs         | Company executives                                                               |
+| managers       | Sales managers                                                                   |
+| operators      | Employees who receive commercial requests coming to the company                  |
+| superoperators | Operator but with the rights to serve several sales departments                  |
+| co-workers     | This group is added to all users by default to work with TASKS                   |
+| task_operators | Provides permissions to edit Office Memos and Tasks objects owned by other users |
+| accountants    | Provides access to CRM analytics and Payment and Currency objects                |
+
+The role of operator is usually performed by secretaries or receptionists.  
+Sometimes the "big boss" makes mistakes or typos when creating tasks but doesn't have time to fix them.
+To fix obvious mistakes, you need the task operator role.
 
 You can view the permission sets for each role here:  
  `(ADMIN site) Home > Authentication and Authorization > Groups`
 
 A user can have multiple roles.  
 For example, if your company does not have an employee who could perform the role of operator, then this role should be given to an employee with the role of sales manager.  
-Attention! It is possible that some combinations of roles can lead to incorrect CRM operation. In this case, you can create several accounts for the user in CRM with different roles.
+
+> [!NOTE]
+> It is possible that some combinations of roles can lead to incorrect CRM operation. In this case, you can create several accounts for the user in CRM with different roles.
 
 ### Departments
 
@@ -474,7 +483,9 @@ Before starting to work in Django CRM, users should be informed about the follow
 - Many page elements such as buttons, icons, links have tooltips. To do this, you need to hover the mouse cursor over them.  
 It is also important for the administrator to help users to master the CRM.
 
-**Pay attention!** Help pages are dynamic. Their content depends on the user's role. Users who are assigned rights individually (without a role assignment) will not be able to access the help page. Such users should be instructed to work in CRM by the administrator.
+> [!NOTE]
+> Help pages are dynamic. Their content depends on the user's role.  
+> Users who are assigned rights individually (without a role assignment) will not be able to access the help page. Such users should be instructed to work in CRM by the administrator.
 
 ## Setting up adding commercial requests in Django CRM
 
@@ -506,15 +517,18 @@ To do this, you need to configure the site to send POST form data via a request 
 #### Submitting form data with a POST request
 
 Your site can pass the values of the following form fields to CRM by POST request:  
-`"name" - CharField (max_length=200, required)`  
-`"email" - EmailField / CharField (max_length=254, required)`
-`"subject" - CharField(max_length=200, required)`  
-`"phone" - CharField(max_length=400, required)`  
-`"company" - CharField(max_length=200,  required)`  
-`"message" - TextField`  
-`"country" - CharField(max_length=40)`  
-`"city"- CharField(max_length=40)`  
-`"leadsource_token" - UUIDField(required, hidden Input)`
+
+| Form field         | Description                                       |
+|--------------------|---------------------------------------------------|
+| `name`             | CharField (max_length=200, required)              |
+| `email`            | EmailField / CharField (max_length=254, required) |
+| `subject`          | CharField (max_length=200, required)              |
+| `phone`            | CharField (max_length=200, required)              |
+| `company`          | CharField (max_length=200, required)              |
+| `message`          | TextField                                         |
+| `country`          | CharField (max_length=40)                         |
+| `city`             | CharField (max_length=40)                         |
+| `leadsource_token` | UUIDField (required, hidden input)                |
 
 The value of the "leadsource_token" field must match the value of the "UUID" field of the corresponding (selected by you) "Leadsource".  
 `(ADMIN site) Home > Crm > Lead Sources`
