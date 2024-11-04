@@ -56,7 +56,11 @@ You need to create a department on the page:
 `(ADMIN site) Home > Common > Departments`
 
 When creating a department, a group with the same name is automatically created.  
-**Please note** that creating a group for use as a department without creating a Department object will result in CRM not working correctly.
+
+
+!!! Warning
+    Creating a group for use as a department without creating a Department object will result in CRM not working correctly.
+
 The following departments are preinstalled in CRM:  
 
 - Global sales,
@@ -96,7 +100,7 @@ Dynamic rights can depend on many factors. For example, the value of filters. Ev
 Before starting to work in Django CRM, users should be informed about the following:  
 
 - It is important to familiarize yourself with the user guide to learn the CRM more easily.
-- Many CRM pages have a button to go to the help page - (?). It is located in the upper right corner. Help pages should be read.
+- Many CRM pages have a button to go to the help page - <span style="vertical-align: baseline"><img src="../icons/question-mark.svg" alt="Question-mark icon" width="25" height="25"></span>. It is located in the upper right corner. Help pages should be read.
 - Many page elements such as buttons, icons, links have tooltips. To do this, you need to hover the mouse cursor over them.  
 
 It is also important for the administrator to help users to master the CRM.
