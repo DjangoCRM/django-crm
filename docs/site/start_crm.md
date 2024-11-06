@@ -58,7 +58,7 @@ Add a CRM site and specify its domain name.
 
 ## Built-in assistance system
 
-Many pages have an icon (?) in the upper right corner.  
+Many pages have an icon <span style="vertical-align: baseline"><img src="../icons/question-mark.svg" alt="Question-mark icon" width="25" height="25"></span> in the upper right corner.  
 This is a link to a help page.
 
 Many buttons and icons on CRM pages have tooltips that appear when you hover your mouse over them.
