@@ -8,13 +8,13 @@ A Deal object can be assigned to a co-owner - a second sales manager who can als
 The object of the deal allows:
 
 - see the customer's request
-- <span style="vertical-align: baseline"><img src="../icons/envelope-check.svg" alt="alarm icon" width="17" height="17"></span> send and receive emails and see all correspondence related to this deal
+- <span style="vertical-align: baseline"><img src="../icons/envelope-check.svg" alt="Envelope icon" width="17" height="17"></span> send and receive emails and see all correspondence related to this deal
 - contact the counterparty by phone and use messengers
-- <span style="vertical-align: baseline"><img src="../icons/paperclip.svg" alt="paperclip icon" width="17" height="17"></span> store all files associated with this deal
+- <span style="vertical-align: baseline"><img src="../icons/paperclip.svg" alt="Paperclip icon" width="17" height="17"></span> store all files associated with this deal
 - create office memos regarding the deal
 - <span style="vertical-align: baseline"><img src="../icons/chat-left-text.svg" alt="Chat icon" width="17" height="17"></span> exchange messages in the chat with company management, second sales manager and administrator
-- <span style="vertical-align: baseline"><img src="../icons/alarm.svg" alt="alarm icon" width="17" height="17"></span> create reminders
-- <span style="vertical-align: baseline"><img src="../icons/tags.svg" alt="alarm icon" width="17" height="17"></span> tag the deal
+- <span style="vertical-align: baseline"><img src="../icons/alarm.svg" alt="Alarm icon" width="17" height="17"></span> create reminders
+- <span style="vertical-align: baseline"><img src="../icons/tags.svg" alt="Tags icon" width="17" height="17"></span> tag the deal
 
 The Deal object represents:
 
@@ -24,18 +24,18 @@ The Deal object represents:
 - payment information
 
 When you create an email, Django CRM injects a ticket into it. This allows [CRM software](https://github.com/DjangoCRM/django-crm/){target="_blank"} to find emails related to this deal in sales managers' email accounts and upload them to the CRM database. 
-!!! Note
+!!! Important
 
     Therefore, at least the first letter must be sent from the CRM. Further correspondence can be carried out from email accounts if a ticket is saved in the emails.
 If for some reason a letter was created related to a deal but without a ticket, then it can be imported and linked to the deal using the "Import letter" button.
 
 The stages of the deal, reasons for closing, and much more can be customized to suit the specifics of your company - contact your CRM administrator.
 
-The data specified in deals is used in analytics. For example, the stages of a transaction are used to build a "sales funnel" report. It can be viewed here:  
+The data specified in deals is used in [CRM Analytics](guide_for_company_executives.md#crm-analytics). For example, the stages of a transaction are used to build a "sales funnel" report. It can be viewed here:  
  `Home > Analytics > Sales funnel`
 
 
-At the moment, there are eight different reports available in the [CRM Analytics](guide_for_company_executives.md#crm-analytics).
+At the moment, there are eight different reports available in the CRM Analytics.
 
 ### Payment object
 
