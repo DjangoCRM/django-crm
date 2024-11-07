@@ -22,7 +22,7 @@ class ContactForm(forms.Form):
     )
     phone = forms.CharField(
         label=_("Phone number(with country code)"),
-        max_length=400
+        max_length=200
     )
     company = forms.CharField(
         label=_("Company name"),
