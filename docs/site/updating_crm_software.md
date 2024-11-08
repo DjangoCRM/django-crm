@@ -25,4 +25,5 @@ python manage.py migrate --settings=webcrm.local_settings
 python manage.py collectstatic --settings=webcrm.local_settings
 ```
 
-- Provide meaningful comments on the code you are modifying. This will help in case of conflict when merging your project with a new [Django-CRM releases](https://github.com/DjangoCRM/django-crm/releases){target="_blank"}.
+!!! Tip
+    Provide meaningful comments on the code you are modifying. This will help in case of conflict when merging your project with a new [Django-CRM releases](https://github.com/DjangoCRM/django-crm/releases){target="_blank"}.
