@@ -1,4 +1,5 @@
 # Welcome to Django-CRM!
+
 ## Thank you for your interest in contributing to the project! 
 
 [CRM software](https://github.com/DjangoCRM/django-crm) published recently. So for now, just briefly.
@@ -13,10 +14,11 @@ Code contributions are not the only way to help the project. There are many oppo
 - Taking part in creating the project website on the github.io
 - Writing Code.
   - It's easier to start by working with issues marked with a [“good first issue”](https://github.com/DjangoCRM/django-crm/labels/good%20first%20issue) label.
-  - Run tests before creating a Pull Request.  
+  - Create a draft PR when starting work on bigger changes.  
 
-  ```cmd
-  python manage.py test tests/ --noinput
-  ```
-
-  - Create a draft PR when starting work on bigger changes.
+> [!IMPORTANT]
+> Run tests before creating a Pull Request.  
+> 
+> ```cmd
+>   python manage.py test tests/ --noinput
+> ```
