@@ -71,7 +71,10 @@ exclude_docs: |
   django-crm_user_guide.md
   /requirements.txt  # Top-level "docs/requirements.txt".
 
-
+extra:
+  analytics:
+    provider: google
+    property: G-7Y2K5X94CR
 
 validation:
   links:
