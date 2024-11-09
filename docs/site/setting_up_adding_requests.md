@@ -13,7 +13,7 @@ CRM automatically assigns the owner of the imported request to the owner of the 
 ### Sources of Leads
 
 `(ADMIN) Home > Crm > Lead Sources`  
-For marketing purposes, each Request, [Lead](operator_and_sales_manager_roles.md#lead-object), Contact and [Company](operator_and_sales_manager_roles.md#company-object) object has a link to the corresponding "Lead Source" object.  
+For marketing purposes, each [Request](operator_and_sales_manager_roles.md#working-with-requests), [Lead](operator_and_sales_manager_roles.md#lead-object), [Contact](operator_and_sales_manager_roles.md#object-of-company-contact-persons) and [Company](operator_and_sales_manager_roles.md#company-object) object has a link to the corresponding "Lead Source" object.  
 Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
 For convenience, CRM has a number of pre-defined "Leads Sources". These can be edited.
 Each "Lead Source" has a link to a "Department". Therefore, each department can have its own set of lead sources.  
@@ -57,23 +57,27 @@ Here is an example of a simple string:
 ```
 
 url must follow the format:  
-`https://<yourCRM.domain>/<language_code>/contact-form/<uuid>/`
+`https://<yourCRM.domain>/<language_code>/contact-form/<uuid>/`  
 where uuid is the values of the "UUID" field of the selected "Lead Source".
 
 #### Activate form protection with Google's reCAPTCHA v3
 
 CRM form has built-in reCAPTCHA v3 protection.  
 To activate it, specify the values of keys received during registration on this service:  
-`GOOGLE_RECAPTCHA_SITE_KEY = ''<your site key>"`  
-`GOOGLE_RECAPTCHA_SECRET_KEY = ''<your secret key>"`
+
+```
+GOOGLE_RECAPTCHA_SITE_KEY = "<your site key>"  
+GOOGLE_RECAPTCHA_SECRET_KEY = "<your secret key>"
+```
 
 #### Activation of geolocation of the country and city of the counterparty by its IP
 
-CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP.  For this purpose, GeoIP2 module is used.  
+CRM form has a built-in ability to geolocate the country and city of the leads (site visitor) by its IP.  
+For this purpose, GeoIP2 module is used.  
 To activate its work:
 
-- save the [MaxMind](https://dev.maxmind.com/geoip/docs/databases){target="_blank"} files of the city and country databases (GeoLite2-Country.mmdb and GeoLite2-City.mmdb) to the media/geodb directory;
-- set GEOIP = True in the file
+- save the [MaxMind](https://dev.maxmind.com/geoip/docs/databases){target="_blank"} files of the city and country databases (GeoLite2-Country.mmdb and GeoLite2-City.mmdb) to the `media/geodb` directory;
+- set `GEOIP = True` in the file
 
 #### Adding a custom CRM form for iframe
 
