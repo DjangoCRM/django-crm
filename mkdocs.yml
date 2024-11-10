@@ -45,6 +45,8 @@ theme:
   features:
     - navigation.indexes
     - content.code.copy
+  analytics:
+    gtag: G-7Y2K5X94CR
 
 markdown_extensions:
   - attr_list
@@ -71,10 +73,10 @@ exclude_docs: |
   django-crm_user_guide.md
   /requirements.txt  # Top-level "docs/requirements.txt".
 
-extra:
-  analytics:
-    provider: google
-    property: G-7Y2K5X94CR
+#extra:
+#  analytics:
+#    provider: google
+#    property: G-7Y2K5X94CR
 
 validation:
   links:
