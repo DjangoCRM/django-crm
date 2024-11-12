@@ -15,6 +15,7 @@ from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from crm.models import CrmEmail
+from crm.utils.counterparty_name import get_counterparty_name
 from massmail.utils.email_creators import email_creator
 from massmail.models import EmailAccount
 
@@ -45,11 +46,12 @@ def send_email(request: WSGIRequest, obj: CrmEmail) -> HttpResponseRedirect:
     try:
         msg.send(fail_silently=False)
         obj.sent = True
+        to_name = get_counterparty_name(obj)
         if obj.cc:
             entry = gettext(EMAIL_SENT_TO_str) + ', "%s"'
-            entry = entry % (obj.to, obj.cc)
+            entry = entry % (to_name, obj.cc)
         else:
-            entry = gettext(EMAIL_SENT_TO_str) % obj.to
+            entry = gettext(EMAIL_SENT_TO_str) % to_name
         messages.success(request, entry)
         deal = obj.deal
         if deal:
