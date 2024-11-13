@@ -26,6 +26,7 @@ from common.models import TheFile
 from crm.models import CrmEmail
 from crm.models import Deal
 from crm.models import Request
+from crm.utils.counterparty_name import get_counterparty_name
 from crm.utils.helpers import ensure_decoding
 from crm.utils.helpers import delete3enters
 from crm.utils.helpers import html2txt
@@ -159,18 +160,19 @@ class RestoreImapEmails(threading.Thread):
             self.inq_eml_queue.put((crm_eml, email_message['From'], ea))
         if crm_eml.ticket:
             f_date = get_formatted_short_date()
-            msg = ''
             if t in ('incoming', 'inquiry'):
+                from_name = get_counterparty_name(crm_eml)
                 msg = get_trans_for_user(
                     received_email_from_str, crm_eml.owner)
-                formated_msg = msg % crm_eml.from_field
+                formated_msg = msg % from_name
                 if t == 'incoming':
                     _notify_user(crm_eml, formated_msg)
 
             elif t == 'sent':
+                to_name = get_counterparty_name(crm_eml)
                 msg = get_trans_for_user(
                     EMAIL_SENT_TO_str, crm_eml.owner)
-                formated_msg = msg % crm_eml.to
+                formated_msg = msg % to_name
 
             msg_str = f"{f_date} - {formated_msg}\n"
             Deal.objects.filter(ticket=crm_eml.ticket).update(
