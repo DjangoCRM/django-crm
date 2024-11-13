@@ -10,9 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Recipient/sender names in CRM workflow messages and system notifications about sending/receiving emails.
+
 ### Fixed
 
-- Fix the translation of the Email receipt notification
+- Fix the translation of the Email receipt notification.
 
 ## [0.93] - 2024-10-20
 
