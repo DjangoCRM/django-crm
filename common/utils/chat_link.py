@@ -18,5 +18,5 @@ def get_chat_link(obj) -> str:
             url, content_type.id, obj.pk, view_chat_str, chat_icon))
     if getattr(obj, 'is_unread_chat', None):
         value = mark_safe(chat_link_str.format(
-            url, content_type.id, obj.id, view_chat_str, chat_red_icon))
+            url, content_type.id, obj.pk, view_chat_str, chat_red_icon))
     return value
