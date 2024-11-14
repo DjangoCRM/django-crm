@@ -149,18 +149,6 @@ class CrmModelAdmin(BaseModelAdmin):
                 return {}
         return actions
 
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        if request.user.department_id:
-            return qs.filter(department_id=request.user.department_id)
-        elif request.user.is_superoperator:
-            return qs.filter(
-                department__in=request.user.groups.filter(
-                    department__isnull=False
-                )
-            )
-        return qs
-
     def get_changeform_initial_data(self, request):
         initial = super().get_changeform_initial_data(request)
         initial['owner'] = request.user.id
@@ -170,6 +158,15 @@ class CrmModelAdmin(BaseModelAdmin):
                 id=request.user.department_id
             ).default_country_id
         return initial
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if obj and hasattr(obj, 'massmail'):
+            if obj.massmail and 'massmail' in form.base_fields:
+                label = form.base_fields['massmail'].label
+                icon = subscribed_icon.format(subscribed_title)
+                form.base_fields['massmail'].label = mark_safe(f"{label} {icon}")   
+        return form
 
     def get_list_display(self, request):
         if self.model in (Request, Company, Contact, Lead):
@@ -211,11 +208,23 @@ class CrmModelAdmin(BaseModelAdmin):
         
         return list_filter
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.department_id:
+            return qs.filter(department_id=request.user.department_id)
+        elif request.user.is_superoperator:
+            return qs.filter(
+                department__in=request.user.groups.filter(
+                    department__isnull=False
+                )
+            )
+        return qs
+
     def get_readonly_fields(self, request, obj=None):
         readonly_fields = super().get_readonly_fields(request, obj)
         if obj and hasattr(obj, 'massmail'):
             if not obj.massmail:
-                readonly_fields += ('massmail',)
+                readonly_fields += ('unsubscribed',)
 
         return readonly_fields
 
@@ -475,6 +484,14 @@ class CrmModelAdmin(BaseModelAdmin):
             )
         return LEADERS
 
+    @staticmethod
+    @admin.display(description=mark_safe(
+        f"{_("Mass mailing")} "
+        f"{unsubscribed_icon.format(unsubscribed_title)}"
+    )) 
+    def unsubscribed(instance):
+        return unsubscribed_title
+
     # -- Custom methods -- #
 
     def connections(self, phone: str) -> str:
@@ -554,6 +571,13 @@ class CrmModelAdmin(BaseModelAdmin):
         query_string = query_dict.urlencode()
         return f"{_thread_local.query_path}?{query_string}"
 
+    @staticmethod
+    def massmail_field_name(obj) -> str:
+        if obj and not obj.massmail:
+            return 'unsubscribed'
+        return 'massmail'
+
+    
     def set_queryset(self, request: WSGIRequest, kwargs,
                      model, order_by_field: str = '') -> None:
         try:
