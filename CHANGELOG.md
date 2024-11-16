@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix the translation of the Email receipt notification.
+- translation of the Email receipt notification.
+- exception caused by chat in user profile.
 
 ## [0.93] - 2024-10-20
 
