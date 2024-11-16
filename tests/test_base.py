@@ -26,7 +26,7 @@ class MyTests(BaseTestCase):
             username__in=username_list)
 
     def setUp(self):
-        print("Run Test Method:", self._testMethodName)
+        print(" Run Test Method:", self._testMethodName)
 
     def test_versions(self):
         print(
@@ -65,8 +65,16 @@ class MyTests(BaseTestCase):
                     )
                     if app:
                         set_app_models(app, app_label)
+                        # Adding a reminder is not allowed on the home page.
+                        if app['app_label'] == 'common':
+                            reminder_model = next((
+                                m for m in app['models']
+                                if m['object_name'] == 'Reminder'
+                            ))
+                            reminder_model['perms']['add'] = False
+                            reminder_model['add_url'] = None
             self.client.force_login(self.users.get(username=username))
-            # Issue a GET request.
+            
             response = self.client.get(
                 '/' + settings.SECRET_CRM_PREFIX,
                 HTTP_ACCEPT_LANGUAGE='en',
@@ -105,7 +113,7 @@ class MyTests(BaseTestCase):
 
     def test_admin_apps_models_perms(self):
         """
-        Test for users with admin roles access to apps, models
+        Test for users with admin role access to apps, models
         and permissions at home page of admin (with 'en' language code).
         """
 
@@ -113,7 +121,7 @@ class MyTests(BaseTestCase):
         user = self.users.filter(is_superuser=True).first()
         username = user.username
         self.client.force_login(user)
-        # Issue a GET request.
+        
         response = self.client.get(
             '/' + settings.SECRET_ADMIN_PREFIX,
             HTTP_ACCEPT_LANGUAGE='en',
@@ -121,7 +129,19 @@ class MyTests(BaseTestCase):
         )
         context_app_list = response.context['app_list']
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-
+        """ 
+        # Adding a reminder is not allowed on the home page.
+        app = next((
+            a for a in correct_app_list
+            if a['name'] == 'Common'
+        ), None)
+        if app:
+            reminder = next((
+                m for m in app['models']
+                if m['object_name'] == 'Reminder'
+            ))
+            reminder['perms']['add'] = False
+        """
         self.check_app_availability_and_model_permissions(username, correct_app_list, context_app_list)
 
     def check_app_availability_and_model_permissions(self, username, correct_app_list, context_app_list):

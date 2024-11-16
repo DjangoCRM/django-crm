@@ -62,6 +62,9 @@ class ReminderAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
         return qs.filter(owner=request.user)
 
+    def has_add_permission(self, request):
+        return "add" in request.path or "change" in request.path
+    
     def response_add(self, request, obj, post_url_continue=None):
         if '_popup' in request.POST:
             return HttpResponse('<script type="text/javascript">window.close()</script>')
