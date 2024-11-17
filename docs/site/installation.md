@@ -1,10 +1,10 @@
 ## CRM Software installation
 
-To deploy the customer CRM software, you will need: [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} and database.  
+To deploy the customer CRM software, you will need: [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} 3.10+ and database.  
 This [Python CRM software](https://github.com/DjangoCRM/django-crm/){target="_blank"} is developed taking into account compatibility with databases:
 
-- [<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> MySQL](https://www.mysql.com/){target="_blank"}
-- [<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> PostgreSQL](https://www.postgresql.org){target="_blank"}
+- [<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> MySQL](https://www.mysql.com/){target="_blank"} 8.0.11+
+- [<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> PostgreSQL](https://www.postgresql.org){target="_blank"} 12+
 
 ### Fork the Repository
 
@@ -32,7 +32,7 @@ The project will be cloned into the "django-crm" folder.
 
 It is recommended to first create a virtual environment:
 
-#### on Ubuntu
+#### on Unix/macOS
 ```cmd
 python3 -m venv myvenv
 ```
@@ -46,9 +46,8 @@ source /myvenv/bin/activate
 #### on Windows
 
 ```cmd
-py -3.12 -m venv myvenv
+py -m venv myvenv
 ```
-_('-3.12' is the Python version, change it to yours)_
 
 activate it:
 
@@ -62,10 +61,12 @@ myvenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+__That's it!__
+
 If the project is deployed on a production server, a website server will also be required
 (for example, [Apache](https://httpd.apache.org/){target="_blank"}). Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/){target="_blank"}.
 
 !!! Important
 
-    __Give this CRM project a star ⭐️ to support its developers!__  
+    __Please give this CRM project a star ⭐️ to support its developers!__  
     Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository.  
