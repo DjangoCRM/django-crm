@@ -4,7 +4,7 @@ site_name: Django-CRM system
 # https://docs.readthedocs.io/en/stable/reference/environment-variables.html
 # site_url: !ENV READTHEDOCS_CANONICAL_URL
 
-site_description: 'Django CRM is written in Python as open source software package, offers a vast suite CRM solutions, giving companies with all the essential tools to manage sales and workflows efficiently within one unified CRM platform.'
+site_description: 'Django CRM is written in Python as open source software package, offers a vast suite CRM solutions, giving companies with all the essential tools to manage sales and workflows efficiently within one unified Analytical CRM platform.'
 repo_url: https://github.com/DjangoCRM/django-crm
 repo_name: Django CRM GitHub
 site_author: Vadym Kharchenko
