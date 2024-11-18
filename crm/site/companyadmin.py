@@ -120,7 +120,8 @@ class CompanyAdmin(CrmModelAdmin):
             (None, {
                 'fields': (
                     ('full_name', 'disqualified'),
-                    ('alternative_names', 'massmail'),
+                    ('alternative_names', 
+                     self.massmail_field_name(obj)),
                     ('type', 'lead_source'),
                     'registration_number',
                     'was_in_touch',
