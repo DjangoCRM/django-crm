@@ -110,7 +110,8 @@ class LeadAdmin(CrmModelAdmin):
         fieldsets = (
             (None, {
                 'fields': [
-                    ('lead_source', 'disqualified', 'massmail'),
+                    ('lead_source', 'disqualified', 
+                     self.massmail_field_name(obj)),
                     ('contact', 'company')
                 ],
             }),
