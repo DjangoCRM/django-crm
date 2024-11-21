@@ -12,7 +12,6 @@ from crm.models.deal import Deal
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
-from crm.utils.admfilters import TagFilter
 from massmail.admin_actions import make_mailing_out
 from massmail.admin_actions import specify_vip_recipients
 
@@ -52,7 +51,8 @@ class ContactAdmin(CrmModelAdmin):
         'connections_to_phone',
         'connections_to_other_phone',
         'connections_to_mobile',
-        'create_email'
+        'create_email',
+        'unsubscribed'
     ]
     save_on_top = True
     search_fields = [
@@ -106,7 +106,7 @@ class ContactAdmin(CrmModelAdmin):
                     ('title', 'sex'),
                     ('birth_date', 'was_in_touch'),
                     'description',
-                    ('disqualified', 'massmail')
+                    ('disqualified', self.massmail_field_name(obj))
                 )
             }],
             *self.get_tag_fieldsets(obj),
