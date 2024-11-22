@@ -32,30 +32,12 @@ The project will be cloned into the "django-crm" folder.
 
 It is recommended to first create a virtual environment:
 
-#### on Unix/macOS
-```cmd
-python3 -m venv myvenv
-```
+| action   | on Unix/macOS                 | on Windows                |
+|----------|-------------------------------|---------------------------|
+| create   | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
+| activate | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
 
-activate it:
-
-```cmd
-source /myvenv/bin/activate
-```
-
-#### on Windows
-
-```cmd
-py -m venv myvenv
-```
-
-activate it:
-
-```cmd
-myvenv\Scripts\activate
-```
-
-#### Then install the project requirements:
+#### Then install the project requirements
 
 ```cmd
 pip install -r requirements.txt
