@@ -142,29 +142,10 @@ The project will be cloned into the 'django-crm' folder.
 
 It is recommended to first create a virtual environment:
 
-#### on Ubuntu
-```cmd
-python3 -m venv myvenv
-```
-
-and activate it:
-
-```cmd
-source /myvenv/bin/activate
-```
-
-#### on Windows
-
-```cmd
-py -3.12 -m venv myvenv
-```
-_('-3.12' is the Python version, change it to yours)_
-
-and activate it:
-
-```cmd
-myvenv\Scripts\activate
-```
+| action   | on Unix/macOS                 | on Windows                |
+|----------|-------------------------------|---------------------------|
+| create   | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
+| activate | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
 
 #### Then install the project requirements:
 
@@ -177,7 +158,7 @@ If the project is deployed on a production server, a website server will also be
 Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
 
 > [!IMPORTANT]
-> **Give this CRM project a star ⭐️ to support its developers!**  
+> **Please give this CRM project a star ⭐️ to support its developers!**  
 > Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository.  
 
 ## Settings of Django CRM
@@ -201,11 +182,16 @@ But in the following, you will need to specify at least the `EMAIL_HOST` and `AD
 
 ### DATABASES settings
 
-Provide data to connect to the database.  
-Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).  
-Configure the `USER` specified in the `DATABASES` setting to have the right to create and drop databases.  
-Running tests will create
-and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database).
+Provide data to connect to the database:
+
+- `ENGINE` and `PORT` are specified by default for MySQL database. Change them for PostgreSQL
+- Specify `PASSWORD`
+
+Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES). 
+
+In the database, configure the `USER` (by default 'crm_user') specified in the `DATABASES` setting 
+to have the right to create and drop databases (running tests will create
+and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database)).
 
 #### For MySQL database, it is recommended to  
 
