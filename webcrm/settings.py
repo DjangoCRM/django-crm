@@ -11,7 +11,6 @@ from voip.settings import *         # NOQA
 # ---- Django settings ---- #
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,15 +25,19 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Database
 DATABASES = {
-    'default': {    # for MySQl
+    'default': {
+        # for MySQl
         'ENGINE': 'django.db.backends.mysql',
-        # "ENGINE": "django.db.backends.postgresql", # for PostgreSQL
         'PORT': '3306',
+
+        # for PostgreSQL
+        # "ENGINE": "django.db.backends.postgresql",
         # 'PORT': '5432',   # for PostgreSQL
+
         'NAME': 'crm_db',
-        'USER': '<specify user>',
+        'USER': 'crm_user',
         'PASSWORD': '<specify password>',
-        'HOST': '<specify host>',
+        'HOST': 'localhost',
     }
 }
 
@@ -154,7 +157,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 SITE_ID = 1
 
 SECURE_HSTS_SECONDS = 0  # set to 31536000 for production server
-# set to True for production server
+# Set all the following to True for production server
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
