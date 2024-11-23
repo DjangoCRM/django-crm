@@ -6,6 +6,8 @@ This [Python CRM software](https://github.com/DjangoCRM/django-crm/){target="_bl
 - [<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> MySQL](https://www.mysql.com/){target="_blank"} 8.0.11+
 - [<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> PostgreSQL](https://www.postgresql.org){target="_blank"} 12+
 
+You can __fork__, __clone__ or __download__ the project __software__.
+
 ### Fork the Repository
 
 Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository's home page.  
@@ -27,6 +29,11 @@ git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
 ```
 
 The project will be cloned into the "django-crm" folder.
+
+### Download the zip file
+
+<button type="button"  style="margin-left: 20%">[Download CRM Software](https://github.com/DjangoCRM/django-crm/archive/refs/heads/main.zip)</button>
+
 
 ### Install the requirements
 
