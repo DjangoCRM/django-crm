@@ -1,8 +1,8 @@
-﻿# Django-CRM
+# Django-CRM
 
 *(Customer Relationship Management app)*
 
-The use of CRM by companies allows them to improve the sales performance of their products and services 📈.  
+📈 The use of CRM by companies allows them to improve the sales performance of their products and services.  
 The more complex and time-consuming the sales process, the greater the improvement.  
 This Enterprise level [CRM](https://github.com/DjangoCRM/django-crm) software is designed for individual use by any company. Access to the company's business data remains solely under its control.
 
@@ -20,7 +20,7 @@ This Enterprise level [CRM](https://github.com/DjangoCRM/django-crm) software is
 
 ***For a more detailed software overview, click [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md)***.
 
-Django CRM is an open-source client relationship software. This CRM is written in [Python](https://www.python.org).  
+Django CRM is an open-source client relationship software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg " style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
 Frontend and backend are entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.
@@ -59,7 +59,7 @@ The CRM software suite consists of the following **main applications** and their
   - Project (*tasks collection*):
     - tasks
   - Tags
-  - ... (+ *3 more models*)
+  - ... (+ *3 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/tasks/models" target="_blank">models</a>*)
 - **CRM app**:
   - Requests (commercial inquiries)
   - Leads (potential customers)
@@ -69,7 +69,7 @@ The CRM software suite consists of the following **main applications** and their
   - Emails (sync with user email accounts)
   - Products (goods and services)
   - Payments (received, guaranteed, high and low probability)
-  - ... (*+ 12 more models*)
+  - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
 - **ANALYTICS app**:
   - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
@@ -127,6 +127,8 @@ Django CRM has [full support](https://docs.djangoproject.com/en/dev/topics/i18n/
 
 ## Getting started
 
+If you like Django-CRM, please ⭐️ **star** and **fork** the **project**!
+
 Django-CRM can be easily deployed as a regular Django project.
 
 📚 Please refer to:
@@ -134,13 +136,12 @@ Django-CRM can be easily deployed as a regular Django project.
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
 
-Compatibility
+### Compatibility
 
 - Django 5.1.x
-- Python 3.10+
-- MySQL 8.0.11+ and PostgreSQL 12+  
-
-⭐️ If you like Django-CRM, please **star** and **fork** the project!
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 12+  
 
 ## Contributing
 
