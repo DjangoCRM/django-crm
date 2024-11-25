@@ -100,7 +100,16 @@ def get_datadict(request: WSGIRequest, columns,
                     name_list.append(ind.name)
                 value = ",".join(name_list)
             else:
-                value = getattr(o, attr)
+                if '__' in attr:
+                    attrs = attr.split('__')
+                    rel_o = getattr(o, attrs[0])
+                    if rel_o:
+                        value = getattr(rel_o, attrs[1])
+                    else:
+                        value =''
+                else:
+                    value = getattr(o, attr)
+
             if attr in ('birth_date', 'was_in_touch', 'lead_time'):
                 value = str(value)
             elif attr == 'creation_date':
@@ -112,6 +121,7 @@ def get_datadict(request: WSGIRequest, columns,
                     )
                 else:
                     value = str(o.creation_date.date()) if value else ''
+
             value_list.append(value)
         
         if model == Task:
