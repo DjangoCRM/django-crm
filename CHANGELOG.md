@@ -21,8 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Removed the add reminder button on the main page.
-- The display of the "massmail" field in the "Company", "Contact" and "Lead" models has been changed depending on its value.
+- The "add reminder" button on the main page has been removed.
+- The display of the "massmail" field in the "Company," "Contact" and "Lead" models has been changed depending on its value.
 
 ## [0.93] - 2024-10-20
 
