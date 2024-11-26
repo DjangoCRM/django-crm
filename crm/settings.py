@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 SHIPMENT_DATE_CHECK = True
 
 # List of fields, the value of which will be saved
-# to the excel file when exporting contact persons.
+# to the Excel file when exporting contact persons.
 CONTACT_COLUMNS = [
     'first_name', 'last_name', 'title', 'sex', 'birth_date',
     'was_in_touch', 'phone', 'other_phone', 'mobile', 'skype',
@@ -15,7 +15,7 @@ CONTACT_COLUMNS = [
 ]
 
 # List of fields, the value of which will be saved
-# to the excel file when exporting companies.
+# to the Excel file when exporting companies.
 COMPANY_COLUMNS = [
     'full_name', 'website', 'phone', 'city_name', 'address',
     'email', 'description', 'lead_source', 'was_in_touch',
@@ -24,7 +24,7 @@ COMPANY_COLUMNS = [
 ]
 
 # List of fields, the value of which will be saved
-# to the excel file when exporting leads.
+# to the Excel file when exporting leads.
 LEAD_COLUMNS = [
     'first_name', 'last_name', 'title', 'sex', 'birth_date',
     'was_in_touch', 'email', 'secondary_email', 'phone',
@@ -36,9 +36,10 @@ LEAD_COLUMNS = [
 ]
 
 # List of fields, the value of which will be saved
-# to the excel file when exporting deals.
+# to the Excel file when exporting deals.
 DEAL_COLUMNS = [
-    'request', 'contact', 'company', 'lead',
+    'request', 'contact', 'contact__email', 'contact__phone',
+    'company', 'lead', 'lead__email', 'lead__phone',
     'ticket', 'creation_date'
 ]
 
