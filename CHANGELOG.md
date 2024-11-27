@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Recipient/sender names in CRM workflow messages and system notifications about sending/receiving emails.
+- Draft field for Memo `fieldsets` in admin
 
 ### Fixed
 
