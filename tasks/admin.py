@@ -37,7 +37,11 @@ class MemoAdmin(memoadmin.MemoAdmin):
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
-        fieldsets[0][1]['fields'].insert(2, 'update_date')
+        if obj:
+            # fieldsets[0][1]['fields'].insert(2, 'update_date')
+            fieldsets[0][1]['fields'].insert(
+                2, ('update_date', 'draft')
+            )
         return fieldsets
 
 
