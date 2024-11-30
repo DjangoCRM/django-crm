@@ -10,6 +10,10 @@ Django CRM is a powerful software package that requires customization and integr
 The CRM database can contain a large amount of business information.
 Therefore, a user's abilities and access to CRM sections are determined by a set of permissions (roles) assigned to the user by the CRM administrator.
 
+!!! Note
+
+    To gain access to the CRM system, please contact your CRM administrator.
+
 Many **objects** are created and stored in CRM database. Such as [**Tasks**](tasks_section.md#tasks), [**Memos**](tasks_section.md#memos), [**Leads**](operator_and_sales_manager_roles.md#lead-object), [**Deals**](guide_for_sales_manager.md#deal-object), **Emails**, etc.
 The CRM home page lists the sections and frequently used objects available to the user. To see all the available objects you need to click on the section title.
 
