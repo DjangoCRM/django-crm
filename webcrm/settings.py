@@ -36,7 +36,7 @@ DATABASES = {
 
         'NAME': 'crm_db',
         'USER': 'crm_user',
-        'PASSWORD': '<specify password>',
+        'PASSWORD': 'crmpass',
         'HOST': 'localhost',
     }
 }
