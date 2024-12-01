@@ -14,7 +14,7 @@
   - [EMAIL_HOST settings](#email_host-settings)
   - [ADMINS settings](#admins-settings)
 
-  </details>
+  </details>j
 
 - [CRM and database testing](#crm-and-database-testing)
 - [Installing the initial data](#installing-the-initial-data)
