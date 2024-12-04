@@ -2,14 +2,19 @@
 
 Project settings are contained in files `settings.py`.  
 The main project settings are contained in the file  
-`webcrm/settings.py`  
+`webcrm/settings.py`  (*view on [GitHub](https://github.com/DjangoCRM/django-crm/blob/main/webcrm/settings.py){target="_blank"}*). 
 
 !!! IMPORTANT
+
     The syntax of the data in these files must match the syntax of the [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} language.
 
-Most of the project settings are Django framework settings.
-Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/){target="_blank"}.  
-The settings missing in this list are [Django CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} specific settings. Explanations can be found in the comments to them.  
+The settings file is divided into two parts:
+
+- Django settings
+- CRM settings
+
+Most of the project settings are Django framework settings (full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/){target="_blank"}).  
+Explanations for CRM [settings](https://github.com/DjangoCRM/django-crm/blob/main/webcrm/settings.py){target="_blank"} are in the comments to them.  
 Most of the settings can be left at their default values.
 
 The default settings are for running the project on a development server.
@@ -21,15 +26,14 @@ But in the following, you will need to specify at least the `EMAIL_HOST` and `AD
 
 ### DATABASES settings
 
-Provide data to connect to the database.  
-Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES){target="_blank"}.  
-Configure the `USER` specified in the `DATABASES` setting to have the right to create and drop databases.  
+Check the `DATABASES` settings to connect to the database (detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES){target="_blank"}).  
+Configure the `USER` (specified in the `DATABASES`) in your database backend to have the right to create and drop databases.  
 Running tests will create
 and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database){target="_blank"}.
 
 #### MySQL database
 
-<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> For MySQL database, it is recommended to  
+<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> For MySQL database, it is recommended to:
 
 - setup the timezone table
 - set the extended encoding:
@@ -40,19 +44,23 @@ And also if an aggregation or annotation error occurs when running the tests, yo
 
 #### PostgreSQL
 
-<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration.
-You'll need the [psycopg](https://www.psycopg.org/psycopg3/){target="_blank"} or [psycopg2](https://www.psycopg.org/){target="_blank"} package.
-Set the timezone to 'UTC' (when USE_TZ is True),
-default_transaction_isolation: 'read committed'.  
+<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration:
+
+- Install the [psycopg](https://www.psycopg.org/psycopg3/){target="_blank"} or [psycopg2](https://www.psycopg.org/){target="_blank"} package
+- Set the timezone to 'UTC' (when USE_TZ is True)
+- `default_transaction_isolation`: 'read committed'
+
 You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`
 
 ### EMAIL_HOST settings
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
+Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.
 
-- `EMAIL_HOST` (smtp server)
-- `EMAIL_HOST_PASSWORD` (password)
-- `EMAIL_HOST_USER` (login)
+| setting               | description   |
+|-----------------------|---------------|
+| `EMAIL_HOST`          | *smtp server* |
+| `EMAIL_HOST_PASSWORD` | *password*    |
+| `EMAIL_HOST_USER`     | *user login*  |
 
 ### ADMINS settings
 
@@ -72,7 +80,7 @@ python manage.py test tests/ --noinput
 
 ## Installing the initial data
 
-To fill CRM with initial data, you need to execute the command "setupdata" in the root directory of the project:  
+To fill CRM with initial data, run the "setupdata" command in the root directory of the project: 
 
 ```cmd
 python manage.py setupdata
