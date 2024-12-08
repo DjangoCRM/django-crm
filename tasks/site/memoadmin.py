@@ -131,10 +131,12 @@ class MemoAdmin(BaseModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'to':
             if not any((request.user.is_superuser, request.user.is_task_operator)):
+                q_params = Q(groups__name__in=(
+                    'chiefs', 'department heads', 'task_operators'))
+                q_params |= Q(id=request.user.id)
                 kwargs["queryset"] = USER_MODEL.objects.filter(
-                    groups__name__in=(
-                        'chiefs', 'department heads', 'task_operators')
-                ).distinct()
+                    q_params).distinct()
+
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
