@@ -20,7 +20,7 @@
     pytz==2024.2
     requests==2.32.3
     six==1.17.0
-    sqlparse==0.5.2
+    sqlparse==0.5.3
     tendo==0.3.0
     tzdata==2024.2
     urllib3==2.2.3
