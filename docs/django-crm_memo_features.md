@@ -4,8 +4,6 @@ A memo is an office memo that can be directed to department heads (team leads) o
 
 ## Roles and Access Control
 
---------------------
-
 Users can be in one of three roles related to a memo:
 
 ### Owner (Author)
@@ -21,8 +19,6 @@ The person receiving the memo, typically for review or action. It can view the m
 Users notified and allowed access to the memo. They can view the memo but cannot edit it.
 
 ## States of a Memo
-
---------------------
 
 A memo can be in one of four states:
 
@@ -44,13 +40,9 @@ The memo is still pending review, but its status indicates that it was postponed
 
 ## Visibility
 
--------------
-
 Only users with a relationship to the memo (owner, recipient, or subscriber) and administrators can view the memo. This ensures that sensitive information is only accessible to those who need it.
 
 ## Creating a Memo
-
-------------------
 
 To create a new memo, users can follow these steps:
 
@@ -70,8 +62,6 @@ When creating a memo, users can attach files and set reminders.
 
 ## Editing a Memo
 
------------------
-
 To edit an existing memo, users can follow these steps:
 
 1. Navigate to the Tasks section.
@@ -79,8 +69,6 @@ To edit an existing memo, users can follow these steps:
 3. Make any necessary changes to the memo details or attach new files.
 
 ## Memo Content and Collaboration
-
---------------------------------
 
 A memo contains:
 
@@ -90,14 +78,10 @@ A memo contains:
 
 ## Task/Project Creation from Memos
 
-------------------------------------
-
 After a memo has been reviewed, management can create tasks or projects based on its content. The task/project is automatically linked to the memo, and users receive notifications.
 
 Once a memo has been reviewed by the recipient, it cannot be changed by the owner.
 
 ## Task Status Display
-
----------------------
 
 In the list of memos, the status of associated tasks is displayed, indicating their progress.
