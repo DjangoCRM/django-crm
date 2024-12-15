@@ -2,9 +2,13 @@
 
 *(Customer Relationship Management app)*
 
-📈 The use of CRM by companies allows them to improve the sales performance of their products and services.  
-The more complex and time-consuming the sales process, the greater the improvement.  
-This Enterprise level [CRM](https://github.com/DjangoCRM/django-crm) software is designed for individual use by any company. Access to the company's business data remains solely under its control.
+**[Django-CRM](https://github.com/DjangoCRM/django-crm)** is a project designed with two primary goals:
+
+**For users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
+**For developers**: Simplify the processes of development, customization, and production server support.
+
+No need to learn a proprietary framework — everything is built using the popular Django framework.  
+CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
@@ -32,20 +36,12 @@ All this ensures:
 - significantly easier project customization and development
 - simpler project deployment and production server support
 
-The **project is mature, and the code is stable** (has been in practical use for many years).  
 The software package provides two websites:
 
 - CRM site for all users
 - site for administrators
 
-## Elevate Your Team's Productivity with Collaborative CRM Solution
-
-This CRM is designed to enhance collaboration within teams and streamline project management processes.  
-As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease.  
-Office memos can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors.  
-Tasks can be individual or collective. Tasks provide features such as chat discussions, reminders, file sharing, creating subtasks, and sharing results.  
-Users receive notifications directly in the CRM and via email, ensuring they stay informed.  
-Each user has a clear view of their task stack, including priorities, statuses, and next steps, thereby enhancing productivity and accountability in collaborative customer relationship management.
+The **project is mature and stable**, and has been successfully used in real applications for many years.
 
 ## Main applications
 
@@ -54,7 +50,7 @@ The CRM software suite consists of the following **main applications** and their
 - **TASKS app**:
   - Task (with related: files, chat, reminders, tags)
     - subtasks
-  - Memo (office memo)
+  - Memo (office memo) - see [more info](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
     - tasks / project
   - Project (*tasks collection*):
     - tasks
@@ -97,7 +93,7 @@ In total, at the moment, there are 79 tables in the database.
 
 ## Additional functionality
 
-- Web form integration
+- Web form integration:
   - CRM contact form has built-in reCAPTCHA v3 protection
   - Automatically detects the country and city of the user who filled out the form
 - User's email account integration
@@ -107,19 +103,28 @@ In total, at the moment, there are 79 tables in the database.
 
 ## Email client
 
-The system includes a built-in email client that operates using **SMTP** and **IMAP** protocols.  
-This enables Django CRM to automatically store copies of all correspondence related to each request and deal within its database.  
+The python CRM system includes a built-in email client that operates using **SMTP** and **IMAP** protocols.  
+This enables Django-CRM to automatically store copies of all correspondence related to each request and deal within its database.  
 The functionality ensures that even if communications occur through the user's external email account (outside the CRM).  
 They are captured and organized within the system using a **ticketing mechanism**.
 
 The CRM can integrate with email service providers (like gmail) that require mandatory two-step authentication (using the **OAuth 2.0** protocol) for third-party applications.
 
-## User Assistance
+## User Assistance  
 
-- On the CRM pages, there is a link to a help page.
-  Help pages are dynamic. Their content depends on the user's role.
-- Tooltips appear when you hover the mouse over many page elements, such as icons, buttons, links, table headings, etc.
-- There is also a user guide file.
+- Each CRM page includes a link to a context-aware help page, with content dynamically tailored to the user's role for more relevant guidance.  
+- Tooltips are available throughout the interface, providing instant information when hovering over elements like icons, buttons, links, or table headers.  
+- A comprehensive [user guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md) file is also included for in-depth reference and support.  
+
+## Elevate Your Team's Productivity with Collaborative CRM Solutions
+
+This CRM is designed to enhance collaboration within teams and streamline project management processes.  
+As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease.  
+[Office memos](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md) can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors.  
+Tasks can be individual or collective.  
+Tasks provide features such as chat discussions, reminders, file sharing, creating subtasks, and sharing results.  
+Users receive notifications directly in the CRM and via email, ensuring they stay informed.  
+Each user has a clear view of their task stack, including priorities, statuses, and next steps, thereby enhancing productivity and accountability in collaborative customer relationship management.
 
 ## Project localization
 
@@ -145,11 +150,10 @@ Django-CRM can be easily deployed as a regular Django project.
 
 ## Contributing
 
-We're excited to have you contribute to Django-CRM!  
-Whether you're a developer, designer, or simply passionate about CRM systems, there are many ways you can help.  
+Contributions are welcome! There is a room for improvements and new features.   
 Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started. Every contribution, big or small, makes a difference
 
 ## Credits
 
-- Uses Google material [icons](https://fonts.google.com/icons).
-- Includes [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
+- Google material [icons](https://fonts.google.com/icons).
+- [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
