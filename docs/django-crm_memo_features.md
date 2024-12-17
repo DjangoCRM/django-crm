@@ -1,6 +1,7 @@
 # Django-CRM Memo Features
 
-A memo is an office memo that can be directed to department heads (team leads) or company executives, allowing users to inform them or make decisions. A user can also create memos for themselves (todo list) as well.
+In [Django-CRM](https://github.com/DjangoCRM/django-crm), a memo is an office memo that can be directed to department heads (team leads) or company executives, 
+allowing users to inform them or make decisions. A user can also create memos for themselves (todo list) as well.
 
 ## Roles and Access Control
 
@@ -30,7 +31,7 @@ Not visible to anyone except the author (and CRM administrators), no notificatio
 
 The memo has been sent to recipients, but they have not reviewed it yet.
 
-### 3. Considered
+### 3. Reviewed
 
 The recipient has reviewed the memo and may have taken action or assigned tasks/projects.
 
