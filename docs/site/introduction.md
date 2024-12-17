@@ -1,5 +1,8 @@
 ## Introduction
 
+📈 The use of CRM by companies allows them to improve the sales performance of their products and services.  
+The more complex and time-consuming the sales process, the greater the improvement.  
+
 [Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} is an application with a web interface. Therefore, you can use an internet browser on your computer, tablet and smartphone to work with it.
 
 To make your work easier, CRM provides help pages and tooltips when you hover your mouse over certain page elements such as icons, buttons, etc.  
