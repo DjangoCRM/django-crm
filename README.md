@@ -48,9 +48,9 @@ The **project is mature and stable**, and has been successfully used in real app
 The CRM software suite consists of the following **main applications** and their models:
 
 - **TASKS app**:
-  - Task (with related: files, chat, reminders, tags)
+  - Task (with related: files, chat, reminders, tags - see [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md))
     - subtasks
-  - Memo (office memo) - see [more info](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+  - Memo (office memo) - see [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
     - tasks / project
   - Project (*tasks collection*):
     - tasks
