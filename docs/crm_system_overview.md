@@ -1,4 +1,4 @@
-# Django-CRM Overview 
+# Django-CRM Overview
 
 Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is designed to optimize the management of customer interactions, streamline processes, and enhance data-driven decision-making.  
 Below is a comprehensive overview of its key features and functionalities:
@@ -59,7 +59,7 @@ Below is a comprehensive overview of its key features and functionalities:
   A Deal object is created from a Request and serves as the primary working area where sales managers work towards concluding a successful deal.  
   They can be sorted by default settings or customized according to user preference.
   Details of the work done are stored within the Deal object. Icons provide visual cues about the deal status and required actions.
-  - **Deal Lifecycle:** [Deals](pics/deals_screenshot.png) are managed through various customizable stages (e.g., proposal, negotiation, closing), with each stage tracked visually in the CRM until closed.
+  - **Deal Lifecycle:** [Deals](https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png) are managed through various customizable stages (e.g., proposal, negotiation, closing), with each stage tracked visually in the CRM until closed.
     Managers can monitor the progress and ensure timely action.
   - **Closing a Deal**: Once work on a deal is finished, it should be closed with a reason selected from a dropdown menu (e.g., won, lost).  
     Closed deals will be hidden from the active deals list but will remain in the database and can be accessed by adjusting the activity filters.
@@ -95,7 +95,7 @@ Below is a comprehensive overview of its key features and functionalities:
   - **Draft**: Memos saved as drafts are only visible to their owners and CRM administrators.
   - **Memo Chat**: Participants can exchange messages and files in the memo chat.
   - **Visual Control of Tasks Created from Memos**: A "view task" button appears next to memos that resulted in tasks, with color indicating task status to track the task's progress.
-  - Read more detailed [info](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+  - Read more detailed [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
 
 ### Task Management
 
@@ -112,6 +112,7 @@ Below is a comprehensive overview of its key features and functionalities:
   - **Task Filters**: Tasks can be filtered by various criteria (e.g., due date, priority, assigned user), and users can assign tags to tasks for better organization.
   - **Tags**: Users can tag tasks and filter them by tags.
   - **Sorting Tasks**: New tasks are sorted at the top of the list by default but can be sorted by next step date.
+  - Read more detailed [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)
 
 ### Email and Mailings
 
