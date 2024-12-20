@@ -67,7 +67,7 @@ The CRM software suite consists of the following **main applications** and their
   - Payments (received, guaranteed, high and low probability)
   - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **ANALYTICS app**:
+- **ANALYTICS app**: (detailed software overview [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md.md))
   - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
   - Sales funnel report
   - Lead source Summary report
