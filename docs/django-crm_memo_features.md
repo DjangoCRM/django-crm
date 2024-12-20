@@ -1,7 +1,7 @@
 # Django-CRM Memo Features
 
 In [Django-CRM](https://github.com/DjangoCRM/django-crm), a memo is an office memo that can be directed to department heads (team leads) or company executives, 
-allowing users to inform them or make decisions. A user can also create memos for themselves (todo list) as well.
+allowing users to inform them or make decisions. A user can also create memos for themselves (todo list).
 
 ## Roles and Access Control
 
@@ -33,7 +33,7 @@ The memo has been sent to recipients, but they have not reviewed it yet.
 
 ### 3. Reviewed
 
-The recipient has reviewed the memo and may have taken action or assigned tasks/projects.
+The recipient has reviewed the memo and may have taken action or assigned [tasks](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)/projects.
 
 ### 4. Postponed
 
@@ -48,7 +48,7 @@ Only users with a relationship to the memo (owner, recipient, or subscriber) and
 To create a new memo, users can follow these steps:
 
 1. Navigate to the Tasks section.
-2. Click on the "Create" button or use the "+" icon to add a new task.
+2. Click on the "Create" button or use the "+" icon to add a new memo.
 3. Select the "Memo" option from the dropdown list.
 
 Additionally, a new memo can be created directly from a deal, and they will be linked.
@@ -79,7 +79,7 @@ A memo contains:
 
 ## Task/Project Creation from Memos
 
-After a memo has been reviewed, management can create tasks or projects based on its content. The task/project is automatically linked to the memo, and users receive notifications.
+After a memo has been reviewed, management can create [tasks](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) or projects based on its content. The task/project is automatically linked to the memo, and users receive notifications.
 
 Once a memo has been reviewed by the recipient, it cannot be changed by the owner.
 
