@@ -22,7 +22,7 @@ The TASKS application does not require CRM configuration and allows individual u
 Each instance of these objects also has integration with:
 
 - [<span style="vertical-align: baseline"><img src="icons/chat-left-text.svg" alt="Chat icon" width="17" height="17"></span> Chat](tasks_section.md#chat-in-objects)
-- <span style="vertical-align: baseline"><img src="icons/tags.svg" alt="alarm icon" width="17" height="17"></span>  Tags
+- <span style="vertical-align: baseline"><img src="icons/tags.svg" alt="tag icon" width="17" height="17"></span>  Tags
 - <span style="vertical-align: baseline"><img src="icons/alarm.svg" alt="alarm icon" width="17" height="17"></span> Remainders
 - [<span style="vertical-align: baseline"><img src="icons/paperclip.svg" alt="paperclip icon" width="17" height="17"></span> Files](introduction.md#file-object)
 
