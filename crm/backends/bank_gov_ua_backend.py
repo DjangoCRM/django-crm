@@ -16,7 +16,7 @@ class BankGovUaBackend(BaseBackend):
 
     def __init__(self, currency: str, marketing_currency: str = 'USD', 
                  rate_date: Union[date, None] = None):
-        self.url = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange"
+        self.url = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew"
         self.date_format = "Ymd"
         self.error = ''
         self.state_currency = self.get_state_currency()
