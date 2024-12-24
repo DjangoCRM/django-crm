@@ -40,6 +40,10 @@ class Currency(models.Model):
         default=False,
         verbose_name=_("Is it the marketing currency?"),
     )
+    auto_update = models.BooleanField(
+        default=True,
+        verbose_name=_("This currency is subject to automatic updating."),
+    )
     update_date = models.DateTimeField(
         auto_now=True, null=True, blank=False,
         verbose_name=_("Update date")
