@@ -70,7 +70,7 @@ class RatesLoader(threading.Thread, SingleInstance):
 def get_rates(marketing_currency: Currency, backend=BACKEND) -> None:
     now = timezone.localtime(timezone.now())
     # update currencies
-    for currency in Currency.objects.all():
+    for currency in Currency.objects.filter(auto_update=True):
         be = backend(
             currency.name,
             marketing_currency.name,
