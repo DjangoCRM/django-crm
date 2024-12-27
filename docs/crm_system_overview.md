@@ -1,9 +1,13 @@
 # Django-CRM Overview
 
 Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is designed to optimize the management of customer interactions, streamline processes, and enhance data-driven decision-making.  
+The customer crm software leverages the Django framework, ensuring ease of development, customization, and deployment.
 Below is a comprehensive overview of its key features and functionalities:
 
-## Features of the CRM software package
+## Key Features of all Applications in the CRM software package
+
+The **CRM app** in Django-CRM is the central hub for managing customer interactions, commercial requests, and sales processes.  
+Its features are designed to streamline operations and provide actionable insights for sales managers, operators, and administrators.
 
 ### User Access and Roles
 
@@ -11,15 +15,6 @@ Below is a comprehensive overview of its key features and functionalities:
   These roles come with specific rights (permissions), which can be either permanent or dynamic.  
   For example, the author of a memo can view it but may lose the right to edit or delete it after it has been reviewed by a superior.
 - **Custom Role Management**: Administrators can create new user roles with tailored permissions, allowing for highly customized access control based on the organization's hierarchy.
-
-### Navigation and Usability
-
-- **Home Page**: The CRM's home page provides access to various sections and functionalities based on the user's role.  
-  CRM System notifications are displayed to provide a snapshot of recent activities and tasks.
-- **Tooltips and Help Pages**: Built-in help pages and tooltips guide users through unfamiliar features.  
-  Tooltips appear when hovering over elements like icons or buttons, offering immediate explanations. A detailed **user manual** is also accessible within the system.
-- **Reminders**: Users can set personal reminders for critical tasks, meetings, or upcoming deadlines.  
-  These reminders can be linked to specific objects within the CRM, ensuring no important task is missed.
 
 ### Filters and Sorting
 
@@ -35,67 +30,72 @@ Below is a comprehensive overview of its key features and functionalities:
 - **Automatic Search Algorithms**: The CRM uses several identifiers (e.g., first name, email, phone number) to match and link objects, such as requests to companies and contact persons.  
   The system automatically suggests related entities during searches.
 
-### Commercial Requests Management
+### Internal Chat Integration
 
-- **Creation and Processing**: Request objects can be automatically created from website forms, emails, or manually within the CRM.  
-  Requests contain essential details and receive a "pending" status until verified.  
-  The CRM system automatically searches the database for related entities like Company, Contact Person, or Lead when a request is saved and links the request to them.
-  - **Request Handling**: Requests are processed and verified, potentially leading to the creation of Deals.
-  - **Handling Invalid Requests**: Requests that do not match the company's offerings and cannot be fulfilled are marked as irrelevant and should be deleted.
-  - **Commercial request Filtering:** Public email domains are filtered out to avoid misidentification of contacts from common email service providers like Gmail.
-  - **Request Counter**: The CRM displays the number of pending requests in the list, with a distinction between those received today and earlier.
-- **Geolocation of Counterparty**: The CRM can determine the country and city of the counterparty based on their IP address, which helps sales teams tailor communication and manage territory-specific requests.
-- **Banned Company Names and Stop Phrases**: To prevent spam-based Requests, users can add repetitive spam company names to a banned list and define stop phrases to filter out unwanted emails and contact form data.
+Facilitate communication within the team through integrated chat.
 
-### Management of Companies, Contact Persons and Leads
+## Navigation and Usability
 
-- **Company and Contact Person Management**: When a new request is received, the system checks the database for existing companies and contact persons.  
-  If no match is found, a new Lead is created.  
-- **Lead Conversion**: Leads can be converted into companies and contact persons after validation. It also prevents duplicates by cross-checking new entries against existing data.
+- **Home Page**: The CRM's home page provides access to various sections and functionalities based on the user's role.  
+  CRM System notifications are displayed to provide a snapshot of recent activities and tasks.
+- **Tooltips and Help Pages**: Built-in help pages and tooltips guide users through unfamiliar features.  
+  Tooltips appear when hovering over elements like icons or buttons, offering immediate explanations. A detailed **user manual** is also accessible within the system.
+- **Reminders**: Users can set personal reminders for critical tasks, meetings, or upcoming deadlines.  
+  These reminders can be linked to specific objects within the CRM, ensuring no important task is missed.
 
-### Deals Management
+## The CRM Application in Django-CRM software package
 
-- **Creating and Managing Deal Objects** (like Opportunity):  
-  A Deal object is created from a Request and serves as the primary working area where sales managers work towards concluding a successful deal.  
-  They can be sorted by default settings or customized according to user preference.
-  Details of the work done are stored within the Deal object. Icons provide visual cues about the deal status and required actions.
-  - **Deal Lifecycle:** [Deals](https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png) are managed through various customizable stages (e.g., proposal, negotiation, closing), with each stage tracked visually in the CRM until closed.
-    Managers can monitor the progress and ensure timely action.
-  - **Closing a Deal**: Once work on a deal is finished, it should be closed with a reason selected from a dropdown menu (e.g., won, lost).  
-    Closed deals will be hidden from the active deals list but will remain in the database and can be accessed by adjusting the activity filters.
-- **Default Sorting of Deals**: New deals are sorted by default at the top of the list, but sorting by the next step date is recommended.
+The **CRM app** in the Django-CRM system is designed to manage customer relationships effectively.  
+It provides a comprehensive suite of features to handle various business objects such as requests, leads, companies, contact persons, deals, email messages, products, payments and  twelve others.
 
-### Sales Funnel
+### Commercial Request Management
 
-- **Sales Funnel Analysis**: The CRM provides a visual sales funnel that shows the percentage of deals remaining after each stage,  
-- helping identify where deals are most often lost and where improvements are needed.
-- **Sales Funnel Analysis**: A built-in sales funnel visually represents the conversion of leads into closed deals.  
-  This helps sales teams understand where they are losing potential clients and take actions to improve.
+- Automates the creation of requests from website forms or emails.
+- Allows manual entry of phone call requests.
+- Ensures all requests are linked to relevant Companies, Leads, or Contacts.
+- Provides tools for verifying and completing missing client details.
 
-### Currency and Payment Handling
+### Lead and Company Management
 
-- **Currency Setup**: The CRM supports multiple currencies required for payments, including those used for marketing reports, allowing users to manage international clients seamlessly.  
-  Currencies and their exchange rates can be updated manually or via integration with external services.
-- **The National Currency and Currency for Marketing Reports**: These can be different or the same.
-  The CRM uses exchange rate values for generating analytical reports and converting payments, ensuring accurate financial data representation.
-- **Payment Tracking**: Payments can be created directly on the Deals page or from the Payments list. All payment data is used in generating analytical CRM reports.
+- Automatically identifies duplicate Leads or Companies to maintain database integrity.
+- Simplifies conversion of Leads to Companies and Contacts upon validation.
+- Links all associated data, including Requests, Deals, and Emails, to the correct entities.
 
-### Shipments
+### Deal Lifecycle Management
 
-- **Shipments Management**: The CRM allows users to track shipments by specifying contract ship dates.  
-  Shipment statuses are linked to deals and displayed in real-time to the relevant sales managers.
+- Supports tracking Deals from creation to closure.
+- Offers customizable stages and closing reasons to suit business needs.
+- Integrates with email communication, tagging, and reminders for seamless deal handling.
+- Provides real-time status updates through intuitive icons.
+
+### Integrated Communication Tools
+
+- Centralizes email correspondence by linking emails to relevant Requests and Deals.
+- Supports VoIP calls and messaging via platforms like WhatsApp, Viber and others.
+- Includes an internal chat feature for collaboration among team members.
+
+### Advanced Search and Filtering
+
+- Enables object search by IDs, tickets, or other identifiers.
+- Offers robust filtering options for Deals, Requests, and Companies.
+
+Read more detailed [CRM app features](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md)
+
+## The Tasks Application in Django-CRM software suite
 
 ### Memo (*Office Memo*)
 
 **Memos**: Memos can be created by any user and are subject to role-based access.
-  - **User Roles**: Roles related to memos include owner, recipient, subscribers, and task operators.
-  - **States of a Memo**: draft, pending, reviewed, postponed
-  - **Recipient of a Memo**: The recipient can be the user himself, the head of a department or company. Memo recipient can take action or create tasks from memos.
-  - **Automatic CRM Notifications**: Participants are automatically notified of memo creation and review in CRM and via email, ensuring quick follow-up actions.
-  - **Draft**: Memos saved as drafts are only visible to their owners and CRM administrators.
-  - **Memo Chat**: Participants can exchange messages and files in the memo chat.
-  - **Visual Control of Tasks Created from Memos**: A "view task" button appears next to memos that resulted in tasks, with color indicating task status to track the task's progress.
-  - Read more detailed [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+
+- **User Roles**: Roles related to memos include owner, recipient, subscribers, and task operators.
+- **States of a Memo**: draft, pending, reviewed, postponed
+- **Recipient of a Memo**: The recipient can be the user himself, the head of a department or company. Memo recipient can take action or create tasks from memos.
+- **Automatic CRM Notifications**: Participants are automatically notified of memo creation and review in CRM and via email, ensuring quick follow-up actions.
+- **Draft**: Memos saved as drafts are only visible to their owners and CRM administrators.
+- **Memo Chat**: Participants can exchange messages and files in the memo chat.
+- **Visual Control of Tasks Created from Memos**: A "view task" button appears next to memos that resulted in tasks, with color indicating task status to track the task's progress.
+
+Read more detailed [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
 
 ### Task Management
 
@@ -112,15 +112,25 @@ Below is a comprehensive overview of its key features and functionalities:
   - **Task Filters**: Tasks can be filtered by various criteria (e.g., due date, priority, assigned user), and users can assign tags to tasks for better organization.
   - **Tags**: Users can tag tasks and filter them by tags.
   - **Sorting Tasks**: New tasks are sorted at the top of the list by default but can be sorted by next step date.
-  - Read more detailed [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)
 
-### Email and Mailings
+  Read more detailed [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)
+
+## Email and Mailings
 
 - **Email Integration:** The CRM software app stores emails linked to specific deals, requests, or contacts.  
   The system imports emails containing CRM tickets automatically and thus synchronizes with mailboxes on the service providers' servers.
 - **Email Integration**: The CRM system can integrate with email service providers that require OAuth2 setup (two-factor authentication), such as Gmail.
 - **Mailing Campaigns**: Users can create targeted email campaigns, track their success, and manage subscriber lists.  
   Mailings are sent from sales managers’ accounts with limitations to avoid spam filters.
+
+## The Analytics Application in Django-CRM customer software
+
+### Sales Funnel
+
+- **Sales Funnel Analysis**: The CRM provides a visual sales funnel that shows the percentage of deals remaining after each stage,  
+- helping identify where deals are most often lost and where improvements are needed.
+- **Sales Funnel Analysis**: A built-in sales funnel visually represents the conversion of leads into closed deals.  
+  This helps sales teams understand where they are losing potential clients and take actions to improve.
 
 (***The content is being supplemented.***)
 
