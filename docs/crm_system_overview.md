@@ -2,6 +2,7 @@
 
 Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is designed to optimize the management of customer interactions, streamline processes, and enhance data-driven decision-making.  
 The customer crm software leverages the Django framework, ensuring ease of development, customization, and deployment.
+
 Below is a comprehensive overview of its key features and functionalities:
 
 ## Key Features of all Applications in the CRM software package
@@ -71,6 +72,8 @@ It provides a comprehensive suite of features to handle various business objects
 ### Integrated Communication Tools
 
 - Centralizes email correspondence by linking emails to relevant Requests and Deals.
+  - Sync emails automatically with CRM objects.
+    - Generates unique tickets for tracking email threads.
 - Supports VoIP calls and messaging via platforms like WhatsApp, Viber and others.
 - Includes an internal chat feature for collaboration among team members.
 
@@ -78,6 +81,13 @@ It provides a comprehensive suite of features to handle various business objects
 
 - Enables object search by IDs, tickets, or other identifiers.
 - Offers robust filtering options for Deals, Requests, and Companies.
+
+### Currency and Payment Handling
+
+- Supports multiple currencies for payment tracking and reporting.
+- Allows manual or automated exchange rate updates for accurate financial data.
+- Tracks payments directly from Deals or Payments list.
+- Integrates payment data into CRM analytics for comprehensive reporting.
 
 Read more detailed [CRM app features](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md)
 
@@ -118,19 +128,33 @@ Read more detailed [memo features](https://github.com/DjangoCRM/django-crm/blob/
 ## Email and Mailings
 
 - **Email Integration:** The CRM software app stores emails linked to specific deals, requests, or contacts.  
-  The system imports emails containing CRM tickets automatically and thus synchronizes with mailboxes on the service providers' servers.
-- **Email Integration**: The CRM system can integrate with email service providers that require OAuth2 setup (two-factor authentication), such as Gmail.
+  - The system imports emails containing CRM tickets automatically and thus synchronizes with mailboxes on the service providers' servers.
+  - The CRM system can integrate with email service providers that require OAuth2 setup (two-factor authentication), such as Gmail.
 - **Mailing Campaigns**: Users can create targeted email campaigns, track their success, and manage subscriber lists.  
   Mailings are sent from sales managers’ accounts with limitations to avoid spam filters.
 
 ## The Analytics Application in Django-CRM customer software
 
+The Django-CRM system includes analytical features that provide various reports to help you make informed business decisions:
+
+- **Income Summary Report**: Overview of income and its forecast. 
+  - Provides a summary of income and forecast based on payment statuses.
+- **Sales Funnel Report**: Visual representation of the sales process.
+- **Lead Source Summary Report**: Analysis of lead sources and their effectiveness.
+- **Lead Conversion Report**: Overview of lead conversion rates.
+- **Deal Summary Report**: Summary of deals and their statuses.
+
 ### Sales Funnel
 
-- **Sales Funnel Analysis**: The CRM provides a visual sales funnel that shows the percentage of deals remaining after each stage,  
-- helping identify where deals are most often lost and where improvements are needed.
-- **Sales Funnel Analysis**: A built-in sales funnel visually represents the conversion of leads into closed deals.  
+- **Sales Funnel Analysis**: The CRM provides a visual sales funnel that shows the percentage of deals remaining after each stage, helping identify where deals are most often lost and where improvements are needed.
+  A built-in sales funnel visually represents the conversion of commercial requests into closed deals.  
   This helps sales teams understand where they are losing potential clients and take actions to improve.
+
+## Conclusion
+
+The Django-CRM system is a powerful and flexible solution for managing customer relationships.  
+It offers a wide range of features to handle various business objects, automate email marketing, and gain insights through analytics.  
+By leveraging these features, businesses can enhance their customer relationship management processes and make informed decisions.
 
 (***The content is being supplemented.***)
 
