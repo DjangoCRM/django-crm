@@ -46,8 +46,13 @@ These reports empower businesses to refine strategies and achieve better outcome
 
 ## Integration and Extensibility
 
-- **Web Form Integration**: Automates data entry with built-in reCAPTCHA and geolocation.
+- **Web Form Integration**: Automates data entry with built-in reCAPTCHA and geolocation.  
+  - Web forms can be customized to match the company's branding and data requirements.
+  - Ensures data integrity and accuracy by validating form entries before creating requests.
+- **Email Integration**: Allows users to send and receive emails directly from the CRM.
 - **Email Synchronization**: Manages emails using SMTP and IMAP protocols.
+  - Automatically generates unique tickets for tracking email threads.
+  - Manually import emails related to Deals using the "Import letter" button.
 - **Excel Support**: Streamlines data import/export for Companies, Contacts, and Leads.
 
 ## Shipments
