@@ -8,15 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 09:28+0300\n"
-"PO-Revision-Date: 2024-10-18 09:37+0300\n"
+"POT-Creation-Date: 2024-12-28 18:09+0200\n"
+"PO-Revision-Date: 2024-12-28 17:50+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: analytics/apps.py:10
@@ -69,7 +71,7 @@ msgid "Conversion Summary"
 msgstr "Статистика по конверсии"
 
 #: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
-#: crm/models/payment.py:108
+#: crm/models/payment.py:112
 msgid "Payment date"
 msgstr "Дата оплаты"
 
@@ -149,7 +151,7 @@ msgid "Payments received"
 msgstr "Полученные платежи"
 
 #: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
-#: crm/models/payment.py:66 crm/site/paymentadmin.py:254
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
 msgid "Amount"
 msgstr "Сумма"
 
@@ -259,8 +261,8 @@ msgstr "Все"
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:343 voip/models.py:49
+#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:343
+#: voip/models.py:49
 msgid "Owner"
 msgstr "Владелец"
 
@@ -429,12 +431,12 @@ msgid "You received a message regarding - "
 msgstr "Вы получили сообщение относительно -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:141
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
 #: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:153 crm/site/productadmin.py:18
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
 #: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:174
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "Дополнительная информация"
@@ -568,7 +570,7 @@ msgstr "суперпользователь"
 msgid "Common"
 msgstr "Общее"
 
-#: common/models.py:28 crm/models/payment.py:45
+#: common/models.py:28 crm/models/payment.py:49
 msgid "Update date"
 msgstr "Дата обновления"
 
@@ -707,9 +709,9 @@ msgstr "Профиль пользователя"
 msgid "User profiles"
 msgstr "Профили пользователей"
 
-#: common/models.py:302
-msgid "PBX number"
-msgstr "номер мини-АТС"
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "Телефон"
 
 #: common/models.py:308
 msgid "UTC time zone"
@@ -992,8 +994,7 @@ msgid "Completed"
 msgstr "Выполнено"
 
 #: common/utils/for_translation.py:24
-msgid ""
-"The name has been added for translation. Please update po and mo files."
+msgid "The name has been added for translation. Please update po and mo files."
 msgstr "Имя добавлено для перевода. Пожалуйста, обновите файлы po и mo."
 
 #: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
@@ -1028,14 +1029,15 @@ msgstr ""
 "\n"
 "Внимание! Данные для таких фильтров, как:\n"
 "этапы платежей, причины закрытия, теги и т. д.\n"
-"будут перенесены только в том случае, если в новом отделе есть данные с таким же названием.\n"
+"будут перенесены только в том случае, если в новом отделе есть данные с "
+"таким же названием.\n"
 "Кроме того, это не повлияет на Результат, Платеж и Продукт.\n"
 
 #: common/views/user_transfer.py:131
 msgid "User transferred successfully"
 msgstr "Пользователь успешно перенесен"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:132
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
 msgid "Contact details"
 msgstr "Контактные данные"
 
@@ -1342,10 +1344,6 @@ msgstr "Дата рождения"
 msgid "Secondary email"
 msgstr "Дополнительный email"
 
-#: crm/models/base_contact.py:56 crm/models/company.py:45
-msgid "Phone"
-msgstr "Телефон"
-
 #: crm/models/base_contact.py:62
 msgid "Mobile phone"
 msgstr "Мобильный телефон"
@@ -1522,7 +1520,7 @@ msgid "Contact"
 msgstr "Контактное лицо"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:434
+#: crm/site/requestadmin.py:438
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1576,7 +1574,7 @@ msgstr "Дата закрытия выигранной сделки"
 msgid "Total deal amount without VAT"
 msgstr "Общая сумма сделки без НДС"
 
-#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:73
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
 #: crm/models/product.py:49
 msgid "Currency"
 msgstr "Валюта"
@@ -1761,16 +1759,16 @@ msgstr "Валюты"
 msgid "Alphabetic Code for the Representation of Currencies."
 msgstr "Алфавитный код для обозначения валют."
 
-#: crm/models/payment.py:26 crm/models/payment.py:194
+#: crm/models/payment.py:26 crm/models/payment.py:198
 msgid "Rate to state currency"
 msgstr "Курс к государственной валюте"
 
-#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:195
-#: crm/models/payment.py:200
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
 msgid "Exchange rate against the state currency."
 msgstr "Обменный курс по отношению к государственной валюте"
 
-#: crm/models/payment.py:32 crm/models/payment.py:199
+#: crm/models/payment.py:32 crm/models/payment.py:203
 msgid "Rate to marketing currency"
 msgstr "Курс к маркетинговой валюте"
 
@@ -1782,83 +1780,87 @@ msgstr "Это государственная валюта?"
 msgid "Is it the marketing currency?"
 msgstr "Это валюта маркетинга?"
 
-#: crm/models/payment.py:67
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "Эта валюта подлежит автоматическому обновлению."
+
+#: crm/models/payment.py:71
 msgid "without VAT"
 msgstr "без НДС"
 
-#: crm/models/payment.py:78
+#: crm/models/payment.py:82
 msgid "Please specify a currency."
 msgstr "Пожалуйста, укажите валюту."
 
-#: crm/models/payment.py:88
+#: crm/models/payment.py:92
 msgid "Payment"
 msgstr "Платеж"
 
-#: crm/models/payment.py:89
+#: crm/models/payment.py:93
 msgid "Payments"
 msgstr "Платежи"
 
-#: crm/models/payment.py:96
+#: crm/models/payment.py:100
 msgid "received"
 msgstr "получен"
 
-#: crm/models/payment.py:97
+#: crm/models/payment.py:101
 msgid "guaranteed"
 msgstr "гарантированный"
 
-#: crm/models/payment.py:98
+#: crm/models/payment.py:102
 msgid "high probability"
 msgstr "высокая вероятность"
 
-#: crm/models/payment.py:99
+#: crm/models/payment.py:103
 msgid "low probability"
 msgstr "низкая вероятность"
 
-#: crm/models/payment.py:114
+#: crm/models/payment.py:118
 msgid "Payment status"
 msgstr "Статус платежа"
 
-#: crm/models/payment.py:118 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
 msgid "contract number"
 msgstr "номер контракта"
 
-#: crm/models/payment.py:122
+#: crm/models/payment.py:126
 msgid "invoice number"
 msgstr "номер счета"
 
-#: crm/models/payment.py:126
+#: crm/models/payment.py:130
 msgid "order number"
 msgstr "номер заказа"
 
-#: crm/models/payment.py:130
+#: crm/models/payment.py:134
 msgid "Payment through representative office"
 msgstr "Оплата через представительство"
 
-#: crm/models/payment.py:153
+#: crm/models/payment.py:157
 msgid "Payment share"
 msgstr "Доля платежа"
 
-#: crm/models/payment.py:173
+#: crm/models/payment.py:177
 msgid "Currency rate"
 msgstr "Курс валюты"
 
-#: crm/models/payment.py:174
+#: crm/models/payment.py:178
 msgid "Currency rates"
 msgstr "Курсы валют"
 
-#: crm/models/payment.py:179
+#: crm/models/payment.py:183
 msgid "approximate currency rate"
 msgstr "приблизительный курс валюты"
 
-#: crm/models/payment.py:180
+#: crm/models/payment.py:184
 msgid "official currency rate"
 msgstr "официальный курс валюты"
 
-#: crm/models/payment.py:190
+#: crm/models/payment.py:194
 msgid "Currency rate date"
 msgstr "Дата курса валюты"
 
-#: crm/models/payment.py:206
+#: crm/models/payment.py:210
 msgid "Exchange rate type"
 msgstr "Тип обменного курса"
 
@@ -1962,24 +1964,23 @@ msgstr "Ярлык"
 msgid "Tag name"
 msgstr "Название ярлыка"
 
-#: crm/settings.py:45
+#: crm/settings.py:46
 msgid "Establish the first contact with the client."
 msgstr "Установить первый контакт с клиентом"
 
 #: crm/site/companyadmin.py:26
-msgid ""
-"Attention! You can only view companies associated with your department."
+msgid "Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
-#: crm/site/companyadmin.py:207 crm/site/leadadmin.py:261
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "Внимание:"
 
-#: crm/site/companyadmin.py:209
+#: crm/site/companyadmin.py:210
 msgid "Owner will also be changed for contact persons."
 msgstr "Владелец контактных лиц будет также изменен."
 
-#: crm/site/companyadmin.py:222
+#: crm/site/companyadmin.py:223
 msgid "Change owner of selected Companies"
 msgstr "Сменить владельца выбранных компаний"
 
@@ -2012,7 +2013,7 @@ msgstr "Содержание"
 msgid "Previous correspondence"
 msgstr "Предыдущая переписка"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:336
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
 #: crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "Без темы"
@@ -2069,11 +2070,11 @@ msgstr "Подписан на рассылку новостей"
 msgid "Unsubscribed from email newsletters"
 msgstr "Отписан на рассылку новостей"
 
-#: crm/site/crmmodeladmin.py:267
+#: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
 msgstr "Создать письмо"
 
-#: crm/site/crmmodeladmin.py:332
+#: crm/site/crmmodeladmin.py:341
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
@@ -2081,7 +2082,7 @@ msgstr ""
 "Обратите внимание, что рассылка не производится в следующие дни: пятница, "
 "суббота, воскресенье."
 
-#: crm/site/crmmodeladmin.py:362
+#: crm/site/crmmodeladmin.py:371
 msgid "Messengers"
 msgstr "Мессенджеры"
 
@@ -2178,24 +2179,24 @@ msgstr "Оплаченно"
 msgid "Contact is Lead (no company)"
 msgstr "Контакт - Лид (без компании)"
 
-#: crm/site/leadadmin.py:117
+#: crm/site/leadadmin.py:118
 msgid "Person contact details"
 msgstr "Контактные данные лица"
 
-#: crm/site/leadadmin.py:126
+#: crm/site/leadadmin.py:127
 msgid "Additional person details"
 msgstr "Дополнительные данные о человеке"
 
-#: crm/site/leadadmin.py:139
+#: crm/site/leadadmin.py:140
 msgid "Company contact details"
 msgstr "Контактные данные компании"
 
-#: crm/site/leadadmin.py:248
+#: crm/site/leadadmin.py:249
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Лид \"{obj}\" успешно конвертирован."
 
-#: crm/site/leadadmin.py:263
+#: crm/site/leadadmin.py:264
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Этот Лид дисквалифицирован! Пожалуйста, прочтите описание."
 
@@ -2245,11 +2246,11 @@ msgstr "Статус"
 msgid "Subsequent request"
 msgstr "Последующий запрос"
 
-#: crm/site/requestadmin.py:388
+#: crm/site/requestadmin.py:392
 msgid "Found the counterparty assigned to"
 msgstr "Найден контрагент, назначенный"
 
-#: crm/site/requestadmin.py:487
+#: crm/site/requestadmin.py:491
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} «{obj}» был успешно добавлен."
@@ -2425,8 +2426,7 @@ msgstr "Предварительный просмотр печати"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16
-#: massmail/site/signatureadmin.py:31
+#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
 msgid "Change"
 msgstr "Изменить"
 
@@ -2540,8 +2540,8 @@ msgstr "Пожалуйста, выберите, какие файлы прикр
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
-"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных"
-" лиц"
+"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных "
+"лиц"
 
 #: crm/templates/crm/del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
@@ -2559,8 +2559,8 @@ msgstr "Выберите файл для импорта."
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't"
-" matter):"
+"Only the following columns will be imported if they exist (the order doesn't "
+"matter):"
 msgstr ""
 "Будут импортированы только следующие столбцы, если они существуют (порядок "
 "не имеет значения):"
@@ -2686,32 +2686,27 @@ msgstr "Создано  до"
 msgid "Created after"
 msgstr "Создано после"
 
-#: crm/utils/restore_imap_emails.py:37
+#: crm/utils/restore_imap_emails.py:40
 #, python-format
 msgid "Received an email from \"%s\""
 msgstr "Получено  письмо от \"%s\""
 
-#: crm/utils/restore_imap_emails.py:169 crm/utils/send_email.py:51
+#: crm/utils/send_email.py:22
 #, python-format
 msgid "The Email has been sent to \"%s\""
 msgstr "Письмо было отправлено на \"%s\""
 
-#: crm/utils/send_email.py:26
+#: crm/utils/send_email.py:30
 msgid "Please fill in the subject and text of the letter."
 msgstr "Пожалуйста, укажите тему или содержание письма."
 
-#: crm/utils/send_email.py:30
+#: crm/utils/send_email.py:34
 msgid "To send a message you need to have an email account marked as main."
 msgstr ""
 "Для отправки сообщения вам необходимо иметь учетную запись электронной "
 "почты, помеченную как основная."
 
-#: crm/utils/send_email.py:47
-#, python-format
-msgid "The Email has been sent to \"%(to)s\", \"%(cc)s\""
-msgstr "Письмо было отправлено на \"%(to)s\" и \"%(cc)s\""
-
-#: crm/utils/send_email.py:69
+#: crm/utils/send_email.py:72
 #, python-format
 msgid "Failed: %s"
 msgstr "Ошибка: %s"
@@ -2793,8 +2788,8 @@ msgstr "Доступно на странице CRM"
 
 #: help/models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
-" from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
+"from another help page."
 msgstr ""
 "Доступен на одной из страниц CRM. В противном случае к нему можно получить "
 "доступ только по ссылке с другой страницы справки."
@@ -2996,9 +2991,9 @@ msgstr "Поле from_email."
 
 #: massmail/models/email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted certificate chain file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted certificate chain file to use "
+"for the SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS - True, вы можете при желании указать "
 "путь к файлу цепочки сертификатов в формате PEM, который будет "
@@ -3006,9 +3001,9 @@ msgstr ""
 
 #: massmail/models/email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
-"         the path to a PEM-formatted private key file to use for the SSL "
-"connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted private key file to use for the "
+"SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS имеет значение True, вы можете при "
 "желании указать путь к файлу закрытого ключа в формате PEM, который будет "
@@ -3029,13 +3024,17 @@ msgstr "Укажите хост imap"
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или прикрепленные к этому сообщению."
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
+"cid_media ‘path/to/pic.png' %}.<br>\n"
+"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или "
+"прикрепленные к этому сообщению."
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
@@ -3093,12 +3092,15 @@ msgstr "Отчет"
 #: massmail/models/signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
+"cid_media ‘path/to/pic.png' %}.<br>\n"
 "Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’."
 
 #: massmail/models/signature.py:17
@@ -3289,11 +3291,11 @@ msgstr "Дата последнего случая"
 msgid "Date of last occurrence of the phrase"
 msgstr "Дата последнего появления фразы"
 
-#: tasks/admin.py:65 tasks/admin.py:118 tasks/site/tasksbasemodeladmin.py:163
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
 msgid "Change responsible"
 msgstr "Изменить ответственных"
 
-#: tasks/admin.py:72 tasks/admin.py:125 tasks/site/memoadmin.py:171
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "Изменить подписчиков"
@@ -3374,7 +3376,7 @@ msgid "Review date"
 msgstr "Дата рассмотрения "
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:456 tasks/site/tasksbasemodeladmin.py:508
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
 msgstr "подписчики"
 
@@ -3555,18 +3557,18 @@ msgstr "Вы получили служебную записку"
 msgid "Your office memo has been deleted"
 msgstr "Ваша служебная записка была удалена"
 
-#: tasks/site/memoadmin.py:384
+#: tasks/site/memoadmin.py:386
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
 msgstr "Смотреть задачу"
 
-#: tasks/site/memoadmin.py:388
+#: tasks/site/memoadmin.py:390
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
 msgstr "Смотреть проект"
 
-#: tasks/site/memoadmin.py:469
+#: tasks/site/memoadmin.py:471
 msgid "View the "
 msgstr "Смотреть"
 
@@ -3761,14 +3763,6 @@ msgstr "Выйти"
 msgid "Breadcrumbs"
 msgstr "Хлебные крошки"
 
-#: templates/admin/base_site.html:7
-msgid "Django site admin"
-msgstr ""
-
-#: templates/admin/base_site.html:11
-msgid "Django administration"
-msgstr ""
-
 #: templates/admin/color_theme_toggle.html:3
 msgid "Toggle theme (current theme: auto)"
 msgstr "Переключить тему (текущая: выбрана автоматически)"
@@ -3831,8 +3825,8 @@ msgstr "АОН"
 
 #: voip/models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you"
-" call"
+"Specify the number to be displayed as             your phone number when you "
+"call"
 msgstr ""
 "Укажите номер, который будет отображаться в качестве вашего номера телефона "
 "при звонке"
@@ -3886,17 +3880,24 @@ msgstr "Украинский"
 msgid "Russian"
 msgstr "Русский"
 
-#: webcrm/local_settings.py:67 webcrm/settings.py:60
+#: webcrm/local_settings.py:67 webcrm/settings.py:63
 msgid "English"
 msgstr "Английский"
 
-#: webcrm/settings.py:246
+#: webcrm/settings.py:249
 msgid "Untitled"
 msgstr "Без названия"
 
-#: webcrm/settings.py:261
+#: webcrm/settings.py:264
 msgid "Main Menu"
 msgstr "Главное меню"
+
+#~ msgid "PBX number"
+#~ msgstr "номер мини-АТС"
+
+#, python-format
+#~ msgid "The Email has been sent to \"%(to)s\", \"%(cc)s\""
+#~ msgstr "Письмо было отправлено на \"%(to)s\" и \"%(cc)s\""
 
 #, fuzzy
 #~ msgid "Specify the range"
@@ -3982,7 +3983,8 @@ msgstr "Главное меню"
 #~ msgstr "Подзадача создана"
 
 #~ msgid "For imbedding images use tag {% cid_media 'name.jpg' %}"
-#~ msgstr "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
+#~ msgstr ""
+#~ "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
 
 #~ msgid "Primary requests over country"
 #~ msgstr "Первичные запросы по странам"
@@ -4078,11 +4080,11 @@ msgstr "Главное меню"
 #~ msgstr "приоритет"
 
 #~ msgid ""
-#~ "This is a sub-task. It cannot be collective, so specify only one responsible"
-#~ " person."
+#~ "This is a sub-task. It cannot be collective, so specify only one "
+#~ "responsible person."
 #~ msgstr ""
-#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только одно "
-#~ "ответственное лицо."
+#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только "
+#~ "одно ответственное лицо."
 
 #~ msgid "Task start date"
 #~ msgstr "Дата начала задачи"
@@ -4301,8 +4303,8 @@ msgstr "Главное меню"
 
 #~ msgid "Error: Please specify a imap host in main Email account in CRM"
 #~ msgstr ""
-#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи электронной "
-#~ "почты в CRM"
+#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи "
+#~ "электронной почты в CRM"
 
 #~ msgid "Found {num} Emails to import. Refresh this page."
 #~ msgstr "Найдено {num} Emails для импорта. Обновить эту страницу."
