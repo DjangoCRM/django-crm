@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- The ability to exclude some currencies from auto-update
 - Recipient/sender names in CRM workflow messages and system notifications about sending/receiving emails.
 - Draft field for Memo `fieldsets` in admin
 - Allow the current user to be assigned to memo
