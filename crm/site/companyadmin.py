@@ -17,7 +17,6 @@ from crm.site.crmstackedinline import CrmStackedInline
 from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import HasContactsFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
-from crm.utils.admfilters import TagFilter
 from massmail.admin_actions import make_mailing_out
 from massmail.admin_actions import specify_vip_recipients
 from common.admin import FileInline
@@ -81,7 +80,8 @@ class CompanyAdmin(CrmModelAdmin):
         'phone', 'city_name',
         'address', 'email',
         'description',
-        'registration_number'
+        'registration_number',
+        'alternative_names'
     ]
     filter_horizontal = ('industry',)
     inlines = [FileInline, ContactInline]
