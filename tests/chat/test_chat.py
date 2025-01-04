@@ -94,7 +94,7 @@ class TestChat(BaseTestCase):
         self.assertEqual(mail.outbox[0].to, [self.darian.email])
         mail.outbox = []
 
-        # reply the message
+        # reply to the message
         self.client.force_login(self.darian)
         response = self.submit_reply_button(msg)
         self.assertEqual(response.status_code, 200)

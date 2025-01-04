@@ -645,7 +645,7 @@ class TestTask(BaseTestCase):
         self.assertQuerySetEqual(queryset, responsible, ordered=False)
         self.assertIsNone(initials)
 
-        # use gray completed button in main task
+        # use gray completed button in the main task
         change_url = main_task.get_absolute_url()
         response = self.client.get(change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
