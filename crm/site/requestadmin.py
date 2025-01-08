@@ -344,17 +344,14 @@ class RequestAdmin(CrmModelAdmin):
     def status(self, obj):
         if obj.pending:
             return mark_safe(
-                f'<i class="material-icons" title="{
-                    status_str}: {pending_str}"'
+                f'<i class="material-icons" title="{status_str}: {pending_str}"'
                 ' style="font-size: 17px; color: var(--error-fg)">assignment_late</i>'
             )
         else:
             return mark_safe(
-                f'<i class="material-icons" title="{
-                    status_str}: {processed_str}"'
+                f'<i class="material-icons" title="{status_str}: {processed_str}"'
                 ' style="font-size: 17px; color: var(--green-fg)">assignment_turned_in</i>'
             )
-           
 
     @admin.display(
         description=today_safe_icon,
