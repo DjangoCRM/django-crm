@@ -486,7 +486,7 @@ class CrmModelAdmin(BaseModelAdmin):
 
     @staticmethod
     @admin.display(description=mark_safe(
-        f"{_("Mass mailing")} "
+        f"{_('Mass mailing')} "
         f"{unsubscribed_icon.format(unsubscribed_title)}"
     )) 
     def unsubscribed(instance):
