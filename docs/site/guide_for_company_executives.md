@@ -23,7 +23,7 @@ in making data-driven decisions by offering various reports and visualizations.
 Reports include both tabular and graphical representations for intuitive data interpretation.
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png){target="_blank"}
-**Income Summary Report**
+##### Income Summary Report
 
    *  Details monthly [deal](guide_for_sales_manager.md#deal-object) income, product sales, and payment volumes.
    *  Forecasts payments for the current and upcoming two months, 
@@ -34,31 +34,31 @@ Reports include both tabular and graphical representations for intuitive data in
        * Income comparison for the same period in the previous year  
        * 12-month cumulative income analysis
 
-**Sales Funnel Report**
+##### Sales Funnel Report
 
    - Visualizes sales stages, pinpointing bottlenecks and areas for process optimization.  
 
-**Sales Report**
+##### Sales Report
 
    - Summarizes performance metrics like total sales, average deal size, and other key indicators over specified periods.  
 
-**Requests Summary**
+##### Requests Summary
 
    - Tracks commercial inquiries, including [request](operator_and_sales_manager_roles.md#working-with-requests) counts, statuses, and conversion rates.  
 
-**Lead Source Summary**
+##### Lead Source Summary
 
    - Evaluates the effectiveness of [lead](operator_and_sales_manager_roles.md#lead-object) sources, identifying those driving the most leads and conversions.  
 
-**Conversion Summary**
+##### Conversion Summary
 
    - Measures the success rate of inquiries converting into deals, highlighting improvement opportunities.  
 
-**Closing Reason Summary**
+##### Closing Reason Summary
 
    - Analyzes reasons for deal closures, offering insights into successful and unsuccessful outcomes.  
 
-**Deal Summary**
+##### Deal Summary
 
    - Provides a comprehensive view of deals, including their status, value, and associated products or services.  
 
