@@ -153,6 +153,13 @@ Django-CRM can be easily deployed as a regular Django project.
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 12+  
 
+### Use MySQL via Docker
+
+Go in folder docker and run the follow command:  
+`docker compose up -d`.  
+To destroy mysql and also local volume of SQL, from docker folder run:  
+`docker compose down --volumes --remove-orphans --rmi all` and `docker system prune -a -f`
+
 ## Contributing
 
 Contributions are welcome! There is room for improvements and new features.  
