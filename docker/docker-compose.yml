@@ -1,6 +1,7 @@
 services:
   db:
     image: mysql:latest
+    container_name: mysql_dev
     restart: always
     environment:
       MYSQL_DATABASE: 'crm_db'

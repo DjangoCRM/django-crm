@@ -155,8 +155,8 @@ Django-CRM can be easily deployed as a regular Django project.
 
 ### Use MySQL via Docker
 
-Go in folder docker and run the follow command:  
-`docker compose up -d`.  
+Go in folder docker and run `./test_env.sh` or if you want to run step bby step run the following commands:  
+`docker compose up -d`  
 To destroy mysql and also local volume of SQL, from docker folder run:  
 `docker compose down --volumes --remove-orphans --rmi all` and `docker system prune -a -f`
 
