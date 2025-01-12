@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Italian translation for the CRM software by @anselmix80
+
 ## [1.0] - 2025-01-11
 
 ### Added
@@ -27,6 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The "add reminder" button on the main page has been removed.
 - The display of the "massmail" field in the "Company," "Contact" and "Lead" models has been changed depending on its value.
+
+### Full Changelog: [v0.99...v1.0](https://github.com/DjangoCRM/django-crm/compare/v0.93...v1.0.0)
 
 ## [0.93] - 2024-10-20
 
