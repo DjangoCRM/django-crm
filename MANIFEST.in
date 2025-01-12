@@ -1,7 +1,6 @@
 include LICENSE
 include README.md
 include requirements.txt
-graft docs
 graft locale
 graft static
 graft templates
@@ -20,4 +19,9 @@ include media/pics/empty_file.txt
 include manage.py
 include crm/forms/iso_currency_codes.json
 include crm/models/to_translate.txt
+include massmail/models/to_translate.txt
 include tasks/models/to_translate.txt
+prune docs
+include docs/installation_and_configuration_guide.md
+include docs/django-crm_user_guide.md
+include CHANGELOG.md
