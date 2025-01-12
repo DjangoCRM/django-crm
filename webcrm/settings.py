@@ -61,6 +61,7 @@ FORMS_URLFIELD_ASSUME_HTTPS = True
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
+    ('es', _('Spanish')),
     ('it', _('Italian')),
 ]
 
