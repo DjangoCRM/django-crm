@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 18:09+0200\n"
+"POT-Creation-Date: 2025-01-06 20:56+0200\n"
 "PO-Revision-Date: 2024-12-28 17:50+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1521,7 +1521,7 @@ msgid "Contact"
 msgstr "Контактна особа"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:438
+#: crm/site/requestadmin.py:436
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1968,7 +1968,7 @@ msgstr "Назва ярлика"
 msgid "Establish the first contact with the client."
 msgstr "Встановити перший контакт із клієнтом"
 
-#: crm/site/companyadmin.py:26
+#: crm/site/companyadmin.py:25
 msgid "Attention! You can only view companies associated with your department."
 msgstr "Ви можете переглядати лише компанії, пов’язані з вашим відділом."
 
@@ -2246,11 +2246,11 @@ msgstr "Статус"
 msgid "Subsequent request"
 msgstr "Подальший запит"
 
-#: crm/site/requestadmin.py:392
+#: crm/site/requestadmin.py:390
 msgid "Found the counterparty assigned to"
 msgstr "Знайдено контрагента, призначеного"
 
-#: crm/site/requestadmin.py:491
+#: crm/site/requestadmin.py:489
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} “{obj}” успішно додано."

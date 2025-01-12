@@ -47,7 +47,7 @@ In addition to the usual data, the payment can have one of the following statuse
 - high probability
 - low probability
 
-This is used to create a [summary of income](guide_for_company_executives.md#income-summary), including its forecast.  
+This is used to create a [summary of income](guide_for_company_executives.md#income-summary-report), including its forecast.  
 The income summary is important for management decision-making by the company's executives.  
  `Home > Analytics > Income Summary`
 
