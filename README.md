@@ -1,3 +1,5 @@
+<p style="text-align: right;"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a></p>
+
 # Django-CRM
 
 *(Collaborative and Analytical Customer Relationship Management Software)*
@@ -20,7 +22,7 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 | ☑️ **Sales Analytics**       | ☑️ **Internal Chat Integration**         | ☑️ **Mobile-Friendly Design**    |
 | ☑️ **Customizable Reports**  | ☑️ **Automated Email Sync**              | ☑️ **Multi-Currency Support**    |
 
-Learn more about the software's capabilities [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+Learn more about [the software's capabilities](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
 Django CRM is an open-source client relationship management software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
 Frontend and backend are entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
@@ -158,6 +160,10 @@ Django-CRM can be easily deployed as a regular Django project.
 Contributions are welcome! There is room for improvements and new features.  
 Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started.  
 Every contribution, big or small, makes a difference.
+
+## License
+
+Django-CRM is released under the AGPL-3.0 license - see the [LICENSE](https://github.com/DjangoCRM/django-crm/blob/main/LICENSE) file for details.
 
 ## Credits
 
