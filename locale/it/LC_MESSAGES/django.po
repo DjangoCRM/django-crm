@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-10 12:38+0000\n"
-"PO-Revision-Date: 2025-01-11 14:32+0100\n"
+"PO-Revision-Date: 2025-01-13 17:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -1761,7 +1761,7 @@ msgstr "Codice alfabetico per la rappresentazione delle valute."
 
 #: crm/models/payment.py:26 crm/models/payment.py:198
 msgid "Rate to state currency"
-msgstr "Tasso di cambio della valuta dello Stato"
+msgstr "Tasso in base alla valuta dello stato"
 
 #: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
 #: crm/models/payment.py:204
@@ -1774,7 +1774,7 @@ msgstr "Tasso di cambio della valuta di marketing"
 
 #: crm/models/payment.py:37
 msgid "Is it the state currency?"
-msgstr "È la moneta dello Stato?"
+msgstr "È la valuta dello Stato?"
 
 #: crm/models/payment.py:41
 msgid "Is it the marketing currency?"
@@ -1842,7 +1842,7 @@ msgstr "Condivisione del pagamento"
 
 #: crm/models/payment.py:177
 msgid "Currency rate"
-msgstr "Tassiìi di cambio"
+msgstr "Tasso di cambio"
 
 #: crm/models/payment.py:178
 msgid "Currency rates"
@@ -1997,7 +1997,7 @@ msgstr "Firma"
 
 #: crm/site/crmemailadmin.py:31
 msgid "Please note that this is a list of unsent emails."
-msgstr "Si prega di notare che questo è un elenco di email non inviate."
+msgstr "Si prega di notare che questo è un elenco di e-mail non inviate."
 
 #: crm/site/crmemailadmin.py:143
 msgid "Emails in the CRM database."
@@ -2216,7 +2216,7 @@ msgstr "Hai ricevuto l'accordo"
 
 #: crm/site/requestadmin.py:47
 msgid "You are the co-owner of the deal"
-msgstr "Sei il comproprietario dell'accordo"
+msgstr "Sei il co-proprietario dell'accordo"
 
 #: crm/site/requestadmin.py:53
 msgid "Primary request"
@@ -2224,7 +2224,7 @@ msgstr "Richiesta primaria"
 
 #: crm/site/requestadmin.py:54
 msgid "You are the co-owner of the request"
-msgstr "Sei il comproprietario della richiesta"
+msgstr "Sei il co-proprietario della richiesta"
 
 #: crm/site/requestadmin.py:55
 msgid "You received the request"
@@ -2651,7 +2651,7 @@ msgstr "posta in uscita ({num})"
 
 #: crm/utils/admfilters.py:586
 msgid "trash"
-msgstr "testino"
+msgstr "cestino"
 
 #: crm/utils/helpers.py:30
 msgid "No deal amount"
@@ -2775,7 +2775,7 @@ msgstr "etichetta dell'app"
 
 #: help/models.py:37
 msgid "model"
-msgstr "nodello"
+msgstr "modello"
 
 #: help/models.py:44
 msgid "page"
@@ -3792,7 +3792,7 @@ msgstr "prima"
 #. Translators: Year-Month Day
 #: templates/admin/crm_date_filter.html:33
 msgid "YYYY-MM-DD"
-msgstr "YYYY-MM-DD"
+msgstr "DD-MM-YYYY"
 
 #: templates/crm_help_link.html:3
 msgid "Help"
