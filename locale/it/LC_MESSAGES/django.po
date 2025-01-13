@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-10 12:38+0000\n"
-"PO-Revision-Date: 2025-01-11 14:32+0100\n"
+"PO-Revision-Date: 2025-01-13 15:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -76,7 +76,7 @@ msgstr "Data di pagamento"
 #: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
 #: crm/models/request.py:82
 msgid "Products"
-msgstr "Prodtti"
+msgstr "Prodotti"
 
 #: analytics/site/closingreasonstatadmin.py:63
 msgid "Closing reason over month"
@@ -1517,7 +1517,7 @@ msgstr "Fonte"
 #: crm/models/request.py:68
 #: crm/templates/admin/crm/company/change_form_object_tools.html:22
 msgid "Contact"
-msgstr "Contattpo"
+msgstr "Contatto"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
 #: crm/site/requestadmin.py:435
@@ -2090,7 +2090,7 @@ msgstr "Messengers"
 
 #: crm/site/currencyadmin.py:35
 msgid "State currency must be specified."
-msgstr "È necessario specificare la valuta di marketing."
+msgstr "È necessario specificare la valuta dello stato."
 
 #: crm/site/currencyadmin.py:40
 msgid "Marketing currency must be specified."
@@ -3792,7 +3792,7 @@ msgstr "prima"
 #. Translators: Year-Month Day
 #: templates/admin/crm_date_filter.html:33
 msgid "YYYY-MM-DD"
-msgstr "YYYY-MM-DD"
+msgstr "DD-MM-YYYY"
 
 #: templates/crm_help_link.html:3
 msgid "Help"
