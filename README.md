@@ -10,7 +10,7 @@
 No need to learn a proprietary framework - everything is built using the popular Django framework.  
 CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
 
-[<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
+[<img src="docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](docs/pics/deals_screenshot.png)
 
 ## Customer Relationship Management Features
 |                              |                                          |                                  |
@@ -63,9 +63,9 @@ The CRM software suite consists of the following **main applications** and their
   - Products (goods and services)
   - Payments (received, guaranteed, high and low probability)
   - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
-[<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
+[<img src="docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](docs/pics/income_summary_screenshot.png)
 - **ANALYTICS app**: (detailed software overview [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
-  - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
+  - Income Summary report (*see [screenshot](docs/pics/income_summary_screenshot.png)*)
   - Sales funnel report
   - Lead source Summary report
   - ... (+ *5 more analytical reports*)
@@ -148,10 +148,10 @@ Django-CRM can be easily deployed as a regular Django project.
 
 ### Compatibility
 
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/diango-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 12+  
+- <img src="docs/site/icons/django-logo.svg" width="30" height="30" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
+- <img src="docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
+- <img src="docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
+- <img src="docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 12+  
 
 ## Contributing
 
