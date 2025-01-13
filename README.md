@@ -22,7 +22,7 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 
 Learn more about the software's capabilities [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
-Django CRM is an open-source client relationship management software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
+Django CRM is an open-source client relationship management software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
 Frontend and backend are entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.  
