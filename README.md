@@ -1,4 +1,4 @@
-<p style="text-align: right;"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a></p>
+<p align="right"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a></p>
 
 # Django-CRM
 
