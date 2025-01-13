@@ -4,18 +4,18 @@
 In this section, users can work with office memos, tasks, and projects (collections of tasks).  
 Participating users receive notifications about all events in [CRM application](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} and by email.  
 !!! Important
-    Only users specified in them in any role and company managers have access to specific memos, tasks and projects.
+    Only users specified in them in any role and company managers have access to specific memos, tasks, and projects.
     Other users will not see them.  
 If it is necessary to regularly make edits or correct errors in these objects, the administrator can assign the "task operator" [role](adding_crm_users.md#user-groups-roles) to a user. This user will have the right to edit objects of other users.
 
 ### Chat in objects
 
-<span style="vertical-align: baseline"><img src="../icons/chat-left-text.svg" alt="Chat icon" width="25" height="17"></span> Objects have chat. For example, in each task, all participants can discuss its implementation and share files in the chat. Accordingly, all messages will be tied to a specific task. To create a message, click the button "Message +".  
+<span style="vertical-align: baseline"><img src="../icons/chat-left-text.svg" alt="Chat icon" width="25"></span> Objects have chat. For example, in each task, all participants can discuss its implementation and share files in the chat. Accordingly, all messages will be tied to a specific task. To create a message, click the button "Message +".  
 Messages are sent to users in CRM and by email.
 
 ### Reminders
 
-<span style="vertical-align: baseline"><img src="../icons/alarm.svg" alt="alarm icon" width="25" height="17"></span> In many objects, you can create a reminder associated with this object.  
+<span style="vertical-align: baseline"><img src="../icons/alarm.svg" alt="alarm icon" width="25"></span> In many objects, you can create a reminder associated with this object.  
 You can set the date and time when the reminder will appear in CRM and be sent by email.  
 In the general section, you can see a list of all created reminders. If necessary, you can deactivate reminders that have become irrelevant.
 
