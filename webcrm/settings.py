@@ -23,14 +23,6 @@ SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
 # Add your hosts to the list.
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-# Check if local os is Linux or Windows
-if sys.platform == 'linux':
-    # Linux
-    MYSQL_HOST = '127.0.0.1'
-else:
-    # Windows
-    MYSQL_HOST = 'localhost'
-
 # Database
 DATABASES = {
     'default': {
@@ -45,7 +37,7 @@ DATABASES = {
         'NAME': 'crm_db',
         'USER': 'crm_user',
         'PASSWORD': 'crmpass',
-        'HOST': MYSQL_HOST,
+        'HOST': 'localhost',
     }
 }
 
