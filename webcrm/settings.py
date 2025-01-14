@@ -1,6 +1,8 @@
 import sys
+import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
 from crm.settings import *          # NOQA
 from massmail.settings import *     # NOQA
@@ -13,44 +15,53 @@ from voip.settings import *         # NOQA
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# loads the configs from .env
+load_dotenv()
+
+# Get the path to the directory this file is in
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
+
+# Connect the path with your '.env' file name
+load_dotenv(os.path.join(BASEDIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # To get new value of key use code:
 # from django.core.management.utils import get_random_secret_key
 # print(get_random_secret_key())
-SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # Add your hosts to the list.
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+if sys.platform == 'linux':
+    # Linux
+    MYSQL_HOST = '127.0.0.1'
+else:
+    # Windows
+    MYSQL_HOST = 'localhost'
+
 # Database
 DATABASES = {
     'default': {
-        # for MySQl
-        'ENGINE': 'django.db.backends.mysql',
-        'PORT': '3306',
-
-        # for PostgreSQL
-        # "ENGINE": "django.db.backends.postgresql",
-        # 'PORT': '5432',   # for PostgreSQL
-
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': 'crmpass',
-        'HOST': 'localhost',
+        'ENGINE': str(os.getenv('SQL_ENGINE')),
+        'PORT': str(os.getenv('SQL_PORT')),
+        'NAME': str(os.getenv('SQL_NAME')),
+        'USER': str(os.getenv('SQL_USER')),
+        'PASSWORD': str(os.getenv('SQL_PASSWORD')),
+        'HOST': MYSQL_HOST,
     }
 }
 
-EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
-EMAIL_HOST_PASSWORD = '<specify password>'
-EMAIL_HOST_USER = 'crm@example.com'
-EMAIL_PORT = 587
+EMAIL_HOST = str(os.getenv('EMAIL_HOST'))
+EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
+EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
+EMAIL_PORT = str(os.getenv('EMAIL_PORT'))
+SERVER_EMAIL = str(os.getenv('SERVER_EMAIL'))
+DEFAULT_FROM_EMAIL = str(os.getenv('DEFAULT_FROM_EMAIL'))
 EMAIL_SUBJECT_PREFIX = 'CRM: '
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'crm@example.com'
-DEFAULT_FROM_EMAIL = 'crm@example.com'
 
-ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
+ADMINS = [(os.environ.get('ADMIN_NAME1'), os.environ.get('ADMIN_EMAIL1'))]    # specify admin
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -65,7 +76,7 @@ LANGUAGES = [
     ('it', _('Italian')),
 ]
 
-TIME_ZONE = 'UTC'   # specify your time zone
+TIME_ZONE = str(os.getenv('TIME_ZONE'))   # specify your time zone
 
 USE_I18N = True
 
@@ -225,8 +236,8 @@ VAT = 0    # %
 
 # 2-Step Verification Credentials for Google Accounts.
 #  OAuth 2.0
-CLIENT_ID = ''
-CLIENT_SECRET = ''
+CLIENT_ID = str(os.getenv('CLIENT_ID'))
+CLIENT_SECRET = str(os.getenv('CLIENT_SECRET'))
 OAUTH2_DATA = {
     'smtp.gmail.com': {
         'scope': "https://mail.google.com/",
