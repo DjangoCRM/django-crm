@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-10 12:38+0000\n"
-"PO-Revision-Date: 2025-01-13 15:07+0100\n"
+"PO-Revision-Date: 2025-01-14 09:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -132,7 +132,7 @@ msgstr "Accordi irrilevanti"
 
 #: analytics/site/dealstatadmin.py:78
 msgid "Won deals"
-msgstr "Affari vinti"
+msgstr "Affari conclusi"
 
 #: analytics/site/incomestatadmin.py:135
 msgid "The snapshot has been saved successfully."
@@ -1761,7 +1761,7 @@ msgstr "Codice alfabetico per la rappresentazione delle valute."
 
 #: crm/models/payment.py:26 crm/models/payment.py:198
 msgid "Rate to state currency"
-msgstr "Tasso di cambio della valuta dello Stato"
+msgstr "Tasso di cambio della valuta nazionale"
 
 #: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
 #: crm/models/payment.py:204
@@ -1842,7 +1842,7 @@ msgstr "Condivisione del pagamento"
 
 #: crm/models/payment.py:177
 msgid "Currency rate"
-msgstr "Tassiìi di cambio"
+msgstr "Tasso di cambio"
 
 #: crm/models/payment.py:178
 msgid "Currency rates"
@@ -2775,7 +2775,7 @@ msgstr "etichetta dell'app"
 
 #: help/models.py:37
 msgid "model"
-msgstr "nodello"
+msgstr "modello"
 
 #: help/models.py:44
 msgid "page"
