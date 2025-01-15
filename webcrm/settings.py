@@ -62,7 +62,10 @@ LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
     ('es', _('Spanish')),
+    ('fr', _('French')),
     ('it', _('Italian')),
+    ('ru', _('Russian')),
+    ('uk', _('Ukrainian')),
 ]
 
 TIME_ZONE = 'UTC'   # specify your time zone
@@ -275,4 +278,3 @@ PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
 TESTING = sys.argv[1:2] == ['test']
 if TESTING:
     SECURE_SSL_REDIRECT = False
-    LANGUAGES.append(('uk', ''))
