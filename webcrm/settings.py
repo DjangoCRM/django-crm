@@ -33,13 +33,6 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # Add your hosts to the list.
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-if sys.platform == 'linux':
-    # Linux
-    MYSQL_HOST = '127.0.0.1'
-else:
-    # Windows
-    MYSQL_HOST = 'localhost'
-
 # Database
 DATABASES = {
     'default': {
@@ -48,7 +41,7 @@ DATABASES = {
         'NAME': str(os.getenv('SQL_NAME')),
         'USER': str(os.getenv('SQL_USER')),
         'PASSWORD': str(os.getenv('SQL_PASSWORD')),
-        'HOST': MYSQL_HOST,
+        'HOST': '127.0.0.1',
     }
 }
 
