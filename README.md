@@ -1,4 +1,9 @@
-<p align="right"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a></p>
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a>
+</p>
 
 # Django-CRM
 
@@ -129,7 +134,8 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 ## Project Localization
 
-Django CRM has [full support](https://docs.djangoproject.com/en/dev/topics/i18n/) for translation of interface, formatting of dates, times, and time zones.
+Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:** `de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## Why Choose Django-CRM?
 
