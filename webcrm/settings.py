@@ -65,6 +65,7 @@ LANGUAGES = [
     ('es', _('Spanish')),
     ('fr', _('French')),
     ('it', _('Italian')),
+    ('nl', _('Dutch')),
     ('pt-br', _('Portuguese')),
     ('ru', _('Russian')),
     ('uk', _('Ukrainian')),
