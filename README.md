@@ -1,9 +1,12 @@
 <p align="right">
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">German</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a>
 </p>
+
 
 # Django-CRM
 
@@ -14,7 +17,7 @@
 - **For users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
 - **For developers**: Simplify the processes of development, customization, and production server support.
 
-No need to learn a proprietary framework - everything is built using the popular Django framework.  
+**No need to learn a proprietary framework**: everything is built using the popular Django framework.  
 CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
@@ -71,7 +74,7 @@ The CRM software suite consists of the following **main applications** and their
   - Payments (received, guaranteed, high and low probability)
   - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **ANALYTICS app**: (detailed software overview [here](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
+- **ANALYTICS app**: ([detailed software overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
   - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
   - Sales funnel report
   - Lead source Summary report
@@ -135,7 +138,8 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 ## Project Localization
 
 Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:** `de, en, es, fr, it, nl, pt-BR, ru, uk`
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:**  
+`de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## Why Choose Django-CRM?
 
