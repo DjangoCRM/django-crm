@@ -12,7 +12,8 @@ In most cases, they do not need to be changed.
 
 ## Configuring two-step OAuth 2.0 authentication
 
-If users use gmail accounts, then to connect CRM to them via SMTP and IMAP protocols, you will need to set up access and pass two-step authentication once.  
+In some cases, for CRM to access your Gmail account, you will need to set up access for third-party applications in your Gmail account and pass two-factor authentication once.
+This is not an easy procedure. So first, make sure that SRM really can't access your account without it.    
 Google APIs use the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749){target="_blank"} for authentication and authorization.  
 Visit the [Google API Console](https://console.developers.google.com/){target="_blank"}. Create "OAuth 2.0 Client IDs" settings
  for "Web application" to specify the Authorized redirect URI in the format:  
@@ -25,3 +26,7 @@ Then on the desired [Email Account](setting_up_email_accounts.md) page
  `(ADMIN) Home > Mass mail > Email Accounts`  
 In the upper right corner, click the button "Get or update a refresh token".  
 CRM will open the authorization page. After successful authorization, the "Refresh token" value will be received and CRM will get access to this account.
+
+!!! WARNING
+    To receive the refresh token, the CRM must be running on a server that supports the HTTPS scheme.
+You can also retrieve the refresh token separately from the CRM, for example, using curl.
