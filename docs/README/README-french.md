@@ -1,8 +1,10 @@
 <p align="right">
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> | 
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">German</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a>
 </p>
 
 # Django-CRM
@@ -14,7 +16,7 @@
 - **Pour les utilisateurs** : Fournir un logiciel CRM open-source de niveau entreprise avec une suite complète de solutions commerciales.
 - **Pour les développeurs** : Simplifier les processus de développement, de personnalisation et de support des serveurs de production.
 
-Pas besoin d'apprendre un cadre propriétaire - tout est construit en utilisant le cadre populaire Django.
+**Pas besoin d'apprendre un cadre propriétaire**: tout est construit en utilisant le cadre populaire Django.
 Le CRM tire également pleinement parti du site d'administration Django, avec une documentation contenue sur une seule page web !
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Capture d'écran de Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
@@ -135,7 +137,8 @@ Chaque utilisateur a une vue claire de sa pile de tâches, y compris les priorit
 ## Localisation du projet
 
 Django CRM a un support complet pour la traduction de l'interface, le formatage des dates, des heures et des fuseaux horaires.  
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="logo django" width="30" height="30" style="vertical-align: middle"> Le logiciel de service client est maintenant disponible en **plusieurs langues** : `de, en, es, fr, it, nl, pt-BR, ru, uk`
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="logo django" width="30" height="30" style="vertical-align: middle"> Le logiciel de service client est maintenant disponible en **plusieurs langues**:  
+`de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## Pourquoi choisir Django-CRM ?
 
