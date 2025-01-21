@@ -32,8 +32,8 @@ CRM nutzt auch die Django-Admin-Site voll aus, mit Dokumentation, die auf einer 
 Erfahren Sie mehr über [die Fähigkeiten der Software](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
 Django CRM ist eine Open-Source-Kundenbeziehungsmanagement-Software. Dieses CRM ist in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a> geschrieben.
-Frontend und Backend basieren vollständig auf der Django [Admin-Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
-Die CRM-App verwendet adaptive Admin-HTML-Vorlagen out-of-the-box.
+Frontend und Backend basieren vollständig auf der Django [Admin-Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
+Die CRM-App verwendet adaptive Admin-HTML-Vorlagen out-of-the-box.  
 Django ist ein hervorragend dokumentiertes Framework mit vielen Beispielen.
 Die Dokumentation auf der Admin-Site nimmt nur eine Webseite ein.  
 💡 Die **ursprüngliche Idee** ist, dass, da die Django-Admin-Site bereits eine professionelle Objektverwaltungsoberfläche mit einem flexiblen Berechtigungssystem für Benutzer (Anzeigen, Ändern, Hinzufügen und Löschen von Objekten) ist, alles, was Sie tun müssen, ist, Modelle für die Objekte (wie Leads, Anfragen, Deals, Unternehmen usw.) zu erstellen und Geschäftslogik hinzuzufügen.
