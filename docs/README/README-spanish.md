@@ -1,4 +1,9 @@
-<p align="right"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a></p>
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a>
+</p>
 
 # Django-CRM
 
@@ -9,7 +14,7 @@
 - **Para los usuarios**: Ofrecer software CRM de nivel empresarial de código abierto con una suite completa de soluciones empresariales.
 - **Para los desarrolladores**: Simplificar los procesos de desarrollo, personalización y soporte de servidores de producción.
 
-No es necesario aprender un marco de trabajo propietario: todo está construido utilizando el popular marco de trabajo Django.
+**No es necesario aprender un marco de trabajo propietario**: todo está construido utilizando el popular marco de trabajo Django.
 CRM también aprovecha al máximo el sitio de administración de Django, con documentación contenida en una sola página web.
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Captura de pantalla de Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
@@ -28,7 +33,7 @@ Django CRM es un software de gestión de relaciones con clientes de código abie
 El frontend y el backend están completamente basados en el [sitio de administración de Django](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 La aplicación CRM utiliza plantillas HTML adaptativas de administración de forma predeterminada.
 Django es un marco de trabajo excelentemente documentado con muchos ejemplos.
-La documentación en el sitio de administración ocupa solo una página web.
+La documentación en el sitio de administración ocupa solo una página web.  
 💡 La **idea original** es que, dado que el sitio de administración de Django ya es una interfaz profesional de gestión de objetos con un sistema de permisos flexible para los usuarios (ver, cambiar, agregar y eliminar objetos), todo lo que necesitas hacer es crear modelos para los objetos (como Leads, Solicitudes, Ofertas, Empresas, etc.) y agregar lógica de negocio.
 
 Todo esto asegura:
@@ -129,7 +134,9 @@ Cada usuario tiene una vista clara de su pila de tareas, incluyendo prioridades,
 
 ## Localización del Proyecto
 
-Django CRM tiene [soporte completo](https://docs.djangoproject.com/en/dev/topics/i18n/) para la traducción de la interfaz, el formato de fechas, horas y zonas horarias.
+Django CRM tiene [soporte completo](https://docs.djangoproject.com/en/dev/topics/i18n/) para la traducción de la interfaz, el formato de fechas, horas y zonas horarias.  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> El software de atención al cliente ahora está disponible en **varios idiomas**:  
+`de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## ¿Por qué Elegir Django-CRM?
 
