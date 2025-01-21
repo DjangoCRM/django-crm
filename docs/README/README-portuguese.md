@@ -1,5 +1,10 @@
-<p align="right"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> </p>
-
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">German</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
+</p>
 # Django-CRM
 
 *(Software de Gestão de Relacionamento com o Cliente Colaborativo e Analítico)*
