@@ -1,3 +1,8 @@
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview-spanish.md">Español</a>
+</p>
+
 # Django-CRM Overview
 
 Free CRM management [software](https://github.com/DjangoCRM/django-crm/) is designed to optimize the management of customer interactions, streamline processes, and enhance data-driven decision-making.  

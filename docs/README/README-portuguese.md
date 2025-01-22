@@ -1,4 +1,9 @@
-<p align="right"> <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> </p>
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> | 
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a>
+</p>
 
 # Django-CRM
 
@@ -9,7 +14,7 @@
 - **Para usuários**: Oferecer software CRM de nível empresarial de código aberto com um conjunto abrangente de soluções de negócios.
 - **Para desenvolvedores**: Simplificar os processos de desenvolvimento, personalização e suporte ao servidor de produção.
 
-Não há necessidade de aprender um framework proprietário - tudo é construído usando o popular framework Django.
+**Não há necessidade de aprender um framework proprietário**: tudo é construído usando o popular framework Django.
 O CRM também aproveita ao máximo o site de administração do Django, com documentação contida em uma única página da web!
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
@@ -130,7 +135,8 @@ Cada usuário tem uma visão clara de sua pilha de tarefas, incluindo prioridade
 ## Localização do Projeto
 
 O Django CRM tem suporte completo para tradução de interface, formatação de datas, horários e fusos horários.  
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> O software de atendimento ao cliente está agora disponível em **múltiplos idiomas:** `de, en, es, fr, it, nl, pt-BR, ru, uk`
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> O software de atendimento ao cliente está agora disponível em **múltiplos idiomas**:  
+`de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## Por que Escolher o Django-CRM?
 
