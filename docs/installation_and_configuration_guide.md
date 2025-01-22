@@ -674,7 +674,7 @@ Viber, WhatsApp, Skype. To do this, these applications must be installed on the 
 
 ## MySQL Container for Your Django CRM Database
 
-This repository [Django-CRM MySQL Container](https://github.com/anselmix80/Django-crm-Mysql-Docker-Container/tree/main) provides a streamlined approach to setting up a MySQL container for your Django CRM database, drawing inspiration from the well-regarded project.
+In the project inside `docker` folder you can find files necessary to provide a streamlined approach to setting up a MySQL container for your Django CRM database, drawing inspiration from the well-regarded project.
 
 ### Key Benefits  
 
@@ -693,17 +693,19 @@ This repository [Django-CRM MySQL Container](https://github.com/anselmix80/Djang
   Docker: Ensure you have Docker installed on your system. Refer to the official [Docker documentation](https://docs.docker.com/get-docker/) for installation instructions.
 - **Docker Compose:**  
   Install Docker Compose using the instructions provided [here](https://docs.docker.com/compose/install/).
-- **Clone the Repository:**  
-  `Bash:`  
-  `git clone https://github.com/anselmix80/Django-crm-Mysql-Docker-Container.git`
+  
 - **Build and Run the Containers:**  
   copy the docker folder inside Django-CRM project folder.  
   Run `Bash:`  
   `./start_dev.sh`  
-  This command will build the necessary Docker images and start the MySQL container in detached mode (-d).
+  This command will build the necessary Docker images and start the MySQL container in detached mode (-d).  
+  It also:  
+  - Install requirements
+  - Fill initial data into database
+  - Start the application
 
-- **Configure Your Django CRM:**  
-  Update your Django-CRM application's database configuration settings to point to the MySQL container.  
+- **Check your Django CRM settings:**  
+  Verify your Django-CRM application's database configuration settings to point to the MySQL container.  
   In `webcrm/settings.py` `'HOST'` should be `'127.0.0.1'`.  
   Refer to your Django project's documentation for specific instructions on configuring database connections.
 
