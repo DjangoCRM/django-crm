@@ -281,3 +281,5 @@ PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
 TESTING = sys.argv[1:2] == ['test']
 if TESTING:
     SECURE_SSL_REDIRECT = False
+    LANGUAGE_CODE = 'en'
+    LANGUAGES = [('en', ''), ('uk', '')]
