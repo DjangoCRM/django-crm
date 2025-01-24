@@ -539,8 +539,8 @@ class TestTask(BaseTestCase):
         self.obj_doesnt_exists(Task)
 
     def test_subtask_completion_notification(self):
-        main_task = self.creat_task()
-        main_task.responsible.add(self.eve)
+        main_task = self.creat_task()   # owner self.chief
+        main_task.responsible.add(self.eve) # responsible [self.sergey, self.masha]
 
         self.client.force_login(self.eve)
         change_url = main_task.get_absolute_url()
@@ -645,7 +645,7 @@ class TestTask(BaseTestCase):
         self.assertQuerySetEqual(queryset, responsible, ordered=False)
         self.assertIsNone(initials)
 
-        # use gray completed button in the main task
+        # Sergey uses the grey "Completed" button in the main task
         change_url = main_task.get_absolute_url()
         response = self.client.get(change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
@@ -655,12 +655,12 @@ class TestTask(BaseTestCase):
         response = self.client.get(completed_button_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
 
-        # subscription notifications
+        # subscription notifications (Eve uses 'hide_main_task')
         self.assertEqual([self.masha.email], mail.outbox[0].to)
         # notice of appointment as co-owner
         self.assertEqual([self.chief.email], mail.outbox[1].to)
         # completed task notifications
-        self.assertEqual([self.chief.email], mail.outbox[2].to)
+        self.assertEqual([self.chief.email, self.masha.email], mail.outbox[2].to)
         mail.outbox = []
         self.sergey.profile.language_code = sergey_code
         self.sergey.profile.save(update_fields=['language_code'])
