@@ -7,7 +7,7 @@ graft templates
 recursive-include **/fixtures *
 recursive-include **/static *
 recursive-include **/templates *
-recursive-include locale/**/django.po
+recursive-include locale/**/django.mo
 global-exclude .gitignore
 exclude webcrm/local*.py
 prune **/__pycache__
