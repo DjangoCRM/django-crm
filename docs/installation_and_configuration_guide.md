@@ -305,8 +305,17 @@ Therefore, it is important to set up system updates based on new releases of Dja
 Here are some tips on how to do it better:
 
 - To prevent your system settings from being overwritten when you upgrade CRM, it is recommended that you save them in a separate settings file, such as local_settings.py.
-In this file, add the line `from .settings import *` and save all your settings. In this way, the default project settings contained in the settings.py file will be overwritten by your settings.
-In the future, specify your settings file when launching CRM.
+In this file, add the line `from .settings import *` and save all your settings. In this way, the default project settings contained in the settings.py file will be overwritten by your settings.  
+To ensure stable execution of tests when language settings are overridden, add the following code to the end of the file:
+
+```cmd
+if TESTING:
+    SECURE_SSL_REDIRECT = False
+    LANGUAGE_CODE = 'en'
+    LANGUAGES = [('en', ''), ('uk', '')]
+```
+
+Now, specify your settings file when launching CRM.
 
 ```cmd
 python manage.py runserver --settings=webcrm.local_settings
