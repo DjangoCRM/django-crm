@@ -12,8 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Italian translation for the CRM software by @anselmix80
-- Translations into the following languages: `de, es, fr, nl, pt-BR, ru, uk`
+Translations of CRM software into the following languages:
+
+- Brazilian Portuguese
+- Dutch
+- French
+- German
+- Italian (by @anselmix80)
+- Russian
+- Spanish
+- Ukrainian
 
 ### Improve
 
@@ -21,9 +29,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Test for receiving email notifications about subtask completion
+- Test for receiving email notifications about subtask completion (#134)
 
-## [1.0] - 2025-01-11
+#### Full Changelog: [v1.0.0...v1.1.0](https://github.com/DjangoCRM/django-crm/compare/v1.0.0...v1.1.0)
+
+## [1.0.0] - 2025-01-11
 
 ### Added
 
