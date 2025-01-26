@@ -13,7 +13,7 @@
 
 *(Collaborative and Analytical Customer Relationship Management Software)*
 
-**Django-CRM** is an open-source CRM solution designed with two primary goals:
+**Django-CRM** is an open-source CRM solution designed with **two primary goals**:
 
 - **For users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
 - **For developers**: Simplify the processes of development, customization, and production server support.
@@ -150,14 +150,15 @@ Django CRM has full support for translation of interface, formatting of dates, t
 
 ## Getting Started
 
-If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
-
 Django-CRM can be easily deployed as a regular Django project.
 
 📚 Please refer to:
 
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+
+If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM star history" align="center" style="float: center"/>
 
 ### Compatibility
 
