@@ -1,3 +1,8 @@
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features-spanish.md">Español</a>
+</p>
+
 # Detailed Overview of the Task features for Django-CRM Users
 
 The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** streamlines task management, enabling users to create, assign, track, and collaborate on tasks efficiently. It supports individual and collective tasks, integrates with project workflows, and ensures seamless communication between team members.
