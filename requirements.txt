@@ -24,5 +24,5 @@
     tendo==0.3.0
     tzdata==2025.1
     urllib3==2.3.0
-    XlsxWriter==3.2.0
+    XlsxWriter==3.2.1
     yarl==1.18.3
