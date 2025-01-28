@@ -1,6 +1,6 @@
 <p align="right">
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md">English</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md-spanish.md">Español</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features-spanish.md">Español</a>
 </p>
 
 # Comprehensive Overview of the CRM App in Django-CRM software suite
