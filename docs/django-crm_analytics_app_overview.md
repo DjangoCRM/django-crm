@@ -1,8 +1,15 @@
-### Overview of the Analytics App in Django CRM
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview-spanish.md">Español</a>
+</p>
+
+# Overview of the Analytics App in Django CRM
 
 The **Analytics app** in the open source eCRM [software](https://github.com/DjangoCRM/django-crm/) is a powerful tool designed to provide comprehensive insights into customer relationship management. This app is essential for company managers, sales managers to make data-driven decisions by offering various reports and visualizations.
 
-#### Key Features
+---
+
+## Key Features
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
 1. **Income Summary Report**
@@ -34,12 +41,16 @@ The **Analytics app** in the open source eCRM [software](https://github.com/Djan
 8. **Deal Summary**
    - Provides a comprehensive overview of all deals, including their status, value, and associated products or services.
 
-#### Access and Permissions
+---
+
+## Access and Permissions
 
 - By default, company managers, sales managers, and CRM administrators have access to the Analytics section.
 - Reports contain both tables and diagrams, making it easy to interpret the data.
 
-#### Integration and Customization
+---
+
+## Integration and Customization
 
 - The Analytics app integrates seamlessly with other components of the Django CRM, ensuring that all relevant data is captured and analyzed.
 - Users can customize the reports to focus on specific metrics or time periods, providing flexibility to meet their unique business needs.
