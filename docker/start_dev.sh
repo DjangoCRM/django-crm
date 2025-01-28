@@ -20,5 +20,8 @@ pip install -r requirements.txt
 # populate the database
 python manage.py setupdata
 
+# run test
+python manage.py test tests/ --noinput
+
 # run the server
 python manage.py runserver
