@@ -30,7 +30,7 @@ CRM también aprovecha al máximo el sitio de administración de Django, con doc
 | ☑️ **Análisis de Ventas**           | ☑️ **Integración de Chat Interno**                   | ☑️ **Diseño Adaptado a Móviles**         |
 | ☑️ **Informes Personalizables**     | ☑️ **Sincronización Automática de Emails**           | ☑️ **Soporte Multimoneda**               |
 
-Aprende más sobre [las capacidades del software](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+Aprende más sobre [las capacidades del software](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview-spanish.md).
 
 Django CRM es un software de gestión de relaciones con clientes de código abierto. Este CRM está escrito en <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="logo de python" width="25" height="25"> Python</a>.
 El frontend y el backend están completamente basados en el [sitio de administración de Django](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
@@ -57,9 +57,9 @@ La suite de software CRM consta de las siguientes **aplicaciones principales** y
 
 - **Aplicación de Gestión de TAREAS**:
   (disponible para todos los usuarios por defecto, independientemente de su rol)
-  - Tarea (con relacionados: archivos, chat, recordatorios, etiquetas - ver [características de tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md))
+  - Tarea (con relacionados: archivos, chat, recordatorios, etiquetas - ver [características de tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features-spanish.md))
     - subtareas
-  - Memo (memo de oficina) - ver [características de memo](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+  - Memo (memo de oficina) - ver [características de memo](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features-spanish.md)
     - tareas / proyecto
   - Proyecto (*colección de tareas*):
   - ... (+ *4 más <a href="https://github.com/DjangoCRM/django-crm/tree/main/tasks/models" target="_blank">modelos</a>*)
@@ -74,7 +74,7 @@ La suite de software CRM consta de las siguientes **aplicaciones principales** y
   - Pagos (recibidos, garantizados, alta y baja probabilidad)
   - ... (*+ 12 más <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">modelos</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Informe analítico de crm" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **Aplicación de ANALÍTICA**: (visión general detallada del software [aquí](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
+- **Aplicación de ANALÍTICA**: (visión general detallada del software [aquí](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview-spanish.md))
   - Informe de Resumen de Ingresos (*ver [captura de pantalla](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
   - Informe de embudo de ventas
   - Informe de Resumen de Fuente de Leads
@@ -129,7 +129,7 @@ El CRM puede integrarse con proveedores de servicios de correo electrónico (com
 
 Este CRM está diseñado para mejorar la colaboración dentro de los equipos y agilizar los procesos de gestión de proyectos.
 Como un CRM colaborativo, permite a los usuarios crear y gestionar memos, tareas y proyectos con facilidad.
-[Los memos de oficina](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md) pueden ser dirigidos a jefes de departamento o ejecutivos de la empresa, quienes luego pueden transformar estos memos en tareas o proyectos, asignando personas responsables o ejecutores.
+[Los memos de oficina](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features-spanish.md) pueden ser dirigidos a jefes de departamento o ejecutivos de la empresa, quienes luego pueden transformar estos memos en tareas o proyectos, asignando personas responsables o ejecutores.
 [Las tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) pueden ser individuales o colectivas.
 Las tareas proporcionan características como discusiones de chat, recordatorios, intercambio de archivos, creación de subtareas y compartir resultados.
 Los usuarios reciben notificaciones directamente en el CRM y por correo electrónico, asegurando que se mantengan informados.
