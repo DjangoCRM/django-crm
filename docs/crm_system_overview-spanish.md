@@ -94,7 +94,7 @@ Proporciona un conjunto completo de funciones para manejar diversos objetos empr
 - Rastrea pagos directamente desde oportunidades o la lista de pagos.
 - Integra datos de pagos en la analítica del CRM para reportes completos.
 
-[Leer más sobre las características de la aplicación CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md)
+[Leer más sobre las características de la aplicación CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features-spanish.md)
 
 ## La Aplicación de Tareas en el conjunto de software Django-CRM
 
@@ -110,7 +110,7 @@ Proporciona un conjunto completo de funciones para manejar diversos objetos empr
 - **Chat del Memorando**: Los participantes pueden intercambiar mensajes y archivos en el chat del memorando.
 - **Control Visual de Tareas**: Un botón "ver tarea" aparece junto a los memorandos que resultaron en tareas, con colores que indican el estado de la tarea.
 
-[Leer más sobre las características del memorando](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+[Leer más sobre las características del memorando](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features-spanish.md)
 
 ### Gestión de Tareas
 
@@ -128,7 +128,7 @@ Proporciona un conjunto completo de funciones para manejar diversos objetos empr
   - **Etiquetas**: Los usuarios pueden etiquetar tareas y filtrarlas por estas etiquetas.
   - **Orden de Tareas**: Las nuevas tareas se ordenan por defecto en la parte superior de la lista, pero pueden clasificarse según la fecha del próximo paso.
 
-  Más información detallada sobre las [características de las tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md).
+  Más información detallada sobre las [características de las tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features-spanish.md).
 
 ## Correo Electrónico y Campañas de Mailing
 
