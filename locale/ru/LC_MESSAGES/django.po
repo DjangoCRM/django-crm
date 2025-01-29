@@ -8,17 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 20:55+0200\n"
-"PO-Revision-Date: 2024-12-28 17:50+0200\n"
+"POT-Creation-Date: 2025-01-29 20:15+0200\n"
+"PO-Revision-Date: 2025-01-29 20:19+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: analytics/apps.py:10
@@ -261,8 +259,8 @@ msgstr "Все"
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:343
-#: voip/models.py:49
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
 msgid "Owner"
 msgstr "Владелец"
 
@@ -994,7 +992,8 @@ msgid "Completed"
 msgstr "Выполнено"
 
 #: common/utils/for_translation.py:24
-msgid "The name has been added for translation. Please update po and mo files."
+msgid ""
+"The name has been added for translation. Please update po and mo files."
 msgstr "Имя добавлено для перевода. Пожалуйста, обновите файлы po и mo."
 
 #: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
@@ -1029,8 +1028,7 @@ msgstr ""
 "\n"
 "Внимание! Данные для таких фильтров, как:\n"
 "этапы платежей, причины закрытия, теги и т. д.\n"
-"будут перенесены только в том случае, если в новом отделе есть данные с "
-"таким же названием.\n"
+"будут перенесены только в том случае, если в новом отделе есть данные с таким же названием.\n"
 "Кроме того, это не повлияет на Результат, Платеж и Продукт.\n"
 
 #: common/views/user_transfer.py:131
@@ -1144,161 +1142,6 @@ msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
 msgstr ""
 "К сожалению, недействительная reCAPTCHA. Пожалуйста, попробуйте еще раз или "
 "отправьте электронное письмо."
-
-#: crm/models/_to_translate.txt:2 crm/models/to_translate.txt:2
-#: massmail/models/to_translate.txt:2
-msgid "competitor"
-msgstr "конкурент"
-
-#: crm/models/_to_translate.txt:3 crm/models/to_translate.txt:3
-msgid "end customer"
-msgstr "конечный потребитель"
-
-#: crm/models/_to_translate.txt:4 crm/models/to_translate.txt:4
-msgid "reseller"
-msgstr "посредник"
-
-#: crm/models/_to_translate.txt:5 crm/models/to_translate.txt:5
-msgid "dealer"
-msgstr "дилер"
-
-#: crm/models/_to_translate.txt:6 crm/models/_to_translate.txt:37
-#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
-msgid "distributor"
-msgstr "дистрибьютор"
-
-#: crm/models/_to_translate.txt:7 crm/models/to_translate.txt:7
-msgid "educational institutions"
-msgstr "образовательные учреждения"
-
-#: crm/models/_to_translate.txt:8 crm/models/to_translate.txt:8
-msgid "service companies"
-msgstr "сервисные компании"
-
-#: crm/models/_to_translate.txt:9 crm/models/to_translate.txt:9
-msgid "welders"
-msgstr "сварщики"
-
-#: crm/models/_to_translate.txt:10 crm/models/to_translate.txt:10
-msgid "capital construction"
-msgstr "капитальное строительство"
-
-#: crm/models/_to_translate.txt:11 crm/models/to_translate.txt:11
-msgid "automotive industry"
-msgstr "автомобильная промышленность"
-
-#: crm/models/_to_translate.txt:12 crm/models/to_translate.txt:12
-msgid "shipbuilding"
-msgstr "судостроение"
-
-#: crm/models/_to_translate.txt:13 crm/models/to_translate.txt:13
-msgid "metallurgy"
-msgstr "металлургия"
-
-#: crm/models/_to_translate.txt:14 crm/models/to_translate.txt:14
-msgid "power generation"
-msgstr "энергогенерация"
-
-#: crm/models/_to_translate.txt:15 crm/models/to_translate.txt:15
-msgid "pipelines"
-msgstr "трубопроводы"
-
-#: crm/models/_to_translate.txt:16 crm/models/to_translate.txt:16
-msgid "pipe production"
-msgstr "производство труб"
-
-#: crm/models/_to_translate.txt:17 crm/models/to_translate.txt:17
-msgid "oil & gas"
-msgstr "нефтегаз"
-
-#: crm/models/_to_translate.txt:18 crm/models/to_translate.txt:18
-msgid "aviation"
-msgstr "авиация"
-
-#: crm/models/_to_translate.txt:19 crm/models/to_translate.txt:19
-msgid "railway"
-msgstr "железная дорога"
-
-#: crm/models/_to_translate.txt:20 crm/models/to_translate.txt:20
-msgid "mining"
-msgstr "горнодобывающая"
-
-#: crm/models/_to_translate.txt:21 crm/models/to_translate.txt:21
-msgid "request"
-msgstr "запрос"
-
-#: crm/models/_to_translate.txt:22 crm/models/to_translate.txt:22
-msgid "analysis of request"
-msgstr "анализ запроса"
-
-#: crm/models/_to_translate.txt:23 crm/models/to_translate.txt:23
-msgid "clarification of the requirements"
-msgstr "уточнение требований"
-
-#: crm/models/_to_translate.txt:24 crm/models/to_translate.txt:24
-msgid "price offer"
-msgstr "предложение цены"
-
-#: crm/models/_to_translate.txt:25 crm/models/to_translate.txt:25
-msgid "commercial proposal"
-msgstr "коммерческое предложение"
-
-#: crm/models/_to_translate.txt:26 crm/models/to_translate.txt:26
-msgid "technical and commercial offer"
-msgstr "технико-коммерческое предложение"
-
-#: crm/models/_to_translate.txt:27 crm/models/to_translate.txt:27
-msgid "agreement"
-msgstr "договор"
-
-#: crm/models/_to_translate.txt:28 crm/models/to_translate.txt:28
-msgid "invoice"
-msgstr "счет"
-
-#: crm/models/_to_translate.txt:29 crm/models/to_translate.txt:29
-msgid "receiving the first payment"
-msgstr "получение первого платежа"
-
-#: crm/models/_to_translate.txt:30 crm/models/to_translate.txt:30
-#: crm/site/shipmentadmin.py:39
-msgid "shipment"
-msgstr "отгрузка"
-
-#: crm/models/_to_translate.txt:31 crm/models/to_translate.txt:31
-msgid "closed (successful)"
-msgstr "закрыта (успешно)"
-
-#: crm/models/_to_translate.txt:32 crm/models/to_translate.txt:32
-msgid "The client is not responding"
-msgstr "Клиент не отвечает"
-
-#: crm/models/_to_translate.txt:33 crm/models/to_translate.txt:33
-msgid "Specifications are not suitable"
-msgstr "Технические характеристики не подходят"
-
-#: crm/models/_to_translate.txt:34 crm/models/to_translate.txt:34
-msgid "The deal was closed successfully"
-msgstr "Сделка успешно закрыта"
-
-#: crm/models/_to_translate.txt:35 crm/models/to_translate.txt:35
-msgid "Purchase postponed"
-msgstr "Покупка отложена"
-
-#: crm/models/_to_translate.txt:36 crm/models/to_translate.txt:36
-msgid "The price is not competitive"
-msgstr "Цена не конкурентоспособна"
-
-#: crm/models/_to_translate.txt:38 crm/models/to_translate.txt:38
-msgid "website form"
-msgstr "веб-форма"
-
-#: crm/models/_to_translate.txt:39 crm/models/to_translate.txt:39
-msgid "website email"
-msgstr "электронная почта веб-сайта"
-
-#: crm/models/_to_translate.txt:40 crm/models/to_translate.txt:40
-msgid "exhibition"
-msgstr "выставка"
 
 #: crm/models/base_contact.py:18 crm/models/request.py:29
 msgid "The name of the contact person (one word)."
@@ -1520,7 +1363,7 @@ msgid "Contact"
 msgstr "Контактное лицо"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:436
+#: crm/site/requestadmin.py:435
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1964,12 +1807,165 @@ msgstr "Ярлык"
 msgid "Tag name"
 msgstr "Название ярлыка"
 
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "конкурент"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "конечный потребитель"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "посредник"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "дилер"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "дистрибьютор"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "образовательные учреждения"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "сервисные компании"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "сварщики"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "капитальное строительство"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "автомобильная промышленность"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "судостроение"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "металлургия"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "энергогенерация"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "трубопроводы"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "производство труб"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "нефтегаз"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "авиация"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "железная дорога"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "горнодобывающая"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "запрос"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "анализ запроса"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "уточнение требований"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "предложение цены"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "коммерческое предложение"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "технико-коммерческое предложение"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "договор"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "счет"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "получение первого платежа"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "отгрузка"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "закрыта (успешно)"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "Клиент не отвечает"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "Технические характеристики не подходят"
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "Сделка успешно закрыта"
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "Покупка отложена"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "Цена не конкурентоспособна"
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "веб-форма"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "электронная почта веб-сайта"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "выставка"
+
 #: crm/settings.py:46
 msgid "Establish the first contact with the client."
 msgstr "Установить первый контакт с клиентом"
 
 #: crm/site/companyadmin.py:25
-msgid "Attention! You can only view companies associated with your department."
+msgid ""
+"Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
 #: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
@@ -2246,11 +2242,11 @@ msgstr "Статус"
 msgid "Subsequent request"
 msgstr "Последующий запрос"
 
-#: crm/site/requestadmin.py:390
+#: crm/site/requestadmin.py:389
 msgid "Found the counterparty assigned to"
 msgstr "Найден контрагент, назначенный"
 
-#: crm/site/requestadmin.py:489
+#: crm/site/requestadmin.py:488
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} «{obj}» был успешно добавлен."
@@ -2426,7 +2422,8 @@ msgstr "Предварительный просмотр печати"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
 msgid "Change"
 msgstr "Изменить"
 
@@ -2540,8 +2537,8 @@ msgstr "Пожалуйста, выберите, какие файлы прикр
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
-"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных "
-"лиц"
+"Пожалуйста, выберите нового владельца для выбранных компаний и их контактных"
+" лиц"
 
 #: crm/templates/crm/del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
@@ -2559,8 +2556,8 @@ msgstr "Выберите файл для импорта."
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't "
-"matter):"
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
 msgstr ""
 "Будут импортированы только следующие столбцы, если они существуют (порядок "
 "не имеет значения):"
@@ -2788,8 +2785,8 @@ msgstr "Доступно на странице CRM"
 
 #: help/models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
-"from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
 msgstr ""
 "Доступен на одной из страниц CRM. В противном случае к нему можно получить "
 "доступ только по ссылке с другой страницы справки."
@@ -2991,9 +2988,9 @@ msgstr "Поле from_email."
 
 #: massmail/models/email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted certificate chain file to use "
-"for the SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS - True, вы можете при желании указать "
 "путь к файлу цепочки сертификатов в формате PEM, который будет "
@@ -3001,9 +2998,9 @@ msgstr ""
 
 #: massmail/models/email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted private key file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
 msgstr ""
 "Если EMAIL_USE_SSL или EMAIL_USE_TLS имеет значение True, вы можете при "
 "желании указать путь к файлу закрытого ключа в формате PEM, который будет "
@@ -3024,17 +3021,13 @@ msgstr "Укажите хост imap"
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
-"cid_media ‘path/to/pic.png' %}.<br>\n"
-"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или "
-"прикрепленные к этому сообщению."
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’ или прикрепленные к этому сообщению."
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
@@ -3092,15 +3085,12 @@ msgstr "Отчет"
 #: massmail/models/signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
 "    "
 msgstr ""
 "\n"
-"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% "
-"cid_media ‘path/to/pic.png' %}.<br>\n"
+"Используйте HTML. Для указания адреса встраиваемой картинки используйте {% cid_media ‘path/to/pic.png' %}.<br>\n"
 "Встраивать можно файлы загруженные на сервер CRM в папку ‘media/pics/’."
 
 #: massmail/models/signature.py:17
@@ -3825,8 +3815,8 @@ msgstr "АОН"
 
 #: voip/models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you "
-"call"
+"Specify the number to be displayed as             your phone number when you"
+" call"
 msgstr ""
 "Укажите номер, который будет отображаться в качестве вашего номера телефона "
 "при звонке"
@@ -3872,23 +3862,48 @@ msgstr "Входящий звонок от"
 msgid "(duration: {duration} minutes)"
 msgstr "(продолжительность: {duration} минут)"
 
-#: webcrm/local_settings.py:65
-msgid "Ukrainian"
-msgstr "Украинский"
+#: webcrm/settings.py:63
+msgid "German"
+msgstr "немецкий"
 
-#: webcrm/local_settings.py:66
-msgid "Russian"
-msgstr "Русский"
-
-#: webcrm/local_settings.py:67 webcrm/settings.py:63
+#: webcrm/settings.py:64
 msgid "English"
 msgstr "Английский"
 
-#: webcrm/settings.py:249
+#: webcrm/settings.py:65
+#| msgid "Companies"
+msgid "Spanish"
+msgstr "испанский"
+
+#: webcrm/settings.py:66
+msgid "French"
+msgstr "французский"
+
+#: webcrm/settings.py:67
+msgid "Italian"
+msgstr "итальянский"
+
+#: webcrm/settings.py:68
+msgid "Dutch"
+msgstr "голландский"
+
+#: webcrm/settings.py:69
+msgid "Portuguese"
+msgstr "португальский"
+
+#: webcrm/settings.py:70
+msgid "Russian"
+msgstr "Русский"
+
+#: webcrm/settings.py:71
+msgid "Ukrainian"
+msgstr "Украинский"
+
+#: webcrm/settings.py:257
 msgid "Untitled"
 msgstr "Без названия"
 
-#: webcrm/settings.py:264
+#: webcrm/settings.py:272
 msgid "Main Menu"
 msgstr "Главное меню"
 
@@ -3983,8 +3998,7 @@ msgstr "Главное меню"
 #~ msgstr "Подзадача создана"
 
 #~ msgid "For imbedding images use tag {% cid_media 'name.jpg' %}"
-#~ msgstr ""
-#~ "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
+#~ msgstr "Для встраивания изображений используйте тег {% cid_media 'name.jpg'%}"
 
 #~ msgid "Primary requests over country"
 #~ msgstr "Первичные запросы по странам"
@@ -4080,11 +4094,11 @@ msgstr "Главное меню"
 #~ msgstr "приоритет"
 
 #~ msgid ""
-#~ "This is a sub-task. It cannot be collective, so specify only one "
-#~ "responsible person."
+#~ "This is a sub-task. It cannot be collective, so specify only one responsible"
+#~ " person."
 #~ msgstr ""
-#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только "
-#~ "одно ответственное лицо."
+#~ "Это подзадача. Она не может быть коллективной, поэтому укажите только одно "
+#~ "ответственное лицо."
 
 #~ msgid "Task start date"
 #~ msgstr "Дата начала задачи"
@@ -4303,8 +4317,8 @@ msgstr "Главное меню"
 
 #~ msgid "Error: Please specify a imap host in main Email account in CRM"
 #~ msgstr ""
-#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи "
-#~ "электронной почты в CRM"
+#~ "Ошибка: пожалуйста, укажите хост imap в основной учетной записи электронной "
+#~ "почты в CRM"
 
 #~ msgid "Found {num} Emails to import. Refresh this page."
 #~ msgstr "Найдено {num} Emails для импорта. Обновить эту страницу."
