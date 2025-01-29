@@ -97,7 +97,7 @@ Un memo contiene:
 
 ## Creación de Tareas/Proyectos desde Memos
 
-Después de que un memo ha sido revisado, la administración puede crear [tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) o proyectos basados en su contenido. La tarea/proyecto se vincula automáticamente al memo, y los usuarios reciben notificaciones.
+Después de que un memo ha sido revisado, la administración puede crear [tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features-spanish.md) o proyectos basados en su contenido. La tarea/proyecto se vincula automáticamente al memo, y los usuarios reciben notificaciones.
 
 Una vez que un memo ha sido revisado por el destinatario, no puede ser cambiado por el propietario.
 
