@@ -64,6 +64,7 @@ LANGUAGES = [
     ('en', _('English')),
     ('es', _('Spanish')),
     ('fr', _('French')),
+    ('hi', _('Hindi')),
     ('it', _('Italian')),
     ('nl', _('Dutch')),
     ('pt-br', _('Portuguese')),
