@@ -155,6 +155,19 @@ The Django-CRM system includes analytical features that provide various reports 
   A built-in sales funnel visually represents the conversion of commercial requests into closed deals.  
   This helps sales teams understand where they are losing potential clients and take actions to improve.
 
+## Deployment and Use
+
+- Easy to deploy as a regular Django project.
+- Comprehensive documentation available for installation, configuration, and user guidance.
+- Active community support and contributions are encouraged.
+
+### Technical Aspects:
+
+- **Localization:**  Supports multiple languages  
+  (currently: de, en, es, fr, hi, it, nl, pt-BR, ru, uk)
+- **Technology Stack:** Built on Django 5.1.x, Python 3.10+, MySQL 8.0.11+ or PostgreSQL 12+.
+- **License:** Released under the AGPL-3.0 open source license.
+
 ## Conclusion
 
 The Django-CRM system is a powerful and flexible solution for managing customer relationships.  
