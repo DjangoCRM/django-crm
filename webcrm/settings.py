@@ -60,6 +60,7 @@ FORMS_URLFIELD_ASSUME_HTTPS = True
 # Internationalization
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
+    ('ar', _('Arabic')),
     ('de', _('German')),
     ('en', _('English')),
     ('es', _('Spanish')),
