@@ -70,6 +70,7 @@ LANGUAGES = [
     ('nl', 'Dutch'),
     ('pt-br', 'Portuguese'),
     ('ru', 'Russian'),
+    ('tr', 'Turkish'),
     ('uk', 'Ukrainian'),
 ]
 

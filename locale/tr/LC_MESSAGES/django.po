@@ -1,0 +1,3909 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-07 16:36+0200\n"
+"PO-Revision-Date: 2025-02-07 15:42+0200\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: analytics/apps.py:10
+msgid "Analytics"
+msgstr "Analitik"
+
+#: analytics/models.py:15
+msgid "IncomeStat Snapshot"
+msgstr "IncomeStat Anlık Görüntüsü"
+
+#: analytics/models.py:16
+msgid "IncomeStat Snapshots"
+msgstr "IncomeStat Anlık Görüntüleri"
+
+#: analytics/models.py:28 analytics/models.py:29
+msgid "Sales Report"
+msgstr "Satış Raporu"
+
+#: analytics/models.py:36
+msgid "Request Summary"
+msgstr "İstek Özeti"
+
+#: analytics/models.py:37
+msgid "Requests Summary"
+msgstr "İstekler Özeti"
+
+#: analytics/models.py:44 analytics/models.py:45
+msgid "Lead source Summary"
+msgstr "Potansiyel müşteri kaynağı Özeti"
+
+#: analytics/models.py:52 analytics/models.py:53
+msgid "Closing reason Summary"
+msgstr "Kapama Nedeni Özeti"
+
+#: analytics/models.py:60 analytics/models.py:61
+msgid "Deal Summary"
+msgstr "İşlem Özeti"
+
+#: analytics/models.py:68 analytics/models.py:69
+#: analytics/site/incomestatadmin.py:48
+msgid "Income Summary"
+msgstr "Gelir Özeti"
+
+#: analytics/models.py:76 analytics/models.py:77
+msgid "Sales funnel"
+msgstr "Satış Borusu"
+
+#: analytics/models.py:84 analytics/models.py:85
+msgid "Conversion Summary"
+msgstr "Dönüşüm Özeti"
+
+#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: crm/models/payment.py:112
+msgid "Payment date"
+msgstr "Ödeme Tarihi"
+
+#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
+#: crm/models/request.py:82
+msgid "Products"
+msgstr "Ürünler"
+
+#: analytics/site/closingreasonstatadmin.py:63
+msgid "Closing reason over month"
+msgstr "Ay Başına Göre Kapatma Nedeni"
+
+#: analytics/site/conversionadmin.py:11
+msgid "Conversion of requests into successful deals (for the last 365 days)"
+msgstr "İstekleri başarılı anlaşmalara dönüştürme (son 365 gün)"
+
+#: analytics/site/conversionadmin.py:39
+msgid "Conversion of primary requests"
+msgstr "Başlangıç Talebinin Dönüşümü"
+
+#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+msgid "Conversion"
+msgstr "Dönüşüm"
+
+#: analytics/site/conversionadmin.py:43
+#: analytics/site/leadsourcestatadmin.py:21
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+msgid "Total requests"
+msgstr "Toplam İstekler"
+
+#: analytics/site/conversionadmin.py:44
+msgid "Total primary requests"
+msgstr "Toplam İlk İstekler"
+
+#: analytics/site/dealstatadmin.py:17
+msgid "Deal Summary for last 365 days"
+msgstr "Son 365 Gün İçindeki İşlem Özeti"
+
+#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+msgid "Total deals"
+msgstr "Toplam İşlemler"
+
+#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+msgid "Relevant deals"
+msgstr "İlgili İşlemler"
+
+#: analytics/site/dealstatadmin.py:46
+msgid "Closed successfully (primary)"
+msgstr "Başarıyla Kapatıldı (Ana)"
+
+#: analytics/site/dealstatadmin.py:47
+msgid "Average days to close successfully (primary)"
+msgstr "Başarılı kapanışa ortalama gün sayısı (birincil)"
+
+#: analytics/site/dealstatadmin.py:60
+msgid "Irrelevant deals"
+msgstr "İlgisiz İşlemler"
+
+#: analytics/site/dealstatadmin.py:78
+msgid "Won deals"
+msgstr "Kazanılan İşler"
+
+#: analytics/site/incomestatadmin.py:135
+msgid "The snapshot has been saved successfully."
+msgstr "Kapsam başarıyla kaydedildi."
+
+#: analytics/site/incomestatadmin.py:183
+msgid "Income monthly (total amount for the current period: {} {} ({}))"
+msgstr "Aylık Gelir (Mevcut dönem için toplam tutar: {} {} ({}))"
+
+#: analytics/site/incomestatadmin.py:188
+msgid "Income monthly in the previous period"
+msgstr "Geçmiş dönemdeki aylık gelir"
+
+#: analytics/site/incomestatadmin.py:193
+msgid "Payments received"
+msgstr "Alınan Ödemeler"
+
+#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
+msgid "Amount"
+msgstr "Miktar"
+
+#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+msgid "Order"
+msgstr "Sipariş"
+
+#: analytics/site/incomestatadmin.py:239
+msgid "Guaranteed income"
+msgstr "Garantili Gelir"
+
+#: analytics/site/incomestatadmin.py:246
+msgid "High probability income"
+msgstr "Yüksek Olasılıklı Gelir"
+
+#: analytics/site/incomestatadmin.py:253
+msgid "Low probability income"
+msgstr "Düşük Olasılıklı Gelir"
+
+#: analytics/site/incomestatadmin.py:295
+msgid "Income averaged over the year ({})."
+msgstr "Yıl boyunca ortalama gelir ({})."
+
+#: analytics/site/incomestatadmin.py:307
+msgid "Total won deals"
+msgstr "Kazanılan Toplam İşlemler"
+
+#: analytics/site/incomestatadmin.py:308
+msgid "Average won deals a month"
+msgstr "Aylık Kazanan Ortalama İşlemler"
+
+#: analytics/site/incomestatadmin.py:309
+msgid "Average income amount a month"
+msgstr "Aylık Ortalama Gelir Miktarı"
+
+#: analytics/site/incomestatadmin.py:451
+msgid "Total amount"
+msgstr "Toplam Tutar"
+
+#: analytics/site/leadsourcestatadmin.py:15
+#: analytics/site/requeststatadmin.py:18
+msgid "Request source statistics"
+msgstr "Talep Kaynak İstatistikleri"
+
+#: analytics/site/leadsourcestatadmin.py:16
+#: analytics/site/requeststatadmin.py:19
+msgid "Number of requests for each source"
+msgstr "Her kaynaktan gelen talep sayısı"
+
+#: analytics/site/leadsourcestatadmin.py:17
+#: analytics/site/requeststatadmin.py:20
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+msgid "Requests over country"
+msgstr "Ülke Bazlı İstekler"
+
+#: analytics/site/leadsourcestatadmin.py:18
+#: analytics/site/requeststatadmin.py:21
+msgid "for all period"
+msgstr "hepsi için"
+
+#: analytics/site/leadsourcestatadmin.py:19
+#: analytics/site/requeststatadmin.py:22
+msgid "for last 365 days"
+msgstr "son 365 gün için"
+
+#: analytics/site/leadsourcestatadmin.py:20
+#: analytics/site/requeststatadmin.py:23
+msgid "conversion"
+msgstr "dönüştürme"
+
+#: analytics/site/leadsourcestatadmin.py:22
+#: analytics/site/requeststatadmin.py:25
+msgid "Not specified"
+msgstr "Belirtilmedi."
+
+#: analytics/site/leadsourcestatadmin.py:116
+msgid "Relevant requests over month"
+msgstr "Ayda İlgili İstekler"
+
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
+#: crm/site/shipmentadmin.py:36
+msgid "pcs"
+msgstr "parçalar"
+
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
+#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
+#: crm/utils/admfilters.py:113
+msgid "Country"
+msgstr "Ülke"
+
+#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
+#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
+#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
+#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
+#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
+#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
+#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+msgid "All"
+msgstr "Tümünüz"
+
+#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
+#: common/models.py:185
+#: common/templates/common/notice_participants_email.html:15
+#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:343
+#: voip/models.py:49
+msgid "Owner"
+msgstr "Sahip"
+
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: crm/models/product.py:31 crm/utils/admfilters.py:266
+msgid "Product"
+msgstr "Ürün"
+
+#: analytics/site/outputstatadmin.py:199
+msgid "Sold products summary (by date of payment receipt)"
+msgstr "Satılan Ürünler Özetleri (Ödeme Alınma Tarihi Bazında)"
+
+#: analytics/site/outputstatadmin.py:287
+msgid "Sold products"
+msgstr "Satılan Ürünler"
+
+#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+msgid "Price"
+msgstr "Fiyat"
+
+#: analytics/site/requeststatadmin.py:57
+msgid "Request Summary for last 365 days"
+msgstr "Son 365 Günlük İstek Özetleri"
+
+#: analytics/site/requeststatadmin.py:91
+msgid "Conversion of primary requests into successful deals"
+msgstr "İlk isteklerin başarılı anlaşmalara dönüştürülmesi"
+
+#: analytics/site/requeststatadmin.py:95
+msgid "Primary requests"
+msgstr "Ana İstekler"
+
+#: analytics/site/requeststatadmin.py:97
+msgid "Subsequent requests"
+msgstr "Sonraki İstekler"
+
+#: analytics/site/requeststatadmin.py:98
+msgid "Conversion of subsequent requests"
+msgstr "Sonraki taleplerin dönüştürülmesi"
+
+#: analytics/site/requeststatadmin.py:101
+msgid "average monthly value"
+msgstr "ortalama aylık değer"
+
+#: analytics/site/requeststatadmin.py:102
+msgid "Requests by month"
+msgstr "Aylık İstekler"
+
+#: analytics/site/requeststatadmin.py:116
+msgid "Relevant requests"
+msgstr "İlgili Talepler"
+
+#: analytics/site/salesfunnelsadmin.py:42
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+msgid "Total closed deals"
+msgstr "Toplam Kapalı İşlemler"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+msgid "Statistics on the Closing reason of deals for all the time"
+msgstr "Tüm zaman diliminde anlaşmaların kapanış nedeni istatistikleri"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+msgid "total requests"
+msgstr "toplam istekler"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
+#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+msgid "Switch currency"
+msgstr "Para Birimini Değiştir"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+msgid "Save snapshot"
+msgstr "Kapsamı kaydet"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+msgid "Sales funnel for last 365 days"
+msgstr "Son 365 Günlük Satış Boru Hattı"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+msgid "The number of closed deals in stages"
+msgstr "Evrelere göre tamamlanmış anlaşmaların sayısı"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+msgid "Chart"
+msgstr "Grafik"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+msgid "The percentages show the number of \"lost\" deals at each stage."
+msgstr ""
+"Yüzdelikler, her aşamada \"kaybedilen\" anlaşmaların sayısını gösterir."
+
+#: analytics/templates/analytics/bar_chart.html:58
+#: analytics/templates/analytics/bar_chart_.html:51
+msgid "Charts"
+msgstr "Grafikler"
+
+#: analytics/templates/analytics/notice.html:2
+msgid ""
+"Note! The calculations use data for the whole year. But the charts begin on "
+"the first of the next month."
+msgstr ""
+"Dikkat! Hesaplamalar yıl boyunca verileri kullanır. Ancak grafikler bir "
+"sonraki ayın ilk gününde başlar."
+
+#: analytics/templates/analytics/view_snapshots.html:8
+msgid "Data"
+msgstr "Veri"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Snapshots"
+msgstr "Anlatımlar"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Now"
+msgstr "Şimdi"
+
+#: chat/apps.py:8 chat/templates/chat_buttons.html:9
+#: chat/templates/chat_buttons.html:13
+msgid "Chat"
+msgstr "Sohbet"
+
+#: chat/forms/chatmessageform.py:29
+msgid "Please write a message"
+msgstr "Lütfen bir mesaj yazın."
+
+#: chat/forms/chatmessageform.py:35
+msgid "Please select at least one recipient"
+msgstr "Lütfen en az bir alıcı seçin."
+
+#: chat/models.py:15
+msgid "message"
+msgstr "mesaj"
+
+#: chat/models.py:16
+msgid "messages"
+msgstr "mesajlar"
+
+#: chat/models.py:24 chat/templates/chat_buttons.html:3
+#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
+#: massmail/site/emlmessageadmin.py:121
+msgid "Message"
+msgstr "Mesaj"
+
+#: chat/models.py:34
+msgid "answer to"
+msgstr "cevap için"
+
+#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+msgid "recipients"
+msgstr "alıcılar"
+
+#: chat/models.py:47
+msgid "to"
+msgstr "kime"
+
+#: chat/models.py:52 common/models.py:24 common/models.py:179
+#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+msgid "Creation date"
+msgstr "Oluşturma Tarihi"
+
+#: chat/site/chatmessageadmin.py:53
+msgid "task operator"
+msgstr "görev operatörü"
+
+#: chat/site/chatmessageadmin.py:54
+msgid "You received a message regarding - "
+msgstr "Siz, ilgili olarak bir mesaj aldınız -"
+
+#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: tasks/site/tasksbasemodeladmin.py:223
+msgid "Additional information"
+msgstr "Ek Bilgiler"
+
+#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+msgid "Recipients"
+msgstr "Alıcılar"
+
+#: chat/site/chatmessageadmin.py:283
+#: chat/templates/chat/chatmessage_email.html:12
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
+#: crm/templates/admin/crm/inline_emails.html:36
+msgid "reply"
+msgstr "Cevapla"
+
+#: chat/site/chatmessageadmin.py:293
+msgid "Reply to"
+msgstr "Cevapla"
+
+#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
+#: common/templates/common/copy_department.html:17
+#: common/templates/common/select_email_account.html:15
+#: common/templates/common/user_transfer.html:17
+#: crm/templates/admin/crm/change_form.html:21
+#: crm/templates/admin/crm/company/change_list_object_tools.html:8
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/change_form.html:21
+#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
+#: crm/templates/admin/crm/request/change_list_object_tools.html:8
+#: crm/templates/crm/addfiles.html:15
+#: crm/templates/crm/change_owner_companies.html:15
+#: crm/templates/crm/import_objects.html:15
+#: crm/templates/crm/select_original_obj.html:27
+#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
+#: templates/admin/auth/group/change_list_object_tools.html:8
+#: templates/admin/auth/user/change_list_object_tools.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "%(isim)s ekle"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:12
+#: crm/templates/crm/contact_form.html:44
+#: templates/admin/crm_date_filter.html:34
+msgid "Send"
+msgstr "Gönder"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:7
+#: common/templates/admin/common/reminder/submit_line.html:8
+#: common/templates/admin/common/userprofile/submit_line.html:8
+#: crm/templates/admin/crm/city/submit_line.html:10
+#: crm/templates/admin/crm/company/submit_line.html:10
+#: crm/templates/admin/crm/contact/submit_line.html:9
+#: crm/templates/admin/crm/crmemail/submit_line.html:19
+#: crm/templates/admin/crm/deal/submit_line.html:9
+#: crm/templates/admin/crm/lead/submit_line.html:13
+#: crm/templates/admin/crm/payment/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/shipment/submit_line.html:9
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
+#: tasks/templates/admin/tasks/memo/submit_line.html:12
+#: tasks/templates/admin/tasks/project/submit_line.html:9
+#: tasks/templates/admin/tasks/task/submit_line.html:17
+msgid "Close"
+msgstr "Kapat"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:11
+#: common/templates/admin/common/reminder/submit_line.html:12
+#: common/templates/admin/common/userprofile/submit_line.html:12
+#: common/templates/common/select_emails.html:31
+#: common/templates/common/select_emails.html:73
+#: crm/templates/admin/crm/city/submit_line.html:14
+#: crm/templates/admin/crm/company/submit_line.html:14
+#: crm/templates/admin/crm/contact/submit_line.html:13
+#: crm/templates/admin/crm/crmemail/submit_line.html:23
+#: crm/templates/admin/crm/deal/submit_line.html:13
+#: crm/templates/admin/crm/lead/submit_line.html:17
+#: crm/templates/admin/crm/payment/submit_line.html:13
+#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/shipment/submit_line.html:13
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
+#: tasks/templates/admin/tasks/memo/submit_line.html:16
+#: tasks/templates/admin/tasks/project/submit_line.html:13
+#: tasks/templates/admin/tasks/task/submit_line.html:21
+msgid "Delete"
+msgstr "Sil"
+
+#: chat/templates/chat/chatmessage_email.html:5
+#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
+#: crm/templates/admin/crm/inline_emails.html:45
+msgid "From"
+msgstr "Itibaren"
+
+#: chat/templates/chat/chatmessage_email.html:7
+#: common/templates/common/notice_participants_email.html:6
+msgid "View in CRM"
+msgstr "CRM'de Görüntüle"
+
+#: chat/templates/chat_buttons.html:3
+msgid "Add chat message"
+msgstr "Sohbet mesajı ekle"
+
+#: chat/templates/chat_buttons.html:8
+msgid "There are unread messages"
+msgstr "Okunmamış mesajlar var."
+
+#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+msgid "View chat messages"
+msgstr "Sohbet Mesajlarını Görüntüle"
+
+#: common/admin.py:85
+msgid ""
+"You can specify the name of an existing file on the server along with the "
+"path instead of uploading it."
+msgstr ""
+"Sunucuda mevcut olan bir dosyanın adını ve yolunu yüklemek yerine "
+"belirtilebilir."
+
+#: common/admin.py:195
+msgid "staff"
+msgstr "personel"
+
+#: common/admin.py:201
+msgid "superuser"
+msgstr "süper kullanıcı"
+
+#: common/apps.py:9
+msgid "Common"
+msgstr "Genel"
+
+#: common/models.py:28 crm/models/payment.py:49
+msgid "Update date"
+msgstr "Güncelleme Tarihi"
+
+#: common/models.py:38
+msgid "Modified By"
+msgstr "Değiştiren"
+
+#: common/models.py:56
+msgid "was added successfully."
+msgstr "başarıyla eklendi."
+
+#: common/models.py:57
+msgid "Re-adding blocked."
+msgstr "Engellenen yeniden eklendi."
+
+#: common/models.py:75 common/models.py:118
+#: common/templates/common/copy_department.html:30
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: tasks/site/memoadmin.py:41
+msgid "Department"
+msgstr "Bölüm"
+
+#: common/models.py:88 common/models.py:89 common/models.py:94
+msgid "Department and Owner do not match"
+msgstr "Departman ve Sahip uyuşmuyor."
+
+#: common/models.py:119
+msgid "Departments"
+msgstr "Bölümleri"
+
+#: common/models.py:126
+msgid "Default country"
+msgstr "Varsayılan Ülke"
+
+#: common/models.py:133
+msgid "Default currency"
+msgstr "Varsayılan Para Birimi"
+
+#: common/models.py:137
+msgid "Works globally"
+msgstr "Küresel olarak çalışır"
+
+#: common/models.py:138
+msgid "The department operates in foreign markets."
+msgstr "Departman, yabancı pazarlarda faaliyet gösterir."
+
+#: common/models.py:144
+msgid "Reminder"
+msgstr "Hatırlatıcı"
+
+#: common/models.py:145
+msgid "Reminders"
+msgstr "Hatırlatıcılar"
+
+#: common/models.py:159 crm/forms/contact_form.py:20
+#: massmail/models/baseeml.py:16
+msgid "Subject"
+msgstr "Konu"
+
+#: common/models.py:160
+msgid "Briefly what about is this reminder"
+msgstr "Bu hatırlatıcının kısa özeti nedir?"
+
+#: common/models.py:164
+#: common/templates/common/notice_participants_email.html:14
+#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
+#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+msgid "Description"
+msgstr "Açıklama"
+
+#: common/models.py:167
+msgid "Reminder date"
+msgstr "Hatırlatma Tarihi"
+
+#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
+#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
+#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
+#: tasks/utils/admfilters.py:209 voip/models.py:25
+msgid "Active"
+msgstr "Aktif"
+
+#: common/models.py:175
+msgid "Send notification email"
+msgstr "Bildirim e-postası gönder"
+
+#: common/models.py:195
+msgid "File"
+msgstr "Dosya"
+
+#: common/models.py:196
+msgid "Files"
+msgstr "Dosyalar"
+
+#: common/models.py:200
+msgid "Attached file"
+msgstr "Ekleme dosyası"
+
+#: common/models.py:206
+msgid "Attach to the deal"
+msgstr "Anlaşmaya ekle"
+
+#: common/models.py:228
+#: common/templates/common/notice_participants_email.html:12
+#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
+#: tasks/models/task.py:35
+msgid "Stage"
+msgstr "Evre"
+
+#: common/models.py:229
+msgid "Stages"
+msgstr "Eşik Noktaları"
+
+#: common/models.py:233 tasks/models/stagebase.py:14
+msgid "Default"
+msgstr "Varsayılan"
+
+#: common/models.py:234 tasks/models/stagebase.py:15
+msgid "Will be selected by default when creating a new task"
+msgstr "Yeni bir görev oluştururken varsayılan olarak seçilecek."
+
+#: common/models.py:239 tasks/models/stagebase.py:32
+msgid ""
+"The sequence number of the stage.         The indices of other instances "
+"will be sorted automatically."
+msgstr ""
+"Evre sırası. Diğer örneklerin indeksleri otomatik olarak sıralanacaktır."
+
+#: common/models.py:250
+msgid "User profile"
+msgstr "Kullanıcı Profili"
+
+#: common/models.py:251
+msgid "User profiles"
+msgstr "Kullanıcı Profilleri"
+
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "Telefon"
+
+#: common/models.py:308
+msgid "UTC time zone"
+msgstr "UTC Zaman Dilimi"
+
+#: common/models.py:312
+msgid "Activate this time zone"
+msgstr "Bu zaman dilimini etkinleştir"
+
+#: common/models.py:316
+msgid "Field for temporary storage of messages to the user"
+msgstr "Kullanıcıya gönderilen mesajların geçici depolanması için alan"
+
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
+#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+msgid "Tags"
+msgstr "Etiketler"
+
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
+#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+msgid "Add tags"
+msgstr "Etiketler ekle"
+
+#: common/site/basemodeladmin.py:22
+msgid "Export selected objects"
+msgstr "Seçili nesneleri dışa aktarın"
+
+#: common/site/basemodeladmin.py:23
+msgid "Next step deadline"
+msgstr "Son Adım Son Teslim Tarihi"
+
+#: common/site/basemodeladmin.py:87
+msgid "Filters may affect search results."
+msgstr "Filtreler arama sonuçlarını etkileyebilir."
+
+#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+msgid "Act"
+msgstr "Eylem"
+
+#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
+#: tasks/models/taskbase.py:73
+msgid "Workflow"
+msgstr "İş Akışı"
+
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+msgid "Language"
+msgstr "Dil"
+
+#: common/templates/admin/common/reminder/submit_line.html:4
+#: common/templates/admin/common/userprofile/submit_line.html:4
+#: crm/templates/admin/crm/city/submit_line.html:4
+#: crm/templates/admin/crm/company/submit_line.html:4
+#: crm/templates/admin/crm/contact/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:14
+#: crm/templates/admin/crm/deal/submit_line.html:4
+#: crm/templates/admin/crm/lead/submit_line.html:4
+#: crm/templates/admin/crm/payment/submit_line.html:4
+#: crm/templates/admin/crm/request/submit_line.html:4
+#: crm/templates/admin/crm/shipment/submit_line.html:4
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
+#: tasks/templates/admin/tasks/memo/submit_line.html:8
+#: tasks/templates/admin/tasks/project/submit_line.html:4
+#: tasks/templates/admin/tasks/task/submit_line.html:13
+msgid "Save"
+msgstr "Kaydet"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and continue editing"
+msgstr "Kaydet ve düzenlemeyi devam ettir"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and view"
+msgstr "Kaydet ve Görüntüle"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
+#: crm/templates/admin/crm/company/change_form_object_tools.html:38
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
+#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+msgid "History"
+msgstr "Tarih"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
+#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
+#: help/templates/admin/help/stacked.html:18
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+msgid "View on site"
+msgstr "Sitede Görüntüle"
+
+#: common/templates/common/copy_department.html:13
+#: common/templates/common/select_email_account.html:12
+#: common/templates/common/select_emails.html:13
+#: common/templates/common/user_transfer.html:13
+#: crm/templates/admin/crm/change_form.html:18
+#: crm/templates/admin/crm/crmemail/change_form.html:18
+#: crm/templates/admin/crm/payment/change_list.html:31
+#: crm/templates/crm/addfiles.html:12
+#: crm/templates/crm/change_owner_companies.html:12
+#: crm/templates/crm/import_objects.html:12
+#: crm/templates/crm/make_massmail.html:15
+#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+msgid "Home"
+msgstr "Ana Sayfa"
+
+#: common/templates/common/copy_department.html:23
+msgid "Please select the department to copy."
+msgstr "Lütfen kopyalamak için bölümü seçin."
+
+#: common/templates/common/copy_department.html:40
+#: common/templates/common/user_transfer.html:51
+#: crm/templates/crm/change_owner_companies.html:36
+#: crm/templates/crm/import_objects.html:31
+#: crm/templates/crm/select_original_obj.html:48
+#: massmail/templates/massmail/pic_upload.html:32
+#: voip/templates/voip/connection.html:23
+msgid "Submit"
+msgstr "Gönder"
+
+#: common/templates/common/email_notification_base.html:14
+#: tasks/models/taskbase.py:40
+msgid "Note"
+msgstr "Not"
+
+#: common/templates/common/email_notification_base.html:24
+#: crm/templates/crm/email.html:29
+msgid "Attachments"
+msgstr "Eklemeler"
+
+#: common/templates/common/email_notification_base.html:28
+#: common/templates/common/widgets/clearable_file_input.html:7
+msgid "Download"
+msgstr "İndir"
+
+#: common/templates/common/email_notification_base.html:30
+#: crm/templates/admin/crm/inline_emails.html:63
+msgid "Error: the file is missing."
+msgstr "Hata: Dosya bulunamadı."
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+msgid "Due date"
+msgstr "Son Teslim Tarihi"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:26
+msgid "Priority"
+msgstr "Öncelik"
+
+#: common/templates/common/notice_participants_email.html:15
+#: crm/models/deal.py:183 crm/models/request.py:139
+#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+msgid "Co-owner"
+msgstr "Ortak Sahip"
+
+#: common/templates/common/notice_participants_email.html:16
+#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
+#: tasks/utils/admfilters.py:89
+msgid "Responsible"
+msgstr "Sorumlular"
+
+#: common/templates/common/reminder_button.html:4
+msgid "There are reminders"
+msgstr "Hatırlatıcılar var."
+
+#: common/templates/common/reminder_button.html:10
+msgid "Create a reminder"
+msgstr "Bir hatırlatıcı oluştur"
+
+#: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:18
+msgid "Regarding"
+msgstr "İlgili"
+
+#: common/templates/common/select_email_account.html:20
+msgid "Please select an Email account"
+msgstr "Lütfen bir e-posta hesabı seçin."
+
+#: common/templates/common/select_email_account.html:38
+msgid "Select"
+msgstr "Seçin"
+
+#: common/templates/common/select_emails.html:30
+#: common/templates/common/select_emails.html:72
+#: crm/templates/admin/crm/company/change_list_object_tools.html:20
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
+#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+msgid "Import"
+msgstr "İçe Aktar"
+
+#: common/templates/common/select_emails.html:32
+#: common/templates/common/select_emails.html:74
+msgid "Spam"
+msgstr "Spam"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as read"
+msgstr "Okunmuş olarak işaretle"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as"
+msgstr "Etiketle"
+
+#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+msgid "To"
+msgstr "Kimle"
+
+#: common/templates/common/select_emails.html:56
+msgid "This email is already imported."
+msgstr "Bu e-posta zaten içe aktarıldı."
+
+#: common/templates/common/user_transfer.html:23
+msgid "Please select a user and a new department for him."
+msgstr "Lütfen bir kullanıcı seçin ve ona yeni bir departman atayın."
+
+#: common/templates/common/user_transfer.html:31
+msgid "User"
+msgstr "Kullanıcı"
+
+#: common/templatetags/util.py:114
+msgid "Task completed"
+msgstr "Görev tamamlandı"
+
+#: common/templatetags/util.py:115
+msgid "I completed the task"
+msgstr "Görevi tamamladım."
+
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Completed"
+msgstr "Tamamlandı"
+
+#: common/utils/for_translation.py:24
+msgid "The name has been added for translation. Please update po and mo files."
+msgstr "Ad çeviri için eklendi. Lütfen po ve mo dosyalarını güncelleyin."
+
+#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:36
+msgid "Copy"
+msgstr "Kopyala"
+
+#: common/utils/helpers.py:31
+msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
+msgstr "ID '{' ile olan {} bulunamadı. Belki de silindi?"
+
+#: common/views/copy_department.py:48
+msgid "A new department has been created - {}. Please rename it."
+msgstr "Yeni bir bölüm oluşturuldu: {}. Lütfen adını değiştirin."
+
+#: common/views/select_emails_import.py:118
+msgid ""
+"You do not have mail accounts marked for importing emails.Please contact "
+"your administrator."
+msgstr ""
+"E-posta hesaplarınızı e-postaları içe aktarmak için işaretlemediniz. Lütfen "
+"yöneticinizle iletişime geçin."
+
+#: common/views/user_transfer.py:28
+msgid ""
+"\n"
+"Attention! Data for filters such as: \n"
+"transaction stages, reasons for closing, tags, etc. \n"
+"will be transferred only if the new department has data with the same name.\n"
+"Also Output, Payment and Product will not be affected.\n"
+msgstr ""
+"\n"
+"Dikkat! İşlem aşamaları, kapatma nedenleri, etiket vb. filtreler için "
+"veriler, yeni departmanda aynı isimde veriler varsa sadece bu veriler "
+"aktarılacaktır. Ayrıca Ödeme ve Ürün sonuçları etkilemeyecektir."
+
+#: common/views/user_transfer.py:131
+msgid "User transferred successfully"
+msgstr "Kullanıcı başarıyla aktarıldı"
+
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+msgid "Contact details"
+msgstr "İletişim Bilgileri"
+
+#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/models/product.py:15 crm/models/product.py:37
+#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
+#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: tasks/models/taskbase.py:32
+msgid "Name"
+msgstr "Ad"
+
+#: crm/admin.py:155 crm/site/dealadmin.py:247
+msgid "Contact info"
+msgstr "İletişim Bilgileri"
+
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
+#: crm/site/requestadmin.py:88
+msgid "Relations"
+msgstr "İlişkiler"
+
+#: crm/forms/admin_forms.py:22
+msgid "A country must be specified."
+msgstr "Bir ülke belirtilmelidir."
+
+#: crm/forms/admin_forms.py:23
+msgid "Marketing currency already exists."
+msgstr "Pazarlama para birimi zaten mevcut."
+
+#: crm/forms/admin_forms.py:24
+msgid "State currency already exists."
+msgstr "Devlet para birimi zaten mevcut."
+
+#: crm/forms/admin_forms.py:25
+msgid "Enter a valid alphabetic code."
+msgstr "Geçerli bir alfabetik kod girin."
+
+#: crm/forms/admin_forms.py:26
+msgid "The currency cannot be both state and marketing."
+msgstr "Para birimi hem devlet hem de pazarlama olarak aynı zaman olamaz."
+
+#: crm/forms/admin_forms.py:70
+msgid "Not allowed address"
+msgstr "Yasak Adres"
+
+#: crm/forms/admin_forms.py:90
+msgid "City does not match the country"
+msgstr "Şehir ülke ile eşleşmiyor."
+
+#: crm/forms/admin_forms.py:138
+msgid "Such an object already exists"
+msgstr "Bu tür bir nesne zaten var."
+
+#: crm/forms/admin_forms.py:164
+msgid "Please fill in the field."
+msgstr "Lütfen alanı doldurun."
+
+#: crm/forms/admin_forms.py:172
+msgid "To convert, please fill in the fields below."
+msgstr "Dönüştürmek için aşağıdaki alanları doldurunuz."
+
+#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+msgid "Specify the deal amount"
+msgstr "Anlaşmanın tutarını belirtin"
+
+#: crm/forms/admin_forms.py:236
+msgid "Contact does not match the company"
+msgstr "İletişim, şirkete uymuyor."
+
+#: crm/forms/admin_forms.py:241
+msgid "Select only Contact or only Lead"
+msgstr "Sadece İletişimi veya sadece Potansiyel Müşteriyi seçin."
+
+#: crm/forms/admin_forms.py:246
+msgid "Select only Company or only Lead"
+msgstr "Sadece Şirket veya sadece Potansiyel Müşteri seçin."
+
+#: crm/forms/admin_forms.py:325
+msgid "First select a department."
+msgstr "İlk olarak bir departman seçin."
+
+#: crm/forms/admin_forms.py:331
+msgid "That tag already exists."
+msgstr "Bu etiket zaten var."
+
+#: crm/forms/contact_form.py:13
+msgid "Your name"
+msgstr "Adınız"
+
+#: crm/forms/contact_form.py:17
+msgid "Your E-mail"
+msgstr "E-posta Adresiniz"
+
+#: crm/forms/contact_form.py:24
+msgid "Phone number(with country code)"
+msgstr "Telefon Numarası (Ülke Kodu ile)"
+
+#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
+#: crm/models/request.py:55
+msgid "Company name"
+msgstr "Şirket Adı"
+
+#: crm/forms/contact_form.py:72
+msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
+msgstr ""
+"Üzgünüm, geçersiz reCAPTCHA. Lütfen tekrar deneyin veya bir e-posta gönderin."
+
+#: crm/models/base_contact.py:18 crm/models/request.py:29
+msgid "The name of the contact person (one word)."
+msgstr "İletişim Kişisi Adı (bir kelime)"
+
+#: crm/models/base_contact.py:19 crm/models/request.py:28
+msgid "First name"
+msgstr "Ad Soyad"
+
+#: crm/models/base_contact.py:23 crm/models/request.py:33
+msgid "Middle name"
+msgstr "Orta Ad"
+
+#: crm/models/base_contact.py:24 crm/models/request.py:34
+msgid "The middle name of the contact person."
+msgstr "İlişkili kişinin orta adı."
+
+#: crm/models/base_contact.py:28 crm/models/request.py:39
+msgid "The last name of the contact person (one word)."
+msgstr "İletişime geçen kişinin soyadı (bir kelime)."
+
+#: crm/models/base_contact.py:29 crm/models/request.py:38
+msgid "Last name"
+msgstr "Soyad"
+
+#: crm/models/base_contact.py:33
+msgid "The title (position) of the contact person."
+msgstr "İlgili kişinin unvanı (pozisyonu)."
+
+#: crm/models/base_contact.py:34
+msgid "Title / Position"
+msgstr "Başlık / Pozisyon"
+
+#: crm/models/base_contact.py:44
+msgid "Sex"
+msgstr "Cinsiyet"
+
+#: crm/models/base_contact.py:48
+msgid "Date of Birth"
+msgstr "Doğum Tarihi"
+
+#: crm/models/base_contact.py:52
+msgid "Secondary email"
+msgstr "Yardımcı E-posta"
+
+#: crm/models/base_contact.py:62
+msgid "Mobile phone"
+msgstr "Mobil Telefon"
+
+#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
+#: crm/models/request.py:99 crm/utils/admfilters.py:33
+msgid "City"
+msgstr "Şehir"
+
+#: crm/models/base_contact.py:74
+msgid "Company city"
+msgstr "Şirket Şehri"
+
+#: crm/models/base_contact.py:75 crm/models/request.py:93
+msgid "Object of City in database"
+msgstr "Veritabanındaki Şehir Nesnesi"
+
+#: crm/models/base_contact.py:113
+msgid "Address"
+msgstr "Adres"
+
+#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/utils/admfilters.py:512
+msgid "Disqualified"
+msgstr "Yeteneksiz Bırakıldı"
+
+#: crm/models/base_contact.py:129
+msgid "Use comma to separate Emails."
+msgstr "E-posta adreslerini virgülle ayırın."
+
+#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/request.py:51
+msgid "Lead Source"
+msgstr "Öneri Kaynağı"
+
+#: crm/models/base_contact.py:140
+msgid "Mass mailing"
+msgstr "Kitle Postalaması"
+
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+msgid "Mailing list recipient."
+msgstr "Posta listesi alıcısı."
+
+#: crm/models/base_contact.py:156
+msgid "Last contact date"
+msgstr "Son İletişim Tarihi"
+
+#: crm/models/base_contact.py:163
+msgid "Assigned to"
+msgstr "Atandı"
+
+#: crm/models/company.py:13 crm/models/crmemail.py:59
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
+#: crm/templates/crm/print_request.html:49
+msgid "Company"
+msgstr "Şirket"
+
+#: crm/models/company.py:14
+msgid "Companies"
+msgstr "Şirketler"
+
+#: crm/models/company.py:27 crm/models/country.py:21
+msgid "Alternative names"
+msgstr "Alternatif Adlar"
+
+#: crm/models/company.py:28 crm/models/country.py:22
+msgid "Separate them with commas."
+msgstr "Onları virgülle ayırın."
+
+#: crm/models/company.py:34
+msgid "Website"
+msgstr "Web Sitesi"
+
+#: crm/models/company.py:51
+msgid "City name"
+msgstr "Şehir Adı"
+
+#: crm/models/company.py:64
+msgid "Registration number"
+msgstr "Kayıt Numarası"
+
+#: crm/models/company.py:65
+msgid "Registration number of Company"
+msgstr "Şirket Kayıt Numarası"
+
+#: crm/models/company.py:72 crm/models/deal.py:109
+msgid "country"
+msgstr "ülke"
+
+#: crm/models/company.py:73
+msgid "Company Country"
+msgstr "Şirket Ülkesi"
+
+#: crm/models/company.py:80 crm/models/lead.py:44
+msgid "Type of company"
+msgstr "Şirket Türü"
+
+#: crm/models/company.py:85 crm/models/lead.py:49
+msgid "Industry of company"
+msgstr "Şirket Sektörü"
+
+#: crm/models/contact.py:12
+msgid "Contact person"
+msgstr "İletişim Kişisi"
+
+#: crm/models/contact.py:13
+msgid "Contact persons"
+msgstr "İletişim Kişileri"
+
+#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
+#: crm/models/request.py:73
+msgid "Company of contact"
+msgstr "İletişim Kişisinin Şirketi"
+
+#: crm/models/country.py:6
+msgid "has already been assigned to the city"
+msgstr "zaten şehre atanmıştır."
+
+#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+msgid "Countries"
+msgstr "Ülke"
+
+#: crm/models/country.py:44
+msgid "Cities"
+msgstr "Şehirler"
+
+#: crm/models/crmemail.py:11
+#: crm/templates/admin/crm/company/change_form_object_tools.html:4
+#: crm/templates/admin/crm/inline_emails.html:18
+#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+msgid "Email"
+msgstr "E-posta"
+
+#: crm/models/crmemail.py:12
+msgid "Emails in CRM"
+msgstr "CRM'de E-postalar"
+
+#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
+#: crm/models/crmemail.py:30
+msgid "You can specify multiple addresses, separated by commas"
+msgstr "Birden fazla adres belirtebilirsiniz, bunları virgülle ayırarak."
+
+#: crm/models/crmemail.py:22
+msgid "The Email address of sender"
+msgstr "Gönderenin E-posta Adresi"
+
+#: crm/models/crmemail.py:38
+msgid "Request a read receipt"
+msgstr "Okuma onayı iste"
+
+#: crm/models/crmemail.py:39
+msgid "Not supported by all mail services."
+msgstr "Tüm e-posta servisleri tarafından desteklenmiyor."
+
+#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
+#: crm/site/shipmentadmin.py:269
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: crm/templates/admin/crm/request/change_form_object_tools.html:7
+#: tasks/models/memo.py:65
+msgid "Deal"
+msgstr "İş Anlaşması"
+
+#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
+#: crm/models/request.py:64
+msgid "Lead"
+msgstr "Potansiyel Müşteri"
+
+#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
+#: crm/models/request.py:68
+#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+msgid "Contact"
+msgstr "İletişim Kişisi"
+
+#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
+#: crm/site/requestadmin.py:435
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Request"
+msgstr "İsteğe Bağlı"
+
+#: crm/models/deal.py:14
+#: crm/templates/admin/crm/company/change_form_object_tools.html:18
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+msgid "Deals"
+msgstr "İş Fırsatları"
+
+#: crm/models/deal.py:19
+msgid "Deal name"
+msgstr "İşlem Adı"
+
+#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+msgid "Next step"
+msgstr "Sonraki Adım"
+
+#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+msgid "Describe briefly what needs to be done in the next step."
+msgstr "Bir sonraki adımda yapılması gerekenleri kısa bir şekilde açıklayın."
+
+#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+msgid "Step date"
+msgstr "Adım Tarihi"
+
+#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+msgid "Date to which the next step should be taken."
+msgstr "Sonraki adımın alınması gereken tarih."
+
+#: crm/models/deal.py:51
+msgid "Dates of the stages"
+msgstr "Evreler Tarihi"
+
+#: crm/models/deal.py:52
+msgid "Dates of passing the stages"
+msgstr "Evre Geçiş Tarihleri"
+
+#: crm/models/deal.py:57
+msgid "Date of deal closing"
+msgstr "Anlaşma Kapatma Tarihi"
+
+#: crm/models/deal.py:62
+msgid "Date of won deal closing"
+msgstr "Kazanılan anlaşmanın kapanış tarihi"
+
+#: crm/models/deal.py:71
+msgid "Total deal amount without VAT"
+msgstr "Vergi Öncesinde Toplam İş Anlaşması Miktarı"
+
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
+#: crm/models/product.py:49
+msgid "Currency"
+msgstr "Para Birimi"
+
+#: crm/models/deal.py:85 crm/models/others.py:101
+msgid "Closing reason"
+msgstr "Kapama Nedeni"
+
+#: crm/models/deal.py:90
+msgid "Probability (%)"
+msgstr "Olasilik (%)"
+
+#: crm/models/deal.py:148
+msgid "Partner contact"
+msgstr "Ortak İletişim Kişisi"
+
+#: crm/models/deal.py:151
+msgid "Contact person of dealer or distribution company"
+msgstr "Dağıtım şirketi veya bayi temsilcisi"
+
+#: crm/models/deal.py:156
+msgid "Relevant"
+msgstr "İlgili"
+
+#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+msgid "Important"
+msgstr "Önemli"
+
+#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+msgid "Remind me."
+msgstr "Hatırlat."
+
+#: crm/models/lead.py:13
+msgid "Leads"
+msgstr "Potansiyel Müşteriler"
+
+#: crm/models/lead.py:29
+msgid "Company phone"
+msgstr "Şirket Telefonu"
+
+#: crm/models/lead.py:33
+msgid "Company address"
+msgstr "Şirket Adresi"
+
+#: crm/models/lead.py:37
+msgid "Company email"
+msgstr "Şirket E-postası"
+
+#: crm/models/others.py:27
+msgid "Type of Clients"
+msgstr "Müşteri Türleri"
+
+#: crm/models/others.py:28
+msgid "Types of Clients"
+msgstr "Müşteri Türleri"
+
+#: crm/models/others.py:33
+msgid "Industry of Clients"
+msgstr "Müşteri Sektörü"
+
+#: crm/models/others.py:34
+msgid "Industries of Clients"
+msgstr "Müşteri Sektörleri"
+
+#: crm/models/others.py:42
+msgid "Second default"
+msgstr "İkinci varsayılan"
+
+#: crm/models/others.py:43
+msgid "Will be selected next after the default stage."
+msgstr "Varsayılan aşamanın ardından seçilecektir."
+
+#: crm/models/others.py:47
+msgid "success stage"
+msgstr "Başarı Aşaması"
+
+#: crm/models/others.py:51
+msgid "conditional success stage"
+msgstr "Koşullu Başarı Aşaması"
+
+#: crm/models/others.py:52
+msgid "For example, receiving the first payment"
+msgstr "Örneğin, ilk ödeme alma"
+
+#: crm/models/others.py:56
+msgid "goods shipped"
+msgstr "gönderilen mallar"
+
+#: crm/models/others.py:57
+msgid "Have the goods been shipped at this stage already?"
+msgstr "Bu aşamada mallar zaten sevk edildi mi?"
+
+#: crm/models/others.py:64
+msgid "Lead Sources"
+msgstr "Lider Kaynakları"
+
+#: crm/models/others.py:76
+msgid "form template name"
+msgstr "Form Şablonu Adı"
+
+#: crm/models/others.py:77 crm/models/others.py:82
+msgid "The name of the html template file if needed."
+msgstr "HTML şablon dosyası adı, gerekirse."
+
+#: crm/models/others.py:81
+msgid "success page template name"
+msgstr "Başarı Sayfası Şablonu Adı"
+
+#: crm/models/others.py:90
+msgid ""
+"Reason rating.         The indices of other instances will be sorted "
+"automatically."
+msgstr ""
+"Sebep derecelendirmesi. Diğer örneklerin indeksleri otomatik olarak "
+"sıralanacaktır."
+
+#: crm/models/others.py:95
+msgid "success reason"
+msgstr "başarı nedeni"
+
+#: crm/models/others.py:102
+msgid "Closing reasons"
+msgstr "Kapatma Nedenleri"
+
+#: crm/models/output.py:10
+msgid "Output"
+msgstr "Ürün"
+
+#: crm/models/output.py:11
+msgid "Outputs"
+msgstr "Ürünler"
+
+#: crm/models/output.py:24
+msgid "Quantity"
+msgstr "Miktar"
+
+#: crm/models/output.py:28
+msgid "Shipping date"
+msgstr "Gönderim Tarihi"
+
+#: crm/models/output.py:29
+msgid "Shipment date as per contract"
+msgstr "Sözleşmeye göre sevkiyat tarihi"
+
+#: crm/models/output.py:33
+msgid "Planned shipping date"
+msgstr "Planlanan sevkiyat tarihi"
+
+#: crm/models/output.py:37
+msgid "Actual shipping date"
+msgstr "Gerçek Sevkiyat Tarihi"
+
+#: crm/models/output.py:38
+msgid "Date when the product was shipped"
+msgstr "Ürünün sevkiyat tarihi"
+
+#: crm/models/output.py:42
+msgid "Shipped"
+msgstr "Gönderildi"
+
+#: crm/models/output.py:43
+msgid "Product is shipped"
+msgstr "Ürün sevk edildi"
+
+#: crm/models/output.py:47
+msgid "serial number"
+msgstr "Seri Numarası"
+
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "Miktar gereklidir."
+
+#: crm/models/output.py:69
+msgid "Shipment"
+msgstr "Gönderi"
+
+#: crm/models/output.py:70
+msgid "Shipments"
+msgstr "Gönderiler"
+
+#: crm/models/payment.py:17
+msgid "Currencies"
+msgstr "Para Birimleri"
+
+#: crm/models/payment.py:21
+msgid "Alphabetic Code for the Representation of Currencies."
+msgstr "Para Birimleri Temsil Etmek İçin Alfabetik Kod."
+
+#: crm/models/payment.py:26 crm/models/payment.py:198
+msgid "Rate to state currency"
+msgstr "Devlet para birimi kuru"
+
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
+msgid "Exchange rate against the state currency."
+msgstr "Devlet para birimi karşısındaki döviz kuru."
+
+#: crm/models/payment.py:32 crm/models/payment.py:203
+msgid "Rate to marketing currency"
+msgstr "Pazarlama Para Birimine Kuru"
+
+#: crm/models/payment.py:37
+msgid "Is it the state currency?"
+msgstr "Bu devlet para birimi mi?"
+
+#: crm/models/payment.py:41
+msgid "Is it the marketing currency?"
+msgstr "Pazarlama para birimi mi?"
+
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "Bu para birimi otomatik olarak güncellenecektir."
+
+#: crm/models/payment.py:71
+msgid "without VAT"
+msgstr "Vergi Kapsamının Dışı"
+
+#: crm/models/payment.py:82
+msgid "Please specify a currency."
+msgstr "Lütfen bir para birimi belirtin."
+
+#: crm/models/payment.py:92
+msgid "Payment"
+msgstr "Ödeme"
+
+#: crm/models/payment.py:93
+msgid "Payments"
+msgstr "Ödemeler"
+
+#: crm/models/payment.py:100
+msgid "received"
+msgstr "alındı"
+
+#: crm/models/payment.py:101
+msgid "guaranteed"
+msgstr "garantili"
+
+#: crm/models/payment.py:102
+msgid "high probability"
+msgstr "yüksek olasılık"
+
+#: crm/models/payment.py:103
+msgid "low probability"
+msgstr "düşük olasılık"
+
+#: crm/models/payment.py:118
+msgid "Payment status"
+msgstr "Ödeme Durumu"
+
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+msgid "contract number"
+msgstr "anlaşma numarası"
+
+#: crm/models/payment.py:126
+msgid "invoice number"
+msgstr "fatura numarası"
+
+#: crm/models/payment.py:130
+msgid "order number"
+msgstr "sipariş numarası"
+
+#: crm/models/payment.py:134
+msgid "Payment through representative office"
+msgstr "Temel Ofis Aracılığıyla Ödeme"
+
+#: crm/models/payment.py:157
+msgid "Payment share"
+msgstr "Ödeme Payı"
+
+#: crm/models/payment.py:177
+msgid "Currency rate"
+msgstr "Para Birimi Kuru"
+
+#: crm/models/payment.py:178
+msgid "Currency rates"
+msgstr "Para Birimi Kursları"
+
+#: crm/models/payment.py:183
+msgid "approximate currency rate"
+msgstr "yaklaşık para kuru"
+
+#: crm/models/payment.py:184
+msgid "official currency rate"
+msgstr "resmi döviz kuru"
+
+#: crm/models/payment.py:194
+msgid "Currency rate date"
+msgstr "Para Birimi Kuru Tarihi"
+
+#: crm/models/payment.py:210
+msgid "Exchange rate type"
+msgstr "Değişim Oranı Türü"
+
+#: crm/models/product.py:9 crm/models/product.py:69
+msgid "Product category"
+msgstr "Ürün Kategorisi"
+
+#: crm/models/product.py:10
+msgid "Product categories"
+msgstr "Ürün Kategorileri"
+
+#: crm/models/product.py:55
+msgid "On sale"
+msgstr "Satışta"
+
+#: crm/models/product.py:58
+msgid "Goods"
+msgstr "Ürünler"
+
+#: crm/models/product.py:59
+msgid "Service"
+msgstr "Hizmet"
+
+#: crm/models/product.py:64 voip/models.py:21
+msgid "Type"
+msgstr "Tür"
+
+#: crm/models/request.py:20
+msgid "Requests"
+msgstr "İstekler"
+
+#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+msgid "Request for"
+msgstr "İstek için"
+
+#: crm/models/request.py:50
+msgid "Lead source"
+msgstr "İlgili Kaynak"
+
+#: crm/models/request.py:59
+msgid "Date of receipt"
+msgstr "Alınma Tarihi"
+
+#: crm/models/request.py:60
+msgid "Date of receipt of the request."
+msgstr "İsteğin Alınma Tarihi"
+
+#: crm/models/request.py:107 crm/site/dealadmin.py:671
+msgid "Translation"
+msgstr "Çeviri"
+
+#: crm/models/request.py:111
+msgid "Remark"
+msgstr "Not"
+
+#: crm/models/request.py:115
+msgid "Pending"
+msgstr "Beklemede"
+
+#: crm/models/request.py:116
+msgid "Waiting for validation of fields filling"
+msgstr "Alanların doldurulmasının doğrulanmasını bekliyoruz."
+
+#: crm/models/request.py:120
+msgid "Subsequent"
+msgstr "Sonraki"
+
+#: crm/models/request.py:122
+msgid "Received from the client with whom you are already cooperate"
+msgstr "Zaten işbirliği içinde olduğunuz müşteriden alındı."
+
+#: crm/models/request.py:126
+msgid "Duplicate"
+msgstr "Çift"
+
+#: crm/models/request.py:127
+msgid "Duplicate request. The deal will not be created."
+msgstr "Çift talep. Anlaşma oluşturulmayacak."
+
+#: crm/models/request.py:131 help/models.py:125
+msgid "Verification required"
+msgstr "Doğrulama gerekiyor"
+
+#: crm/models/request.py:132
+msgid "Links are set automatically and require verification."
+msgstr "Bağlantılar otomatik olarak ayarlanır ve doğrulanması gerekir."
+
+#: crm/models/request.py:148 crm/models/request.py:149
+msgid "Company and contact person do not match."
+msgstr "Şirket ve kişi bilgileri uyuşmuyor."
+
+#: crm/models/request.py:153 crm/models/request.py:154
+msgid "Specify the contact person or lead. But not both."
+msgstr ""
+"İletişime geçen kişiyi veya potansiyel müşteriyi belirtin. Ancak her ikisini "
+"de belirtmeyin."
+
+#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+msgid "Tag"
+msgstr "Etiket"
+
+#: crm/models/tag.py:14 tasks/models/tag.py:12
+msgid "Tag name"
+msgstr "Etiket Adı"
+
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "rekabetçi"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "son kullanıcı"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "toptancı"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "satıcı"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "dağıcı"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "eğitim kurumları"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "hizmet şirketleri"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "dizginleyiciler"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "kapital inşaat"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "otomotiv endüstrisi"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "gemi inşaatı"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "metaloji"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "güç üretimi"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "boru hatları"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "boru üretimi"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "petrol ve doğalgaz"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "havacılık"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "demiryolu"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "madencilik"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "talep"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "talep analizi"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "koşulların netleştirilmesi"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "fiyat teklifi"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "ticari teklif"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "teknik ve ticari teklif"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "anlaşma"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "fatura"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "ilk ödeme alınması"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "gönderi"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "tamamlandı (başarılı)"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "Müşteri yanıt vermiyor"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "Teknik özellikler uygun değil."
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "İşlem başarıyla tamamlandı."
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "Satın alma ertelendi"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "Fiyat rekabetçi değil."
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "web formu"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "web sitesi e-postası"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "sergi"
+
+#: crm/settings.py:46
+msgid "Establish the first contact with the client."
+msgstr "Müşteriyle ilk iletişimi kurun."
+
+#: crm/site/companyadmin.py:25
+msgid "Attention! You can only view companies associated with your department."
+msgstr ""
+"Dikkat! Sadece departmanınızla ilişkili şirketleri görüntüleyebilirsiniz."
+
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+msgid "Warning:"
+msgstr "Uyarı:"
+
+#: crm/site/companyadmin.py:210
+msgid "Owner will also be changed for contact persons."
+msgstr "İlgili kişiler için sahip de değişecektir."
+
+#: crm/site/companyadmin.py:223
+msgid "Change owner of selected Companies"
+msgstr "Seçilen Şirketlerin Sahibini Değiştirin"
+
+#: crm/site/crmadminsite.py:22
+msgid "Your Excel file"
+msgstr "Excel Dosyanız"
+
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: massmail/site/emlmessageadmin.py:133
+msgid "Signature"
+msgstr "İmza"
+
+#: crm/site/crmemailadmin.py:31
+msgid "Please note that this is a list of unsent emails."
+msgstr "Lütfen unutmayın ki bu, gönderilmemiş e-postaların bir listesidir."
+
+#: crm/site/crmemailadmin.py:143
+msgid "Emails in the CRM database."
+msgstr "CRM veritabanındaki e-postalar."
+
+#: crm/site/crmemailadmin.py:350
+msgid "Box"
+msgstr "Kutu"
+
+#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+msgid "Content"
+msgstr "İçerik"
+
+#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+msgid "Previous correspondence"
+msgstr "Önceki İletişimler"
+
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/utils/import_emails.py:192
+msgid "No subject"
+msgstr "Konu yok."
+
+#: crm/site/crmmodeladmin.py:61
+msgid "View website in new tab"
+msgstr "Web sitesini yeni sekmede aç"
+
+#: crm/site/crmmodeladmin.py:62
+msgid "Callback to smartphone"
+msgstr "Akıllı telefona geri çağrı"
+
+#: crm/site/crmmodeladmin.py:63
+msgid "Callback to your smartphone"
+msgstr "Akıllı telefonunuza geri çağrı yapın"
+
+#: crm/site/crmmodeladmin.py:64
+msgid "Skype chat"
+msgstr "Skype Sohbeti"
+
+#: crm/site/crmmodeladmin.py:65
+msgid "Chat or Skype call"
+msgstr "Sohbet veya Skype araması"
+
+#: crm/site/crmmodeladmin.py:66
+msgid "Skype call"
+msgstr "Skype Araması"
+
+#: crm/site/crmmodeladmin.py:67
+msgid "To call a mobile or landline from Skype"
+msgstr "Skype'dan Cep Telefonuna veya Sabit Hattına Ara"
+
+#: crm/site/crmmodeladmin.py:68
+msgid "Viber chat"
+msgstr "Viber Sohbeti"
+
+#: crm/site/crmmodeladmin.py:69
+msgid "Chat or viber call"
+msgstr "Sohbet veya Viber araması"
+
+#: crm/site/crmmodeladmin.py:70
+msgid "WhatsApp chat"
+msgstr "WhatsApp Sohbeti"
+
+#: crm/site/crmmodeladmin.py:71
+msgid "Chat or WhatsApp call"
+msgstr "Sohbet veya WhatsApp araması"
+
+#: crm/site/crmmodeladmin.py:76
+msgid "Signed up for email newsletters"
+msgstr "E-posta bültenleri için abone oldum"
+
+#: crm/site/crmmodeladmin.py:78
+msgid "Unsubscribed from email newsletters"
+msgstr "E-posta bültenlerinden aboneliğimi iptal ettim."
+
+#: crm/site/crmmodeladmin.py:276
+msgid "Create Email"
+msgstr "E-posta Oluştur"
+
+#: crm/site/crmmodeladmin.py:341
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                        Friday, Saturday, Sunday."
+msgstr ""
+"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gerçekleştirilmez: "
+"Cuma, Cumartesi, Pazar."
+
+#: crm/site/crmmodeladmin.py:371
+msgid "Messengers"
+msgstr "Mesajlaşma Uygulamaları"
+
+#: crm/site/currencyadmin.py:35
+msgid "State currency must be specified."
+msgstr "Devlet para birimi belirtilmelidir."
+
+#: crm/site/currencyadmin.py:40
+msgid "Marketing currency must be specified."
+msgstr "Pazarlama para birimi belirtilmelidir."
+
+#: crm/site/dealadmin.py:52
+msgid "Closing date"
+msgstr "Kapama Tarihi"
+
+#: crm/site/dealadmin.py:58
+msgid "View Contact in new tab"
+msgstr "İlişkiyi yeni sekmede görüntüle"
+
+#: crm/site/dealadmin.py:59
+msgid "View Company in new tab"
+msgstr "Şirketi yeni sekmede görüntüle"
+
+#: crm/site/dealadmin.py:62
+msgid "Deal counter"
+msgstr "İşlem Sayacı"
+
+#: crm/site/dealadmin.py:63
+msgid "View Lead in new tab"
+msgstr "Yeni sekmede potansiyel müşteriyi görüntüle"
+
+#: crm/site/dealadmin.py:64
+msgid "Unanswered email"
+msgstr "Cevapsız E-posta"
+
+#: crm/site/dealadmin.py:68
+msgid "Unread chat message"
+msgstr "Okunmamış sohbet mesajı"
+
+#: crm/site/dealadmin.py:71
+msgid "Payment received"
+msgstr "Ödeme Alındı"
+
+#: crm/site/dealadmin.py:74
+msgid "Specify the date of shipment"
+msgstr "Gönderim tarihini belirtin"
+
+#: crm/site/dealadmin.py:77
+msgid "Specify products"
+msgstr "Ürünleri Belirleyin"
+
+#: crm/site/dealadmin.py:80
+msgid "Expired shipment date"
+msgstr "Geçerli Gönderi Tarihi Sonu"
+
+#: crm/site/dealadmin.py:87
+msgid "Relevant deal"
+msgstr "İlgili anlaşma"
+
+#: crm/site/dealadmin.py:158
+msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
+msgstr "ID '{}' ile ilişkili anlaşma bulunmuyor. Belki de silindi?"
+
+#: crm/site/dealadmin.py:221
+msgid "View the Request"
+msgstr "İsteği Görüntüle"
+
+#: crm/site/dealadmin.py:536
+msgid "Create Email to Contact"
+msgstr "İletişim İçin E-posta Oluştur"
+
+#: crm/site/dealadmin.py:539
+msgid "Create Email to Lead"
+msgstr "Lider için E-posta Oluştur"
+
+#: crm/site/dealadmin.py:579
+msgid "Important deal"
+msgstr "Önemli Anlaşma"
+
+#: crm/site/dealadmin.py:603
+#, python-format
+msgid "I have been waiting for an answer to my request for %d days"
+msgstr "%d gün boyunca isteğime yanıt bekliyorum."
+
+#: crm/site/dealadmin.py:633
+msgid "Expected"
+msgstr "Bekleniyor"
+
+#: crm/site/dealadmin.py:641
+msgid "Paid"
+msgstr "Ödenmiş"
+
+#: crm/site/dealadmin.py:696
+msgid "Contact is Lead (no company)"
+msgstr "İletişim, Lider (şirket yok)"
+
+#: crm/site/leadadmin.py:118
+msgid "Person contact details"
+msgstr "Kişinin İletişim Bilgileri"
+
+#: crm/site/leadadmin.py:127
+msgid "Additional person details"
+msgstr "Ek Kişisel Bilgiler"
+
+#: crm/site/leadadmin.py:140
+msgid "Company contact details"
+msgstr "Şirket İletişim Bilgileri"
+
+#: crm/site/leadadmin.py:249
+#, python-brace-format
+msgid "The lead \"{obj}\" has been converted successfully."
+msgstr "\"{obj}\" lideri başarıyla dönüştürüldü."
+
+#: crm/site/leadadmin.py:264
+msgid "This Lead is disqualified! Please read the description."
+msgstr "Bu potansiyel müşteri geçersiz sayıldı! Lütfen açıklamayı okuyun."
+
+#: crm/site/requestadmin.py:38
+msgid "Client Loyalty"
+msgstr "Müşteri Sadakati"
+
+#: crm/site/requestadmin.py:45
+msgid "Country not specified in request"
+msgstr "İstekte ülke belirtilmedi."
+
+#: crm/site/requestadmin.py:46
+msgid "You received the deal"
+msgstr "İşlemi aldınız."
+
+#: crm/site/requestadmin.py:47
+msgid "You are the co-owner of the deal"
+msgstr "Bu anlaşma ortak sahibisiniz."
+
+#: crm/site/requestadmin.py:53
+msgid "Primary request"
+msgstr "Ana Talep"
+
+#: crm/site/requestadmin.py:54
+msgid "You are the co-owner of the request"
+msgstr "İsteğin ortak sahibi sizsiniz."
+
+#: crm/site/requestadmin.py:55
+msgid "You received the request"
+msgstr "Bir istek aldınız."
+
+#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: tasks/models/to_translate.txt:2
+msgid "pending"
+msgstr "beklemede"
+
+#: crm/site/requestadmin.py:57
+msgid "processed"
+msgstr "işlem görmüş"
+
+#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+msgid "Status"
+msgstr "Durum"
+
+#: crm/site/requestadmin.py:62
+msgid "Subsequent request"
+msgstr "Sonraki İstek"
+
+#: crm/site/requestadmin.py:389
+msgid "Found the counterparty assigned to"
+msgstr "Atanan karşı taraf bulundu."
+
+#: crm/site/requestadmin.py:488
+#, python-brace-format
+msgid "The {name} “{obj}” was added successfully."
+msgstr "{isim} \"{nesne}\" başarıyla eklendi."
+
+#: crm/site/shipmentadmin.py:26
+msgid "actual"
+msgstr "gerçek"
+
+#: crm/site/shipmentadmin.py:27
+msgid "Actual shipping date."
+msgstr "Gerçek sevkiyat tarihi."
+
+#: crm/site/shipmentadmin.py:32
+msgid "Deal is paid."
+msgstr "İşlem ödendi."
+
+#: crm/site/shipmentadmin.py:33
+msgid "Next<br>payment"
+msgstr "Sonraki<br>Ödeme"
+
+#: crm/site/shipmentadmin.py:34
+msgid "order"
+msgstr "sipariş"
+
+#: crm/site/shipmentadmin.py:37
+msgid "The product has not been shipped yet."
+msgstr "Ürün henüz gönderilmedi."
+
+#: crm/site/shipmentadmin.py:38
+msgid "The product has been shipped."
+msgstr "Ürün sevk edildi."
+
+#: crm/site/shipmentadmin.py:40
+msgid "Product shipment"
+msgstr "Ürün Sevkı"
+
+#: crm/site/shipmentadmin.py:41
+msgid "to contract"
+msgstr "sözleşmeye göre"
+
+#: crm/site/shipmentadmin.py:42
+msgid "Date of shipment according to a contract."
+msgstr "Sözleşmeye göre sevkiyat tarihi."
+
+#: crm/site/shipmentadmin.py:47
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/request/change_form_object_tools.html:5
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+msgid "View the deal"
+msgstr "Anlaşmayı Görüntüle"
+
+#: crm/site/shipmentadmin.py:254
+msgid "paid"
+msgstr "ödenmiş"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the error below."
+msgstr "Lütfen aşağıda belirtilen hatayı düzeltin."
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the errors below."
+msgstr "Lütfen aşağıda belirtilen hataları düzeltin."
+
+#: crm/templates/admin/crm/city/submit_line.html:5
+#: crm/templates/admin/crm/company/submit_line.html:5
+#: crm/templates/admin/crm/contact/submit_line.html:5
+#: crm/templates/admin/crm/crmemail/submit_line.html:15
+#: crm/templates/admin/crm/deal/submit_line.html:5
+#: crm/templates/admin/crm/lead/submit_line.html:5
+#: crm/templates/admin/crm/payment/submit_line.html:5
+#: crm/templates/admin/crm/request/submit_line.html:5
+#: crm/templates/admin/crm/shipment/submit_line.html:5
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+msgid "Save as new"
+msgstr "Yeni olarak kaydet"
+
+#: crm/templates/admin/crm/city/submit_line.html:6
+#: crm/templates/admin/crm/company/submit_line.html:6
+msgid "Save and add another"
+msgstr "Kaydet ve başka bir tane ekle"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:9
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+msgid "Сorrespondence"
+msgstr "İletişimler"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+msgid "Contacts"
+msgstr "İletişim Kişileri"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:32
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+msgid "Got massmails"
+msgstr "Toplu E-postalar Alındı"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:33
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+msgid "Massmails"
+msgstr "Kitle E-postaları"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:40
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
+#: help/templates/admin/help/page/change_form_object_tools.html:3
+msgid "Open in Admin"
+msgstr "Yönetici Modunda Aç"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:14
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+msgid "Make Massmail"
+msgstr "Kitle E-postası Oluştur"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:25
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+msgid "Export all"
+msgstr "Hepsini Dışa Aktar"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
+#: crm/templates/admin/crm/inline_emails.html:37
+msgid "reply all"
+msgstr "Hepsine yanıtla"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
+#: crm/templates/admin/crm/inline_emails.html:38
+msgid "forward"
+msgstr "İlerlet"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "View next email"
+msgstr "Bir sonraki e-postayı görüntüle"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "Next"
+msgstr "Sonraki"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "View previous email"
+msgstr "Önceki e-postayı görüntüle"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "Previous"
+msgstr "Önceki"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+msgid "View the request"
+msgstr "İsteği Görüntüle"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
+#: crm/templates/admin/crm/inline_emails.html:27
+msgid "View original email"
+msgstr "Orijinal e-postayı görüntüle"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
+#: crm/templates/admin/crm/inline_emails.html:32
+msgid "Download the original email as an EML file."
+msgstr "Orijinal e-postayı EML dosyası olarak indirin."
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
+#: crm/templates/admin/crm/inline_emails.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+msgid "Print preview"
+msgstr "Yazdırma Önizleme"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: crm/templates/admin/crm/inline_emails.html:35
+#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
+msgid "Change"
+msgstr "Değişiklik Yap"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: help/templates/admin/help/stacked.html:16
+msgid "View"
+msgstr "Görüntüle"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:6
+msgid "Reply"
+msgstr "Cevapla"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:7
+msgid "Reply all"
+msgstr "Bütünlerine yanıtla"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:8
+msgid "Forward"
+msgstr "İleri Gönder"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+msgid "View office memos"
+msgstr "Ofis notlarını görüntüle"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+msgid "Office memos"
+msgstr "Ofis Notları"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Add"
+msgstr "Ekle"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+msgid "Office memo"
+msgstr "Ofis Notu"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+msgid "View the correspondence on this Deal"
+msgstr "Bu Anlaşmanın Korumasında Görüşmeleri İnceleyin"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+msgid "Import Email regarding this Deal"
+msgstr "Bu Anlaşmayla İlgili E-postayı İçe Aktar"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+msgid "View Deals with this Company"
+msgstr "Bu Şirketle İşlemleri Görüntüle"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+msgid "View the history of changes for this Deal"
+msgstr "Bu Anlaşma'nın değişiklik geçmişini gözden geçirin."
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+msgid "Toggle default deal sorting"
+msgstr "Varsayılan İş Anlaşması Sıralamasını Değiştir"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+msgid "A deal is created based on a request"
+msgstr "Bir talep üzerine anlaşma oluşturulur."
+
+#: crm/templates/admin/crm/inline_emails.html:6
+msgid "Last few letters"
+msgstr "Son birkaç mektup"
+
+#: crm/templates/admin/crm/inline_emails.html:51
+msgid "Date"
+msgstr "Tarih"
+
+#: crm/templates/admin/crm/inline_emails.html:61
+msgid "View or Download"
+msgstr "Görüntüle veya İndir"
+
+#: crm/templates/admin/crm/lead/submit_line.html:9
+msgid "Convert"
+msgstr "Dönüştür"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "Total sum"
+msgstr "Toplam Tutar"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "with VAT"
+msgstr "Katma Değer Vergisi (KDV) dahil"
+
+#: crm/templates/admin/crm/payment/change_list.html:63
+msgid "Filter"
+msgstr "Filtre"
+
+#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+msgid "Import Email regarding this Request"
+msgstr "Bu Taleple İlgili E-postayı İçe Aktar"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+msgid "Create a request based on an email."
+msgstr "E-postaya dayalı bir talep oluşturun."
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+msgid "Import request from"
+msgstr "İsteği İçe Aktar"
+
+#: crm/templates/admin/crm/request/submit_line.html:8
+msgid "Create deal"
+msgstr "İşlem Oluştur"
+
+#: crm/templates/crm/addfiles.html:20
+msgid "Please select files to attach to the letter."
+msgstr "Lütfen mektuba eklemek istediğiniz dosyaları seçin."
+
+#: crm/templates/crm/change_owner_companies.html:20
+msgid ""
+"Please choose a new owner for selected Companies and their Contact persons"
+msgstr ""
+"Lütfen seçilen Şirketler ve temas kuran kişiler için yeni bir sahibi seçin."
+
+#: crm/templates/crm/del_duplicate_button.html:5
+msgid "Correctly delete this object as a duplicate."
+msgstr "Bu nesneyi doğru bir şekilde kopyasız olarak silin."
+
+#: crm/templates/crm/filter_scroll.html:4
+#: templates/admin/crm_date_filter.html:7
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "%(filter_title)s tarafından"
+
+#: crm/templates/crm/import_objects.html:20
+msgid "Please select a file to import."
+msgstr "Lütfen içe aktarmak için bir dosya seçin."
+
+#: crm/templates/crm/import_objects.html:34
+msgid ""
+"Only the following columns will be imported if they exist (the order doesn't "
+"matter):"
+msgstr ""
+"Sadece aşağıdaki sütunlar mevcutsa içe aktarılacaktır (düzensizliğe gerek "
+"yok):"
+
+#: crm/templates/crm/make_massmail.html:22
+msgid "Make a choice"
+msgstr "Bir seçim yapın"
+
+#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
+#: crm/templates/crm/print_request.html:5
+#: crm/templates/crm/print_request.html:26
+msgid "Print"
+msgstr "Yazdır"
+
+#: crm/templates/crm/print_request.html:36
+msgid "Received"
+msgstr "Alındı"
+
+#: crm/templates/crm/print_request.html:37
+msgid "Prepared"
+msgstr "Hazırlandı"
+
+#: crm/templates/crm/select_original_obj.html:32
+msgid "Select the original to which the linked objects will be reconnected."
+msgstr "Bağlantılı nesnelerin yeniden bağlanacağı orijinali seçin."
+
+#: crm/utils/admfilters.py:188
+msgid "Last month"
+msgstr "Geçen ay"
+
+#: crm/utils/admfilters.py:197
+msgid "First half of the year"
+msgstr "Yılın ilk yarısı"
+
+#: crm/utils/admfilters.py:206
+msgid "Nine months of this year"
+msgstr "Bu yılın dokuz ayı"
+
+#: crm/utils/admfilters.py:214
+msgid "Second half of the last year"
+msgstr "Geçen yılın ikinci yarısı"
+
+#: crm/utils/admfilters.py:417
+msgid "changed by chiefs"
+msgstr "Yönetim tarafından değiştirildi"
+
+#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
+#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
+#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+msgid "Yes"
+msgstr "Evet"
+
+#: crm/utils/admfilters.py:437
+msgid "Partner"
+msgstr "Ortak"
+
+#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: tasks/utils/admfilters.py:218
+msgid "No"
+msgstr "Hayır"
+
+#: crm/utils/admfilters.py:498
+msgid "Has Contacts"
+msgstr "İletişim Kişileri Var"
+
+#: crm/utils/admfilters.py:564
+msgid "mailbox"
+msgstr "posta kutusu"
+
+#: crm/utils/admfilters.py:583
+msgid "inbox"
+msgstr "gönderilenler"
+
+#: crm/utils/admfilters.py:584
+msgid "sent"
+msgstr "gönderilen"
+
+#: crm/utils/admfilters.py:585
+#, python-brace-format
+msgid "outbox ({num})"
+msgstr "gönderilecekler ( {num} )"
+
+#: crm/utils/admfilters.py:586
+msgid "trash"
+msgstr "çöp"
+
+#: crm/utils/helpers.py:30
+msgid "No deal amount"
+msgstr "İşlem tutarı yok"
+
+#: crm/utils/helpers.py:31
+msgid "Unacceptable phone number value"
+msgstr "Geçersiz telefon numarası değeri"
+
+#: crm/utils/helpers.py:32
+msgid "Counterparty"
+msgstr "Karşılıklı Taraf"
+
+#: crm/utils/make_massmail_form.py:28
+msgid ""
+"Error: The date you set as 'Created before' has to be later \n"
+"                than the date of 'Created after'."
+msgstr ""
+"Hata: 'Oluşturuldu Önce' olarak ayarladığınız tarih, 'Oluşturuldu Sonra' "
+"tarihinin sonrasında olmalıdır."
+
+#: crm/utils/make_massmail_form.py:42
+msgid "Industries"
+msgstr "Sektörler"
+
+#: crm/utils/make_massmail_form.py:56
+msgid "Types"
+msgstr "Türler"
+
+#: crm/utils/make_massmail_form.py:61
+msgid "Created before"
+msgstr "Oluşturulma Tarihi Öncesinde"
+
+#: crm/utils/make_massmail_form.py:66
+msgid "Created after"
+msgstr "Sonrasına oluşturulmuş"
+
+#: crm/utils/restore_imap_emails.py:40
+#, python-format
+msgid "Received an email from \"%s\""
+msgstr "\"%s\" adresinden bir e-posta aldım."
+
+#: crm/utils/send_email.py:22
+#, python-format
+msgid "The Email has been sent to \"%s\""
+msgstr "E-posta \"%s\"'ye gönderildi."
+
+#: crm/utils/send_email.py:30
+msgid "Please fill in the subject and text of the letter."
+msgstr "Lütfen mektubun konusunu ve metnini doldurun."
+
+#: crm/utils/send_email.py:34
+msgid "To send a message you need to have an email account marked as main."
+msgstr ""
+"Bir mesaj göndermek için ana olarak işaretlenmiş bir e-posta hesabınızın "
+"olması gerekir."
+
+#: crm/utils/send_email.py:72
+#, python-format
+msgid "Failed: %s"
+msgstr "Başarısız: %s"
+
+#: crm/views/change_owner_companies.py:33
+msgid "Owner changed successfully"
+msgstr "Sahip başarıyla değiştirildi."
+
+#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+msgid "Dear {}, thanks for your request!"
+msgstr "Sayın {}, talebiniz için teşekkür ederiz!"
+
+#: crm/views/create_email.py:35
+msgid "No recipient"
+msgstr "Alıcı yok."
+
+#: crm/views/delete_duplicate_object.py:80
+msgid "The duplicate object has been correctly deleted."
+msgstr "Çift varlık doğru bir şekilde silindi."
+
+#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+msgid "Not enough data to identify the email or email has been deleted"
+msgstr "Yeterli veri yok, e-postayı tanımlamak için veya e-posta silinmiş."
+
+#: crm/views/reply_email.py:126
+msgid ""
+"You do not have an email account in CRM for sending Emails. Contact your "
+"administrator."
+msgstr ""
+"CRM'de e-posta göndermek için bir hesabınız yok. Yöneticinizle iletişime "
+"geçin."
+
+#: crm/views/view_original_email.py:24
+msgid "Something went wrong"
+msgstr "Bir şeyler yanlış gitti."
+
+#: help/admin.py:78
+msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
+msgstr ""
+"Doğru bağlantıyı eklemek için gerekirse /SECRET_CRM_PREFIX/ etiketini "
+"kullanın."
+
+#: help/models.py:13
+msgid "list"
+msgstr "liste"
+
+#: help/models.py:14
+msgid "instance"
+msgstr "örnek"
+
+#: help/models.py:24
+msgid "Help page"
+msgstr "Yardım Sayfası"
+
+#: help/models.py:25
+msgid "Help pages"
+msgstr "Yardım Sayfaları"
+
+#: help/models.py:31
+msgid "app label"
+msgstr "uygulama etiketi"
+
+#: help/models.py:37
+msgid "model"
+msgstr "model"
+
+#: help/models.py:44
+msgid "page"
+msgstr "sayfa"
+
+#: help/models.py:49 help/models.py:106
+msgid "Title"
+msgstr "Başlık"
+
+#: help/models.py:53
+msgid "Available on CRM page"
+msgstr "CRM sayfasında mevcut"
+
+#: help/models.py:55
+msgid ""
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
+"from another help page."
+msgstr ""
+"CRM sayfalarından birinde mevcuttur. Aksi takdirde, başka bir yardım "
+"sayfasındaki bağlantıya tıklayarak erişilebilir."
+
+#: help/models.py:86
+msgid "Paragraph"
+msgstr ""
+"\n"
+"Paragraf"
+
+#: help/models.py:87
+msgid "Paragraphs"
+msgstr "Paragraflar"
+
+#: help/models.py:97
+msgid "Groups"
+msgstr "Gruplar"
+
+#: help/models.py:99
+msgid ""
+"If no user group is selected then the paragraph will be available only to "
+"the superuser."
+msgstr ""
+"Kullanıcı grubu seçilmediğinde, paragraf sadece süper kullanıcıya "
+"erişilebilir olacak."
+
+#: help/models.py:105
+msgid "Title of paragraph."
+msgstr "Paragraf Başlığı."
+
+#: help/models.py:120 tasks/site/memoadmin.py:42
+msgid "draft"
+msgstr "taslak"
+
+#: help/models.py:121
+msgid "Will not be published."
+msgstr "Yayınlanmayacak."
+
+#: help/models.py:126
+msgid "Content requires additional verification."
+msgstr "İçerik ek doğrulama gerektirir."
+
+#: help/models.py:131
+msgid "Index number"
+msgstr "Sıra Numarası"
+
+#: help/models.py:132
+msgid "The sequence number of the paragraph on the page."
+msgstr "Sayfa üzerindeki paragrafın sıra numarası."
+
+#: help/models.py:138
+msgid "Link to a related paragraph if exists."
+msgstr "İlgili bir paragraf varsa oya bağlantı."
+
+#: massmail/admin.py:31
+msgid "Service information"
+msgstr "Hizmet Bilgileri"
+
+#: massmail/admin_actions.py:17
+msgid "Please select recipients only with the same owner."
+msgstr "Lütfen aynı sahibine sahip yalnızca alıcıları seçin."
+
+#: massmail/admin_actions.py:18
+msgid "Bad result - no recipients! Make another choice."
+msgstr "Kötü sonuç - alıcı yok! Başka bir seçenek belirleyin."
+
+#: massmail/admin_actions.py:21
+msgid "Create a mailing out for selected objects"
+msgstr "Seçilen nesneler için bir e-posta gönderimi oluşturun"
+
+#: massmail/admin_actions.py:33
+msgid "Unsubscribed users were excluded from the mailing list."
+msgstr "Abone olmayan kullanıcılar posta listesinden çıkarıldı."
+
+#: massmail/admin_actions.py:54
+msgid ""
+"Note massmail is not performed on the following days: Friday, Saturday, "
+"Sunday."
+msgstr ""
+"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gönderilmez: Cuma, "
+"Cumartesi, Pazar."
+
+#: massmail/admin_actions.py:65
+msgid "Merge selected mailing outs"
+msgstr "Seçilen gönderileri birleştir"
+
+#: massmail/admin_actions.py:85
+msgid "united"
+msgstr "birlikte"
+
+#: massmail/admin_actions.py:107
+msgid "Specify VIP recipients"
+msgstr "VIP alıcıları belirleyin"
+
+#: massmail/admin_actions.py:115
+msgid "Please first add your main email account."
+msgstr "Lütfen öncelikle ana e-posta hesabınızı ekleyin."
+
+#: massmail/admin_actions.py:143
+msgid ""
+"The main email address has been successfully assigned to the selected "
+"recipients."
+msgstr "Ana e-posta adresi başarıyla seçilen alıcılara atandı."
+
+#: massmail/admin_actions.py:149
+msgid "Please select mailings with only the same recipient type."
+msgstr "Lütfen sadece aynı alıcı türüne sahip dağıtımları seçin."
+
+#: massmail/admin_actions.py:154
+msgid "Please select only mailings with the same message."
+msgstr "Lütfen aynı mesajı içeren yalnızca dağıtımları seçin."
+
+#: massmail/admin_actions.py:183
+msgid ""
+"There are no mail accounts available for mailing. Please contact your "
+"administrator."
+msgstr ""
+"Gönderi için kullanılabilecek herhangi bir e-posta hesabı bulunmamaktadır. "
+"Lütfen CRM yöneticisiyle iletişime geçin."
+
+#: massmail/admin_actions.py:191
+msgid ""
+"There are no mail accounts available for mailing to non-VIP recipients. "
+"Please contact your administrator."
+msgstr ""
+"VIP olmayan alıcılara e-posta göndermek için kullanılabilir herhangi bir "
+"posta hesabı bulunmamaktadır. Lütfen CRM yöneticisiyle iletişime geçin."
+
+#: massmail/apps.py:8
+msgid "Mass mail"
+msgstr "Kitle Postası"
+
+#: massmail/models/baseeml.py:14
+msgid ""
+"The subject of the message. You can use {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} or {{full_name}}"
+msgstr ""
+"Mesajın konusu. {{first_name}}, {{last_name}}, {{first_middle_name}} veya "
+"{{full_name}} kullanabilirsiniz."
+
+#: massmail/models/baseeml.py:22
+msgid "Choose signature"
+msgstr "İmza Seçin"
+
+#: massmail/models/baseeml.py:23
+msgid "Sender's signature."
+msgstr "Gönderenin imzası."
+
+#: massmail/models/baseeml.py:28
+msgid "Previous correspondence. Will be added after signature"
+msgstr "Önceki iletişim. İmza atıldıktan sonra eklenecek."
+
+#: massmail/models/email_account.py:15
+msgid "Email Account"
+msgstr "E-posta Hesabı"
+
+#: massmail/models/email_account.py:16
+msgid "Email Accounts"
+msgstr "E-posta Hesapları"
+
+#: massmail/models/email_account.py:20
+msgid "The name of the Email Account. For example Gmail"
+msgstr "E-posta hesabı adı. Örneğin, Gmail"
+
+#: massmail/models/email_account.py:24
+msgid "Use this account for regular business correspondence."
+msgstr "Bu hesabı düzenli iş iletişimi için kullanın."
+
+#: massmail/models/email_account.py:28
+msgid "Allow to use this account for massmail."
+msgstr "Bu hesabı toplu e-posta için kullanmaya izin verin."
+
+#: massmail/models/email_account.py:32
+msgid "Import emails from this account."
+msgstr "Bu hesaptan e-postaları içe aktar."
+
+#: massmail/models/email_account.py:40
+msgid "The IMAP host"
+msgstr "IMAP Sunucusu"
+
+#: massmail/models/email_account.py:44
+msgid "The username to use to authenticate to the SMTP server."
+msgstr "SMTP sunucusuna kimlik doğrulaması için kullanılacak kullanıcı adı."
+
+#: massmail/models/email_account.py:48
+msgid "The auth_password to use to authenticate to the SMTP server."
+msgstr ""
+"SMTP sunucusuna kimlik doğrulaması yapmak için kullanılacak auth_şifre."
+
+#: massmail/models/email_account.py:52
+msgid "The application password to use to authenticate to the SMTP server."
+msgstr ""
+"SMTP sunucusuna kimlik doğrulaması yapmak için kullanılacak uygulama "
+"parolası."
+
+#: massmail/models/email_account.py:56
+msgid "Port to use for the SMTP server"
+msgstr "SMTP sunucusu için kullanılacak port"
+
+#: massmail/models/email_account.py:60
+msgid "The from_email field."
+msgstr "Gönderen e-posta alanı"
+
+#: massmail/models/email_account.py:68
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted certificate chain file to use "
+"for the SSL connection."
+msgstr ""
+"Eğer EMAIL_USE_SSL veya EMAIL_USE_TLS doğruysa, SSL bağlantısı için "
+"kullanılacak PEM biçimli sertifikalar zinciri dosyasının yolunu isteğe bağlı "
+"olarak belirtebilirsiniz."
+
+#: massmail/models/email_account.py:73
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
+"specify         the path to a PEM-formatted private key file to use for the "
+"SSL connection."
+msgstr ""
+"Eğer EMAIL_USE_SSL veya EMAIL_USE_TLS doğru ise, SSL bağlantısı için "
+"kullanılacak özel anahtar dosyasının yolunu isteğe bağlı olarak "
+"belirtebilirsiniz. Bu dosya PEM formatında olmalıdır."
+
+#: massmail/models/email_account.py:79
+msgid "OAuth 2.0 token for obtaining an access token."
+msgstr "OAuth 2.0 jetonu, erişim jetonu almak için kullanılır."
+
+#: massmail/models/email_account.py:106
+msgid "DateTime of last import"
+msgstr "Son İçe Aktarım Tarihi"
+
+#: massmail/models/email_account.py:117
+msgid "Specify the imap host"
+msgstr "IMAP sunucusu belirtin"
+
+#: massmail/models/email_message.py:10
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder or attached to this message.\n"
+"    "
+msgstr ""
+"\n"
+"    HTML kullanın. Dahil edilen resim için adres belirtmek için {% cid_media "
+"'path/to/pic.png' %} kullanın.<br>\n"
+"    CRM sunucusuna yüklenen dosyaları 'media/pics/' klasöründe veya bu mesaj "
+"eklerine dahil edebilirsiniz."
+
+#: massmail/models/email_message.py:19
+msgid "Email Message"
+msgstr "E-posta Mesajı"
+
+#: massmail/models/email_message.py:20
+msgid "Email Messages"
+msgstr "E-posta Mesajları"
+
+#: massmail/models/eml_accounts_queue.py:19
+msgid "The queue of the user email accounts."
+msgstr "Kullanıcı e-posta hesapları kuyruğu."
+
+#: massmail/models/mailing_out.py:12
+msgid "Mailing Out"
+msgstr "Faks Gönderimi"
+
+#: massmail/models/mailing_out.py:13
+msgid "Mailing Outs"
+msgstr "Posta Gönderimleri"
+
+#: massmail/models/mailing_out.py:23
+msgid "Active but Error"
+msgstr "Aktif ancak Hata"
+
+#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+msgid "Paused"
+msgstr "Duraklatıldı"
+
+#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+msgid "Interrupted"
+msgstr "Kesildi"
+
+#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
+#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+msgid "Done"
+msgstr "Tamamlandı"
+
+#: massmail/models/mailing_out.py:31
+msgid "The name of the message."
+msgstr "Mesajın Adı"
+
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+msgid "Number of recipients"
+msgstr "Alıcı Sayısı"
+
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+msgid "Recipients type"
+msgstr "Alıcı Tipi"
+
+#: massmail/models/mailing_out.py:59
+msgid "Report"
+msgstr "Rapor"
+
+#: massmail/models/signature.py:7
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media "
+"‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
+"folder.\n"
+"    "
+msgstr ""
+"\n"
+"    HTML kullanın. Dahili resim adresini belirtmek için {% cid_media 'path/"
+"to/pic.png' %}'yi kullanın.<br>\n"
+"    CPM sunucusuna yüklenen dosyalar, 'media/pics/' klasöründe gömülebilir."
+
+#: massmail/models/signature.py:17
+msgid "Signatures"
+msgstr "İmzalar"
+
+#: massmail/models/signature.py:27
+msgid "The name of the signature."
+msgstr "İmza Adı"
+
+#: massmail/models/to_translate.txt:3
+msgid "price proposal"
+msgstr "fiyat teklifi"
+
+#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+msgid "Preview"
+msgstr "Önizleme"
+
+#: massmail/site/emlmessageadmin.py:73
+msgid "Edit"
+msgstr "Düzenle"
+
+#: massmail/site/mailingoutadmin.py:17
+msgid "Available Email accounts for MassMail"
+msgstr "Kitle Posta için Kullanılabilir E-posta Hesapları"
+
+#: massmail/site/mailingoutadmin.py:18
+msgid "Accounts"
+msgstr "Hesaplar"
+
+#: massmail/site/mailingoutadmin.py:27
+msgid "Today"
+msgstr "Bugün"
+
+#: massmail/site/mailingoutadmin.py:28
+msgid "Sent today"
+msgstr "Bugün gönderildi"
+
+#: massmail/site/mailingoutadmin.py:72
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                Friday, Saturday, Sunday."
+msgstr ""
+"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gönderilmez: Cuma, "
+"Cumartesi, Pazar."
+
+#: massmail/site/mailingoutadmin.py:110
+msgid "notification"
+msgstr "bildirim"
+
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+msgid "Get or update a refresh token"
+msgstr "Yenileme jetonu alın veya güncelleyin"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+msgid "Send a test"
+msgstr "Testi Gönder"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+msgid "Copy message"
+msgstr "Mesajı kopyala"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+msgid "Successful recipients"
+msgstr "Başarılı Alıcılar"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+msgid "Failed recipients"
+msgstr "Başarısız Alıcılar"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+msgid "Send failed recipients"
+msgstr "Başarısız Alıcılara Gönder"
+
+#: massmail/templates/massmail/pic_upload.html:7
+msgid "Upload the image file to the CRM server"
+msgstr "CRM sunucusuna görüntü dosyasını yükleyin."
+
+#: massmail/templates/massmail/pic_upload.html:15
+msgid "Please select an image file to upload."
+msgstr "Lütfen yüklemek istediğiniz bir görüntü dosyası seçin."
+
+#: massmail/templates/massmail/pic_upload.html:36
+msgid "To specify the address of the uploaded file, use the tag -"
+msgstr "Yüklenen dosyanın adresini belirtmek için etiketi kullanın -"
+
+#: massmail/templates/massmail/pic_upload.html:37
+msgid ""
+"Upload only files that will be used many times. For example, a company logo."
+msgstr ""
+"Sadece tekrar tekrar kullanılacak dosyaları yükleyin. Örneğin, bir şirket "
+"logosu."
+
+#: massmail/templates/massmail/pic_upload_buttons.html:3
+msgid "View the uploaded images on the CRM server"
+msgstr "CRM sunucusunda yüklenen görüntüleri görüntüle"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:6
+msgid "Upload an image file to the CRM server"
+msgstr "CRM sunucusuna bir görüntü dosyası yükleyin."
+
+#: massmail/templates/massmail/show_uploaded_images.html:7
+#: massmail/templates/massmail/show_uploaded_images.html:15
+msgid "Uploaded images"
+msgstr "Yüklenen Görüntüler"
+
+#: massmail/utils/sendmassmail.py:43
+msgid "Done successfully."
+msgstr "Başarılı bir şekilde tamamlandı."
+
+#: massmail/views/file_upload.py:9
+msgid "Allowed file extensions: "
+msgstr "İzin verilen dosya uzantıları:"
+
+#: massmail/views/get_oauth2_tokens.py:74
+msgid "Refresh token received successfully."
+msgstr "Yenileme jetonu başarıyla alındı."
+
+#: massmail/views/get_oauth2_tokens.py:79
+msgid "Error: Failed to get authorization code."
+msgstr "Hata: Yetkilendirme kodu alınamadı."
+
+#: massmail/views/send_failed_recipients.py:14
+msgid "Failed recipients has been returned to the massmail successfully."
+msgstr "Başarısız alıcılar başarıyla toplu posta listesine eklendi."
+
+#: massmail/views/send_tests.py:49
+#, python-brace-format
+msgid "The Email test has been sent to {email_accounts}"
+msgstr "E-posta testi {email_hesapları} adreslerine gönderildi."
+
+#: settings/apps.py:8
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: settings/models.py:7
+msgid "Banned company name"
+msgstr "Yasaklanmış şirket adı"
+
+#: settings/models.py:8
+msgid "Banned company names"
+msgstr "Yasaklanmış Şirket Adları"
+
+#: settings/models.py:22
+msgid "Public email domain"
+msgstr "Genel E-posta Alanı"
+
+#: settings/models.py:23
+msgid "Public email domains"
+msgstr "Genel E-posta Alanları"
+
+#: settings/models.py:28
+msgid "Domain"
+msgstr "Alan Adı"
+
+#: settings/models.py:41 settings/models.py:42
+msgid "Reminder settings"
+msgstr "Hatırlatıcı Ayarları"
+
+#: settings/models.py:47
+msgid "Check interval"
+msgstr "Kontrol Aralığı"
+
+#: settings/models.py:49
+msgid "Specify the interval in seconds to check if it's time for a reminder."
+msgstr "Hatırlatma için kontrol etme aralığını saniye cinsinden belirleyin."
+
+#: settings/models.py:56
+msgid "Stop Phrase"
+msgstr "Durdurma Cümlesi"
+
+#: settings/models.py:57
+msgid "Stop Phrases"
+msgstr "Durdurma İfadeleri"
+
+#: settings/models.py:62
+msgid "Phrase"
+msgstr "İfade"
+
+#: settings/models.py:66
+msgid "Last occurrence date"
+msgstr "Son Görülme Tarihi"
+
+#: settings/models.py:67
+msgid "Date of last occurrence of the phrase"
+msgstr "Frazın son geçişi tarihi"
+
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
+msgid "Change responsible"
+msgstr "Sorumlu değiştir"
+
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+msgid "Change subscribers"
+msgstr "Aboneler Değiştir"
+
+#: tasks/apps.py:8 tasks/models/task.py:16
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+msgid "Tasks"
+msgstr "Görevler"
+
+#: tasks/forms.py:32
+msgid "Please specify a name"
+msgstr "Lütfen bir isim belirtin."
+
+#: tasks/forms.py:38
+msgid "Please specify a responsible"
+msgstr "Lütfen sorumlu kişiyi belirtin."
+
+#: tasks/forms.py:48 tasks/forms.py:114
+msgid "Date should not be in the past."
+msgstr "Tarih geçmişte olmamalıdır."
+
+#: tasks/models/memo.py:13
+msgid "Memo"
+msgstr "Not"
+
+#: tasks/models/memo.py:14
+msgid "Memos"
+msgstr "Notlar"
+
+#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
+#: tasks/site/memoadmin.py:45
+msgid "postponed"
+msgstr "erteleme"
+
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+msgid "reviewed"
+msgstr "incelemiş"
+
+#: tasks/models/memo.py:33
+msgid "to whom"
+msgstr "kime"
+
+#: tasks/models/memo.py:41 tasks/models/task.py:15
+msgid "Task"
+msgstr "Görev"
+
+#: tasks/models/memo.py:49
+msgid "For what"
+msgstr "Neden?"
+
+#: tasks/models/memo.py:57 tasks/models/project.py:9
+#: tasks/utils/admfilters.py:67
+msgid "Project"
+msgstr "Proje"
+
+#: tasks/models/memo.py:72
+msgid "Сonclusion"
+msgstr "Sonuç"
+
+#: tasks/models/memo.py:76
+msgid "Draft"
+msgstr "Taslak"
+
+#: tasks/models/memo.py:77
+msgid "Available only to the owner."
+msgstr "Sadece sahibine göre erişilebilir."
+
+#: tasks/models/memo.py:81
+msgid "Notified"
+msgstr "Bilgilendirildi"
+
+#: tasks/models/memo.py:82
+msgid "The recipient and subscribers are notified."
+msgstr "Alıcı ve aboneler bilgilendirilmiştir."
+
+#: tasks/models/memo.py:92
+msgid "Review date"
+msgstr "İnceleme tarihi"
+
+#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+msgid "subscribers"
+msgstr "aboneiler"
+
+#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+msgid "Notified subscribers"
+msgstr "Bilgilendirilen aboneler"
+
+#: tasks/models/memo.py:123
+msgid "The office memo has been reviewed"
+msgstr "Ofis memoru gözden geçirildi."
+
+#: tasks/models/project.py:10
+msgid "Projects"
+msgstr "Proje(ler)"
+
+#: tasks/models/projectstage.py:9
+msgid "Project stage"
+msgstr "Proje Aşaması"
+
+#: tasks/models/projectstage.py:10
+msgid "Project stages"
+msgstr "Proje Aşamaları"
+
+#: tasks/models/projectstage.py:15
+msgid "Is the project active at this stage?"
+msgstr "Bu aşamada proje aktif mi?"
+
+#: tasks/models/resolution.py:9
+msgid "Resolution"
+msgstr "Çözüm"
+
+#: tasks/models/resolution.py:10
+msgid "Resolutions"
+msgstr "Çözümler"
+
+#: tasks/models/stagebase.py:20
+msgid "Mark if this stage is \"done\""
+msgstr "Bu aşamanın \"Tamamlandı\" olduğunu işaretle."
+
+#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+msgid "In progress"
+msgstr "İşlemde"
+
+#: tasks/models/stagebase.py:25
+msgid "Mark if this stage is \"in progress\""
+msgstr "Bu aşamanın \"devam ediyor\" olduğunu işaretleyin."
+
+#: tasks/models/tag.py:17
+msgid "Tag for"
+msgstr "Etiket için"
+
+#: tasks/models/task.py:24
+msgid "task"
+msgstr "Görev"
+
+#: tasks/models/task.py:32
+msgid "project"
+msgstr "Proje"
+
+#: tasks/models/task.py:39
+msgid "Hide main task"
+msgstr "Ana Görevi Gizle"
+
+#: tasks/models/task.py:40
+msgid "Hide the main task when this sub-task is closed."
+msgstr "Bu alt görev tamamlandığında ana görevi gizle."
+
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
+msgid "Lead time"
+msgstr "Bekleme Süresi"
+
+#: tasks/models/task.py:47
+msgid "Task execution time in format - DD HH:MM:SS"
+msgstr "Görev yürütme süresi - GG SS:DD:SS biçiminde"
+
+#: tasks/models/task.py:64
+msgid "The task cannot be closed because there is an active subtask."
+msgstr "Görev, aktif alt görevler olduğu için kapatılamaz."
+
+#: tasks/models/task.py:92
+msgid "The main task is closed automatically."
+msgstr "Ana görev otomatik olarak kapatıldı."
+
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
+msgid "Low"
+msgstr "Düşük"
+
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
+msgid "Middle"
+msgstr "Orta"
+
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
+msgid "High"
+msgstr "Yüksek"
+
+#: tasks/models/taskbase.py:33
+msgid "Short title"
+msgstr "Kısaltılmış Başlık"
+
+#: tasks/models/taskbase.py:42
+msgid "Start date"
+msgstr "Başlangıç Tarihi"
+
+#: tasks/models/taskbase.py:44
+msgid "Date of task closing"
+msgstr "Görev Kapama Tarihi"
+
+#: tasks/models/taskbase.py:55
+msgid "Notified responsible"
+msgstr "Bilgilendirilen sorumlular"
+
+#: tasks/models/taskstage.py:9
+msgid "Task stage"
+msgstr "Görev Aşaması"
+
+#: tasks/models/taskstage.py:10
+msgid "Task stages"
+msgstr "Görev Aşamaları"
+
+#: tasks/models/taskstage.py:15
+msgid "Is the task active at this stage?"
+msgstr "Bu aşamada görev aktif mi?"
+
+#: tasks/models/to_translate.txt:4
+msgid "done"
+msgstr "tamamlandı"
+
+#: tasks/models/to_translate.txt:6
+msgid "canceled"
+msgstr "iptal edildi"
+
+#: tasks/models/to_translate.txt:7
+msgid "to make a decision"
+msgstr "karar vermek için"
+
+#: tasks/models/to_translate.txt:8
+msgid "payment of regular expenses"
+msgstr "düzenli giderlerin ödenmesi"
+
+#: tasks/models/to_translate.txt:9
+msgid "on approval"
+msgstr "onaylandıktan sonra"
+
+#: tasks/models/to_translate.txt:10
+msgid "for consideration"
+msgstr "dikkate alınmak üzere"
+
+#: tasks/models/to_translate.txt:11
+msgid "for information"
+msgstr "bilgi için"
+
+#: tasks/models/to_translate.txt:12
+msgid "for the record"
+msgstr "kayıt için"
+
+#: tasks/site/memoadmin.py:44
+msgid "overdue"
+msgstr "gecikmiş"
+
+#: tasks/site/memoadmin.py:47
+msgid "You are subscribed to a new office memo"
+msgstr "Yeni bir ofis notu aboneliğiniz var."
+
+#: tasks/site/memoadmin.py:49
+msgid "unreviewed"
+msgstr "incelenmedi"
+
+#: tasks/site/memoadmin.py:50
+msgid "The office memo was written"
+msgstr "Ofis notu yazıldı."
+
+#: tasks/site/memoadmin.py:51
+msgid "You've received a office memo"
+msgstr "Bir ofis memosu aldınız."
+
+#: tasks/site/memoadmin.py:118
+msgid "Your office memo has been deleted"
+msgstr "Ofis notunuz silinmiştir."
+
+#: tasks/site/memoadmin.py:386
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+msgid "View the task"
+msgstr "Görevi Görüntüle"
+
+#: tasks/site/memoadmin.py:390
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+msgid "View the project"
+msgstr "Projeyi Görüntüle"
+
+#: tasks/site/memoadmin.py:471
+msgid "View the "
+msgstr "Görüntüle"
+
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "Proje hakkında bilgi sahibi olmak"
+
+#: tasks/site/projectadmin.py:18
+msgid "The project was created"
+msgstr "Proje oluşturuldu."
+
+#: tasks/site/taskadmin.py:35
+msgid "I completed my part of the task"
+msgstr "Görevimin kısmını tamamladım."
+
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+msgid "The task was created"
+msgstr "Görev oluşturuldu."
+
+#: tasks/site/taskadmin.py:38
+msgid "The subtask was created"
+msgstr "Alt görev oluşturuldu"
+
+#: tasks/site/taskadmin.py:39
+msgid "The subtask"
+msgstr "Alt Görev"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "ana görevenin son teslim tarihinden sonra."
+
+#: tasks/site/taskadmin.py:334
+msgid "Main task"
+msgstr "Ana Görev"
+
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:6
+msgid "Create subtask"
+msgstr "Alt Görev Oluştur"
+
+#: tasks/site/taskadmin.py:372
+msgid ""
+"This is a collective task.\n"
+"            Please create a sub-task for yourself for work.\n"
+"            Or press the next button when you have done your job.\n"
+"        "
+msgstr ""
+"Bu bir grup görevi.\n"
+"            Lütfen işiniz için bir alt görev oluşturun.\n"
+"            Veya işinizi tamamladığınızda \"Sonraki\" düğmesine basın."
+
+#: tasks/site/tasksbasemodeladmin.py:44
+msgid "You have been assigned as the task co-owner"
+msgstr "Siz, görev ortak sahibi olarak atanmışsınız."
+
+#: tasks/site/tasksbasemodeladmin.py:46
+msgid "Acquainted with the task"
+msgstr "Görevi Tanıdım"
+
+#: tasks/site/tasksbasemodeladmin.py:48
+#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+msgid "The task is closed"
+msgstr "Görev kapatıldı."
+
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The subtask is closed"
+msgstr "Alt görev tamamlandı."
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "The next step date should not be later than due date."
+msgstr "Son adım tarihi, beklenen tarihten daha geç olmamalıdır."
+
+#: tasks/site/tasksbasemodeladmin.py:53
+msgid "The Project was created"
+msgstr "Proje oluşturuldu"
+
+#: tasks/site/tasksbasemodeladmin.py:54
+msgid "The project is closed"
+msgstr "Proje kapatıldı."
+
+#: tasks/site/tasksbasemodeladmin.py:57
+msgid "You are subscribed to a new task"
+msgstr "Yeni bir göreve abone oldunuz."
+
+#: tasks/site/tasksbasemodeladmin.py:58
+msgid "You have a new task assigned"
+msgstr "Size yeni bir görev atandı."
+
+#: tasks/site/tasksbasemodeladmin.py:483
+msgid ""
+"Please edit the title and description to make it clear to other users what "
+"part of the overall task will be completed."
+msgstr ""
+"Lütfen başlığı ve açıklamayı düzenleyin, böylece diğer kullanıcılar "
+"tamamlanacak genel görevin hangi kısmını anlayabilirler."
+
+#: tasks/site/tasksbasemodeladmin.py:502
+msgid "responsible"
+msgstr "sorumlu"
+
+#: tasks/site/tasksbasemodeladmin.py:536
+msgid "Attach files"
+msgstr "Dosyaları ekle"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:5
+#: tasks/templates/admin/tasks/project/submit_line.html:6
+msgid "Create task"
+msgstr "Görev oluştur"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:9
+msgid "Create project"
+msgstr "Proje Oluştur"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+msgid "View main task"
+msgstr "Ana Görevi Görüntüle"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+msgid "Subtasks"
+msgstr "Alt Görevler"
+
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+msgid "Toggle default task sorting"
+msgstr "Varsayılan Görev Sıralamasını Değiştir"
+
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Mark the task as completed and save."
+msgstr "Görevi tamam olarak işaretle ve kaydet."
+
+#: tasks/views/create_completed_subtask.py:43
+msgid ""
+"The task cannot be marked as completed because you have an active subtask."
+msgstr "Görev, aktif bir alt görev olduğunuz için tamamlanamaz."
+
+#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+msgid "The Task does not exist"
+msgstr "Görev mevcut değil."
+
+#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+msgid "The user does not exist"
+msgstr "Kullanıcı mevcut değil."
+
+#: tasks/views/create_completed_subtask.py:119
+msgid ""
+"An error occurred while creating the subtask. Contact the CRM Administrator."
+msgstr "Alt görev oluştururken bir hata oluştu. CRM Yöneticisi'ne başvurun."
+
+#: templates/admin/auth/group/change_list_object_tools.html:12
+msgid "Creates a copy of the department"
+msgstr "Departmanın bir kopyasını oluştur"
+
+#: templates/admin/auth/group/change_list_object_tools.html:13
+msgid "Copy department"
+msgstr "Kopyala Bölümü"
+
+#: templates/admin/auth/user/change_list_object_tools.html:12
+msgid "Transfer of a manager to another department"
+msgstr "Bir yöneticiyi başka bir bölüme transfer etme"
+
+#: templates/admin/auth/user/change_list_object_tools.html:13
+msgid "Transfer of a manager"
+msgstr "Yönetici Transferi"
+
+#: templates/admin/base.html:50
+msgid "Skip to main content"
+msgstr "Ana içeriğe geçin"
+
+#: templates/admin/base.html:65
+msgid "Welcome,"
+msgstr "Hoş geldiniz,"
+
+#: templates/admin/base.html:70
+msgid "View site"
+msgstr "Siteyi Görüntüle"
+
+#: templates/admin/base.html:75
+msgid "Documentation"
+msgstr "Belgeleme"
+
+#: templates/admin/base.html:79
+msgid "Change password"
+msgstr "Parolayı Değiştir"
+
+#: templates/admin/base.html:83
+msgid "Log out"
+msgstr "Çıkış Yap"
+
+#: templates/admin/base.html:98
+msgid "Breadcrumbs"
+msgstr "Ekmek Parçacıkları"
+
+#: templates/admin/color_theme_toggle.html:3
+msgid "Toggle theme (current theme: auto)"
+msgstr "Tema değiştir (mevcut tema: otomatik)"
+
+#: templates/admin/color_theme_toggle.html:4
+msgid "Toggle theme (current theme: light)"
+msgstr "Tema değiştir (mevcut tema: açık)"
+
+#: templates/admin/color_theme_toggle.html:5
+msgid "Toggle theme (current theme: dark)"
+msgstr "Tema değiştir (mevcut tema: Koyu)"
+
+#. Translators: Specify dates of date range
+#: templates/admin/crm_date_filter.html:18
+msgid "Specify dates"
+msgstr "Tarihleri belirtin"
+
+#. Translators: Start of date range
+#: templates/admin/crm_date_filter.html:23
+msgid "from"
+msgstr "den"
+
+#. Translators: End of date range
+#: templates/admin/crm_date_filter.html:29
+msgid "before"
+msgstr "önce"
+
+#. Translators: Year-Month Day
+#: templates/admin/crm_date_filter.html:33
+msgid "YYYY-MM-DD"
+msgstr "YYYY-AA-GG"
+
+#: templates/crm_help_link.html:3
+msgid "Help"
+msgstr "Yardım"
+
+#: tests/massmail/utils/test_send_massmail.py:122
+msgid "This field is required."
+msgstr "Bu alan zorunlu."
+
+#: voip/models.py:9
+msgid "PBX extension"
+msgstr "PBX Uzantısı"
+
+#: voip/models.py:10
+msgid "SIP connection"
+msgstr "SIP Bağlantısı"
+
+#: voip/models.py:11
+msgid "Virtual phone number"
+msgstr "Sanal Telefon Numarası"
+
+#: voip/models.py:29
+msgid "Number"
+msgstr "Numara"
+
+#: voip/models.py:33
+msgid "Caller ID"
+msgstr "Arayan Kimlik Bilgisi"
+
+#: voip/models.py:35
+msgid ""
+"Specify the number to be displayed as             your phone number when you "
+"call"
+msgstr "Aramada görüntülenmek üzere telefon numaranızı belirtin."
+
+#: voip/models.py:42
+msgid "Provider"
+msgstr "Tedarikçi"
+
+#: voip/models.py:43
+msgid "Specify VoIP service provider"
+msgstr "VoIP hizmeti sağlayıcısını belirtin"
+
+#: voip/templates/voip/connection.html:10
+msgid "Please select what's your phone number, caller display"
+msgstr "Lütfen çağrı görüntüleme olarak kullanılacak telefon numaranızı seçin."
+
+#: voip/views/callback.py:21
+msgid ""
+"You do not have a VoiP connection configured. Please contact your "
+"administrator."
+msgstr ""
+"VoIP bağlantınız yapılandırılmamış. Lütfen yöneticinizle iletişime geçin."
+
+#: voip/views/callback.py:88
+msgid "That something is wrong ((. Notify the administrator."
+msgstr "Bir şeyler yanlış ((. Yöneticiyi bilgilendirin."
+
+#: voip/views/callback.py:90
+msgid "Expect a call to your smartphone"
+msgstr "Akıllı telefonunuza bir arama bekleyin."
+
+#: voip/views/voipwebhook.py:44
+msgid "An outgoing call to"
+msgstr "Bir çıkış araması yapın"
+
+#: voip/views/voipwebhook.py:53
+msgid "An incoming call from"
+msgstr "Gelen bir çağrıdan"
+
+#: voip/views/voipwebhook.py:70
+#, python-brace-format
+msgid "(duration: {duration} minutes)"
+msgstr "(süreç: {süre} dakika)"
+
+#: webcrm/settings.py:260
+msgid "Untitled"
+msgstr "Başsız"
+
+#: webcrm/settings.py:275
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#~ msgid "Arabic"
+#~ msgstr "العربية"
+
+#~ msgid "German"
+#~ msgstr "Deutsch"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Spanish"
+#~ msgstr "Español"
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid "Hindi"
+#~ msgstr "Hintçe"
+
+#~ msgid "Italian"
+#~ msgstr "Italiano"
+
+#~ msgid "Dutch"
+#~ msgstr "Hollandaça"
+
+#~ msgid "Portuguese"
+#~ msgstr "Português"
+
+#~ msgid "Russian"
+#~ msgstr "русский"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Ukraynalı"
