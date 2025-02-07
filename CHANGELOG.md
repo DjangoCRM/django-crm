@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Translations of CRM software into the following languages:
 
 - Hindi
+- Turkish
 
 ## [1.1.0] - 2025-01-25
 
