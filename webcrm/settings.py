@@ -67,12 +67,14 @@ LANGUAGES = [
     ('fr', 'French'),
     ('hi', 'Hindi'),
     ('it', 'Italian'),
+    # ('ja', 'Japanese'),
     ('nl', 'Dutch'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
     ('uk', 'Ukrainian'),
+    ('zh-hans', 'Chinese'),
 ]
 
 TIME_ZONE = 'UTC'   # specify your time zone
