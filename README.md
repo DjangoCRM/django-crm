@@ -41,10 +41,10 @@ Django is an excellently documented framework with lots of examples.
 The documentation on the Admin site takes up only one web page.  
 💡 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.
 
-All this ensures:
+**All this ensures**:
 
-- significantly easier project customization and development
-- simpler project deployment and production server support
+- **significantly easier project customization and development**
+- **simpler project deployment and production server support**
 
 The software package provides two websites:
 
@@ -141,7 +141,7 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:**  
-`de, en, es, fr, hi, it, nl, pt-BR, ru, uk`
+`ar, de, en, es, fr, hi, it, nl, pl, pt-br, ru, tr, uk, zh-hans`
 
 ## Why Choose Django-CRM?
 
