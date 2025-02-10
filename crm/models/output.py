@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
 from .payment import BasePayment
@@ -49,6 +50,14 @@ class Output(BasePayment):
     @property
     def pcs(self):
         return gettext('pcs')
+
+    def clean(self):
+        # A quantity of zero is not allowed
+        if self.quantity == 0:
+            raise ValidationError({
+                "quantity": _("Quantity is required.")
+            })
+
 
     def __str__(self):
         return f"{self.product} - {self.quantity}{self.pcs}"

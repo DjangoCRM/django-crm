@@ -60,15 +60,21 @@ FORMS_URLFIELD_ASSUME_HTTPS = True
 # Internationalization
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
-    ('de', _('German')),
-    ('en', _('English')),
-    ('es', _('Spanish')),
-    ('fr', _('French')),
-    ('it', _('Italian')),
-    ('nl', _('Dutch')),
-    ('pt-br', _('Portuguese')),
-    ('ru', _('Russian')),
-    ('uk', _('Ukrainian')),
+    ('ar', 'Arabic'),
+    ('de', 'German'),
+    ('en', 'English'),
+    ('es', 'Spanish'),
+    ('fr', 'French'),
+    ('hi', 'Hindi'),
+    ('it', 'Italian'),
+    ('ja', 'Japanese'),
+    ('nl', 'Dutch'),
+    ('pl', 'Polish'),
+    ('pt-br', 'Portuguese'),
+    ('ru', 'Russian'),
+    ('tr', 'Turkish'),
+    ('uk', 'Ukrainian'),
+    ('zh-hans', 'Chinese'),
 ]
 
 TIME_ZONE = 'UTC'   # specify your time zone

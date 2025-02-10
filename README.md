@@ -1,5 +1,6 @@
 <p align="right">
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-hindi.md">हिन्दी</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
@@ -7,7 +8,6 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
 </p>
-
 
 # Django-CRM
 
@@ -24,6 +24,7 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
 ## Customer Relationship Management Features
+
 |                              |                                          |                                  |
 |------------------------------|------------------------------------------|----------------------------------|
 | ☑️ **Team Tasks & Projects** | ☑️ **Lead Management**                   | ☑️ **Email Marketing**           |
@@ -40,10 +41,10 @@ Django is an excellently documented framework with lots of examples.
 The documentation on the Admin site takes up only one web page.  
 💡 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.
 
-All this ensures:
+**All this ensures**:
 
-- significantly easier project customization and development
-- simpler project deployment and production server support
+- **significantly easier project customization and development**
+- **simpler project deployment and production server support**
 
 The software package provides two websites:
 
@@ -140,7 +141,7 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:**  
-`de, en, es, fr, it, nl, pt-BR, ru, uk`
+`ar, de, en, es, fr, hi, it, nl, pl, pt-br, ru, tr, uk, zh-hans`
 
 ## Why Choose Django-CRM?
 
@@ -181,3 +182,4 @@ Django-CRM is released under the AGPL-3.0 license - see the [LICENSE](https://gi
 
 - Google material [icons](https://fonts.google.com/icons).
 - [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
+- All resources used under other licenses.
