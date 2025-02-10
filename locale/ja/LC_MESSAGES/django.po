@@ -1,0 +1,3827 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-08 17:42+0200\n"
+"PO-Revision-Date: 2025-02-09 15:40+0200\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: analytics/apps.py:10
+msgid "Analytics"
+msgstr "分析"
+
+#: analytics/models.py:15
+msgid "IncomeStat Snapshot"
+msgstr "インカム統計スナップショット"
+
+#: analytics/models.py:16
+msgid "IncomeStat Snapshots"
+msgstr "インカムスタット スナップショット"
+
+#: analytics/models.py:28 analytics/models.py:29
+msgid "Sales Report"
+msgstr "売上報告"
+
+#: analytics/models.py:36
+msgid "Request Summary"
+msgstr "リクエスト概要"
+
+#: analytics/models.py:37
+msgid "Requests Summary"
+msgstr "リクエストの要約"
+
+#: analytics/models.py:44 analytics/models.py:45
+msgid "Lead source Summary"
+msgstr "リードソースの要約"
+
+#: analytics/models.py:52 analytics/models.py:53
+msgid "Closing reason Summary"
+msgstr "クローズ理由の要約"
+
+#: analytics/models.py:60 analytics/models.py:61
+msgid "Deal Summary"
+msgstr "取引概要"
+
+#: analytics/models.py:68 analytics/models.py:69
+#: analytics/site/incomestatadmin.py:48
+msgid "Income Summary"
+msgstr "収益概要"
+
+#: analytics/models.py:76 analytics/models.py:77
+msgid "Sales funnel"
+msgstr "販売ファネル"
+
+#: analytics/models.py:84 analytics/models.py:85
+msgid "Conversion Summary"
+msgstr "変換まとめ"
+
+#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: crm/models/payment.py:112
+msgid "Payment date"
+msgstr "支払い日"
+
+#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
+#: crm/models/request.py:82
+msgid "Products"
+msgstr "製品"
+
+#: analytics/site/closingreasonstatadmin.py:63
+msgid "Closing reason over month"
+msgstr "月ごとのクローズ理由"
+
+#: analytics/site/conversionadmin.py:11
+msgid "Conversion of requests into successful deals (for the last 365 days)"
+msgstr "リクエストを成功した取引に変換する（過去365日間）"
+
+#: analytics/site/conversionadmin.py:39
+msgid "Conversion of primary requests"
+msgstr "プライマリリクエストの変換"
+
+#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+msgid "Conversion"
+msgstr "変換"
+
+#: analytics/site/conversionadmin.py:43
+#: analytics/site/leadsourcestatadmin.py:21
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+msgid "Total requests"
+msgstr "合計リクエスト数"
+
+#: analytics/site/conversionadmin.py:44
+msgid "Total primary requests"
+msgstr "プライマリリクエストの総数"
+
+#: analytics/site/dealstatadmin.py:17
+msgid "Deal Summary for last 365 days"
+msgstr "過去365日間の取引まとめ"
+
+#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+msgid "Total deals"
+msgstr "取引の合計数"
+
+#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+msgid "Relevant deals"
+msgstr "関連取引"
+
+#: analytics/site/dealstatadmin.py:46
+msgid "Closed successfully (primary)"
+msgstr "成功裏に閉じた（主要）"
+
+#: analytics/site/dealstatadmin.py:47
+msgid "Average days to close successfully (primary)"
+msgstr "成功した取引の平均クロージング日数（主要）"
+
+#: analytics/site/dealstatadmin.py:60
+msgid "Irrelevant deals"
+msgstr "無関係な取引"
+
+#: analytics/site/dealstatadmin.py:78
+msgid "Won deals"
+msgstr "獲得した取引"
+
+#: analytics/site/incomestatadmin.py:135
+msgid "The snapshot has been saved successfully."
+msgstr "スナップショットが正常に保存されました。"
+
+#: analytics/site/incomestatadmin.py:183
+msgid "Income monthly (total amount for the current period: {} {} ({}))"
+msgstr "月次売上（現在の期間の総額：{} {}（{}））"
+
+#: analytics/site/incomestatadmin.py:188
+msgid "Income monthly in the previous period"
+msgstr "前期間の月次収入"
+
+#: analytics/site/incomestatadmin.py:193
+msgid "Payments received"
+msgstr "受取金額"
+
+#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
+msgid "Amount"
+msgstr "金額"
+
+#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+msgid "Order"
+msgstr "注文"
+
+#: analytics/site/incomestatadmin.py:239
+msgid "Guaranteed income"
+msgstr "保証収入"
+
+#: analytics/site/incomestatadmin.py:246
+msgid "High probability income"
+msgstr "高確率収益"
+
+#: analytics/site/incomestatadmin.py:253
+msgid "Low probability income"
+msgstr "低確率収入"
+
+#: analytics/site/incomestatadmin.py:295
+msgid "Income averaged over the year ({})."
+msgstr "年間平均収入（{}）"
+
+#: analytics/site/incomestatadmin.py:307
+msgid "Total won deals"
+msgstr "獲得した取引の合計"
+
+#: analytics/site/incomestatadmin.py:308
+msgid "Average won deals a month"
+msgstr "月間平均獲得取引数"
+
+#: analytics/site/incomestatadmin.py:309
+msgid "Average income amount a month"
+msgstr "平均月収額"
+
+#: analytics/site/incomestatadmin.py:451
+msgid "Total amount"
+msgstr "合計金額"
+
+#: analytics/site/leadsourcestatadmin.py:15
+#: analytics/site/requeststatadmin.py:18
+msgid "Request source statistics"
+msgstr "リクエスト元統計情報"
+
+#: analytics/site/leadsourcestatadmin.py:16
+#: analytics/site/requeststatadmin.py:19
+msgid "Number of requests for each source"
+msgstr "各ソースごとのリクエスト数"
+
+#: analytics/site/leadsourcestatadmin.py:17
+#: analytics/site/requeststatadmin.py:20
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+msgid "Requests over country"
+msgstr "国別リクエスト"
+
+#: analytics/site/leadsourcestatadmin.py:18
+#: analytics/site/requeststatadmin.py:21
+msgid "for all period"
+msgstr "全期間"
+
+#: analytics/site/leadsourcestatadmin.py:19
+#: analytics/site/requeststatadmin.py:22
+msgid "for last 365 days"
+msgstr "過去365日"
+
+#: analytics/site/leadsourcestatadmin.py:20
+#: analytics/site/requeststatadmin.py:23
+msgid "conversion"
+msgstr "変換"
+
+#: analytics/site/leadsourcestatadmin.py:22
+#: analytics/site/requeststatadmin.py:25
+msgid "Not specified"
+msgstr "未指定"
+
+#: analytics/site/leadsourcestatadmin.py:116
+msgid "Relevant requests over month"
+msgstr "1ヶ月間の関連リクエスト"
+
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
+#: crm/site/shipmentadmin.py:36
+msgid "pcs"
+msgstr "個（こ）"
+
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
+#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
+#: crm/utils/admfilters.py:113
+msgid "Country"
+msgstr "国"
+
+#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
+#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
+#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
+#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
+#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
+#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
+#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+msgid "All"
+msgstr "すべて"
+
+#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
+#: common/models.py:185
+#: common/templates/common/notice_participants_email.html:15
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
+msgid "Owner"
+msgstr "所有者"
+
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: crm/models/product.py:31 crm/utils/admfilters.py:266
+msgid "Product"
+msgstr "製品"
+
+#: analytics/site/outputstatadmin.py:199
+msgid "Sold products summary (by date of payment receipt)"
+msgstr "支払い受領日ごとの販売商品のまとめ"
+
+#: analytics/site/outputstatadmin.py:287
+msgid "Sold products"
+msgstr "販売済み製品"
+
+#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+msgid "Price"
+msgstr "価格"
+
+#: analytics/site/requeststatadmin.py:57
+msgid "Request Summary for last 365 days"
+msgstr "過去365日のリクエスト概要"
+
+#: analytics/site/requeststatadmin.py:91
+msgid "Conversion of primary requests into successful deals"
+msgstr "プライマリリクエストを成功した取引に変換する"
+
+#: analytics/site/requeststatadmin.py:95
+msgid "Primary requests"
+msgstr "主要なリクエスト"
+
+#: analytics/site/requeststatadmin.py:97
+msgid "Subsequent requests"
+msgstr "随時のリクエスト"
+
+#: analytics/site/requeststatadmin.py:98
+msgid "Conversion of subsequent requests"
+msgstr "後続リクエストの変換"
+
+#: analytics/site/requeststatadmin.py:101
+msgid "average monthly value"
+msgstr "平均月間価値"
+
+#: analytics/site/requeststatadmin.py:102
+msgid "Requests by month"
+msgstr "月別リクエスト"
+
+#: analytics/site/requeststatadmin.py:116
+msgid "Relevant requests"
+msgstr "関連リクエスト"
+
+#: analytics/site/salesfunnelsadmin.py:42
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+msgid "Total closed deals"
+msgstr "総閉じる取引数"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+msgid "Statistics on the Closing reason of deals for all the time"
+msgstr "すべての期間の取引クロージング理由統計"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+msgid "total requests"
+msgstr "合計リクエスト数"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
+#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+msgid "Switch currency"
+msgstr "通貨を切り替える"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+msgid "Save snapshot"
+msgstr "スナップショットを保存"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+msgid "Sales funnel for last 365 days"
+msgstr "過去365日の販売ファネル"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+msgid "The number of closed deals in stages"
+msgstr "ステージごとのクローズド取引数"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+msgid "Chart"
+msgstr "チャート"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+msgid "The percentages show the number of \"lost\" deals at each stage."
+msgstr "割合は、各ステージでの「失われた」取引の数を示します。"
+
+#: analytics/templates/analytics/bar_chart.html:58
+#: analytics/templates/analytics/bar_chart_.html:51
+msgid "Charts"
+msgstr "チャート"
+
+#: analytics/templates/analytics/notice.html:2
+msgid ""
+"Note! The calculations use data for the whole year. But the charts begin on "
+"the first of the next month."
+msgstr "注意！計算には年間全体データが使用されますが、グラフは翌月の初日に始まります。"
+
+#: analytics/templates/analytics/view_snapshots.html:8
+msgid "Data"
+msgstr "データ"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Snapshots"
+msgstr "スナップショット"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Now"
+msgstr "今"
+
+#: chat/apps.py:8 chat/templates/chat_buttons.html:9
+#: chat/templates/chat_buttons.html:13
+msgid "Chat"
+msgstr "チャット"
+
+#: chat/forms/chatmessageform.py:29
+msgid "Please write a message"
+msgstr "メッセージを書いてください。"
+
+#: chat/forms/chatmessageform.py:35
+msgid "Please select at least one recipient"
+msgstr "受信者を少なくとも一つ選択してください。"
+
+#: chat/models.py:15
+msgid "message"
+msgstr "メッセージ"
+
+#: chat/models.py:16
+msgid "messages"
+msgstr "メッセージ"
+
+#: chat/models.py:24 chat/templates/chat_buttons.html:3
+#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
+#: massmail/site/emlmessageadmin.py:121
+msgid "Message"
+msgstr "メッセージ"
+
+#: chat/models.py:34
+msgid "answer to"
+msgstr "回答"
+
+#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+msgid "recipients"
+msgstr "受信者"
+
+#: chat/models.py:47
+msgid "to"
+msgstr "誰に"
+
+#: chat/models.py:52 common/models.py:24 common/models.py:179
+#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+msgid "Creation date"
+msgstr "作成日"
+
+#: chat/site/chatmessageadmin.py:53
+msgid "task operator"
+msgstr "タスクオペレーター"
+
+#: chat/site/chatmessageadmin.py:54
+msgid "You received a message regarding - "
+msgstr "あなたは、以下の件に関するメッセージを受け取りました。"
+
+#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: tasks/site/tasksbasemodeladmin.py:223
+msgid "Additional information"
+msgstr "追加情報"
+
+#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+msgid "Recipients"
+msgstr "受信者"
+
+#: chat/site/chatmessageadmin.py:283
+#: chat/templates/chat/chatmessage_email.html:12
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
+#: crm/templates/admin/crm/inline_emails.html:36
+msgid "reply"
+msgstr "返信"
+
+#: chat/site/chatmessageadmin.py:293
+msgid "Reply to"
+msgstr "返信する"
+
+#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
+#: common/templates/common/copy_department.html:17
+#: common/templates/common/select_email_account.html:15
+#: common/templates/common/user_transfer.html:17
+#: crm/templates/admin/crm/change_form.html:21
+#: crm/templates/admin/crm/company/change_list_object_tools.html:8
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/change_form.html:21
+#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
+#: crm/templates/admin/crm/request/change_list_object_tools.html:8
+#: crm/templates/crm/addfiles.html:15
+#: crm/templates/crm/change_owner_companies.html:15
+#: crm/templates/crm/import_objects.html:15
+#: crm/templates/crm/select_original_obj.html:27
+#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
+#: templates/admin/auth/group/change_list_object_tools.html:8
+#: templates/admin/auth/user/change_list_object_tools.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "%(名前)sを追加する"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:12
+#: crm/templates/crm/contact_form.html:44
+#: templates/admin/crm_date_filter.html:34
+msgid "Send"
+msgstr "送信する"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:7
+#: common/templates/admin/common/reminder/submit_line.html:8
+#: common/templates/admin/common/userprofile/submit_line.html:8
+#: crm/templates/admin/crm/city/submit_line.html:10
+#: crm/templates/admin/crm/company/submit_line.html:10
+#: crm/templates/admin/crm/contact/submit_line.html:9
+#: crm/templates/admin/crm/crmemail/submit_line.html:19
+#: crm/templates/admin/crm/deal/submit_line.html:9
+#: crm/templates/admin/crm/lead/submit_line.html:13
+#: crm/templates/admin/crm/payment/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/shipment/submit_line.html:9
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
+#: tasks/templates/admin/tasks/memo/submit_line.html:12
+#: tasks/templates/admin/tasks/project/submit_line.html:9
+#: tasks/templates/admin/tasks/task/submit_line.html:17
+msgid "Close"
+msgstr "閉じる"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:11
+#: common/templates/admin/common/reminder/submit_line.html:12
+#: common/templates/admin/common/userprofile/submit_line.html:12
+#: common/templates/common/select_emails.html:31
+#: common/templates/common/select_emails.html:73
+#: crm/templates/admin/crm/city/submit_line.html:14
+#: crm/templates/admin/crm/company/submit_line.html:14
+#: crm/templates/admin/crm/contact/submit_line.html:13
+#: crm/templates/admin/crm/crmemail/submit_line.html:23
+#: crm/templates/admin/crm/deal/submit_line.html:13
+#: crm/templates/admin/crm/lead/submit_line.html:17
+#: crm/templates/admin/crm/payment/submit_line.html:13
+#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/shipment/submit_line.html:13
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
+#: tasks/templates/admin/tasks/memo/submit_line.html:16
+#: tasks/templates/admin/tasks/project/submit_line.html:13
+#: tasks/templates/admin/tasks/task/submit_line.html:21
+msgid "Delete"
+msgstr "削除"
+
+#: chat/templates/chat/chatmessage_email.html:5
+#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
+#: crm/templates/admin/crm/inline_emails.html:45
+msgid "From"
+msgstr ""
+"\n"
+"「送信者から」"
+
+#: chat/templates/chat/chatmessage_email.html:7
+#: common/templates/common/notice_participants_email.html:6
+msgid "View in CRM"
+msgstr "CRMで表示"
+
+#: chat/templates/chat_buttons.html:3
+msgid "Add chat message"
+msgstr "チャットメッセージを追加する"
+
+#: chat/templates/chat_buttons.html:8
+msgid "There are unread messages"
+msgstr "未読メッセージがあります。"
+
+#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+msgid "View chat messages"
+msgstr "チャットメッセージを表示する"
+
+#: common/admin.py:85
+msgid ""
+"You can specify the name of an existing file on the server along with the "
+"path instead of uploading it."
+msgstr "アップロードする代わりに、サーバーにすでに存在するファイルの名前とそのパスを指定することができます。"
+
+#: common/admin.py:195
+msgid "staff"
+msgstr "スタッフ"
+
+#: common/admin.py:201
+msgid "superuser"
+msgstr "スーパーユーザー"
+
+#: common/apps.py:9
+msgid "Common"
+msgstr "一般的な"
+
+#: common/models.py:28 crm/models/payment.py:49
+msgid "Update date"
+msgstr "更新日"
+
+#: common/models.py:38
+msgid "Modified By"
+msgstr "修正者"
+
+#: common/models.py:56
+msgid "was added successfully."
+msgstr "成功して追加されました。"
+
+#: common/models.py:57
+msgid "Re-adding blocked."
+msgstr "ブロックが解除されました。"
+
+#: common/models.py:75 common/models.py:118
+#: common/templates/common/copy_department.html:30
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: tasks/site/memoadmin.py:41
+msgid "Department"
+msgstr "部門"
+
+#: common/models.py:88 common/models.py:89 common/models.py:94
+msgid "Department and Owner do not match"
+msgstr "部門と所有者が一致しません。"
+
+#: common/models.py:119
+msgid "Departments"
+msgstr "部署"
+
+#: common/models.py:126
+msgid "Default country"
+msgstr "デフォルト国"
+
+#: common/models.py:133
+msgid "Default currency"
+msgstr "デフォルト通貨"
+
+#: common/models.py:137
+msgid "Works globally"
+msgstr "グローバルに動作します"
+
+#: common/models.py:138
+msgid "The department operates in foreign markets."
+msgstr "この部門は海外市場で事業を展開しています。"
+
+#: common/models.py:144
+msgid "Reminder"
+msgstr "リマインダー"
+
+#: common/models.py:145
+msgid "Reminders"
+msgstr "リマインダー"
+
+#: common/models.py:159 crm/forms/contact_form.py:20
+#: massmail/models/baseeml.py:16
+msgid "Subject"
+msgstr "件名"
+
+#: common/models.py:160
+msgid "Briefly what about is this reminder"
+msgstr "このリマインダーの簡単な説明は何ですか？"
+
+#: common/models.py:164
+#: common/templates/common/notice_participants_email.html:14
+#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
+#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+msgid "Description"
+msgstr "説明"
+
+#: common/models.py:167
+msgid "Reminder date"
+msgstr "リマインダー日"
+
+#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
+#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
+#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
+#: tasks/utils/admfilters.py:209 voip/models.py:25
+msgid "Active"
+msgstr "アクティブ"
+
+#: common/models.py:175
+msgid "Send notification email"
+msgstr "通知メールを送信する"
+
+#: common/models.py:195
+msgid "File"
+msgstr "ファイル"
+
+#: common/models.py:196
+msgid "Files"
+msgstr "ファイル"
+
+#: common/models.py:200
+msgid "Attached file"
+msgstr "添付ファイル"
+
+#: common/models.py:206
+msgid "Attach to the deal"
+msgstr "取引に関連付ける"
+
+#: common/models.py:228
+#: common/templates/common/notice_participants_email.html:12
+#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
+#: tasks/models/task.py:35
+msgid "Stage"
+msgstr "段階"
+
+#: common/models.py:229
+msgid "Stages"
+msgstr "ステージ"
+
+#: common/models.py:233 tasks/models/stagebase.py:14
+msgid "Default"
+msgstr "デフォルト"
+
+#: common/models.py:234 tasks/models/stagebase.py:15
+msgid "Will be selected by default when creating a new task"
+msgstr "新しいタスクを作成する際にデフォルトで選択されます。"
+
+#: common/models.py:239 tasks/models/stagebase.py:32
+msgid ""
+"The sequence number of the stage.         The indices of other instances "
+"will be sorted automatically."
+msgstr "段階の順番番号です。他のインスタンスのインデックスは自動的に並び替えられます。"
+
+#: common/models.py:250
+msgid "User profile"
+msgstr "ユーザープロフィール"
+
+#: common/models.py:251
+msgid "User profiles"
+msgstr "ユーザープロフィール"
+
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "電話"
+
+#: common/models.py:308
+msgid "UTC time zone"
+msgstr "UTC 時区"
+
+#: common/models.py:312
+msgid "Activate this time zone"
+msgstr "このタイムゾーンを有効にする"
+
+#: common/models.py:316
+msgid "Field for temporary storage of messages to the user"
+msgstr "ユーザーへのメッセージの一時保存用フィールド"
+
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
+#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+msgid "Tags"
+msgstr "タグ"
+
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
+#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+msgid "Add tags"
+msgstr "タグを追加する"
+
+#: common/site/basemodeladmin.py:22
+msgid "Export selected objects"
+msgstr "選択したオブジェクトをエクスポートする"
+
+#: common/site/basemodeladmin.py:23
+msgid "Next step deadline"
+msgstr "次のステップの締め切り"
+
+#: common/site/basemodeladmin.py:87
+msgid "Filters may affect search results."
+msgstr "フィルターは検索結果に影響を与える可能性があります。"
+
+#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+msgid "Act"
+msgstr "行為"
+
+#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
+#: tasks/models/taskbase.py:73
+msgid "Workflow"
+msgstr "ワークフロー"
+
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+msgid "Language"
+msgstr "言語"
+
+#: common/templates/admin/common/reminder/submit_line.html:4
+#: common/templates/admin/common/userprofile/submit_line.html:4
+#: crm/templates/admin/crm/city/submit_line.html:4
+#: crm/templates/admin/crm/company/submit_line.html:4
+#: crm/templates/admin/crm/contact/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:14
+#: crm/templates/admin/crm/deal/submit_line.html:4
+#: crm/templates/admin/crm/lead/submit_line.html:4
+#: crm/templates/admin/crm/payment/submit_line.html:4
+#: crm/templates/admin/crm/request/submit_line.html:4
+#: crm/templates/admin/crm/shipment/submit_line.html:4
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
+#: tasks/templates/admin/tasks/memo/submit_line.html:8
+#: tasks/templates/admin/tasks/project/submit_line.html:4
+#: tasks/templates/admin/tasks/task/submit_line.html:13
+msgid "Save"
+msgstr "保存"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and continue editing"
+msgstr "保存して編集を続ける"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and view"
+msgstr "保存して表示する"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
+#: crm/templates/admin/crm/company/change_form_object_tools.html:38
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
+#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+msgid "History"
+msgstr "履歴"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
+#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
+#: help/templates/admin/help/stacked.html:18
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+msgid "View on site"
+msgstr "サイトで確認する"
+
+#: common/templates/common/copy_department.html:13
+#: common/templates/common/select_email_account.html:12
+#: common/templates/common/select_emails.html:13
+#: common/templates/common/user_transfer.html:13
+#: crm/templates/admin/crm/change_form.html:18
+#: crm/templates/admin/crm/crmemail/change_form.html:18
+#: crm/templates/admin/crm/payment/change_list.html:31
+#: crm/templates/crm/addfiles.html:12
+#: crm/templates/crm/change_owner_companies.html:12
+#: crm/templates/crm/import_objects.html:12
+#: crm/templates/crm/make_massmail.html:15
+#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+msgid "Home"
+msgstr "ホーム"
+
+#: common/templates/common/copy_department.html:23
+msgid "Please select the department to copy."
+msgstr "コピーする部署を選択してください。"
+
+#: common/templates/common/copy_department.html:40
+#: common/templates/common/user_transfer.html:51
+#: crm/templates/crm/change_owner_companies.html:36
+#: crm/templates/crm/import_objects.html:31
+#: crm/templates/crm/select_original_obj.html:48
+#: massmail/templates/massmail/pic_upload.html:32
+#: voip/templates/voip/connection.html:23
+msgid "Submit"
+msgstr "提出"
+
+#: common/templates/common/email_notification_base.html:14
+#: tasks/models/taskbase.py:40
+msgid "Note"
+msgstr "備考"
+
+#: common/templates/common/email_notification_base.html:24
+#: crm/templates/crm/email.html:29
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: common/templates/common/email_notification_base.html:28
+#: common/templates/common/widgets/clearable_file_input.html:7
+msgid "Download"
+msgstr "ダウンロード"
+
+#: common/templates/common/email_notification_base.html:30
+#: crm/templates/admin/crm/inline_emails.html:63
+msgid "Error: the file is missing."
+msgstr "エラー：ファイルが見つかりません。"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+msgid "Due date"
+msgstr "納期"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:26
+msgid "Priority"
+msgstr "優先度"
+
+#: common/templates/common/notice_participants_email.html:15
+#: crm/models/deal.py:183 crm/models/request.py:139
+#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+msgid "Co-owner"
+msgstr "共同所有者"
+
+#: common/templates/common/notice_participants_email.html:16
+#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
+#: tasks/utils/admfilters.py:89
+msgid "Responsible"
+msgstr "責任者"
+
+#: common/templates/common/reminder_button.html:4
+msgid "There are reminders"
+msgstr "リマインダーがあります。"
+
+#: common/templates/common/reminder_button.html:10
+msgid "Create a reminder"
+msgstr "リマインダーを作成する"
+
+#: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:18
+msgid "Regarding"
+msgstr "に関して"
+
+#: common/templates/common/select_email_account.html:20
+msgid "Please select an Email account"
+msgstr "メールアカウントを選択してください。"
+
+#: common/templates/common/select_email_account.html:38
+msgid "Select"
+msgstr "選択"
+
+#: common/templates/common/select_emails.html:30
+#: common/templates/common/select_emails.html:72
+#: crm/templates/admin/crm/company/change_list_object_tools.html:20
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
+#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+msgid "Import"
+msgstr "インポート"
+
+#: common/templates/common/select_emails.html:32
+#: common/templates/common/select_emails.html:74
+msgid "Spam"
+msgstr "スパム"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as read"
+msgstr "読み取り済みとしてマーク"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as"
+msgstr "マークとして"
+
+#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+msgid "To"
+msgstr "宛先へ"
+
+#: common/templates/common/select_emails.html:56
+msgid "This email is already imported."
+msgstr "このメールはすでにインポートされています。"
+
+#: common/templates/common/user_transfer.html:23
+msgid "Please select a user and a new department for him."
+msgstr "ユーザーを選択し、彼に新しい部門を割り当ててください。"
+
+#: common/templates/common/user_transfer.html:31
+msgid "User"
+msgstr "ユーザー"
+
+#: common/templatetags/util.py:114
+msgid "Task completed"
+msgstr "タスクが完了しました"
+
+#: common/templatetags/util.py:115
+msgid "I completed the task"
+msgstr "タスクを完了しました"
+
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Completed"
+msgstr "完了"
+
+#: common/utils/for_translation.py:24
+msgid ""
+"The name has been added for translation. Please update po and mo files."
+msgstr "翻訳用に名前が追加されました。poファイルとmoファイルを更新してください。"
+
+#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:36
+msgid "Copy"
+msgstr "コピー"
+
+#: common/utils/helpers.py:31
+msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
+msgstr "ID '{}' の {} は存在しません。削除された可能性があります。"
+
+#: common/views/copy_department.py:48
+msgid "A new department has been created - {}. Please rename it."
+msgstr "新しい部門が作成されました - {}. 名称を変更してください。"
+
+#: common/views/select_emails_import.py:118
+msgid ""
+"You do not have mail accounts marked for importing emails.Please contact "
+"your administrator."
+msgstr "メールインポートに設定されたメールアカウントがありません。管理者にご連絡ください。"
+
+#: common/views/user_transfer.py:28
+msgid ""
+"\n"
+"Attention! Data for filters such as: \n"
+"transaction stages, reasons for closing, tags, etc. \n"
+"will be transferred only if the new department has data with the same name.\n"
+"Also Output, Payment and Product will not be affected.\n"
+msgstr ""
+"\n"
+"注意！トランザクションの段階、クローズ理由、タグなど、フィルターデータは、新しい部門に同じ名前のデータが存在する場合のみ移行されます。また、支払い、製品は影響を受けません。"
+
+#: common/views/user_transfer.py:131
+msgid "User transferred successfully"
+msgstr "ユーザーが正常に転送されました。"
+
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+msgid "Contact details"
+msgstr "連絡先情報"
+
+#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/models/product.py:15 crm/models/product.py:37
+#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
+#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: tasks/models/taskbase.py:32
+msgid "Name"
+msgstr "名称"
+
+#: crm/admin.py:155 crm/site/dealadmin.py:247
+msgid "Contact info"
+msgstr "連絡先情報"
+
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
+#: crm/site/requestadmin.py:88
+msgid "Relations"
+msgstr "関係（かんけい）"
+
+#: crm/forms/admin_forms.py:22
+msgid "A country must be specified."
+msgstr "国を指定する必要があります。"
+
+#: crm/forms/admin_forms.py:23
+msgid "Marketing currency already exists."
+msgstr "マーケティング通貨は既に存在します。"
+
+#: crm/forms/admin_forms.py:24
+msgid "State currency already exists."
+msgstr "国営通貨はすでに存在します。"
+
+#: crm/forms/admin_forms.py:25
+msgid "Enter a valid alphabetic code."
+msgstr "有効なアルファベットコードを入力してください。"
+
+#: crm/forms/admin_forms.py:26
+msgid "The currency cannot be both state and marketing."
+msgstr "通貨は、同時に国家通貨とマーケティング通貨であることはできません。"
+
+#: crm/forms/admin_forms.py:70
+msgid "Not allowed address"
+msgstr "無効なアドレス"
+
+#: crm/forms/admin_forms.py:90
+msgid "City does not match the country"
+msgstr "国と都市が一致しません。"
+
+#: crm/forms/admin_forms.py:138
+msgid "Such an object already exists"
+msgstr "そのようなオブジェクトはすでに存在します。"
+
+#: crm/forms/admin_forms.py:164
+msgid "Please fill in the field."
+msgstr "このフィールドに記入してください。"
+
+#: crm/forms/admin_forms.py:172
+msgid "To convert, please fill in the fields below."
+msgstr "変換するには、以下のフィールドに記入してください。"
+
+#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+msgid "Specify the deal amount"
+msgstr "取引額を指定してください。"
+
+#: crm/forms/admin_forms.py:236
+msgid "Contact does not match the company"
+msgstr "連絡先が会社と一致しません。"
+
+#: crm/forms/admin_forms.py:241
+msgid "Select only Contact or only Lead"
+msgstr ""
+"\n"
+"コンタクトのみ、またはリードのみを選択します。"
+
+#: crm/forms/admin_forms.py:246
+msgid "Select only Company or only Lead"
+msgstr "会社またはリードを選択する（いずれかを選択）"
+
+#: crm/forms/admin_forms.py:325
+msgid "First select a department."
+msgstr "まずは部門を選択してください。"
+
+#: crm/forms/admin_forms.py:331
+msgid "That tag already exists."
+msgstr "そのタグはすでに存在します。"
+
+#: crm/forms/contact_form.py:13
+msgid "Your name"
+msgstr "あなたの名前"
+
+#: crm/forms/contact_form.py:17
+msgid "Your E-mail"
+msgstr "あなたのメールアドレス"
+
+#: crm/forms/contact_form.py:24
+msgid "Phone number (with country code)"
+msgstr "電話番号（国コード付き）"
+
+#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
+#: crm/models/request.py:55
+msgid "Company name"
+msgstr "会社名"
+
+#: crm/forms/contact_form.py:72
+msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
+msgstr "申し訳ありませんが、再CAPTCHAが無効です。もう一度お試しいただくか、メールを送信してください。"
+
+#: crm/models/base_contact.py:18 crm/models/request.py:29
+msgid "The name of the contact person (one word)."
+msgstr "連絡先担当者名（単語）"
+
+#: crm/models/base_contact.py:19 crm/models/request.py:28
+msgid "First name"
+msgstr "名前"
+
+#: crm/models/base_contact.py:23 crm/models/request.py:33
+msgid "Middle name"
+msgstr "中間名"
+
+#: crm/models/base_contact.py:24 crm/models/request.py:34
+msgid "The middle name of the contact person."
+msgstr "連絡先の氏中。"
+
+#: crm/models/base_contact.py:28 crm/models/request.py:39
+msgid "The last name of the contact person (one word)."
+msgstr "連絡先の氏名（単語）"
+
+#: crm/models/base_contact.py:29 crm/models/request.py:38
+msgid "Last name"
+msgstr "姓"
+
+#: crm/models/base_contact.py:33
+msgid "The title (position) of the contact person."
+msgstr "連絡先の役職"
+
+#: crm/models/base_contact.py:34
+msgid "Title / Position"
+msgstr "役職"
+
+#: crm/models/base_contact.py:44
+msgid "Sex"
+msgstr "性別"
+
+#: crm/models/base_contact.py:48
+msgid "Date of Birth"
+msgstr "生年月日"
+
+#: crm/models/base_contact.py:52
+msgid "Secondary email"
+msgstr "二次メール"
+
+#: crm/models/base_contact.py:62
+msgid "Mobile phone"
+msgstr "携帯電話"
+
+#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
+#: crm/models/request.py:99 crm/utils/admfilters.py:33
+msgid "City"
+msgstr "都市"
+
+#: crm/models/base_contact.py:74
+msgid "Company city"
+msgstr "企業都市"
+
+#: crm/models/base_contact.py:75 crm/models/request.py:93
+msgid "Object of City in database"
+msgstr "データベース内の都市のオブジェクト"
+
+#: crm/models/base_contact.py:113
+msgid "Address"
+msgstr "住所"
+
+#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/utils/admfilters.py:512
+msgid "Disqualified"
+msgstr "失格"
+
+#: crm/models/base_contact.py:129
+msgid "Use comma to separate Emails."
+msgstr "メールアドレスはコンマで区切ってください。"
+
+#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/request.py:51
+msgid "Lead Source"
+msgstr "リード源"
+
+#: crm/models/base_contact.py:140
+msgid "Mass mailing"
+msgstr "大量メール送信"
+
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+msgid "Mailing list recipient."
+msgstr "メールマガジン受信者"
+
+#: crm/models/base_contact.py:156
+msgid "Last contact date"
+msgstr "最終連絡日"
+
+#: crm/models/base_contact.py:163
+msgid "Assigned to"
+msgstr "割り当てられました"
+
+#: crm/models/company.py:13 crm/models/crmemail.py:59
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
+#: crm/templates/crm/print_request.html:49
+msgid "Company"
+msgstr "会社"
+
+#: crm/models/company.py:14
+msgid "Companies"
+msgstr "企業"
+
+#: crm/models/company.py:27 crm/models/country.py:21
+msgid "Alternative names"
+msgstr "代替名"
+
+#: crm/models/company.py:28 crm/models/country.py:22
+msgid "Separate them with commas."
+msgstr "カンマで区切る。"
+
+#: crm/models/company.py:34
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: crm/models/company.py:51
+msgid "City name"
+msgstr "都市名"
+
+#: crm/models/company.py:64
+msgid "Registration number"
+msgstr "登録番号"
+
+#: crm/models/company.py:65
+msgid "Registration number of Company"
+msgstr "会社登録番号"
+
+#: crm/models/company.py:72 crm/models/deal.py:109
+msgid "country"
+msgstr "国"
+
+#: crm/models/company.py:73
+msgid "Company Country"
+msgstr "会社所在地"
+
+#: crm/models/company.py:80 crm/models/lead.py:44
+msgid "Type of company"
+msgstr "会社種類"
+
+#: crm/models/company.py:85 crm/models/lead.py:49
+msgid "Industry of company"
+msgstr "会社業界"
+
+#: crm/models/contact.py:12
+msgid "Contact person"
+msgstr "担当者"
+
+#: crm/models/contact.py:13
+msgid "Contact persons"
+msgstr "連絡先担当者"
+
+#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
+#: crm/models/request.py:73
+msgid "Company of contact"
+msgstr "連絡先企業"
+
+#: crm/models/country.py:6
+msgid "has already been assigned to the city"
+msgstr "この都市に既に割り当てられています。"
+
+#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+msgid "Countries"
+msgstr "国々"
+
+#: crm/models/country.py:44
+msgid "Cities"
+msgstr "都市"
+
+#: crm/models/crmemail.py:11
+#: crm/templates/admin/crm/company/change_form_object_tools.html:4
+#: crm/templates/admin/crm/inline_emails.html:18
+#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+msgid "Email"
+msgstr "メール"
+
+#: crm/models/crmemail.py:12
+msgid "Emails in CRM"
+msgstr "CRM内のメール"
+
+#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
+#: crm/models/crmemail.py:30
+msgid "You can specify multiple addresses, separated by commas"
+msgstr "複数のアドレスをコンマで区切って指定できます。"
+
+#: crm/models/crmemail.py:22
+msgid "The Email address of sender"
+msgstr "送信者のメールアドレス"
+
+#: crm/models/crmemail.py:38
+msgid "Request a read receipt"
+msgstr "受信確認をリクエストする"
+
+#: crm/models/crmemail.py:39
+msgid "Not supported by all mail services."
+msgstr "すべてのメールサービスでサポートされていません。"
+
+#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
+#: crm/site/shipmentadmin.py:269
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: crm/templates/admin/crm/request/change_form_object_tools.html:7
+#: tasks/models/memo.py:65
+msgid "Deal"
+msgstr "取引"
+
+#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
+#: crm/models/request.py:64
+msgid "Lead"
+msgstr "リード"
+
+#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
+#: crm/models/request.py:68
+#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+msgid "Contact"
+msgstr "連絡先"
+
+#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
+#: crm/site/requestadmin.py:435
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Request"
+msgstr "リクエスト"
+
+#: crm/models/deal.py:14
+#: crm/templates/admin/crm/company/change_form_object_tools.html:18
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+msgid "Deals"
+msgstr "取引"
+
+#: crm/models/deal.py:19
+msgid "Deal name"
+msgstr "取引名"
+
+#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+msgid "Next step"
+msgstr "次のステップ"
+
+#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+msgid "Describe briefly what needs to be done in the next step."
+msgstr "次のステップで行うべきことを簡潔に説明してください。"
+
+#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+msgid "Step date"
+msgstr "ステップ日"
+
+#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+msgid "Date to which the next step should be taken."
+msgstr "次のステップを実行する予定日"
+
+#: crm/models/deal.py:51
+msgid "Dates of the stages"
+msgstr "段階の日付"
+
+#: crm/models/deal.py:52
+msgid "Dates of passing the stages"
+msgstr "段階通過日"
+
+#: crm/models/deal.py:57
+msgid "Date of deal closing"
+msgstr "取引クロージング日"
+
+#: crm/models/deal.py:62
+msgid "Date of won deal closing"
+msgstr "獲得した取引のクロージング日"
+
+#: crm/models/deal.py:71
+msgid "Total deal amount without VAT"
+msgstr "消費税除く総取引額"
+
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
+#: crm/models/product.py:49
+msgid "Currency"
+msgstr "通貨"
+
+#: crm/models/deal.py:85 crm/models/others.py:101
+msgid "Closing reason"
+msgstr "取引の終了理由"
+
+#: crm/models/deal.py:90
+msgid "Probability (%)"
+msgstr "確率（%）"
+
+#: crm/models/deal.py:148
+msgid "Partner contact"
+msgstr "パートナー連絡先"
+
+#: crm/models/deal.py:151
+msgid "Contact person of dealer or distribution company"
+msgstr "ディーラーまたは販売会社の担当者"
+
+#: crm/models/deal.py:156
+msgid "Relevant"
+msgstr "関連性のある"
+
+#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+msgid "Important"
+msgstr "重要"
+
+#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+msgid "Remind me."
+msgstr "思い出させてください。"
+
+#: crm/models/lead.py:13
+msgid "Leads"
+msgstr "見込み客"
+
+#: crm/models/lead.py:29
+msgid "Company phone"
+msgstr "会社電話"
+
+#: crm/models/lead.py:33
+msgid "Company address"
+msgstr "会社住所"
+
+#: crm/models/lead.py:37
+msgid "Company email"
+msgstr "会社メール"
+
+#: crm/models/others.py:27
+msgid "Type of Clients"
+msgstr "クライアントタイプ"
+
+#: crm/models/others.py:28
+msgid "Types of Clients"
+msgstr "クライアントの種類"
+
+#: crm/models/others.py:33
+msgid "Industry of Clients"
+msgstr "クライアントの業界"
+
+#: crm/models/others.py:34
+msgid "Industries of Clients"
+msgstr "クライアントの産業"
+
+#: crm/models/others.py:42
+msgid "Second default"
+msgstr "デフォルト2番目"
+
+#: crm/models/others.py:43
+msgid "Will be selected next after the default stage."
+msgstr "デフォルトのステージの後に自動的に選択されます。"
+
+#: crm/models/others.py:47
+msgid "success stage"
+msgstr "成功ステージ"
+
+#: crm/models/others.py:51
+msgid "conditional success stage"
+msgstr "条件付き成功段階"
+
+#: crm/models/others.py:52
+msgid "For example, receiving the first payment"
+msgstr "最初の支払いの受取"
+
+#: crm/models/others.py:56
+msgid "goods shipped"
+msgstr "発送済み商品"
+
+#: crm/models/others.py:57
+msgid "Have the goods been shipped at this stage already?"
+msgstr "この段階で商品はすでに出荷されていますか？"
+
+#: crm/models/others.py:64
+msgid "Lead Sources"
+msgstr "リードソース"
+
+#: crm/models/others.py:76
+msgid "form template name"
+msgstr "フォームテンプレート名"
+
+#: crm/models/others.py:77 crm/models/others.py:82
+msgid "The name of the html template file if needed."
+msgstr "HTMLテンプレートファイルの名前（必要に応じて）"
+
+#: crm/models/others.py:81
+msgid "success page template name"
+msgstr "成功ページのテンプレート名"
+
+#: crm/models/others.py:90
+msgid ""
+"Reason rating.         The indices of other instances will be sorted "
+"automatically."
+msgstr "評価理由。他のインスタンスのインデックスは自動的にソートされます。"
+
+#: crm/models/others.py:95
+msgid "success reason"
+msgstr "成功理由"
+
+#: crm/models/others.py:102
+msgid "Closing reasons"
+msgstr "クロージング理由"
+
+#: crm/models/output.py:10
+msgid "Output"
+msgstr "商品"
+
+#: crm/models/output.py:11
+msgid "Outputs"
+msgstr "製品"
+
+#: crm/models/output.py:24
+msgid "Quantity"
+msgstr "数量"
+
+#: crm/models/output.py:28
+msgid "Shipping date"
+msgstr "出荷日"
+
+#: crm/models/output.py:29
+msgid "Shipment date as per contract"
+msgstr "契約に基づく出荷日"
+
+#: crm/models/output.py:33
+msgid "Planned shipping date"
+msgstr "予定出荷日"
+
+#: crm/models/output.py:37
+msgid "Actual shipping date"
+msgstr "実際の出荷日"
+
+#: crm/models/output.py:38
+msgid "Date when the product was shipped"
+msgstr "商品出荷日"
+
+#: crm/models/output.py:42
+msgid "Shipped"
+msgstr "配送済み"
+
+#: crm/models/output.py:43
+msgid "Product is shipped"
+msgstr "商品が出荷されました"
+
+#: crm/models/output.py:47
+msgid "serial number"
+msgstr "シリアル番号"
+
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "数量が必要です。"
+
+#: crm/models/output.py:69
+msgid "Shipment"
+msgstr "出荷"
+
+#: crm/models/output.py:70
+msgid "Shipments"
+msgstr "出荷"
+
+#: crm/models/payment.py:17
+msgid "Currencies"
+msgstr "通貨"
+
+#: crm/models/payment.py:21
+msgid "Alphabetic Code for the Representation of Currencies."
+msgstr "通貨のアルファベット表記コード"
+
+#: crm/models/payment.py:26 crm/models/payment.py:198
+msgid "Rate to state currency"
+msgstr "公定為替レート"
+
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
+msgid "Exchange rate against the state currency."
+msgstr "国家通貨に対する為替レート"
+
+#: crm/models/payment.py:32 crm/models/payment.py:203
+msgid "Rate to marketing currency"
+msgstr "マーケティング通貨への為替レート"
+
+#: crm/models/payment.py:37
+msgid "Is it the state currency?"
+msgstr "これは国の通貨ですか？"
+
+#: crm/models/payment.py:41
+msgid "Is it the marketing currency?"
+msgstr "マーケティングの通貨ですか？"
+
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "この通貨は自動更新の対象となります。"
+
+#: crm/models/payment.py:71
+msgid "without VAT"
+msgstr "付加価値税無し"
+
+#: crm/models/payment.py:82
+msgid "Please specify a currency."
+msgstr "通貨を指定してください。"
+
+#: crm/models/payment.py:92
+msgid "Payment"
+msgstr "支払い"
+
+#: crm/models/payment.py:93
+msgid "Payments"
+msgstr "支払い"
+
+#: crm/models/payment.py:100
+msgid "received"
+msgstr "受信"
+
+#: crm/models/payment.py:101
+msgid "guaranteed"
+msgstr "保証された"
+
+#: crm/models/payment.py:102
+msgid "high probability"
+msgstr "高い確率"
+
+#: crm/models/payment.py:103
+msgid "low probability"
+msgstr "低確率"
+
+#: crm/models/payment.py:118
+msgid "Payment status"
+msgstr "支払い状況"
+
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+msgid "contract number"
+msgstr "契約番号"
+
+#: crm/models/payment.py:126
+msgid "invoice number"
+msgstr "請求書番号"
+
+#: crm/models/payment.py:130
+msgid "order number"
+msgstr "注文番号"
+
+#: crm/models/payment.py:134
+msgid "Payment through representative office"
+msgstr "代表事務所を通じた支払い"
+
+#: crm/models/payment.py:157
+msgid "Payment share"
+msgstr "支払い割合"
+
+#: crm/models/payment.py:177
+msgid "Currency rate"
+msgstr "為替レート"
+
+#: crm/models/payment.py:178
+msgid "Currency rates"
+msgstr "為替レート"
+
+#: crm/models/payment.py:183
+msgid "approximate currency rate"
+msgstr "近似為替レート"
+
+#: crm/models/payment.py:184
+msgid "official currency rate"
+msgstr "公式為替レート"
+
+#: crm/models/payment.py:194
+msgid "Currency rate date"
+msgstr "為替レート有効期限"
+
+#: crm/models/payment.py:210
+msgid "Exchange rate type"
+msgstr "為替レートの種類"
+
+#: crm/models/product.py:9 crm/models/product.py:69
+msgid "Product category"
+msgstr "製品カテゴリ"
+
+#: crm/models/product.py:10
+msgid "Product categories"
+msgstr "製品カテゴリ"
+
+#: crm/models/product.py:55
+msgid "On sale"
+msgstr "販売中"
+
+#: crm/models/product.py:58
+msgid "Goods"
+msgstr "商品"
+
+#: crm/models/product.py:59
+msgid "Service"
+msgstr "サービス"
+
+#: crm/models/product.py:64 voip/models.py:21
+msgid "Type"
+msgstr "タイプ"
+
+#: crm/models/request.py:20
+msgid "Requests"
+msgstr "要求事項"
+
+#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+msgid "Request for"
+msgstr "リクエスト"
+
+#: crm/models/request.py:50
+msgid "Lead source"
+msgstr "リード源"
+
+#: crm/models/request.py:59
+msgid "Date of receipt"
+msgstr "受信日"
+
+#: crm/models/request.py:60
+msgid "Date of receipt of the request."
+msgstr "要求受信日"
+
+#: crm/models/request.py:107 crm/site/dealadmin.py:671
+msgid "Translation"
+msgstr "翻訳"
+
+#: crm/models/request.py:111
+msgid "Remark"
+msgstr "注記"
+
+#: crm/models/request.py:115
+msgid "Pending"
+msgstr "保留中"
+
+#: crm/models/request.py:116
+msgid "Waiting for validation of fields filling"
+msgstr "入力フィールドの検証を待っています。"
+
+#: crm/models/request.py:120
+msgid "Subsequent"
+msgstr "随時"
+
+#: crm/models/request.py:122
+msgid "Received from the client with whom you are already cooperate"
+msgstr "すでに協力しているクライアントから受信"
+
+#: crm/models/request.py:126
+msgid "Duplicate"
+msgstr "複製"
+
+#: crm/models/request.py:127
+msgid "Duplicate request. The deal will not be created."
+msgstr "重複リクエストです。取引は作成されません。"
+
+#: crm/models/request.py:131 help/models.py:125
+msgid "Verification required"
+msgstr "検証が必要です。"
+
+#: crm/models/request.py:132
+msgid "Links are set automatically and require verification."
+msgstr "リンクは自動的に設定され、検証が必要です。"
+
+#: crm/models/request.py:148 crm/models/request.py:149
+msgid "Company and contact person do not match."
+msgstr "会社と連絡先が一致しません。"
+
+#: crm/models/request.py:153 crm/models/request.py:154
+msgid "Specify the contact person or lead. But not both."
+msgstr "連絡先担当者または見込み客を指定してください。ただし、両方を指定する必要はありません。"
+
+#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+msgid "Tag"
+msgstr "タグ"
+
+#: crm/models/tag.py:14 tasks/models/tag.py:12
+msgid "Tag name"
+msgstr "タグ名"
+
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "競合他社"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "最終顧客"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "再販売業者"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "ディーラー"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "ディストリビューター"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "教育機関"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "サービス企業"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "溶接工"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "資本建設"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "自動車産業"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "造船"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "冶金学"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "発電"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "パイプライン"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "パイプ生産"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "石油・ガス"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "航空"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "鉄道"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "鉱業"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "要求"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "リクエスト分析"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "要件の確認"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "価格提案"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "商業提案"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "技術・商業提案"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "契約"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "請求書"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "最初の支払い受取"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "出荷"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "完了（成功）"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "クライアントからの応答がありません"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "仕様が不適切です。"
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "取引が成功裏に閉じられました。"
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "購入が延期されました"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "価格は競争力がありません。"
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "ウェブサイトフォーム"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "ウェブサイトメール"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "展示会"
+
+#: crm/settings.py:46
+msgid "Establish the first contact with the client."
+msgstr "クライアントとの最初の連絡を確立する。"
+
+#: crm/site/companyadmin.py:25
+msgid ""
+"Attention! You can only view companies associated with your department."
+msgstr "注意！ ご所属部署に関連する企業のみを閲覧できます。"
+
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+msgid "Warning:"
+msgstr "注意："
+
+#: crm/site/companyadmin.py:210
+msgid "Owner will also be changed for contact persons."
+msgstr "連絡先の所有者も変更されます。"
+
+#: crm/site/companyadmin.py:223
+msgid "Change owner of selected Companies"
+msgstr "選択した会社の所有者を変更する"
+
+#: crm/site/crmadminsite.py:22
+msgid "Your Excel file"
+msgstr "あなたのExcelファイル"
+
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: massmail/site/emlmessageadmin.py:133
+msgid "Signature"
+msgstr "署名"
+
+#: crm/site/crmemailadmin.py:31
+msgid "Please note that this is a list of unsent emails."
+msgstr "このリストは、未送信のメールのリストです。"
+
+#: crm/site/crmemailadmin.py:143
+msgid "Emails in the CRM database."
+msgstr "CRMデータベース内のメール。"
+
+#: crm/site/crmemailadmin.py:350
+msgid "Box"
+msgstr "ボックス"
+
+#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+msgid "Content"
+msgstr "コンテンツ"
+
+#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+msgid "Previous correspondence"
+msgstr "前回通信"
+
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/utils/import_emails.py:192
+msgid "No subject"
+msgstr "テーマなし"
+
+#: crm/site/crmmodeladmin.py:61
+msgid "View website in new tab"
+msgstr "新しいタブでウェブサイトを表示する"
+
+#: crm/site/crmmodeladmin.py:62
+msgid "Callback to smartphone"
+msgstr "スマートフォンへの着信"
+
+#: crm/site/crmmodeladmin.py:63
+msgid "Callback to your smartphone"
+msgstr "スマートフォンへの着信"
+
+#: crm/site/crmmodeladmin.py:64
+msgid "Skype chat"
+msgstr "スカイプチャット"
+
+#: crm/site/crmmodeladmin.py:65
+msgid "Chat or Skype call"
+msgstr "チャットまたはSkype通話"
+
+#: crm/site/crmmodeladmin.py:66
+msgid "Skype call"
+msgstr "スカイプ通話"
+
+#: crm/site/crmmodeladmin.py:67
+msgid "To call a mobile or landline from Skype"
+msgstr "Skypeから携帯電話または固定電話をかけてする"
+
+#: crm/site/crmmodeladmin.py:68
+msgid "Viber chat"
+msgstr "Viber チャット"
+
+#: crm/site/crmmodeladmin.py:69
+msgid "Chat or viber call"
+msgstr "チャットまたはViber通話"
+
+#: crm/site/crmmodeladmin.py:70
+msgid "WhatsApp chat"
+msgstr "ワッツアップチャット"
+
+#: crm/site/crmmodeladmin.py:71
+msgid "Chat or WhatsApp call"
+msgstr "チャットまたはWhatsApp通話"
+
+#: crm/site/crmmodeladmin.py:76
+msgid "Signed up for email newsletters"
+msgstr "メールニュースレターに登録しました"
+
+#: crm/site/crmmodeladmin.py:78
+msgid "Unsubscribed from email newsletters"
+msgstr "メールニュースレターの登録を解除しました"
+
+#: crm/site/crmmodeladmin.py:276
+msgid "Create Email"
+msgstr "メールを作成する"
+
+#: crm/site/crmmodeladmin.py:341
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                        Friday, Saturday, Sunday."
+msgstr "以下の日曜日には大量メールは送信されません：金曜日、土曜日、日曜日。"
+
+#: crm/site/crmmodeladmin.py:371
+msgid "Messengers"
+msgstr "メッセージングアプリ"
+
+#: crm/site/currencyadmin.py:35
+msgid "State currency must be specified."
+msgstr "国別通貨を指定する必要があります。"
+
+#: crm/site/currencyadmin.py:40
+msgid "Marketing currency must be specified."
+msgstr "マーケティング通貨を指定する必要があります。"
+
+#: crm/site/dealadmin.py:52
+msgid "Closing date"
+msgstr "締切日"
+
+#: crm/site/dealadmin.py:58
+msgid "View Contact in new tab"
+msgstr "新しいタブで連絡先を表示する"
+
+#: crm/site/dealadmin.py:59
+msgid "View Company in new tab"
+msgstr "新しいタブで会社を表示する"
+
+#: crm/site/dealadmin.py:62
+msgid "Deal counter"
+msgstr "取引カウンター"
+
+#: crm/site/dealadmin.py:63
+msgid "View Lead in new tab"
+msgstr "新しいタブで見込むリードを開く"
+
+#: crm/site/dealadmin.py:64
+msgid "Unanswered email"
+msgstr "未着信メール"
+
+#: crm/site/dealadmin.py:68
+msgid "Unread chat message"
+msgstr "未読のチャットメッセージ"
+
+#: crm/site/dealadmin.py:71
+msgid "Payment received"
+msgstr "支払い受信"
+
+#: crm/site/dealadmin.py:74
+msgid "Specify the date of shipment"
+msgstr "出荷日を指定してください。"
+
+#: crm/site/dealadmin.py:77
+msgid "Specify products"
+msgstr "製品を指定する"
+
+#: crm/site/dealadmin.py:80
+msgid "Expired shipment date"
+msgstr "配送期限切れ"
+
+#: crm/site/dealadmin.py:87
+msgid "Relevant deal"
+msgstr "関連取引"
+
+#: crm/site/dealadmin.py:158
+msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
+msgstr "ID '{}' の取引は存在しません。削除された可能性があります。"
+
+#: crm/site/dealadmin.py:221
+msgid "View the Request"
+msgstr "リクエストを表示する"
+
+#: crm/site/dealadmin.py:536
+msgid "Create Email to Contact"
+msgstr "連絡先へのメールを作成する"
+
+#: crm/site/dealadmin.py:539
+msgid "Create Email to Lead"
+msgstr "見込み客へのメール作成"
+
+#: crm/site/dealadmin.py:579
+msgid "Important deal"
+msgstr "重要な取引"
+
+#: crm/site/dealadmin.py:603
+#, python-format
+msgid "I have been waiting for an answer to my request for %d days"
+msgstr "私は%d日間、私の要求に対する回答を待っています。"
+
+#: crm/site/dealadmin.py:633
+msgid "Expected"
+msgstr "期待される"
+
+#: crm/site/dealadmin.py:641
+msgid "Paid"
+msgstr "支払済み"
+
+#: crm/site/dealadmin.py:696
+msgid "Contact is Lead (no company)"
+msgstr "リード（会社不明）"
+
+#: crm/site/leadadmin.py:118
+msgid "Person contact details"
+msgstr "人物の連絡先情報"
+
+#: crm/site/leadadmin.py:127
+msgid "Additional person details"
+msgstr "追加の個人情報"
+
+#: crm/site/leadadmin.py:140
+msgid "Company contact details"
+msgstr "会社連絡先情報"
+
+#: crm/site/leadadmin.py:249
+#, python-brace-format
+msgid "The lead \"{obj}\" has been converted successfully."
+msgstr "リード「{obj}」を正常に変換しました。"
+
+#: crm/site/leadadmin.py:264
+msgid "This Lead is disqualified! Please read the description."
+msgstr "このリードは不適格です！ 説明をご確認ください。"
+
+#: crm/site/requestadmin.py:38
+msgid "Client Loyalty"
+msgstr "顧客ロイヤリティ"
+
+#: crm/site/requestadmin.py:45
+msgid "Country not specified in request"
+msgstr "リクエストに国が指定されていません。"
+
+#: crm/site/requestadmin.py:46
+msgid "You received the deal"
+msgstr "あなたは取引を受け取りました。"
+
+#: crm/site/requestadmin.py:47
+msgid "You are the co-owner of the deal"
+msgstr "この取引の共同所有者です。"
+
+#: crm/site/requestadmin.py:53
+msgid "Primary request"
+msgstr "主要リクエスト"
+
+#: crm/site/requestadmin.py:54
+msgid "You are the co-owner of the request"
+msgstr "あなたはこのリクエストの共同所有者です。"
+
+#: crm/site/requestadmin.py:55
+msgid "You received the request"
+msgstr "あなたはリクエストを受け取りました。"
+
+#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: tasks/models/to_translate.txt:2
+msgid "pending"
+msgstr "保留中"
+
+#: crm/site/requestadmin.py:57
+msgid "processed"
+msgstr "処理済み"
+
+#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+msgid "Status"
+msgstr "ステータス"
+
+#: crm/site/requestadmin.py:62
+msgid "Subsequent request"
+msgstr "追記リクエスト"
+
+#: crm/site/requestadmin.py:389
+msgid "Found the counterparty assigned to"
+msgstr "割り当てられた相手先が見つかりました。"
+
+#: crm/site/requestadmin.py:488
+#, python-brace-format
+msgid "The {name} “{obj}” was added successfully."
+msgstr "{名前} の \"{オブジェクト}\" が正常に追加されました。"
+
+#: crm/site/shipmentadmin.py:26
+msgid "actual"
+msgstr "実際の"
+
+#: crm/site/shipmentadmin.py:27
+msgid "Actual shipping date."
+msgstr "実際の出荷日"
+
+#: crm/site/shipmentadmin.py:32
+msgid "Deal is paid."
+msgstr "取引が支払済みです。"
+
+#: crm/site/shipmentadmin.py:33
+msgid "Next<br>payment"
+msgstr "次の支払い"
+
+#: crm/site/shipmentadmin.py:34
+msgid "order"
+msgstr "注文"
+
+#: crm/site/shipmentadmin.py:37
+msgid "The product has not been shipped yet."
+msgstr "商品はまだ出荷されていません。"
+
+#: crm/site/shipmentadmin.py:38
+msgid "The product has been shipped."
+msgstr "商品は出荷されました。"
+
+#: crm/site/shipmentadmin.py:40
+msgid "Product shipment"
+msgstr "製品出荷"
+
+#: crm/site/shipmentadmin.py:41
+msgid "to contract"
+msgstr "契約に基づき"
+
+#: crm/site/shipmentadmin.py:42
+msgid "Date of shipment according to a contract."
+msgstr "契約に基づく出荷日。"
+
+#: crm/site/shipmentadmin.py:47
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/request/change_form_object_tools.html:5
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+msgid "View the deal"
+msgstr "取引を確認する"
+
+#: crm/site/shipmentadmin.py:254
+msgid "paid"
+msgstr "支払済み"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the error below."
+msgstr "以下の誤りを修正してください。"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the errors below."
+msgstr "以下のエラーを修正してください。"
+
+#: crm/templates/admin/crm/city/submit_line.html:5
+#: crm/templates/admin/crm/company/submit_line.html:5
+#: crm/templates/admin/crm/contact/submit_line.html:5
+#: crm/templates/admin/crm/crmemail/submit_line.html:15
+#: crm/templates/admin/crm/deal/submit_line.html:5
+#: crm/templates/admin/crm/lead/submit_line.html:5
+#: crm/templates/admin/crm/payment/submit_line.html:5
+#: crm/templates/admin/crm/request/submit_line.html:5
+#: crm/templates/admin/crm/shipment/submit_line.html:5
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+msgid "Save as new"
+msgstr "新しいものとして保存"
+
+#: crm/templates/admin/crm/city/submit_line.html:6
+#: crm/templates/admin/crm/company/submit_line.html:6
+msgid "Save and add another"
+msgstr "保存してもう一つ追加する"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:9
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+msgid "Сorrespondence"
+msgstr "通信"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+msgid "Contacts"
+msgstr "連絡先"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:32
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+msgid "Got massmails"
+msgstr "大量メールを受信"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:33
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+msgid "Massmails"
+msgstr "大量メール"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:40
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
+#: help/templates/admin/help/page/change_form_object_tools.html:3
+msgid "Open in Admin"
+msgstr "管理者モードで開く"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:14
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+msgid "Make Massmail"
+msgstr "大量メールを作成する"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:25
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+msgid "Export all"
+msgstr "すべてエクスポートする"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
+#: crm/templates/admin/crm/inline_emails.html:37
+msgid "reply all"
+msgstr "全員に返信"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
+#: crm/templates/admin/crm/inline_emails.html:38
+msgid "forward"
+msgstr "転送"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "View next email"
+msgstr "次のメールを表示する"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "Next"
+msgstr "次へ"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "View previous email"
+msgstr "前のメールを表示する"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "Previous"
+msgstr "前へ"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+msgid "View the request"
+msgstr "リクエストを表示する"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
+#: crm/templates/admin/crm/inline_emails.html:27
+msgid "View original email"
+msgstr "元のメールを表示する"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
+#: crm/templates/admin/crm/inline_emails.html:32
+msgid "Download the original email as an EML file."
+msgstr "元のメールをEMLファイルとしてダウンロードします。"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
+#: crm/templates/admin/crm/inline_emails.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+msgid "Print preview"
+msgstr "印刷プレビュー"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: crm/templates/admin/crm/inline_emails.html:35
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
+msgid "Change"
+msgstr "変更"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: help/templates/admin/help/stacked.html:16
+msgid "View"
+msgstr "表示"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:6
+msgid "Reply"
+msgstr "返信"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:7
+msgid "Reply all"
+msgstr "全員に返信"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:8
+msgid "Forward"
+msgstr "転送"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+msgid "View office memos"
+msgstr "オフィスメモを表示する"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+msgid "Office memos"
+msgstr "事務メモ"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Add"
+msgstr "追加する"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+msgid "Office memo"
+msgstr "社内メモ"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+msgid "View the correspondence on this Deal"
+msgstr "この取引に関する対応を確認する"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+msgid "Import Email regarding this Deal"
+msgstr "この取引に関するメールをインポートする"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+msgid "View Deals with this Company"
+msgstr "この会社との取引を表示する"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+msgid "View the history of changes for this Deal"
+msgstr "この取引の変更履歴を表示します。"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+msgid "Toggle default deal sorting"
+msgstr "デフォルトの取引ソートを切り替え"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+msgid "A deal is created based on a request"
+msgstr "リクエストに基づいて取引が作成されます。"
+
+#: crm/templates/admin/crm/inline_emails.html:6
+msgid "Last few letters"
+msgstr "最近の数通のメール"
+
+#: crm/templates/admin/crm/inline_emails.html:51
+msgid "Date"
+msgstr "日付"
+
+#: crm/templates/admin/crm/inline_emails.html:61
+msgid "View or Download"
+msgstr "表示またはダウンロード"
+
+#: crm/templates/admin/crm/lead/submit_line.html:9
+msgid "Convert"
+msgstr "変換"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "Total sum"
+msgstr "合計金額"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "with VAT"
+msgstr "付加価値税 (VAT) 含む"
+
+#: crm/templates/admin/crm/payment/change_list.html:63
+msgid "Filter"
+msgstr "フィルター"
+
+#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+msgid "Import Email regarding this Request"
+msgstr "このリクエストに関するメールをインポートする"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+msgid "Create a request based on an email."
+msgstr "メールを基にリクエストを作成します。"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+msgid "Import request from"
+msgstr "インポートリクエストから"
+
+#: crm/templates/admin/crm/request/submit_line.html:8
+msgid "Create deal"
+msgstr "取引を作成する"
+
+#: crm/templates/crm/addfiles.html:20
+msgid "Please select files to attach to the letter."
+msgstr "手紙に添付するファイルを選択してください。"
+
+#: crm/templates/crm/change_owner_companies.html:20
+msgid ""
+"Please choose a new owner for selected Companies and their Contact persons"
+msgstr "選択した会社とその連絡先の新しいオーナーを選択してください。"
+
+#: crm/templates/crm/del_duplicate_button.html:5
+msgid "Correctly delete this object as a duplicate."
+msgstr "この重複アイテムを正しく削除します。"
+
+#: crm/templates/crm/filter_scroll.html:4
+#: templates/admin/crm_date_filter.html:7
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "%(フィルタータイトル)s によって"
+
+#: crm/templates/crm/import_objects.html:20
+msgid "Please select a file to import."
+msgstr "インポートするファイルを選択してください。"
+
+#: crm/templates/crm/import_objects.html:34
+msgid ""
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
+msgstr "存在する場合は、以下の列のみがインポートされます（順序は関係ありません）。"
+
+#: crm/templates/crm/make_massmail.html:22
+msgid "Make a choice"
+msgstr "選択してください"
+
+#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
+#: crm/templates/crm/print_request.html:5
+#: crm/templates/crm/print_request.html:26
+msgid "Print"
+msgstr "印刷"
+
+#: crm/templates/crm/print_request.html:36
+msgid "Received"
+msgstr "受信"
+
+#: crm/templates/crm/print_request.html:37
+msgid "Prepared"
+msgstr "準備済み"
+
+#: crm/templates/crm/select_original_obj.html:32
+msgid "Select the original to which the linked objects will be reconnected."
+msgstr "関連オブジェクトを再接続する元のアイテムを選択してください。"
+
+#: crm/utils/admfilters.py:188
+msgid "Last month"
+msgstr "先月"
+
+#: crm/utils/admfilters.py:197
+msgid "First half of the year"
+msgstr "上半期"
+
+#: crm/utils/admfilters.py:206
+msgid "Nine months of this year"
+msgstr "今年の九ヶ月間"
+
+#: crm/utils/admfilters.py:214
+msgid "Second half of the last year"
+msgstr "昨年の後半"
+
+#: crm/utils/admfilters.py:417
+msgid "changed by chiefs"
+msgstr "経営陣によって変更されました"
+
+#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
+#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
+#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+msgid "Yes"
+msgstr "はい"
+
+#: crm/utils/admfilters.py:437
+msgid "Partner"
+msgstr "パートナー"
+
+#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: tasks/utils/admfilters.py:218
+msgid "No"
+msgstr "いいえ"
+
+#: crm/utils/admfilters.py:498
+msgid "Has Contacts"
+msgstr "連絡先があります。"
+
+#: crm/utils/admfilters.py:564
+msgid "mailbox"
+msgstr "メールボックス"
+
+#: crm/utils/admfilters.py:583
+msgid "inbox"
+msgstr "受信箱"
+
+#: crm/utils/admfilters.py:584
+msgid "sent"
+msgstr "送信済み"
+
+#: crm/utils/admfilters.py:585
+#, python-brace-format
+msgid "outbox ({num})"
+msgstr "アウトボックス ({num})"
+
+#: crm/utils/admfilters.py:586
+msgid "trash"
+msgstr "ゴミ箱"
+
+#: crm/utils/helpers.py:30
+msgid "No deal amount"
+msgstr "取引額なし"
+
+#: crm/utils/helpers.py:31
+msgid "Unacceptable phone number value"
+msgstr "無効な電話番号です。"
+
+#: crm/utils/helpers.py:32
+msgid "Counterparty"
+msgstr "相手先"
+
+#: crm/utils/make_massmail_form.py:28
+msgid ""
+"Error: The date you set as 'Created before' has to be later \n"
+"                than the date of 'Created after'."
+msgstr "エラー：作成日時として「作成前に設定した日付」は、「作成後に設定した日付」より後でなければなりません。"
+
+#: crm/utils/make_massmail_form.py:42
+msgid "Industries"
+msgstr "業界"
+
+#: crm/utils/make_massmail_form.py:56
+msgid "Types"
+msgstr "タイプ"
+
+#: crm/utils/make_massmail_form.py:61
+msgid "Created before"
+msgstr "作成日"
+
+#: crm/utils/make_massmail_form.py:66
+msgid "Created after"
+msgstr "作成日"
+
+#: crm/utils/restore_imap_emails.py:40
+#, python-format
+msgid "Received an email from \"%s\""
+msgstr "「%s」からメールを受け取りました。"
+
+#: crm/utils/send_email.py:22
+#, python-format
+msgid "The Email has been sent to \"%s\""
+msgstr "メールが「%s」に送信されました。"
+
+#: crm/utils/send_email.py:30
+msgid "Please fill in the subject and text of the letter."
+msgstr "件名と書簡の内容をご記入ください。"
+
+#: crm/utils/send_email.py:34
+msgid "To send a message you need to have an email account marked as main."
+msgstr "メッセージを送信するには、メインアカウントとしてメールアカウントを設定する必要があります。"
+
+#: crm/utils/send_email.py:72
+#, python-format
+msgid "Failed: %s"
+msgstr "失敗: %s"
+
+#: crm/views/change_owner_companies.py:33
+msgid "Owner changed successfully"
+msgstr "オーナーが正常に変更されました。"
+
+#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+msgid "Dear {}, thanks for your request!"
+msgstr "親愛なる{}様、ご依頼ありがとうございます！"
+
+#: crm/views/create_email.py:35
+msgid "No recipient"
+msgstr "受信者なし"
+
+#: crm/views/delete_duplicate_object.py:80
+msgid "The duplicate object has been correctly deleted."
+msgstr "重複するオブジェクトが正しく削除されました。"
+
+#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+msgid "Not enough data to identify the email or email has been deleted"
+msgstr "データが不十分で、メールを特定できません。または、メールが削除されています。"
+
+#: crm/views/reply_email.py:126
+msgid ""
+"You do not have an email account in CRM for sending Emails. Contact your "
+"administrator."
+msgstr "CRMシステム内でメールを送信するためのメールアカウントがありません。管理者にご連絡ください。"
+
+#: crm/views/view_original_email.py:24
+msgid "Something went wrong"
+msgstr "何かエラーが発生しました。"
+
+#: help/admin.py:78
+msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
+msgstr "必要な場合は、正しいリンクを追加するために /SECRET_CRM_PREFIX/ というタグを使用してください。"
+
+#: help/models.py:13
+msgid "list"
+msgstr "リスト"
+
+#: help/models.py:14
+msgid "instance"
+msgstr "インスタンス"
+
+#: help/models.py:24
+msgid "Help page"
+msgstr "ヘルプページ"
+
+#: help/models.py:25
+msgid "Help pages"
+msgstr "ヘルプページ"
+
+#: help/models.py:31
+msgid "app label"
+msgstr "アプリラベル"
+
+#: help/models.py:37
+msgid "model"
+msgstr "モデル"
+
+#: help/models.py:44
+msgid "page"
+msgstr "ページ"
+
+#: help/models.py:49 help/models.py:106
+msgid "Title"
+msgstr "タイトル"
+
+#: help/models.py:53
+msgid "Available on CRM page"
+msgstr "CRMページでご利用可能です。"
+
+#: help/models.py:55
+msgid ""
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
+msgstr "CRMページのいずれかで利用可能です。それ以外の場合は、別のヘルプページからのリンクを通じてのみアクセスできます。"
+
+#: help/models.py:86
+msgid "Paragraph"
+msgstr "段落"
+
+#: help/models.py:87
+msgid "Paragraphs"
+msgstr "段落"
+
+#: help/models.py:97
+msgid "Groups"
+msgstr "グループ"
+
+#: help/models.py:99
+msgid ""
+"If no user group is selected then the paragraph will be available only to "
+"the superuser."
+msgstr "ユーザーグループが選択されていない場合、そのパラグラフはスーパーユーザーのみに表示されます。"
+
+#: help/models.py:105
+msgid "Title of paragraph."
+msgstr "パラグラフのタイトル。"
+
+#: help/models.py:120 tasks/site/memoadmin.py:42
+msgid "draft"
+msgstr "草案"
+
+#: help/models.py:121
+msgid "Will not be published."
+msgstr "公開されません。"
+
+#: help/models.py:126
+msgid "Content requires additional verification."
+msgstr "コンテンツは追加の検証が必要です。"
+
+#: help/models.py:131
+msgid "Index number"
+msgstr "インデックス番号"
+
+#: help/models.py:132
+msgid "The sequence number of the paragraph on the page."
+msgstr "ページ上の段落の順序番号"
+
+#: help/models.py:138
+msgid "Link to a related paragraph if exists."
+msgstr "関連する段落へのリンク（存在する場合）。"
+
+#: massmail/admin.py:31
+msgid "Service information"
+msgstr "サービス情報"
+
+#: massmail/admin_actions.py:17
+msgid "Please select recipients only with the same owner."
+msgstr "同じ所有者の受信者のみを選択してください。"
+
+#: massmail/admin_actions.py:18
+msgid "Bad result - no recipients! Make another choice."
+msgstr "結果が悪い！受信者は0です！別の選択をしてください。"
+
+#: massmail/admin_actions.py:21
+msgid "Create a mailing out for selected objects"
+msgstr "選択したオブジェクトのメール送信を作成する"
+
+#: massmail/admin_actions.py:33
+msgid "Unsubscribed users were excluded from the mailing list."
+msgstr "購読を解除したユーザーはメールリストから除外されました。"
+
+#: massmail/admin_actions.py:54
+msgid ""
+"Note massmail is not performed on the following days: Friday, Saturday, "
+"Sunday."
+msgstr "以下の日曜日には大量メールは送信されません：金曜日、土曜日、日曜日。"
+
+#: massmail/admin_actions.py:65
+msgid "Merge selected mailing outs"
+msgstr "選択したメール配信をマージする"
+
+#: massmail/admin_actions.py:85
+msgid "united"
+msgstr "統一された"
+
+#: massmail/admin_actions.py:107
+msgid "Specify VIP recipients"
+msgstr "VIP受信者を指定する"
+
+#: massmail/admin_actions.py:115
+msgid "Please first add your main email account."
+msgstr "まず、主なメールアカウントを追加してください。"
+
+#: massmail/admin_actions.py:143
+msgid ""
+"The main email address has been successfully assigned to the selected "
+"recipients."
+msgstr "メインのメールアドレスが選択された受信者に正常に割り当てられました。"
+
+#: massmail/admin_actions.py:149
+msgid "Please select mailings with only the same recipient type."
+msgstr "受信者タイプが同じもののみを選択してください。"
+
+#: massmail/admin_actions.py:154
+msgid "Please select only mailings with the same message."
+msgstr "同じメッセージを含むメールのみを選択してください。"
+
+#: massmail/admin_actions.py:183
+msgid ""
+"There are no mail accounts available for mailing. Please contact your "
+"administrator."
+msgstr "メールアカウントは利用できません。管理者にご連絡ください。"
+
+#: massmail/admin_actions.py:191
+msgid ""
+"There are no mail accounts available for mailing to non-VIP recipients. "
+"Please contact your administrator."
+msgstr "VIP受信者以外にメールを送信するためのメールアカウントはありません。管理者にご連絡ください。"
+
+#: massmail/apps.py:8
+msgid "Mass mail"
+msgstr "大量メール"
+
+#: massmail/models/baseeml.py:14
+msgid ""
+"The subject of the message. You can use {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} or {{full_name}}"
+msgstr ""
+"メッセージの件名。{{first_name}}、{{last_name}}、{{first_middle_name}}、または{{full_name}}を使用できます。"
+
+#: massmail/models/baseeml.py:22
+msgid "Choose signature"
+msgstr "署名選択"
+
+#: massmail/models/baseeml.py:23
+msgid "Sender's signature."
+msgstr "送信者の署名"
+
+#: massmail/models/baseeml.py:28
+msgid "Previous correspondence. Will be added after signature"
+msgstr "以前のやり取り。署名後に追加されます。"
+
+#: massmail/models/email_account.py:15
+msgid "Email Account"
+msgstr "メールアカウント"
+
+#: massmail/models/email_account.py:16
+msgid "Email Accounts"
+msgstr "メールアカウント"
+
+#: massmail/models/email_account.py:20
+msgid "The name of the Email Account. For example Gmail"
+msgstr "メールアカウント名。例えば、Gmailです。"
+
+#: massmail/models/email_account.py:24
+msgid "Use this account for regular business correspondence."
+msgstr "このアカウントは定期的なビジネス対応に使用してください。"
+
+#: massmail/models/email_account.py:28
+msgid "Allow to use this account for massmail."
+msgstr "このアカウントを大量メール送信に使用することを許可します。"
+
+#: massmail/models/email_account.py:32
+msgid "Import emails from this account."
+msgstr "このアカウントからメールをインポートします。"
+
+#: massmail/models/email_account.py:40
+msgid "The IMAP host"
+msgstr "IMAPホスト"
+
+#: massmail/models/email_account.py:44
+msgid "The username to use to authenticate to the SMTP server."
+msgstr "SMTPサーバーに認証するために使用するユーザー名。"
+
+#: massmail/models/email_account.py:48
+msgid "The auth_password to use to authenticate to the SMTP server."
+msgstr "SMTPサーバーへの認証に使用するパスワード。"
+
+#: massmail/models/email_account.py:52
+msgid "The application password to use to authenticate to the SMTP server."
+msgstr "SMTPサーバーへの認証に使用するアプリケーションパスワード。"
+
+#: massmail/models/email_account.py:56
+msgid "Port to use for the SMTP server"
+msgstr "SMTPサーバー用ポート"
+
+#: massmail/models/email_account.py:60
+msgid "The from_email field."
+msgstr "「from_email」フィールド"
+
+#: massmail/models/email_account.py:68
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
+msgstr ""
+"EMAIL_USE_SSL または EMAIL_USE_TLS が真の場合、SSL 接続に使用する PEM 形式の証明書チェーン "
+"ファイルのパスを任意に指定できます。"
+
+#: massmail/models/email_account.py:73
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
+msgstr ""
+"EMAIL_USE_SSLまたはEMAIL_USE_TLSが真の場合、SSL接続に使用するPEM形式のプライベートキーファイルのパスをオプションで指定できます。"
+
+#: massmail/models/email_account.py:79
+msgid "OAuth 2.0 token for obtaining an access token."
+msgstr "OAuth 2.0 トークン（アクセス・トークンの取得用）"
+
+#: massmail/models/email_account.py:106
+msgid "DateTime of last import"
+msgstr "最終インポート日時"
+
+#: massmail/models/email_account.py:117
+msgid "Specify the imap host"
+msgstr "IMAPホストを指定してください。"
+
+#: massmail/models/email_message.py:10
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    "
+msgstr ""
+"\n"
+"HTMLを使用してください。埋め込み画像のパスを指定するには、{% cid_media 'path/to/pic.png' %} を使用します。<br>\n"
+"CRMサーバーにアップロードされたファイルや、このメッセージに添付されたファイルを「media/pics/」フォルダに埋め込むことができます。"
+
+#: massmail/models/email_message.py:19
+msgid "Email Message"
+msgstr "メールメッセージ"
+
+#: massmail/models/email_message.py:20
+msgid "Email Messages"
+msgstr "メールメッセージ"
+
+#: massmail/models/eml_accounts_queue.py:19
+msgid "The queue of the user email accounts."
+msgstr "ユーザー用メールアカウントのキュー。"
+
+#: massmail/models/mailing_out.py:12
+msgid "Mailing Out"
+msgstr "メール送信"
+
+#: massmail/models/mailing_out.py:13
+msgid "Mailing Outs"
+msgstr "郵送キャンペーン"
+
+#: massmail/models/mailing_out.py:23
+msgid "Active but Error"
+msgstr "アクティブ/エラー"
+
+#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+msgid "Paused"
+msgstr "一時停止"
+
+#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+msgid "Interrupted"
+msgstr "中断"
+
+#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
+#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+msgid "Done"
+msgstr "完了"
+
+#: massmail/models/mailing_out.py:31
+msgid "The name of the message."
+msgstr "メッセージ名"
+
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+msgid "Number of recipients"
+msgstr "受信者数"
+
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+msgid "Recipients type"
+msgstr "受信者タイプ"
+
+#: massmail/models/mailing_out.py:59
+msgid "Report"
+msgstr "レポート"
+
+#: massmail/models/signature.py:7
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    "
+msgstr ""
+"\n"
+"HTMLを使用してください。埋め込み画像のパスを指定するには、{% cid_media 'path/to/pic.png' %} を使用します。<br>\n"
+"CRMサーバーにアップロードされたファイルは、'media/pics/' フォルダに埋め込むことができます。"
+
+#: massmail/models/signature.py:17
+msgid "Signatures"
+msgstr "署名"
+
+#: massmail/models/signature.py:27
+msgid "The name of the signature."
+msgstr "署名名"
+
+#: massmail/models/to_translate.txt:3
+msgid "price proposal"
+msgstr "価格提案"
+
+#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+msgid "Preview"
+msgstr "プレビュー"
+
+#: massmail/site/emlmessageadmin.py:73
+msgid "Edit"
+msgstr "編集"
+
+#: massmail/site/mailingoutadmin.py:17
+msgid "Available Email accounts for MassMail"
+msgstr "大量メール送信用の利用可能なメールアカウント"
+
+#: massmail/site/mailingoutadmin.py:18
+msgid "Accounts"
+msgstr "アカウント"
+
+#: massmail/site/mailingoutadmin.py:27
+msgid "Today"
+msgstr "今日"
+
+#: massmail/site/mailingoutadmin.py:28
+msgid "Sent today"
+msgstr "今日送信"
+
+#: massmail/site/mailingoutadmin.py:72
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                Friday, Saturday, Sunday."
+msgstr "以下の日数は大衆メールの発送対象外となります：金曜日、土曜日、日曜日。"
+
+#: massmail/site/mailingoutadmin.py:110
+msgid "notification"
+msgstr "通知"
+
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+msgid "Get or update a refresh token"
+msgstr "リフレッシュトークンを取得または更新する"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+msgid "Send a test"
+msgstr "テストを送信する"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+msgid "Copy message"
+msgstr "メッセージのコピー"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+msgid "Successful recipients"
+msgstr "成功受信者"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+msgid "Failed recipients"
+msgstr "失敗受信者"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+msgid "Send failed recipients"
+msgstr "失敗した受信者に再送信する"
+
+#: massmail/templates/massmail/pic_upload.html:7
+msgid "Upload the image file to the CRM server"
+msgstr "CRMサーバーに画像ファイルをアップロードしてください。"
+
+#: massmail/templates/massmail/pic_upload.html:15
+msgid "Please select an image file to upload."
+msgstr "アップロードする画像ファイルを選択してください。"
+
+#: massmail/templates/massmail/pic_upload.html:36
+msgid "To specify the address of the uploaded file, use the tag -"
+msgstr "アップロードファイルの住所を指定するには、タグ\"- \"を使用してください。"
+
+#: massmail/templates/massmail/pic_upload.html:37
+msgid ""
+"Upload only files that will be used many times. For example, a company logo."
+msgstr "頻繁に使用するファイルのみアップロードしてください。例えば、会社のロゴなどです。"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:3
+msgid "View the uploaded images on the CRM server"
+msgstr "CRMサーバーにアップロードされた画像を表示する"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:6
+msgid "Upload an image file to the CRM server"
+msgstr "CRMサーバーに画像ファイルをアップロードします。"
+
+#: massmail/templates/massmail/show_uploaded_images.html:7
+#: massmail/templates/massmail/show_uploaded_images.html:15
+msgid "Uploaded images"
+msgstr "アップロード画像"
+
+#: massmail/utils/sendmassmail.py:43
+msgid "Done successfully."
+msgstr "成功しました。"
+
+#: massmail/views/file_upload.py:9
+msgid "Allowed file extensions: "
+msgstr "許可されるファイル形式:"
+
+#: massmail/views/get_oauth2_tokens.py:74
+msgid "Refresh token received successfully."
+msgstr "アクセストークンが正常に取得されました。"
+
+#: massmail/views/get_oauth2_tokens.py:79
+msgid "Error: Failed to get authorization code."
+msgstr "エラー：認証コードの取得に失敗しました。"
+
+#: massmail/views/send_failed_recipients.py:14
+msgid "Failed recipients has been returned to the massmail successfully."
+msgstr "失敗した受信者が大量メールに正常に追加されました。"
+
+#: massmail/views/send_tests.py:49
+#, python-brace-format
+msgid "The Email test has been sent to {email_accounts}"
+msgstr "メールテストが{email_accounts}に送信されました。"
+
+#: settings/apps.py:8
+msgid "Settings"
+msgstr "設定"
+
+#: settings/models.py:7
+msgid "Banned company name"
+msgstr "禁止会社名"
+
+#: settings/models.py:8
+msgid "Banned company names"
+msgstr "禁止企業名"
+
+#: settings/models.py:22
+msgid "Public email domain"
+msgstr "パブリックメールドメイン"
+
+#: settings/models.py:23
+msgid "Public email domains"
+msgstr "公開メールドメイン"
+
+#: settings/models.py:28
+msgid "Domain"
+msgstr "ドメイン"
+
+#: settings/models.py:41 settings/models.py:42
+msgid "Reminder settings"
+msgstr "リマインダー設定"
+
+#: settings/models.py:47
+msgid "Check interval"
+msgstr "チェック間隔"
+
+#: settings/models.py:49
+msgid "Specify the interval in seconds to check if it's time for a reminder."
+msgstr "リマインダーの確認間隔を秒単位で指定します。"
+
+#: settings/models.py:56
+msgid "Stop Phrase"
+msgstr "ストップフレーズ"
+
+#: settings/models.py:57
+msgid "Stop Phrases"
+msgstr "停止フレーズ"
+
+#: settings/models.py:62
+msgid "Phrase"
+msgstr "フレーズ"
+
+#: settings/models.py:66
+msgid "Last occurrence date"
+msgstr "最終発生日"
+
+#: settings/models.py:67
+msgid "Date of last occurrence of the phrase"
+msgstr "フレーズの最後の出現日"
+
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
+msgid "Change responsible"
+msgstr "担当者を変更する"
+
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+msgid "Change subscribers"
+msgstr "購読者を変更する"
+
+#: tasks/apps.py:8 tasks/models/task.py:16
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+msgid "Tasks"
+msgstr "タスク"
+
+#: tasks/forms.py:32
+msgid "Please specify a name"
+msgstr "名前を指定してください。"
+
+#: tasks/forms.py:38
+msgid "Please specify a responsible"
+msgstr "責任者を指定してください。"
+
+#: tasks/forms.py:48 tasks/forms.py:114
+msgid "Date should not be in the past."
+msgstr "日付は過去のものであってはなりません。"
+
+#: tasks/models/memo.py:13
+msgid "Memo"
+msgstr "メモ"
+
+#: tasks/models/memo.py:14
+msgid "Memos"
+msgstr "メモ"
+
+#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
+#: tasks/site/memoadmin.py:45
+msgid "postponed"
+msgstr "延期"
+
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+msgid "reviewed"
+msgstr "確認済み"
+
+#: tasks/models/memo.py:33
+msgid "to whom"
+msgstr "誰に"
+
+#: tasks/models/memo.py:41 tasks/models/task.py:15
+msgid "Task"
+msgstr "タスク"
+
+#: tasks/models/memo.py:49
+msgid "For what"
+msgstr "何のために"
+
+#: tasks/models/memo.py:57 tasks/models/project.py:9
+#: tasks/utils/admfilters.py:67
+msgid "Project"
+msgstr "プロジェクト"
+
+#: tasks/models/memo.py:72
+msgid "Сonclusion"
+msgstr "結論"
+
+#: tasks/models/memo.py:76
+msgid "Draft"
+msgstr "草案"
+
+#: tasks/models/memo.py:77
+msgid "Available only to the owner."
+msgstr "オーナー専用です。"
+
+#: tasks/models/memo.py:81
+msgid "Notified"
+msgstr "通知済み"
+
+#: tasks/models/memo.py:82
+msgid "The recipient and subscribers are notified."
+msgstr "受信者と購読者が通知されます。"
+
+#: tasks/models/memo.py:92
+msgid "Review date"
+msgstr "レビュー日"
+
+#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+msgid "subscribers"
+msgstr "購読者"
+
+#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+msgid "Notified subscribers"
+msgstr "通知された登録者"
+
+#: tasks/models/memo.py:123
+msgid "The office memo has been reviewed"
+msgstr "事務メモが確認されました。"
+
+#: tasks/models/project.py:10
+msgid "Projects"
+msgstr "プロジェクト"
+
+#: tasks/models/projectstage.py:9
+msgid "Project stage"
+msgstr "プロジェクト段階"
+
+#: tasks/models/projectstage.py:10
+msgid "Project stages"
+msgstr "プロジェクト段階"
+
+#: tasks/models/projectstage.py:15
+msgid "Is the project active at this stage?"
+msgstr "この段階でプロジェクトは進行中ですか？"
+
+#: tasks/models/resolution.py:9
+msgid "Resolution"
+msgstr "決議"
+
+#: tasks/models/resolution.py:10
+msgid "Resolutions"
+msgstr "解決策"
+
+#: tasks/models/stagebase.py:20
+msgid "Mark if this stage is \"done\""
+msgstr "この段階が「完了」であることをマークしてください。"
+
+#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+msgid "In progress"
+msgstr "進行中"
+
+#: tasks/models/stagebase.py:25
+msgid "Mark if this stage is \"in progress\""
+msgstr "この段階が「進行中」であることをマークしてください。"
+
+#: tasks/models/tag.py:17
+msgid "Tag for"
+msgstr "タグ"
+
+#: tasks/models/task.py:24
+msgid "task"
+msgstr "タスク"
+
+#: tasks/models/task.py:32
+msgid "project"
+msgstr "プロジェクト"
+
+#: tasks/models/task.py:39
+msgid "Hide main task"
+msgstr "主要なタスクを非表示にする"
+
+#: tasks/models/task.py:40
+msgid "Hide the main task when this sub-task is closed."
+msgstr "このサブタスクが完了したら、メインタスクを非表示にします。"
+
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
+msgid "Lead time"
+msgstr "リードタイム"
+
+#: tasks/models/task.py:47
+msgid "Task execution time in format - DD HH:MM:SS"
+msgstr "タスクの実行時間は、DD HH:MM:SS 形式で表示します。"
+
+#: tasks/models/task.py:64
+msgid "The task cannot be closed because there is an active subtask."
+msgstr "アクティブなサブタスクがあるため、タスクを閉じることができません。"
+
+#: tasks/models/task.py:92
+msgid "The main task is closed automatically."
+msgstr "メインタスクは自動的にクローズされました。"
+
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
+msgid "Low"
+msgstr "低"
+
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
+msgid "Middle"
+msgstr "中"
+
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
+msgid "High"
+msgstr "高"
+
+#: tasks/models/taskbase.py:33
+msgid "Short title"
+msgstr "短縮タイトル"
+
+#: tasks/models/taskbase.py:42
+msgid "Start date"
+msgstr "開始日"
+
+#: tasks/models/taskbase.py:44
+msgid "Date of task closing"
+msgstr "タスク完了日"
+
+#: tasks/models/taskbase.py:55
+msgid "Notified responsible"
+msgstr "通知された担当者"
+
+#: tasks/models/taskstage.py:9
+msgid "Task stage"
+msgstr "タスク段階"
+
+#: tasks/models/taskstage.py:10
+msgid "Task stages"
+msgstr "タスクのステータス"
+
+#: tasks/models/taskstage.py:15
+msgid "Is the task active at this stage?"
+msgstr "この段階でタスクはアクティブですか？"
+
+#: tasks/models/to_translate.txt:4
+msgid "done"
+msgstr "完了"
+
+#: tasks/models/to_translate.txt:6
+msgid "canceled"
+msgstr "取り消し"
+
+#: tasks/models/to_translate.txt:7
+msgid "to make a decision"
+msgstr "決定を下す"
+
+#: tasks/models/to_translate.txt:8
+msgid "payment of regular expenses"
+msgstr "定期費の支払い"
+
+#: tasks/models/to_translate.txt:9
+msgid "on approval"
+msgstr "承認済み"
+
+#: tasks/models/to_translate.txt:10
+msgid "for consideration"
+msgstr "検討中"
+
+#: tasks/models/to_translate.txt:11
+msgid "for information"
+msgstr "情報用"
+
+#: tasks/models/to_translate.txt:12
+msgid "for the record"
+msgstr "記録のために"
+
+#: tasks/site/memoadmin.py:44
+msgid "overdue"
+msgstr "未払い"
+
+#: tasks/site/memoadmin.py:47
+msgid "You are subscribed to a new office memo"
+msgstr "あなたは新しいオフィスメモに登録されています。"
+
+#: tasks/site/memoadmin.py:49
+msgid "unreviewed"
+msgstr "未確認"
+
+#: tasks/site/memoadmin.py:50
+msgid "The office memo was written"
+msgstr "社内メモが作成されました。"
+
+#: tasks/site/memoadmin.py:51
+msgid "You've received a office memo"
+msgstr "社内メモを受け取りました。"
+
+#: tasks/site/memoadmin.py:118
+msgid "Your office memo has been deleted"
+msgstr "あなたのオフィスメモが削除されました。"
+
+#: tasks/site/memoadmin.py:386
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+msgid "View the task"
+msgstr "タスクを表示する"
+
+#: tasks/site/memoadmin.py:390
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+msgid "View the project"
+msgstr "プロジェクトを表示する"
+
+#: tasks/site/memoadmin.py:471
+msgid "View the "
+msgstr "表示する"
+
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "プロジェクトの概要を確認する"
+
+#: tasks/site/projectadmin.py:18
+msgid "The project was created"
+msgstr "プロジェクトが作成されました"
+
+#: tasks/site/taskadmin.py:35
+msgid "I completed my part of the task"
+msgstr "タスクの自分の部分を完了しました。"
+
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+msgid "The task was created"
+msgstr "タスクが作成されました"
+
+#: tasks/site/taskadmin.py:38
+msgid "The subtask was created"
+msgstr "サブタスクが作成されました"
+
+#: tasks/site/taskadmin.py:39
+msgid "The subtask"
+msgstr "サブタスク"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "親タスクの期限を過ぎてから。"
+
+#: tasks/site/taskadmin.py:334
+msgid "Main task"
+msgstr "主なタスク"
+
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:6
+msgid "Create subtask"
+msgstr "サブタスクを作成する"
+
+#: tasks/site/taskadmin.py:372
+msgid ""
+"This is a collective task.\n"
+"            Please create a sub-task for yourself for work.\n"
+"            Or press the next button when you have done your job.\n"
+"        "
+msgstr ""
+"これは集団的なタスクです。\n"
+"作業のために自分にサブタスクを作成してください。\n"
+"または、作業が終了したら「次の」ボタンを押してください。"
+
+#: tasks/site/tasksbasemodeladmin.py:44
+msgid "You have been assigned as the task co-owner"
+msgstr "あなたはタスクの共同所有者として割り当てられました。"
+
+#: tasks/site/tasksbasemodeladmin.py:46
+msgid "Acquainted with the task"
+msgstr "タスクに慣れる"
+
+#: tasks/site/tasksbasemodeladmin.py:48
+#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+msgid "The task is closed"
+msgstr "タスクは閉じられました"
+
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The subtask is closed"
+msgstr "サブタスクが終了しました"
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "The next step date should not be later than due date."
+msgstr "次のステップの日付は、期限より後にはなりません。"
+
+#: tasks/site/tasksbasemodeladmin.py:53
+msgid "The Project was created"
+msgstr "プロジェクトが作成されました。"
+
+#: tasks/site/tasksbasemodeladmin.py:54
+msgid "The project is closed"
+msgstr "プロジェクトはクローズしました"
+
+#: tasks/site/tasksbasemodeladmin.py:57
+msgid "You are subscribed to a new task"
+msgstr "新しいタスクに登録されました。"
+
+#: tasks/site/tasksbasemodeladmin.py:58
+msgid "You have a new task assigned"
+msgstr "新しいタスクが割り当てられました。"
+
+#: tasks/site/tasksbasemodeladmin.py:483
+msgid ""
+"Please edit the title and description to make it clear to other users what "
+"part of the overall task will be completed."
+msgstr ""
+"\n"
+"タイトルと説明文を編集し、他のユーザーが全体のタスクのうちどのような部分が完了するかを明確に理解できるようにしてください。"
+
+#: tasks/site/tasksbasemodeladmin.py:502
+msgid "responsible"
+msgstr "責任を持つ"
+
+#: tasks/site/tasksbasemodeladmin.py:536
+msgid "Attach files"
+msgstr "ファイルを添付する"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:5
+#: tasks/templates/admin/tasks/project/submit_line.html:6
+msgid "Create task"
+msgstr "タスクを作成する"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:9
+msgid "Create project"
+msgstr "プロジェクトを作成する"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+msgid "View main task"
+msgstr ""
+"\n"
+"主なタスクを表示する"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+msgid "Subtasks"
+msgstr "サブタスク"
+
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+msgid "Toggle default task sorting"
+msgstr "デフォルトのタスク並び順を切り替え"
+
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Mark the task as completed and save."
+msgstr "タスクを完了としてマークし、保存する。"
+
+#: tasks/views/create_completed_subtask.py:43
+msgid ""
+"The task cannot be marked as completed because you have an active subtask."
+msgstr "サブタスクがアクティブなため、このタスクは完了としてマークできません。"
+
+#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+msgid "The Task does not exist"
+msgstr "タスクが存在しません"
+
+#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+msgid "The user does not exist"
+msgstr "ユーザーは存在しません"
+
+#: tasks/views/create_completed_subtask.py:119
+msgid ""
+"An error occurred while creating the subtask. Contact the CRM Administrator."
+msgstr "サブタスクの作成中にエラーが発生しました。CRM管理者にご連絡ください。"
+
+#: templates/admin/auth/group/change_list_object_tools.html:12
+msgid "Creates a copy of the department"
+msgstr "部門のコピーを作成します。"
+
+#: templates/admin/auth/group/change_list_object_tools.html:13
+msgid "Copy department"
+msgstr "コピー部門"
+
+#: templates/admin/auth/user/change_list_object_tools.html:12
+msgid "Transfer of a manager to another department"
+msgstr "マネージャーの異動"
+
+#: templates/admin/auth/user/change_list_object_tools.html:13
+msgid "Transfer of a manager"
+msgstr "マネージャーの移動"
+
+#: templates/admin/base.html:50
+msgid "Skip to main content"
+msgstr "メインコンテンツへ移動"
+
+#: templates/admin/base.html:65
+msgid "Welcome,"
+msgstr "ようこそ。"
+
+#: templates/admin/base.html:70
+msgid "View site"
+msgstr "サイトを表示する"
+
+#: templates/admin/base.html:75
+msgid "Documentation"
+msgstr "ドキュメント"
+
+#: templates/admin/base.html:79
+msgid "Change password"
+msgstr "パスワードの変更"
+
+#: templates/admin/base.html:83
+msgid "Log out"
+msgstr "ログアウト"
+
+#: templates/admin/base.html:98
+msgid "Breadcrumbs"
+msgstr "パンくずリスト"
+
+#: templates/admin/color_theme_toggle.html:3
+msgid "Toggle theme (current theme: auto)"
+msgstr "テーマの切り替え（現在のテーマ：自動）"
+
+#: templates/admin/color_theme_toggle.html:4
+msgid "Toggle theme (current theme: light)"
+msgstr "テーマの切り替え（現在のテーマ：明るい）"
+
+#: templates/admin/color_theme_toggle.html:5
+msgid "Toggle theme (current theme: dark)"
+msgstr "テーマの切り替え（現在のテーマ：ダーク）"
+
+#. Translators: Specify dates of date range
+#: templates/admin/crm_date_filter.html:18
+msgid "Specify dates"
+msgstr "日付を指定してください。"
+
+#. Translators: Start of date range
+#: templates/admin/crm_date_filter.html:23
+msgid "from"
+msgstr ""
+"\n"
+"「からの」"
+
+#. Translators: End of date range
+#: templates/admin/crm_date_filter.html:29
+msgid "before"
+msgstr "以前"
+
+#. Translators: Year-Month Day
+#: templates/admin/crm_date_filter.html:33
+msgid "YYYY-MM-DD"
+msgstr "yyyy-mm-dd"
+
+#: templates/crm_help_link.html:3
+msgid "Help"
+msgstr "ヘルプ"
+
+#: tests/massmail/utils/test_send_massmail.py:122
+msgid "This field is required."
+msgstr "このフィールドは必須です。"
+
+#: voip/models.py:9
+msgid "PBX extension"
+msgstr "PBX拡張子"
+
+#: voip/models.py:10
+msgid "SIP connection"
+msgstr "SIP接続"
+
+#: voip/models.py:11
+msgid "Virtual phone number"
+msgstr "仮想電話番号"
+
+#: voip/models.py:29
+msgid "Number"
+msgstr "番号"
+
+#: voip/models.py:33
+msgid "Caller ID"
+msgstr "発信者表示"
+
+#: voip/models.py:35
+msgid ""
+"Specify the number to be displayed as             your phone number when you"
+" call"
+msgstr "通話時に表示される電話番号を指定してください。"
+
+#: voip/models.py:42
+msgid "Provider"
+msgstr "プロバイダー"
+
+#: voip/models.py:43
+msgid "Specify VoIP service provider"
+msgstr "VoIPサービスプロバイダーを指定してください。"
+
+#: voip/templates/voip/connection.html:10
+msgid "Please select what's your phone number, caller display"
+msgstr "着信時表示される電話番号を選択してください。"
+
+#: voip/views/callback.py:21
+msgid ""
+"You do not have a VoiP connection configured. Please contact your "
+"administrator."
+msgstr "VoIP接続が設定されていません。管理者にご連絡ください。"
+
+#: voip/views/callback.py:88
+msgid "That something is wrong ((. Notify the administrator."
+msgstr "何か問題があります((。管理者に通知してください。"
+
+#: voip/views/callback.py:90
+msgid "Expect a call to your smartphone"
+msgstr "スマートフォンへの着信を期待してください。"
+
+#: voip/views/voipwebhook.py:44
+msgid "An outgoing call to"
+msgstr "着信（出先への電話）"
+
+#: voip/views/voipwebhook.py:53
+msgid "An incoming call from"
+msgstr "着信あり"
+
+#: voip/views/voipwebhook.py:70
+#, python-brace-format
+msgid "(duration: {duration} minutes)"
+msgstr "（所要時間：{期間}分）"
+
+#: webcrm/settings.py:261
+msgid "Untitled"
+msgstr "無題"
+
+#: webcrm/settings.py:276
+msgid "Main Menu"
+msgstr "メイン メニュー"

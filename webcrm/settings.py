@@ -67,7 +67,7 @@ LANGUAGES = [
     ('fr', 'French'),
     ('hi', 'Hindi'),
     ('it', 'Italian'),
-    # ('ja', 'Japanese'),
+    ('ja', 'Japanese'),
     ('nl', 'Dutch'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
