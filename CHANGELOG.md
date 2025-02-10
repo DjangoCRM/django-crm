@@ -14,6 +14,9 @@ Translations of CRM software into the following languages:
 
 - Hindi
 - Turkish
+- Polish
+- Arabic
+- Chinese
 
 ## [1.1.0] - 2025-01-25
 
