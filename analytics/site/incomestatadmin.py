@@ -161,9 +161,9 @@ class IncomeStatAdmin(AnlModelAdmin):
         payment_received_previous_period_qs = Payment.objects.filter(
             deal__in=queryset,
             status=Payment.RECEIVED,
-            payment_date__lte=year_ago_date.replace(
+            payment_date__lt=year_ago_date.replace(
                 day=1) + relativedelta(months=1),
-            payment_date__gt=self.year_ago_date +
+            payment_date__gte=self.year_ago_date +
             relativedelta(months=-12, days=+1),
         )
         income_previous_period_over_time, income_previous_max = get_income_over_time(
