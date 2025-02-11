@@ -68,6 +68,7 @@ LANGUAGES = [
     ('hi', 'Hindi'),
     ('it', 'Italian'),
     ('ja', 'Japanese'),
+    ('ko', 'Korean'),
     ('nl', 'Dutch'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
