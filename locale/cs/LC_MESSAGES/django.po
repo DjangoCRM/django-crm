@@ -1,0 +1,3869 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-11 09:17+0200\n"
+"PO-Revision-Date: 2025-02-12 19:13+0200\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: analytics/apps.py:10
+msgid "Analytics"
+msgstr "Analýza"
+
+#: analytics/models.py:15
+msgid "IncomeStat Snapshot"
+msgstr "Souhrn IncomeStat"
+
+#: analytics/models.py:16
+msgid "IncomeStat Snapshots"
+msgstr "Příjmy Statistické snímky"
+
+#: analytics/models.py:28 analytics/models.py:29
+msgid "Sales Report"
+msgstr "Prodejní zpráva"
+
+#: analytics/models.py:36
+msgid "Request Summary"
+msgstr "Souhrn žádosti"
+
+#: analytics/models.py:37
+msgid "Requests Summary"
+msgstr "Souhrn požadavků"
+
+#: analytics/models.py:44 analytics/models.py:45
+msgid "Lead source Summary"
+msgstr "Souhrn zdroje vedení"
+
+#: analytics/models.py:52 analytics/models.py:53
+msgid "Closing reason Summary"
+msgstr "Důvod ukončení Shrnutí"
+
+#: analytics/models.py:60 analytics/models.py:61
+msgid "Deal Summary"
+msgstr "Souhrn dohody"
+
+#: analytics/models.py:68 analytics/models.py:69
+#: analytics/site/incomestatadmin.py:48
+msgid "Income Summary"
+msgstr "Souhrn příjmů"
+
+#: analytics/models.py:76 analytics/models.py:77
+msgid "Sales funnel"
+msgstr "Prodejní kanál"
+
+#: analytics/models.py:84 analytics/models.py:85
+msgid "Conversion Summary"
+msgstr "Souhrn konverze"
+
+#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: crm/models/payment.py:112
+msgid "Payment date"
+msgstr "Datum platby"
+
+#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
+#: crm/models/request.py:82
+msgid "Products"
+msgstr "Produkty"
+
+#: analytics/site/closingreasonstatadmin.py:63
+msgid "Closing reason over month"
+msgstr "Důvody uzavření podle měsíců"
+
+#: analytics/site/conversionadmin.py:11
+msgid "Conversion of requests into successful deals (for the last 365 days)"
+msgstr "Konverze požadavků do úspěšných obchodů (za posledních 365 dní)"
+
+#: analytics/site/conversionadmin.py:39
+msgid "Conversion of primary requests"
+msgstr "Převod primárních požadavků"
+
+#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+msgid "Conversion"
+msgstr "Převod"
+
+#: analytics/site/conversionadmin.py:43
+#: analytics/site/leadsourcestatadmin.py:21
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+msgid "Total requests"
+msgstr "Celkový počet žádostí"
+
+#: analytics/site/conversionadmin.py:44
+msgid "Total primary requests"
+msgstr "Celkový počet primárních žádostí"
+
+#: analytics/site/dealstatadmin.py:17
+msgid "Deal Summary for last 365 days"
+msgstr "Souhrn transakcí za posledních 365 dní"
+
+#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+msgid "Total deals"
+msgstr "Celkový počet obchodů"
+
+#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+msgid "Relevant deals"
+msgstr "Relevantní obchody"
+
+#: analytics/site/dealstatadmin.py:46
+msgid "Closed successfully (primary)"
+msgstr "Úspěšně uzavřeno (hlavního)"
+
+#: analytics/site/dealstatadmin.py:47
+msgid "Average days to close successfully (primary)"
+msgstr "Průměrný počet dnů k úspěšnému uzavření (hlavnímu)"
+
+#: analytics/site/dealstatadmin.py:60
+msgid "Irrelevant deals"
+msgstr "Neodvázané obchody"
+
+#: analytics/site/dealstatadmin.py:78
+msgid "Won deals"
+msgstr "Vyhrávané obchody"
+
+#: analytics/site/incomestatadmin.py:135
+msgid "The snapshot has been saved successfully."
+msgstr "Snímek byl uložen úspěšně."
+
+#: analytics/site/incomestatadmin.py:183
+msgid "Income monthly (total amount for the current period: {} {} ({}))"
+msgstr "Měsíční příjem (celková částka za aktuální období: {} {} ({}))"
+
+#: analytics/site/incomestatadmin.py:188
+msgid "Income monthly in the previous period"
+msgstr "Měsíční příjem v předchozím období"
+
+#: analytics/site/incomestatadmin.py:193
+msgid "Payments received"
+msgstr "Přijaté platby"
+
+#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
+msgid "Amount"
+msgstr "Množství"
+
+#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+msgid "Order"
+msgstr "Objednávka"
+
+#: analytics/site/incomestatadmin.py:239
+msgid "Guaranteed income"
+msgstr "Zaručený příjem"
+
+#: analytics/site/incomestatadmin.py:246
+msgid "High probability income"
+msgstr "Vysokopříjmová oblast"
+
+#: analytics/site/incomestatadmin.py:253
+msgid "Low probability income"
+msgstr "Nízkopříjmový příjem"
+
+#: analytics/site/incomestatadmin.py:295
+msgid "Income averaged over the year ({})."
+msgstr "Průměrný příjem za rok ({})"
+
+#: analytics/site/incomestatadmin.py:307
+msgid "Total won deals"
+msgstr "Celkem vyhrané obchody"
+
+#: analytics/site/incomestatadmin.py:308
+msgid "Average won deals a month"
+msgstr "Průměr vyhraných obchodů za měsíc"
+
+#: analytics/site/incomestatadmin.py:309
+msgid "Average income amount a month"
+msgstr "Průměrná měsíční výše příjmu"
+
+#: analytics/site/incomestatadmin.py:451
+msgid "Total amount"
+msgstr "Celková částka"
+
+#: analytics/site/leadsourcestatadmin.py:15
+#: analytics/site/requeststatadmin.py:18
+msgid "Request source statistics"
+msgstr "Statistiky zdrojů požadavků"
+
+#: analytics/site/leadsourcestatadmin.py:16
+#: analytics/site/requeststatadmin.py:19
+msgid "Number of requests for each source"
+msgstr "Počet požadavků z každého zdroje"
+
+#: analytics/site/leadsourcestatadmin.py:17
+#: analytics/site/requeststatadmin.py:20
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+msgid "Requests over country"
+msgstr "Žádosti podle zemí"
+
+#: analytics/site/leadsourcestatadmin.py:18
+#: analytics/site/requeststatadmin.py:21
+msgid "for all period"
+msgstr "za celé období"
+
+#: analytics/site/leadsourcestatadmin.py:19
+#: analytics/site/requeststatadmin.py:22
+msgid "for last 365 days"
+msgstr "za posledních 365 dní"
+
+#: analytics/site/leadsourcestatadmin.py:20
+#: analytics/site/requeststatadmin.py:23
+msgid "conversion"
+msgstr "konverze"
+
+#: analytics/site/leadsourcestatadmin.py:22
+#: analytics/site/requeststatadmin.py:25
+msgid "Not specified"
+msgstr "Neurozeno"
+
+#: analytics/site/leadsourcestatadmin.py:116
+msgid "Relevant requests over month"
+msgstr "Relevantní žádosti za měsíc"
+
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
+#: crm/site/shipmentadmin.py:36
+msgid "pcs"
+msgstr "ks"
+
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
+#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
+#: crm/utils/admfilters.py:113
+msgid "Country"
+msgstr "Země"
+
+#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
+#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
+#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
+#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
+#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
+#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
+#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+msgid "All"
+msgstr "Všechny"
+
+#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
+#: common/models.py:185
+#: common/templates/common/notice_participants_email.html:15
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
+msgid "Owner"
+msgstr "Vlastník"
+
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: crm/models/product.py:31 crm/utils/admfilters.py:266
+msgid "Product"
+msgstr "Produkt"
+
+#: analytics/site/outputstatadmin.py:199
+msgid "Sold products summary (by date of payment receipt)"
+msgstr "Souhrn prodaných produktů (podle data obdržení platby)"
+
+#: analytics/site/outputstatadmin.py:287
+msgid "Sold products"
+msgstr "Prodejné produkty"
+
+#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+msgid "Price"
+msgstr "Cena"
+
+#: analytics/site/requeststatadmin.py:57
+msgid "Request Summary for last 365 days"
+msgstr "Souhrn žádostí za poslední rok"
+
+#: analytics/site/requeststatadmin.py:91
+msgid "Conversion of primary requests into successful deals"
+msgstr "Převod primárních požadavků na úspěšné obchody"
+
+#: analytics/site/requeststatadmin.py:95
+msgid "Primary requests"
+msgstr "Hlavní požadavky"
+
+#: analytics/site/requeststatadmin.py:97
+msgid "Subsequent requests"
+msgstr "Následné žádosti"
+
+#: analytics/site/requeststatadmin.py:98
+msgid "Conversion of subsequent requests"
+msgstr "Převod následných žádostí"
+
+#: analytics/site/requeststatadmin.py:101
+msgid "average monthly value"
+msgstr "průměrná měsíční hodnota"
+
+#: analytics/site/requeststatadmin.py:102
+msgid "Requests by month"
+msgstr "Žádosti podle měsíců"
+
+#: analytics/site/requeststatadmin.py:116
+msgid "Relevant requests"
+msgstr "Relevantní žádosti"
+
+#: analytics/site/salesfunnelsadmin.py:42
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+msgid "Total closed deals"
+msgstr "Celkový počet uzavřených obchodů"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+msgid "Statistics on the Closing reason of deals for all the time"
+msgstr "Statistiky o důvodu uzavření obchodů za celé období"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+msgid "total requests"
+msgstr "celkový počet požadavků"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
+#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+msgid "Switch currency"
+msgstr "Změnit měnu"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+msgid "Save snapshot"
+msgstr "Uložit snímek"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+msgid "Sales funnel for last 365 days"
+msgstr "Prodejní kanál za posledních 365 dní"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+msgid "The number of closed deals in stages"
+msgstr "Počet uzavřených obchodů podle fází"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+msgid "Chart"
+msgstr "Graf"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+msgid "The percentages show the number of \"lost\" deals at each stage."
+msgstr "Procenta ukazují počet „ztracených“ obchodů na každém kroku."
+
+#: analytics/templates/analytics/bar_chart.html:58
+#: analytics/templates/analytics/bar_chart_.html:51
+msgid "Charts"
+msgstr "Grafy"
+
+#: analytics/templates/analytics/notice.html:2
+msgid ""
+"Note! The calculations use data for the whole year. But the charts begin on "
+"the first of the next month."
+msgstr ""
+"Poznámka! Výpočty používají data za celý rok. Ale grafy začínají prvním dnem"
+" následujícího měsíce."
+
+#: analytics/templates/analytics/view_snapshots.html:8
+msgid "Data"
+msgstr "Data"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Snapshots"
+msgstr "Snímky"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Now"
+msgstr "Nyní"
+
+#: chat/apps.py:8 chat/templates/chat_buttons.html:9
+#: chat/templates/chat_buttons.html:13
+msgid "Chat"
+msgstr "Konverzace"
+
+#: chat/forms/chatmessageform.py:29
+msgid "Please write a message"
+msgstr "Prosím, napište zprávu."
+
+#: chat/forms/chatmessageform.py:35
+msgid "Please select at least one recipient"
+msgstr "Vyberte prosím alespoň jednoho příjemce."
+
+#: chat/models.py:15
+msgid "message"
+msgstr "zpráva"
+
+#: chat/models.py:16
+msgid "messages"
+msgstr "zprávy"
+
+#: chat/models.py:24 chat/templates/chat_buttons.html:3
+#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
+#: massmail/site/emlmessageadmin.py:121
+msgid "Message"
+msgstr "Zpráva"
+
+#: chat/models.py:34
+msgid "answer to"
+msgstr "odpověď na"
+
+#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+msgid "recipients"
+msgstr "příjemci"
+
+#: chat/models.py:47
+msgid "to"
+msgstr "komu"
+
+#: chat/models.py:52 common/models.py:24 common/models.py:179
+#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+msgid "Creation date"
+msgstr "Datum vytvoření"
+
+#: chat/site/chatmessageadmin.py:53
+msgid "task operator"
+msgstr "operátor úkolů"
+
+#: chat/site/chatmessageadmin.py:54
+msgid "You received a message regarding - "
+msgstr "Dostali jste zprávu týkající se..."
+
+#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: tasks/site/tasksbasemodeladmin.py:223
+msgid "Additional information"
+msgstr "Dodatečné informace"
+
+#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+msgid "Recipients"
+msgstr "Příjemci"
+
+#: chat/site/chatmessageadmin.py:283
+#: chat/templates/chat/chatmessage_email.html:12
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
+#: crm/templates/admin/crm/inline_emails.html:36
+msgid "reply"
+msgstr "odpovědět"
+
+#: chat/site/chatmessageadmin.py:293
+msgid "Reply to"
+msgstr "Odpovědět na"
+
+#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
+#: common/templates/common/copy_department.html:17
+#: common/templates/common/select_email_account.html:15
+#: common/templates/common/user_transfer.html:17
+#: crm/templates/admin/crm/change_form.html:21
+#: crm/templates/admin/crm/company/change_list_object_tools.html:8
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/change_form.html:21
+#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
+#: crm/templates/admin/crm/request/change_list_object_tools.html:8
+#: crm/templates/crm/addfiles.html:15
+#: crm/templates/crm/change_owner_companies.html:15
+#: crm/templates/crm/import_objects.html:15
+#: crm/templates/crm/select_original_obj.html:27
+#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
+#: templates/admin/auth/group/change_list_object_tools.html:8
+#: templates/admin/auth/user/change_list_object_tools.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "Přidat %(name)s"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:12
+#: crm/templates/crm/contact_form.html:44
+#: templates/admin/crm_date_filter.html:34
+msgid "Send"
+msgstr "Odeslat"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:7
+#: common/templates/admin/common/reminder/submit_line.html:8
+#: common/templates/admin/common/userprofile/submit_line.html:8
+#: crm/templates/admin/crm/city/submit_line.html:10
+#: crm/templates/admin/crm/company/submit_line.html:10
+#: crm/templates/admin/crm/contact/submit_line.html:9
+#: crm/templates/admin/crm/crmemail/submit_line.html:19
+#: crm/templates/admin/crm/deal/submit_line.html:9
+#: crm/templates/admin/crm/lead/submit_line.html:13
+#: crm/templates/admin/crm/payment/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/shipment/submit_line.html:9
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
+#: tasks/templates/admin/tasks/memo/submit_line.html:12
+#: tasks/templates/admin/tasks/project/submit_line.html:9
+#: tasks/templates/admin/tasks/task/submit_line.html:17
+msgid "Close"
+msgstr "Uzavřít"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:11
+#: common/templates/admin/common/reminder/submit_line.html:12
+#: common/templates/admin/common/userprofile/submit_line.html:12
+#: common/templates/common/select_emails.html:31
+#: common/templates/common/select_emails.html:73
+#: crm/templates/admin/crm/city/submit_line.html:14
+#: crm/templates/admin/crm/company/submit_line.html:14
+#: crm/templates/admin/crm/contact/submit_line.html:13
+#: crm/templates/admin/crm/crmemail/submit_line.html:23
+#: crm/templates/admin/crm/deal/submit_line.html:13
+#: crm/templates/admin/crm/lead/submit_line.html:17
+#: crm/templates/admin/crm/payment/submit_line.html:13
+#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/shipment/submit_line.html:13
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
+#: tasks/templates/admin/tasks/memo/submit_line.html:16
+#: tasks/templates/admin/tasks/project/submit_line.html:13
+#: tasks/templates/admin/tasks/task/submit_line.html:21
+msgid "Delete"
+msgstr "Smazat"
+
+#: chat/templates/chat/chatmessage_email.html:5
+#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
+#: crm/templates/admin/crm/inline_emails.html:45
+msgid "From"
+msgstr "Od"
+
+#: chat/templates/chat/chatmessage_email.html:7
+#: common/templates/common/notice_participants_email.html:6
+msgid "View in CRM"
+msgstr "Zobrazit v CRM"
+
+#: chat/templates/chat_buttons.html:3
+msgid "Add chat message"
+msgstr "Přidat zprávu v chatu"
+
+#: chat/templates/chat_buttons.html:8
+msgid "There are unread messages"
+msgstr "Máte nepřečtené zprávy."
+
+#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+msgid "View chat messages"
+msgstr "Zobrazit zprávy z chatu"
+
+#: common/admin.py:85
+msgid ""
+"You can specify the name of an existing file on the server along with the "
+"path instead of uploading it."
+msgstr ""
+"Místo nahrávání můžete zadat název stávajícího souboru na serveru spolu s "
+"jeho cestou."
+
+#: common/admin.py:195
+msgid "staff"
+msgstr "zaměstnanci"
+
+#: common/admin.py:201
+msgid "superuser"
+msgstr "superkuřák"
+
+#: common/apps.py:9
+msgid "Common"
+msgstr "Obecné"
+
+#: common/models.py:28 crm/models/payment.py:49
+msgid "Update date"
+msgstr "Datum aktualizace"
+
+#: common/models.py:38
+msgid "Modified By"
+msgstr "Upraveno od"
+
+#: common/models.py:56
+msgid "was added successfully."
+msgstr "bylo úspěšně přidáno."
+
+#: common/models.py:57
+msgid "Re-adding blocked."
+msgstr "Obnovení blokování"
+
+#: common/models.py:75 common/models.py:118
+#: common/templates/common/copy_department.html:30
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: tasks/site/memoadmin.py:41
+msgid "Department"
+msgstr "Oddělení"
+
+#: common/models.py:88 common/models.py:89 common/models.py:94
+msgid "Department and Owner do not match"
+msgstr "Oddělení a majitel se neshodují."
+
+#: common/models.py:119
+msgid "Departments"
+msgstr "Oddělení"
+
+#: common/models.py:126
+msgid "Default country"
+msgstr "Výchozí země"
+
+#: common/models.py:133
+msgid "Default currency"
+msgstr "Výchozí měna"
+
+#: common/models.py:137
+msgid "Works globally"
+msgstr "Globálně funguje"
+
+#: common/models.py:138
+msgid "The department operates in foreign markets."
+msgstr "Oddělení působí na zahraničních trzích."
+
+#: common/models.py:144
+msgid "Reminder"
+msgstr "Připomínka"
+
+#: common/models.py:145
+msgid "Reminders"
+msgstr "Připomínky"
+
+#: common/models.py:159 crm/forms/contact_form.py:20
+#: massmail/models/baseeml.py:16
+msgid "Subject"
+msgstr "Předmět"
+
+#: common/models.py:160
+msgid "Briefly what about is this reminder"
+msgstr "Stručně řečeno, o čem toto upozornění je."
+
+#: common/models.py:164
+#: common/templates/common/notice_participants_email.html:14
+#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
+#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+msgid "Description"
+msgstr "Popis"
+
+#: common/models.py:167
+msgid "Reminder date"
+msgstr "Datum připomenutí"
+
+#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
+#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
+#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
+#: tasks/utils/admfilters.py:209 voip/models.py:25
+msgid "Active"
+msgstr "Aktivní"
+
+#: common/models.py:175
+msgid "Send notification email"
+msgstr "Odeslat e-mailové oznámení"
+
+#: common/models.py:195
+msgid "File"
+msgstr "Soubor"
+
+#: common/models.py:196
+msgid "Files"
+msgstr "Soubory"
+
+#: common/models.py:200
+msgid "Attached file"
+msgstr "Přiložený soubor"
+
+#: common/models.py:206
+msgid "Attach to the deal"
+msgstr "Připojit k dohodě"
+
+#: common/models.py:228
+#: common/templates/common/notice_participants_email.html:12
+#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
+#: tasks/models/task.py:35
+msgid "Stage"
+msgstr "Fáze"
+
+#: common/models.py:229
+msgid "Stages"
+msgstr "Fáze"
+
+#: common/models.py:233 tasks/models/stagebase.py:14
+msgid "Default"
+msgstr "Výchozí"
+
+#: common/models.py:234 tasks/models/stagebase.py:15
+msgid "Will be selected by default when creating a new task"
+msgstr "Bude vybrán jako výchozí při vytváření nové úlohy."
+
+#: common/models.py:239 tasks/models/stagebase.py:32
+msgid ""
+"The sequence number of the stage.         The indices of other instances "
+"will be sorted automatically."
+msgstr ""
+"Pořadové číslo fáze. Indikátory ostatních instancí budou automaticky "
+"seřazeny."
+
+#: common/models.py:250
+msgid "User profile"
+msgstr "Profil uživatele"
+
+#: common/models.py:251
+msgid "User profiles"
+msgstr "Uživatelské profily"
+
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "Telefon"
+
+#: common/models.py:308
+msgid "UTC time zone"
+msgstr "Časové pásmo UTC"
+
+#: common/models.py:312
+msgid "Activate this time zone"
+msgstr "Aktivovat tento časový pásmo"
+
+#: common/models.py:316
+msgid "Field for temporary storage of messages to the user"
+msgstr "Pole pro dočasné ukládání zpráv uživateli"
+
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
+#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+msgid "Tags"
+msgstr "Tagy"
+
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
+#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+msgid "Add tags"
+msgstr "Přidat štítky"
+
+#: common/site/basemodeladmin.py:22
+msgid "Export selected objects"
+msgstr "Exportovat vybrané objekty"
+
+#: common/site/basemodeladmin.py:23
+msgid "Next step deadline"
+msgstr "Termín pro další krok"
+
+#: common/site/basemodeladmin.py:87
+msgid "Filters may affect search results."
+msgstr "Filtry mohou ovlivnit výsledky vyhledávání."
+
+#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+msgid "Act"
+msgstr "Akce"
+
+#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
+#: tasks/models/taskbase.py:73
+msgid "Workflow"
+msgstr "Pracovní postup"
+
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+msgid "Language"
+msgstr "Jazyk"
+
+#: common/templates/admin/common/reminder/submit_line.html:4
+#: common/templates/admin/common/userprofile/submit_line.html:4
+#: crm/templates/admin/crm/city/submit_line.html:4
+#: crm/templates/admin/crm/company/submit_line.html:4
+#: crm/templates/admin/crm/contact/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:14
+#: crm/templates/admin/crm/deal/submit_line.html:4
+#: crm/templates/admin/crm/lead/submit_line.html:4
+#: crm/templates/admin/crm/payment/submit_line.html:4
+#: crm/templates/admin/crm/request/submit_line.html:4
+#: crm/templates/admin/crm/shipment/submit_line.html:4
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
+#: tasks/templates/admin/tasks/memo/submit_line.html:8
+#: tasks/templates/admin/tasks/project/submit_line.html:4
+#: tasks/templates/admin/tasks/task/submit_line.html:13
+msgid "Save"
+msgstr "Uložit"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and continue editing"
+msgstr "Uložit a pokračovat v úpravách"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and view"
+msgstr "Uložit a zobrazit"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
+#: crm/templates/admin/crm/company/change_form_object_tools.html:38
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
+#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+msgid "History"
+msgstr "Historie"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
+#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
+#: help/templates/admin/help/stacked.html:18
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+msgid "View on site"
+msgstr "Zobrazit na webu"
+
+#: common/templates/common/copy_department.html:13
+#: common/templates/common/select_email_account.html:12
+#: common/templates/common/select_emails.html:13
+#: common/templates/common/user_transfer.html:13
+#: crm/templates/admin/crm/change_form.html:18
+#: crm/templates/admin/crm/crmemail/change_form.html:18
+#: crm/templates/admin/crm/payment/change_list.html:31
+#: crm/templates/crm/addfiles.html:12
+#: crm/templates/crm/change_owner_companies.html:12
+#: crm/templates/crm/import_objects.html:12
+#: crm/templates/crm/make_massmail.html:15
+#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+msgid "Home"
+msgstr "Domů"
+
+#: common/templates/common/copy_department.html:23
+msgid "Please select the department to copy."
+msgstr "Vyberte oddělení pro kopírování."
+
+#: common/templates/common/copy_department.html:40
+#: common/templates/common/user_transfer.html:51
+#: crm/templates/crm/change_owner_companies.html:36
+#: crm/templates/crm/import_objects.html:31
+#: crm/templates/crm/select_original_obj.html:48
+#: massmail/templates/massmail/pic_upload.html:32
+#: voip/templates/voip/connection.html:23
+msgid "Submit"
+msgstr "Odeslat"
+
+#: common/templates/common/email_notification_base.html:14
+#: tasks/models/taskbase.py:40
+msgid "Note"
+msgstr "Poznámka"
+
+#: common/templates/common/email_notification_base.html:24
+#: crm/templates/crm/email.html:29
+msgid "Attachments"
+msgstr "Přílohy"
+
+#: common/templates/common/email_notification_base.html:28
+#: common/templates/common/widgets/clearable_file_input.html:7
+msgid "Download"
+msgstr "Stáhnout"
+
+#: common/templates/common/email_notification_base.html:30
+#: crm/templates/admin/crm/inline_emails.html:63
+msgid "Error: the file is missing."
+msgstr "Chyba: soubor chybí."
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+msgid "Due date"
+msgstr "Termín splatnosti"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:26
+msgid "Priority"
+msgstr "Priorita"
+
+#: common/templates/common/notice_participants_email.html:15
+#: crm/models/deal.py:183 crm/models/request.py:139
+#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+msgid "Co-owner"
+msgstr "Společný vlastník"
+
+#: common/templates/common/notice_participants_email.html:16
+#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
+#: tasks/utils/admfilters.py:89
+msgid "Responsible"
+msgstr "Odpovědní"
+
+#: common/templates/common/reminder_button.html:4
+msgid "There are reminders"
+msgstr "Existují připomínky"
+
+#: common/templates/common/reminder_button.html:10
+msgid "Create a reminder"
+msgstr "Vytvořit připomenutí"
+
+#: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:18
+msgid "Regarding"
+msgstr "Co se týče"
+
+#: common/templates/common/select_email_account.html:20
+msgid "Please select an Email account"
+msgstr "Vyberte si prosím e-mailový účet."
+
+#: common/templates/common/select_email_account.html:38
+msgid "Select"
+msgstr "Vybrat"
+
+#: common/templates/common/select_emails.html:30
+#: common/templates/common/select_emails.html:72
+#: crm/templates/admin/crm/company/change_list_object_tools.html:20
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
+#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+msgid "Import"
+msgstr "Importovat"
+
+#: common/templates/common/select_emails.html:32
+#: common/templates/common/select_emails.html:74
+msgid "Spam"
+msgstr "Spam"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as read"
+msgstr "Označit jako přečtené"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as"
+msgstr "Označit jako"
+
+#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+msgid "To"
+msgstr "Komu"
+
+#: common/templates/common/select_emails.html:56
+msgid "This email is already imported."
+msgstr "Toto e-mailové zprávy je již importováno."
+
+#: common/templates/common/user_transfer.html:23
+msgid "Please select a user and a new department for him."
+msgstr "Vyberte uživatele a novou oddělení pro něj."
+
+#: common/templates/common/user_transfer.html:31
+msgid "User"
+msgstr "Uživatel"
+
+#: common/templatetags/util.py:114
+msgid "Task completed"
+msgstr "Úkol splněn"
+
+#: common/templatetags/util.py:115
+msgid "I completed the task"
+msgstr "Úkol jsem dokončil/a"
+
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Completed"
+msgstr "Dokončeno"
+
+#: common/utils/for_translation.py:24
+msgid ""
+"The name has been added for translation. Please update po and mo files."
+msgstr "Jméno bylo přidáno pro překlad. Aktualizujte prosím soubory po a mo."
+
+#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:36
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: common/utils/helpers.py:31
+msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
+msgstr "Objekt s ID '{}'} neexistuje. Možná byl smazán?"
+
+#: common/views/copy_department.py:48
+msgid "A new department has been created - {}. Please rename it."
+msgstr "Vytvořeno nové oddělení: {}. Prosím, změňte jeho název."
+
+#: common/views/select_emails_import.py:118
+msgid ""
+"You do not have mail accounts marked for importing emails.Please contact "
+"your administrator."
+msgstr ""
+"Nemáte nastavené e-mailové účty pro import e-mailů. Kontaktujte prosím svého"
+" správce."
+
+#: common/views/user_transfer.py:28
+msgid ""
+"\n"
+"Attention! Data for filters such as: \n"
+"transaction stages, reasons for closing, tags, etc. \n"
+"will be transferred only if the new department has data with the same name.\n"
+"Also Output, Payment and Product will not be affected.\n"
+msgstr ""
+"\n"
+"Pozor! Data pro filtry, jako jsou:\n"
+"fáze transakce, důvody uzavření, značky atd.\n"
+"budou přeneseny pouze v případě, že nové oddělení má data se stejným názvem.\n"
+"Také výstup, platba a produkt nebudou ovlivněny.\n"
+
+#: common/views/user_transfer.py:131
+msgid "User transferred successfully"
+msgstr "Uživatel byl úspěšně přesunut."
+
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+msgid "Contact details"
+msgstr "Kontaktní údaje"
+
+#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/models/product.py:15 crm/models/product.py:37
+#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
+#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: tasks/models/taskbase.py:32
+msgid "Name"
+msgstr "Název"
+
+#: crm/admin.py:155 crm/site/dealadmin.py:247
+msgid "Contact info"
+msgstr "Kontaktní informace"
+
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
+#: crm/site/requestadmin.py:88
+msgid "Relations"
+msgstr "Vztahy"
+
+#: crm/forms/admin_forms.py:22
+msgid "A country must be specified."
+msgstr "Musí být specifikována země."
+
+#: crm/forms/admin_forms.py:23
+msgid "Marketing currency already exists."
+msgstr "Marketingová měna již existuje."
+
+#: crm/forms/admin_forms.py:24
+msgid "State currency already exists."
+msgstr "Státní měna již existuje."
+
+#: crm/forms/admin_forms.py:25
+msgid "Enter a valid alphabetic code."
+msgstr "Zadejte platný alfanumerický kód."
+
+#: crm/forms/admin_forms.py:26
+msgid "The currency cannot be both state and marketing."
+msgstr "Měna nemůže být současně státní i marketingová."
+
+#: crm/forms/admin_forms.py:70
+msgid "Not allowed address"
+msgstr "Nepovolená adresa"
+
+#: crm/forms/admin_forms.py:90
+msgid "City does not match the country"
+msgstr "Město neodpovídá zemi"
+
+#: crm/forms/admin_forms.py:138
+msgid "Such an object already exists"
+msgstr "Takový objekt již existuje"
+
+#: crm/forms/admin_forms.py:164
+msgid "Please fill in the field."
+msgstr "Prosím, vyplňte pole."
+
+#: crm/forms/admin_forms.py:172
+msgid "To convert, please fill in the fields below."
+msgstr "Pro převod prosím vyplňte níže uvedená pole."
+
+#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+msgid "Specify the deal amount"
+msgstr "Určete velikost obchodu"
+
+#: crm/forms/admin_forms.py:236
+msgid "Contact does not match the company"
+msgstr "Kontakt neodpovídá společnosti"
+
+#: crm/forms/admin_forms.py:241
+msgid "Select only Contact or only Lead"
+msgstr "Vyberte pouze kontakt nebo pouze potenciálního zákazníka"
+
+#: crm/forms/admin_forms.py:246
+msgid "Select only Company or only Lead"
+msgstr "Vyberte pouze společnost nebo pouze potenciálního zákazníka."
+
+#: crm/forms/admin_forms.py:325
+msgid "First select a department."
+msgstr "Nejprve vyberte oddělení."
+
+#: crm/forms/admin_forms.py:331
+msgid "That tag already exists."
+msgstr "Tento štítek již existuje."
+
+#: crm/forms/contact_form.py:13
+msgid "Your name"
+msgstr "Vaše jméno"
+
+#: crm/forms/contact_form.py:17
+msgid "Your E-mail"
+msgstr "Vaše e-mailová adresa"
+
+#: crm/forms/contact_form.py:24
+msgid "Phone number (with country code)"
+msgstr "Telefonní číslo (s mezinárodním kódem)"
+
+#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
+#: crm/models/request.py:55
+msgid "Company name"
+msgstr "Název společnosti"
+
+#: crm/forms/contact_form.py:72
+msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
+msgstr ""
+"Omlouváme se, neplatný reCAPTCHA. Zkuste to prosím znovu nebo pošlete "
+"e-mail."
+
+#: crm/models/base_contact.py:18 crm/models/request.py:29
+msgid "The name of the contact person (one word)."
+msgstr "Jméno kontaktní osoby (jedno slovo)."
+
+#: crm/models/base_contact.py:19 crm/models/request.py:28
+msgid "First name"
+msgstr "Jméno"
+
+#: crm/models/base_contact.py:23 crm/models/request.py:33
+msgid "Middle name"
+msgstr "Střední jméno"
+
+#: crm/models/base_contact.py:24 crm/models/request.py:34
+msgid "The middle name of the contact person."
+msgstr "Střední jméno kontaktní osoby."
+
+#: crm/models/base_contact.py:28 crm/models/request.py:39
+msgid "The last name of the contact person (one word)."
+msgstr "Příjmení kontaktní osoby (jedno slovo)."
+
+#: crm/models/base_contact.py:29 crm/models/request.py:38
+msgid "Last name"
+msgstr "Příjmení"
+
+#: crm/models/base_contact.py:33
+msgid "The title (position) of the contact person."
+msgstr "Pozice kontaktní osoby."
+
+#: crm/models/base_contact.py:34
+msgid "Title / Position"
+msgstr "Titul / Pozice"
+
+#: crm/models/base_contact.py:44
+msgid "Sex"
+msgstr "Pohlaví"
+
+#: crm/models/base_contact.py:48
+msgid "Date of Birth"
+msgstr "Datum narození"
+
+#: crm/models/base_contact.py:52
+msgid "Secondary email"
+msgstr "Vedlejší e-mail"
+
+#: crm/models/base_contact.py:62
+msgid "Mobile phone"
+msgstr "Mobilní telefon"
+
+#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
+#: crm/models/request.py:99 crm/utils/admfilters.py:33
+msgid "City"
+msgstr "Město"
+
+#: crm/models/base_contact.py:74
+msgid "Company city"
+msgstr "Město společnosti"
+
+#: crm/models/base_contact.py:75 crm/models/request.py:93
+msgid "Object of City in database"
+msgstr "Objekt města v databázi"
+
+#: crm/models/base_contact.py:113
+msgid "Address"
+msgstr "Adresa"
+
+#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/utils/admfilters.py:512
+msgid "Disqualified"
+msgstr "Diskvalifikován"
+
+#: crm/models/base_contact.py:129
+msgid "Use comma to separate Emails."
+msgstr "Oddělujte e-mailové adresy čárkou."
+
+#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/request.py:51
+msgid "Lead Source"
+msgstr "Zdroj vedení"
+
+#: crm/models/base_contact.py:140
+msgid "Mass mailing"
+msgstr "Masová pošta"
+
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+msgid "Mailing list recipient."
+msgstr "Příjemce e-mailového seznamu."
+
+#: crm/models/base_contact.py:156
+msgid "Last contact date"
+msgstr "Datum posledního kontaktu"
+
+#: crm/models/base_contact.py:163
+msgid "Assigned to"
+msgstr "Přiřazeno"
+
+#: crm/models/company.py:13 crm/models/crmemail.py:59
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
+#: crm/templates/crm/print_request.html:49
+msgid "Company"
+msgstr "Společnost"
+
+#: crm/models/company.py:14
+msgid "Companies"
+msgstr "Společnosti"
+
+#: crm/models/company.py:27 crm/models/country.py:21
+msgid "Alternative names"
+msgstr "Alternativní názvy"
+
+#: crm/models/company.py:28 crm/models/country.py:22
+msgid "Separate them with commas."
+msgstr "Oddělte je čárkami."
+
+#: crm/models/company.py:34
+msgid "Website"
+msgstr "Webová stránka"
+
+#: crm/models/company.py:51
+msgid "City name"
+msgstr "Název města"
+
+#: crm/models/company.py:64
+msgid "Registration number"
+msgstr "Registrační číslo"
+
+#: crm/models/company.py:65
+msgid "Registration number of Company"
+msgstr "Registrační číslo společnosti"
+
+#: crm/models/company.py:72 crm/models/deal.py:109
+msgid "country"
+msgstr "země"
+
+#: crm/models/company.py:73
+msgid "Company Country"
+msgstr "Země společnosti"
+
+#: crm/models/company.py:80 crm/models/lead.py:44
+msgid "Type of company"
+msgstr "Typ společnosti"
+
+#: crm/models/company.py:85 crm/models/lead.py:49
+msgid "Industry of company"
+msgstr "Odvětví společnosti"
+
+#: crm/models/contact.py:12
+msgid "Contact person"
+msgstr "Kontaktní osoba"
+
+#: crm/models/contact.py:13
+msgid "Contact persons"
+msgstr "Kontaktní osoby"
+
+#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
+#: crm/models/request.py:73
+msgid "Company of contact"
+msgstr "Společnost kontaktní osoby"
+
+#: crm/models/country.py:6
+msgid "has already been assigned to the city"
+msgstr "je již přiděleno tomuto městu"
+
+#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+msgid "Countries"
+msgstr "Země"
+
+#: crm/models/country.py:44
+msgid "Cities"
+msgstr "Místa"
+
+#: crm/models/crmemail.py:11
+#: crm/templates/admin/crm/company/change_form_object_tools.html:4
+#: crm/templates/admin/crm/inline_emails.html:18
+#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+msgid "Email"
+msgstr "E-mail"
+
+#: crm/models/crmemail.py:12
+msgid "Emails in CRM"
+msgstr "E-maily v CRM"
+
+#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
+#: crm/models/crmemail.py:30
+msgid "You can specify multiple addresses, separated by commas"
+msgstr "Můžete zadat více adres, oddělovaných čárkami."
+
+#: crm/models/crmemail.py:22
+msgid "The Email address of sender"
+msgstr "E-mailová adresa odesílatele"
+
+#: crm/models/crmemail.py:38
+msgid "Request a read receipt"
+msgstr "Žádost o potvrzení o přečtení"
+
+#: crm/models/crmemail.py:39
+msgid "Not supported by all mail services."
+msgstr "Nepodporováno všemi e-mailovými službami."
+
+#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
+#: crm/site/shipmentadmin.py:269
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: crm/templates/admin/crm/request/change_form_object_tools.html:7
+#: tasks/models/memo.py:65
+msgid "Deal"
+msgstr "Smlouva"
+
+#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
+#: crm/models/request.py:64
+msgid "Lead"
+msgstr "Vedoucí kontakt"
+
+#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
+#: crm/models/request.py:68
+#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+msgid "Contact"
+msgstr "Kontaktní osoba"
+
+#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
+#: crm/site/requestadmin.py:435
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Request"
+msgstr "Žádost"
+
+#: crm/models/deal.py:14
+#: crm/templates/admin/crm/company/change_form_object_tools.html:18
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+msgid "Deals"
+msgstr "Dealy"
+
+#: crm/models/deal.py:19
+msgid "Deal name"
+msgstr "Název obchodu"
+
+#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+msgid "Next step"
+msgstr "Další krok"
+
+#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+msgid "Describe briefly what needs to be done in the next step."
+msgstr "Stručně popište, co je třeba provést v dalším kroku."
+
+#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+msgid "Step date"
+msgstr "Datum kroku"
+
+#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+msgid "Date to which the next step should be taken."
+msgstr "Datum, do kterého by měl být učiněn další krok."
+
+#: crm/models/deal.py:51
+msgid "Dates of the stages"
+msgstr "Datum fází"
+
+#: crm/models/deal.py:52
+msgid "Dates of passing the stages"
+msgstr "Datum dokončení fází"
+
+#: crm/models/deal.py:57
+msgid "Date of deal closing"
+msgstr "Datum uzavření obchodu"
+
+#: crm/models/deal.py:62
+msgid "Date of won deal closing"
+msgstr "Datum uzavření vyhráné smlouvy"
+
+#: crm/models/deal.py:71
+msgid "Total deal amount without VAT"
+msgstr "Celková výše obchodu bez DPH"
+
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
+#: crm/models/product.py:49
+msgid "Currency"
+msgstr "Měna"
+
+#: crm/models/deal.py:85 crm/models/others.py:101
+msgid "Closing reason"
+msgstr "Důvod uzavření"
+
+#: crm/models/deal.py:90
+msgid "Probability (%)"
+msgstr "Pravděpodobnost (%)"
+
+#: crm/models/deal.py:148
+msgid "Partner contact"
+msgstr "Kontakt partnera"
+
+#: crm/models/deal.py:151
+msgid "Contact person of dealer or distribution company"
+msgstr "Kontaktní osoba prodejce nebo distribuční společnosti"
+
+#: crm/models/deal.py:156
+msgid "Relevant"
+msgstr "Relevantní"
+
+#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+msgid "Important"
+msgstr "Důležité"
+
+#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+msgid "Remind me."
+msgstr "Upozorněte mě."
+
+#: crm/models/lead.py:13
+msgid "Leads"
+msgstr "Potenciálních klientů"
+
+#: crm/models/lead.py:29
+msgid "Company phone"
+msgstr "Telefon společnosti"
+
+#: crm/models/lead.py:33
+msgid "Company address"
+msgstr "Adresa společnosti"
+
+#: crm/models/lead.py:37
+msgid "Company email"
+msgstr "E-mail společnosti"
+
+#: crm/models/others.py:27
+msgid "Type of Clients"
+msgstr "Typ klienta"
+
+#: crm/models/others.py:28
+msgid "Types of Clients"
+msgstr "Typy klientů"
+
+#: crm/models/others.py:33
+msgid "Industry of Clients"
+msgstr "Odvětví klientů"
+
+#: crm/models/others.py:34
+msgid "Industries of Clients"
+msgstr "Odvětví klientů"
+
+#: crm/models/others.py:42
+msgid "Second default"
+msgstr "Druhé výchozí nastavení"
+
+#: crm/models/others.py:43
+msgid "Will be selected next after the default stage."
+msgstr "Bude vybrán jako další po výchozím stadiu."
+
+#: crm/models/others.py:47
+msgid "success stage"
+msgstr "fáze úspěchu"
+
+#: crm/models/others.py:51
+msgid "conditional success stage"
+msgstr "etapa podmíněného úspěchu"
+
+#: crm/models/others.py:52
+msgid "For example, receiving the first payment"
+msgstr "Například obdržení prvního platby"
+
+#: crm/models/others.py:56
+msgid "goods shipped"
+msgstr "doručené zboží"
+
+#: crm/models/others.py:57
+msgid "Have the goods been shipped at this stage already?"
+msgstr "Byly zboží již odeslány v této fázi?"
+
+#: crm/models/others.py:64
+msgid "Lead Sources"
+msgstr "Zdroje potenciálních zákazníků"
+
+#: crm/models/others.py:76
+msgid "form template name"
+msgstr "název šablony formuláře"
+
+#: crm/models/others.py:77 crm/models/others.py:82
+msgid "The name of the html template file if needed."
+msgstr "Název souboru HTML šablony, pokud je to potřeba."
+
+#: crm/models/others.py:81
+msgid "success page template name"
+msgstr "název šablony stránky úspěchu"
+
+#: crm/models/others.py:90
+msgid ""
+"Reason rating.         The indices of other instances will be sorted "
+"automatically."
+msgstr ""
+"Hodnocení důvodu. Indexy ostatních instancí budou seřazeny automaticky."
+
+#: crm/models/others.py:95
+msgid "success reason"
+msgstr "důvod úspěchu"
+
+#: crm/models/others.py:102
+msgid "Closing reasons"
+msgstr "Důvody uzavření"
+
+#: crm/models/output.py:10
+msgid "Output"
+msgstr "Výstup"
+
+#: crm/models/output.py:11
+msgid "Outputs"
+msgstr "Výstupy"
+
+#: crm/models/output.py:24
+msgid "Quantity"
+msgstr "Množství"
+
+#: crm/models/output.py:28
+msgid "Shipping date"
+msgstr "Datum expedice"
+
+#: crm/models/output.py:29
+msgid "Shipment date as per contract"
+msgstr "Datum expedice podle smlouvy"
+
+#: crm/models/output.py:33
+msgid "Planned shipping date"
+msgstr "Plánované datum dodání"
+
+#: crm/models/output.py:37
+msgid "Actual shipping date"
+msgstr "Skutečný datum expedice"
+
+#: crm/models/output.py:38
+msgid "Date when the product was shipped"
+msgstr "Datum expedice produktu"
+
+#: crm/models/output.py:42
+msgid "Shipped"
+msgstr "Dodáno"
+
+#: crm/models/output.py:43
+msgid "Product is shipped"
+msgstr "Produkt byl odeslán"
+
+#: crm/models/output.py:47
+msgid "serial number"
+msgstr "sekvenční číslo"
+
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "Je vyžadováno množství."
+
+#: crm/models/output.py:69
+msgid "Shipment"
+msgstr "Dodávka"
+
+#: crm/models/output.py:70
+msgid "Shipments"
+msgstr "Dodávky"
+
+#: crm/models/payment.py:17
+msgid "Currencies"
+msgstr "Měny"
+
+#: crm/models/payment.py:21
+msgid "Alphabetic Code for the Representation of Currencies."
+msgstr "Alfabetický kód pro reprezentaci měn."
+
+#: crm/models/payment.py:26 crm/models/payment.py:198
+msgid "Rate to state currency"
+msgstr "Kurz k národní měně"
+
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
+msgid "Exchange rate against the state currency."
+msgstr "Směnný kurz vůči státní měně."
+
+#: crm/models/payment.py:32 crm/models/payment.py:203
+msgid "Rate to marketing currency"
+msgstr "Kurz na marketingovou měnu"
+
+#: crm/models/payment.py:37
+msgid "Is it the state currency?"
+msgstr "Je to státní měna?"
+
+#: crm/models/payment.py:41
+msgid "Is it the marketing currency?"
+msgstr "Je to marketingová měna?"
+
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "Tato měna se automaticky aktualizuje."
+
+#: crm/models/payment.py:71
+msgid "without VAT"
+msgstr "bez DPH"
+
+#: crm/models/payment.py:82
+msgid "Please specify a currency."
+msgstr "Prosím, zadejte měnu."
+
+#: crm/models/payment.py:92
+msgid "Payment"
+msgstr "Platba"
+
+#: crm/models/payment.py:93
+msgid "Payments"
+msgstr "Platby"
+
+#: crm/models/payment.py:100
+msgid "received"
+msgstr "dostal/a"
+
+#: crm/models/payment.py:101
+msgid "guaranteed"
+msgstr "zaručený"
+
+#: crm/models/payment.py:102
+msgid "high probability"
+msgstr "vysoká pravděpodobnost"
+
+#: crm/models/payment.py:103
+msgid "low probability"
+msgstr "nízká pravděpodobnost"
+
+#: crm/models/payment.py:118
+msgid "Payment status"
+msgstr "Stav platby"
+
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+msgid "contract number"
+msgstr "číslo smlouvy"
+
+#: crm/models/payment.py:126
+msgid "invoice number"
+msgstr "číslo faktury"
+
+#: crm/models/payment.py:130
+msgid "order number"
+msgstr "číslo objednávky"
+
+#: crm/models/payment.py:134
+msgid "Payment through representative office"
+msgstr "Platba prostřednictvím zastoupení"
+
+#: crm/models/payment.py:157
+msgid "Payment share"
+msgstr "Podíl na platbě"
+
+#: crm/models/payment.py:177
+msgid "Currency rate"
+msgstr "Směnný kurz"
+
+#: crm/models/payment.py:178
+msgid "Currency rates"
+msgstr "Směnné kurzy"
+
+#: crm/models/payment.py:183
+msgid "approximate currency rate"
+msgstr "přibližný směnný kurz"
+
+#: crm/models/payment.py:184
+msgid "official currency rate"
+msgstr "oficiální směnný kurz"
+
+#: crm/models/payment.py:194
+msgid "Currency rate date"
+msgstr "Datum směnného kurzu"
+
+#: crm/models/payment.py:210
+msgid "Exchange rate type"
+msgstr "Typ směnného kurzu"
+
+#: crm/models/product.py:9 crm/models/product.py:69
+msgid "Product category"
+msgstr "Kategorie produktu"
+
+#: crm/models/product.py:10
+msgid "Product categories"
+msgstr "Kategorie produktů"
+
+#: crm/models/product.py:55
+msgid "On sale"
+msgstr "V prodeji"
+
+#: crm/models/product.py:58
+msgid "Goods"
+msgstr "Zboží"
+
+#: crm/models/product.py:59
+msgid "Service"
+msgstr "Služba"
+
+#: crm/models/product.py:64 voip/models.py:21
+msgid "Type"
+msgstr "Typ"
+
+#: crm/models/request.py:20
+msgid "Requests"
+msgstr "Žádosti"
+
+#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+msgid "Request for"
+msgstr "Žádost o"
+
+#: crm/models/request.py:50
+msgid "Lead source"
+msgstr "Zdroj potenciálního zákazníka"
+
+#: crm/models/request.py:59
+msgid "Date of receipt"
+msgstr "Datum přijetí"
+
+#: crm/models/request.py:60
+msgid "Date of receipt of the request."
+msgstr "Datum přijetí žádosti"
+
+#: crm/models/request.py:107 crm/site/dealadmin.py:671
+msgid "Translation"
+msgstr "Překlad"
+
+#: crm/models/request.py:111
+msgid "Remark"
+msgstr "Poznámka"
+
+#: crm/models/request.py:115
+msgid "Pending"
+msgstr "V čekání"
+
+#: crm/models/request.py:116
+msgid "Waiting for validation of fields filling"
+msgstr "Čeká se na ověření vyplněných polí."
+
+#: crm/models/request.py:120
+msgid "Subsequent"
+msgstr "Následný"
+
+#: crm/models/request.py:122
+msgid "Received from the client with whom you are already cooperate"
+msgstr "Přijato od klienta, se kterým již spolupracujete"
+
+#: crm/models/request.py:126
+msgid "Duplicate"
+msgstr "Duplikát"
+
+#: crm/models/request.py:127
+msgid "Duplicate request. The deal will not be created."
+msgstr "Duplikovaný požadavek. Dohoda nebude vytvořena."
+
+#: crm/models/request.py:131 help/models.py:125
+msgid "Verification required"
+msgstr "Ověření je vyžadováno"
+
+#: crm/models/request.py:132
+msgid "Links are set automatically and require verification."
+msgstr "Odkazy jsou nastaveny automaticky a vyžadují ověření."
+
+#: crm/models/request.py:148 crm/models/request.py:149
+msgid "Company and contact person do not match."
+msgstr "Společnost a kontaktní osoba se neshodují."
+
+#: crm/models/request.py:153 crm/models/request.py:154
+msgid "Specify the contact person or lead. But not both."
+msgstr "Určete kontaktní osobu nebo potenciálního zákazníka. Ale ne obě."
+
+#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+msgid "Tag"
+msgstr "Označení"
+
+#: crm/models/tag.py:14 tasks/models/tag.py:12
+msgid "Tag name"
+msgstr "Název štítku"
+
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "konkurenční společnost"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "koncový zákazník"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "prodejcům zprostředkující"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "dealerský zástupce"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "distribuční společnost"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "vzdělávací instituce"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "služební společnosti"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "svářeči"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "kapitální výstavba"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "automobilový průmysl"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "strojírenství lodí"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "metalurgie"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "produkce energie"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "potrubí"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "výroba potrubí"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "ropa a plyn"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "letectví"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "železniční doprava"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "dolování"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "žádost"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "analýza požadavku"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "upřesnění požadavků"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "nabídka ceny"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "komerční návrh"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "technicko-komerční nabídka"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "smlouva"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "účet"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "příjem prvního platby"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "doprava"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "uzavřeno (úspěšně)"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "Klient nereaguje"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "Specifikace nejsou vhodné"
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "Obchod byl úspěšně uzavřen."
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "Odložená koupě"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "Cena není konkurenceschopná"
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "webový formulář"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "webová e-mailová adresa"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "výstava"
+
+#: crm/settings.py:46
+msgid "Establish the first contact with the client."
+msgstr "Navázat první kontakt s klientem."
+
+#: crm/site/companyadmin.py:25
+msgid ""
+"Attention! You can only view companies associated with your department."
+msgstr ""
+"Důležité! Můžete zobrazovat pouze společnosti spojené s vaším oddělením."
+
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+msgid "Warning:"
+msgstr "Upozornění:"
+
+#: crm/site/companyadmin.py:210
+msgid "Owner will also be changed for contact persons."
+msgstr "Vlastník bude změněn také pro kontaktní osoby."
+
+#: crm/site/companyadmin.py:223
+msgid "Change owner of selected Companies"
+msgstr "Změnit vlastníka vybraných společností"
+
+#: crm/site/crmadminsite.py:22
+msgid "Your Excel file"
+msgstr "Váš soubor Excelu"
+
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: massmail/site/emlmessageadmin.py:133
+msgid "Signature"
+msgstr "Podpis"
+
+#: crm/site/crmemailadmin.py:31
+msgid "Please note that this is a list of unsent emails."
+msgstr "Upozorňujeme, že se jedná o seznam nepředáných e-mailů."
+
+#: crm/site/crmemailadmin.py:143
+msgid "Emails in the CRM database."
+msgstr "E-maily v databázi CRM."
+
+#: crm/site/crmemailadmin.py:350
+msgid "Box"
+msgstr "Krabice"
+
+#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+msgid "Content"
+msgstr "Obsah"
+
+#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+msgid "Previous correspondence"
+msgstr "Předchozí komunikace"
+
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/utils/import_emails.py:192
+msgid "No subject"
+msgstr "Bez předmětu"
+
+#: crm/site/crmmodeladmin.py:61
+msgid "View website in new tab"
+msgstr "Otevřít web v nové kartě"
+
+#: crm/site/crmmodeladmin.py:62
+msgid "Callback to smartphone"
+msgstr "Zpětné volání na chytrý telefon"
+
+#: crm/site/crmmodeladmin.py:63
+msgid "Callback to your smartphone"
+msgstr "Volání zpět na váš chytrý telefon"
+
+#: crm/site/crmmodeladmin.py:64
+msgid "Skype chat"
+msgstr "Skype chat"
+
+#: crm/site/crmmodeladmin.py:65
+msgid "Chat or Skype call"
+msgstr "Konverzace nebo hovor přes Skype"
+
+#: crm/site/crmmodeladmin.py:66
+msgid "Skype call"
+msgstr "Hovor na Skype"
+
+#: crm/site/crmmodeladmin.py:67
+msgid "To call a mobile or landline from Skype"
+msgstr "Volání na mobilní nebo pevnou linku přes Skype"
+
+#: crm/site/crmmodeladmin.py:68
+msgid "Viber chat"
+msgstr "Chat na Viberu"
+
+#: crm/site/crmmodeladmin.py:69
+msgid "Chat or viber call"
+msgstr "Konverzace nebo volání přes Viber"
+
+#: crm/site/crmmodeladmin.py:70
+msgid "WhatsApp chat"
+msgstr "Konverzace WhatsApp"
+
+#: crm/site/crmmodeladmin.py:71
+msgid "Chat or WhatsApp call"
+msgstr "Konverzace nebo volání přes WhatsApp"
+
+#: crm/site/crmmodeladmin.py:76
+msgid "Signed up for email newsletters"
+msgstr "Přihlášen k odběru e-mailových novinek"
+
+#: crm/site/crmmodeladmin.py:78
+msgid "Unsubscribed from email newsletters"
+msgstr "Odhlášen z e-mailových newsletterů"
+
+#: crm/site/crmmodeladmin.py:276
+msgid "Create Email"
+msgstr "Vytvořit e-mail"
+
+#: crm/site/crmmodeladmin.py:341
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                        Friday, Saturday, Sunday."
+msgstr ""
+"Upozornění: Masová pošta není realizována v následující dny: pátek, sobota, "
+"neděle."
+
+#: crm/site/crmmodeladmin.py:371
+msgid "Messengers"
+msgstr "Zprávaři"
+
+#: crm/site/currencyadmin.py:35
+msgid "State currency must be specified."
+msgstr "Státní měna musí být specifikována."
+
+#: crm/site/currencyadmin.py:40
+msgid "Marketing currency must be specified."
+msgstr "Marketingová měna musí být specifikována."
+
+#: crm/site/dealadmin.py:52
+msgid "Closing date"
+msgstr "Datum uzavření"
+
+#: crm/site/dealadmin.py:58
+msgid "View Contact in new tab"
+msgstr "Zobrazit kontakt v nové kartě"
+
+#: crm/site/dealadmin.py:59
+msgid "View Company in new tab"
+msgstr "Zobrazit společnost v nové kartě"
+
+#: crm/site/dealadmin.py:62
+msgid "Deal counter"
+msgstr "Počet obchodů"
+
+#: crm/site/dealadmin.py:63
+msgid "View Lead in new tab"
+msgstr "Zobrazit potenciálního zákazníka v nové kartě"
+
+#: crm/site/dealadmin.py:64
+msgid "Unanswered email"
+msgstr "Nezodpovězený e-mail"
+
+#: crm/site/dealadmin.py:68
+msgid "Unread chat message"
+msgstr "Nepročtená zprávu chatu"
+
+#: crm/site/dealadmin.py:71
+msgid "Payment received"
+msgstr "Přijato platba"
+
+#: crm/site/dealadmin.py:74
+msgid "Specify the date of shipment"
+msgstr "Určete datum dodání"
+
+#: crm/site/dealadmin.py:77
+msgid "Specify products"
+msgstr "Určete produkty"
+
+#: crm/site/dealadmin.py:80
+msgid "Expired shipment date"
+msgstr "Prošlý termín dodání"
+
+#: crm/site/dealadmin.py:87
+msgid "Relevant deal"
+msgstr "Relevantní jednání"
+
+#: crm/site/dealadmin.py:158
+msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
+msgstr "Obchod s ID '{}` neexistuje. Možná byl smazán?"
+
+#: crm/site/dealadmin.py:221
+msgid "View the Request"
+msgstr "Zobrazit žádost"
+
+#: crm/site/dealadmin.py:536
+msgid "Create Email to Contact"
+msgstr "Vytvořit e-mail pro kontakt"
+
+#: crm/site/dealadmin.py:539
+msgid "Create Email to Lead"
+msgstr "Vytvořit e-mail potenciálnímu klientovi"
+
+#: crm/site/dealadmin.py:579
+msgid "Important deal"
+msgstr "Důležitá dohoda"
+
+#: crm/site/dealadmin.py:603
+#, python-format
+msgid "I have been waiting for an answer to my request for %d days"
+msgstr "Čekám na odpověď na svůj požadavek již %d dní."
+
+#: crm/site/dealadmin.py:633
+msgid "Expected"
+msgstr "Očekávané"
+
+#: crm/site/dealadmin.py:641
+msgid "Paid"
+msgstr "Zaplaceno"
+
+#: crm/site/dealadmin.py:696
+msgid "Contact is Lead (no company)"
+msgstr "Kontakt je potenciální zákazník (bez společnosti)"
+
+#: crm/site/leadadmin.py:118
+msgid "Person contact details"
+msgstr "Kontaktní údaje osoby"
+
+#: crm/site/leadadmin.py:127
+msgid "Additional person details"
+msgstr "Dodatečné informace o osobě"
+
+#: crm/site/leadadmin.py:140
+msgid "Company contact details"
+msgstr "Kontaktní údaje společnosti"
+
+#: crm/site/leadadmin.py:249
+#, python-brace-format
+msgid "The lead \"{obj}\" has been converted successfully."
+msgstr "Vedení \"{obj}\" bylo úspěšně převedeno."
+
+#: crm/site/leadadmin.py:264
+msgid "This Lead is disqualified! Please read the description."
+msgstr "Tento kontakt je diskvalifikován! Prosím, přečtěte si popis."
+
+#: crm/site/requestadmin.py:38
+msgid "Client Loyalty"
+msgstr "Loajalita klientů"
+
+#: crm/site/requestadmin.py:45
+msgid "Country not specified in request"
+msgstr "V žádosti není uvedena země."
+
+#: crm/site/requestadmin.py:46
+msgid "You received the deal"
+msgstr "Dostali jste dohodu"
+
+#: crm/site/requestadmin.py:47
+msgid "You are the co-owner of the deal"
+msgstr "Jste spoluvlastníkem této dohody."
+
+#: crm/site/requestadmin.py:53
+msgid "Primary request"
+msgstr "Primární žádost"
+
+#: crm/site/requestadmin.py:54
+msgid "You are the co-owner of the request"
+msgstr "Jste spoluvlastníkem tohoto požadavku."
+
+#: crm/site/requestadmin.py:55
+msgid "You received the request"
+msgstr "Dostali jste požadavek."
+
+#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: tasks/models/to_translate.txt:2
+msgid "pending"
+msgstr "v čekání"
+
+#: crm/site/requestadmin.py:57
+msgid "processed"
+msgstr "zpracováno"
+
+#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+msgid "Status"
+msgstr "Stav"
+
+#: crm/site/requestadmin.py:62
+msgid "Subsequent request"
+msgstr "Následný požadavek"
+
+#: crm/site/requestadmin.py:389
+msgid "Found the counterparty assigned to"
+msgstr "Byl nalezen protistranický partner přiřazený"
+
+#: crm/site/requestadmin.py:488
+#, python-brace-format
+msgid "The {name} “{obj}” was added successfully."
+msgstr "Objekt \"{name}\" typu \"{obj}\" byl úspěšně přidán."
+
+#: crm/site/shipmentadmin.py:26
+msgid "actual"
+msgstr "skutečná"
+
+#: crm/site/shipmentadmin.py:27
+msgid "Actual shipping date."
+msgstr "Skutečný datum dodání."
+
+#: crm/site/shipmentadmin.py:32
+msgid "Deal is paid."
+msgstr "Obchod je uhrazen."
+
+#: crm/site/shipmentadmin.py:33
+msgid "Next<br>payment"
+msgstr "Další<br>platba"
+
+#: crm/site/shipmentadmin.py:34
+msgid "order"
+msgstr "objednání"
+
+#: crm/site/shipmentadmin.py:37
+msgid "The product has not been shipped yet."
+msgstr "Produkt ještě nebyl odeslán."
+
+#: crm/site/shipmentadmin.py:38
+msgid "The product has been shipped."
+msgstr "Produkt byl odeslán."
+
+#: crm/site/shipmentadmin.py:40
+msgid "Product shipment"
+msgstr "Dodání produktu"
+
+#: crm/site/shipmentadmin.py:41
+msgid "to contract"
+msgstr "podle smlouvy"
+
+#: crm/site/shipmentadmin.py:42
+msgid "Date of shipment according to a contract."
+msgstr "Datum dodání podle smlouvy."
+
+#: crm/site/shipmentadmin.py:47
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/request/change_form_object_tools.html:5
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+msgid "View the deal"
+msgstr "Zobrazit dohodu"
+
+#: crm/site/shipmentadmin.py:254
+msgid "paid"
+msgstr "uhrazeno"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the error below."
+msgstr "Prosím, opravte chybu níže."
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the errors below."
+msgstr "Prosím, opravte níže uvedené chyby."
+
+#: crm/templates/admin/crm/city/submit_line.html:5
+#: crm/templates/admin/crm/company/submit_line.html:5
+#: crm/templates/admin/crm/contact/submit_line.html:5
+#: crm/templates/admin/crm/crmemail/submit_line.html:15
+#: crm/templates/admin/crm/deal/submit_line.html:5
+#: crm/templates/admin/crm/lead/submit_line.html:5
+#: crm/templates/admin/crm/payment/submit_line.html:5
+#: crm/templates/admin/crm/request/submit_line.html:5
+#: crm/templates/admin/crm/shipment/submit_line.html:5
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+msgid "Save as new"
+msgstr "Uložit jako nový"
+
+#: crm/templates/admin/crm/city/submit_line.html:6
+#: crm/templates/admin/crm/company/submit_line.html:6
+msgid "Save and add another"
+msgstr "Uložit a přidat další"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:9
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+msgid "Сorrespondence"
+msgstr "Korrespondence"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+msgid "Contacts"
+msgstr "Kontakty"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:32
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+msgid "Got massmails"
+msgstr "Přijaté hromadné zásilky"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:33
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+msgid "Massmails"
+msgstr "Masové e-maily"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:40
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
+#: help/templates/admin/help/page/change_form_object_tools.html:3
+msgid "Open in Admin"
+msgstr "Otevřít v správci"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:14
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+msgid "Make Massmail"
+msgstr "Vytvořit hromadnou e-mailovou zprávu"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:25
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+msgid "Export all"
+msgstr "Vyexportovat vše"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
+#: crm/templates/admin/crm/inline_emails.html:37
+msgid "reply all"
+msgstr "Odpovědět všem"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
+#: crm/templates/admin/crm/inline_emails.html:38
+msgid "forward"
+msgstr "předat"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "View next email"
+msgstr "Zobrazit další e-mail"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "Next"
+msgstr "Další"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "View previous email"
+msgstr "Zobrazit předchozí e-mail"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "Previous"
+msgstr "Předchozí"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+msgid "View the request"
+msgstr "Zobrazit požadavek"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
+#: crm/templates/admin/crm/inline_emails.html:27
+msgid "View original email"
+msgstr "Zobrazit původní e-mail"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
+#: crm/templates/admin/crm/inline_emails.html:32
+msgid "Download the original email as an EML file."
+msgstr "Stáhněte si původní e-mail jako soubor EML."
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
+#: crm/templates/admin/crm/inline_emails.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+msgid "Print preview"
+msgstr "Náhled tisku"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: crm/templates/admin/crm/inline_emails.html:35
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
+msgid "Change"
+msgstr "Změnit"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: help/templates/admin/help/stacked.html:16
+msgid "View"
+msgstr "Zobrazit"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:6
+msgid "Reply"
+msgstr "Odpovědět"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:7
+msgid "Reply all"
+msgstr "Odpovědět všem"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:8
+msgid "Forward"
+msgstr "Předat"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+msgid "View office memos"
+msgstr "Zobrazit kancelářské poznámky"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+msgid "Office memos"
+msgstr "Oficiální memoranda"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Add"
+msgstr "Přidat"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+msgid "Office memo"
+msgstr "Úřední poznámka"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+msgid "View the correspondence on this Deal"
+msgstr "Zobrazit korespondenci k této smlouvě"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+msgid "Import Email regarding this Deal"
+msgstr "Importovat e-mail týkající se této smlouvy"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+msgid "View Deals with this Company"
+msgstr "Zobrazit dohody s touto společností"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+msgid "View the history of changes for this Deal"
+msgstr "Zobrazit historii změn této dohody"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+msgid "Toggle default deal sorting"
+msgstr "Přepnout výchozí řazení dohod"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+msgid "A deal is created based on a request"
+msgstr "Smlouva je vytvořena na základě žádosti."
+
+#: crm/templates/admin/crm/inline_emails.html:6
+msgid "Last few letters"
+msgstr "Poslední několik dopisů"
+
+#: crm/templates/admin/crm/inline_emails.html:51
+msgid "Date"
+msgstr "Datum"
+
+#: crm/templates/admin/crm/inline_emails.html:61
+msgid "View or Download"
+msgstr "Zobrazit nebo stáhnout"
+
+#: crm/templates/admin/crm/lead/submit_line.html:9
+msgid "Convert"
+msgstr "Převést"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "Total sum"
+msgstr "Celková částka"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "with VAT"
+msgstr "s DPH"
+
+#: crm/templates/admin/crm/payment/change_list.html:63
+msgid "Filter"
+msgstr "Filtr"
+
+#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+msgid "Import Email regarding this Request"
+msgstr "Importovat e-mail týkající se této žádosti"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+msgid "Create a request based on an email."
+msgstr "Vytvořte žádost na základě e-mailu."
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+msgid "Import request from"
+msgstr "Žádost o import z"
+
+#: crm/templates/admin/crm/request/submit_line.html:8
+msgid "Create deal"
+msgstr "Vytvořit dohodu"
+
+#: crm/templates/crm/addfiles.html:20
+msgid "Please select files to attach to the letter."
+msgstr "Vyberte prosím soubory, které chcete připojit k e-mailu."
+
+#: crm/templates/crm/change_owner_companies.html:20
+msgid ""
+"Please choose a new owner for selected Companies and their Contact persons"
+msgstr ""
+"Vyberte si prosím nového vlastníka pro vybrané společnosti a jejich "
+"kontaktní osoby."
+
+#: crm/templates/crm/del_duplicate_button.html:5
+msgid "Correctly delete this object as a duplicate."
+msgstr "Správně smažte tento objekt jako duplicitní."
+
+#: crm/templates/crm/filter_scroll.html:4
+#: templates/admin/crm_date_filter.html:7
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "Podle %(filter_title)s"
+
+#: crm/templates/crm/import_objects.html:20
+msgid "Please select a file to import."
+msgstr "Vyberte soubor ke stažení."
+
+#: crm/templates/crm/import_objects.html:34
+msgid ""
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
+msgstr ""
+"Importují se pouze následující sloupce, pokud existují (pořadí není "
+"důležité):"
+
+#: crm/templates/crm/make_massmail.html:22
+msgid "Make a choice"
+msgstr "Udělejte výběr"
+
+#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
+#: crm/templates/crm/print_request.html:5
+#: crm/templates/crm/print_request.html:26
+msgid "Print"
+msgstr "Tisk"
+
+#: crm/templates/crm/print_request.html:36
+msgid "Received"
+msgstr "Přijato"
+
+#: crm/templates/crm/print_request.html:37
+msgid "Prepared"
+msgstr "Připraven"
+
+#: crm/templates/crm/select_original_obj.html:32
+msgid "Select the original to which the linked objects will be reconnected."
+msgstr ""
+"Vyberte původní záznam, ke kterému budou znovu připojeny související "
+"položky."
+
+#: crm/utils/admfilters.py:188
+msgid "Last month"
+msgstr "Minulý měsíc"
+
+#: crm/utils/admfilters.py:197
+msgid "First half of the year"
+msgstr "První pololetí roku"
+
+#: crm/utils/admfilters.py:206
+msgid "Nine months of this year"
+msgstr "Devět měsíců tohoto roku"
+
+#: crm/utils/admfilters.py:214
+msgid "Second half of the last year"
+msgstr "Druhá polovina minulého roku"
+
+#: crm/utils/admfilters.py:417
+msgid "changed by chiefs"
+msgstr "změněno vedením"
+
+#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
+#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
+#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+msgid "Yes"
+msgstr "Ano"
+
+#: crm/utils/admfilters.py:437
+msgid "Partner"
+msgstr "Partner"
+
+#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: tasks/utils/admfilters.py:218
+msgid "No"
+msgstr "Ne"
+
+#: crm/utils/admfilters.py:498
+msgid "Has Contacts"
+msgstr "Má kontakty"
+
+#: crm/utils/admfilters.py:564
+msgid "mailbox"
+msgstr "pošta"
+
+#: crm/utils/admfilters.py:583
+msgid "inbox"
+msgstr "doručená pošta"
+
+#: crm/utils/admfilters.py:584
+msgid "sent"
+msgstr "odeslané"
+
+#: crm/utils/admfilters.py:585
+#, python-brace-format
+msgid "outbox ({num})"
+msgstr "k odeslání ({num})"
+
+#: crm/utils/admfilters.py:586
+msgid "trash"
+msgstr "koš na odpadky"
+
+#: crm/utils/helpers.py:30
+msgid "No deal amount"
+msgstr "Žádná částka dohody"
+
+#: crm/utils/helpers.py:31
+msgid "Unacceptable phone number value"
+msgstr "Neplatná hodnota telefonního čísla"
+
+#: crm/utils/helpers.py:32
+msgid "Counterparty"
+msgstr "Protistrana"
+
+#: crm/utils/make_massmail_form.py:28
+msgid ""
+"Error: The date you set as 'Created before' has to be later \n"
+"                than the date of 'Created after'."
+msgstr ""
+"Chyba: Datum, které jste nastavili jako 'Vytvořeno dříve', musí být pozdější"
+" než datum 'Vytvořeno po'."
+
+#: crm/utils/make_massmail_form.py:42
+msgid "Industries"
+msgstr "Odvětví"
+
+#: crm/utils/make_massmail_form.py:56
+msgid "Types"
+msgstr "Typy"
+
+#: crm/utils/make_massmail_form.py:61
+msgid "Created before"
+msgstr "Vytvořeno předem"
+
+#: crm/utils/make_massmail_form.py:66
+msgid "Created after"
+msgstr "Vytvořeno po"
+
+#: crm/utils/restore_imap_emails.py:40
+#, python-format
+msgid "Received an email from \"%s\""
+msgstr "Dostal/a jsem e-mail od \"%s\""
+
+#: crm/utils/send_email.py:22
+#, python-format
+msgid "The Email has been sent to \"%s\""
+msgstr "E-mail byl odeslán na \"%s\""
+
+#: crm/utils/send_email.py:30
+msgid "Please fill in the subject and text of the letter."
+msgstr "Prosím, zadejte předmět nebo text dopisu."
+
+#: crm/utils/send_email.py:34
+msgid "To send a message you need to have an email account marked as main."
+msgstr "Pro odeslání zprávy musíte mít e-mailový účet označený jako hlavní."
+
+#: crm/utils/send_email.py:72
+#, python-format
+msgid "Failed: %s"
+msgstr "Chyba: %s"
+
+#: crm/views/change_owner_companies.py:33
+msgid "Owner changed successfully"
+msgstr "Vlastník byl úspěšně změněn"
+
+#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+msgid "Dear {}, thanks for your request!"
+msgstr "Drahý/á {}, děkujeme za Váš požadavek!"
+
+#: crm/views/create_email.py:35
+msgid "No recipient"
+msgstr "Žádný příjemce"
+
+#: crm/views/delete_duplicate_object.py:80
+msgid "The duplicate object has been correctly deleted."
+msgstr "Duplikátní objekt byl správně odstraněn."
+
+#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+msgid "Not enough data to identify the email or email has been deleted"
+msgstr "Nedostatek dat pro identifikaci e-mailu nebo e-mail byl smazán."
+
+#: crm/views/reply_email.py:126
+msgid ""
+"You do not have an email account in CRM for sending Emails. Contact your "
+"administrator."
+msgstr ""
+"Nemáte nastavený účet e-mailu v CRM pro odesílání e-mailů. Kontaktujte svého"
+" správce."
+
+#: crm/views/view_original_email.py:24
+msgid "Something went wrong"
+msgstr "Něco se nepovedlo."
+
+#: help/admin.py:78
+msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
+msgstr ""
+"Pro přidání správného odkazu použijte značku /SECRET_CRM_PREFIX/, pokud je "
+"to nutné."
+
+#: help/models.py:13
+msgid "list"
+msgstr "seznam"
+
+#: help/models.py:14
+msgid "instance"
+msgstr "instance"
+
+#: help/models.py:24
+msgid "Help page"
+msgstr "Stránka nápovědy"
+
+#: help/models.py:25
+msgid "Help pages"
+msgstr "Pomocné stránky"
+
+#: help/models.py:31
+msgid "app label"
+msgstr "značka aplikace"
+
+#: help/models.py:37
+msgid "model"
+msgstr "model"
+
+#: help/models.py:44
+msgid "page"
+msgstr "stránka"
+
+#: help/models.py:49 help/models.py:106
+msgid "Title"
+msgstr "Nadpis"
+
+#: help/models.py:53
+msgid "Available on CRM page"
+msgstr "Dostupné na stránce CRM"
+
+#: help/models.py:55
+msgid ""
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
+msgstr ""
+"Dostupné na jedné z stránek CRM. V opačném případě lze přistoupit pouze "
+"prostřednictvím odkazu na jiné stránce s nápovědou."
+
+#: help/models.py:86
+msgid "Paragraph"
+msgstr "Odstavec"
+
+#: help/models.py:87
+msgid "Paragraphs"
+msgstr "Odstavce"
+
+#: help/models.py:97
+msgid "Groups"
+msgstr "Skupiny"
+
+#: help/models.py:99
+msgid ""
+"If no user group is selected then the paragraph will be available only to "
+"the superuser."
+msgstr ""
+"Pokud není vybrána žádná skupina uživatelů, bude odstavec dostupný pouze pro"
+" superuživatele."
+
+#: help/models.py:105
+msgid "Title of paragraph."
+msgstr "Název odstavce."
+
+#: help/models.py:120 tasks/site/memoadmin.py:42
+msgid "draft"
+msgstr "návrh"
+
+#: help/models.py:121
+msgid "Will not be published."
+msgstr "Nebude publikováno."
+
+#: help/models.py:126
+msgid "Content requires additional verification."
+msgstr "Obsah vyžaduje další ověření."
+
+#: help/models.py:131
+msgid "Index number"
+msgstr "Indexová čísla"
+
+#: help/models.py:132
+msgid "The sequence number of the paragraph on the page."
+msgstr "Číslo pořadí odstavce na stránce."
+
+#: help/models.py:138
+msgid "Link to a related paragraph if exists."
+msgstr "Odkaz na související odstavec, pokud existuje."
+
+#: massmail/admin.py:31
+msgid "Service information"
+msgstr "Informace o službě"
+
+#: massmail/admin_actions.py:17
+msgid "Please select recipients only with the same owner."
+msgstr "Vyberte příjemce pouze s stejným vlastníkem."
+
+#: massmail/admin_actions.py:18
+msgid "Bad result - no recipients! Make another choice."
+msgstr "Špatný výsledek - žádní příjemci! Vyberte si jinou možnost."
+
+#: massmail/admin_actions.py:21
+msgid "Create a mailing out for selected objects"
+msgstr "Vytvořit e-mailový rozeslání pro vybrané objekty"
+
+#: massmail/admin_actions.py:33
+msgid "Unsubscribed users were excluded from the mailing list."
+msgstr "Uživatelé, kteří se odhlásili, byli vyloučeni z e-mailového seznamu."
+
+#: massmail/admin_actions.py:54
+msgid ""
+"Note massmail is not performed on the following days: Friday, Saturday, "
+"Sunday."
+msgstr ""
+"Upozornění: Masová pošta se neprovádí v následující dny: pátek, sobota, "
+"neděle."
+
+#: massmail/admin_actions.py:65
+msgid "Merge selected mailing outs"
+msgstr "Sloučit vybrané odeslání"
+
+#: massmail/admin_actions.py:85
+msgid "united"
+msgstr "sjednocená"
+
+#: massmail/admin_actions.py:107
+msgid "Specify VIP recipients"
+msgstr "Určete VIP příjemce"
+
+#: massmail/admin_actions.py:115
+msgid "Please first add your main email account."
+msgstr "Nejprve přidejte svůj hlavní e-mailový účet."
+
+#: massmail/admin_actions.py:143
+msgid ""
+"The main email address has been successfully assigned to the selected "
+"recipients."
+msgstr "Hlavní e-mailová adresa byla úspěšně přiřazena vybraným příjemcům."
+
+#: massmail/admin_actions.py:149
+msgid "Please select mailings with only the same recipient type."
+msgstr "Vyberte prosím pouze ty rozeslání s stejným typem příjemců."
+
+#: massmail/admin_actions.py:154
+msgid "Please select only mailings with the same message."
+msgstr "Vyberte prosím pouze odeslání s stejným obsahem zprávy."
+
+#: massmail/admin_actions.py:183
+msgid ""
+"There are no mail accounts available for mailing. Please contact your "
+"administrator."
+msgstr ""
+"Není k dispozici žádný e-mailový účet pro odesílání. Kontaktujte prosím "
+"správce CRM systému."
+
+#: massmail/admin_actions.py:191
+msgid ""
+"There are no mail accounts available for mailing to non-VIP recipients. "
+"Please contact your administrator."
+msgstr ""
+"K odesílání e-mailů neVIP příjemcům nejsou k dispozici žádné e-mailové účty."
+" Kontaktujte prosím svého správce CRM."
+
+#: massmail/apps.py:8
+msgid "Mass mail"
+msgstr "Masová pošta"
+
+#: massmail/models/baseeml.py:14
+msgid ""
+"The subject of the message. You can use {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} or {{full_name}}"
+msgstr ""
+"Předmět zprávy. Můžete použít {{jméno}}, {{příjmení}}, {{zprostředkované "
+"jméno}} nebo {{celé jméno}}."
+
+#: massmail/models/baseeml.py:22
+msgid "Choose signature"
+msgstr "Vyberte podpis"
+
+#: massmail/models/baseeml.py:23
+msgid "Sender's signature."
+msgstr "Podpis odesílatele"
+
+#: massmail/models/baseeml.py:28
+msgid "Previous correspondence. Will be added after signature"
+msgstr "Předchozí korespondence. Bude přidána po podpisu."
+
+#: massmail/models/email_account.py:15
+msgid "Email Account"
+msgstr "E-mailový účet"
+
+#: massmail/models/email_account.py:16
+msgid "Email Accounts"
+msgstr "E-mailové účty"
+
+#: massmail/models/email_account.py:20
+msgid "The name of the Email Account. For example Gmail"
+msgstr "Název e-mailového účtu. Například Gmail"
+
+#: massmail/models/email_account.py:24
+msgid "Use this account for regular business correspondence."
+msgstr "Používejte tento účet pro pravidelnou obchodní komunikaci."
+
+#: massmail/models/email_account.py:28
+msgid "Allow to use this account for massmail."
+msgstr "Povolit použití tohoto účtu pro hromadné zasílání e-mailů."
+
+#: massmail/models/email_account.py:32
+msgid "Import emails from this account."
+msgstr "Importovat e-maily z tohoto účtu."
+
+#: massmail/models/email_account.py:40
+msgid "The IMAP host"
+msgstr "IMAP hostitel"
+
+#: massmail/models/email_account.py:44
+msgid "The username to use to authenticate to the SMTP server."
+msgstr "Uživatelské jméno pro ověření na serveru SMTP."
+
+#: massmail/models/email_account.py:48
+msgid "The auth_password to use to authenticate to the SMTP server."
+msgstr "Heslo pro ověření používané pro ověření u SMTP serveru."
+
+#: massmail/models/email_account.py:52
+msgid "The application password to use to authenticate to the SMTP server."
+msgstr "Přihlašovací heslo aplikace pro ověření na SMTP serveru."
+
+#: massmail/models/email_account.py:56
+msgid "Port to use for the SMTP server"
+msgstr "Přípoť pro SMTP server"
+
+#: massmail/models/email_account.py:60
+msgid "The from_email field."
+msgstr "Pole from_email."
+
+#: massmail/models/email_account.py:68
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
+msgstr ""
+"Pokud je EMAIL_USE_SSL nebo EMAIL_USE_TLS pravdivé, můžete volitelně "
+"specifikovat cestu k souboru řetězce certifikátů ve formátu PEM, který se má"
+" použít pro připojení SSL."
+
+#: massmail/models/email_account.py:73
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
+msgstr ""
+"Pokud je EMAIL_USE_SSL nebo EMAIL_USE_TLS nastaveno na True, můžete "
+"volitelně zadat cestu k souboru soukromého klíče ve formátu PEM, který se "
+"použije pro připojení SSL."
+
+#: massmail/models/email_account.py:79
+msgid "OAuth 2.0 token for obtaining an access token."
+msgstr "OAuth 2.0 token pro získání přístupového tokenu."
+
+#: massmail/models/email_account.py:106
+msgid "DateTime of last import"
+msgstr "Datum a čas posledního importu"
+
+#: massmail/models/email_account.py:117
+msgid "Specify the imap host"
+msgstr "Zadejte IMAP hostitele"
+
+#: massmail/models/email_message.py:10
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    "
+msgstr ""
+"\n"
+"Použijte HTML. Chcete-li zadat adresu vloženého obrázku, použijte {% cid_media ‚path/to/pic.png' %}.<br>\n"
+"Soubory nahrané na server CPM můžete vložit do složky ‚media/pics/‘ nebo přiložit k této zprávě."
+
+#: massmail/models/email_message.py:19
+msgid "Email Message"
+msgstr "E-mailová zpráva"
+
+#: massmail/models/email_message.py:20
+msgid "Email Messages"
+msgstr "E-mailové zprávy"
+
+#: massmail/models/eml_accounts_queue.py:19
+msgid "The queue of the user email accounts."
+msgstr "Fronta uživatelských e-mailových účtů."
+
+#: massmail/models/mailing_out.py:12
+msgid "Mailing Out"
+msgstr "Rozesílka"
+
+#: massmail/models/mailing_out.py:13
+msgid "Mailing Outs"
+msgstr "Mailové kampaně"
+
+#: massmail/models/mailing_out.py:23
+msgid "Active but Error"
+msgstr "Aktivní, ale s chybou"
+
+#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+msgid "Paused"
+msgstr "Pauza"
+
+#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+msgid "Interrupted"
+msgstr "Přerušena"
+
+#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
+#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+msgid "Done"
+msgstr "Dokončeno"
+
+#: massmail/models/mailing_out.py:31
+msgid "The name of the message."
+msgstr "Název zprávy."
+
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+msgid "Number of recipients"
+msgstr "Počet příjemců"
+
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+msgid "Recipients type"
+msgstr "Typ příjemců"
+
+#: massmail/models/mailing_out.py:59
+msgid "Report"
+msgstr "Zpráva"
+
+#: massmail/models/signature.py:7
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    "
+msgstr ""
+"\n"
+"Použijte HTML. Chcete-li zadat adresu vloženého obrázku, použijte {% cid_media ‚path/to/pic.png' %}.<br>\n"
+"Soubory nahrané na server CPM můžete vložit do složky ‚media/pics/‘."
+
+#: massmail/models/signature.py:17
+msgid "Signatures"
+msgstr "Podpisy"
+
+#: massmail/models/signature.py:27
+msgid "The name of the signature."
+msgstr "Název podpisu."
+
+#: massmail/models/to_translate.txt:3
+msgid "price proposal"
+msgstr "nabídka ceny"
+
+#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+msgid "Preview"
+msgstr "Náhled"
+
+#: massmail/site/emlmessageadmin.py:73
+msgid "Edit"
+msgstr "Upravit"
+
+#: massmail/site/mailingoutadmin.py:17
+msgid "Available Email accounts for MassMail"
+msgstr "Dostupné e-mailové účty pro hromadnou poštu"
+
+#: massmail/site/mailingoutadmin.py:18
+msgid "Accounts"
+msgstr "Účty"
+
+#: massmail/site/mailingoutadmin.py:27
+msgid "Today"
+msgstr "Dnes"
+
+#: massmail/site/mailingoutadmin.py:28
+msgid "Sent today"
+msgstr "Odesláno dnes"
+
+#: massmail/site/mailingoutadmin.py:72
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                Friday, Saturday, Sunday."
+msgstr ""
+"Upozornění: Masová pošta není prováděna v následující dny: pátek, sobota, "
+"neděle."
+
+#: massmail/site/mailingoutadmin.py:110
+msgid "notification"
+msgstr "oznámení"
+
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+msgid "Get or update a refresh token"
+msgstr "Získat nebo aktualizovat obnovovací token"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+msgid "Send a test"
+msgstr "Odeslat test"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+msgid "Copy message"
+msgstr "Kopírovat zprávu"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+msgid "Successful recipients"
+msgstr "Úspěšní příjemci"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+msgid "Failed recipients"
+msgstr "Neúspěšní příjemci"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+msgid "Send failed recipients"
+msgstr "Odeslat neúspěšným příjemcům"
+
+#: massmail/templates/massmail/pic_upload.html:7
+msgid "Upload the image file to the CRM server"
+msgstr "Nahrajte obrázkový soubor na server CRM systému."
+
+#: massmail/templates/massmail/pic_upload.html:15
+msgid "Please select an image file to upload."
+msgstr "Vyberte prosím soubor obrázku ke stažení."
+
+#: massmail/templates/massmail/pic_upload.html:36
+msgid "To specify the address of the uploaded file, use the tag -"
+msgstr "Pro určení adresy nahraného souboru použijte tagu -"
+
+#: massmail/templates/massmail/pic_upload.html:37
+msgid ""
+"Upload only files that will be used many times. For example, a company logo."
+msgstr ""
+"Nahrajte pouze soubory, které budou použity mnohokrát. Například firemní "
+"logo."
+
+#: massmail/templates/massmail/pic_upload_buttons.html:3
+msgid "View the uploaded images on the CRM server"
+msgstr "Zobrazit nahrané obrázky na serveru CRM"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:6
+msgid "Upload an image file to the CRM server"
+msgstr "Nahrajte obrázkový soubor na server CRM systému"
+
+#: massmail/templates/massmail/show_uploaded_images.html:7
+#: massmail/templates/massmail/show_uploaded_images.html:15
+msgid "Uploaded images"
+msgstr "Nahrané obrázky"
+
+#: massmail/utils/sendmassmail.py:43
+msgid "Done successfully."
+msgstr "Úspěšně dokončeno."
+
+#: massmail/views/file_upload.py:9
+msgid "Allowed file extensions: "
+msgstr "Povolené přípony souborů:"
+
+#: massmail/views/get_oauth2_tokens.py:74
+msgid "Refresh token received successfully."
+msgstr "Token obnovení byl úspěšně přijat."
+
+#: massmail/views/get_oauth2_tokens.py:79
+msgid "Error: Failed to get authorization code."
+msgstr "Chyba: Nedostalo se získat autorizační kód."
+
+#: massmail/views/send_failed_recipients.py:14
+msgid "Failed recipients has been returned to the massmail successfully."
+msgstr "Neúspěšní příjemci byli úspěšně vráceni do hromadné pošty."
+
+#: massmail/views/send_tests.py:49
+#, python-brace-format
+msgid "The Email test has been sent to {email_accounts}"
+msgstr "Testovací e-mail byl odeslán na {email_accounts}."
+
+#: settings/apps.py:8
+msgid "Settings"
+msgstr "Nastavení"
+
+#: settings/models.py:7
+msgid "Banned company name"
+msgstr "Zakázaný název společnosti"
+
+#: settings/models.py:8
+msgid "Banned company names"
+msgstr "Zakázaná název společností"
+
+#: settings/models.py:22
+msgid "Public email domain"
+msgstr "Veřejná e-mailová doména"
+
+#: settings/models.py:23
+msgid "Public email domains"
+msgstr "Veřejné e-mailové domény"
+
+#: settings/models.py:28
+msgid "Domain"
+msgstr "Doména"
+
+#: settings/models.py:41 settings/models.py:42
+msgid "Reminder settings"
+msgstr "Nastavení připomínek"
+
+#: settings/models.py:47
+msgid "Check interval"
+msgstr "Interval kontroly"
+
+#: settings/models.py:49
+msgid "Specify the interval in seconds to check if it's time for a reminder."
+msgstr ""
+"Zadejte interval v sekundách pro kontrolu, zda nastal čas na připomenutí."
+
+#: settings/models.py:56
+msgid "Stop Phrase"
+msgstr "Přerušující fráze"
+
+#: settings/models.py:57
+msgid "Stop Phrases"
+msgstr "Zastavovací fráze"
+
+#: settings/models.py:62
+msgid "Phrase"
+msgstr "Fráze"
+
+#: settings/models.py:66
+msgid "Last occurrence date"
+msgstr "Datum posledního výskytu"
+
+#: settings/models.py:67
+msgid "Date of last occurrence of the phrase"
+msgstr "Datum posledního výskytu fráze"
+
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
+msgid "Change responsible"
+msgstr "Změnit zodpovědné osoby"
+
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+msgid "Change subscribers"
+msgstr "Změnit odběratele"
+
+#: tasks/apps.py:8 tasks/models/task.py:16
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+msgid "Tasks"
+msgstr "Úkoly"
+
+#: tasks/forms.py:32
+msgid "Please specify a name"
+msgstr "Prosím, zadejte název."
+
+#: tasks/forms.py:38
+msgid "Please specify a responsible"
+msgstr "Prosím, určete zodpovědné osoby."
+
+#: tasks/forms.py:48 tasks/forms.py:114
+msgid "Date should not be in the past."
+msgstr "Datum nesmí být v minulosti."
+
+#: tasks/models/memo.py:13
+msgid "Memo"
+msgstr "Memo"
+
+#: tasks/models/memo.py:14
+msgid "Memos"
+msgstr "Memoranda"
+
+#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
+#: tasks/site/memoadmin.py:45
+msgid "postponed"
+msgstr "odloženo"
+
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+msgid "reviewed"
+msgstr "prohlédnuto"
+
+#: tasks/models/memo.py:33
+msgid "to whom"
+msgstr "komu"
+
+#: tasks/models/memo.py:41 tasks/models/task.py:15
+msgid "Task"
+msgstr "Úkol"
+
+#: tasks/models/memo.py:49
+msgid "For what"
+msgstr "Pro co"
+
+#: tasks/models/memo.py:57 tasks/models/project.py:9
+#: tasks/utils/admfilters.py:67
+msgid "Project"
+msgstr "Projekt"
+
+#: tasks/models/memo.py:72
+msgid "Сonclusion"
+msgstr "Závěr"
+
+#: tasks/models/memo.py:76
+msgid "Draft"
+msgstr "Návrh"
+
+#: tasks/models/memo.py:77
+msgid "Available only to the owner."
+msgstr "K dispozici pouze pro vlastníka."
+
+#: tasks/models/memo.py:81
+msgid "Notified"
+msgstr "Informováni"
+
+#: tasks/models/memo.py:82
+msgid "The recipient and subscribers are notified."
+msgstr "Příjemce a odběratelé jsou upozorněni."
+
+#: tasks/models/memo.py:92
+msgid "Review date"
+msgstr "Datum kontroly"
+
+#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+msgid "subscribers"
+msgstr "předplatitelé"
+
+#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+msgid "Notified subscribers"
+msgstr "Oznámení odběratelům"
+
+#: tasks/models/memo.py:123
+msgid "The office memo has been reviewed"
+msgstr "Oficiální poznámka byla prozkoumána."
+
+#: tasks/models/project.py:10
+msgid "Projects"
+msgstr "Projekty"
+
+#: tasks/models/projectstage.py:9
+msgid "Project stage"
+msgstr "Fáze projektu"
+
+#: tasks/models/projectstage.py:10
+msgid "Project stages"
+msgstr "Fáze projektu"
+
+#: tasks/models/projectstage.py:15
+msgid "Is the project active at this stage?"
+msgstr "Je projekt v této fázi aktivní?"
+
+#: tasks/models/resolution.py:9
+msgid "Resolution"
+msgstr "Rozhodnutí"
+
+#: tasks/models/resolution.py:10
+msgid "Resolutions"
+msgstr "Rozřešení"
+
+#: tasks/models/stagebase.py:20
+msgid "Mark if this stage is \"done\""
+msgstr "Označte, pokud je tato fáze „Dokončena“"
+
+#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+msgid "In progress"
+msgstr "V procesu"
+
+#: tasks/models/stagebase.py:25
+msgid "Mark if this stage is \"in progress\""
+msgstr "Označte, pokud je tato fáze „v procesu“"
+
+#: tasks/models/tag.py:17
+msgid "Tag for"
+msgstr "Označení pro"
+
+#: tasks/models/task.py:24
+msgid "task"
+msgstr "úkol"
+
+#: tasks/models/task.py:32
+msgid "project"
+msgstr "projekt"
+
+#: tasks/models/task.py:39
+msgid "Hide main task"
+msgstr "Skrýt hlavní úkol"
+
+#: tasks/models/task.py:40
+msgid "Hide the main task when this sub-task is closed."
+msgstr "Skrýt hlavní úkol při uzavření této podúkolu."
+
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
+msgid "Lead time"
+msgstr "Doba realizace"
+
+#: tasks/models/task.py:47
+msgid "Task execution time in format - DD HH:MM:SS"
+msgstr "Čas provedení úkolu ve formátu - DD HH:MM:SS"
+
+#: tasks/models/task.py:64
+msgid "The task cannot be closed because there is an active subtask."
+msgstr "Úkol nelze uzavřít, protože existuje aktivní podsoučást."
+
+#: tasks/models/task.py:92
+msgid "The main task is closed automatically."
+msgstr "Hlavní úkol je uzavřen automaticky."
+
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
+msgid "Low"
+msgstr "Nízký"
+
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
+msgid "Middle"
+msgstr "Střední"
+
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
+msgid "High"
+msgstr "Vysoký"
+
+#: tasks/models/taskbase.py:33
+msgid "Short title"
+msgstr "Krátký název"
+
+#: tasks/models/taskbase.py:42
+msgid "Start date"
+msgstr "Datum zahájení"
+
+#: tasks/models/taskbase.py:44
+msgid "Date of task closing"
+msgstr "Datum uzavření úkolu"
+
+#: tasks/models/taskbase.py:55
+msgid "Notified responsible"
+msgstr "Oznámení odpovědným osobám"
+
+#: tasks/models/taskstage.py:9
+msgid "Task stage"
+msgstr "Fáze úkolu"
+
+#: tasks/models/taskstage.py:10
+msgid "Task stages"
+msgstr "Fáze úkolu"
+
+#: tasks/models/taskstage.py:15
+msgid "Is the task active at this stage?"
+msgstr "Je úkol v této fázi aktivní?"
+
+#: tasks/models/to_translate.txt:4
+msgid "done"
+msgstr "dokončeno"
+
+#: tasks/models/to_translate.txt:6
+msgid "canceled"
+msgstr "rušeno"
+
+#: tasks/models/to_translate.txt:7
+msgid "to make a decision"
+msgstr "pro přijetí rozhodnutí"
+
+#: tasks/models/to_translate.txt:8
+msgid "payment of regular expenses"
+msgstr "placení pravidelných výdajů"
+
+#: tasks/models/to_translate.txt:9
+msgid "on approval"
+msgstr "na schválení"
+
+#: tasks/models/to_translate.txt:10
+msgid "for consideration"
+msgstr "pro zvážení"
+
+#: tasks/models/to_translate.txt:11
+msgid "for information"
+msgstr "pro informace"
+
+#: tasks/models/to_translate.txt:12
+msgid "for the record"
+msgstr "pro záznam"
+
+#: tasks/site/memoadmin.py:44
+msgid "overdue"
+msgstr "prodloužená lhůta"
+
+#: tasks/site/memoadmin.py:47
+msgid "You are subscribed to a new office memo"
+msgstr "Jste přihlášeni k nové kancelářské poznámce."
+
+#: tasks/site/memoadmin.py:49
+msgid "unreviewed"
+msgstr "neprověřena"
+
+#: tasks/site/memoadmin.py:50
+msgid "The office memo was written"
+msgstr "Interní poznámka byla sepsána"
+
+#: tasks/site/memoadmin.py:51
+msgid "You've received a office memo"
+msgstr "Dostali jste interní poznámku."
+
+#: tasks/site/memoadmin.py:118
+msgid "Your office memo has been deleted"
+msgstr "Vaše kancelářská poznámka byla smazána."
+
+#: tasks/site/memoadmin.py:386
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+msgid "View the task"
+msgstr "Zobrazit úkol"
+
+#: tasks/site/memoadmin.py:390
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+msgid "View the project"
+msgstr "Zobrazit projekt"
+
+#: tasks/site/memoadmin.py:471
+msgid "View the "
+msgstr "Zobrazit"
+
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "Seznámení s projektem"
+
+#: tasks/site/projectadmin.py:18
+msgid "The project was created"
+msgstr "Projekt byl vytvořen"
+
+#: tasks/site/taskadmin.py:35
+msgid "I completed my part of the task"
+msgstr "Dokončil jsem svou část úkolu"
+
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+msgid "The task was created"
+msgstr "Úkol byl vytvořen"
+
+#: tasks/site/taskadmin.py:38
+msgid "The subtask was created"
+msgstr "Vytvořena podúkol."
+
+#: tasks/site/taskadmin.py:39
+msgid "The subtask"
+msgstr "Podúkol"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "po datu splatnosti hlavní úlohy."
+
+#: tasks/site/taskadmin.py:334
+msgid "Main task"
+msgstr "Hlavní úkol"
+
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:6
+msgid "Create subtask"
+msgstr "Vytvořit podúkol"
+
+#: tasks/site/taskadmin.py:372
+msgid ""
+"This is a collective task.\n"
+"            Please create a sub-task for yourself for work.\n"
+"            Or press the next button when you have done your job.\n"
+"        "
+msgstr ""
+"Toto je kolektivní úkol.\n"
+"Vytvořte si prosím dílčí úkol pro práci.\n"
+"Nebo stiskněte další tlačítko, až svou práci dokončíte."
+
+#: tasks/site/tasksbasemodeladmin.py:44
+msgid "You have been assigned as the task co-owner"
+msgstr "Byli jste přiřazeni jako spoluvlastník úkolu."
+
+#: tasks/site/tasksbasemodeladmin.py:46
+msgid "Acquainted with the task"
+msgstr "Seznámen s úkolem"
+
+#: tasks/site/tasksbasemodeladmin.py:48
+#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+msgid "The task is closed"
+msgstr "Úkol je uzavřený."
+
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The subtask is closed"
+msgstr "Podúkol je uzavřeno"
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "The next step date should not be later than due date."
+msgstr "Datum dalšího kroku by nemělo být později než splatnost."
+
+#: tasks/site/tasksbasemodeladmin.py:53
+msgid "The Project was created"
+msgstr "Projekt byl vytvořen"
+
+#: tasks/site/tasksbasemodeladmin.py:54
+msgid "The project is closed"
+msgstr "Projekt je uzavřený"
+
+#: tasks/site/tasksbasemodeladmin.py:57
+msgid "You are subscribed to a new task"
+msgstr "Jste přihlášeni k nové úloze."
+
+#: tasks/site/tasksbasemodeladmin.py:58
+msgid "You have a new task assigned"
+msgstr "Přiřazeno nové úkoly"
+
+#: tasks/site/tasksbasemodeladmin.py:483
+msgid ""
+"Please edit the title and description to make it clear to other users what "
+"part of the overall task will be completed."
+msgstr ""
+"Prosím, upravte název a popis tak, aby ostatním uživatelům bylo jasné, jaká "
+"část celkové úlohy bude splněna."
+
+#: tasks/site/tasksbasemodeladmin.py:502
+msgid "responsible"
+msgstr "odpovědné"
+
+#: tasks/site/tasksbasemodeladmin.py:536
+msgid "Attach files"
+msgstr "Připojit soubory"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:5
+#: tasks/templates/admin/tasks/project/submit_line.html:6
+msgid "Create task"
+msgstr "Vytvořit úkol"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:9
+msgid "Create project"
+msgstr "Vytvořit projekt"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+msgid "View main task"
+msgstr "Zobrazit hlavní úkol"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+msgid "Subtasks"
+msgstr "Podúkoly"
+
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+msgid "Toggle default task sorting"
+msgstr "Přepnout výchozí řazení úkolů"
+
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Mark the task as completed and save."
+msgstr "Označit úkol jako dokončený a uložit."
+
+#: tasks/views/create_completed_subtask.py:43
+msgid ""
+"The task cannot be marked as completed because you have an active subtask."
+msgstr ""
+"Úkol nemůže být označen jako dokončený, protože máte aktivní podsúkolí."
+
+#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+msgid "The Task does not exist"
+msgstr "Úkol neexistuje"
+
+#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+msgid "The user does not exist"
+msgstr "Uživatel neexistuje"
+
+#: tasks/views/create_completed_subtask.py:119
+msgid ""
+"An error occurred while creating the subtask. Contact the CRM Administrator."
+msgstr "Při vytváření podúkolu došlo k chybě. Kontaktujte administrátora CRM."
+
+#: templates/admin/auth/group/change_list_object_tools.html:12
+msgid "Creates a copy of the department"
+msgstr "Vytvoří kopii oddělení"
+
+#: templates/admin/auth/group/change_list_object_tools.html:13
+msgid "Copy department"
+msgstr "Kopírovat oddělení"
+
+#: templates/admin/auth/user/change_list_object_tools.html:12
+msgid "Transfer of a manager to another department"
+msgstr "Převod manažera do jiného oddělení"
+
+#: templates/admin/auth/user/change_list_object_tools.html:13
+msgid "Transfer of a manager"
+msgstr "Převod manažera"
+
+#: templates/admin/base.html:50
+msgid "Skip to main content"
+msgstr "Přeskočit na hlavní obsah"
+
+#: templates/admin/base.html:65
+msgid "Welcome,"
+msgstr "Vítejte,"
+
+#: templates/admin/base.html:70
+msgid "View site"
+msgstr "Prohlédnout webové stránky"
+
+#: templates/admin/base.html:75
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: templates/admin/base.html:79
+msgid "Change password"
+msgstr "Změnit heslo"
+
+#: templates/admin/base.html:83
+msgid "Log out"
+msgstr "Odhlásit se"
+
+#: templates/admin/base.html:98
+msgid "Breadcrumbs"
+msgstr "Chlební krusty"
+
+#: templates/admin/color_theme_toggle.html:3
+msgid "Toggle theme (current theme: auto)"
+msgstr "Přepnout téma (aktuální téma: automatické)"
+
+#: templates/admin/color_theme_toggle.html:4
+msgid "Toggle theme (current theme: light)"
+msgstr "Přepnout téma (aktuální téma: světlé)"
+
+#: templates/admin/color_theme_toggle.html:5
+msgid "Toggle theme (current theme: dark)"
+msgstr "Přepnout téma (aktuální téma: tmavé)"
+
+#. Translators: Specify dates of date range
+#: templates/admin/crm_date_filter.html:18
+msgid "Specify dates"
+msgstr "Zadejte data"
+
+#. Translators: Start of date range
+#: templates/admin/crm_date_filter.html:23
+msgid "from"
+msgstr "od"
+
+#. Translators: End of date range
+#: templates/admin/crm_date_filter.html:29
+msgid "before"
+msgstr "předem"
+
+#. Translators: Year-Month Day
+#: templates/admin/crm_date_filter.html:33
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: templates/crm_help_link.html:3
+msgid "Help"
+msgstr "Pomoc"
+
+#: tests/massmail/utils/test_send_massmail.py:122
+msgid "This field is required."
+msgstr "Toto pole je povinné."
+
+#: voip/models.py:9
+msgid "PBX extension"
+msgstr "pobočka PBX"
+
+#: voip/models.py:10
+msgid "SIP connection"
+msgstr "SIP připojení"
+
+#: voip/models.py:11
+msgid "Virtual phone number"
+msgstr "Virtuální telefonní číslo"
+
+#: voip/models.py:29
+msgid "Number"
+msgstr "Číslo"
+
+#: voip/models.py:33
+msgid "Caller ID"
+msgstr "Identifikace volajícího"
+
+#: voip/models.py:35
+msgid ""
+"Specify the number to be displayed as             your phone number when you"
+" call"
+msgstr ""
+"Zadejte číslo, které se má zobrazit jako váš telefonní číslo při volání."
+
+#: voip/models.py:42
+msgid "Provider"
+msgstr "Poskytovatel"
+
+#: voip/models.py:43
+msgid "Specify VoIP service provider"
+msgstr "Určete poskytovatele služby VoIP"
+
+#: voip/templates/voip/connection.html:10
+msgid "Please select what's your phone number, caller display"
+msgstr "Prosím, vyberte svůj telefonní číslo zobrazený volajícím."
+
+#: voip/views/callback.py:21
+msgid ""
+"You do not have a VoiP connection configured. Please contact your "
+"administrator."
+msgstr "Nemáte nastavené spojení VoIP. Kontaktujte prosím správce systému."
+
+#: voip/views/callback.py:88
+msgid "That something is wrong ((. Notify the administrator."
+msgstr "Něco je špatně (. Oznámit správci."
+
+#: voip/views/callback.py:90
+msgid "Expect a call to your smartphone"
+msgstr "Očekávejte hovor na váš chytrý telefon."
+
+#: voip/views/voipwebhook.py:44
+msgid "An outgoing call to"
+msgstr "Výchozí hovor kontaktu"
+
+#: voip/views/voipwebhook.py:53
+msgid "An incoming call from"
+msgstr "Příchozí hovor od"
+
+#: voip/views/voipwebhook.py:70
+#, python-brace-format
+msgid "(duration: {duration} minutes)"
+msgstr "(doba trvání: {duration} minut)"
+
+#: webcrm/settings.py:265
+msgid "Untitled"
+msgstr "Bez názvu"
+
+#: webcrm/settings.py:280
+msgid "Main Menu"
+msgstr "Hlavní menu"
