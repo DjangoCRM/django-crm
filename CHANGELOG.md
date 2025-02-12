@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
 Translations of CRM software into the following languages:
 
 - Hindi
@@ -17,6 +19,12 @@ Translations of CRM software into the following languages:
 - Polish
 - Arabic
 - Chinese
+- Japanese
+- Korean
+
+### Fixed
+
+- Correct the arguments of the filter for payments received in the previous period.
 
 ## [1.1.0] - 2025-01-25
 
