@@ -21,6 +21,7 @@ Translations of CRM software into the following languages:
 - Chinese
 - Japanese
 - Korean
+- Czech
 
 ### Fixed
 
