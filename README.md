@@ -6,7 +6,8 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">Deutsch</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-ukrainian.md">Українська</a>
 </p>
 
 # Django-CRM
@@ -35,7 +36,7 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 Learn more about [the software's capabilities](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
 Django CRM is an open-source client relationship management software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
-Frontend and backend are entirely based on the Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
+Frontend and backend are entirely based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.  
 The documentation on the Admin site takes up only one web page.  
@@ -139,9 +140,11 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 ## Project Localization
 
-Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **multiple languages:**  
-`ar, de, en, es, fr, hi, it, nl, pl, pt-br, ru, tr, uk, zh-hans`
+
+`ar, cs, de, en, es, fr, hi, it, ja, ko, nl, pl, pt-br, ru, tr, uk, vi, zh-hans`
+
+Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
 
 ## Why Choose Django-CRM?
 
@@ -158,7 +161,8 @@ Django-CRM can be easily deployed as a regular Django project.
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
 
-If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!  
+If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
+
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM star history" align="center" style="float: center"/>
 
 ### Compatibility
