@@ -76,7 +76,7 @@ LANGUAGES = [
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
     ('uk', 'Ukrainian'),
-    # ('vi', 'Vietnamese'),
+    ('vi', 'Vietnamese'),
     ('zh-hans', 'Chinese'),
 ]
 
