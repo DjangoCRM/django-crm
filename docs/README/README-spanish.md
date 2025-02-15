@@ -1,11 +1,13 @@
 <p align="right">
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-hindi.md">हिन्दी</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">Deutsch</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-ukrainian.md">Українська</a>
 </p>
 
 # Django-CRM
@@ -32,7 +34,8 @@ CRM también aprovecha al máximo el sitio de administración de Django, con doc
 
 Aprende más sobre [las capacidades del software](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview-spanish.md).
 
-Django CRM es un software de gestión de relaciones con clientes de código abierto. Este CRM está escrito en <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="logo de python" width="25" height="25"> Python</a>.
+Django CRM es un software de gestión de relaciones con clientes de código abierto.  
+Este CRM está escrito en <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="logo de python" width="25" height="25"> Python</a>.
 El frontend y el backend están completamente basados en el [sitio de administración de Django](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 La aplicación CRM utiliza plantillas HTML adaptativas de administración de forma predeterminada.
 Django es un marco de trabajo excelentemente documentado con muchos ejemplos.
@@ -112,7 +115,7 @@ El paquete CRM también contiene **aplicaciones de soporte** como:
 
 ## Cliente de Correo Electrónico
 
-El sistema CRM de Python incluye un cliente de correo electrónico integrado que opera utilizando los protocolos **SMTP** e **IMAP**.
+El sistema CRM de Python incluye un cliente de correo electrónico integrado que opera utilizando los protocolos **SMTP** e **IMAP**.  
 Esto permite que Django-CRM almacene automáticamente copias de toda la correspondencia relacionada con cada solicitud y oferta dentro de su base de datos.
 La funcionalidad asegura que incluso si las comunicaciones ocurren a través de la cuenta de correo electrónico externa del usuario (fuera del CRM).
 Se capturan y organizan dentro del sistema utilizando un **mecanismo de tickets**.
@@ -127,19 +130,21 @@ El CRM puede integrarse con proveedores de servicios de correo electrónico (com
 
 ## Eleva la Productividad de tu Equipo con Soluciones CRM Colaborativas
 
-Este CRM está diseñado para mejorar la colaboración dentro de los equipos y agilizar los procesos de gestión de proyectos.
-Como un CRM colaborativo, permite a los usuarios crear y gestionar memos, tareas y proyectos con facilidad.
-[Los memos de oficina](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features-spanish.md) pueden ser dirigidos a jefes de departamento o ejecutivos de la empresa, quienes luego pueden transformar estos memos en tareas o proyectos, asignando personas responsables o ejecutores.
-[Las tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) pueden ser individuales o colectivas.
+Este CRM está diseñado para mejorar la colaboración dentro de los equipos y agilizar los procesos de gestión de proyectos.  
+Como un CRM colaborativo, permite a los usuarios crear y gestionar memos, tareas y proyectos con facilidad.  
+[Los memos de oficina](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features-spanish.md) pueden ser dirigidos a jefes de departamento o ejecutivos de la empresa, quienes luego pueden transformar estos memos en tareas o proyectos, asignando personas responsables o ejecutores.  
+[Las tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/docs/django-crm_task_features-spanish.md) pueden ser individuales o colectivas.  
 Las tareas proporcionan características como discusiones de chat, recordatorios, intercambio de archivos, creación de subtareas y compartir resultados.
-Los usuarios reciben notificaciones directamente en el CRM y por correo electrónico, asegurando que se mantengan informados.
+Los usuarios reciben notificaciones directamente en el CRM y por correo electrónico, asegurando que se mantengan informados.  
 Cada usuario tiene una vista clara de su pila de tareas, incluyendo prioridades, estados y próximos pasos, mejorando así la productividad y la responsabilidad en la gestión colaborativa de relaciones con clientes.
 
 ## Localización del Proyecto
 
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> El software de atención al cliente ahora está disponible en **varios idiomas**:
+
+`ar, cs, de, en, es, fr, hi, it, ja, ko, nl, pl, pt-br, ru, tr, uk, vi, zh-hans`
+
 Django CRM tiene [soporte completo](https://docs.djangoproject.com/en/dev/topics/i18n/) para la traducción de la interfaz, el formato de fechas, horas y zonas horarias.  
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> El software de atención al cliente ahora está disponible en **varios idiomas**:  
-`de, en, es, fr, it, nl, pt-BR, ru, uk`
 
 ## ¿Por qué Elegir Django-CRM?
 
@@ -149,14 +154,16 @@ Django CRM tiene [soporte completo](https://docs.djangoproject.com/en/dev/topics
 
 ## Empezando
 
-Si encuentras útil Django-CRM, por favor ⭐️ **da una estrella** a este repositorio en GitHub para apoyar su crecimiento.
-
 Django-CRM se puede implementar fácilmente como un proyecto regular de Django.
 
 📚 Por favor, consulta:
 
 - [Guía de Instalación y Configuración](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [Manual de Usuario](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+
+Si encuentras útil Django-CRM, por favor ⭐️ **da una estrella** a este repositorio en GitHub para apoyar su crecimiento.
+
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM star history" align="center" style="float: center"/>
 
 ### Compatibilidad
 
