@@ -140,7 +140,7 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 ## Project Localization
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **many languages:**  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **muchos idiomas:**  
 
 `ar, cs, de, en, es, fr, hi, it, ja, ko, nl, pl, pt-br, ru, tr, uk, vi, zh-hans`
 
@@ -151,7 +151,7 @@ Django CRM has full support for translation of interface, formatting of dates, t
 - **Self-Hosting**: The CRM application software is designed to be self-hosted, allowing you to have full control over your CRM data and environment. By self-hosting, you can customize the CRM to fit your specific business needs and ensure that your data remains private and secure.
 - **Collaborative CRM**: Boost team productivity with tools for task management, project collaboration, and internal communication.
 - **Analytical CRM**: Gain actionable insights with built-in reports like sales funnel, income summary, and lead source analysis.
-- **Python and Django-Based**: No learning of a proprietary framework is required - all built on Django with an intuitive admin interface.
+- **Python and Django-Based**: No learning of a proprietary framework is required - all built on Django with an intuitive admin interface. The frontend and backend, based on Django Admin, make it much easier customization and development projects, as well as deploy and maintain a production server.
 
 
 ## Getting Started
