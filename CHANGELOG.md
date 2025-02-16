@@ -12,17 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-Translations of CRM software into the following languages:
-
-- Hindi
-- Turkish
-- Polish
-- Arabic
-- Chinese
-- Japanese
-- Korean
-- Czech
-- Vietnamese
+- Translations of CRM software into the following languages:
+  - Hindi
+  - Turkish
+  - Polish
+  - Arabic
+  - Chinese
+  - Japanese
+  - Korean
+  - Czech
+  - Vietnamese
+- ["Task-board & road map"](https://github.com/users/DjangoCRM/projects/1/views/1) project
 
 ### Fixed
 
