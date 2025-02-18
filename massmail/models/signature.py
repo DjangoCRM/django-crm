@@ -6,7 +6,7 @@ from common.models import Base1
 content_help_text = mark_safe(_(
     """
     Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
-    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.
+    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.
     """
 ))
 

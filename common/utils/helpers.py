@@ -203,7 +203,7 @@ def send_crm_email(
         body: str = "",
         to: list = None
 ) -> None:
-    """Helps to send CPM notification emails."""
+    """Helps to send CRM notification emails."""
 
     app_config = apps.get_app_config('common')
     app_config.nes.send_msg(subject, body, to)
