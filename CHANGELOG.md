@@ -22,6 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Korean
   - Czech
   - Vietnamese
+  - Greek
+  - Indonesian
+
 - ["Task-board & road map"](https://github.com/users/DjangoCRM/projects/1/views/1) project
 
 ### Fixed
