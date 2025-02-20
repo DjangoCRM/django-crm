@@ -1,0 +1,3888 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-17 21:46+0200\n"
+"PO-Revision-Date: 2025-02-19 20:32+0200\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: analytics/apps.py:10
+msgid "Analytics"
+msgstr "Analisis"
+
+#: analytics/models.py:15
+msgid "IncomeStat Snapshot"
+msgstr "Snapshot Statistik Pendapatan"
+
+#: analytics/models.py:16
+msgid "IncomeStat Snapshots"
+msgstr "Cuplikan IncomeStat"
+
+#: analytics/models.py:28 analytics/models.py:29
+msgid "Sales Report"
+msgstr "Laporan Penjualan"
+
+#: analytics/models.py:36
+msgid "Request Summary"
+msgstr "Ringkasan Permintaan"
+
+#: analytics/models.py:37
+msgid "Requests Summary"
+msgstr "Ringkasan Permintaan"
+
+#: analytics/models.py:44 analytics/models.py:45
+msgid "Lead source Summary"
+msgstr "Ringkasan Sumber Prospek"
+
+#: analytics/models.py:52 analytics/models.py:53
+msgid "Closing reason Summary"
+msgstr "Ringkasan Alasan Penutupan"
+
+#: analytics/models.py:60 analytics/models.py:61
+msgid "Deal Summary"
+msgstr "Ringkasan Kesepakatan"
+
+#: analytics/models.py:68 analytics/models.py:69
+#: analytics/site/incomestatadmin.py:48
+msgid "Income Summary"
+msgstr "Ringkasan Pendapatan"
+
+#: analytics/models.py:76 analytics/models.py:77
+msgid "Sales funnel"
+msgstr "Corong penjualan"
+
+#: analytics/models.py:84 analytics/models.py:85
+msgid "Conversion Summary"
+msgstr "Ringkasan Konversi"
+
+#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: crm/models/payment.py:112
+msgid "Payment date"
+msgstr "Tanggal Pembayaran"
+
+#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
+#: crm/models/request.py:82
+msgid "Products"
+msgstr "Produk"
+
+#: analytics/site/closingreasonstatadmin.py:63
+msgid "Closing reason over month"
+msgstr "Alasan Penutupan per Bulan"
+
+#: analytics/site/conversionadmin.py:11
+msgid "Conversion of requests into successful deals (for the last 365 days)"
+msgstr ""
+"Konversi permintaan menjadi kesepakatan sukses (untuk 365 hari terakhir)"
+
+#: analytics/site/conversionadmin.py:39
+msgid "Conversion of primary requests"
+msgstr "Konversi Permintaan Utama"
+
+#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+msgid "Conversion"
+msgstr "Konversi"
+
+#: analytics/site/conversionadmin.py:43
+#: analytics/site/leadsourcestatadmin.py:21
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+msgid "Total requests"
+msgstr "Permintaan total"
+
+#: analytics/site/conversionadmin.py:44
+msgid "Total primary requests"
+msgstr "Total permintaan primer"
+
+#: analytics/site/dealstatadmin.py:17
+msgid "Deal Summary for last 365 days"
+msgstr "Ringkasan Kesepakatan selama 365 Hari Terakhir"
+
+#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+msgid "Total deals"
+msgstr "Total Kesepakatan"
+
+#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+msgid "Relevant deals"
+msgstr "Kesepakatan Terkait"
+
+#: analytics/site/dealstatadmin.py:46
+msgid "Closed successfully (primary)"
+msgstr "Tertutup sukses (primer)"
+
+#: analytics/site/dealstatadmin.py:47
+msgid "Average days to close successfully (primary)"
+msgstr "Rata-rata hari untuk penutupan sukses (primer)"
+
+#: analytics/site/dealstatadmin.py:60
+msgid "Irrelevant deals"
+msgstr "Penawaran yang tidak relevan"
+
+#: analytics/site/dealstatadmin.py:78
+msgid "Won deals"
+msgstr "Kesepakatan yang Dimenangkan"
+
+#: analytics/site/incomestatadmin.py:135
+msgid "The snapshot has been saved successfully."
+msgstr "Snapshot telah berhasil disimpan."
+
+#: analytics/site/incomestatadmin.py:183
+msgid "Income monthly (total amount for the current period: {} {} ({}))"
+msgstr "Pendapatan bulanan (jumlah total untuk periode saat ini: {} {} ({}))"
+
+#: analytics/site/incomestatadmin.py:188
+msgid "Income monthly in the previous period"
+msgstr "Pendapatan bulanan pada periode sebelumnya"
+
+#: analytics/site/incomestatadmin.py:193
+msgid "Payments received"
+msgstr "Pembayaran yang Diterima"
+
+#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
+msgid "Amount"
+msgstr "Jumlah"
+
+#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+msgid "Order"
+msgstr "Pesanan"
+
+#: analytics/site/incomestatadmin.py:239
+msgid "Guaranteed income"
+msgstr "Pendapatan Terjamin"
+
+#: analytics/site/incomestatadmin.py:246
+msgid "High probability income"
+msgstr "Pendapatan dengan Kemungkinan Tinggi"
+
+#: analytics/site/incomestatadmin.py:253
+msgid "Low probability income"
+msgstr "Pendapatan dengan probabilitas rendah"
+
+#: analytics/site/incomestatadmin.py:295
+msgid "Income averaged over the year ({})."
+msgstr "Pendapatan rata-rata selama tahun ({})."
+
+#: analytics/site/incomestatadmin.py:307
+msgid "Total won deals"
+msgstr "Total kesepakatan yang dimenangkan"
+
+#: analytics/site/incomestatadmin.py:308
+msgid "Average won deals a month"
+msgstr "Rata-rata kesepakatan yang dimenangkan per bulan"
+
+#: analytics/site/incomestatadmin.py:309
+msgid "Average income amount a month"
+msgstr "Rata-rata jumlah pendapatan per bulan"
+
+#: analytics/site/incomestatadmin.py:451
+msgid "Total amount"
+msgstr "Jumlah total"
+
+#: analytics/site/leadsourcestatadmin.py:15
+#: analytics/site/requeststatadmin.py:18
+msgid "Request source statistics"
+msgstr "Statistik sumber permintaan"
+
+#: analytics/site/leadsourcestatadmin.py:16
+#: analytics/site/requeststatadmin.py:19
+msgid "Number of requests for each source"
+msgstr "Jumlah permintaan untuk setiap sumber"
+
+#: analytics/site/leadsourcestatadmin.py:17
+#: analytics/site/requeststatadmin.py:20
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+msgid "Requests over country"
+msgstr "Permintaan berdasarkan negara"
+
+#: analytics/site/leadsourcestatadmin.py:18
+#: analytics/site/requeststatadmin.py:21
+msgid "for all period"
+msgstr "untuk seluruh periode"
+
+#: analytics/site/leadsourcestatadmin.py:19
+#: analytics/site/requeststatadmin.py:22
+msgid "for last 365 days"
+msgstr "untuk 365 hari terakhir"
+
+#: analytics/site/leadsourcestatadmin.py:20
+#: analytics/site/requeststatadmin.py:23
+msgid "conversion"
+msgstr "konversi"
+
+#: analytics/site/leadsourcestatadmin.py:22
+#: analytics/site/requeststatadmin.py:25
+msgid "Not specified"
+msgstr "Tidak ditentukan"
+
+#: analytics/site/leadsourcestatadmin.py:116
+msgid "Relevant requests over month"
+msgstr "Permintaan relevan per bulan"
+
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
+#: crm/site/shipmentadmin.py:36
+msgid "pcs"
+msgstr "buah"
+
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
+#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
+#: crm/utils/admfilters.py:113
+msgid "Country"
+msgstr "Negara"
+
+#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
+#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
+#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
+#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
+#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
+#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
+#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+msgid "All"
+msgstr "Semua"
+
+#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
+#: common/models.py:185
+#: common/templates/common/notice_participants_email.html:15
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
+msgid "Owner"
+msgstr "Pemilik"
+
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: crm/models/product.py:31 crm/utils/admfilters.py:266
+msgid "Product"
+msgstr "Produk"
+
+#: analytics/site/outputstatadmin.py:199
+msgid "Sold products summary (by date of payment receipt)"
+msgstr "Ringkasan produk terjual (berdasarkan tanggal penerimaan pembayaran)"
+
+#: analytics/site/outputstatadmin.py:287
+msgid "Sold products"
+msgstr "Produk Terjual"
+
+#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+msgid "Price"
+msgstr "Harga"
+
+#: analytics/site/requeststatadmin.py:57
+msgid "Request Summary for last 365 days"
+msgstr "Ringkasan Permintaan untuk 365 Hari Terakhir"
+
+#: analytics/site/requeststatadmin.py:91
+msgid "Conversion of primary requests into successful deals"
+msgstr "Konversi permintaan utama menjadi kesepakatan sukses"
+
+#: analytics/site/requeststatadmin.py:95
+msgid "Primary requests"
+msgstr "Permintaan utama"
+
+#: analytics/site/requeststatadmin.py:97
+msgid "Subsequent requests"
+msgstr "Permintaan selanjutnya"
+
+#: analytics/site/requeststatadmin.py:98
+msgid "Conversion of subsequent requests"
+msgstr "Konversi permintaan berikutnya"
+
+#: analytics/site/requeststatadmin.py:101
+msgid "average monthly value"
+msgstr "nilai rata-rata bulanan"
+
+#: analytics/site/requeststatadmin.py:102
+msgid "Requests by month"
+msgstr "Permintaan berdasarkan bulan"
+
+#: analytics/site/requeststatadmin.py:116
+msgid "Relevant requests"
+msgstr "Permintaan yang relevan"
+
+#: analytics/site/salesfunnelsadmin.py:42
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+msgid "Total closed deals"
+msgstr "Total kesepakatan yang ditutup"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+msgid "Statistics on the Closing reason of deals for all the time"
+msgstr "Statistik alasan penutupan kesepakatan selama semua waktu"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+msgid "total requests"
+msgstr "total permintaan"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
+#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+msgid "Switch currency"
+msgstr "Mengganti mata uang"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+msgid "Save snapshot"
+msgstr "Simpan snapshot"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+msgid "Sales funnel for last 365 days"
+msgstr "Corong penjualan untuk 365 hari terakhir"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+msgid "The number of closed deals in stages"
+msgstr "Jumlah kesepakatan yang ditutup berdasarkan tahapan"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+msgid "Chart"
+msgstr "Grafik"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+msgid "The percentages show the number of \"lost\" deals at each stage."
+msgstr ""
+"Persentase tersebut menunjukkan jumlah \"kesepakatan yang hilang\" pada "
+"setiap tahap."
+
+#: analytics/templates/analytics/bar_chart.html:58
+#: analytics/templates/analytics/bar_chart_.html:51
+msgid "Charts"
+msgstr "Grafik"
+
+#: analytics/templates/analytics/notice.html:2
+msgid ""
+"Note! The calculations use data for the whole year. But the charts begin on "
+"the first of the next month."
+msgstr ""
+"Perhatian! Perhitungan menggunakan data untuk seluruh tahun. Namun, grafik "
+"dimulai dari tanggal satu pada bulan berikutnya."
+
+#: analytics/templates/analytics/view_snapshots.html:8
+msgid "Data"
+msgstr "Data"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Snapshots"
+msgstr "Cuplikan"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Now"
+msgstr "Sekarang"
+
+#: chat/apps.py:8 chat/templates/chat_buttons.html:9
+#: chat/templates/chat_buttons.html:13
+msgid "Chat"
+msgstr "Obrolan"
+
+#: chat/forms/chatmessageform.py:29
+msgid "Please write a message"
+msgstr "Silakan tulis pesan Anda."
+
+#: chat/forms/chatmessageform.py:35
+msgid "Please select at least one recipient"
+msgstr "Silakan pilih setidaknya satu penerima"
+
+#: chat/models.py:15
+msgid "message"
+msgstr "pesan"
+
+#: chat/models.py:16
+msgid "messages"
+msgstr "pesan"
+
+#: chat/models.py:24 chat/templates/chat_buttons.html:3
+#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
+#: massmail/site/emlmessageadmin.py:121
+msgid "Message"
+msgstr "Pesan"
+
+#: chat/models.py:34
+msgid "answer to"
+msgstr "jawaban untuk"
+
+#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+msgid "recipients"
+msgstr "penerima"
+
+#: chat/models.py:47
+msgid "to"
+msgstr "kepada"
+
+#: chat/models.py:52 common/models.py:24 common/models.py:179
+#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+msgid "Creation date"
+msgstr "Tanggal pembuatan"
+
+#: chat/site/chatmessageadmin.py:53
+msgid "task operator"
+msgstr "operator tugas"
+
+#: chat/site/chatmessageadmin.py:54
+msgid "You received a message regarding - "
+msgstr "Anda menerima pesan mengenai -"
+
+#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: tasks/site/tasksbasemodeladmin.py:223
+msgid "Additional information"
+msgstr "Informasi Tambahan"
+
+#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+msgid "Recipients"
+msgstr " Penerima"
+
+#: chat/site/chatmessageadmin.py:283
+#: chat/templates/chat/chatmessage_email.html:12
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
+#: crm/templates/admin/crm/inline_emails.html:36
+msgid "reply"
+msgstr "Balas"
+
+#: chat/site/chatmessageadmin.py:293
+msgid "Reply to"
+msgstr "Balas ke"
+
+#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
+#: common/templates/common/copy_department.html:17
+#: common/templates/common/select_email_account.html:15
+#: common/templates/common/user_transfer.html:17
+#: crm/templates/admin/crm/change_form.html:21
+#: crm/templates/admin/crm/company/change_list_object_tools.html:8
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/change_form.html:21
+#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
+#: crm/templates/admin/crm/request/change_list_object_tools.html:8
+#: crm/templates/crm/addfiles.html:15
+#: crm/templates/crm/change_owner_companies.html:15
+#: crm/templates/crm/import_objects.html:15
+#: crm/templates/crm/select_original_obj.html:27
+#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
+#: templates/admin/auth/group/change_list_object_tools.html:8
+#: templates/admin/auth/user/change_list_object_tools.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "Tambahkan %(name)s"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:12
+#: crm/templates/crm/contact_form.html:44
+#: templates/admin/crm_date_filter.html:34
+msgid "Send"
+msgstr "Kirim"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:7
+#: common/templates/admin/common/reminder/submit_line.html:8
+#: common/templates/admin/common/userprofile/submit_line.html:8
+#: crm/templates/admin/crm/city/submit_line.html:10
+#: crm/templates/admin/crm/company/submit_line.html:10
+#: crm/templates/admin/crm/contact/submit_line.html:9
+#: crm/templates/admin/crm/crmemail/submit_line.html:19
+#: crm/templates/admin/crm/deal/submit_line.html:9
+#: crm/templates/admin/crm/lead/submit_line.html:13
+#: crm/templates/admin/crm/payment/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/shipment/submit_line.html:9
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
+#: tasks/templates/admin/tasks/memo/submit_line.html:12
+#: tasks/templates/admin/tasks/project/submit_line.html:9
+#: tasks/templates/admin/tasks/task/submit_line.html:17
+msgid "Close"
+msgstr "Tutup"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:11
+#: common/templates/admin/common/reminder/submit_line.html:12
+#: common/templates/admin/common/userprofile/submit_line.html:12
+#: common/templates/common/select_emails.html:31
+#: common/templates/common/select_emails.html:73
+#: crm/templates/admin/crm/city/submit_line.html:14
+#: crm/templates/admin/crm/company/submit_line.html:14
+#: crm/templates/admin/crm/contact/submit_line.html:13
+#: crm/templates/admin/crm/crmemail/submit_line.html:23
+#: crm/templates/admin/crm/deal/submit_line.html:13
+#: crm/templates/admin/crm/lead/submit_line.html:17
+#: crm/templates/admin/crm/payment/submit_line.html:13
+#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/shipment/submit_line.html:13
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
+#: tasks/templates/admin/tasks/memo/submit_line.html:16
+#: tasks/templates/admin/tasks/project/submit_line.html:13
+#: tasks/templates/admin/tasks/task/submit_line.html:21
+msgid "Delete"
+msgstr "Hapus"
+
+#: chat/templates/chat/chatmessage_email.html:5
+#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
+#: crm/templates/admin/crm/inline_emails.html:45
+msgid "From"
+msgstr "Dari"
+
+#: chat/templates/chat/chatmessage_email.html:7
+#: common/templates/common/notice_participants_email.html:6
+msgid "View in CRM"
+msgstr "Lihat di CRM"
+
+#: chat/templates/chat_buttons.html:3
+msgid "Add chat message"
+msgstr "Tambahkan pesan obrolan"
+
+#: chat/templates/chat_buttons.html:8
+msgid "There are unread messages"
+msgstr "Ada pesan yang belum dibaca"
+
+#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+msgid "View chat messages"
+msgstr "Melihat pesan obrolan"
+
+#: common/admin.py:85
+msgid ""
+"You can specify the name of an existing file on the server along with the "
+"path instead of uploading it."
+msgstr ""
+"Anda dapat menentukan nama berkas yang sudah ada di server beserta jalurnya "
+"tanpa harus mengunggahnya."
+
+#: common/admin.py:195
+msgid "staff"
+msgstr "staf"
+
+#: common/admin.py:201
+msgid "superuser"
+msgstr "pengguna super"
+
+#: common/apps.py:9
+msgid "Common"
+msgstr "Umum"
+
+#: common/models.py:28 crm/models/payment.py:49
+msgid "Update date"
+msgstr "Tanggal Pembaruan"
+
+#: common/models.py:38
+msgid "Modified By"
+msgstr "Dimodifikasi Oleh"
+
+#: common/models.py:56
+msgid "was added successfully."
+msgstr "berhasil ditambahkan."
+
+#: common/models.py:57
+msgid "Re-adding blocked."
+msgstr "Menambahkan kembali yang diblokir."
+
+#: common/models.py:75 common/models.py:118
+#: common/templates/common/copy_department.html:30
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: tasks/site/memoadmin.py:41
+msgid "Department"
+msgstr "Bagian"
+
+#: common/models.py:88 common/models.py:89 common/models.py:94
+msgid "Department and Owner do not match"
+msgstr "Departemen dan Pemilik tidak cocok"
+
+#: common/models.py:119
+msgid "Departments"
+msgstr "Bagian/Divisi"
+
+#: common/models.py:126
+msgid "Default country"
+msgstr "Negara bawaan"
+
+#: common/models.py:133
+msgid "Default currency"
+msgstr "Mata uang standar"
+
+#: common/models.py:137
+msgid "Works globally"
+msgstr "Bekerja secara global"
+
+#: common/models.py:138
+msgid "The department operates in foreign markets."
+msgstr "Departemen tersebut beroperasi di pasar-pasar asing."
+
+#: common/models.py:144
+msgid "Reminder"
+msgstr "Pengingat"
+
+#: common/models.py:145
+msgid "Reminders"
+msgstr "Pengingat"
+
+#: common/models.py:159 crm/forms/contact_form.py:20
+#: massmail/models/baseeml.py:16
+msgid "Subject"
+msgstr "Subjek"
+
+#: common/models.py:160
+msgid "Briefly what about is this reminder"
+msgstr "Secara singkat apa tentang pengingat ini?"
+
+#: common/models.py:164
+#: common/templates/common/notice_participants_email.html:14
+#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
+#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+msgid "Description"
+msgstr "Keterangan"
+
+#: common/models.py:167
+msgid "Reminder date"
+msgstr "Tanggal pengingat"
+
+#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
+#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
+#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
+#: tasks/utils/admfilters.py:209 voip/models.py:25
+msgid "Active"
+msgstr "Aktif"
+
+#: common/models.py:175
+msgid "Send notification email"
+msgstr "Kirim email notifikasi"
+
+#: common/models.py:195
+msgid "File"
+msgstr "Berkas"
+
+#: common/models.py:196
+msgid "Files"
+msgstr "Berkas"
+
+#: common/models.py:200
+msgid "Attached file"
+msgstr "Berkas yang dilampirkan"
+
+#: common/models.py:206
+msgid "Attach to the deal"
+msgstr "Lampirkan ke kesepakatan"
+
+#: common/models.py:228
+#: common/templates/common/notice_participants_email.html:12
+#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
+#: tasks/models/task.py:35
+msgid "Stage"
+msgstr "Tahap"
+
+#: common/models.py:229
+msgid "Stages"
+msgstr "Tahap-tahap"
+
+#: common/models.py:233 tasks/models/stagebase.py:14
+msgid "Default"
+msgstr "Standar"
+
+#: common/models.py:234 tasks/models/stagebase.py:15
+msgid "Will be selected by default when creating a new task"
+msgstr "Akan dipilih secara otomatis saat membuat tugas baru"
+
+#: common/models.py:239 tasks/models/stagebase.py:32
+msgid ""
+"The sequence number of the stage.         The indices of other instances "
+"will be sorted automatically."
+msgstr ""
+"Nomor urut tahap. Indeks instansi lainnya akan diurutkan secara otomatis."
+
+#: common/models.py:250
+msgid "User profile"
+msgstr "Profil Pengguna"
+
+#: common/models.py:251
+msgid "User profiles"
+msgstr "Profil Pengguna"
+
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "Telepon"
+
+#: common/models.py:308
+msgid "UTC time zone"
+msgstr "Zona waktu UTC"
+
+#: common/models.py:312
+msgid "Activate this time zone"
+msgstr "Aktifkan zona waktu ini"
+
+#: common/models.py:316
+msgid "Field for temporary storage of messages to the user"
+msgstr "Bidang untuk penyimpanan sementara pesan ke pengguna"
+
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
+#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+msgid "Tags"
+msgstr "Label"
+
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
+#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+msgid "Add tags"
+msgstr "Tambahkan label"
+
+#: common/site/basemodeladmin.py:22
+msgid "Export selected objects"
+msgstr "Ekspor objek terpilih"
+
+#: common/site/basemodeladmin.py:23
+msgid "Next step deadline"
+msgstr "Tenggat waktu langkah selanjutnya"
+
+#: common/site/basemodeladmin.py:87
+msgid "Filters may affect search results."
+msgstr "Filter dapat memengaruhi hasil pencarian."
+
+#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+msgid "Act"
+msgstr "Bertindak"
+
+#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
+#: tasks/models/taskbase.py:73
+msgid "Workflow"
+msgstr "Alur Kerja"
+
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+msgid "Language"
+msgstr "Bahasa"
+
+#: common/templates/admin/common/reminder/submit_line.html:4
+#: common/templates/admin/common/userprofile/submit_line.html:4
+#: crm/templates/admin/crm/city/submit_line.html:4
+#: crm/templates/admin/crm/company/submit_line.html:4
+#: crm/templates/admin/crm/contact/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:14
+#: crm/templates/admin/crm/deal/submit_line.html:4
+#: crm/templates/admin/crm/lead/submit_line.html:4
+#: crm/templates/admin/crm/payment/submit_line.html:4
+#: crm/templates/admin/crm/request/submit_line.html:4
+#: crm/templates/admin/crm/shipment/submit_line.html:4
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
+#: tasks/templates/admin/tasks/memo/submit_line.html:8
+#: tasks/templates/admin/tasks/project/submit_line.html:4
+#: tasks/templates/admin/tasks/task/submit_line.html:13
+msgid "Save"
+msgstr "Simpan"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and continue editing"
+msgstr "Simpan dan lanjutkan mengedit"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and view"
+msgstr "Simpan dan lihat"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
+#: crm/templates/admin/crm/company/change_form_object_tools.html:38
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
+#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+msgid "History"
+msgstr "Sejarah"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
+#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
+#: help/templates/admin/help/stacked.html:18
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+msgid "View on site"
+msgstr "Lihat di situs"
+
+#: common/templates/common/copy_department.html:13
+#: common/templates/common/select_email_account.html:12
+#: common/templates/common/select_emails.html:13
+#: common/templates/common/user_transfer.html:13
+#: crm/templates/admin/crm/change_form.html:18
+#: crm/templates/admin/crm/crmemail/change_form.html:18
+#: crm/templates/admin/crm/payment/change_list.html:31
+#: crm/templates/crm/addfiles.html:12
+#: crm/templates/crm/change_owner_companies.html:12
+#: crm/templates/crm/import_objects.html:12
+#: crm/templates/crm/make_massmail.html:15
+#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+msgid "Home"
+msgstr "Beranda"
+
+#: common/templates/common/copy_department.html:23
+msgid "Please select the department to copy."
+msgstr "Silakan pilih departemen yang ingin disalin."
+
+#: common/templates/common/copy_department.html:40
+#: common/templates/common/user_transfer.html:51
+#: crm/templates/crm/change_owner_companies.html:36
+#: crm/templates/crm/import_objects.html:31
+#: crm/templates/crm/select_original_obj.html:48
+#: massmail/templates/massmail/pic_upload.html:32
+#: voip/templates/voip/connection.html:23
+msgid "Submit"
+msgstr "Kirim"
+
+#: common/templates/common/email_notification_base.html:14
+#: tasks/models/taskbase.py:40
+msgid "Note"
+msgstr "Catatan"
+
+#: common/templates/common/email_notification_base.html:24
+#: crm/templates/crm/email.html:29
+msgid "Attachments"
+msgstr "Lampiran"
+
+#: common/templates/common/email_notification_base.html:28
+#: common/templates/common/widgets/clearable_file_input.html:7
+msgid "Download"
+msgstr "Unduh"
+
+#: common/templates/common/email_notification_base.html:30
+#: crm/templates/admin/crm/inline_emails.html:63
+msgid "Error: the file is missing."
+msgstr "Error: File tidak ditemukan."
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+msgid "Due date"
+msgstr "Tenggat waktu"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:26
+msgid "Priority"
+msgstr "Prioritas"
+
+#: common/templates/common/notice_participants_email.html:15
+#: crm/models/deal.py:183 crm/models/request.py:139
+#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+msgid "Co-owner"
+msgstr "Pemilik Bersama"
+
+#: common/templates/common/notice_participants_email.html:16
+#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
+#: tasks/utils/admfilters.py:89
+msgid "Responsible"
+msgstr "Bertanggung Jawab"
+
+#: common/templates/common/reminder_button.html:4
+msgid "There are reminders"
+msgstr "Ada pengingat"
+
+#: common/templates/common/reminder_button.html:10
+msgid "Create a reminder"
+msgstr "Buat pengingat"
+
+#: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:18
+msgid "Regarding"
+msgstr "Mengenai"
+
+#: common/templates/common/select_email_account.html:20
+msgid "Please select an Email account"
+msgstr "Silakan pilih akun Email"
+
+#: common/templates/common/select_email_account.html:38
+msgid "Select"
+msgstr "Pilih"
+
+#: common/templates/common/select_emails.html:30
+#: common/templates/common/select_emails.html:72
+#: crm/templates/admin/crm/company/change_list_object_tools.html:20
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
+#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+msgid "Import"
+msgstr "Impor"
+
+#: common/templates/common/select_emails.html:32
+#: common/templates/common/select_emails.html:74
+msgid "Spam"
+msgstr "Spam"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as read"
+msgstr "Tandai sebagai telah dibaca"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as"
+msgstr "Tandai sebagai"
+
+#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+msgid "To"
+msgstr "Kepada"
+
+#: common/templates/common/select_emails.html:56
+msgid "This email is already imported."
+msgstr "Email ini sudah diimpor."
+
+#: common/templates/common/user_transfer.html:23
+msgid "Please select a user and a new department for him."
+msgstr "Silakan pilih pengguna dan departemen baru untuknya."
+
+#: common/templates/common/user_transfer.html:31
+msgid "User"
+msgstr "Pengguna"
+
+#: common/templatetags/util.py:114
+msgid "Task completed"
+msgstr "Tugas selesai"
+
+#: common/templatetags/util.py:115
+msgid "I completed the task"
+msgstr "Saya menyelesaikan tugas tersebut."
+
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Completed"
+msgstr "Selesai"
+
+#: common/utils/for_translation.py:24
+msgid ""
+"The name has been added for translation. Please update po and mo files."
+msgstr ""
+"Nama telah ditambahkan untuk terjemahan. Silakan perbarui berkas po dan mo."
+
+#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:36
+msgid "Copy"
+msgstr "Salin"
+
+#: common/utils/helpers.py:31
+msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
+msgstr "{} dengan ID '{}' tidak ada. Mungkin sudah dihapus?"
+
+#: common/views/copy_department.py:48
+msgid "A new department has been created - {}. Please rename it."
+msgstr "Sebuah departemen baru telah dibuat - {}. Silakan ganti namanya."
+
+#: common/views/select_emails_import.py:118
+msgid ""
+"You do not have mail accounts marked for importing emails.Please contact "
+"your administrator."
+msgstr ""
+"Anda tidak memiliki akun surat elektronik yang ditandai untuk mengimpor "
+"email. Silakan hubungi administrator Anda."
+
+#: common/views/user_transfer.py:28
+msgid ""
+"\n"
+"Attention! Data for filters such as: \n"
+"transaction stages, reasons for closing, tags, etc. \n"
+"will be transferred only if the new department has data with the same name.\n"
+"Also Output, Payment and Product will not be affected.\n"
+msgstr ""
+"\n"
+"Perhatian! Data untuk filter seperti:\n"
+"tahap transaksi, alasan penutupan, tag, dll.\n"
+"hanya akan ditransfer jika departemen baru memiliki data dengan nama yang sama.\n"
+"Selain itu, Output, Pembayaran, dan Produk tidak akan terpengaruh.\n"
+
+#: common/views/user_transfer.py:131
+msgid "User transferred successfully"
+msgstr "Pengguna berhasil ditransfer"
+
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+msgid "Contact details"
+msgstr "Detail Kontak"
+
+#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/models/product.py:15 crm/models/product.py:37
+#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
+#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: tasks/models/taskbase.py:32
+msgid "Name"
+msgstr "Nama"
+
+#: crm/admin.py:155 crm/site/dealadmin.py:247
+msgid "Contact info"
+msgstr "Informasi Kontak"
+
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
+#: crm/site/requestadmin.py:88
+msgid "Relations"
+msgstr "Hubungan"
+
+#: crm/forms/admin_forms.py:22
+msgid "A country must be specified."
+msgstr "Negara harus ditentukan."
+
+#: crm/forms/admin_forms.py:23
+msgid "Marketing currency already exists."
+msgstr "Mata uang pemasaran sudah ada."
+
+#: crm/forms/admin_forms.py:24
+msgid "State currency already exists."
+msgstr "Mata uang negara sudah ada."
+
+#: crm/forms/admin_forms.py:25
+msgid "Enter a valid alphabetic code."
+msgstr "Masukkan kode abjad yang valid."
+
+#: crm/forms/admin_forms.py:26
+msgid "The currency cannot be both state and marketing."
+msgstr ""
+"Mata uang tidak dapat menjadi negara dan pemasaran pada saat yang bersamaan."
+
+#: crm/forms/admin_forms.py:70
+msgid "Not allowed address"
+msgstr "Alamat tidak diizinkan"
+
+#: crm/forms/admin_forms.py:90
+msgid "City does not match the country"
+msgstr "Kota tidak sesuai dengan negara"
+
+#: crm/forms/admin_forms.py:138
+msgid "Such an object already exists"
+msgstr "Objek seperti itu sudah ada."
+
+#: crm/forms/admin_forms.py:164
+msgid "Please fill in the field."
+msgstr "Silakan isi kolom ini."
+
+#: crm/forms/admin_forms.py:172
+msgid "To convert, please fill in the fields below."
+msgstr "Untuk mengonversi, silakan isi kolom-kolom di bawah ini."
+
+#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+msgid "Specify the deal amount"
+msgstr "Tentukan jumlah kesepakatan"
+
+#: crm/forms/admin_forms.py:236
+msgid "Contact does not match the company"
+msgstr "Kontak tidak sesuai dengan perusahaan"
+
+#: crm/forms/admin_forms.py:241
+msgid "Select only Contact or only Lead"
+msgstr "Pilih hanya Kontak atau hanya Prospek"
+
+#: crm/forms/admin_forms.py:246
+msgid "Select only Company or only Lead"
+msgstr "Pilih hanya Perusahaan atau hanya Prospek"
+
+#: crm/forms/admin_forms.py:325
+msgid "First select a department."
+msgstr "Pilih departemen terlebih dahulu."
+
+#: crm/forms/admin_forms.py:331
+msgid "That tag already exists."
+msgstr "Tag tersebut sudah ada."
+
+#: crm/forms/contact_form.py:13
+msgid "Your name"
+msgstr "Nama Anda"
+
+#: crm/forms/contact_form.py:17
+msgid "Your E-mail"
+msgstr "Alamat Email Anda"
+
+#: crm/forms/contact_form.py:24
+msgid "Phone number (with country code)"
+msgstr "Nomor Telepon (dengan kode negara)"
+
+#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
+#: crm/models/request.py:55
+msgid "Company name"
+msgstr "Nama Perusahaan"
+
+#: crm/forms/contact_form.py:72
+msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
+msgstr "Maaf, reCAPTCHA tidak valid. Silakan coba lagi atau kirim email."
+
+#: crm/models/base_contact.py:18 crm/models/request.py:29
+msgid "The name of the contact person (one word)."
+msgstr "Nama kontak (satu kata)."
+
+#: crm/models/base_contact.py:19 crm/models/request.py:28
+msgid "First name"
+msgstr "Nama Depan"
+
+#: crm/models/base_contact.py:23 crm/models/request.py:33
+msgid "Middle name"
+msgstr "Nama Tengah"
+
+#: crm/models/base_contact.py:24 crm/models/request.py:34
+msgid "The middle name of the contact person."
+msgstr "Nama tengah orang kontak."
+
+#: crm/models/base_contact.py:28 crm/models/request.py:39
+msgid "The last name of the contact person (one word)."
+msgstr "Nama belakang kontak orang (satu kata)."
+
+#: crm/models/base_contact.py:29 crm/models/request.py:38
+msgid "Last name"
+msgstr "Nama Belakang"
+
+#: crm/models/base_contact.py:33
+msgid "The title (position) of the contact person."
+msgstr "Judul (posisi) dari orang kontak."
+
+#: crm/models/base_contact.py:34
+msgid "Title / Position"
+msgstr "Judul/Jabatan"
+
+#: crm/models/base_contact.py:44
+msgid "Sex"
+msgstr "Jenis Kelamin"
+
+#: crm/models/base_contact.py:48
+msgid "Date of Birth"
+msgstr "Tanggal Lahir"
+
+#: crm/models/base_contact.py:52
+msgid "Secondary email"
+msgstr "Email sekunder"
+
+#: crm/models/base_contact.py:62
+msgid "Mobile phone"
+msgstr "Telepon genggam"
+
+#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
+#: crm/models/request.py:99 crm/utils/admfilters.py:33
+msgid "City"
+msgstr "Kota"
+
+#: crm/models/base_contact.py:74
+msgid "Company city"
+msgstr "Kota perusahaan"
+
+#: crm/models/base_contact.py:75 crm/models/request.py:93
+msgid "Object of City in database"
+msgstr "Objek Kota dalam basis data"
+
+#: crm/models/base_contact.py:113
+msgid "Address"
+msgstr "Alamat"
+
+#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/utils/admfilters.py:512
+msgid "Disqualified"
+msgstr "Tidak memenuhi syarat"
+
+#: crm/models/base_contact.py:129
+msgid "Use comma to separate Emails."
+msgstr "Gunakan koma untuk memisahkan Alamat Email."
+
+#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/request.py:51
+msgid "Lead Source"
+msgstr "Sumber Prospek"
+
+#: crm/models/base_contact.py:140
+msgid "Mass mailing"
+msgstr "Pemberitahuan massal melalui email"
+
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+msgid "Mailing list recipient."
+msgstr "Penerima daftar surat."
+
+#: crm/models/base_contact.py:156
+msgid "Last contact date"
+msgstr "Tanggal kontak terakhir"
+
+#: crm/models/base_contact.py:163
+msgid "Assigned to"
+msgstr "Ditugaskan ke"
+
+#: crm/models/company.py:13 crm/models/crmemail.py:59
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
+#: crm/templates/crm/print_request.html:49
+msgid "Company"
+msgstr "Perusahaan"
+
+#: crm/models/company.py:14
+msgid "Companies"
+msgstr "Perusahaan"
+
+#: crm/models/company.py:27 crm/models/country.py:21
+msgid "Alternative names"
+msgstr "Nama Alternatif"
+
+#: crm/models/company.py:28 crm/models/country.py:22
+msgid "Separate them with commas."
+msgstr "Pisahkan dengan koma."
+
+#: crm/models/company.py:34
+msgid "Website"
+msgstr "Situs Web"
+
+#: crm/models/company.py:51
+msgid "City name"
+msgstr "Nama Kota"
+
+#: crm/models/company.py:64
+msgid "Registration number"
+msgstr "Nomor Pendaftaran"
+
+#: crm/models/company.py:65
+msgid "Registration number of Company"
+msgstr "Nomor Pendaftaran Perusahaan"
+
+#: crm/models/company.py:72 crm/models/deal.py:109
+msgid "country"
+msgstr "negara"
+
+#: crm/models/company.py:73
+msgid "Company Country"
+msgstr "Negara Perusahaan"
+
+#: crm/models/company.py:80 crm/models/lead.py:44
+msgid "Type of company"
+msgstr "Jenis perusahaan"
+
+#: crm/models/company.py:85 crm/models/lead.py:49
+msgid "Industry of company"
+msgstr "Industri Perusahaan"
+
+#: crm/models/contact.py:12
+msgid "Contact person"
+msgstr "Orang kontak"
+
+#: crm/models/contact.py:13
+msgid "Contact persons"
+msgstr "Orang-orang kontak"
+
+#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
+#: crm/models/request.py:73
+msgid "Company of contact"
+msgstr "Perusahaan kontak"
+
+#: crm/models/country.py:6
+msgid "has already been assigned to the city"
+msgstr "sudah ditetapkan untuk kota tersebut"
+
+#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+msgid "Countries"
+msgstr "Negara-negara"
+
+#: crm/models/country.py:44
+msgid "Cities"
+msgstr "Kota-kota"
+
+#: crm/models/crmemail.py:11
+#: crm/templates/admin/crm/company/change_form_object_tools.html:4
+#: crm/templates/admin/crm/inline_emails.html:18
+#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+msgid "Email"
+msgstr "Email"
+
+#: crm/models/crmemail.py:12
+msgid "Emails in CRM"
+msgstr "Email di CRM"
+
+#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
+#: crm/models/crmemail.py:30
+msgid "You can specify multiple addresses, separated by commas"
+msgstr "Anda dapat menentukan beberapa alamat, dipisahkan dengan tanda koma."
+
+#: crm/models/crmemail.py:22
+msgid "The Email address of sender"
+msgstr "Alamat surel pengirim"
+
+#: crm/models/crmemail.py:38
+msgid "Request a read receipt"
+msgstr "Meminta pemberitahuan sudah dibaca"
+
+#: crm/models/crmemail.py:39
+msgid "Not supported by all mail services."
+msgstr "Tidak didukung oleh semua layanan surel."
+
+#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
+#: crm/site/shipmentadmin.py:269
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: crm/templates/admin/crm/request/change_form_object_tools.html:7
+#: tasks/models/memo.py:65
+msgid "Deal"
+msgstr "Kesepakatan"
+
+#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
+#: crm/models/request.py:64
+msgid "Lead"
+msgstr "Memimpin"
+
+#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
+#: crm/models/request.py:68
+#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+msgid "Contact"
+msgstr "Kontak"
+
+#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
+#: crm/site/requestadmin.py:435
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Request"
+msgstr "Permintaan"
+
+#: crm/models/deal.py:14
+#: crm/templates/admin/crm/company/change_form_object_tools.html:18
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+msgid "Deals"
+msgstr "Penawaran"
+
+#: crm/models/deal.py:19
+msgid "Deal name"
+msgstr "Nama Kesepakatan"
+
+#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+msgid "Next step"
+msgstr "Langkah selanjutnya"
+
+#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+msgid "Describe briefly what needs to be done in the next step."
+msgstr ""
+"Jelaskan secara singkat apa yang perlu dilakukan pada langkah berikutnya."
+
+#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+msgid "Step date"
+msgstr "Tanggal Langkah"
+
+#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+msgid "Date to which the next step should be taken."
+msgstr "Tanggal hingga langkah selanjutnya harus diambil."
+
+#: crm/models/deal.py:51
+msgid "Dates of the stages"
+msgstr "Tanggal Tahapan"
+
+#: crm/models/deal.py:52
+msgid "Dates of passing the stages"
+msgstr "Tanggal Penyeberangan Tahapan"
+
+#: crm/models/deal.py:57
+msgid "Date of deal closing"
+msgstr "Tanggal Penutupan Kesepakatan"
+
+#: crm/models/deal.py:62
+msgid "Date of won deal closing"
+msgstr "Tanggal Penutupan Penawaran Kesepakatan yang Dimenangkan"
+
+#: crm/models/deal.py:71
+msgid "Total deal amount without VAT"
+msgstr "Jumlah total kesepakatan tanpa PPN"
+
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
+#: crm/models/product.py:49
+msgid "Currency"
+msgstr "Mata Uang"
+
+#: crm/models/deal.py:85 crm/models/others.py:101
+msgid "Closing reason"
+msgstr "Alasan Penutupan"
+
+#: crm/models/deal.py:90
+msgid "Probability (%)"
+msgstr "Kemungkinan (%)"
+
+#: crm/models/deal.py:148
+msgid "Partner contact"
+msgstr "Kontak mitra"
+
+#: crm/models/deal.py:151
+msgid "Contact person of dealer or distribution company"
+msgstr "Orang kontak dari perusahaan dealer atau distribusi"
+
+#: crm/models/deal.py:156
+msgid "Relevant"
+msgstr "Relevan"
+
+#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+msgid "Important"
+msgstr "Penting"
+
+#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+msgid "Remind me."
+msgstr "Ingatkan saya."
+
+#: crm/models/lead.py:13
+msgid "Leads"
+msgstr "Prospek"
+
+#: crm/models/lead.py:29
+msgid "Company phone"
+msgstr "Telepon perusahaan"
+
+#: crm/models/lead.py:33
+msgid "Company address"
+msgstr "Alamat Perusahaan"
+
+#: crm/models/lead.py:37
+msgid "Company email"
+msgstr "Email perusahaan"
+
+#: crm/models/others.py:27
+msgid "Type of Clients"
+msgstr "Jenis Klien"
+
+#: crm/models/others.py:28
+msgid "Types of Clients"
+msgstr "Jenis Klien"
+
+#: crm/models/others.py:33
+msgid "Industry of Clients"
+msgstr "Industri Klien"
+
+#: crm/models/others.py:34
+msgid "Industries of Clients"
+msgstr "Industri Klien"
+
+#: crm/models/others.py:42
+msgid "Second default"
+msgstr "Kedua bawaan"
+
+#: crm/models/others.py:43
+msgid "Will be selected next after the default stage."
+msgstr "Akan dipilih berikutnya setelah tahap standar."
+
+#: crm/models/others.py:47
+msgid "success stage"
+msgstr "tahap keberhasilan"
+
+#: crm/models/others.py:51
+msgid "conditional success stage"
+msgstr "tahap kesuksesan bersyarat"
+
+#: crm/models/others.py:52
+msgid "For example, receiving the first payment"
+msgstr "Sebagai contoh, menerima pembayaran pertama"
+
+#: crm/models/others.py:56
+msgid "goods shipped"
+msgstr "barang dikirim"
+
+#: crm/models/others.py:57
+msgid "Have the goods been shipped at this stage already?"
+msgstr "Apakah barang sudah dikirim pada tahap ini?"
+
+#: crm/models/others.py:64
+msgid "Lead Sources"
+msgstr "Sumber Prospek"
+
+#: crm/models/others.py:76
+msgid "form template name"
+msgstr "nama templat formulir"
+
+#: crm/models/others.py:77 crm/models/others.py:82
+msgid "The name of the html template file if needed."
+msgstr "Nama berkas templat HTML jika diperlukan."
+
+#: crm/models/others.py:81
+msgid "success page template name"
+msgstr "nama templat halaman keberhasilan"
+
+#: crm/models/others.py:90
+msgid ""
+"Reason rating.         The indices of other instances will be sorted "
+"automatically."
+msgstr ""
+"Penilaian Alasan. Indeks dari instansi lainnya akan diurutkan secara "
+"otomatis."
+
+#: crm/models/others.py:95
+msgid "success reason"
+msgstr "alasan keberhasilan"
+
+#: crm/models/others.py:102
+msgid "Closing reasons"
+msgstr "Alasan Penutupan"
+
+#: crm/models/output.py:10
+msgid "Output"
+msgstr "Keluaran"
+
+#: crm/models/output.py:11
+msgid "Outputs"
+msgstr "Hasil Produksi"
+
+#: crm/models/output.py:24
+msgid "Quantity"
+msgstr "Jumlah"
+
+#: crm/models/output.py:28
+msgid "Shipping date"
+msgstr "Tanggal Pengiriman"
+
+#: crm/models/output.py:29
+msgid "Shipment date as per contract"
+msgstr "Tanggal pengiriman sesuai dengan kontrak"
+
+#: crm/models/output.py:33
+msgid "Planned shipping date"
+msgstr "Tanggal Pengiriman yang Diplanalkan"
+
+#: crm/models/output.py:37
+msgid "Actual shipping date"
+msgstr "Tanggal pengiriman aktual"
+
+#: crm/models/output.py:38
+msgid "Date when the product was shipped"
+msgstr "Tanggal pengiriman produk"
+
+#: crm/models/output.py:42
+msgid "Shipped"
+msgstr "Terkirim"
+
+#: crm/models/output.py:43
+msgid "Product is shipped"
+msgstr "Produk telah dikirim"
+
+#: crm/models/output.py:47
+msgid "serial number"
+msgstr "nomor seri"
+
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "Jumlahnya wajib diisi."
+
+#: crm/models/output.py:69
+msgid "Shipment"
+msgstr "Pengiriman"
+
+#: crm/models/output.py:70
+msgid "Shipments"
+msgstr "Pengiriman"
+
+#: crm/models/payment.py:17
+msgid "Currencies"
+msgstr "Mata Uang"
+
+#: crm/models/payment.py:21
+msgid "Alphabetic Code for the Representation of Currencies."
+msgstr "Kode Alfabet untuk Representasi Mata Uang."
+
+#: crm/models/payment.py:26 crm/models/payment.py:198
+msgid "Rate to state currency"
+msgstr "Kurs ke mata uang negara"
+
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
+msgid "Exchange rate against the state currency."
+msgstr "Kurs tukar terhadap mata uang negara."
+
+#: crm/models/payment.py:32 crm/models/payment.py:203
+msgid "Rate to marketing currency"
+msgstr "Kurs ke mata uang pemasaran"
+
+#: crm/models/payment.py:37
+msgid "Is it the state currency?"
+msgstr "Apakah ini mata uang negara?"
+
+#: crm/models/payment.py:41
+msgid "Is it the marketing currency?"
+msgstr "Apakah ini mata uang pemasaran?"
+
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "Mata uang ini tunduk pada pembaruan otomatis."
+
+#: crm/models/payment.py:71
+msgid "without VAT"
+msgstr "tanpa PPN"
+
+#: crm/models/payment.py:82
+msgid "Please specify a currency."
+msgstr "Silakan tentukan mata uangnya."
+
+#: crm/models/payment.py:92
+msgid "Payment"
+msgstr "Pembayaran"
+
+#: crm/models/payment.py:93
+msgid "Payments"
+msgstr "Pembayaran"
+
+#: crm/models/payment.py:100
+msgid "received"
+msgstr "diterima"
+
+#: crm/models/payment.py:101
+msgid "guaranteed"
+msgstr "dijamin"
+
+#: crm/models/payment.py:102
+msgid "high probability"
+msgstr "kemungkinan tinggi"
+
+#: crm/models/payment.py:103
+msgid "low probability"
+msgstr "kemungkinan rendah"
+
+#: crm/models/payment.py:118
+msgid "Payment status"
+msgstr "Status Pembayaran"
+
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+msgid "contract number"
+msgstr "nomor kontrak"
+
+#: crm/models/payment.py:126
+msgid "invoice number"
+msgstr "nomor faktur"
+
+#: crm/models/payment.py:130
+msgid "order number"
+msgstr "nomor pesanan"
+
+#: crm/models/payment.py:134
+msgid "Payment through representative office"
+msgstr "Pembayaran melalui kantor perwakilan"
+
+#: crm/models/payment.py:157
+msgid "Payment share"
+msgstr "Bagikan Pembayaran"
+
+#: crm/models/payment.py:177
+msgid "Currency rate"
+msgstr "Kurs Valuta"
+
+#: crm/models/payment.py:178
+msgid "Currency rates"
+msgstr "Kurs Valuta"
+
+#: crm/models/payment.py:183
+msgid "approximate currency rate"
+msgstr "kurs mata uang perkiraan"
+
+#: crm/models/payment.py:184
+msgid "official currency rate"
+msgstr "kurs resmi mata uang"
+
+#: crm/models/payment.py:194
+msgid "Currency rate date"
+msgstr "Tanggal Kurs Valuta"
+
+#: crm/models/payment.py:210
+msgid "Exchange rate type"
+msgstr "Jenis Kurs Valuta Asing"
+
+#: crm/models/product.py:9 crm/models/product.py:69
+msgid "Product category"
+msgstr "Kategori Produk"
+
+#: crm/models/product.py:10
+msgid "Product categories"
+msgstr "Kategori Produk"
+
+#: crm/models/product.py:55
+msgid "On sale"
+msgstr "Dalam Promosi"
+
+#: crm/models/product.py:58
+msgid "Goods"
+msgstr "Barang"
+
+#: crm/models/product.py:59
+msgid "Service"
+msgstr "Layanan"
+
+#: crm/models/product.py:64 voip/models.py:21
+msgid "Type"
+msgstr "Tipe"
+
+#: crm/models/request.py:20
+msgid "Requests"
+msgstr "Permintaan"
+
+#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+msgid "Request for"
+msgstr "Permintaan untuk"
+
+#: crm/models/request.py:50
+msgid "Lead source"
+msgstr "Sumber Prospek"
+
+#: crm/models/request.py:59
+msgid "Date of receipt"
+msgstr "Tanggal Penerimaan"
+
+#: crm/models/request.py:60
+msgid "Date of receipt of the request."
+msgstr "Tanggal penerimaan permintaan."
+
+#: crm/models/request.py:107 crm/site/dealadmin.py:671
+msgid "Translation"
+msgstr "Terjemahan"
+
+#: crm/models/request.py:111
+msgid "Remark"
+msgstr "Catatan"
+
+#: crm/models/request.py:115
+msgid "Pending"
+msgstr "Menunggu"
+
+#: crm/models/request.py:116
+msgid "Waiting for validation of fields filling"
+msgstr "Menunggu validasi pengisian bidang"
+
+#: crm/models/request.py:120
+msgid "Subsequent"
+msgstr "Selanjutnya"
+
+#: crm/models/request.py:122
+msgid "Received from the client with whom you are already cooperate"
+msgstr "Diterima dari klien yang sudah bekerja sama dengan Anda"
+
+#: crm/models/request.py:126
+msgid "Duplicate"
+msgstr "Salinan/Duplikat"
+
+#: crm/models/request.py:127
+msgid "Duplicate request. The deal will not be created."
+msgstr "Permintaan duplikat. Kesepakatan tidak akan dibuat."
+
+#: crm/models/request.py:131 help/models.py:125
+msgid "Verification required"
+msgstr "Verifikasi diperlukan"
+
+#: crm/models/request.py:132
+msgid "Links are set automatically and require verification."
+msgstr "Tautan diatur secara otomatis dan memerlukan verifikasi."
+
+#: crm/models/request.py:148 crm/models/request.py:149
+msgid "Company and contact person do not match."
+msgstr "Perusahaan dan orang kontak tidak cocok."
+
+#: crm/models/request.py:153 crm/models/request.py:154
+msgid "Specify the contact person or lead. But not both."
+msgstr "Tentukan orang kontak atau prospek. Jangan keduanya."
+
+#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+msgid "Tag"
+msgstr "Label"
+
+#: crm/models/tag.py:14 tasks/models/tag.py:12
+msgid "Tag name"
+msgstr "Nama Tag"
+
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "saingan atau kompetitor"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "pelanggan akhir"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "perantara atau penjual kembali"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "penjual resmi"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "distributór"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "institusi pendidikan"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "perusahaan layanan"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "penyolder"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "konstruksi kapital"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "industri otomotif"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "pembangunan kapal"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "metalurgi"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "pembangkitan tenaga listrik"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "pipa saluran"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "pembuatan pipa"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "minyak dan gas"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "aviasi"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "kereta api"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "pertambangan"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "permintaan"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "analisis permintaan"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "klarifikasi persyaratan"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "penawaran harga"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "penawaran komersial"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "penawaran teknis dan komersial"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "kesepakatan"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "faktur"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "menerima pembayaran pertama"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "pengiriman"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "tertutup (berhasil)"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "Klien tidak merespons"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "Spesifikasi tidak sesuai"
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "Kesepakatan berhasil ditutup"
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "Pembelian ditunda"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "Harga tidak kompetitif"
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "formulir situs web"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "email situs web"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "pameran"
+
+#: crm/settings.py:46
+msgid "Establish the first contact with the client."
+msgstr "Membangun kontak awal dengan klien."
+
+#: crm/site/companyadmin.py:25
+msgid ""
+"Attention! You can only view companies associated with your department."
+msgstr ""
+"Perhatian! Anda hanya dapat melihat perusahaan yang terkait dengan "
+"departemen Anda."
+
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+msgid "Warning:"
+msgstr "Peringatan:"
+
+#: crm/site/companyadmin.py:210
+msgid "Owner will also be changed for contact persons."
+msgstr "Pemilik untuk kontak orang-orang juga akan diubah."
+
+#: crm/site/companyadmin.py:223
+msgid "Change owner of selected Companies"
+msgstr "Ubah pemilik Perusahaan yang dipilih"
+
+#: crm/site/crmadminsite.py:22
+msgid "Your Excel file"
+msgstr "Berkas Excel Anda"
+
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: massmail/site/emlmessageadmin.py:133
+msgid "Signature"
+msgstr "Tanda Tangan"
+
+#: crm/site/crmemailadmin.py:31
+msgid "Please note that this is a list of unsent emails."
+msgstr "Harap diperhatikan bahwa ini adalah daftar email yang belum terkirim."
+
+#: crm/site/crmemailadmin.py:143
+msgid "Emails in the CRM database."
+msgstr "Email dalam basis data CRM."
+
+#: crm/site/crmemailadmin.py:350
+msgid "Box"
+msgstr "Kotak"
+
+#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+msgid "Content"
+msgstr "Isi"
+
+#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+msgid "Previous correspondence"
+msgstr "Korespondensi sebelumnya"
+
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/utils/import_emails.py:192
+msgid "No subject"
+msgstr "Tanpa Subjek"
+
+#: crm/site/crmmodeladmin.py:61
+msgid "View website in new tab"
+msgstr "Lihat situs web di tab baru"
+
+#: crm/site/crmmodeladmin.py:62
+msgid "Callback to smartphone"
+msgstr "Panggilan balik ke ponsel cerdas"
+
+#: crm/site/crmmodeladmin.py:63
+msgid "Callback to your smartphone"
+msgstr "Panggilan balik ke ponsel cerdas Anda"
+
+#: crm/site/crmmodeladmin.py:64
+msgid "Skype chat"
+msgstr "Obrolan Skype"
+
+#: crm/site/crmmodeladmin.py:65
+msgid "Chat or Skype call"
+msgstr "Obrolan atau Panggilan Skype"
+
+#: crm/site/crmmodeladmin.py:66
+msgid "Skype call"
+msgstr "Panggilan Skype"
+
+#: crm/site/crmmodeladmin.py:67
+msgid "To call a mobile or landline from Skype"
+msgstr "Untuk menelepon ponsel atau telepon tetap dari Skype"
+
+#: crm/site/crmmodeladmin.py:68
+msgid "Viber chat"
+msgstr "Obrolan Viber"
+
+#: crm/site/crmmodeladmin.py:69
+msgid "Chat or viber call"
+msgstr "Obrolan atau panggilan Viber"
+
+#: crm/site/crmmodeladmin.py:70
+msgid "WhatsApp chat"
+msgstr "Obrolan WhatsApp"
+
+#: crm/site/crmmodeladmin.py:71
+msgid "Chat or WhatsApp call"
+msgstr "Obrolan atau panggilan WhatsApp"
+
+#: crm/site/crmmodeladmin.py:76
+msgid "Signed up for email newsletters"
+msgstr "Berlangganan buletin berita melalui email"
+
+#: crm/site/crmmodeladmin.py:78
+msgid "Unsubscribed from email newsletters"
+msgstr "Berhenti berlangganan buletin berita melalui email"
+
+#: crm/site/crmmodeladmin.py:276
+msgid "Create Email"
+msgstr "Buat Email"
+
+#: crm/site/crmmodeladmin.py:341
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                        Friday, Saturday, Sunday."
+msgstr ""
+"Perhatikan bahwa pengiriman email massal tidak dilakukan pada hari-hari "
+"berikut: Jumat, Sabtu, Minggu."
+
+#: crm/site/crmmodeladmin.py:371
+msgid "Messengers"
+msgstr "Utusan"
+
+#: crm/site/currencyadmin.py:35
+msgid "State currency must be specified."
+msgstr "Mata uang negara harus ditentukan."
+
+#: crm/site/currencyadmin.py:40
+msgid "Marketing currency must be specified."
+msgstr "Mata uang pemasaran harus ditentukan."
+
+#: crm/site/dealadmin.py:52
+msgid "Closing date"
+msgstr "Tanggal Penutupan"
+
+#: crm/site/dealadmin.py:58
+msgid "View Contact in new tab"
+msgstr "Lihat Kontak di tab baru"
+
+#: crm/site/dealadmin.py:59
+msgid "View Company in new tab"
+msgstr "Lihat Perusahaan di Tab Baru"
+
+#: crm/site/dealadmin.py:62
+msgid "Deal counter"
+msgstr "Penghitung Kesepakatan"
+
+#: crm/site/dealadmin.py:63
+msgid "View Lead in new tab"
+msgstr "Lihat Prospek di Tab Baru"
+
+#: crm/site/dealadmin.py:64
+msgid "Unanswered email"
+msgstr "Email tanpa jawaban"
+
+#: crm/site/dealadmin.py:68
+msgid "Unread chat message"
+msgstr "Pesan obrolan belum dibaca"
+
+#: crm/site/dealadmin.py:71
+msgid "Payment received"
+msgstr "Pembayaran Diterima"
+
+#: crm/site/dealadmin.py:74
+msgid "Specify the date of shipment"
+msgstr "Tentukan tanggal pengiriman"
+
+#: crm/site/dealadmin.py:77
+msgid "Specify products"
+msgstr "Tentukan produk"
+
+#: crm/site/dealadmin.py:80
+msgid "Expired shipment date"
+msgstr "Tanggal pengiriman telah kadaluarsa"
+
+#: crm/site/dealadmin.py:87
+msgid "Relevant deal"
+msgstr "Kesepakatan relevan"
+
+#: crm/site/dealadmin.py:158
+msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
+msgstr "Kesepakatan dengan ID '{}' tidak ada. Mungkin telah dihapus?"
+
+#: crm/site/dealadmin.py:221
+msgid "View the Request"
+msgstr "Lihat Permintaan"
+
+#: crm/site/dealadmin.py:536
+msgid "Create Email to Contact"
+msgstr "Buat Email untuk Kontak"
+
+#: crm/site/dealadmin.py:539
+msgid "Create Email to Lead"
+msgstr "Buat Email ke Pemimpin"
+
+#: crm/site/dealadmin.py:579
+msgid "Important deal"
+msgstr "Kesepakatan Penting"
+
+#: crm/site/dealadmin.py:603
+#, python-format
+msgid "I have been waiting for an answer to my request for %d days"
+msgstr "Saya telah menunggu jawaban atas permintaan saya selama %d hari."
+
+#: crm/site/dealadmin.py:633
+msgid "Expected"
+msgstr "Diharapkan"
+
+#: crm/site/dealadmin.py:641
+msgid "Paid"
+msgstr "Dibayar"
+
+#: crm/site/dealadmin.py:696
+msgid "Contact is Lead (no company)"
+msgstr "Kontak adalah Pimpinan (bukan perusahaan)"
+
+#: crm/site/leadadmin.py:118
+msgid "Person contact details"
+msgstr "Detail kontak pribadi"
+
+#: crm/site/leadadmin.py:127
+msgid "Additional person details"
+msgstr "Detail informasi tambahan orang"
+
+#: crm/site/leadadmin.py:140
+msgid "Company contact details"
+msgstr "Detail kontak perusahaan"
+
+#: crm/site/leadadmin.py:249
+#, python-brace-format
+msgid "The lead \"{obj}\" has been converted successfully."
+msgstr "Prospek \"{obj}\" telah berhasil diubah."
+
+#: crm/site/leadadmin.py:264
+msgid "This Lead is disqualified! Please read the description."
+msgstr "Prospek ini tidak memenuhi syarat! Silakan baca deskripsinya."
+
+#: crm/site/requestadmin.py:38
+msgid "Client Loyalty"
+msgstr "Kesetiaan Pelanggan"
+
+#: crm/site/requestadmin.py:45
+msgid "Country not specified in request"
+msgstr "Negara tidak ditentukan dalam permintaan"
+
+#: crm/site/requestadmin.py:46
+msgid "You received the deal"
+msgstr "Anda menerima kesepakatan"
+
+#: crm/site/requestadmin.py:47
+msgid "You are the co-owner of the deal"
+msgstr "Anda ditunjuk sebagai pemilik bersama kesepakatan baru."
+
+#: crm/site/requestadmin.py:53
+msgid "Primary request"
+msgstr "Permintaan utama"
+
+#: crm/site/requestadmin.py:54
+msgid "You are the co-owner of the request"
+msgstr "Anda ditunjuk sebagai co-pemilik permintaan baru."
+
+#: crm/site/requestadmin.py:55
+msgid "You received the request"
+msgstr "Anda menerima permintaan"
+
+#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: tasks/models/to_translate.txt:2
+msgid "pending"
+msgstr "menunggu"
+
+#: crm/site/requestadmin.py:57
+msgid "processed"
+msgstr "diproses"
+
+#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+msgid "Status"
+msgstr "Status"
+
+#: crm/site/requestadmin.py:62
+msgid "Subsequent request"
+msgstr "Permintaan selanjutnya"
+
+#: crm/site/requestadmin.py:389
+msgid "Found the counterparty assigned to"
+msgstr "Menemukan pihak lawan yang ditunjuk untuk"
+
+#: crm/site/requestadmin.py:488
+#, python-brace-format
+msgid "The {name} “{obj}” was added successfully."
+msgstr "{name} \"{obj}\" berhasil ditambahkan."
+
+#: crm/site/shipmentadmin.py:26
+msgid "actual"
+msgstr "nyata"
+
+#: crm/site/shipmentadmin.py:27
+msgid "Actual shipping date."
+msgstr "Tanggal pengiriman aktual."
+
+#: crm/site/shipmentadmin.py:32
+msgid "Deal is paid."
+msgstr "Kesepakatan telah dibayar."
+
+#: crm/site/shipmentadmin.py:33
+msgid "Next<br>payment"
+msgstr "Pembayaran<br>berikutnya"
+
+#: crm/site/shipmentadmin.py:34
+msgid "order"
+msgstr "pesanan"
+
+#: crm/site/shipmentadmin.py:37
+msgid "The product has not been shipped yet."
+msgstr "Produk tersebut belum dikirimkan."
+
+#: crm/site/shipmentadmin.py:38
+msgid "The product has been shipped."
+msgstr "Produk telah dikirim."
+
+#: crm/site/shipmentadmin.py:40
+msgid "Product shipment"
+msgstr "Pengiriman Produk"
+
+#: crm/site/shipmentadmin.py:41
+msgid "to contract"
+msgstr "menandatangani kontrak"
+
+#: crm/site/shipmentadmin.py:42
+msgid "Date of shipment according to a contract."
+msgstr "Tanggal pengiriman sesuai dengan kontrak."
+
+#: crm/site/shipmentadmin.py:47
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/request/change_form_object_tools.html:5
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+msgid "View the deal"
+msgstr "Lihat kesepakatan"
+
+#: crm/site/shipmentadmin.py:254
+msgid "paid"
+msgstr "dibayar"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the error below."
+msgstr "Silakan perbaiki kesalahan berikut."
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the errors below."
+msgstr "Silakan perbaiki kesalahan berikut."
+
+#: crm/templates/admin/crm/city/submit_line.html:5
+#: crm/templates/admin/crm/company/submit_line.html:5
+#: crm/templates/admin/crm/contact/submit_line.html:5
+#: crm/templates/admin/crm/crmemail/submit_line.html:15
+#: crm/templates/admin/crm/deal/submit_line.html:5
+#: crm/templates/admin/crm/lead/submit_line.html:5
+#: crm/templates/admin/crm/payment/submit_line.html:5
+#: crm/templates/admin/crm/request/submit_line.html:5
+#: crm/templates/admin/crm/shipment/submit_line.html:5
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+msgid "Save as new"
+msgstr "Simpan sebagai yang baru"
+
+#: crm/templates/admin/crm/city/submit_line.html:6
+#: crm/templates/admin/crm/company/submit_line.html:6
+msgid "Save and add another"
+msgstr "Simpan dan tambahkan lagi"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:9
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+msgid "Сorrespondence"
+msgstr "Korespondenasi"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+msgid "Contacts"
+msgstr "Kontak Orang"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:32
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+msgid "Got massmails"
+msgstr "Mendapatkan email massal"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:33
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+msgid "Massmails"
+msgstr "Surat Berantai"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:40
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
+#: help/templates/admin/help/page/change_form_object_tools.html:3
+msgid "Open in Admin"
+msgstr "Buka di Admin"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:14
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+msgid "Make Massmail"
+msgstr "Buat Kirim Email Massal"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:25
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+msgid "Export all"
+msgstr "Ekspor Semua"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
+#: crm/templates/admin/crm/inline_emails.html:37
+msgid "reply all"
+msgstr "balas semua"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
+#: crm/templates/admin/crm/inline_emails.html:38
+msgid "forward"
+msgstr "Teruskan"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "View next email"
+msgstr "Lihat email berikutnya"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "Next"
+msgstr "Selanjutnya"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "View previous email"
+msgstr "Lihat email sebelumnya"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "Previous"
+msgstr "Sebelumnya"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+msgid "View the request"
+msgstr "Lihat Permintaan"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
+#: crm/templates/admin/crm/inline_emails.html:27
+msgid "View original email"
+msgstr "Lihat email asli"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
+#: crm/templates/admin/crm/inline_emails.html:32
+msgid "Download the original email as an EML file."
+msgstr "Unduh surel asli sebagai berkas EML."
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
+#: crm/templates/admin/crm/inline_emails.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+msgid "Print preview"
+msgstr "Pratinjau Cetak"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: crm/templates/admin/crm/inline_emails.html:35
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
+msgid "Change"
+msgstr "Ubah"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: help/templates/admin/help/stacked.html:16
+msgid "View"
+msgstr "Lihat"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:6
+msgid "Reply"
+msgstr "Balas"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:7
+msgid "Reply all"
+msgstr "Balas semua"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:8
+msgid "Forward"
+msgstr "Teruskan"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+msgid "View office memos"
+msgstr "Lihat memo kantor"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+msgid "Office memos"
+msgstr "Catatan Kantor"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Add"
+msgstr "Tambah"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+msgid "Office memo"
+msgstr "Catatan Kantor"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+msgid "View the correspondence on this Deal"
+msgstr "Lihat korespondensi pada Kesepakatan ini"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+msgid "Import Email regarding this Deal"
+msgstr "Impor Email mengenai Kesepakatan Ini"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+msgid "View Deals with this Company"
+msgstr "Lihat Kesepakatan dengan Perusahaan Ini"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+msgid "View the history of changes for this Deal"
+msgstr "Lihat riwayat perubahan untuk Kesepakatan ini"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+msgid "Toggle default deal sorting"
+msgstr "Alihkan pengurutan kesepakatan standar"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+msgid "A deal is created based on a request"
+msgstr "Kesepakatan dibuat berdasarkan permintaan"
+
+#: crm/templates/admin/crm/inline_emails.html:6
+msgid "Last few letters"
+msgstr "Beberapa huruf terakhir"
+
+#: crm/templates/admin/crm/inline_emails.html:51
+msgid "Date"
+msgstr "Tanggal"
+
+#: crm/templates/admin/crm/inline_emails.html:61
+msgid "View or Download"
+msgstr "Lihat atau Unduh"
+
+#: crm/templates/admin/crm/lead/submit_line.html:9
+msgid "Convert"
+msgstr "Konversi"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "Total sum"
+msgstr "Jumlah total"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "with VAT"
+msgstr "termasuk PPN"
+
+#: crm/templates/admin/crm/payment/change_list.html:63
+msgid "Filter"
+msgstr "Penyaring"
+
+#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+msgid "Import Email regarding this Request"
+msgstr "Impor Email terkait Permintaan Ini"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+msgid "Create a request based on an email."
+msgstr "Buat permintaan berdasarkan surel."
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+msgid "Import request from"
+msgstr "Impor permintaan dari"
+
+#: crm/templates/admin/crm/request/submit_line.html:8
+msgid "Create deal"
+msgstr "Buat kesepakatan"
+
+#: crm/templates/crm/addfiles.html:20
+msgid "Please select files to attach to the letter."
+msgstr "Silakan pilih berkas yang ingin dilampirkan ke surat ini."
+
+#: crm/templates/crm/change_owner_companies.html:20
+msgid ""
+"Please choose a new owner for selected Companies and their Contact persons"
+msgstr ""
+"Silakan pilih pemilik baru untuk Perusahaan dan Orang Kontak yang dipilih."
+
+#: crm/templates/crm/del_duplicate_button.html:5
+msgid "Correctly delete this object as a duplicate."
+msgstr "Hapus objek ini dengan benar sebagai duplikat."
+
+#: crm/templates/crm/filter_scroll.html:4
+#: templates/admin/crm_date_filter.html:7
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "Berdasarkan %(filter_title)s"
+
+#: crm/templates/crm/import_objects.html:20
+msgid "Please select a file to import."
+msgstr "Silakan pilih berkas yang ingin diimpor."
+
+#: crm/templates/crm/import_objects.html:34
+msgid ""
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
+msgstr ""
+"Hanya kolom-kolom berikut yang akan diimpor jika ada (urutan tidak penting):"
+
+#: crm/templates/crm/make_massmail.html:22
+msgid "Make a choice"
+msgstr "Buatlah pilihan"
+
+#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
+#: crm/templates/crm/print_request.html:5
+#: crm/templates/crm/print_request.html:26
+msgid "Print"
+msgstr "Cetak"
+
+#: crm/templates/crm/print_request.html:36
+msgid "Received"
+msgstr "Diterima"
+
+#: crm/templates/crm/print_request.html:37
+msgid "Prepared"
+msgstr "Disiapkan"
+
+#: crm/templates/crm/select_original_obj.html:32
+msgid "Select the original to which the linked objects will be reconnected."
+msgstr ""
+"Pilih aslinya, ke mana objek-objek yang terhubung akan bergabung kembali."
+
+#: crm/utils/admfilters.py:188
+msgid "Last month"
+msgstr "Bulan lalu"
+
+#: crm/utils/admfilters.py:197
+msgid "First half of the year"
+msgstr "Paruh pertama tahun"
+
+#: crm/utils/admfilters.py:206
+msgid "Nine months of this year"
+msgstr "Sembilan bulan dalam tahun ini"
+
+#: crm/utils/admfilters.py:214
+msgid "Second half of the last year"
+msgstr "Paruh kedua tahun lalu"
+
+#: crm/utils/admfilters.py:417
+msgid "changed by chiefs"
+msgstr "dirubah oleh para pemimpin"
+
+#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
+#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
+#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+msgid "Yes"
+msgstr "Ya"
+
+#: crm/utils/admfilters.py:437
+msgid "Partner"
+msgstr "Mitra"
+
+#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: tasks/utils/admfilters.py:218
+msgid "No"
+msgstr "Tidak"
+
+#: crm/utils/admfilters.py:498
+msgid "Has Contacts"
+msgstr "Memiliki Kontak"
+
+#: crm/utils/admfilters.py:564
+msgid "mailbox"
+msgstr "kotak surat"
+
+#: crm/utils/admfilters.py:583
+msgid "inbox"
+msgstr "kotak masuk"
+
+#: crm/utils/admfilters.py:584
+msgid "sent"
+msgstr "terkirim"
+
+#: crm/utils/admfilters.py:585
+#, python-brace-format
+msgid "outbox ({num})"
+msgstr "kotak keluar ({num})"
+
+#: crm/utils/admfilters.py:586
+msgid "trash"
+msgstr "tempat sampah"
+
+#: crm/utils/helpers.py:30
+msgid "No deal amount"
+msgstr "Tidak ada jumlah kesepakatan"
+
+#: crm/utils/helpers.py:31
+msgid "Unacceptable phone number value"
+msgstr "Nilai nomor telepon tidak dapat diterima"
+
+#: crm/utils/helpers.py:32
+msgid "Counterparty"
+msgstr "Pihak Bertransaksi"
+
+#: crm/utils/make_massmail_form.py:28
+msgid ""
+"Error: The date you set as 'Created before' has to be later \n"
+"                than the date of 'Created after'."
+msgstr ""
+"Kesalahan: Tanggal yang Anda atur sebagai 'Dibuat sebelum' harus lebih akhir"
+" daripada tanggal 'Dibuat setelah'."
+
+#: crm/utils/make_massmail_form.py:42
+msgid "Industries"
+msgstr "Industri"
+
+#: crm/utils/make_massmail_form.py:56
+msgid "Types"
+msgstr "Jenis"
+
+#: crm/utils/make_massmail_form.py:61
+msgid "Created before"
+msgstr "Dibuat sebelum"
+
+#: crm/utils/make_massmail_form.py:66
+msgid "Created after"
+msgstr "Dibuat setelah"
+
+#: crm/utils/restore_imap_emails.py:40
+#, python-format
+msgid "Received an email from \"%s\""
+msgstr "Menerima surel dari \"%s\""
+
+#: crm/utils/send_email.py:22
+#, python-format
+msgid "The Email has been sent to \"%s\""
+msgstr "Email telah dikirim ke \"%s\""
+
+#: crm/utils/send_email.py:30
+msgid "Please fill in the subject and text of the letter."
+msgstr "Silakan isi subjek dan teks surat."
+
+#: crm/utils/send_email.py:34
+msgid "To send a message you need to have an email account marked as main."
+msgstr ""
+"Untuk mengirim pesan, Anda perlu memiliki akun surel yang ditandai sebagai "
+"utama."
+
+#: crm/utils/send_email.py:72
+#, python-format
+msgid "Failed: %s"
+msgstr "Gagal: %s"
+
+#: crm/views/change_owner_companies.py:33
+msgid "Owner changed successfully"
+msgstr "Pemilik berhasil diubah"
+
+#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+msgid "Dear {}, thanks for your request!"
+msgstr "Terima kasih atas permintaan Anda, {}!"
+
+#: crm/views/create_email.py:35
+msgid "No recipient"
+msgstr "Tidak ada penerima"
+
+#: crm/views/delete_duplicate_object.py:80
+msgid "The duplicate object has been correctly deleted."
+msgstr "Objek duplikat telah dihapus dengan benar."
+
+#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+msgid "Not enough data to identify the email or email has been deleted"
+msgstr ""
+"Tidak cukup data untuk mengidentifikasi email atau email telah dihapus"
+
+#: crm/views/reply_email.py:126
+msgid ""
+"You do not have an email account in CRM for sending Emails. Contact your "
+"administrator."
+msgstr ""
+"Anda tidak memiliki akun surat elektronik di CRM untuk mengirim surel. "
+"Hubungi administrator Anda."
+
+#: crm/views/view_original_email.py:24
+msgid "Something went wrong"
+msgstr "Terjadi kesalahan"
+
+#: help/admin.py:78
+msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
+msgstr ""
+"Untuk menambahkan tautan yang benar, gunakan tag /SECRET_CRM_PREFIX/ jika "
+"diperlukan"
+
+#: help/models.py:13
+msgid "list"
+msgstr "daftar"
+
+#: help/models.py:14
+msgid "instance"
+msgstr "salinan atau contoh"
+
+#: help/models.py:24
+msgid "Help page"
+msgstr "Halaman Bantuan"
+
+#: help/models.py:25
+msgid "Help pages"
+msgstr "Halaman Bantuan"
+
+#: help/models.py:31
+msgid "app label"
+msgstr "label aplikasi"
+
+#: help/models.py:37
+msgid "model"
+msgstr "model"
+
+#: help/models.py:44
+msgid "page"
+msgstr "halaman"
+
+#: help/models.py:49 help/models.py:106
+msgid "Title"
+msgstr "Judul"
+
+#: help/models.py:53
+msgid "Available on CRM page"
+msgstr "Tersedia di halaman CRM"
+
+#: help/models.py:55
+msgid ""
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
+msgstr ""
+"Tersedia di salah satu halaman CRM. Jika tidak, Anda hanya dapat "
+"mengaksesnya melalui tautan dari halaman bantuan lainnya."
+
+#: help/models.py:86
+msgid "Paragraph"
+msgstr "Ayat"
+
+#: help/models.py:87
+msgid "Paragraphs"
+msgstr "Paragraf"
+
+#: help/models.py:97
+msgid "Groups"
+msgstr "Kelompok"
+
+#: help/models.py:99
+msgid ""
+"If no user group is selected then the paragraph will be available only to "
+"the superuser."
+msgstr ""
+"Jika tidak ada grup pengguna yang dipilih, maka paragraf akan tersedia hanya"
+" untuk super pengguna."
+
+#: help/models.py:105
+msgid "Title of paragraph."
+msgstr "Judul Paragraf."
+
+#: help/models.py:120 tasks/site/memoadmin.py:42
+msgid "draft"
+msgstr "tulisan kasar"
+
+#: help/models.py:121
+msgid "Will not be published."
+msgstr "Tidak akan dipublikasikan."
+
+#: help/models.py:126
+msgid "Content requires additional verification."
+msgstr "Konten memerlukan verifikasi tambahan."
+
+#: help/models.py:131
+msgid "Index number"
+msgstr "Nomor Urut"
+
+#: help/models.py:132
+msgid "The sequence number of the paragraph on the page."
+msgstr "Nomor urut paragraf pada halaman."
+
+#: help/models.py:138
+msgid "Link to a related paragraph if exists."
+msgstr "Tautan ke paragraf terkait jika ada."
+
+#: massmail/admin.py:31
+msgid "Service information"
+msgstr "Informasi Layanan"
+
+#: massmail/admin_actions.py:17
+msgid "Please select recipients only with the same owner."
+msgstr "Silakan pilih penerima yang memiliki pemilik yang sama."
+
+#: massmail/admin_actions.py:18
+msgid "Bad result - no recipients! Make another choice."
+msgstr "Hasil buruk - tidak ada penerima! Buat pilihan lain."
+
+#: massmail/admin_actions.py:21
+msgid "Create a mailing out for selected objects"
+msgstr "Buat pengiriman surel untuk objek terpilih"
+
+#: massmail/admin_actions.py:33
+msgid "Unsubscribed users were excluded from the mailing list."
+msgstr ""
+"Pengguna yang telah membatalkan langganan dikecualikan dari daftar "
+"pengiriman surel."
+
+#: massmail/admin_actions.py:54
+msgid ""
+"Note massmail is not performed on the following days: Friday, Saturday, "
+"Sunday."
+msgstr ""
+"Perhatikan bahwa pengiriman email massal tidak dilakukan pada hari-hari "
+"berikut: Jumat, Sabtu, Minggu."
+
+#: massmail/admin_actions.py:65
+msgid "Merge selected mailing outs"
+msgstr "Gabungkan pengiriman surat yang dipilih"
+
+#: massmail/admin_actions.py:85
+msgid "united"
+msgstr "bersatu"
+
+#: massmail/admin_actions.py:107
+msgid "Specify VIP recipients"
+msgstr "Tentukan Penerima VIP"
+
+#: massmail/admin_actions.py:115
+msgid "Please first add your main email account."
+msgstr "Silakan tambahkan akun surel utama Anda terlebih dahulu."
+
+#: massmail/admin_actions.py:143
+msgid ""
+"The main email address has been successfully assigned to the selected "
+"recipients."
+msgstr ""
+"Alamat surel utama telah berhasil ditetapkan untuk penerima yang dipilih."
+
+#: massmail/admin_actions.py:149
+msgid "Please select mailings with only the same recipient type."
+msgstr "Silakan pilih pengiriman surat hanya dengan jenis penerima yang sama."
+
+#: massmail/admin_actions.py:154
+msgid "Please select only mailings with the same message."
+msgstr "Silakan pilih hanya pengiriman surat dengan pesan yang sama."
+
+#: massmail/admin_actions.py:183
+msgid ""
+"There are no mail accounts available for mailing. Please contact your "
+"administrator."
+msgstr ""
+"Tidak ada akun surat elektronik yang tersedia untuk pengiriman surel. "
+"Silakan hubungi administrator Anda."
+
+#: massmail/admin_actions.py:191
+msgid ""
+"There are no mail accounts available for mailing to non-VIP recipients. "
+"Please contact your administrator."
+msgstr ""
+"Tidak ada akun surat elektronik yang tersedia untuk mengirim ke penerima "
+"non-VIP. Silakan hubungi administrator Anda."
+
+#: massmail/apps.py:8
+msgid "Mass mail"
+msgstr "Surat massal"
+
+#: massmail/models/baseeml.py:14
+msgid ""
+"The subject of the message. You can use {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} or {{full_name}}"
+msgstr ""
+"Subjek pesan. Anda dapat menggunakan {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} atau {{full_name}}."
+
+#: massmail/models/baseeml.py:22
+msgid "Choose signature"
+msgstr "Pilih tanda tangan"
+
+#: massmail/models/baseeml.py:23
+msgid "Sender's signature."
+msgstr "Tanda tangan pengirim."
+
+#: massmail/models/baseeml.py:28
+msgid "Previous correspondence. Will be added after signature"
+msgstr "Koresponden sebelumnya. Akan ditambahkan setelah tanda tangan."
+
+#: massmail/models/email_account.py:15
+msgid "Email Account"
+msgstr "Akun Email"
+
+#: massmail/models/email_account.py:16
+msgid "Email Accounts"
+msgstr "Akun Surat Elektronik"
+
+#: massmail/models/email_account.py:20
+msgid "The name of the Email Account. For example Gmail"
+msgstr "Nama Akun Email. Misalnya, Gmail"
+
+#: massmail/models/email_account.py:24
+msgid "Use this account for regular business correspondence."
+msgstr "Gunakan akun ini untuk korespondensi bisnis reguler."
+
+#: massmail/models/email_account.py:28
+msgid "Allow to use this account for massmail."
+msgstr "Izinkan penggunaan akun ini untuk kiriman surat elektronik massal."
+
+#: massmail/models/email_account.py:32
+msgid "Import emails from this account."
+msgstr "Impor email dari akun ini."
+
+#: massmail/models/email_account.py:40
+msgid "The IMAP host"
+msgstr "Tuan rumah IMAP"
+
+#: massmail/models/email_account.py:44
+msgid "The username to use to authenticate to the SMTP server."
+msgstr "Nama pengguna untuk mengotentikasi ke server SMTP."
+
+#: massmail/models/email_account.py:48
+msgid "The auth_password to use to authenticate to the SMTP server."
+msgstr ""
+"Kata sandi autentikasi yang akan digunakan untuk mengautentikasi ke server "
+"SMTP."
+
+#: massmail/models/email_account.py:52
+msgid "The application password to use to authenticate to the SMTP server."
+msgstr "Kata sandi aplikasi yang digunakan untuk autentikasi ke server SMTP."
+
+#: massmail/models/email_account.py:56
+msgid "Port to use for the SMTP server"
+msgstr "Port yang digunakan untuk server SMTP"
+
+#: massmail/models/email_account.py:60
+msgid "The from_email field."
+msgstr "Bidang dari_surel."
+
+#: massmail/models/email_account.py:68
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
+msgstr ""
+"Jika EMAIL_USE_SSL atau EMAIL_USE_TLS bernilai True, Anda dapat secara "
+"opsional menentukan jalur ke berkas rantai sertifikat dalam format PEM yang "
+"akan digunakan untuk koneksi SSL."
+
+#: massmail/models/email_account.py:73
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
+msgstr ""
+"Jika EMAIL_USE_SSL atau EMAIL_USE_TLS bernilai True, Anda dapat secara "
+"opsional menentukan jalur ke file kunci pribadi dalam format PEM yang akan "
+"digunakan untuk koneksi SSL."
+
+#: massmail/models/email_account.py:79
+msgid "OAuth 2.0 token for obtaining an access token."
+msgstr "Token OAuth 2.0 untuk mendapatkan token akses."
+
+#: massmail/models/email_account.py:106
+msgid "DateTime of last import"
+msgstr "Tanggal dan Waktu Impor Terakhir"
+
+#: massmail/models/email_account.py:117
+msgid "Specify the imap host"
+msgstr "Tentukan host IMAP"
+
+#: massmail/models/email_message.py:10
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    "
+msgstr ""
+"\n"
+"Gunakan HTML. Untuk menentukan alamat gambar yang disematkan, gunakan {%cid_media ‘path/to/pic.png' %}.<br>\n"
+"Anda dapat menyematkan file yang diunggah ke server CRM di folder ‘media/pics/’ atau dilampirkan ke pesan ini."
+
+#: massmail/models/email_message.py:19
+msgid "Email Message"
+msgstr "Pesan Email"
+
+#: massmail/models/email_message.py:20
+msgid "Email Messages"
+msgstr "Pesan Email"
+
+#: massmail/models/eml_accounts_queue.py:19
+msgid "The queue of the user email accounts."
+msgstr "Antrian akun surel pengguna."
+
+#: massmail/models/mailing_out.py:12
+msgid "Mailing Out"
+msgstr "Pengiriman Email Massal"
+
+#: massmail/models/mailing_out.py:13
+msgid "Mailing Outs"
+msgstr "Pengiriman Surat Massal"
+
+#: massmail/models/mailing_out.py:23
+msgid "Active but Error"
+msgstr "Aktif tetapi Error"
+
+#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+msgid "Paused"
+msgstr "Ditangguhkan"
+
+#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+msgid "Interrupted"
+msgstr "Terputus"
+
+#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
+#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+msgid "Done"
+msgstr "Selesai"
+
+#: massmail/models/mailing_out.py:31
+msgid "The name of the message."
+msgstr "Nama pesan."
+
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+msgid "Number of recipients"
+msgstr "Jumlah penerima"
+
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+msgid "Recipients type"
+msgstr "Tipe Penerima"
+
+#: massmail/models/mailing_out.py:59
+msgid "Report"
+msgstr "Laporan"
+
+#: massmail/models/signature.py:7
+msgid ""
+"\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+"    "
+msgstr ""
+"\n"
+"Gunakan HTML. Untuk menentukan alamat gambar yang disematkan, gunakan {%cid_media ‘path/to/pic.png' %}.<br>\n"
+"Anda dapat menyematkan file yang diunggah ke server CRM di folder ‘media/pics/’."
+
+#: massmail/models/signature.py:17
+msgid "Signatures"
+msgstr "Tanda Tangan"
+
+#: massmail/models/signature.py:27
+msgid "The name of the signature."
+msgstr "Nama tanda tangan."
+
+#: massmail/models/to_translate.txt:3
+msgid "price proposal"
+msgstr "usulan harga"
+
+#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+msgid "Preview"
+msgstr "Pratinjau"
+
+#: massmail/site/emlmessageadmin.py:73
+msgid "Edit"
+msgstr "Sunting"
+
+#: massmail/site/mailingoutadmin.py:17
+msgid "Available Email accounts for MassMail"
+msgstr "Akun Email yang Tersedia untuk MassMail"
+
+#: massmail/site/mailingoutadmin.py:18
+msgid "Accounts"
+msgstr "Akun"
+
+#: massmail/site/mailingoutadmin.py:27
+msgid "Today"
+msgstr "Hari Ini"
+
+#: massmail/site/mailingoutadmin.py:28
+msgid "Sent today"
+msgstr "Terkirim hari ini"
+
+#: massmail/site/mailingoutadmin.py:72
+msgid ""
+"Note massmail is not performed on the following days: \n"
+"                Friday, Saturday, Sunday."
+msgstr ""
+"Perhatikan bahwa pengiriman massal tidak dilakukan pada hari-hari berikut: "
+"Jumat, Sabtu, Minggu."
+
+#: massmail/site/mailingoutadmin.py:110
+msgid "notification"
+msgstr "pemberitahuan"
+
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+msgid "Get or update a refresh token"
+msgstr "Dapatkan atau perbarui token penyegaran"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+msgid "Send a test"
+msgstr "Kirim uji coba"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+msgid "Copy message"
+msgstr "Salin pesan"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+msgid "Successful recipients"
+msgstr "Penerima Berhasil"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+msgid "Failed recipients"
+msgstr "Penerima Gagal"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+msgid "Send failed recipients"
+msgstr "Kirim ulang penerima gagal"
+
+#: massmail/templates/massmail/pic_upload.html:7
+msgid "Upload the image file to the CRM server"
+msgstr "Unggah berkas gambar ke server CRM"
+
+#: massmail/templates/massmail/pic_upload.html:15
+msgid "Please select an image file to upload."
+msgstr "Silakan pilih berkas gambar untuk diunggah."
+
+#: massmail/templates/massmail/pic_upload.html:36
+msgid "To specify the address of the uploaded file, use the tag -"
+msgstr "Untuk menentukan alamat berkas yang diunggah, gunakan tag -"
+
+#: massmail/templates/massmail/pic_upload.html:37
+msgid ""
+"Upload only files that will be used many times. For example, a company logo."
+msgstr ""
+"Unggah hanya berkas yang akan digunakan berkali-kali. Misalnya, logo "
+"perusahaan."
+
+#: massmail/templates/massmail/pic_upload_buttons.html:3
+msgid "View the uploaded images on the CRM server"
+msgstr "Lihat gambar yang diunggah pada server CRM"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:6
+msgid "Upload an image file to the CRM server"
+msgstr "Unggah berkas gambar ke server CRM."
+
+#: massmail/templates/massmail/show_uploaded_images.html:7
+#: massmail/templates/massmail/show_uploaded_images.html:15
+msgid "Uploaded images"
+msgstr "Gambar yang diunggah"
+
+#: massmail/utils/sendmassmail.py:43
+msgid "Done successfully."
+msgstr "Selesai dengan sukses."
+
+#: massmail/views/file_upload.py:9
+msgid "Allowed file extensions: "
+msgstr "Ekstensi file yang diizinkan:"
+
+#: massmail/views/get_oauth2_tokens.py:74
+msgid "Refresh token received successfully."
+msgstr "Token penyegaran diterima dengan sukses."
+
+#: massmail/views/get_oauth2_tokens.py:79
+msgid "Error: Failed to get authorization code."
+msgstr "Kesalahan: Gagal mendapatkan kode otorisasi."
+
+#: massmail/views/send_failed_recipients.py:14
+msgid "Failed recipients has been returned to the massmail successfully."
+msgstr "Penerima yang gagal telah berhasil dikembalikan ke pengiriman massal."
+
+#: massmail/views/send_tests.py:49
+#, python-brace-format
+msgid "The Email test has been sent to {email_accounts}"
+msgstr "Uji coba email telah dikirim ke {email_accounts}"
+
+#: settings/apps.py:8
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: settings/models.py:7
+msgid "Banned company name"
+msgstr "Nama perusahaan terlarang"
+
+#: settings/models.py:8
+msgid "Banned company names"
+msgstr "Nama Perusahaan yang Dilarang"
+
+#: settings/models.py:22
+msgid "Public email domain"
+msgstr "Domain surel publik"
+
+#: settings/models.py:23
+msgid "Public email domains"
+msgstr "Domain surel publik"
+
+#: settings/models.py:28
+msgid "Domain"
+msgstr "Bidang"
+
+#: settings/models.py:41 settings/models.py:42
+msgid "Reminder settings"
+msgstr "Pengaturan Pengingat"
+
+#: settings/models.py:47
+msgid "Check interval"
+msgstr "Interval Pemeriksaan"
+
+#: settings/models.py:49
+msgid "Specify the interval in seconds to check if it's time for a reminder."
+msgstr ""
+"Tentukan interval dalam detik untuk memeriksa apakah sudah waktunya untuk "
+"pengingat."
+
+#: settings/models.py:56
+msgid "Stop Phrase"
+msgstr "Frasa Berhenti"
+
+#: settings/models.py:57
+msgid "Stop Phrases"
+msgstr "Frasa Penghenti"
+
+#: settings/models.py:62
+msgid "Phrase"
+msgstr "Frasa"
+
+#: settings/models.py:66
+msgid "Last occurrence date"
+msgstr "Tanggal kejadian terakhir"
+
+#: settings/models.py:67
+msgid "Date of last occurrence of the phrase"
+msgstr "Tanggal kemunculan terakhir frasa tersebut"
+
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
+msgid "Change responsible"
+msgstr "Ubah Tanggung Jawab"
+
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+msgid "Change subscribers"
+msgstr "Ubah pelanggan berlangganan"
+
+#: tasks/apps.py:8 tasks/models/task.py:16
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+msgid "Tasks"
+msgstr "Tugas"
+
+#: tasks/forms.py:32
+msgid "Please specify a name"
+msgstr "Silakan tentukan sebuah nama"
+
+#: tasks/forms.py:38
+msgid "Please specify a responsible"
+msgstr "Silakan tentukan yang bertanggung jawab"
+
+#: tasks/forms.py:48 tasks/forms.py:114
+msgid "Date should not be in the past."
+msgstr "Tanggal tidak boleh di masa lalu."
+
+#: tasks/models/memo.py:13
+msgid "Memo"
+msgstr "Catatan İçerik"
+
+#: tasks/models/memo.py:14
+msgid "Memos"
+msgstr "Catatan Memo"
+
+#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
+#: tasks/site/memoadmin.py:45
+msgid "postponed"
+msgstr "ditunda"
+
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+msgid "reviewed"
+msgstr "ditinjau"
+
+#: tasks/models/memo.py:33
+msgid "to whom"
+msgstr "kepada siapa"
+
+#: tasks/models/memo.py:41 tasks/models/task.py:15
+msgid "Task"
+msgstr "Tugas"
+
+#: tasks/models/memo.py:49
+msgid "For what"
+msgstr "Untuk apa"
+
+#: tasks/models/memo.py:57 tasks/models/project.py:9
+#: tasks/utils/admfilters.py:67
+msgid "Project"
+msgstr "Proyek"
+
+#: tasks/models/memo.py:72
+msgid "Сonclusion"
+msgstr "Kesimpulan"
+
+#: tasks/models/memo.py:76
+msgid "Draft"
+msgstr "Rancangan"
+
+#: tasks/models/memo.py:77
+msgid "Available only to the owner."
+msgstr "Hanya tersedia untuk pemiliknya."
+
+#: tasks/models/memo.py:81
+msgid "Notified"
+msgstr "Terdaftarkan"
+
+#: tasks/models/memo.py:82
+msgid "The recipient and subscribers are notified."
+msgstr "Penerima dan pelanggan telah diberi tahu."
+
+#: tasks/models/memo.py:92
+msgid "Review date"
+msgstr "Tanggal Tinjauan"
+
+#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+msgid "subscribers"
+msgstr "pelanggan berlangganan"
+
+#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+msgid "Notified subscribers"
+msgstr "Pemberitahuan kepada pelanggan"
+
+#: tasks/models/memo.py:123
+msgid "The office memo has been reviewed"
+msgstr "Memo kantor telah ditinjau"
+
+#: tasks/models/project.py:10
+msgid "Projects"
+msgstr "Proyek"
+
+#: tasks/models/projectstage.py:9
+msgid "Project stage"
+msgstr "Tahap Proyek"
+
+#: tasks/models/projectstage.py:10
+msgid "Project stages"
+msgstr "Tahap Proyek"
+
+#: tasks/models/projectstage.py:15
+msgid "Is the project active at this stage?"
+msgstr "Apakah proyek ini aktif pada tahap ini?"
+
+#: tasks/models/resolution.py:9
+msgid "Resolution"
+msgstr "Resolusi"
+
+#: tasks/models/resolution.py:10
+msgid "Resolutions"
+msgstr "Resolusi"
+
+#: tasks/models/stagebase.py:20
+msgid "Mark if this stage is \"done\""
+msgstr "Tandai jika tahap ini \"Selesai\""
+
+#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+msgid "In progress"
+msgstr "Dalam proses"
+
+#: tasks/models/stagebase.py:25
+msgid "Mark if this stage is \"in progress\""
+msgstr "Tandai jika tahap ini \"dalam proses\""
+
+#: tasks/models/tag.py:17
+msgid "Tag for"
+msgstr "Label untuk"
+
+#: tasks/models/task.py:24
+msgid "task"
+msgstr "tugas"
+
+#: tasks/models/task.py:32
+msgid "project"
+msgstr "proyek"
+
+#: tasks/models/task.py:39
+msgid "Hide main task"
+msgstr "Sembunyikan tugas utama"
+
+#: tasks/models/task.py:40
+msgid "Hide the main task when this sub-task is closed."
+msgstr "Sembunyikan tugas utama saat sub-tugas ini selesai."
+
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
+msgid "Lead time"
+msgstr "Waktu yang Diperlukan"
+
+#: tasks/models/task.py:47
+msgid "Task execution time in format - DD HH:MM:SS"
+msgstr "Waktu pelaksanaan tugas dalam format - DD HH:MM:SS"
+
+#: tasks/models/task.py:64
+msgid "The task cannot be closed because there is an active subtask."
+msgstr "Tugas tidak dapat ditutup karena ada sub-tugas yang aktif."
+
+#: tasks/models/task.py:92
+msgid "The main task is closed automatically."
+msgstr "Tugas utama ditutup secara otomatis."
+
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
+msgid "Low"
+msgstr "Rendah"
+
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
+msgid "Middle"
+msgstr "Tengah"
+
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
+msgid "High"
+msgstr "Tinggi"
+
+#: tasks/models/taskbase.py:33
+msgid "Short title"
+msgstr "Judul Singkat"
+
+#: tasks/models/taskbase.py:42
+msgid "Start date"
+msgstr "Tanggal mulai"
+
+#: tasks/models/taskbase.py:44
+msgid "Date of task closing"
+msgstr "Tanggal Penutupan Tugas"
+
+#: tasks/models/taskbase.py:55
+msgid "Notified responsible"
+msgstr "Pemberitahuan kepada pihak yang bertanggung jawab"
+
+#: tasks/models/taskstage.py:9
+msgid "Task stage"
+msgstr "Tahap Tugas"
+
+#: tasks/models/taskstage.py:10
+msgid "Task stages"
+msgstr "Tahap-tahap Tugas"
+
+#: tasks/models/taskstage.py:15
+msgid "Is the task active at this stage?"
+msgstr "Apakah tugas ini aktif pada tahap ini?"
+
+#: tasks/models/to_translate.txt:4
+msgid "done"
+msgstr "selesai"
+
+#: tasks/models/to_translate.txt:6
+msgid "canceled"
+msgstr "dibatalkan"
+
+#: tasks/models/to_translate.txt:7
+msgid "to make a decision"
+msgstr "untuk membuat keputusan"
+
+#: tasks/models/to_translate.txt:8
+msgid "payment of regular expenses"
+msgstr "pembayaran pengeluaran rutin"
+
+#: tasks/models/to_translate.txt:9
+msgid "on approval"
+msgstr "menunggu persetujuan"
+
+#: tasks/models/to_translate.txt:10
+msgid "for consideration"
+msgstr "untuk pertimbangan"
+
+#: tasks/models/to_translate.txt:11
+msgid "for information"
+msgstr "untuk informasi"
+
+#: tasks/models/to_translate.txt:12
+msgid "for the record"
+msgstr "untuk catatan"
+
+#: tasks/site/memoadmin.py:44
+msgid "overdue"
+msgstr "terlambat"
+
+#: tasks/site/memoadmin.py:47
+msgid "You are subscribed to a new office memo"
+msgstr "Anda berlangganan ke catatan kantor baru"
+
+#: tasks/site/memoadmin.py:49
+msgid "unreviewed"
+msgstr "belum ditinjau"
+
+#: tasks/site/memoadmin.py:50
+msgid "The office memo was written"
+msgstr "Memo kantor tersebut ditulis"
+
+#: tasks/site/memoadmin.py:51
+msgid "You've received a office memo"
+msgstr "Anda telah menerima catatan kantor."
+
+#: tasks/site/memoadmin.py:118
+msgid "Your office memo has been deleted"
+msgstr "Memo kantor Anda telah dihapus"
+
+#: tasks/site/memoadmin.py:386
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+msgid "View the task"
+msgstr "Lihat tugas"
+
+#: tasks/site/memoadmin.py:390
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+msgid "View the project"
+msgstr "Lihat proyek"
+
+#: tasks/site/memoadmin.py:471
+msgid "View the "
+msgstr "Lihat"
+
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "Terkenal dengan proyek"
+
+#: tasks/site/projectadmin.py:18
+msgid "The project was created"
+msgstr "Proyek ini telah dibuat."
+
+#: tasks/site/taskadmin.py:35
+msgid "I completed my part of the task"
+msgstr "Saya telah menyelesaikan bagian tugas saya."
+
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+msgid "The task was created"
+msgstr "Tugas telah dibuat"
+
+#: tasks/site/taskadmin.py:38
+msgid "The subtask was created"
+msgstr "Subtugas telah dibuat"
+
+#: tasks/site/taskadmin.py:39
+msgid "The subtask"
+msgstr "Subtugas"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "lebih lambat dari tanggal jatuh tempo tugas utama."
+
+#: tasks/site/taskadmin.py:334
+msgid "Main task"
+msgstr "Tugas Utama"
+
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:6
+msgid "Create subtask"
+msgstr "Buat subtugas"
+
+#: tasks/site/taskadmin.py:372
+msgid ""
+"This is a collective task.\n"
+"            Please create a sub-task for yourself for work.\n"
+"            Or press the next button when you have done your job.\n"
+"        "
+msgstr ""
+"Ini adalah tugas kolektif.\n"
+"Silakan buat subtugas untuk diri Anda sendiri untuk pekerjaan.\n"
+"Atau tekan tombol berikutnya setelah Anda menyelesaikan pekerjaan Anda."
+
+#: tasks/site/tasksbasemodeladmin.py:44
+msgid "You have been assigned as the task co-owner"
+msgstr "Anda telah ditunjuk sebagai pemilik tugas bersama."
+
+#: tasks/site/tasksbasemodeladmin.py:46
+msgid "Acquainted with the task"
+msgstr "Terkenal dengan tugas"
+
+#: tasks/site/tasksbasemodeladmin.py:48
+#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+msgid "The task is closed"
+msgstr "Tugas telah ditutup"
+
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The subtask is closed"
+msgstr "Subtugas ditutup"
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "The next step date should not be later than due date."
+msgstr ""
+"Tanggal langkah berikutnya tidak boleh lebih lambat dari tanggal jatuh "
+"tempo."
+
+#: tasks/site/tasksbasemodeladmin.py:53
+msgid "The Project was created"
+msgstr "Proyek telah dibuat"
+
+#: tasks/site/tasksbasemodeladmin.py:54
+msgid "The project is closed"
+msgstr "Proyek ditutup"
+
+#: tasks/site/tasksbasemodeladmin.py:57
+msgid "You are subscribed to a new task"
+msgstr "Anda berlangganan tugas baru"
+
+#: tasks/site/tasksbasemodeladmin.py:58
+msgid "You have a new task assigned"
+msgstr "Anda memiliki tugas baru yang ditugaskan"
+
+#: tasks/site/tasksbasemodeladmin.py:483
+msgid ""
+"Please edit the title and description to make it clear to other users what "
+"part of the overall task will be completed."
+msgstr ""
+"Silakan sunting judul dan deskripsi agar pengguna lain dapat memahami bagian"
+" mana dari tugas keseluruhan yang akan diselesaikan."
+
+#: tasks/site/tasksbasemodeladmin.py:502
+msgid "responsible"
+msgstr "bertanggung jawab"
+
+#: tasks/site/tasksbasemodeladmin.py:536
+msgid "Attach files"
+msgstr "Lampirkan berkas"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:5
+#: tasks/templates/admin/tasks/project/submit_line.html:6
+msgid "Create task"
+msgstr "Buat tugas"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:9
+msgid "Create project"
+msgstr "Buat proyek"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+msgid "View main task"
+msgstr "Lihat tugas utama"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+msgid "Subtasks"
+msgstr "Tugas Sekunder"
+
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+msgid "Toggle default task sorting"
+msgstr "Beralih ke pengurutan tugas standar"
+
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Mark the task as completed and save."
+msgstr "Tandai tugas sebagai selesai dan simpan."
+
+#: tasks/views/create_completed_subtask.py:43
+msgid ""
+"The task cannot be marked as completed because you have an active subtask."
+msgstr ""
+"Tugas tidak dapat ditandai sebagai selesai karena Anda memiliki subtugas "
+"yang aktif."
+
+#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+msgid "The Task does not exist"
+msgstr "Tugas tidak ada/tidak ditemukan."
+
+#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+msgid "The user does not exist"
+msgstr "Pengguna tidak ada"
+
+#: tasks/views/create_completed_subtask.py:119
+msgid ""
+"An error occurred while creating the subtask. Contact the CRM Administrator."
+msgstr "Terjadi kesalahan saat membuat subtugas. Hubungi Administrator CRM."
+
+#: templates/admin/auth/group/change_list_object_tools.html:12
+msgid "Creates a copy of the department"
+msgstr "Membuat salinan departemen"
+
+#: templates/admin/auth/group/change_list_object_tools.html:13
+msgid "Copy department"
+msgstr "Salin departemen"
+
+#: templates/admin/auth/user/change_list_object_tools.html:12
+msgid "Transfer of a manager to another department"
+msgstr "Pemindahan manajer ke departemen lain"
+
+#: templates/admin/auth/user/change_list_object_tools.html:13
+msgid "Transfer of a manager"
+msgstr "Memindahkan Manajer"
+
+#: templates/admin/base.html:50
+msgid "Skip to main content"
+msgstr "Lanjutkan ke konten utama"
+
+#: templates/admin/base.html:65
+msgid "Welcome,"
+msgstr "Selamat datang,"
+
+#: templates/admin/base.html:70
+msgid "View site"
+msgstr "Lihat situs"
+
+#: templates/admin/base.html:75
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: templates/admin/base.html:79
+msgid "Change password"
+msgstr "Ubah Kata Sandi"
+
+#: templates/admin/base.html:83
+msgid "Log out"
+msgstr "Keluar"
+
+#: templates/admin/base.html:98
+msgid "Breadcrumbs"
+msgstr "Jejak Lintah"
+
+#: templates/admin/color_theme_toggle.html:3
+msgid "Toggle theme (current theme: auto)"
+msgstr "Beralih tema (tema saat ini: otomatis)"
+
+#: templates/admin/color_theme_toggle.html:4
+msgid "Toggle theme (current theme: light)"
+msgstr "Beralih tema (tema saat ini: terang)"
+
+#: templates/admin/color_theme_toggle.html:5
+msgid "Toggle theme (current theme: dark)"
+msgstr "Beralih tema (tema saat ini: gelap)"
+
+#. Translators: Specify dates of date range
+#: templates/admin/crm_date_filter.html:18
+msgid "Specify dates"
+msgstr "Tentukan tanggal"
+
+#. Translators: Start of date range
+#: templates/admin/crm_date_filter.html:23
+msgid "from"
+msgstr "dari"
+
+#. Translators: End of date range
+#: templates/admin/crm_date_filter.html:29
+msgid "before"
+msgstr "sebelum"
+
+#. Translators: Year-Month Day
+#: templates/admin/crm_date_filter.html:33
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: templates/crm_help_link.html:3
+msgid "Help"
+msgstr "Bantuan"
+
+#: tests/massmail/utils/test_send_massmail.py:122
+msgid "This field is required."
+msgstr "Bidang ini wajib diisi."
+
+#: voip/models.py:9
+msgid "PBX extension"
+msgstr "Ekstensi PBX"
+
+#: voip/models.py:10
+msgid "SIP connection"
+msgstr "Koneksi SIP"
+
+#: voip/models.py:11
+msgid "Virtual phone number"
+msgstr "Nomor telepon virtual"
+
+#: voip/models.py:29
+msgid "Number"
+msgstr "Nomor"
+
+#: voip/models.py:33
+msgid "Caller ID"
+msgstr "ID Penelepon"
+
+#: voip/models.py:35
+msgid ""
+"Specify the number to be displayed as             your phone number when you"
+" call"
+msgstr ""
+"Tentukan nomor yang akan ditampilkan sebagai nomor telepon Anda saat Anda "
+"menelepon."
+
+#: voip/models.py:42
+msgid "Provider"
+msgstr "Penyedia"
+
+#: voip/models.py:43
+msgid "Specify VoIP service provider"
+msgstr "Tentukan penyedia layanan VoIP"
+
+#: voip/templates/voip/connection.html:10
+msgid "Please select what's your phone number, caller display"
+msgstr ""
+"Silakan pilih nomor yang akan ditampilkan sebagai nomor telepon Anda saat "
+"menelepon."
+
+#: voip/views/callback.py:21
+msgid ""
+"You do not have a VoiP connection configured. Please contact your "
+"administrator."
+msgstr ""
+"Anda tidak memiliki koneksi VoIP yang dikonfigurasi. Silakan hubungi "
+"administrator Anda."
+
+#: voip/views/callback.py:88
+msgid "That something is wrong ((. Notify the administrator."
+msgstr "Ada yang tidak beres ((. Beritahu administrator."
+
+#: voip/views/callback.py:90
+msgid "Expect a call to your smartphone"
+msgstr "Harap tunggu panggilan ke ponsel Anda."
+
+#: voip/views/voipwebhook.py:44
+msgid "An outgoing call to"
+msgstr "Panggilan keluar ke"
+
+#: voip/views/voipwebhook.py:53
+msgid "An incoming call from"
+msgstr "Panggilan masuk dari"
+
+#: voip/views/voipwebhook.py:70
+#, python-brace-format
+msgid "(duration: {duration} minutes)"
+msgstr "(durasi: {duration} menit)"
+
+#: webcrm/settings.py:270
+msgid "Untitled"
+msgstr "Tanpa Judul"
+
+#: webcrm/settings.py:285
+msgid "Main Menu"
+msgstr "Menu Utama"
