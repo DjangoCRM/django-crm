@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 20:15+0200\n"
-"PO-Revision-Date: 2025-01-29 20:19+0200\n"
+"POT-Creation-Date: 2025-02-20 18:59+0200\n"
+"PO-Revision-Date: 2025-02-20 19:02+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Translated-Using: django-rosetta 0.10.0\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
 #: analytics/apps.py:10
 msgid "Analytics"
@@ -229,7 +229,7 @@ msgstr "Не указано"
 msgid "Relevant requests over month"
 msgstr "Релевантные запросы по месяцам"
 
-#: analytics/site/outputstatadmin.py:40 crm/models/output.py:51
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
 #: crm/site/shipmentadmin.py:36
 msgid "pcs"
 msgstr "шт."
@@ -264,7 +264,7 @@ msgstr "Все"
 msgid "Owner"
 msgstr "Владелец"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:19
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "Продукт"
@@ -1010,8 +1010,11 @@ msgid "A new department has been created - {}. Please rename it."
 msgstr "Создан новый отдел - {}. Пожалуйста, переименуйте его."
 
 #: common/views/select_emails_import.py:118
+#| msgid ""
+#| "You do not have mail accounts marked for importing emails.Please contact "
+#| "your administrator."
 msgid ""
-"You do not have mail accounts marked for importing emails.Please contact "
+"You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
 msgstr ""
 "У вас нет почтовых аккаунтов, отмеченных для импорта писем. Обратитесь к "
@@ -1129,7 +1132,8 @@ msgid "Your E-mail"
 msgstr "Ваш адрес электронной почты"
 
 #: crm/forms/contact_form.py:24
-msgid "Phone number(with country code)"
+#| msgid "Phone number(with country code)"
+msgid "Phone number (with country code)"
 msgstr "Номер телефона (с кодом страны)"
 
 #: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
@@ -1542,55 +1546,59 @@ msgstr "причина - успех"
 msgid "Closing reasons"
 msgstr "Причины закрытия"
 
-#: crm/models/output.py:9
+#: crm/models/output.py:10
 msgid "Output"
 msgstr "Продукт"
 
-#: crm/models/output.py:10
+#: crm/models/output.py:11
 msgid "Outputs"
 msgstr "Продукция"
 
-#: crm/models/output.py:23
+#: crm/models/output.py:24
 msgid "Quantity"
 msgstr "Количество"
 
-#: crm/models/output.py:27
+#: crm/models/output.py:28
 msgid "Shipping date"
 msgstr "Дата отгрузки"
 
-#: crm/models/output.py:28
+#: crm/models/output.py:29
 msgid "Shipment date as per contract"
 msgstr "Дата отгрузки согласно контракту"
 
-#: crm/models/output.py:32
+#: crm/models/output.py:33
 msgid "Planned shipping date"
 msgstr "Планируемая дата отгрузки"
 
-#: crm/models/output.py:36
+#: crm/models/output.py:37
 msgid "Actual shipping date"
 msgstr "Фактическая дата отгрузки"
 
-#: crm/models/output.py:37
+#: crm/models/output.py:38
 msgid "Date when the product was shipped"
 msgstr "Дата отправки товара"
 
-#: crm/models/output.py:41
+#: crm/models/output.py:42
 msgid "Shipped"
 msgstr "Отгружено"
 
-#: crm/models/output.py:42
+#: crm/models/output.py:43
 msgid "Product is shipped"
 msgstr "Товар отправлен"
 
-#: crm/models/output.py:46
+#: crm/models/output.py:47
 msgid "serial number"
 msgstr "Серийный номер"
 
-#: crm/models/output.py:60
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "Укажите количество."
+
+#: crm/models/output.py:69
 msgid "Shipment"
 msgstr "Отгрузка"
 
-#: crm/models/output.py:61
+#: crm/models/output.py:70
 msgid "Shipments"
 msgstr "Отгрузки"
 
@@ -3019,10 +3027,15 @@ msgid "Specify the imap host"
 msgstr "Укажите хост imap"
 
 #: massmail/models/email_message.py:10
+#| msgid ""
+#| "\n"
+#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#| "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+#| "    "
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
@@ -3083,10 +3096,15 @@ msgid "Report"
 msgstr "Отчет"
 
 #: massmail/models/signature.py:7
+#| msgid ""
+#| "\n"
+#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#| "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+#| "    "
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
 "    "
 msgstr ""
 "\n"
@@ -3862,50 +3880,46 @@ msgstr "Входящий звонок от"
 msgid "(duration: {duration} minutes)"
 msgstr "(продолжительность: {duration} минут)"
 
-#: webcrm/settings.py:63
-msgid "German"
-msgstr "немецкий"
-
-#: webcrm/settings.py:64
-msgid "English"
-msgstr "Английский"
-
-#: webcrm/settings.py:65
-#| msgid "Companies"
-msgid "Spanish"
-msgstr "испанский"
-
-#: webcrm/settings.py:66
-msgid "French"
-msgstr "французский"
-
-#: webcrm/settings.py:67
-msgid "Italian"
-msgstr "итальянский"
-
-#: webcrm/settings.py:68
-msgid "Dutch"
-msgstr "голландский"
-
-#: webcrm/settings.py:69
-msgid "Portuguese"
-msgstr "португальский"
-
-#: webcrm/settings.py:70
-msgid "Russian"
-msgstr "Русский"
-
-#: webcrm/settings.py:71
-msgid "Ukrainian"
-msgstr "Украинский"
-
-#: webcrm/settings.py:257
+#: webcrm/settings.py:270
 msgid "Untitled"
 msgstr "Без названия"
 
-#: webcrm/settings.py:272
+#: webcrm/settings.py:285
 msgid "Main Menu"
 msgstr "Главное меню"
+
+#~ msgid "Arabic"
+#~ msgstr "арабский"
+
+#~ msgid "German"
+#~ msgstr "немецкий"
+
+#~ msgid "English"
+#~ msgstr "Английский"
+
+#~ msgid "Spanish"
+#~ msgstr "испанский"
+
+#~ msgid "French"
+#~ msgstr "французский"
+
+#~ msgid "Hindi"
+#~ msgstr "хинди"
+
+#~ msgid "Italian"
+#~ msgstr "итальянский"
+
+#~ msgid "Dutch"
+#~ msgstr "голландский"
+
+#~ msgid "Portuguese"
+#~ msgstr "португальский"
+
+#~ msgid "Russian"
+#~ msgstr "Русский"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Украинский"
 
 #~ msgid "PBX number"
 #~ msgstr "номер мини-АТС"
