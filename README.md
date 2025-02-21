@@ -140,9 +140,9 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 ## Project Localization
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **muchos idiomas:**  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **many languages:**  
 
-`ar, cs, de, en, es, fr, hi, it, ja, ko, nl, pl, pt-br, ru, tr, uk, vi, zh-hans`
+`ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans`
 
 Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
 
