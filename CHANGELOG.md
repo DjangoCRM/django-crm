@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.2.0] - 2025-02-21
 
 ### Added
 
@@ -30,6 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Correct the arguments of the filter for payments received in the previous period.
+- Fix some typos in text messages.
+
+#### Full Changelog: [v1.1.0...v1.2.0](https://github.com/DjangoCRM/django-crm/compare/v1.1.0...v1.2.0)
 
 ## [1.1.0] - 2025-01-25
 
