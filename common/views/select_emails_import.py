@@ -116,7 +116,7 @@ def select_emails_import(request: WSGIRequest):
             messages.warning(
                 request,
                 _('You do not have mail accounts marked for importing emails.'
-                  'Please contact your administrator.')
+                  ' Please contact your administrator.')
             )
             return HttpResponseRedirect(next_url)
         return TemplateResponse(
