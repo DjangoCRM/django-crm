@@ -142,15 +142,16 @@ Cada usuario tiene una vista clara de su pila de tareas, incluyendo prioridades,
 
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> El software de atención al cliente ahora está disponible en **varios idiomas**:
 
-`ar, cs, de, en, es, fr, hi, it, ja, ko, nl, pl, pt-br, ru, tr, uk, vi, zh-hans`
+`ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans`
 
 Django CRM tiene [soporte completo](https://docs.djangoproject.com/en/dev/topics/i18n/) para la traducción de la interfaz, el formato de fechas, horas y zonas horarias.  
 
 ## ¿Por qué Elegir Django-CRM?
 
+- **Autoalojamiento**: el software de la aplicación CRM está diseñado para alojarse en su propio servidor, lo que le permite tener un control total sobre los datos y el entorno de CRM. Al alojarse en su propio servidor, puede personalizar el CRM para que se ajuste a las necesidades específicas de su empresa y garantizar que sus datos permanezcan privados y seguros.
 - **CRM Colaborativo**: Aumenta la productividad del equipo con herramientas para la gestión de tareas, colaboración en proyectos y comunicación interna.
 - **CRM Analítico**: Obtén información accionable con informes integrados como embudo de ventas, resumen de ingresos y análisis de fuentes de leads.
-- **Basado en Python y Django**: No se requieren marcos de trabajo propietarios: todo está construido sobre Django con una interfaz de administración intuitiva.
+- **Basado en Python y Django**: No es necesario aprender un marco propietario: todo está construido en Django con una interfaz de administración intuitiva. El frontend y backend, basados en Django Admin, hacen mucho más fácil la personalización y el desarrollo de proyectos, así como la implementación y el mantenimiento de un servidor de producción.
 
 ## Empezando
 
