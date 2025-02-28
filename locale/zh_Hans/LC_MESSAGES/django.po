@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-08 11:40+0200\n"
-"PO-Revision-Date: 2025-02-09 12:46+0200\n"
+"POT-Creation-Date: 2025-02-23 13:24+0200\n"
+"PO-Revision-Date: 2025-02-28 18:38+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
 #: analytics/apps.py:10
@@ -28,7 +29,7 @@ msgstr "收入统计快照"
 
 #: analytics/models.py:16
 msgid "IncomeStat Snapshots"
-msgstr "收入统计快照"
+msgstr "IncomeStat 快照"
 
 #: analytics/models.py:28 analytics/models.py:29
 msgid "Sales Report"
@@ -40,7 +41,7 @@ msgstr "请求摘要"
 
 #: analytics/models.py:37
 msgid "Requests Summary"
-msgstr "请求总结"
+msgstr "请求摘要"
 
 #: analytics/models.py:44 analytics/models.py:45
 msgid "Lead source Summary"
@@ -48,7 +49,7 @@ msgstr "潜在客户来源摘要"
 
 #: analytics/models.py:52 analytics/models.py:53
 msgid "Closing reason Summary"
-msgstr "关闭原因摘要"
+msgstr "关闭原因总结"
 
 #: analytics/models.py:60 analytics/models.py:61
 msgid "Deal Summary"
@@ -70,7 +71,7 @@ msgstr "转换摘要"
 #: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
 #: crm/models/payment.py:112
 msgid "Payment date"
-msgstr "支付日期"
+msgstr "付款日期"
 
 #: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
 #: crm/models/request.py:82
@@ -79,15 +80,15 @@ msgstr "产品"
 
 #: analytics/site/closingreasonstatadmin.py:63
 msgid "Closing reason over month"
-msgstr "关闭原因按月"
+msgstr "按月度结转原因"
 
 #: analytics/site/conversionadmin.py:11
 msgid "Conversion of requests into successful deals (for the last 365 days)"
-msgstr "请求转化为成功交易（过去 365 天）"
+msgstr "将请求转化为成功的交易（过去 365 天）"
 
 #: analytics/site/conversionadmin.py:39
 msgid "Conversion of primary requests"
-msgstr "主请求转换"
+msgstr "主要请求的转换"
 
 #: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
 msgid "Conversion"
@@ -97,11 +98,11 @@ msgstr "转换"
 #: analytics/site/leadsourcestatadmin.py:21
 #: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
 msgid "Total requests"
-msgstr "总请求数"
+msgstr "总计请求数"
 
 #: analytics/site/conversionadmin.py:44
 msgid "Total primary requests"
-msgstr "总初级请求"
+msgstr "总计初级请求数"
 
 #: analytics/site/dealstatadmin.py:17
 msgid "Deal Summary for last 365 days"
@@ -109,7 +110,7 @@ msgstr "过去 365 天的交易摘要"
 
 #: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
 msgid "Total deals"
-msgstr "总交易量"
+msgstr "总计交易量"
 
 #: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
 msgid "Relevant deals"
@@ -125,11 +126,11 @@ msgstr "成功关闭的平均天数（主要）"
 
 #: analytics/site/dealstatadmin.py:60
 msgid "Irrelevant deals"
-msgstr "不相关交易"
+msgstr "无关交易"
 
 #: analytics/site/dealstatadmin.py:78
 msgid "Won deals"
-msgstr "赢得的交易"
+msgstr "已赢得的交易"
 
 #: analytics/site/incomestatadmin.py:135
 msgid "The snapshot has been saved successfully."
@@ -137,7 +138,7 @@ msgstr "快照已成功保存。"
 
 #: analytics/site/incomestatadmin.py:183
 msgid "Income monthly (total amount for the current period: {} {} ({}))"
-msgstr "每月收入（当前周期总金额：{} {} ({})）"
+msgstr "每月收入（当前周期总金额：{} {} ({}))"
 
 #: analytics/site/incomestatadmin.py:188
 msgid "Income monthly in the previous period"
@@ -145,7 +146,7 @@ msgstr "上期月收入"
 
 #: analytics/site/incomestatadmin.py:193
 msgid "Payments received"
-msgstr "收款"
+msgstr "已收到付款"
 
 #: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
 #: crm/models/payment.py:70 crm/site/paymentadmin.py:254
@@ -174,24 +175,24 @@ msgstr "年度平均收入（{}）。"
 
 #: analytics/site/incomestatadmin.py:307
 msgid "Total won deals"
-msgstr "已赢取的交易总量"
+msgstr "共成交交易数"
 
 #: analytics/site/incomestatadmin.py:308
 msgid "Average won deals a month"
-msgstr "平均每月成交交易量"
+msgstr "每月平均成交数量"
 
 #: analytics/site/incomestatadmin.py:309
 msgid "Average income amount a month"
-msgstr "平均月收入金额"
+msgstr "每月平均收入金额"
 
 #: analytics/site/incomestatadmin.py:451
 msgid "Total amount"
-msgstr "总金额"
+msgstr "总计金额"
 
 #: analytics/site/leadsourcestatadmin.py:15
 #: analytics/site/requeststatadmin.py:18
 msgid "Request source statistics"
-msgstr "请求来源统计"
+msgstr "请求源统计信息"
 
 #: analytics/site/leadsourcestatadmin.py:16
 #: analytics/site/requeststatadmin.py:19
@@ -202,22 +203,22 @@ msgstr "每个来源的请求数量"
 #: analytics/site/requeststatadmin.py:20
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
 msgid "Requests over country"
-msgstr "按国家请求"
+msgstr "全国范围内的请求"
 
 #: analytics/site/leadsourcestatadmin.py:18
 #: analytics/site/requeststatadmin.py:21
 msgid "for all period"
-msgstr "整个时期内"
+msgstr "整个期间"
 
 #: analytics/site/leadsourcestatadmin.py:19
 #: analytics/site/requeststatadmin.py:22
 msgid "for last 365 days"
-msgstr "过去 365 天内"
+msgstr "过去 365 天"
 
 #: analytics/site/leadsourcestatadmin.py:20
 #: analytics/site/requeststatadmin.py:23
 msgid "conversion"
-msgstr "转换"
+msgstr "转换率"
 
 #: analytics/site/leadsourcestatadmin.py:22
 #: analytics/site/requeststatadmin.py:25
@@ -226,7 +227,7 @@ msgstr "未指定"
 
 #: analytics/site/leadsourcestatadmin.py:116
 msgid "Relevant requests over month"
-msgstr "每月相关请求数量"
+msgstr "按月度相关请求"
 
 #: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
 #: crm/site/shipmentadmin.py:36
@@ -253,7 +254,7 @@ msgstr "国家"
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
 #: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
 msgid "All"
-msgstr "所有"
+msgstr "全部"
 
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
@@ -270,11 +271,11 @@ msgstr "产品"
 
 #: analytics/site/outputstatadmin.py:199
 msgid "Sold products summary (by date of payment receipt)"
-msgstr "按付款收到日期的已售产品摘要"
+msgstr "已售产品汇总（按付款收据日期）"
 
 #: analytics/site/outputstatadmin.py:287
 msgid "Sold products"
-msgstr "售出产品"
+msgstr "已售产品"
 
 #: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
 msgid "Price"
@@ -286,7 +287,7 @@ msgstr "过去 365 天的请求摘要"
 
 #: analytics/site/requeststatadmin.py:91
 msgid "Conversion of primary requests into successful deals"
-msgstr "将初始请求转化为成功交易"
+msgstr "主要请求转化为成功交易"
 
 #: analytics/site/requeststatadmin.py:95
 msgid "Primary requests"
@@ -298,11 +299,11 @@ msgstr "后续请求"
 
 #: analytics/site/requeststatadmin.py:98
 msgid "Conversion of subsequent requests"
-msgstr "后续请求转换"
+msgstr "后续请求的转换"
 
 #: analytics/site/requeststatadmin.py:101
 msgid "average monthly value"
-msgstr "平均月度价值"
+msgstr "平均每月值"
 
 #: analytics/site/requeststatadmin.py:102
 msgid "Requests by month"
@@ -315,11 +316,11 @@ msgstr "相关请求"
 #: analytics/site/salesfunnelsadmin.py:42
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
 msgid "Total closed deals"
-msgstr "已关闭的交易总额"
+msgstr "总共关闭的交易"
 
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
 msgid "Statistics on the Closing reason of deals for all the time"
-msgstr "所有时间交易关闭原因的统计数据"
+msgstr "交易成交原因全程统计"
 
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
 msgid "total requests"
@@ -340,7 +341,7 @@ msgstr "过去 365 天的销售漏斗"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
 msgid "The number of closed deals in stages"
-msgstr "各阶段的交易数量"
+msgstr "各阶段已关闭的交易数量"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
 msgid "Chart"
@@ -348,7 +349,7 @@ msgstr "图表"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
 msgid "The percentages show the number of \"lost\" deals at each stage."
-msgstr "百分比显示在每个阶段“流失”的交易数量。"
+msgstr "百分比显示了每个阶段“丢失”的交易数量。"
 
 #: analytics/templates/analytics/bar_chart.html:58
 #: analytics/templates/analytics/bar_chart_.html:51
@@ -359,7 +360,7 @@ msgstr "图表"
 msgid ""
 "Note! The calculations use data for the whole year. But the charts begin on "
 "the first of the next month."
-msgstr "注意！计算使用的是全年数据。但图表从下个月的第一天开始。"
+msgstr "注意！计算使用了一整年的数据。但图表从下个月的1日开始。"
 
 #: analytics/templates/analytics/view_snapshots.html:8
 msgid "Data"
@@ -384,7 +385,7 @@ msgstr "请撰写一条消息。"
 
 #: chat/forms/chatmessageform.py:35
 msgid "Please select at least one recipient"
-msgstr "请选择至少一个接收者。"
+msgstr "请至少选择一位收件人"
 
 #: chat/models.py:15
 msgid "message"
@@ -402,7 +403,7 @@ msgstr "消息"
 
 #: chat/models.py:34
 msgid "answer to"
-msgstr "回答"
+msgstr "回复给"
 
 #: chat/models.py:42 chat/site/chatmessageadmin.py:50
 msgid "recipients"
@@ -410,7 +411,7 @@ msgstr "收件人"
 
 #: chat/models.py:47
 msgid "to"
-msgstr "谁"
+msgstr "给"
 
 #: chat/models.py:52 common/models.py:24 common/models.py:179
 #: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
@@ -423,7 +424,7 @@ msgstr "任务操作员"
 
 #: chat/site/chatmessageadmin.py:54
 msgid "You received a message regarding - "
-msgstr "您收到了有关以下内容的消息："
+msgstr "您收到了一条关于 - 的消息"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
 #: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
@@ -438,7 +439,7 @@ msgstr "额外信息"
 
 #: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
 msgid "Recipients"
-msgstr "收件人"
+msgstr "接收人"
 
 #: chat/site/chatmessageadmin.py:283
 #: chat/templates/chat/chatmessage_email.html:12
@@ -472,7 +473,7 @@ msgstr "回复"
 #: templates/admin/auth/user/change_list_object_tools.html:8
 #, python-format
 msgid "Add %(name)s"
-msgstr "添加%(name)s"
+msgstr "添加 %(name)s"
 
 #: chat/templates/admin/chat/chatmessage/submit_line.html:4
 #: crm/templates/admin/crm/crmemail/submit_line.html:12
@@ -525,12 +526,12 @@ msgstr "删除"
 #: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
 #: crm/templates/admin/crm/inline_emails.html:45
 msgid "From"
-msgstr "来自"
+msgstr "发件人"
 
 #: chat/templates/chat/chatmessage_email.html:7
 #: common/templates/common/notice_participants_email.html:6
 msgid "View in CRM"
-msgstr "查看CRM系统"
+msgstr "在 CRM 中查看"
 
 #: chat/templates/chat_buttons.html:3
 msgid "Add chat message"
@@ -549,7 +550,7 @@ msgstr "查看聊天消息"
 msgid ""
 "You can specify the name of an existing file on the server along with the "
 "path instead of uploading it."
-msgstr "您可以指定服务器上已存在的文件名称及其路径，而不是上传文件。"
+msgstr "你可以指定服务器上现有文件的名称及其路径，而不是上传它。"
 
 #: common/admin.py:195
 msgid "staff"
@@ -573,11 +574,11 @@ msgstr "修改者"
 
 #: common/models.py:56
 msgid "was added successfully."
-msgstr "成功添加。"
+msgstr "已成功添加。"
 
 #: common/models.py:57
 msgid "Re-adding blocked."
-msgstr "重新添加已阻塞。"
+msgstr "重新添加被阻止。"
 
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
@@ -588,7 +589,7 @@ msgstr "部门"
 
 #: common/models.py:88 common/models.py:89 common/models.py:94
 msgid "Department and Owner do not match"
-msgstr "部门和所有者不匹配。"
+msgstr "部门和所有者不匹配"
 
 #: common/models.py:119
 msgid "Departments"
@@ -604,11 +605,11 @@ msgstr "默认货币"
 
 #: common/models.py:137
 msgid "Works globally"
-msgstr "全球适用"
+msgstr "全球可用"
 
 #: common/models.py:138
 msgid "The department operates in foreign markets."
-msgstr "该部门在国外市场运营。"
+msgstr "该部门在海外市场运营。"
 
 #: common/models.py:144
 msgid "Reminder"
@@ -625,7 +626,7 @@ msgstr "主题"
 
 #: common/models.py:160
 msgid "Briefly what about is this reminder"
-msgstr "这条提醒简而言之是关于："
+msgstr "这提醒是关于什么的简要说明"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
@@ -649,7 +650,7 @@ msgstr "活跃"
 
 #: common/models.py:175
 msgid "Send notification email"
-msgstr "发送通知电子邮件"
+msgstr "发送通知邮件"
 
 #: common/models.py:195
 msgid "File"
@@ -665,7 +666,7 @@ msgstr "附件文件"
 
 #: common/models.py:206
 msgid "Attach to the deal"
-msgstr "附件：交易"
+msgstr "附加到交易"
 
 #: common/models.py:228
 #: common/templates/common/notice_participants_email.html:12
@@ -680,17 +681,17 @@ msgstr "阶段"
 
 #: common/models.py:233 tasks/models/stagebase.py:14
 msgid "Default"
-msgstr "默认"
+msgstr "默认值"
 
 #: common/models.py:234 tasks/models/stagebase.py:15
 msgid "Will be selected by default when creating a new task"
-msgstr "在创建新任务时，将默认选择它。"
+msgstr "在创建新任务时，将默认选中。"
 
 #: common/models.py:239 tasks/models/stagebase.py:32
 msgid ""
 "The sequence number of the stage.         The indices of other instances "
 "will be sorted automatically."
-msgstr "阶段顺序号。其他实例的索引将自动排序。"
+msgstr "阶段的序列号。其他实例的索引将自动排序。"
 
 #: common/models.py:250
 msgid "User profile"
@@ -698,7 +699,7 @@ msgstr "用户资料"
 
 #: common/models.py:251
 msgid "User profiles"
-msgstr "用户资料"
+msgstr "用户档案"
 
 #: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
 msgid "Phone"
@@ -714,7 +715,7 @@ msgstr "激活此时区"
 
 #: common/models.py:316
 msgid "Field for temporary storage of messages to the user"
-msgstr "临时消息存储字段，用于保存向用户发送的消息。"
+msgstr "临时存储给用户的消息字段"
 
 #: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
@@ -741,7 +742,7 @@ msgstr "过滤器可能会影响搜索结果。"
 
 #: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
 msgid "Act"
-msgstr "行动"
+msgstr "行为"
 
 #: common/site/basemodeladmin.py:172 crm/models/deal.py:40
 #: tasks/models/taskbase.py:73
@@ -835,7 +836,7 @@ msgstr "历史"
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
 #: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
 msgid "View on site"
-msgstr "在网站上查看"
+msgstr "在站点上查看"
 
 #: common/templates/common/copy_department.html:13
 #: common/templates/common/select_email_account.html:12
@@ -850,11 +851,11 @@ msgstr "在网站上查看"
 #: crm/templates/crm/make_massmail.html:15
 #: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
 msgid "Home"
-msgstr "首页"
+msgstr "主页"
 
 #: common/templates/common/copy_department.html:23
 msgid "Please select the department to copy."
-msgstr "请选择要复制的部门。"
+msgstr "请选择复制部门。"
 
 #: common/templates/common/copy_department.html:40
 #: common/templates/common/user_transfer.html:51
@@ -869,7 +870,7 @@ msgstr "提交"
 #: common/templates/common/email_notification_base.html:14
 #: tasks/models/taskbase.py:40
 msgid "Note"
-msgstr "注释"
+msgstr "备注"
 
 #: common/templates/common/email_notification_base.html:24
 #: crm/templates/crm/email.html:29
@@ -884,12 +885,12 @@ msgstr "下载"
 #: common/templates/common/email_notification_base.html:30
 #: crm/templates/admin/crm/inline_emails.html:63
 msgid "Error: the file is missing."
-msgstr "错误：文件缺失。"
+msgstr "错误：文件丢失。"
 
 #: common/templates/common/notice_participants_email.html:12
 #: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
 msgid "Due date"
-msgstr "到期日"
+msgstr "截止日期"
 
 #: common/templates/common/notice_participants_email.html:12
 #: tasks/models/taskbase.py:26
@@ -906,11 +907,11 @@ msgstr "共同所有者"
 #: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
 #: tasks/utils/admfilters.py:89
 msgid "Responsible"
-msgstr "负责任的"
+msgstr "负责人员"
 
 #: common/templates/common/reminder_button.html:4
 msgid "There are reminders"
-msgstr "有提醒"
+msgstr "有提醒事项"
 
 #: common/templates/common/reminder_button.html:10
 msgid "Create a reminder"
@@ -923,7 +924,7 @@ msgstr "关于"
 
 #: common/templates/common/select_email_account.html:20
 msgid "Please select an Email account"
-msgstr "请选择一个电子邮件账户。"
+msgstr "请选择一个电子邮件账户"
 
 #: common/templates/common/select_email_account.html:38
 msgid "Select"
@@ -942,7 +943,7 @@ msgstr "导入"
 #: common/templates/common/select_emails.html:32
 #: common/templates/common/select_emails.html:74
 msgid "Spam"
-msgstr "垃圾信息"
+msgstr "垃圾邮件"
 
 #: common/templates/common/select_emails.html:33
 #: common/templates/common/select_emails.html:75
@@ -957,15 +958,15 @@ msgstr "标记为"
 #: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
 #: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
 msgid "To"
-msgstr "发送给"
+msgstr "收件人"
 
 #: common/templates/common/select_emails.html:56
 msgid "This email is already imported."
-msgstr "这封邮件已经导入过了。"
+msgstr "这封邮件已导入。"
 
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
-msgstr "请选择一位用户以及为他们分配一个新的部门。"
+msgstr "请选择一位用户并为其分配新的部门。"
 
 #: common/templates/common/user_transfer.html:31
 msgid "User"
@@ -982,12 +983,12 @@ msgstr "我完成了任务。"
 #: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
-msgstr "完成"
+msgstr "已完成"
 
 #: common/utils/for_translation.py:24
 msgid ""
 "The name has been added for translation. Please update po and mo files."
-msgstr "已添加名称以供翻译。请更新 po 和 mo 文件。"
+msgstr "名称已添加待翻译。请更新 po 和 mo 文件。"
 
 #: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
 #: tasks/site/taskadmin.py:36
@@ -996,17 +997,17 @@ msgstr "复制"
 
 #: common/utils/helpers.py:31
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
-msgstr "具有 ID '{}' 的 {} 不存在。它可能已被删除？"
+msgstr "{} 对应的 ID 为 '{}' 的条目不存在。可能是已经被删除？"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
-msgstr "创建了一个新部门：{}。请重命名它。"
+msgstr "已创建一个新部门 - {}. 请为它重新命名。"
 
 #: common/views/select_emails_import.py:118
 msgid ""
-"You do not have mail accounts marked for importing emails.Please contact "
+"You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
-msgstr "您没有配置电子邮件导入的邮箱账户。请联系您的管理员。"
+msgstr "您没有标记用于导入电子邮件的邮箱账户。请联系您的管理员。"
 
 #: common/views/user_transfer.py:28
 msgid ""
@@ -1017,11 +1018,12 @@ msgid ""
 "Also Output, Payment and Product will not be affected.\n"
 msgstr ""
 "\n"
-"注意！交易阶段、关闭原因、标签等过滤器的数据，仅当新部门存在相同名称的数据时才会转移。此外，支付和产品不会受到影响。"
+"注意！仅当新部门拥有同名数据时，才会转移诸如交易阶段、关闭原因、标签等过滤器的数据。\n"
+"此外，输出、付款和产品不会受到影响。\n"
 
 #: common/views/user_transfer.py:131
 msgid "User transferred successfully"
-msgstr "用户已成功转移。"
+msgstr "用户转移成功"
 
 #: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
 msgid "Contact details"
@@ -1054,31 +1056,31 @@ msgstr "营销货币已经存在。"
 
 #: crm/forms/admin_forms.py:24
 msgid "State currency already exists."
-msgstr "国家货币已存在。"
+msgstr "国家货币已经存在。"
 
 #: crm/forms/admin_forms.py:25
 msgid "Enter a valid alphabetic code."
-msgstr "请输入有效的字母代码。"
+msgstr "输入有效的字母代码。"
 
 #: crm/forms/admin_forms.py:26
 msgid "The currency cannot be both state and marketing."
-msgstr "货币不能同时是国家和市场的。"
+msgstr "货币不能同时是国家和营销的。"
 
 #: crm/forms/admin_forms.py:70
 msgid "Not allowed address"
-msgstr "未授权地址"
+msgstr "未允许的地址"
 
 #: crm/forms/admin_forms.py:90
 msgid "City does not match the country"
-msgstr "城市不与国家匹配"
+msgstr "城市与国家不匹配"
 
 #: crm/forms/admin_forms.py:138
 msgid "Such an object already exists"
-msgstr "此对象已经存在。"
+msgstr "这样的对象已经存在"
 
 #: crm/forms/admin_forms.py:164
 msgid "Please fill in the field."
-msgstr "请填写该字段。"
+msgstr "请填写此字段。"
 
 #: crm/forms/admin_forms.py:172
 msgid "To convert, please fill in the fields below."
@@ -1094,11 +1096,11 @@ msgstr "联系人不匹配公司"
 
 #: crm/forms/admin_forms.py:241
 msgid "Select only Contact or only Lead"
-msgstr "只选择联系人或只选择潜在客户。"
+msgstr "仅选择联系人或仅选择潜在客户"
 
 #: crm/forms/admin_forms.py:246
 msgid "Select only Company or only Lead"
-msgstr "仅选择公司或仅选择潜在客户。"
+msgstr "仅选择公司或仅选择潜在客户"
 
 #: crm/forms/admin_forms.py:325
 msgid "First select a department."
@@ -1106,7 +1108,7 @@ msgstr "首先选择一个部门。"
 
 #: crm/forms/admin_forms.py:331
 msgid "That tag already exists."
-msgstr "这个标签已经存在了。"
+msgstr "该标签已存在。"
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1114,11 +1116,11 @@ msgstr "您的名字"
 
 #: crm/forms/contact_form.py:17
 msgid "Your E-mail"
-msgstr "您的电子邮件"
+msgstr "您的电子邮件地址"
 
 #: crm/forms/contact_form.py:24
-msgid "Phone number(with country code)"
-msgstr "电话号码（国家代码）"
+msgid "Phone number (with country code)"
+msgstr "电话号码（含国家代码）"
 
 #: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
 #: crm/models/request.py:55
@@ -1127,15 +1129,15 @@ msgstr "公司名称"
 
 #: crm/forms/contact_form.py:72
 msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
-msgstr "对不起，验证码无效。请重新尝试或发送邮件。"
+msgstr "抱歉，reCAPTCHA 无效。请重试或发送电子邮件。"
 
 #: crm/models/base_contact.py:18 crm/models/request.py:29
 msgid "The name of the contact person (one word)."
-msgstr "联系人姓名（一个字）。"
+msgstr "联系人姓名（一个词）。"
 
 #: crm/models/base_contact.py:19 crm/models/request.py:28
 msgid "First name"
-msgstr "姓名"
+msgstr "名字"
 
 #: crm/models/base_contact.py:23 crm/models/request.py:33
 msgid "Middle name"
@@ -1147,7 +1149,7 @@ msgstr "联系人的中间名。"
 
 #: crm/models/base_contact.py:28 crm/models/request.py:39
 msgid "The last name of the contact person (one word)."
-msgstr "联系人的姓氏（一个单词）。"
+msgstr "联系人姓氏（一个词）。"
 
 #: crm/models/base_contact.py:29 crm/models/request.py:38
 msgid "Last name"
@@ -1155,7 +1157,7 @@ msgstr "姓氏"
 
 #: crm/models/base_contact.py:33
 msgid "The title (position) of the contact person."
-msgstr "联系人职务。"
+msgstr "联系人的职位（头衔）。"
 
 #: crm/models/base_contact.py:34
 msgid "Title / Position"
@@ -1171,11 +1173,11 @@ msgstr "出生日期"
 
 #: crm/models/base_contact.py:52
 msgid "Secondary email"
-msgstr "备用邮箱"
+msgstr "次要邮箱"
 
 #: crm/models/base_contact.py:62
 msgid "Mobile phone"
-msgstr "移动电话"
+msgstr "手机"
 
 #: crm/models/base_contact.py:69 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
@@ -1198,28 +1200,28 @@ msgstr "地址"
 #: crm/models/base_contact.py:122 crm/models/lead.py:17
 #: crm/utils/admfilters.py:512
 msgid "Disqualified"
-msgstr "被取消资格"
+msgstr "取消资格"
 
 #: crm/models/base_contact.py:129
 msgid "Use comma to separate Emails."
-msgstr "使用逗号分隔电子邮件地址。"
+msgstr "使用逗号分隔邮件地址。"
 
 #: crm/models/base_contact.py:136 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
-msgstr "线索来源"
+msgstr "潜在客户来源"
 
 #: crm/models/base_contact.py:140
 msgid "Mass mailing"
-msgstr "群发邮件"
+msgstr "批量邮寄"
 
 #: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
-msgstr "邮件列表收件人"
+msgstr "邮件列表收件人。"
 
 #: crm/models/base_contact.py:156
 msgid "Last contact date"
-msgstr "最后联系日期"
+msgstr "上次联系日期"
 
 #: crm/models/base_contact.py:163
 msgid "Assigned to"
@@ -1241,7 +1243,7 @@ msgstr "替代名称"
 
 #: crm/models/company.py:28 crm/models/country.py:22
 msgid "Separate them with commas."
-msgstr "用逗号分隔它们。"
+msgstr "用逗号将它们分开。"
 
 #: crm/models/company.py:34
 msgid "Website"
@@ -1253,11 +1255,11 @@ msgstr "城市名称"
 
 #: crm/models/company.py:64
 msgid "Registration number"
-msgstr "注册号"
+msgstr "注册编号"
 
 #: crm/models/company.py:65
 msgid "Registration number of Company"
-msgstr "公司注册号"
+msgstr "公司注册号码"
 
 #: crm/models/company.py:72 crm/models/deal.py:109
 msgid "country"
@@ -1273,7 +1275,7 @@ msgstr "公司类型"
 
 #: crm/models/company.py:85 crm/models/lead.py:49
 msgid "Industry of company"
-msgstr "公司行业"
+msgstr "公司所在行业"
 
 #: crm/models/contact.py:12
 msgid "Contact person"
@@ -1290,7 +1292,7 @@ msgstr "联系人公司"
 
 #: crm/models/country.py:6
 msgid "has already been assigned to the city"
-msgstr "已被分配给这座城市。"
+msgstr "已经分配给该城市"
 
 #: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
 msgid "Countries"
@@ -1309,20 +1311,20 @@ msgstr "电子邮件"
 
 #: crm/models/crmemail.py:12
 msgid "Emails in CRM"
-msgstr "CRM 中的电子邮件"
+msgstr "CRM中的电子邮件"
 
 #: crm/models/crmemail.py:17 crm/models/crmemail.py:26
 #: crm/models/crmemail.py:30
 msgid "You can specify multiple addresses, separated by commas"
-msgstr "您可以指定多个地址，用逗号分隔。"
+msgstr "您可以指定多个地址，用逗号分隔"
 
 #: crm/models/crmemail.py:22
 msgid "The Email address of sender"
-msgstr "发送者的邮箱地址"
+msgstr "发件人电子邮件地址"
 
 #: crm/models/crmemail.py:38
 msgid "Request a read receipt"
-msgstr "请求阅读确认收据"
+msgstr "请求阅读回执"
 
 #: crm/models/crmemail.py:39
 msgid "Not supported by all mail services."
@@ -1373,7 +1375,7 @@ msgstr "下一步"
 
 #: crm/models/deal.py:25 tasks/models/taskbase.py:78
 msgid "Describe briefly what needs to be done in the next step."
-msgstr "简要描述接下来需要完成的工作。"
+msgstr "简要描述下一步需要做什么。"
 
 #: crm/models/deal.py:29 tasks/models/taskbase.py:81
 msgid "Step date"
@@ -1381,7 +1383,7 @@ msgstr "步骤日期"
 
 #: crm/models/deal.py:30 tasks/models/taskbase.py:82
 msgid "Date to which the next step should be taken."
-msgstr "下一步应采取的日期。"
+msgstr "应采取下一步行动的日期。"
 
 #: crm/models/deal.py:51
 msgid "Dates of the stages"
@@ -1389,7 +1391,7 @@ msgstr "阶段日期"
 
 #: crm/models/deal.py:52
 msgid "Dates of passing the stages"
-msgstr "阶段通过日期"
+msgstr "通过各个阶段的日期"
 
 #: crm/models/deal.py:57
 msgid "Date of deal closing"
@@ -1397,11 +1399,11 @@ msgstr "交易关闭日期"
 
 #: crm/models/deal.py:62
 msgid "Date of won deal closing"
-msgstr "赢得交易的关闭日期"
+msgstr "已中标交易的关闭日期"
 
 #: crm/models/deal.py:71
 msgid "Total deal amount without VAT"
-msgstr "不含税交易总额"
+msgstr "不含增值税的总交易金额"
 
 #: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
 #: crm/models/product.py:49
@@ -1414,11 +1416,11 @@ msgstr "关闭原因"
 
 #: crm/models/deal.py:90
 msgid "Probability (%)"
-msgstr "概率（%）"
+msgstr "概率 (%)"
 
 #: crm/models/deal.py:148
 msgid "Partner contact"
-msgstr "合作伙伴联系人"
+msgstr "合作夥伴聯繫人"
 
 #: crm/models/deal.py:151
 msgid "Contact person of dealer or distribution company"
@@ -1426,7 +1428,7 @@ msgstr "经销商或分销公司的联系人"
 
 #: crm/models/deal.py:156
 msgid "Relevant"
-msgstr "相关"
+msgstr "相关的"
 
 #: crm/models/deal.py:164 crm/utils/admfilters.py:486
 msgid "Important"
@@ -1450,7 +1452,7 @@ msgstr "公司地址"
 
 #: crm/models/lead.py:37
 msgid "Company email"
-msgstr "公司邮箱"
+msgstr "公司电子邮件"
 
 #: crm/models/others.py:27
 msgid "Type of Clients"
@@ -1470,11 +1472,11 @@ msgstr "客户行业"
 
 #: crm/models/others.py:42
 msgid "Second default"
-msgstr "默认第二选项"
+msgstr "默认第二项"
 
 #: crm/models/others.py:43
 msgid "Will be selected next after the default stage."
-msgstr "将在默认阶段之后被选择。"
+msgstr "默认阶段之后将选中下一个。"
 
 #: crm/models/others.py:47
 msgid "success stage"
@@ -1482,7 +1484,7 @@ msgstr "成功阶段"
 
 #: crm/models/others.py:51
 msgid "conditional success stage"
-msgstr "条件成功阶段"
+msgstr "有条件的成功阶段"
 
 #: crm/models/others.py:52
 msgid "For example, receiving the first payment"
@@ -1490,17 +1492,15 @@ msgstr "例如，收到第一笔付款"
 
 #: crm/models/others.py:56
 msgid "goods shipped"
-msgstr "货物发货"
+msgstr "已发货"
 
 #: crm/models/others.py:57
 msgid "Have the goods been shipped at this stage already?"
-msgstr "在当前阶段货物已经发货了吗？"
+msgstr "这个阶段货物已经发货了吗？"
 
 #: crm/models/others.py:64
 msgid "Lead Sources"
-msgstr ""
-"\n"
-"潜在客户来源"
+msgstr "潜在客户来源"
 
 #: crm/models/others.py:76
 msgid "form template name"
@@ -1508,7 +1508,7 @@ msgstr "表单模板名称"
 
 #: crm/models/others.py:77 crm/models/others.py:82
 msgid "The name of the html template file if needed."
-msgstr "HTML 模板文件名称（如有需要）。"
+msgstr "如果需要的HTML模板文件名称。"
 
 #: crm/models/others.py:81
 msgid "success page template name"
@@ -1518,7 +1518,7 @@ msgstr "成功页面模板名称"
 msgid ""
 "Reason rating.         The indices of other instances will be sorted "
 "automatically."
-msgstr "原因评分。其他实例的索引将自动排序。"
+msgstr "原因评级。其他实例的索引将自动排序。"
 
 #: crm/models/others.py:95
 msgid "success reason"
@@ -1530,11 +1530,11 @@ msgstr "关闭原因"
 
 #: crm/models/output.py:10
 msgid "Output"
-msgstr "产品"
+msgstr "输出"
 
 #: crm/models/output.py:11
 msgid "Outputs"
-msgstr "产品"
+msgstr "输出结果"
 
 #: crm/models/output.py:24
 msgid "Quantity"
@@ -1546,11 +1546,11 @@ msgstr "发货日期"
 
 #: crm/models/output.py:29
 msgid "Shipment date as per contract"
-msgstr "合同规定的发货日期"
+msgstr "根据合同的发货日期"
 
 #: crm/models/output.py:33
 msgid "Planned shipping date"
-msgstr "预计发货日期"
+msgstr "计划发货日期"
 
 #: crm/models/output.py:37
 msgid "Actual shipping date"
@@ -1562,7 +1562,7 @@ msgstr "产品发货日期"
 
 #: crm/models/output.py:42
 msgid "Shipped"
-msgstr "发货"
+msgstr "已发货"
 
 #: crm/models/output.py:43
 msgid "Product is shipped"
@@ -1574,7 +1574,7 @@ msgstr "序列号"
 
 #: crm/models/output.py:58
 msgid "Quantity is required."
-msgstr "需要指定数量。"
+msgstr "请输入数量。"
 
 #: crm/models/output.py:69
 msgid "Shipment"
@@ -1590,11 +1590,11 @@ msgstr "货币"
 
 #: crm/models/payment.py:21
 msgid "Alphabetic Code for the Representation of Currencies."
-msgstr "货币表示字母代码。"
+msgstr "货币的字母代码表示。"
 
 #: crm/models/payment.py:26 crm/models/payment.py:198
 msgid "Rate to state currency"
-msgstr "国家货币汇率"
+msgstr "汇率至国家货币"
 
 #: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
 #: crm/models/payment.py:204
@@ -1611,15 +1611,15 @@ msgstr "这是国家货币吗？"
 
 #: crm/models/payment.py:41
 msgid "Is it the marketing currency?"
-msgstr "这是一种营销货币吗？"
+msgstr "这是营销货币吗？"
 
 #: crm/models/payment.py:45
 msgid "This currency is subject to automatic updating."
-msgstr "这种货币会自动更新。"
+msgstr "此货币会自动更新。"
 
 #: crm/models/payment.py:71
 msgid "without VAT"
-msgstr "不含税"
+msgstr "不含增值税"
 
 #: crm/models/payment.py:82
 msgid "Please specify a currency."
@@ -1635,7 +1635,7 @@ msgstr "付款"
 
 #: crm/models/payment.py:100
 msgid "received"
-msgstr "接收到"
+msgstr "已接收"
 
 #: crm/models/payment.py:101
 msgid "guaranteed"
@@ -1643,7 +1643,7 @@ msgstr "保证的"
 
 #: crm/models/payment.py:102
 msgid "high probability"
-msgstr "高概率"
+msgstr "高度概率"
 
 #: crm/models/payment.py:103
 msgid "low probability"
@@ -1651,7 +1651,7 @@ msgstr "低概率"
 
 #: crm/models/payment.py:118
 msgid "Payment status"
-msgstr "付款状态"
+msgstr "支付状态"
 
 #: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
 msgid "contract number"
@@ -1659,15 +1659,15 @@ msgstr "合同编号"
 
 #: crm/models/payment.py:126
 msgid "invoice number"
-msgstr "发票号"
+msgstr "发票编号"
 
 #: crm/models/payment.py:130
 msgid "order number"
-msgstr "订单号"
+msgstr "订单编号"
 
 #: crm/models/payment.py:134
 msgid "Payment through representative office"
-msgstr "通过代表处支付"
+msgstr "通过代表处付款"
 
 #: crm/models/payment.py:157
 msgid "Payment share"
@@ -1675,11 +1675,11 @@ msgstr "支付份额"
 
 #: crm/models/payment.py:177
 msgid "Currency rate"
-msgstr "汇率"
+msgstr "货币汇率"
 
 #: crm/models/payment.py:178
 msgid "Currency rates"
-msgstr "汇率"
+msgstr "货币汇率"
 
 #: crm/models/payment.py:183
 msgid "approximate currency rate"
@@ -1691,7 +1691,7 @@ msgstr "官方汇率"
 
 #: crm/models/payment.py:194
 msgid "Currency rate date"
-msgstr "汇率日期"
+msgstr "货币汇率日期"
 
 #: crm/models/payment.py:210
 msgid "Exchange rate type"
@@ -1707,7 +1707,7 @@ msgstr "产品类别"
 
 #: crm/models/product.py:55
 msgid "On sale"
-msgstr "在售"
+msgstr "特价销售"
 
 #: crm/models/product.py:58
 msgid "Goods"
@@ -1735,7 +1735,7 @@ msgstr "潜在客户来源"
 
 #: crm/models/request.py:59
 msgid "Date of receipt"
-msgstr "接收日期"
+msgstr "收到日期"
 
 #: crm/models/request.py:60
 msgid "Date of receipt of the request."
@@ -1747,7 +1747,7 @@ msgstr "翻译"
 
 #: crm/models/request.py:111
 msgid "Remark"
-msgstr "注释"
+msgstr "备注"
 
 #: crm/models/request.py:115
 msgid "Pending"
@@ -1755,7 +1755,7 @@ msgstr "待处理"
 
 #: crm/models/request.py:116
 msgid "Waiting for validation of fields filling"
-msgstr "等待填写字段的验证"
+msgstr "等待验证字段填写"
 
 #: crm/models/request.py:120
 msgid "Subsequent"
@@ -1763,7 +1763,7 @@ msgstr "后续的"
 
 #: crm/models/request.py:122
 msgid "Received from the client with whom you are already cooperate"
-msgstr "来自已合作客户的收件"
+msgstr "收到来自您已合作客户的请求"
 
 #: crm/models/request.py:126
 msgid "Duplicate"
@@ -1771,7 +1771,7 @@ msgstr "复制项"
 
 #: crm/models/request.py:127
 msgid "Duplicate request. The deal will not be created."
-msgstr "重复请求。交易不会创建。"
+msgstr "重复请求。交易不会被创建。"
 
 #: crm/models/request.py:131 help/models.py:125
 msgid "Verification required"
@@ -1779,7 +1779,7 @@ msgstr "需要验证"
 
 #: crm/models/request.py:132
 msgid "Links are set automatically and require verification."
-msgstr "链接会自动生成，并需要验证。"
+msgstr "链接会自动设置并需要验证。"
 
 #: crm/models/request.py:148 crm/models/request.py:149
 msgid "Company and contact person do not match."
@@ -1787,7 +1787,7 @@ msgstr "公司和联系人不匹配。"
 
 #: crm/models/request.py:153 crm/models/request.py:154
 msgid "Specify the contact person or lead. But not both."
-msgstr "指定联系人或主要联系人。但不能同时指定两者。"
+msgstr "指定联系人或潜在客户。二选一。"
 
 #: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
 msgid "Tag"
@@ -1803,11 +1803,11 @@ msgstr "竞争对手"
 
 #: crm/models/to_translate.txt:3
 msgid "end customer"
-msgstr "最终客户"
+msgstr "最终用户"
 
 #: crm/models/to_translate.txt:4
 msgid "reseller"
-msgstr "经销商"
+msgstr "转售商"
 
 #: crm/models/to_translate.txt:5
 msgid "dealer"
@@ -1831,15 +1831,15 @@ msgstr "焊工"
 
 #: crm/models/to_translate.txt:10
 msgid "capital construction"
-msgstr "资本建设"
+msgstr "基本建设"
 
 #: crm/models/to_translate.txt:11
 msgid "automotive industry"
-msgstr "汽车行业"
+msgstr "汽车工业"
 
 #: crm/models/to_translate.txt:12
 msgid "shipbuilding"
-msgstr "造船业"
+msgstr "船舶制造"
 
 #: crm/models/to_translate.txt:13
 msgid "metallurgy"
@@ -1847,7 +1847,7 @@ msgstr "冶金学"
 
 #: crm/models/to_translate.txt:14
 msgid "power generation"
-msgstr "电力生产"
+msgstr "发电"
 
 #: crm/models/to_translate.txt:15
 msgid "pipelines"
@@ -1855,11 +1855,11 @@ msgstr "管道"
 
 #: crm/models/to_translate.txt:16
 msgid "pipe production"
-msgstr "管生产"
+msgstr "管材生产"
 
 #: crm/models/to_translate.txt:17
 msgid "oil & gas"
-msgstr "石油天然气"
+msgstr "石油和天然气"
 
 #: crm/models/to_translate.txt:18
 msgid "aviation"
@@ -1871,7 +1871,7 @@ msgstr "铁路"
 
 #: crm/models/to_translate.txt:20
 msgid "mining"
-msgstr "开采"
+msgstr "采矿"
 
 #: crm/models/to_translate.txt:21
 msgid "request"
@@ -1883,7 +1883,7 @@ msgstr "请求分析"
 
 #: crm/models/to_translate.txt:23
 msgid "clarification of the requirements"
-msgstr "要求澄清"
+msgstr "需求澄清"
 
 #: crm/models/to_translate.txt:24
 msgid "price offer"
@@ -1895,7 +1895,7 @@ msgstr "商业提案"
 
 #: crm/models/to_translate.txt:26
 msgid "technical and commercial offer"
-msgstr "技术与商业报价"
+msgstr "技术与商务报价"
 
 #: crm/models/to_translate.txt:27
 msgid "agreement"
@@ -1919,11 +1919,11 @@ msgstr "已关闭（成功）"
 
 #: crm/models/to_translate.txt:32
 msgid "The client is not responding"
-msgstr "客户未回复"
+msgstr "客户未响应"
 
 #: crm/models/to_translate.txt:33
 msgid "Specifications are not suitable"
-msgstr "规格不符合要求。"
+msgstr "规格不适用"
 
 #: crm/models/to_translate.txt:34
 msgid "The deal was closed successfully"
@@ -1931,11 +1931,11 @@ msgstr "交易成功关闭"
 
 #: crm/models/to_translate.txt:35
 msgid "Purchase postponed"
-msgstr "购买延期"
+msgstr "购买已延迟"
 
 #: crm/models/to_translate.txt:36
 msgid "The price is not competitive"
-msgstr "价格不具竞争力"
+msgstr "价格缺乏竞争力"
 
 #: crm/models/to_translate.txt:38
 msgid "website form"
@@ -1943,11 +1943,11 @@ msgstr "网站表单"
 
 #: crm/models/to_translate.txt:39
 msgid "website email"
-msgstr "网站邮箱"
+msgstr "网站电子邮件"
 
 #: crm/models/to_translate.txt:40
 msgid "exhibition"
-msgstr "展览"
+msgstr "展览会"
 
 #: crm/settings.py:46
 msgid "Establish the first contact with the client."
@@ -1960,15 +1960,15 @@ msgstr "注意！您只能查看与您的部门相关的公司。"
 
 #: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
 msgid "Warning:"
-msgstr "注意："
+msgstr "警告："
 
 #: crm/site/companyadmin.py:210
 msgid "Owner will also be changed for contact persons."
-msgstr "联系人的所有者也会相应地更改。"
+msgstr "联系人的所有者也会被更改。"
 
 #: crm/site/companyadmin.py:223
 msgid "Change owner of selected Companies"
-msgstr "更改选定公司的所有者"
+msgstr "更改所选公司的所有者"
 
 #: crm/site/crmadminsite.py:22
 msgid "Your Excel file"
@@ -1981,11 +1981,11 @@ msgstr "签名"
 
 #: crm/site/crmemailadmin.py:31
 msgid "Please note that this is a list of unsent emails."
-msgstr "请注意，这是一个未发送的电子邮件列表。"
+msgstr "请注意，这是一份未发送邮件的清单。"
 
 #: crm/site/crmemailadmin.py:143
 msgid "Emails in the CRM database."
-msgstr "CRM 数据库中的邮件。"
+msgstr "CRM 数据库中的电子邮件。"
 
 #: crm/site/crmemailadmin.py:350
 msgid "Box"
@@ -1993,11 +1993,11 @@ msgstr "盒子"
 
 #: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
 msgid "Content"
-msgstr "内容"
+msgstr "目录"
 
 #: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
 msgid "Previous correspondence"
-msgstr "往期通信记录"
+msgstr "先前往來信件"
 
 #: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
 #: crm/utils/import_emails.py:192
@@ -2006,15 +2006,15 @@ msgstr "无主题"
 
 #: crm/site/crmmodeladmin.py:61
 msgid "View website in new tab"
-msgstr "在新的标签页中打开网站"
+msgstr "在新的标签页中查看网站"
 
 #: crm/site/crmmodeladmin.py:62
 msgid "Callback to smartphone"
-msgstr "回电至智能手机"
+msgstr "智能手机回呼"
 
 #: crm/site/crmmodeladmin.py:63
 msgid "Callback to your smartphone"
-msgstr "回电至您的智能手机"
+msgstr "回拨到您的智能手机"
 
 #: crm/site/crmmodeladmin.py:64
 msgid "Skype chat"
@@ -2026,69 +2026,69 @@ msgstr "聊天或 Skype 通话"
 
 #: crm/site/crmmodeladmin.py:66
 msgid "Skype call"
-msgstr "视频通话"
+msgstr "Skype 通话"
 
 #: crm/site/crmmodeladmin.py:67
 msgid "To call a mobile or landline from Skype"
-msgstr "从Skype拨打移动或固定电话"
+msgstr "在 Skype 上拨打移动电话或固定电话"
 
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
-msgstr "Viber 聊天"
+msgstr "Viber聊天"
 
 #: crm/site/crmmodeladmin.py:69
 msgid "Chat or viber call"
-msgstr "聊天或维伯通话"
+msgstr "聊天或 Viber 通话"
 
 #: crm/site/crmmodeladmin.py:70
 msgid "WhatsApp chat"
-msgstr "WhatsApp 聊天"
+msgstr "WhatsApp 聊天记录"
 
 #: crm/site/crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
-msgstr "聊天或WhatsApp电话"
+msgstr "聊天或 WhatsApp 通话"
 
 #: crm/site/crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
-msgstr "订阅电子邮件通讯"
+msgstr "订阅了电子邮件通讯"
 
 #: crm/site/crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
-msgstr "取消订阅电子邮件通讯"
+msgstr "取消订阅邮件新闻通讯"
 
 #: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
-msgstr "创建邮件"
+msgstr "创建电子邮件"
 
 #: crm/site/crmmodeladmin.py:341
 msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
-msgstr "请注意，以下日期不进行群发邮件：周五、周六、周日。"
+msgstr "请注意，以下几天不进行群发：周五、周六、周日。"
 
 #: crm/site/crmmodeladmin.py:371
 msgid "Messengers"
-msgstr "消息应用"
+msgstr "即时通讯应用"
 
 #: crm/site/currencyadmin.py:35
 msgid "State currency must be specified."
-msgstr "国家货币必须指定。"
+msgstr "必须指定国家货币。"
 
 #: crm/site/currencyadmin.py:40
 msgid "Marketing currency must be specified."
-msgstr "营销货币必须指定。"
+msgstr "必须指定营销货币。"
 
 #: crm/site/dealadmin.py:52
 msgid "Closing date"
-msgstr "关闭日期"
+msgstr "截止日期"
 
 #: crm/site/dealadmin.py:58
 msgid "View Contact in new tab"
-msgstr "在新的标签页中查看联系人"
+msgstr "在新标签页查看联系人"
 
 #: crm/site/dealadmin.py:59
 msgid "View Company in new tab"
-msgstr "在新的标签页中查看公司"
+msgstr "在新标签页中查看公司"
 
 #: crm/site/dealadmin.py:62
 msgid "Deal counter"
@@ -2096,7 +2096,7 @@ msgstr "交易计数器"
 
 #: crm/site/dealadmin.py:63
 msgid "View Lead in new tab"
-msgstr "在新标签页中查看潜在客户"
+msgstr "在新标签页查看潜在客户"
 
 #: crm/site/dealadmin.py:64
 msgid "Unanswered email"
@@ -2108,7 +2108,7 @@ msgstr "未读聊天消息"
 
 #: crm/site/dealadmin.py:71
 msgid "Payment received"
-msgstr "支付已接收"
+msgstr "已收到付款"
 
 #: crm/site/dealadmin.py:74
 msgid "Specify the date of shipment"
@@ -2128,7 +2128,7 @@ msgstr "相关交易"
 
 #: crm/site/dealadmin.py:158
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
-msgstr "ID 为 '{}' 的交易不存在。它可能已被删除？"
+msgstr "带有 ID “{}” 的交易不存在。可能是被删除了？"
 
 #: crm/site/dealadmin.py:221
 msgid "View the Request"
@@ -2149,7 +2149,7 @@ msgstr "重要交易"
 #: crm/site/dealadmin.py:603
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
-msgstr "我已经等待了%d天，希望得到我的请求的回复。"
+msgstr "我已经等待对我的请求的回复 %d 天了。"
 
 #: crm/site/dealadmin.py:633
 msgid "Expected"
@@ -2161,28 +2161,28 @@ msgstr "已付款"
 
 #: crm/site/dealadmin.py:696
 msgid "Contact is Lead (no company)"
-msgstr "联系人：潜在客户（无公司）"
+msgstr "联系人即潜在客户（无公司）"
 
 #: crm/site/leadadmin.py:118
 msgid "Person contact details"
-msgstr "个人联系信息"
+msgstr "人员联系方式"
 
 #: crm/site/leadadmin.py:127
 msgid "Additional person details"
-msgstr "附加人员信息"
+msgstr "额外人员详情"
 
 #: crm/site/leadadmin.py:140
 msgid "Company contact details"
-msgstr "公司联系方式"
+msgstr "公司联系信息"
 
 #: crm/site/leadadmin.py:249
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
-msgstr "潜在客户“{obj}”已成功转换。"
+msgstr "潜在客户\"{obj}\"已成功转换。"
 
 #: crm/site/leadadmin.py:264
 msgid "This Lead is disqualified! Please read the description."
-msgstr "这个潜在客户不合格！请阅读描述。"
+msgstr "此潜在客户不符合资格！请阅读描述。"
 
 #: crm/site/requestadmin.py:38
 msgid "Client Loyalty"
@@ -2190,15 +2190,15 @@ msgstr "客户忠诚度"
 
 #: crm/site/requestadmin.py:45
 msgid "Country not specified in request"
-msgstr "请求中未指定国家。"
+msgstr "请求中未指定国家"
 
 #: crm/site/requestadmin.py:46
 msgid "You received the deal"
-msgstr "您获得了交易。"
+msgstr "您收到了交易"
 
 #: crm/site/requestadmin.py:47
 msgid "You are the co-owner of the deal"
-msgstr "您是该交易的联合所有者。"
+msgstr "您是交易的共同所有者"
 
 #: crm/site/requestadmin.py:53
 msgid "Primary request"
@@ -2206,11 +2206,11 @@ msgstr "主要请求"
 
 #: crm/site/requestadmin.py:54
 msgid "You are the co-owner of the request"
-msgstr "您是请求的共同所有者。"
+msgstr "您是请求的共同所有者"
 
 #: crm/site/requestadmin.py:55
 msgid "You received the request"
-msgstr "您收到了一个请求。"
+msgstr "您收到了请求"
 
 #: crm/site/requestadmin.py:56 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
@@ -2219,7 +2219,7 @@ msgstr "待处理"
 
 #: crm/site/requestadmin.py:57
 msgid "processed"
-msgstr "处理完成"
+msgstr "已处理"
 
 #: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
@@ -2232,20 +2232,20 @@ msgstr "后续请求"
 
 #: crm/site/requestadmin.py:389
 msgid "Found the counterparty assigned to"
-msgstr "找到指定给的交易对手"
+msgstr "找到被分配的交易对方"
 
 #: crm/site/requestadmin.py:488
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
-msgstr "\"{名}\" \"【对象】\" 已成功添加。"
+msgstr "“{name}”的“{obj}”已成功添加。"
 
 #: crm/site/shipmentadmin.py:26
 msgid "actual"
-msgstr "实际"
+msgstr "实际的"
 
 #: crm/site/shipmentadmin.py:27
 msgid "Actual shipping date."
-msgstr "实际发货日期"
+msgstr "实际发货日期。"
 
 #: crm/site/shipmentadmin.py:32
 msgid "Deal is paid."
@@ -2253,7 +2253,7 @@ msgstr "交易已付款。"
 
 #: crm/site/shipmentadmin.py:33
 msgid "Next<br>payment"
-msgstr "下一次付款"
+msgstr "下一个<br>付款"
 
 #: crm/site/shipmentadmin.py:34
 msgid "order"
@@ -2261,7 +2261,7 @@ msgstr "订单"
 
 #: crm/site/shipmentadmin.py:37
 msgid "The product has not been shipped yet."
-msgstr "产品尚未发货。"
+msgstr "产品还没有发货。"
 
 #: crm/site/shipmentadmin.py:38
 msgid "The product has been shipped."
@@ -2273,11 +2273,11 @@ msgstr "产品发货"
 
 #: crm/site/shipmentadmin.py:41
 msgid "to contract"
-msgstr "按合同规定"
+msgstr "按合同"
 
 #: crm/site/shipmentadmin.py:42
 msgid "Date of shipment according to a contract."
-msgstr "合同规定的发货日期。"
+msgstr "合同中的发货日期。"
 
 #: crm/site/shipmentadmin.py:47
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
@@ -2289,19 +2289,19 @@ msgstr "查看交易"
 
 #: crm/site/shipmentadmin.py:254
 msgid "paid"
-msgstr "已支付"
+msgstr "已付款"
 
 #: crm/templates/admin/crm/change_form.html:43
 #: crm/templates/admin/crm/crmemail/change_form.html:43
 #: crm/templates/admin/crm/payment/change_list.html:52
 msgid "Please correct the error below."
-msgstr "请纠正下面的错误。"
+msgstr "请纠正以下错误。"
 
 #: crm/templates/admin/crm/change_form.html:43
 #: crm/templates/admin/crm/crmemail/change_form.html:43
 #: crm/templates/admin/crm/payment/change_list.html:52
 msgid "Please correct the errors below."
-msgstr "请纠正下面的错误。"
+msgstr "请更正以下错误。"
 
 #: crm/templates/admin/crm/city/submit_line.html:5
 #: crm/templates/admin/crm/company/submit_line.html:5
@@ -2314,7 +2314,7 @@ msgstr "请纠正下面的错误。"
 #: crm/templates/admin/crm/shipment/submit_line.html:5
 #: massmail/templates/admin/massmail/mailingout/submit_line.html:5
 msgid "Save as new"
-msgstr "保存为新的"
+msgstr "另存为新文件"
 
 #: crm/templates/admin/crm/city/submit_line.html:6
 #: crm/templates/admin/crm/company/submit_line.html:6
@@ -2336,7 +2336,7 @@ msgstr "联系人"
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:26
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:17
 msgid "Got massmails"
-msgstr "收到的群发邮件"
+msgstr "收到的大量邮件"
 
 #: crm/templates/admin/crm/company/change_form_object_tools.html:33
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:27
@@ -2349,7 +2349,7 @@ msgstr "群发邮件"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
 #: help/templates/admin/help/page/change_form_object_tools.html:3
 msgid "Open in Admin"
-msgstr "在管理员中打开"
+msgstr "在管理员处打开"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
@@ -2360,7 +2360,7 @@ msgstr "创建群发邮件"
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:25
 #: crm/templates/admin/crm/lead/change_list_object_tools.html:18
 msgid "Export all"
-msgstr "导出所有"
+msgstr "导出全部"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
 #: crm/templates/admin/crm/inline_emails.html:37
@@ -2374,15 +2374,15 @@ msgstr "转发"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
 msgid "View next email"
-msgstr "查看下一条邮件"
+msgstr "查看下一封邮件"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
 msgid "Next"
-msgstr "下一步"
+msgstr "下一个"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
 msgid "View previous email"
-msgstr "查看之前的邮件"
+msgstr "查看上一封邮件"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
 msgid "Previous"
@@ -2400,7 +2400,7 @@ msgstr "查看原始邮件"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
 #: crm/templates/admin/crm/inline_emails.html:32
 msgid "Download the original email as an EML file."
-msgstr "下载原始电子邮件作为 EML 文件。"
+msgstr "下载原始电子邮件为 EML 文件。"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
 #: crm/templates/admin/crm/inline_emails.html:39
@@ -2413,7 +2413,7 @@ msgstr "打印预览"
 #: help/templates/admin/help/stacked.html:16
 #: massmail/site/signatureadmin.py:31
 msgid "Change"
-msgstr "更改"
+msgstr "修改"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: help/templates/admin/help/stacked.html:16
@@ -2447,15 +2447,15 @@ msgstr "添加"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:9
 msgid "Office memo"
-msgstr "办公备忘录"
+msgstr "办公室备忘录"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:14
 msgid "View the correspondence on this Deal"
-msgstr "查看此交易的通信记录。"
+msgstr "查看此交易的通信"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:22
 msgid "Import Email regarding this Deal"
-msgstr "导入关于此交易的邮件"
+msgstr "导入与此交易相关的邮件"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:29
 msgid "View Deals with this Company"
@@ -2463,19 +2463,19 @@ msgstr "查看与该公司的交易"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
-msgstr "查看此交易的历史变更记录。"
+msgstr "查看此交易的更改历史记录"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:6
 msgid "Toggle default deal sorting"
-msgstr "切换默认交易排序方式"
+msgstr "切换默认交易排序"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
-msgstr "基于一个请求创建了一个交易。 "
+msgstr "交易是基于请求创建的"
 
 #: crm/templates/admin/crm/inline_emails.html:6
 msgid "Last few letters"
-msgstr "最近几封信件"
+msgstr "最后几封信件"
 
 #: crm/templates/admin/crm/inline_emails.html:51
 msgid "Date"
@@ -2491,7 +2491,7 @@ msgstr "转换"
 
 #: crm/templates/admin/crm/payment/change_list.html:41
 msgid "Total sum"
-msgstr "总金额"
+msgstr "总计金额"
 
 #: crm/templates/admin/crm/payment/change_list.html:41
 msgid "with VAT"
@@ -2503,15 +2503,15 @@ msgstr "过滤器"
 
 #: crm/templates/admin/crm/request/change_form_object_tools.html:27
 msgid "Import Email regarding this Request"
-msgstr "导入与此请求相关的电子邮件。"
+msgstr "导入与该请求相关的电子邮件"
 
 #: crm/templates/admin/crm/request/change_list_object_tools.html:12
 msgid "Create a request based on an email."
-msgstr "基于电子邮件创建请求"
+msgstr "基于电子邮件创建一个请求。"
 
 #: crm/templates/admin/crm/request/change_list_object_tools.html:13
 msgid "Import request from"
-msgstr "导入请求来自"
+msgstr "从...导入请求"
 
 #: crm/templates/admin/crm/request/submit_line.html:8
 msgid "Create deal"
@@ -2519,34 +2519,32 @@ msgstr "创建交易"
 
 #: crm/templates/crm/addfiles.html:20
 msgid "Please select files to attach to the letter."
-msgstr "请选择要附件的文件。"
+msgstr "请选择要附加到信件中的文件。"
 
 #: crm/templates/crm/change_owner_companies.html:20
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
-msgstr "请为选中的公司及其联系人选择新的所有者。"
+msgstr "请为所选公司及其联系人选择新的所有者"
 
 #: crm/templates/crm/del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
-msgstr "正确删除此重复对象。"
+msgstr "正确地将此对象作为重复项删除。"
 
 #: crm/templates/crm/filter_scroll.html:4
 #: templates/admin/crm_date_filter.html:7
 #, python-format
 msgid " By %(filter_title)s "
-msgstr "按%(filter_title)s 过滤"
+msgstr "根据%(filter_title)s"
 
 #: crm/templates/crm/import_objects.html:20
 msgid "Please select a file to import."
-msgstr "请选择一个要导入的文件。"
+msgstr "请选择要导入的文件。"
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
 "Only the following columns will be imported if they exist (the order doesn't"
 " matter):"
-msgstr ""
-"\n"
-"只有以下列在存在时将被导入（顺序不重要）："
+msgstr "仅在存在的情况下导入以下列（顺序无所谓）："
 
 #: crm/templates/crm/make_massmail.html:22
 msgid "Make a choice"
@@ -2560,15 +2558,15 @@ msgstr "打印"
 
 #: crm/templates/crm/print_request.html:36
 msgid "Received"
-msgstr "收到"
+msgstr "已接收"
 
 #: crm/templates/crm/print_request.html:37
 msgid "Prepared"
-msgstr "准备好"
+msgstr "已准备就绪"
 
 #: crm/templates/crm/select_original_obj.html:32
 msgid "Select the original to which the linked objects will be reconnected."
-msgstr "选择与关联对象重新连接的原始内容。"
+msgstr "选择链接对象将重新连接的原始项。"
 
 #: crm/utils/admfilters.py:188
 msgid "Last month"
@@ -2580,7 +2578,7 @@ msgstr "上半年"
 
 #: crm/utils/admfilters.py:206
 msgid "Nine months of this year"
-msgstr "今年的九个月"
+msgstr "今年已经过去的九个月"
 
 #: crm/utils/admfilters.py:214
 msgid "Second half of the last year"
@@ -2588,25 +2586,25 @@ msgstr "去年下半年"
 
 #: crm/utils/admfilters.py:417
 msgid "changed by chiefs"
-msgstr "由领导层更改"
+msgstr "由主管人员更改"
 
 #: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
 #: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
 #: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
 #: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
 msgid "Yes"
-msgstr "是的"
+msgstr "是"
 
 #: crm/utils/admfilters.py:437
 msgid "Partner"
-msgstr "合作伙伴"
+msgstr "合作夥伴"
 
 #: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
 #: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
 #: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
 #: tasks/utils/admfilters.py:218
 msgid "No"
-msgstr "不"
+msgstr "没有"
 
 #: crm/utils/admfilters.py:498
 msgid "Has Contacts"
@@ -2627,7 +2625,7 @@ msgstr "已发送"
 #: crm/utils/admfilters.py:585
 #, python-brace-format
 msgid "outbox ({num})"
-msgstr "待发送项 ({num})"
+msgstr "草稿箱 ({num})"
 
 #: crm/utils/admfilters.py:586
 msgid "trash"
@@ -2639,17 +2637,17 @@ msgstr "无交易金额"
 
 #: crm/utils/helpers.py:31
 msgid "Unacceptable phone number value"
-msgstr "不可接受的电话号码格式"
+msgstr "不可接受的电话号码值"
 
 #: crm/utils/helpers.py:32
 msgid "Counterparty"
-msgstr "对方（或对接方）"
+msgstr "交易对方"
 
 #: crm/utils/make_massmail_form.py:28
 msgid ""
 "Error: The date you set as 'Created before' has to be later \n"
 "                than the date of 'Created after'."
-msgstr "错误：您设置的“创建时间比”日期必须晚于“大于创建时间”的日期。"
+msgstr "错误：您设置为「创建之前」的日期必须晚于「创建之后」的日期。"
 
 #: crm/utils/make_massmail_form.py:42
 msgid "Industries"
@@ -2661,29 +2659,29 @@ msgstr "类型"
 
 #: crm/utils/make_massmail_form.py:61
 msgid "Created before"
-msgstr "创建日期"
+msgstr "创建于"
 
 #: crm/utils/make_massmail_form.py:66
 msgid "Created after"
-msgstr "创建后"
+msgstr "创建于之后"
 
 #: crm/utils/restore_imap_emails.py:40
 #, python-format
 msgid "Received an email from \"%s\""
-msgstr "收到来自“%s”的邮件。"
+msgstr "收到了来自\"%s\"的电子邮件"
 
 #: crm/utils/send_email.py:22
 #, python-format
 msgid "The Email has been sent to \"%s\""
-msgstr "邮件已发送至“%s”。"
+msgstr "电子邮件已发送至“%s”"
 
 #: crm/utils/send_email.py:30
 msgid "Please fill in the subject and text of the letter."
-msgstr "请填写信件的主题和正文内容。"
+msgstr "请填写邮件的主题和正文。"
 
 #: crm/utils/send_email.py:34
 msgid "To send a message you need to have an email account marked as main."
-msgstr "要发送消息，您需要有一个标记为主要邮箱的电子邮件账户。"
+msgstr "要发送消息，您需要有一个标记为主要账户的电子邮件账号。"
 
 #: crm/utils/send_email.py:72
 #, python-format
@@ -2692,11 +2690,11 @@ msgstr "失败：%s"
 
 #: crm/views/change_owner_companies.py:33
 msgid "Owner changed successfully"
-msgstr "所有者已成功更改。"
+msgstr "所有者已成功更改"
 
 #: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
 msgid "Dear {}, thanks for your request!"
-msgstr "亲爱的{}，感谢您的请求！"
+msgstr "亲爱的 {}，感谢您的请求！"
 
 #: crm/views/create_email.py:35
 msgid "No recipient"
@@ -2708,21 +2706,21 @@ msgstr "重复的对象已被正确删除。"
 
 #: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
 msgid "Not enough data to identify the email or email has been deleted"
-msgstr "数据不足以识别电子邮件，或该电子邮件已删除。"
+msgstr "数据不足，无法识别邮件，或邮件已被删除。"
 
 #: crm/views/reply_email.py:126
 msgid ""
 "You do not have an email account in CRM for sending Emails. Contact your "
 "administrator."
-msgstr "您在CRM系统中没有电子邮件账户来发送邮件。请联系管理员。"
+msgstr "您在 CRM 中没有用于发送电子邮件的电子邮箱账户。请联系您的管理员。"
 
 #: crm/views/view_original_email.py:24
 msgid "Something went wrong"
-msgstr "发生了一点意外。"
+msgstr "出了点问题"
 
 #: help/admin.py:78
 msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
-msgstr "如需添加正确的链接，请在必要时使用标签 /SECRET_CRM_PREFIX/。"
+msgstr "要添加正确的链接，如有必要请使用标签 /SECRET_CRM_PREFIX/"
 
 #: help/models.py:13
 msgid "list"
@@ -2758,13 +2756,13 @@ msgstr "标题"
 
 #: help/models.py:53
 msgid "Available on CRM page"
-msgstr "可于CRM页面访问"
+msgstr "在 CRM 页面上可获取"
 
 #: help/models.py:55
 msgid ""
 "Available on one of CRM pages. Otherwise, it can only be accessed via a link"
 " from another help page."
-msgstr "在CRM页面之一上可访问。否则，只能通过另一个帮助页面上的链接访问它。"
+msgstr "可以在CRM页面之一上找到。否则，只能通过另一个帮助页面的链接访问。"
 
 #: help/models.py:86
 msgid "Paragraph"
@@ -2776,13 +2774,13 @@ msgstr "段落"
 
 #: help/models.py:97
 msgid "Groups"
-msgstr "组别"
+msgstr "群体"
 
 #: help/models.py:99
 msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
-msgstr "如果未选择任何用户组，那么段落将仅对超级用户可见。"
+msgstr "如果没有选择用户组，则该段落仅对超级用户可见。"
 
 #: help/models.py:105
 msgid "Title of paragraph."
@@ -2794,23 +2792,23 @@ msgstr "草稿"
 
 #: help/models.py:121
 msgid "Will not be published."
-msgstr "不会发布。"
+msgstr "不会被发布。"
 
 #: help/models.py:126
 msgid "Content requires additional verification."
-msgstr "内容需要额外的验证。"
+msgstr "内容需要额外验证。"
 
 #: help/models.py:131
 msgid "Index number"
-msgstr "索引号"
+msgstr "序号"
 
 #: help/models.py:132
 msgid "The sequence number of the paragraph on the page."
-msgstr "页面上段落顺序号。"
+msgstr "页面上段落的序号。"
 
 #: help/models.py:138
 msgid "Link to a related paragraph if exists."
-msgstr "链接到相关段落（如果存在）。"
+msgstr "如果存在，请链接到相关段落。"
 
 #: massmail/admin.py:31
 msgid "Service information"
@@ -2818,33 +2816,33 @@ msgstr "服务信息"
 
 #: massmail/admin_actions.py:17
 msgid "Please select recipients only with the same owner."
-msgstr "请仅选择同一所有人的收件人。"
+msgstr "请仅选择拥有相同所有者的收件人。"
 
 #: massmail/admin_actions.py:18
 msgid "Bad result - no recipients! Make another choice."
-msgstr "结果不佳，没有收件人！请选择其他选项。"
+msgstr "糟糕的结果 - 没有收件人！请重新选择。"
 
 #: massmail/admin_actions.py:21
 msgid "Create a mailing out for selected objects"
-msgstr "创建选定对象的邮件发送"
+msgstr "为选定的对象创建邮件群发"
 
 #: massmail/admin_actions.py:33
 msgid "Unsubscribed users were excluded from the mailing list."
-msgstr "已取消订阅的用户被排除在邮件列表之外。"
+msgstr "已取消订阅的用户已被从邮件列表中移除。"
 
 #: massmail/admin_actions.py:54
 msgid ""
 "Note massmail is not performed on the following days: Friday, Saturday, "
 "Sunday."
-msgstr "请注意，以下日期不进行群发邮件：周五、周六、周日。"
+msgstr "请注意，以下日期不进行群发：周五、周六、周日。"
 
 #: massmail/admin_actions.py:65
 msgid "Merge selected mailing outs"
-msgstr "合并选定的邮件发送"
+msgstr "合并选定的邮件"
 
 #: massmail/admin_actions.py:85
 msgid "united"
-msgstr "统一的"
+msgstr "联合的"
 
 #: massmail/admin_actions.py:107
 msgid "Specify VIP recipients"
@@ -2852,33 +2850,33 @@ msgstr "指定 VIP 收件人"
 
 #: massmail/admin_actions.py:115
 msgid "Please first add your main email account."
-msgstr "请首先添加您的主要邮箱账户。"
+msgstr "请先添加您的主要电子邮件账户。"
 
 #: massmail/admin_actions.py:143
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
-msgstr "主要电子邮件地址已成功分配给所选收件人。"
+msgstr "主电子邮件地址已成功分配给所选收件人。"
 
 #: massmail/admin_actions.py:149
 msgid "Please select mailings with only the same recipient type."
-msgstr "请仅选择与相同收件人类型的邮件。"
+msgstr "请选择仅包含相同收件人类型的邮件。"
 
 #: massmail/admin_actions.py:154
 msgid "Please select only mailings with the same message."
-msgstr "请仅选择消息相同的邮件。"
+msgstr "请只选择包含相同消息的邮件。"
 
 #: massmail/admin_actions.py:183
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
-msgstr "没有可用于发送邮件的邮箱账户。请联系您的 CRM 管理员。"
+msgstr "没有可用于发送邮件的邮件帐户。请联系您的管理员。"
 
 #: massmail/admin_actions.py:191
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
-msgstr "无法为非 VIP 收件人发送邮件。请联系您的系统管理员。 "
+msgstr "没有可用的邮箱账户可以发送给非VIP收件人。请联系您的管理员。"
 
 #: massmail/apps.py:8
 msgid "Mass mail"
@@ -2888,7 +2886,8 @@ msgstr "群发邮件"
 msgid ""
 "The subject of the message. You can use {{first_name}}, {{last_name}}, "
 "{{first_middle_name}} or {{full_name}}"
-msgstr "消息主题。您可以使用{{第一项名}}, {{姓氏}}, {{中名}}或{{全名}}。"
+msgstr ""
+"消息主题。您可以使用{{first_name}}、{{last_name}}、{{first_middle_name}}或{{full_name}}。"
 
 #: massmail/models/baseeml.py:22
 msgid "Choose signature"
@@ -2900,19 +2899,19 @@ msgstr "发送者签名。"
 
 #: massmail/models/baseeml.py:28
 msgid "Previous correspondence. Will be added after signature"
-msgstr "之前通信。在签字后将添加。"
+msgstr "之前的通信记录。将在签名后添加。"
 
 #: massmail/models/email_account.py:15
 msgid "Email Account"
-msgstr "邮件账户"
+msgstr "电子邮件账户"
 
 #: massmail/models/email_account.py:16
 msgid "Email Accounts"
-msgstr "邮箱账户"
+msgstr "电子邮件账户"
 
 #: massmail/models/email_account.py:20
 msgid "The name of the Email Account. For example Gmail"
-msgstr "电子邮件账户名称。例如，Gmail"
+msgstr "电子邮件账户的名称。例如 Gmail"
 
 #: massmail/models/email_account.py:24
 msgid "Use this account for regular business correspondence."
@@ -2920,11 +2919,11 @@ msgstr "使用此账户进行常规业务通信。"
 
 #: massmail/models/email_account.py:28
 msgid "Allow to use this account for massmail."
-msgstr "允许使用此账户进行大量邮件发送。"
+msgstr "允许使用此帐户进行群发邮件。"
 
 #: massmail/models/email_account.py:32
 msgid "Import emails from this account."
-msgstr "从这个账户导入邮件。"
+msgstr "从这个账户导入电子邮件。"
 
 #: massmail/models/email_account.py:40
 msgid "The IMAP host"
@@ -2932,98 +2931,92 @@ msgstr "IMAP 主机"
 
 #: massmail/models/email_account.py:44
 msgid "The username to use to authenticate to the SMTP server."
-msgstr "用于身份验证SMTP服务器的用户名。"
+msgstr "用于验证 SMTP 服务器的用户名。"
 
 #: massmail/models/email_account.py:48
 msgid "The auth_password to use to authenticate to the SMTP server."
-msgstr "用于向SMTP服务器进行身份验证的auth密码。"
+msgstr "用于验证 SMTP 服务器的授权密码。"
 
 #: massmail/models/email_account.py:52
 msgid "The application password to use to authenticate to the SMTP server."
-msgstr "用于验证SMTP服务器的应用密码。"
+msgstr "用于验证 SMTP 服务器的应用程序密码。"
 
 #: massmail/models/email_account.py:56
 msgid "Port to use for the SMTP server"
-msgstr "SMTP服务器使用端口"
+msgstr "用于 SMTP 服务器的端口"
 
 #: massmail/models/email_account.py:60
 msgid "The from_email field."
-msgstr "发件人邮箱字段。"
+msgstr "来自电子邮件字段。"
 
 #: massmail/models/email_account.py:68
 msgid ""
 "If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
 "         the path to a PEM-formatted certificate chain file to use for the "
 "SSL connection."
-msgstr ""
-"\n"
-"如果 `EMAIL_USE_SSL` 或 `EMAIL_USE_TLS` 为真，您可选择性地指定用于 SSL 连接的 PEM 格式证书链文件路径。"
+msgstr "如果EMAIL_USE_SSL 或 EMAIL_USE_TLS 为 True，你可选择指定使用SSL连接的PEM格式证书链文件路径。"
 
 #: massmail/models/email_account.py:73
 msgid ""
 "If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
 "         the path to a PEM-formatted private key file to use for the SSL "
 "connection."
-msgstr ""
-"如果 `EMAIL_USE_SSL` 或 `EMAIL_USE_TLS` 为 `True`，您可以可选地指定一个以 PEM "
-"格式格式化的私钥文件的路径，用于 SSL 连接。"
+msgstr "如果EMAIL_USE_SSL或EMAIL_USE_TLS为True，你可选指定使用SSL连接的PEM格式私钥文件路径。"
 
 #: massmail/models/email_account.py:79
 msgid "OAuth 2.0 token for obtaining an access token."
-msgstr "获取访问令牌的 OAuth 2.0 令牌。"
+msgstr "用于获取访问令牌的 OAuth 2.0 令牌。"
 
 #: massmail/models/email_account.py:106
 msgid "DateTime of last import"
-msgstr "最后导入时间"
+msgstr "上次导入时间"
 
 #: massmail/models/email_account.py:117
 msgid "Specify the imap host"
-msgstr "指定 IMAP 主机。"
+msgstr "指定 IMAP 主机"
 
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"    使用 HTML。为了指定嵌入图像的地址，使用 {% cid_media 'path/to/pic.png' %}。<br>\n"
-"    可以嵌入上传到 CPM 服务器中的 'media/pics/' 文件夹中的文件，或附在当前的消息中。"
+"使用 HTML。要指定嵌入图像的地址，请使用 {% cid_media ‘path/to/pic.png' %}。<br>\n"
+"您可以将上传到 CRM 服务器的文件嵌入到‘media/pics/’文件夹中或附加到此消息中。"
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
-msgstr "邮件消息"
+msgstr "电子邮件消息"
 
 #: massmail/models/email_message.py:20
 msgid "Email Messages"
-msgstr "邮件消息"
+msgstr "电子邮件消息"
 
 #: massmail/models/eml_accounts_queue.py:19
 msgid "The queue of the user email accounts."
-msgstr "用户邮箱账户队列。"
+msgstr "用户电子邮件账户的队列。"
 
 #: massmail/models/mailing_out.py:12
 msgid "Mailing Out"
-msgstr "邮件寄送"
+msgstr "邮件群发"
 
 #: massmail/models/mailing_out.py:13
 msgid "Mailing Outs"
-msgstr "邮件外发"
+msgstr "邮件营销"
 
 #: massmail/models/mailing_out.py:23
 msgid "Active but Error"
-msgstr ""
-"\n"
-"活跃但存在错误 "
+msgstr "活跃但存在错误"
 
 #: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
 msgid "Paused"
-msgstr "暂停"
+msgstr "已暂停"
 
 #: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
 msgid "Interrupted"
-msgstr "中断"
+msgstr "已中断"
 
 #: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
 #: tasks/models/stagebase.py:19 tasks/models/task.py:93
@@ -3032,15 +3025,15 @@ msgstr "完成"
 
 #: massmail/models/mailing_out.py:31
 msgid "The name of the message."
-msgstr "消息名称。"
+msgstr "消息的名称。"
 
 #: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
 msgid "Number of recipients"
-msgstr "收件人数量"
+msgstr "接收者数量"
 
 #: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
 msgid "Recipients type"
-msgstr "接收者类型"
+msgstr "收件人类型"
 
 #: massmail/models/mailing_out.py:59
 msgid "Report"
@@ -3050,12 +3043,12 @@ msgstr "报告"
 msgid ""
 "\n"
 "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
 "    "
 msgstr ""
 "\n"
-"    使用 HTML。指定嵌入图像的地址时，使用 {% cid_media 'path/to/pic.png' %}。<br>\n"
-"    您可以将上传到 CPM 服务器的文件嵌入到 'media/pics/' 文件夹中。"
+"使用 HTML。要指定嵌入图像的地址，请使用 {% cid_media ‘path/to/pic.png' %}。<br>\n"
+"您可以将上传到 CRM 服务器的文件嵌入到‘media/pics/’文件夹中。"
 
 #: massmail/models/signature.py:17
 msgid "Signatures"
@@ -3080,7 +3073,7 @@ msgstr "编辑"
 
 #: massmail/site/mailingoutadmin.py:17
 msgid "Available Email accounts for MassMail"
-msgstr "可用于群发邮件的邮箱账户"
+msgstr "可用于群发邮件的电子邮箱账户"
 
 #: massmail/site/mailingoutadmin.py:18
 msgid "Accounts"
@@ -3092,7 +3085,7 @@ msgstr "今天"
 
 #: massmail/site/mailingoutadmin.py:28
 msgid "Sent today"
-msgstr "今天发送"
+msgstr "今日发送"
 
 #: massmail/site/mailingoutadmin.py:72
 msgid ""
@@ -3122,41 +3115,41 @@ msgstr "成功收件人"
 
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
 msgid "Failed recipients"
-msgstr "未送达收件人"
+msgstr "未成功接收者"
 
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
 msgid "Send failed recipients"
-msgstr "重新发送未成功接收者"
+msgstr "重新发送给未成功收件人"
 
 #: massmail/templates/massmail/pic_upload.html:7
 msgid "Upload the image file to the CRM server"
-msgstr "将图像文件上传到CRM服务器。"
+msgstr "将图像文件上传到 CRM 服务器。"
 
 #: massmail/templates/massmail/pic_upload.html:15
 msgid "Please select an image file to upload."
-msgstr "请选择一个图片文件进行上传。"
+msgstr "请选择一个图像文件进行上传。"
 
 #: massmail/templates/massmail/pic_upload.html:36
 msgid "To specify the address of the uploaded file, use the tag -"
-msgstr "要指定上传文件的地址，请使用标签 -。"
+msgstr "要指定上传文件的地址，请使用标签 -"
 
 #: massmail/templates/massmail/pic_upload.html:37
 msgid ""
 "Upload only files that will be used many times. For example, a company logo."
-msgstr "仅上传将经常使用的文件。例如，公司徽标。"
+msgstr "仅上传将被多次使用的文件。例如，公司标志。"
 
 #: massmail/templates/massmail/pic_upload_buttons.html:3
 msgid "View the uploaded images on the CRM server"
-msgstr "查看在 CRM 服务器上上传的图片。"
+msgstr "查看CRM服务器上上传的图片"
 
 #: massmail/templates/massmail/pic_upload_buttons.html:6
 msgid "Upload an image file to the CRM server"
-msgstr "将图像文件上传到 CRM 服务器上。"
+msgstr "将图像文件上传到 CRM 服务器。"
 
 #: massmail/templates/massmail/show_uploaded_images.html:7
 #: massmail/templates/massmail/show_uploaded_images.html:15
 msgid "Uploaded images"
-msgstr "上传的图片"
+msgstr "已上传图片"
 
 #: massmail/utils/sendmassmail.py:43
 msgid "Done successfully."
@@ -3168,7 +3161,7 @@ msgstr "允许的文件扩展名："
 
 #: massmail/views/get_oauth2_tokens.py:74
 msgid "Refresh token received successfully."
-msgstr "刷新令牌已成功获取。"
+msgstr "刷新令牌已成功接收。"
 
 #: massmail/views/get_oauth2_tokens.py:79
 msgid "Error: Failed to get authorization code."
@@ -3176,12 +3169,12 @@ msgstr "错误：获取授权码失败。"
 
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
-msgstr "失败的收件人已被成功添加到群发邮件中。"
+msgstr "未成功的收件人已被成功地返回到批量邮件中。"
 
 #: massmail/views/send_tests.py:49
 #, python-brace-format
 msgid "The Email test has been sent to {email_accounts}"
-msgstr "测试邮件已发送至 {email_accounts}。"
+msgstr "测试邮件已发送至 {email_accounts}"
 
 #: settings/apps.py:8
 msgid "Settings"
@@ -3189,23 +3182,23 @@ msgstr "设置"
 
 #: settings/models.py:7
 msgid "Banned company name"
-msgstr "被禁止的公司名称"
+msgstr "被禁公司的名称"
 
 #: settings/models.py:8
 msgid "Banned company names"
-msgstr "禁止公司名称"
+msgstr "禁用的公司名称"
 
 #: settings/models.py:22
 msgid "Public email domain"
-msgstr "公共邮域"
+msgstr "公共电子邮件域"
 
 #: settings/models.py:23
 msgid "Public email domains"
-msgstr "公共邮件域"
+msgstr "公共电子邮件域名"
 
 #: settings/models.py:28
 msgid "Domain"
-msgstr "领域"
+msgstr "域名"
 
 #: settings/models.py:41 settings/models.py:42
 msgid "Reminder settings"
@@ -3217,7 +3210,7 @@ msgstr "检查间隔"
 
 #: settings/models.py:49
 msgid "Specify the interval in seconds to check if it's time for a reminder."
-msgstr "设置提醒检查间隔的秒数。"
+msgstr "指定以秒为单位的间隔，以检查是否是提醒的时间。"
 
 #: settings/models.py:56
 msgid "Stop Phrase"
@@ -3233,15 +3226,15 @@ msgstr "短语"
 
 #: settings/models.py:66
 msgid "Last occurrence date"
-msgstr "最后发生日期"
+msgstr "上次发生日期"
 
 #: settings/models.py:67
 msgid "Date of last occurrence of the phrase"
-msgstr "最后一次出现该短语的时间"
+msgstr "该短语上一次出现的时间"
 
 #: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
 msgid "Change responsible"
-msgstr "更改负责方"
+msgstr "更改负责人"
 
 #: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
@@ -3255,15 +3248,15 @@ msgstr "任务"
 
 #: tasks/forms.py:32
 msgid "Please specify a name"
-msgstr "请指定名称。"
+msgstr "请指定一个名称"
 
 #: tasks/forms.py:38
 msgid "Please specify a responsible"
-msgstr "请指定负责人。"
+msgstr "请指定责任人"
 
 #: tasks/forms.py:48 tasks/forms.py:114
 msgid "Date should not be in the past."
-msgstr "日期不应为过去日期。"
+msgstr "日期不应在过去。"
 
 #: tasks/models/memo.py:13
 msgid "Memo"
@@ -3276,15 +3269,15 @@ msgstr "备忘录"
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
 #: tasks/site/memoadmin.py:45
 msgid "postponed"
-msgstr "推迟"
+msgstr "延迟"
 
 #: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
 msgid "reviewed"
-msgstr "已审查"
+msgstr "已审核"
 
 #: tasks/models/memo.py:33
 msgid "to whom"
-msgstr "谁（谁人）"
+msgstr "给谁"
 
 #: tasks/models/memo.py:41 tasks/models/task.py:15
 msgid "Task"
@@ -3292,7 +3285,7 @@ msgstr "任务"
 
 #: tasks/models/memo.py:49
 msgid "For what"
-msgstr "为了什么？"
+msgstr "为了什么"
 
 #: tasks/models/memo.py:57 tasks/models/project.py:9
 #: tasks/utils/admfilters.py:67
@@ -3309,7 +3302,7 @@ msgstr "草稿"
 
 #: tasks/models/memo.py:77
 msgid "Available only to the owner."
-msgstr "仅限所有者使用。"
+msgstr "仅对所有者可用。"
 
 #: tasks/models/memo.py:81
 msgid "Notified"
@@ -3317,11 +3310,11 @@ msgstr "已通知"
 
 #: tasks/models/memo.py:82
 msgid "The recipient and subscribers are notified."
-msgstr "收件人和订阅者已被通知。"
+msgstr "接收者和订阅者已收到通知。"
 
 #: tasks/models/memo.py:92
 msgid "Review date"
-msgstr "审阅日期"
+msgstr "回顾日期"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
 #: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
@@ -3330,11 +3323,11 @@ msgstr "订阅者"
 
 #: tasks/models/memo.py:110 tasks/models/taskbase.py:67
 msgid "Notified subscribers"
-msgstr "通知的订阅者"
+msgstr "已通知的订阅者"
 
 #: tasks/models/memo.py:123
 msgid "The office memo has been reviewed"
-msgstr "办公室备忘录已审核通过"
+msgstr "办公室备忘录已过审"
 
 #: tasks/models/project.py:10
 msgid "Projects"
@@ -3350,7 +3343,7 @@ msgstr "项目阶段"
 
 #: tasks/models/projectstage.py:15
 msgid "Is the project active at this stage?"
-msgstr "在这个阶段项目是否活跃？"
+msgstr "该项目在这个阶段是否活跃？"
 
 #: tasks/models/resolution.py:9
 msgid "Resolution"
@@ -3358,11 +3351,11 @@ msgstr "决议"
 
 #: tasks/models/resolution.py:10
 msgid "Resolutions"
-msgstr "解决方案"
+msgstr "决议"
 
 #: tasks/models/stagebase.py:20
 msgid "Mark if this stage is \"done\""
-msgstr "标记此阶段为“完成”"
+msgstr "标记此阶段是否“完成”"
 
 #: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
 msgid "In progress"
@@ -3370,7 +3363,7 @@ msgstr "进行中"
 
 #: tasks/models/stagebase.py:25
 msgid "Mark if this stage is \"in progress\""
-msgstr "标记此阶段为“进行中”"
+msgstr "如果这个阶段是“进行中”，请标记。"
 
 #: tasks/models/tag.py:17
 msgid "Tag for"
@@ -3386,18 +3379,16 @@ msgstr "项目"
 
 #: tasks/models/task.py:39
 msgid "Hide main task"
-msgstr "隐藏主任务"
+msgstr "隐藏主要任务"
 
 #: tasks/models/task.py:40
 msgid "Hide the main task when this sub-task is closed."
-msgstr "当这个子任务完成时，隐藏主任务。"
+msgstr "在完成此子任务时，隐藏主任务。"
 
 #: tasks/models/task.py:46 tasks/site/taskadmin.py:346
 #: tasks/site/taskadmin.py:352
 msgid "Lead time"
-msgstr ""
-"\n"
-"交货时间"
+msgstr "准备时间"
 
 #: tasks/models/task.py:47
 msgid "Task execution time in format - DD HH:MM:SS"
@@ -3405,11 +3396,11 @@ msgstr "任务执行时间格式为 - DD HH:MM:SS"
 
 #: tasks/models/task.py:64
 msgid "The task cannot be closed because there is an active subtask."
-msgstr "由于存在一个活跃的子任务，无法关闭该任务。"
+msgstr "该任务无法关闭，因为存在一个活跃的子任务。"
 
 #: tasks/models/task.py:92
 msgid "The main task is closed automatically."
-msgstr "主要任务已自动关闭。"
+msgstr "主任务自动关闭。"
 
 #: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
 msgid "Low"
@@ -3417,7 +3408,7 @@ msgstr "低"
 
 #: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
 msgid "Middle"
-msgstr "中"
+msgstr "中等"
 
 #: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
 msgid "High"
@@ -3437,7 +3428,7 @@ msgstr "任务关闭日期"
 
 #: tasks/models/taskbase.py:55
 msgid "Notified responsible"
-msgstr "通知的负责人"
+msgstr "已通知的负责人"
 
 #: tasks/models/taskstage.py:9
 msgid "Task stage"
@@ -3449,15 +3440,15 @@ msgstr "任务阶段"
 
 #: tasks/models/taskstage.py:15
 msgid "Is the task active at this stage?"
-msgstr "在这个阶段，任务是否正在进行中？"
+msgstr "在这个阶段，任务是否活跃？"
 
 #: tasks/models/to_translate.txt:4
 msgid "done"
-msgstr "完成"
+msgstr "已完成"
 
 #: tasks/models/to_translate.txt:6
 msgid "canceled"
-msgstr "取消"
+msgstr "已取消"
 
 #: tasks/models/to_translate.txt:7
 msgid "to make a decision"
@@ -3465,7 +3456,7 @@ msgstr "做出决定"
 
 #: tasks/models/to_translate.txt:8
 msgid "payment of regular expenses"
-msgstr "定期开支支付"
+msgstr "支付常规费用"
 
 #: tasks/models/to_translate.txt:9
 msgid "on approval"
@@ -3473,15 +3464,15 @@ msgstr "待批准"
 
 #: tasks/models/to_translate.txt:10
 msgid "for consideration"
-msgstr "待处理"
+msgstr "供参考"
 
 #: tasks/models/to_translate.txt:11
 msgid "for information"
-msgstr "为参考或告知使用。"
+msgstr "用于信息"
 
 #: tasks/models/to_translate.txt:12
 msgid "for the record"
-msgstr "记录在案"
+msgstr "为了记录"
 
 #: tasks/site/memoadmin.py:44
 msgid "overdue"
@@ -3489,7 +3480,7 @@ msgstr "逾期"
 
 #: tasks/site/memoadmin.py:47
 msgid "You are subscribed to a new office memo"
-msgstr "您订阅了一条新的办公室备忘录。"
+msgstr "您已订阅新的办公备忘录"
 
 #: tasks/site/memoadmin.py:49
 msgid "unreviewed"
@@ -3497,15 +3488,15 @@ msgstr "未审核"
 
 #: tasks/site/memoadmin.py:50
 msgid "The office memo was written"
-msgstr "办公备忘录已撰写完成。"
+msgstr "办公备忘录被撰写"
 
 #: tasks/site/memoadmin.py:51
 msgid "You've received a office memo"
-msgstr "您收到了办公室备忘录。"
+msgstr "您收到了一项办公室备忘录"
 
 #: tasks/site/memoadmin.py:118
 msgid "Your office memo has been deleted"
-msgstr "您的办公室备忘录已被删除。"
+msgstr "您的办公备忘录已被删除"
 
 #: tasks/site/memoadmin.py:386
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
@@ -3528,11 +3519,11 @@ msgstr "熟悉项目"
 
 #: tasks/site/projectadmin.py:18
 msgid "The project was created"
-msgstr "项目已创建"
+msgstr "该项目已创建"
 
 #: tasks/site/taskadmin.py:35
 msgid "I completed my part of the task"
-msgstr "我完成了任务中的职责。"
+msgstr "我完成了我的部分任务"
 
 #: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
 msgid "The task was created"
@@ -3540,7 +3531,7 @@ msgstr "任务已创建"
 
 #: tasks/site/taskadmin.py:38
 msgid "The subtask was created"
-msgstr "子任务已创建"
+msgstr "创建了子任务"
 
 #: tasks/site/taskadmin.py:39
 msgid "The subtask"
@@ -3548,7 +3539,7 @@ msgstr "子任务"
 
 #: tasks/site/taskadmin.py:242
 msgid "later than due date of parent task."
-msgstr "超出父任务到期日。"
+msgstr "超过父任务的到期日。"
 
 #: tasks/site/taskadmin.py:334
 msgid "Main task"
@@ -3567,13 +3558,13 @@ msgid ""
 "            Or press the next button when you have done your job.\n"
 "        "
 msgstr ""
-"这是一个集体任务。\n"
-"            请为工作创建子任务。\n"
-"            完成后，按下“下一步”按钮。"
+"This is a collective task.\n"
+"Please create a sub-task for yourself for work.\n"
+"Or press the next button when you have done your job."
 
 #: tasks/site/tasksbasemodeladmin.py:44
 msgid "You have been assigned as the task co-owner"
-msgstr "您已被分配为任务共同所有者。"
+msgstr "您已被指定为任务共同所有者"
 
 #: tasks/site/tasksbasemodeladmin.py:46
 msgid "Acquainted with the task"
@@ -3590,7 +3581,7 @@ msgstr "子任务已关闭"
 
 #: tasks/site/tasksbasemodeladmin.py:50
 msgid "The next step date should not be later than due date."
-msgstr "下一步的日期不应晚于预计日期。"
+msgstr "下一步日期不应晚于到期日。"
 
 #: tasks/site/tasksbasemodeladmin.py:53
 msgid "The Project was created"
@@ -3602,25 +3593,25 @@ msgstr "项目已关闭"
 
 #: tasks/site/tasksbasemodeladmin.py:57
 msgid "You are subscribed to a new task"
-msgstr "您订阅了一个新的任务。"
+msgstr "您已订阅新任务"
 
 #: tasks/site/tasksbasemodeladmin.py:58
 msgid "You have a new task assigned"
-msgstr "您收到一个新的任务。"
+msgstr "您被分配了一个新任务"
 
 #: tasks/site/tasksbasemodeladmin.py:483
 msgid ""
 "Please edit the title and description to make it clear to other users what "
 "part of the overall task will be completed."
-msgstr "请编辑标题和描述，清晰地向其他用户传达将完成的任务整体的一部分。 "
+msgstr "请编辑标题和描述，以使其他用户明确了解将完成整体任务的哪部分。"
 
 #: tasks/site/tasksbasemodeladmin.py:502
 msgid "responsible"
-msgstr "负责任的"
+msgstr "负责的"
 
 #: tasks/site/tasksbasemodeladmin.py:536
 msgid "Attach files"
-msgstr "附件文件"
+msgstr "附加文件"
 
 #: tasks/templates/admin/tasks/memo/submit_line.html:5
 #: tasks/templates/admin/tasks/project/submit_line.html:6
@@ -3642,16 +3633,16 @@ msgstr "子任务"
 
 #: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
 msgid "Toggle default task sorting"
-msgstr "切换默认任务排序方式"
+msgstr "切换默认任务排序"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
-msgstr "标记任务为已完成并保存。"
+msgstr "将任务标记为完成并保存。"
 
 #: tasks/views/create_completed_subtask.py:43
 msgid ""
 "The task cannot be marked as completed because you have an active subtask."
-msgstr "由于您还有一个活跃的子任务，无法标记该任务为已完成。"
+msgstr "由于您有一个活跃的子任务，因此无法将该任务标记为已完成。"
 
 #: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
 msgid "The Task does not exist"
@@ -3664,31 +3655,31 @@ msgstr "用户不存在"
 #: tasks/views/create_completed_subtask.py:119
 msgid ""
 "An error occurred while creating the subtask. Contact the CRM Administrator."
-msgstr "在创建子任务时发生错误，请联系CRM管理员。"
+msgstr "创建子任务时发生错误。请联系 CRM 管理员。"
 
 #: templates/admin/auth/group/change_list_object_tools.html:12
 msgid "Creates a copy of the department"
-msgstr "创建部门副本"
+msgstr "创建部门的副本"
 
 #: templates/admin/auth/group/change_list_object_tools.html:13
 msgid "Copy department"
-msgstr "复制部门"
+msgstr "复印部门"
 
 #: templates/admin/auth/user/change_list_object_tools.html:12
 msgid "Transfer of a manager to another department"
-msgstr "经理调至另一个部门"
+msgstr "经理调动至另一部门"
 
 #: templates/admin/auth/user/change_list_object_tools.html:13
 msgid "Transfer of a manager"
-msgstr "经理转移"
+msgstr "转移管理员"
 
 #: templates/admin/base.html:50
 msgid "Skip to main content"
-msgstr "跳转到正文"
+msgstr "跳转到主要内容"
 
 #: templates/admin/base.html:65
 msgid "Welcome,"
-msgstr "欢迎，"
+msgstr "欢迎！"
 
 #: templates/admin/base.html:70
 msgid "View site"
@@ -3700,15 +3691,15 @@ msgstr "文档"
 
 #: templates/admin/base.html:79
 msgid "Change password"
-msgstr "更改密码"
+msgstr "修改密码"
 
 #: templates/admin/base.html:83
 msgid "Log out"
-msgstr "退出"
+msgstr "注销"
 
 #: templates/admin/base.html:98
 msgid "Breadcrumbs"
-msgstr "面包屑导航"
+msgstr "面包屑"
 
 #: templates/admin/color_theme_toggle.html:3
 msgid "Toggle theme (current theme: auto)"
@@ -3716,11 +3707,11 @@ msgstr "切换主题（当前主题：自动）"
 
 #: templates/admin/color_theme_toggle.html:4
 msgid "Toggle theme (current theme: light)"
-msgstr "切换主题（当前主题：浅色）"
+msgstr "切换主题（当前主题：明亮）"
 
 #: templates/admin/color_theme_toggle.html:5
 msgid "Toggle theme (current theme: dark)"
-msgstr "切换主题（当前主题：黑暗）"
+msgstr "切换主题（当前主题：深色）"
 
 #. Translators: Specify dates of date range
 #: templates/admin/crm_date_filter.html:18
@@ -3756,7 +3747,7 @@ msgstr "分机号"
 
 #: voip/models.py:10
 msgid "SIP connection"
-msgstr "SIP 连接"
+msgstr "SIP连接"
 
 #: voip/models.py:11
 msgid "Virtual phone number"
@@ -3764,17 +3755,17 @@ msgstr "虚拟电话号码"
 
 #: voip/models.py:29
 msgid "Number"
-msgstr "号码"
+msgstr "编号"
 
 #: voip/models.py:33
 msgid "Caller ID"
-msgstr "呼叫显示"
+msgstr "来电显示"
 
 #: voip/models.py:35
 msgid ""
 "Specify the number to be displayed as             your phone number when you"
 " call"
-msgstr "设置在拨打电话时显示的电话号码。"
+msgstr "指定在通话时显示为您的电话号码的数字"
 
 #: voip/models.py:42
 msgid "Provider"
@@ -3786,39 +3777,39 @@ msgstr "指定VoIP服务提供商"
 
 #: voip/templates/voip/connection.html:10
 msgid "Please select what's your phone number, caller display"
-msgstr "请选择您的来电显示号码。"
+msgstr "请选择您的电话号码、来电显示"
 
 #: voip/views/callback.py:21
 msgid ""
 "You do not have a VoiP connection configured. Please contact your "
 "administrator."
-msgstr "您未配置 VoIP 连接。请联系管理员。"
+msgstr "您未配置VoIP连接。请联系管理员。"
 
 #: voip/views/callback.py:88
 msgid "That something is wrong ((. Notify the administrator."
-msgstr "有问题（）。请通知管理员。"
+msgstr "出了点问题（（。通知管理员。"
 
 #: voip/views/callback.py:90
 msgid "Expect a call to your smartphone"
-msgstr "预计会收到手机呼叫。"
+msgstr "预计会收到手机来电"
 
 #: voip/views/voipwebhook.py:44
 msgid "An outgoing call to"
-msgstr "给联系人打电话"
+msgstr "一个外拨电话到"
 
 #: voip/views/voipwebhook.py:53
 msgid "An incoming call from"
-msgstr "一个来自的入站电话"
+msgstr "来电来自"
 
 #: voip/views/voipwebhook.py:70
 #, python-brace-format
 msgid "(duration: {duration} minutes)"
-msgstr "（持续时间：{duration} 分钟）"
+msgstr "(持续时间：{duration} 分钟)"
 
-#: webcrm/settings.py:261
+#: webcrm/settings.py:270
 msgid "Untitled"
 msgstr "无标题"
 
-#: webcrm/settings.py:276
+#: webcrm/settings.py:285
 msgid "Main Menu"
 msgstr "主菜单"
