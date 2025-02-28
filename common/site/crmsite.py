@@ -282,7 +282,10 @@ def set_counters(model, models, counts):
         )
 
 
-def get_help_url(request):
+def get_help_url(request) -> str:
+    """
+    Return the URL of the help page for the current language or English.
+    """
     help_url = app_label = model = page = ''  # index/home page
     index_url = reverse('site:index')
     path = request.path_info.replace(index_url, '').split('?')
@@ -299,13 +302,15 @@ def get_help_url(request):
                         page = 'i'
             except IndexError:
                 pass  # page of app
-    page = Page.objects.filter(
+    pages = Page.objects.filter(
         app_label=app_label,
         model=model,
         page=page,
-        language_code=get_language(),
         main=True  # always true
-    ).first()
+    )
+    current_lang = pages.filter(language_code=get_language()).first()
+    en_lang = pages.filter(language_code='en').first()
+    page = current_lang or en_lang
     if page:
         help_url = page.get_url(request.user)
     return help_url

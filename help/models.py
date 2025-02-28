@@ -4,7 +4,7 @@ from django.utils.translation import gettext
 from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.urls import reverse
-from django.utils import translation
+from django.utils.translation import get_language
 
 # from django.utils.text import slugify
 
@@ -70,15 +70,20 @@ class Page(models.Model):
 
     def get_url(self, user) -> str:
         """Returns help page url if paragraphs exist for current User & language."""
-        q_params = models.Q(language_code=translation.get_language())
-        q_params &= models.Q(draft=False)
+        url = ''
+        q_params = models.Q(draft=False)
         if not user.is_superuser:
             user_groups = user.groups.all()
             q_params &= models.Q(groups__in=user_groups)
-        if self.paragraph_set.filter(q_params).exists():
+        paragraphs = self.paragraph_set.filter(q_params)
+        language = get_language()
+        if paragraphs.filter(language_code=language).exists():
             url = reverse('site:help_page_change', args=(self.id,))
-            return url
-        return ''
+        else:
+            if paragraphs.filter(language_code='en').exists():
+                url = reverse('site:help_page_change', args=(self.id,))
+                url = url.replace(f'/{language}/', '/en/')
+        return url
 
 
 class Paragraph(models.Model):
