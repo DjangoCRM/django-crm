@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased 
+
+### Fixed
+
+- Fixed display of help page in English if it is not available in the current language.
+- Fixed translations of CRM software into the following languages:
+  - Spanish
+  - German
+  - French
+  - Hindi
+
+
 ## [1.2.0] - 2025-02-21
 
 ### Added
