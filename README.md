@@ -37,7 +37,8 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 
 Learn more about [the software's capabilities](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
-Django CRM is an open-source client relationship management software. This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.  
+Django CRM is an open-source client relationship management software.  
+This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: bottom" alt="python logo" width="25" height="25"> Python</a>.  
 Frontend and backend are entirely based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.  
@@ -51,8 +52,8 @@ The documentation on the Admin site takes up only one web page.
 
 The software package provides two websites:
 
-- CRM site for all users
-- site for administrators
+1. CRM site for all users
+2. Site for administrators
 
 The **project is mature and stable**, and has been successfully used in real applications for many years.
 
@@ -126,7 +127,7 @@ The CRM can integrate with email service providers (like Gmail) that require man
 
 ## User Assistance  
 
-- Each CRM page includes a link to a context-aware help page, with content dynamically tailored to the user's role for more relevant guidance.  
+- Each CRM page includes a link <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/question-mark.svg" alt="question-mark icon" style="vertical-align: bottom" width="25" height="25"> to a context-aware help page, with content dynamically tailored to the user's role for more relevant guidance.  
 - Tooltips are available throughout the interface, providing instant information when hovering over elements like icons, buttons, links, or table headers.  
 - A comprehensive [user guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md) file is also included for in-depth reference and support.  
 
@@ -142,7 +143,7 @@ Each user has a clear view of their task stack, including priorities, statuses, 
 
 ## Project Localization
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Customer service software is now available in **many languages:**  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: bottom"> Customer service software is now available in **many languages:**  
 
 `ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans`
 
