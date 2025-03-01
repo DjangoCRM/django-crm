@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased 
+## [1.2.1] - 2025-03-01
 
 ### Fixed
 
@@ -18,7 +18,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - German
   - French
   - Hindi
+  - Chinese
 
+### Added
+
+Django-CRM user guide in Spanish
+
+#### Full Changelog: [v1.2.0...v1.2.1](https://github.com/DjangoCRM/django-crm/compare/v1.2.0...v1.2.1)
 
 ## [1.2.0] - 2025-02-21
 
