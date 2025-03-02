@@ -5,6 +5,12 @@
 This CRM is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} and is written in the [Python](https://www.python.org/){target="_blank"} programming language.
 
 [<img src="img/django-crm_deals_screenshot_2x1v2.png" alt="Django CRM Screenshot" align="center" style="float: center"/>](img/django-crm_deals_screenshot_2x1v2.png){target="_blank"}
+<hr/>
+<div align="center">
+<a class="btn button" href="https://github.com/DjangoCRM/django-crm/archive/refs/heads/main.zip">Download software</a>
+<a class="btn button" href="/installation">Software installation</a>
+<a class="btn button" href="/introduction">User guide</a>
+</div><br>
 
 Django CRM offers a comprehensive CRM solution and consists of the following core applications:
 
@@ -37,5 +43,3 @@ To use all the features of these applications, you need to set up __CRM software
 - if necessary:
     - with the service of receiving [currency](currencies.md) exchange rates
     - with VoIP telephony service 
-
-<button type="button"  style="margin-left: 20%">[CRM Software installation](installation.md)</button> <button type="button" style="float: right; margin-right: 30%">[User guide](introduction.md)</button>
