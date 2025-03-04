@@ -32,8 +32,7 @@ The project will be cloned into the "django-crm" folder.
 
 ### Download the zip file
 
-<button type="button"  style="margin-left: 20%">[Download CRM Software](https://github.com/DjangoCRM/django-crm/archive/refs/heads/main.zip)</button>
-
+<a class="btn button" href="https://github.com/DjangoCRM/django-crm/archive/refs/heads/main.zip" style="margin-left: 20%">Download CRM Software</a>
 
 ### Install the requirements
 
