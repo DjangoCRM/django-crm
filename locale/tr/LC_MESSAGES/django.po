@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 16:36+0200\n"
-"PO-Revision-Date: 2025-02-07 15:42+0200\n"
+"POT-Creation-Date: 2025-02-23 13:22+0200\n"
+"PO-Revision-Date: 2025-03-07 17:47+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -25,11 +25,11 @@ msgstr "Analitik"
 
 #: analytics/models.py:15
 msgid "IncomeStat Snapshot"
-msgstr "IncomeStat Anlık Görüntüsü"
+msgstr "IncomeStat Anlık Görünüm"
 
 #: analytics/models.py:16
 msgid "IncomeStat Snapshots"
-msgstr "IncomeStat Anlık Görüntüleri"
+msgstr "GelirDurumu Anlık Görüntüler"
 
 #: analytics/models.py:28 analytics/models.py:29
 msgid "Sales Report"
@@ -37,7 +37,7 @@ msgstr "Satış Raporu"
 
 #: analytics/models.py:36
 msgid "Request Summary"
-msgstr "İstek Özeti"
+msgstr "Talep Özeti"
 
 #: analytics/models.py:37
 msgid "Requests Summary"
@@ -45,15 +45,15 @@ msgstr "İstekler Özeti"
 
 #: analytics/models.py:44 analytics/models.py:45
 msgid "Lead source Summary"
-msgstr "Potansiyel müşteri kaynağı Özeti"
+msgstr "Potansiyel Müşteri Kaynağı Özeti"
 
 #: analytics/models.py:52 analytics/models.py:53
 msgid "Closing reason Summary"
-msgstr "Kapama Nedeni Özeti"
+msgstr "Kapatma Sebebi Özeti"
 
 #: analytics/models.py:60 analytics/models.py:61
 msgid "Deal Summary"
-msgstr "İşlem Özeti"
+msgstr "Anlaşma Özeti"
 
 #: analytics/models.py:68 analytics/models.py:69
 #: analytics/site/incomestatadmin.py:48
@@ -62,7 +62,7 @@ msgstr "Gelir Özeti"
 
 #: analytics/models.py:76 analytics/models.py:77
 msgid "Sales funnel"
-msgstr "Satış Borusu"
+msgstr "Satış Fonksiyonu"
 
 #: analytics/models.py:84 analytics/models.py:85
 msgid "Conversion Summary"
@@ -80,15 +80,15 @@ msgstr "Ürünler"
 
 #: analytics/site/closingreasonstatadmin.py:63
 msgid "Closing reason over month"
-msgstr "Ay Başına Göre Kapatma Nedeni"
+msgstr "Aylık kapanış nedenleri"
 
 #: analytics/site/conversionadmin.py:11
 msgid "Conversion of requests into successful deals (for the last 365 days)"
-msgstr "İstekleri başarılı anlaşmalara dönüştürme (son 365 gün)"
+msgstr "İsteklerin başarılı anlaşmalara dönüştürülmesi (son 365 gün için)"
 
 #: analytics/site/conversionadmin.py:39
 msgid "Conversion of primary requests"
-msgstr "Başlangıç Talebinin Dönüşümü"
+msgstr "Birincil isteklerin dönüştürülmesi"
 
 #: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
 msgid "Conversion"
@@ -98,51 +98,51 @@ msgstr "Dönüşüm"
 #: analytics/site/leadsourcestatadmin.py:21
 #: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
 msgid "Total requests"
-msgstr "Toplam İstekler"
+msgstr "Toplam istekler"
 
 #: analytics/site/conversionadmin.py:44
 msgid "Total primary requests"
-msgstr "Toplam İlk İstekler"
+msgstr "Toplam ilk istekler"
 
 #: analytics/site/dealstatadmin.py:17
 msgid "Deal Summary for last 365 days"
-msgstr "Son 365 Gün İçindeki İşlem Özeti"
+msgstr "Son 365 Gün İçin Anlaşma Özeti"
 
 #: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
 msgid "Total deals"
-msgstr "Toplam İşlemler"
+msgstr "Toplam anlaşmalar"
 
 #: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
 msgid "Relevant deals"
-msgstr "İlgili İşlemler"
+msgstr "İlgili Anlaşmalar"
 
 #: analytics/site/dealstatadmin.py:46
 msgid "Closed successfully (primary)"
-msgstr "Başarıyla Kapatıldı (Ana)"
+msgstr "Başarıyla kapatıldı (birincil)"
 
 #: analytics/site/dealstatadmin.py:47
 msgid "Average days to close successfully (primary)"
-msgstr "Başarılı kapanışa ortalama gün sayısı (birincil)"
+msgstr "Başarılı şekilde kapatmak için ortalama gün sayısı (birincil)"
 
 #: analytics/site/dealstatadmin.py:60
 msgid "Irrelevant deals"
-msgstr "İlgisiz İşlemler"
+msgstr "İlgisiz Anlaşmalar"
 
 #: analytics/site/dealstatadmin.py:78
 msgid "Won deals"
-msgstr "Kazanılan İşler"
+msgstr "Kazanılan Anlaşmalar"
 
 #: analytics/site/incomestatadmin.py:135
 msgid "The snapshot has been saved successfully."
-msgstr "Kapsam başarıyla kaydedildi."
+msgstr "Anlık görüntü başarıyla kaydedildi."
 
 #: analytics/site/incomestatadmin.py:183
 msgid "Income monthly (total amount for the current period: {} {} ({}))"
-msgstr "Aylık Gelir (Mevcut dönem için toplam tutar: {} {} ({}))"
+msgstr "Aylık gelir (geçerli dönem için toplam tutar: {} {} ({}))"
 
 #: analytics/site/incomestatadmin.py:188
 msgid "Income monthly in the previous period"
-msgstr "Geçmiş dönemdeki aylık gelir"
+msgstr "Geç dönemdeki aylık gelir"
 
 #: analytics/site/incomestatadmin.py:193
 msgid "Payments received"
@@ -159,11 +159,11 @@ msgstr "Sipariş"
 
 #: analytics/site/incomestatadmin.py:239
 msgid "Guaranteed income"
-msgstr "Garantili Gelir"
+msgstr "Garanti Gelir"
 
 #: analytics/site/incomestatadmin.py:246
 msgid "High probability income"
-msgstr "Yüksek Olasılıklı Gelir"
+msgstr "Yüksek olasılıklı gelir"
 
 #: analytics/site/incomestatadmin.py:253
 msgid "Low probability income"
@@ -171,19 +171,19 @@ msgstr "Düşük Olasılıklı Gelir"
 
 #: analytics/site/incomestatadmin.py:295
 msgid "Income averaged over the year ({})."
-msgstr "Yıl boyunca ortalama gelir ({})."
+msgstr "Yıl boyunca ortalama gelir ({})"
 
 #: analytics/site/incomestatadmin.py:307
 msgid "Total won deals"
-msgstr "Kazanılan Toplam İşlemler"
+msgstr "Toplam kazanılan anlaşmalar"
 
 #: analytics/site/incomestatadmin.py:308
 msgid "Average won deals a month"
-msgstr "Aylık Kazanan Ortalama İşlemler"
+msgstr "Ay başına ortalama kazanılan anlaşmalar"
 
 #: analytics/site/incomestatadmin.py:309
 msgid "Average income amount a month"
-msgstr "Aylık Ortalama Gelir Miktarı"
+msgstr "Bir ayda ortalama gelir tutarı"
 
 #: analytics/site/incomestatadmin.py:451
 msgid "Total amount"
@@ -192,47 +192,47 @@ msgstr "Toplam Tutar"
 #: analytics/site/leadsourcestatadmin.py:15
 #: analytics/site/requeststatadmin.py:18
 msgid "Request source statistics"
-msgstr "Talep Kaynak İstatistikleri"
+msgstr "Talep kaynağı istatistikleri"
 
 #: analytics/site/leadsourcestatadmin.py:16
 #: analytics/site/requeststatadmin.py:19
 msgid "Number of requests for each source"
-msgstr "Her kaynaktan gelen talep sayısı"
+msgstr "Her kaynak için istek sayısı"
 
 #: analytics/site/leadsourcestatadmin.py:17
 #: analytics/site/requeststatadmin.py:20
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
 msgid "Requests over country"
-msgstr "Ülke Bazlı İstekler"
+msgstr "Ülkelere Göre İstekler"
 
 #: analytics/site/leadsourcestatadmin.py:18
 #: analytics/site/requeststatadmin.py:21
 msgid "for all period"
-msgstr "hepsi için"
+msgstr "tüm dönem"
 
 #: analytics/site/leadsourcestatadmin.py:19
 #: analytics/site/requeststatadmin.py:22
 msgid "for last 365 days"
-msgstr "son 365 gün için"
+msgstr "son 365 gün"
 
 #: analytics/site/leadsourcestatadmin.py:20
 #: analytics/site/requeststatadmin.py:23
 msgid "conversion"
-msgstr "dönüştürme"
+msgstr "dönüşüm"
 
 #: analytics/site/leadsourcestatadmin.py:22
 #: analytics/site/requeststatadmin.py:25
 msgid "Not specified"
-msgstr "Belirtilmedi."
+msgstr "Belirtilmemiş"
 
 #: analytics/site/leadsourcestatadmin.py:116
 msgid "Relevant requests over month"
-msgstr "Ayda İlgili İstekler"
+msgstr "Aylık ilgili istekler"
 
 #: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
 #: crm/site/shipmentadmin.py:36
 msgid "pcs"
-msgstr "parçalar"
+msgstr "adet"
 
 #: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
@@ -254,13 +254,13 @@ msgstr "Ülke"
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
 #: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
 msgid "All"
-msgstr "Tümünüz"
+msgstr "Tüm"
 
 #: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
-#: crm/templates/crm/change_owner_companies.html:26 crm/utils/admfilters.py:343
-#: voip/models.py:49
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
 msgid "Owner"
 msgstr "Sahip"
 
@@ -271,7 +271,7 @@ msgstr "Ürün"
 
 #: analytics/site/outputstatadmin.py:199
 msgid "Sold products summary (by date of payment receipt)"
-msgstr "Satılan Ürünler Özetleri (Ödeme Alınma Tarihi Bazında)"
+msgstr "Satılan ürünler özeti (ödeme alma tarihine göre)"
 
 #: analytics/site/outputstatadmin.py:287
 msgid "Sold products"
@@ -283,23 +283,23 @@ msgstr "Fiyat"
 
 #: analytics/site/requeststatadmin.py:57
 msgid "Request Summary for last 365 days"
-msgstr "Son 365 Günlük İstek Özetleri"
+msgstr "Son 365 gün için İstek Özeti"
 
 #: analytics/site/requeststatadmin.py:91
 msgid "Conversion of primary requests into successful deals"
-msgstr "İlk isteklerin başarılı anlaşmalara dönüştürülmesi"
+msgstr "Birincil isteklerin başarılı anlaşmalara dönüştürülmesi"
 
 #: analytics/site/requeststatadmin.py:95
 msgid "Primary requests"
-msgstr "Ana İstekler"
+msgstr "Birincil istekler"
 
 #: analytics/site/requeststatadmin.py:97
 msgid "Subsequent requests"
-msgstr "Sonraki İstekler"
+msgstr "Sonraki istekler"
 
 #: analytics/site/requeststatadmin.py:98
 msgid "Conversion of subsequent requests"
-msgstr "Sonraki taleplerin dönüştürülmesi"
+msgstr "Sonraki isteklerin dönüştürülmesi"
 
 #: analytics/site/requeststatadmin.py:101
 msgid "average monthly value"
@@ -311,16 +311,17 @@ msgstr "Aylık İstekler"
 
 #: analytics/site/requeststatadmin.py:116
 msgid "Relevant requests"
-msgstr "İlgili Talepler"
+msgstr "İlgili istekler"
 
 #: analytics/site/salesfunnelsadmin.py:42
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
 msgid "Total closed deals"
-msgstr "Toplam Kapalı İşlemler"
+msgstr "Toplam kapanmış anlaşmalar"
 
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
 msgid "Statistics on the Closing reason of deals for all the time"
-msgstr "Tüm zaman diliminde anlaşmaların kapanış nedeni istatistikleri"
+msgstr ""
+"Bütün zamanlara ait anlaşmaların kapanma nedenlerine dair istatistikler"
 
 #: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
 msgid "total requests"
@@ -329,19 +330,19 @@ msgstr "toplam istekler"
 #: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
 #: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
 msgid "Switch currency"
-msgstr "Para Birimini Değiştir"
+msgstr "Döviz değiştir"
 
 #: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
 msgid "Save snapshot"
-msgstr "Kapsamı kaydet"
+msgstr "Anı Çerçevesini Kaydet"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
 msgid "Sales funnel for last 365 days"
-msgstr "Son 365 Günlük Satış Boru Hattı"
+msgstr "Son 365 gün için satış fonuğu"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
 msgid "The number of closed deals in stages"
-msgstr "Evrelere göre tamamlanmış anlaşmaların sayısı"
+msgstr "Aşamalar halinde kapatılan anlaşmaların sayısı"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
 msgid "Chart"
@@ -349,8 +350,7 @@ msgstr "Grafik"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
 msgid "The percentages show the number of \"lost\" deals at each stage."
-msgstr ""
-"Yüzdelikler, her aşamada \"kaybedilen\" anlaşmaların sayısını gösterir."
+msgstr "Yüzdeleri her aşamada 'kaybedilen' anlaşmaların sayısını gösterir."
 
 #: analytics/templates/analytics/bar_chart.html:58
 #: analytics/templates/analytics/bar_chart_.html:51
@@ -362,16 +362,16 @@ msgid ""
 "Note! The calculations use data for the whole year. But the charts begin on "
 "the first of the next month."
 msgstr ""
-"Dikkat! Hesaplamalar yıl boyunca verileri kullanır. Ancak grafikler bir "
-"sonraki ayın ilk gününde başlar."
+"Dikkat! Hesaplamalar tüm yıllık verileri kullanır. Ancak grafikler bir "
+"sonraki ayın ilk gününden başlar."
 
 #: analytics/templates/analytics/view_snapshots.html:8
 msgid "Data"
-msgstr "Veri"
+msgstr "Veriler"
 
 #: analytics/templates/analytics/view_snapshots.html:9
 msgid "Snapshots"
-msgstr "Anlatımlar"
+msgstr "Anlık Görüntüler"
 
 #: analytics/templates/analytics/view_snapshots.html:9
 msgid "Now"
@@ -384,11 +384,11 @@ msgstr "Sohbet"
 
 #: chat/forms/chatmessageform.py:29
 msgid "Please write a message"
-msgstr "Lütfen bir mesaj yazın."
+msgstr "Lütfen bir mesaj yazın"
 
 #: chat/forms/chatmessageform.py:35
 msgid "Please select at least one recipient"
-msgstr "Lütfen en az bir alıcı seçin."
+msgstr "Lütfen en az bir alıcı seçin"
 
 #: chat/models.py:15
 msgid "message"
@@ -414,7 +414,7 @@ msgstr "alıcılar"
 
 #: chat/models.py:47
 msgid "to"
-msgstr "kime"
+msgstr "ile"
 
 #: chat/models.py:52 common/models.py:24 common/models.py:179
 #: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
@@ -427,7 +427,7 @@ msgstr "görev operatörü"
 
 #: chat/site/chatmessageadmin.py:54
 msgid "You received a message regarding - "
-msgstr "Siz, ilgili olarak bir mesaj aldınız -"
+msgstr "Bir mesaj aldınız -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
 #: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
@@ -449,7 +449,7 @@ msgstr "Alıcılar"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
 #: crm/templates/admin/crm/inline_emails.html:36
 msgid "reply"
-msgstr "Cevapla"
+msgstr "cevapla"
 
 #: chat/site/chatmessageadmin.py:293
 msgid "Reply to"
@@ -476,7 +476,7 @@ msgstr "Cevapla"
 #: templates/admin/auth/user/change_list_object_tools.html:8
 #, python-format
 msgid "Add %(name)s"
-msgstr "%(isim)s ekle"
+msgstr "Ekle %(name)s"
 
 #: chat/templates/admin/chat/chatmessage/submit_line.html:4
 #: crm/templates/admin/crm/crmemail/submit_line.html:12
@@ -529,7 +529,7 @@ msgstr "Sil"
 #: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
 #: crm/templates/admin/crm/inline_emails.html:45
 msgid "From"
-msgstr "Itibaren"
+msgstr "Gönderen"
 
 #: chat/templates/chat/chatmessage_email.html:7
 #: common/templates/common/notice_participants_email.html:6
@@ -542,12 +542,12 @@ msgstr "Sohbet mesajı ekle"
 
 #: chat/templates/chat_buttons.html:8
 msgid "There are unread messages"
-msgstr "Okunmamış mesajlar var."
+msgstr "Okunmamış mesajlar var"
 
 #: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
 #: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
 msgid "View chat messages"
-msgstr "Sohbet Mesajlarını Görüntüle"
+msgstr "Sohbet mesajlarını görüntüle"
 
 #: common/admin.py:85
 msgid ""
@@ -555,7 +555,7 @@ msgid ""
 "path instead of uploading it."
 msgstr ""
 "Sunucuda mevcut olan bir dosyanın adını ve yolunu yüklemek yerine "
-"belirtilebilir."
+"belirtebilirsiniz."
 
 #: common/admin.py:195
 msgid "staff"
@@ -567,11 +567,11 @@ msgstr "süper kullanıcı"
 
 #: common/apps.py:9
 msgid "Common"
-msgstr "Genel"
+msgstr "Ortak"
 
 #: common/models.py:28 crm/models/payment.py:49
 msgid "Update date"
-msgstr "Güncelleme Tarihi"
+msgstr "Güncelleme tarihi"
 
 #: common/models.py:38
 msgid "Modified By"
@@ -579,11 +579,11 @@ msgstr "Değiştiren"
 
 #: common/models.py:56
 msgid "was added successfully."
-msgstr "başarıyla eklendi."
+msgstr "Başarıyla eklendi."
 
 #: common/models.py:57
 msgid "Re-adding blocked."
-msgstr "Engellenen yeniden eklendi."
+msgstr "Engellenmiş olanı tekrar ekleme."
 
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
@@ -594,19 +594,19 @@ msgstr "Bölüm"
 
 #: common/models.py:88 common/models.py:89 common/models.py:94
 msgid "Department and Owner do not match"
-msgstr "Departman ve Sahip uyuşmuyor."
+msgstr "Bölüm ve Sahip birbirini eşleşmiyor"
 
 #: common/models.py:119
 msgid "Departments"
-msgstr "Bölümleri"
+msgstr "Bölümlerin"
 
 #: common/models.py:126
 msgid "Default country"
-msgstr "Varsayılan Ülke"
+msgstr "Varsayılan ülke"
 
 #: common/models.py:133
 msgid "Default currency"
-msgstr "Varsayılan Para Birimi"
+msgstr "Varsayılan para birimi"
 
 #: common/models.py:137
 msgid "Works globally"
@@ -614,11 +614,11 @@ msgstr "Küresel olarak çalışır"
 
 #: common/models.py:138
 msgid "The department operates in foreign markets."
-msgstr "Departman, yabancı pazarlarda faaliyet gösterir."
+msgstr "Bölüm yabancı pazarlarda faaliyet göstermektedir."
 
 #: common/models.py:144
 msgid "Reminder"
-msgstr "Hatırlatıcı"
+msgstr "Hatırlatma"
 
 #: common/models.py:145
 msgid "Reminders"
@@ -631,7 +631,7 @@ msgstr "Konu"
 
 #: common/models.py:160
 msgid "Briefly what about is this reminder"
-msgstr "Bu hatırlatıcının kısa özeti nedir?"
+msgstr "Bu hatırlatma kısaca ne hakkındadır?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
@@ -667,7 +667,7 @@ msgstr "Dosyalar"
 
 #: common/models.py:200
 msgid "Attached file"
-msgstr "Ekleme dosyası"
+msgstr "Ekli dosya"
 
 #: common/models.py:206
 msgid "Attach to the deal"
@@ -678,11 +678,11 @@ msgstr "Anlaşmaya ekle"
 #: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
 #: tasks/models/task.py:35
 msgid "Stage"
-msgstr "Evre"
+msgstr "Aşama"
 
 #: common/models.py:229
 msgid "Stages"
-msgstr "Eşik Noktaları"
+msgstr "Aşamalar"
 
 #: common/models.py:233 tasks/models/stagebase.py:14
 msgid "Default"
@@ -690,14 +690,15 @@ msgstr "Varsayılan"
 
 #: common/models.py:234 tasks/models/stagebase.py:15
 msgid "Will be selected by default when creating a new task"
-msgstr "Yeni bir görev oluştururken varsayılan olarak seçilecek."
+msgstr "Yeni bir görev oluştururken varsayılan olarak seçilecektir."
 
 #: common/models.py:239 tasks/models/stagebase.py:32
 msgid ""
 "The sequence number of the stage.         The indices of other instances "
 "will be sorted automatically."
 msgstr ""
-"Evre sırası. Diğer örneklerin indeksleri otomatik olarak sıralanacaktır."
+"Aşamanın sıra numarası. Diğer örneklerin indeksleri otomatik olarak "
+"sıralanacaktır."
 
 #: common/models.py:250
 msgid "User profile"
@@ -713,7 +714,7 @@ msgstr "Telefon"
 
 #: common/models.py:308
 msgid "UTC time zone"
-msgstr "UTC Zaman Dilimi"
+msgstr "UTC saat dilimi"
 
 #: common/models.py:312
 msgid "Activate this time zone"
@@ -721,7 +722,7 @@ msgstr "Bu zaman dilimini etkinleştir"
 
 #: common/models.py:316
 msgid "Field for temporary storage of messages to the user"
-msgstr "Kullanıcıya gönderilen mesajların geçici depolanması için alan"
+msgstr "Kullanıcıya geçici olarak mesaj depolamak için alan"
 
 #: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
@@ -736,11 +737,11 @@ msgstr "Etiketler ekle"
 
 #: common/site/basemodeladmin.py:22
 msgid "Export selected objects"
-msgstr "Seçili nesneleri dışa aktarın"
+msgstr "Seçili nesneleri dışa aktar"
 
 #: common/site/basemodeladmin.py:23
 msgid "Next step deadline"
-msgstr "Son Adım Son Teslim Tarihi"
+msgstr "Sonraki adım son tarihi"
 
 #: common/site/basemodeladmin.py:87
 msgid "Filters may affect search results."
@@ -793,7 +794,7 @@ msgstr "Kaydet"
 #: tasks/templates/admin/tasks/project/submit_line.html:5
 #: tasks/templates/admin/tasks/task/submit_line.html:14
 msgid "Save and continue editing"
-msgstr "Kaydet ve düzenlemeyi devam ettir"
+msgstr "Kaydet ve düzenlemeye devam et"
 
 #: common/templates/admin/common/reminder/submit_line.html:5
 #: common/templates/admin/common/userprofile/submit_line.html:5
@@ -842,7 +843,7 @@ msgstr "Tarih"
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
 #: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
 msgid "View on site"
-msgstr "Sitede Görüntüle"
+msgstr "Sitede görüntüle"
 
 #: common/templates/common/copy_department.html:13
 #: common/templates/common/select_email_account.html:12
@@ -857,7 +858,7 @@ msgstr "Sitede Görüntüle"
 #: crm/templates/crm/make_massmail.html:15
 #: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
 msgid "Home"
-msgstr "Ana Sayfa"
+msgstr "Ev"
 
 #: common/templates/common/copy_department.html:23
 msgid "Please select the department to copy."
@@ -881,7 +882,7 @@ msgstr "Not"
 #: common/templates/common/email_notification_base.html:24
 #: crm/templates/crm/email.html:29
 msgid "Attachments"
-msgstr "Eklemeler"
+msgstr "Ekler"
 
 #: common/templates/common/email_notification_base.html:28
 #: common/templates/common/widgets/clearable_file_input.html:7
@@ -891,7 +892,7 @@ msgstr "İndir"
 #: common/templates/common/email_notification_base.html:30
 #: crm/templates/admin/crm/inline_emails.html:63
 msgid "Error: the file is missing."
-msgstr "Hata: Dosya bulunamadı."
+msgstr "Hata: Dosya eksik."
 
 #: common/templates/common/notice_participants_email.html:12
 #: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
@@ -913,28 +914,28 @@ msgstr "Ortak Sahip"
 #: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
 #: tasks/utils/admfilters.py:89
 msgid "Responsible"
-msgstr "Sorumlular"
+msgstr "Sorumlu"
 
 #: common/templates/common/reminder_button.html:4
 msgid "There are reminders"
-msgstr "Hatırlatıcılar var."
+msgstr "Hatırlatıcılar var"
 
 #: common/templates/common/reminder_button.html:10
 msgid "Create a reminder"
-msgstr "Bir hatırlatıcı oluştur"
+msgstr "Hatırlatıcı oluştur"
 
 #: common/templates/common/reminder_message.html:4
 #: common/utils/reminders_sender.py:18
 msgid "Regarding"
-msgstr "İlgili"
+msgstr "Hakkında"
 
 #: common/templates/common/select_email_account.html:20
 msgid "Please select an Email account"
-msgstr "Lütfen bir e-posta hesabı seçin."
+msgstr "Lütfen bir E-posta hesabı seçin"
 
 #: common/templates/common/select_email_account.html:38
 msgid "Select"
-msgstr "Seçin"
+msgstr "Seç"
 
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
@@ -944,7 +945,7 @@ msgstr "Seçin"
 #: crm/templates/admin/crm/lead/change_list_object_tools.html:13
 #: crm/templates/admin/crm/request/change_form_object_tools.html:28
 msgid "Import"
-msgstr "İçe Aktar"
+msgstr "İthalat"
 
 #: common/templates/common/select_emails.html:32
 #: common/templates/common/select_emails.html:74
@@ -954,17 +955,17 @@ msgstr "Spam"
 #: common/templates/common/select_emails.html:33
 #: common/templates/common/select_emails.html:75
 msgid "Mark as read"
-msgstr "Okunmuş olarak işaretle"
+msgstr "Okundu olarak işaretle"
 
 #: common/templates/common/select_emails.html:33
 #: common/templates/common/select_emails.html:75
 msgid "Mark as"
-msgstr "Etiketle"
+msgstr "İşaretle olarak"
 
 #: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
 #: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
 msgid "To"
-msgstr "Kimle"
+msgstr "Kime"
 
 #: common/templates/common/select_emails.html:56
 msgid "This email is already imported."
@@ -972,7 +973,7 @@ msgstr "Bu e-posta zaten içe aktarıldı."
 
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
-msgstr "Lütfen bir kullanıcı seçin ve ona yeni bir departman atayın."
+msgstr "Lütfen bir kullanıcı seçin ve onu yeni bir bölüme atayın."
 
 #: common/templates/common/user_transfer.html:31
 msgid "User"
@@ -984,7 +985,7 @@ msgstr "Görev tamamlandı"
 
 #: common/templatetags/util.py:115
 msgid "I completed the task"
-msgstr "Görevi tamamladım."
+msgstr "Görevi tamamladım"
 
 #: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
 #: tasks/templates/admin/tasks/task/submit_line.html:4
@@ -992,8 +993,9 @@ msgid "Completed"
 msgstr "Tamamlandı"
 
 #: common/utils/for_translation.py:24
-msgid "The name has been added for translation. Please update po and mo files."
-msgstr "Ad çeviri için eklendi. Lütfen po ve mo dosyalarını güncelleyin."
+msgid ""
+"The name has been added for translation. Please update po and mo files."
+msgstr "İsim çeviri için eklendi. Lütfen po ve mo dosyalarını güncelleyin."
 
 #: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
 #: tasks/site/taskadmin.py:36
@@ -1002,18 +1004,18 @@ msgstr "Kopyala"
 
 #: common/utils/helpers.py:31
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
-msgstr "ID '{' ile olan {} bulunamadı. Belki de silindi?"
+msgstr "{} '{}' ID'si mevcut değil. Belki silinmiştir?"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
-msgstr "Yeni bir bölüm oluşturuldu: {}. Lütfen adını değiştirin."
+msgstr "Yeni bir bölüm oluşturuldu - {}. Lütfen adını değiştirin."
 
 #: common/views/select_emails_import.py:118
 msgid ""
-"You do not have mail accounts marked for importing emails.Please contact "
+"You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
 msgstr ""
-"E-posta hesaplarınızı e-postaları içe aktarmak için işaretlemediniz. Lütfen "
+"E-postaları içe aktarmak için işaretlenmiş posta hesabınız yok. Lütfen "
 "yöneticinizle iletişime geçin."
 
 #: common/views/user_transfer.py:28
@@ -1025,9 +1027,7 @@ msgid ""
 "Also Output, Payment and Product will not be affected.\n"
 msgstr ""
 "\n"
-"Dikkat! İşlem aşamaları, kapatma nedenleri, etiket vb. filtreler için "
-"veriler, yeni departmanda aynı isimde veriler varsa sadece bu veriler "
-"aktarılacaktır. Ayrıca Ödeme ve Ürün sonuçları etkilemeyecektir."
+"Dikkat! İşlem aşamaları, kapatma nedenleri, etiket vb. filtreler için veriler, yeni departmanda aynı adlı veriler varsa yalnızca aktarılacaktır. Ayrıca Çıktı, Ödeme ve Ürün etkilenmeyecektir.\n"
 
 #: common/views/user_transfer.py:131
 msgid "User transferred successfully"
@@ -1043,7 +1043,7 @@ msgstr "İletişim Bilgileri"
 #: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
 #: tasks/models/taskbase.py:32
 msgid "Name"
-msgstr "Ad"
+msgstr "İsim"
 
 #: crm/admin.py:155 crm/site/dealadmin.py:247
 msgid "Contact info"
@@ -1072,19 +1072,19 @@ msgstr "Geçerli bir alfabetik kod girin."
 
 #: crm/forms/admin_forms.py:26
 msgid "The currency cannot be both state and marketing."
-msgstr "Para birimi hem devlet hem de pazarlama olarak aynı zaman olamaz."
+msgstr "Döviz hem devlet hem de pazarlama olamaz."
 
 #: crm/forms/admin_forms.py:70
 msgid "Not allowed address"
-msgstr "Yasak Adres"
+msgstr "İzin verilmeyen adres"
 
 #: crm/forms/admin_forms.py:90
 msgid "City does not match the country"
-msgstr "Şehir ülke ile eşleşmiyor."
+msgstr "Şehir ülke ile eşleşmiyor"
 
 #: crm/forms/admin_forms.py:138
 msgid "Such an object already exists"
-msgstr "Bu tür bir nesne zaten var."
+msgstr "Böyle bir nesne zaten var."
 
 #: crm/forms/admin_forms.py:164
 msgid "Please fill in the field."
@@ -1092,31 +1092,31 @@ msgstr "Lütfen alanı doldurun."
 
 #: crm/forms/admin_forms.py:172
 msgid "To convert, please fill in the fields below."
-msgstr "Dönüştürmek için aşağıdaki alanları doldurunuz."
+msgstr "Dönüştürmek için lütfen aşağıdaki alanları doldurun."
 
 #: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
 msgid "Specify the deal amount"
-msgstr "Anlaşmanın tutarını belirtin"
+msgstr "Anlaşma miktarını belirtin"
 
 #: crm/forms/admin_forms.py:236
 msgid "Contact does not match the company"
-msgstr "İletişim, şirkete uymuyor."
+msgstr "İletişim bilgisi şirketle eşleşmiyor"
 
 #: crm/forms/admin_forms.py:241
 msgid "Select only Contact or only Lead"
-msgstr "Sadece İletişimi veya sadece Potansiyel Müşteriyi seçin."
+msgstr "Sadece İletişim veya sadece Potansiyel Müşteri'yi seçin"
 
 #: crm/forms/admin_forms.py:246
 msgid "Select only Company or only Lead"
-msgstr "Sadece Şirket veya sadece Potansiyel Müşteri seçin."
+msgstr "Sadece Şirket veya sadece Potansiyel Müşteri'yi seçin"
 
 #: crm/forms/admin_forms.py:325
 msgid "First select a department."
-msgstr "İlk olarak bir departman seçin."
+msgstr "Önce bir departman seçin."
 
 #: crm/forms/admin_forms.py:331
 msgid "That tag already exists."
-msgstr "Bu etiket zaten var."
+msgstr "Bu etiket zaten mevcut."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1127,8 +1127,8 @@ msgid "Your E-mail"
 msgstr "E-posta Adresiniz"
 
 #: crm/forms/contact_form.py:24
-msgid "Phone number(with country code)"
-msgstr "Telefon Numarası (Ülke Kodu ile)"
+msgid "Phone number (with country code)"
+msgstr "Telefon numarası (ülke kodu ile)"
 
 #: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
 #: crm/models/request.py:55
@@ -1138,15 +1138,16 @@ msgstr "Şirket Adı"
 #: crm/forms/contact_form.py:72
 msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
 msgstr ""
-"Üzgünüm, geçersiz reCAPTCHA. Lütfen tekrar deneyin veya bir e-posta gönderin."
+"Maalesef, geçersiz reCAPTCHA. Lütfen tekrar deneyin veya bir e-posta "
+"gönderin."
 
 #: crm/models/base_contact.py:18 crm/models/request.py:29
 msgid "The name of the contact person (one word)."
-msgstr "İletişim Kişisi Adı (bir kelime)"
+msgstr "İletişim kişisinin adı (tek kelime)."
 
 #: crm/models/base_contact.py:19 crm/models/request.py:28
 msgid "First name"
-msgstr "Ad Soyad"
+msgstr "Ad"
 
 #: crm/models/base_contact.py:23 crm/models/request.py:33
 msgid "Middle name"
@@ -1154,11 +1155,11 @@ msgstr "Orta Ad"
 
 #: crm/models/base_contact.py:24 crm/models/request.py:34
 msgid "The middle name of the contact person."
-msgstr "İlişkili kişinin orta adı."
+msgstr "İletişim kişinin orta adı."
 
 #: crm/models/base_contact.py:28 crm/models/request.py:39
 msgid "The last name of the contact person (one word)."
-msgstr "İletişime geçen kişinin soyadı (bir kelime)."
+msgstr "İletişim kişisinin soyadı (tek kelime)."
 
 #: crm/models/base_contact.py:29 crm/models/request.py:38
 msgid "Last name"
@@ -1166,7 +1167,7 @@ msgstr "Soyad"
 
 #: crm/models/base_contact.py:33
 msgid "The title (position) of the contact person."
-msgstr "İlgili kişinin unvanı (pozisyonu)."
+msgstr "İletişim kişisinin unvanı (pozisyonu)."
 
 #: crm/models/base_contact.py:34
 msgid "Title / Position"
@@ -1182,11 +1183,11 @@ msgstr "Doğum Tarihi"
 
 #: crm/models/base_contact.py:52
 msgid "Secondary email"
-msgstr "Yardımcı E-posta"
+msgstr "Ikincil e-posta"
 
 #: crm/models/base_contact.py:62
 msgid "Mobile phone"
-msgstr "Mobil Telefon"
+msgstr "Cep Telefonu"
 
 #: crm/models/base_contact.py:69 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
@@ -1196,7 +1197,7 @@ msgstr "Şehir"
 
 #: crm/models/base_contact.py:74
 msgid "Company city"
-msgstr "Şirket Şehri"
+msgstr "Şirket şehri"
 
 #: crm/models/base_contact.py:75 crm/models/request.py:93
 msgid "Object of City in database"
@@ -1209,20 +1210,20 @@ msgstr "Adres"
 #: crm/models/base_contact.py:122 crm/models/lead.py:17
 #: crm/utils/admfilters.py:512
 msgid "Disqualified"
-msgstr "Yeteneksiz Bırakıldı"
+msgstr "Diskalifiye Edildi"
 
 #: crm/models/base_contact.py:129
 msgid "Use comma to separate Emails."
-msgstr "E-posta adreslerini virgülle ayırın."
+msgstr "E-postaları ayırmak için virgül kullanın."
 
 #: crm/models/base_contact.py:136 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
-msgstr "Öneri Kaynağı"
+msgstr "Potansiyel Müşteri Kaynağı"
 
 #: crm/models/base_contact.py:140
 msgid "Mass mailing"
-msgstr "Kitle Postalaması"
+msgstr "Kitle Postası"
 
 #: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
@@ -1248,11 +1249,11 @@ msgstr "Şirketler"
 
 #: crm/models/company.py:27 crm/models/country.py:21
 msgid "Alternative names"
-msgstr "Alternatif Adlar"
+msgstr "Alternatif İsimler"
 
 #: crm/models/company.py:28 crm/models/country.py:22
 msgid "Separate them with commas."
-msgstr "Onları virgülle ayırın."
+msgstr "Onları virgüllerle ayırın."
 
 #: crm/models/company.py:34
 msgid "Website"
@@ -1260,7 +1261,7 @@ msgstr "Web Sitesi"
 
 #: crm/models/company.py:51
 msgid "City name"
-msgstr "Şehir Adı"
+msgstr "Şehir adı"
 
 #: crm/models/company.py:64
 msgid "Registration number"
@@ -1268,7 +1269,7 @@ msgstr "Kayıt Numarası"
 
 #: crm/models/company.py:65
 msgid "Registration number of Company"
-msgstr "Şirket Kayıt Numarası"
+msgstr "Şirketin Kayıt Numarası"
 
 #: crm/models/company.py:72 crm/models/deal.py:109
 msgid "country"
@@ -1280,15 +1281,15 @@ msgstr "Şirket Ülkesi"
 
 #: crm/models/company.py:80 crm/models/lead.py:44
 msgid "Type of company"
-msgstr "Şirket Türü"
+msgstr "Şirket türü"
 
 #: crm/models/company.py:85 crm/models/lead.py:49
 msgid "Industry of company"
-msgstr "Şirket Sektörü"
+msgstr "Şirketin Sektörü"
 
 #: crm/models/contact.py:12
 msgid "Contact person"
-msgstr "İletişim Kişisi"
+msgstr "İletişim Kişi"
 
 #: crm/models/contact.py:13
 msgid "Contact persons"
@@ -1301,11 +1302,11 @@ msgstr "İletişim Kişisinin Şirketi"
 
 #: crm/models/country.py:6
 msgid "has already been assigned to the city"
-msgstr "zaten şehre atanmıştır."
+msgstr "Zaten şehre atanmış"
 
 #: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
 msgid "Countries"
-msgstr "Ülke"
+msgstr "Ülkeler"
 
 #: crm/models/country.py:44
 msgid "Cities"
@@ -1325,7 +1326,7 @@ msgstr "CRM'de E-postalar"
 #: crm/models/crmemail.py:17 crm/models/crmemail.py:26
 #: crm/models/crmemail.py:30
 msgid "You can specify multiple addresses, separated by commas"
-msgstr "Birden fazla adres belirtebilirsiniz, bunları virgülle ayırarak."
+msgstr "Birden fazla adresi virgülle ayırarak belirtebilirsiniz"
 
 #: crm/models/crmemail.py:22
 msgid "The Email address of sender"
@@ -1333,11 +1334,11 @@ msgstr "Gönderenin E-posta Adresi"
 
 #: crm/models/crmemail.py:38
 msgid "Request a read receipt"
-msgstr "Okuma onayı iste"
+msgstr "Okuma onayını iste"
 
 #: crm/models/crmemail.py:39
 msgid "Not supported by all mail services."
-msgstr "Tüm e-posta servisleri tarafından desteklenmiyor."
+msgstr "Tüm e-posta servisleri tarafından desteklenmemektedir."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
 #: crm/site/shipmentadmin.py:269
@@ -1346,7 +1347,7 @@ msgstr "Tüm e-posta servisleri tarafından desteklenmiyor."
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
 #: tasks/models/memo.py:65
 msgid "Deal"
-msgstr "İş Anlaşması"
+msgstr "Anlaşma"
 
 #: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
 #: crm/models/request.py:64
@@ -1364,7 +1365,7 @@ msgstr "İletişim Kişisi"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
-msgstr "İsteğe Bağlı"
+msgstr "Talep"
 
 #: crm/models/deal.py:14
 #: crm/templates/admin/crm/company/change_form_object_tools.html:18
@@ -1372,11 +1373,11 @@ msgstr "İsteğe Bağlı"
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:31
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:6
 msgid "Deals"
-msgstr "İş Fırsatları"
+msgstr "Anlaşmalar"
 
 #: crm/models/deal.py:19
 msgid "Deal name"
-msgstr "İşlem Adı"
+msgstr "Anlaşma Adı"
 
 #: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
 msgid "Next step"
@@ -1384,7 +1385,7 @@ msgstr "Sonraki Adım"
 
 #: crm/models/deal.py:25 tasks/models/taskbase.py:78
 msgid "Describe briefly what needs to be done in the next step."
-msgstr "Bir sonraki adımda yapılması gerekenleri kısa bir şekilde açıklayın."
+msgstr "Sonraki adımda ne yapılması gerektiğini kısaca açıklayın."
 
 #: crm/models/deal.py:29 tasks/models/taskbase.py:81
 msgid "Step date"
@@ -1392,19 +1393,19 @@ msgstr "Adım Tarihi"
 
 #: crm/models/deal.py:30 tasks/models/taskbase.py:82
 msgid "Date to which the next step should be taken."
-msgstr "Sonraki adımın alınması gereken tarih."
+msgstr "Sonraki adımın atılması gereken tarih."
 
 #: crm/models/deal.py:51
 msgid "Dates of the stages"
-msgstr "Evreler Tarihi"
+msgstr "Aşamaların tarihleri"
 
 #: crm/models/deal.py:52
 msgid "Dates of passing the stages"
-msgstr "Evre Geçiş Tarihleri"
+msgstr "Aşamaların geçilme tarihleri"
 
 #: crm/models/deal.py:57
 msgid "Date of deal closing"
-msgstr "Anlaşma Kapatma Tarihi"
+msgstr "Anlaşma Kapanış Tarihi"
 
 #: crm/models/deal.py:62
 msgid "Date of won deal closing"
@@ -1412,7 +1413,7 @@ msgstr "Kazanılan anlaşmanın kapanış tarihi"
 
 #: crm/models/deal.py:71
 msgid "Total deal amount without VAT"
-msgstr "Vergi Öncesinde Toplam İş Anlaşması Miktarı"
+msgstr "KDV'siz toplam anlaşma tutarı"
 
 #: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
 #: crm/models/product.py:49
@@ -1421,19 +1422,19 @@ msgstr "Para Birimi"
 
 #: crm/models/deal.py:85 crm/models/others.py:101
 msgid "Closing reason"
-msgstr "Kapama Nedeni"
+msgstr "Kapatma nedeni"
 
 #: crm/models/deal.py:90
 msgid "Probability (%)"
-msgstr "Olasilik (%)"
+msgstr "Olasılık (%)"
 
 #: crm/models/deal.py:148
 msgid "Partner contact"
-msgstr "Ortak İletişim Kişisi"
+msgstr "İş Ortaklığı İletişimi"
 
 #: crm/models/deal.py:151
 msgid "Contact person of dealer or distribution company"
-msgstr "Dağıtım şirketi veya bayi temsilcisi"
+msgstr "Bayi veya dağıtım şirketinin iletişim kişisi"
 
 #: crm/models/deal.py:156
 msgid "Relevant"
@@ -1445,7 +1446,7 @@ msgstr "Önemli"
 
 #: crm/models/deal.py:176 tasks/models/taskbase.py:90
 msgid "Remind me."
-msgstr "Hatırlat."
+msgstr "Bana hatırlat."
 
 #: crm/models/lead.py:13
 msgid "Leads"
@@ -1453,7 +1454,7 @@ msgstr "Potansiyel Müşteriler"
 
 #: crm/models/lead.py:29
 msgid "Company phone"
-msgstr "Şirket Telefonu"
+msgstr "Şirket telefonu"
 
 #: crm/models/lead.py:33
 msgid "Company address"
@@ -1461,11 +1462,11 @@ msgstr "Şirket Adresi"
 
 #: crm/models/lead.py:37
 msgid "Company email"
-msgstr "Şirket E-postası"
+msgstr "Şirket e-postası"
 
 #: crm/models/others.py:27
 msgid "Type of Clients"
-msgstr "Müşteri Türleri"
+msgstr "Müşteri Türü"
 
 #: crm/models/others.py:28
 msgid "Types of Clients"
@@ -1473,11 +1474,11 @@ msgstr "Müşteri Türleri"
 
 #: crm/models/others.py:33
 msgid "Industry of Clients"
-msgstr "Müşteri Sektörü"
+msgstr "Müşterilerin Sektörü"
 
 #: crm/models/others.py:34
 msgid "Industries of Clients"
-msgstr "Müşteri Sektörleri"
+msgstr "Müşterilerin Sektörleri"
 
 #: crm/models/others.py:42
 msgid "Second default"
@@ -1485,19 +1486,19 @@ msgstr "İkinci varsayılan"
 
 #: crm/models/others.py:43
 msgid "Will be selected next after the default stage."
-msgstr "Varsayılan aşamanın ardından seçilecektir."
+msgstr "Varsayılan aşamanın ardından sonraki olarak seçilecektir."
 
 #: crm/models/others.py:47
 msgid "success stage"
-msgstr "Başarı Aşaması"
+msgstr "başarı aşaması"
 
 #: crm/models/others.py:51
 msgid "conditional success stage"
-msgstr "Koşullu Başarı Aşaması"
+msgstr "koşullu başarı aşaması"
 
 #: crm/models/others.py:52
 msgid "For example, receiving the first payment"
-msgstr "Örneğin, ilk ödeme alma"
+msgstr "Örneğin, ilk ödemeyi almak"
 
 #: crm/models/others.py:56
 msgid "goods shipped"
@@ -1505,30 +1506,30 @@ msgstr "gönderilen mallar"
 
 #: crm/models/others.py:57
 msgid "Have the goods been shipped at this stage already?"
-msgstr "Bu aşamada mallar zaten sevk edildi mi?"
+msgstr "Bu aşamada mal zaten gönderildi mi?"
 
 #: crm/models/others.py:64
 msgid "Lead Sources"
-msgstr "Lider Kaynakları"
+msgstr "Potansiyel Müşteri Kaynakları"
 
 #: crm/models/others.py:76
 msgid "form template name"
-msgstr "Form Şablonu Adı"
+msgstr "form şablonu adı"
 
 #: crm/models/others.py:77 crm/models/others.py:82
 msgid "The name of the html template file if needed."
-msgstr "HTML şablon dosyası adı, gerekirse."
+msgstr "Gerekirse html şablon dosyası adı."
 
 #: crm/models/others.py:81
 msgid "success page template name"
-msgstr "Başarı Sayfası Şablonu Adı"
+msgstr "başarı sayfası şablonu adı"
 
 #: crm/models/others.py:90
 msgid ""
 "Reason rating.         The indices of other instances will be sorted "
 "automatically."
 msgstr ""
-"Sebep derecelendirmesi. Diğer örneklerin indeksleri otomatik olarak "
+"Sebep puanlaması. Diğer örneklerin indeksleri otomatik olarak "
 "sıralanacaktır."
 
 #: crm/models/others.py:95
@@ -1537,15 +1538,15 @@ msgstr "başarı nedeni"
 
 #: crm/models/others.py:102
 msgid "Closing reasons"
-msgstr "Kapatma Nedenleri"
+msgstr "Kapatma nedenleri"
 
 #: crm/models/output.py:10
 msgid "Output"
-msgstr "Ürün"
+msgstr "Çıktı"
 
 #: crm/models/output.py:11
 msgid "Outputs"
-msgstr "Ürünler"
+msgstr "Çıktılar"
 
 #: crm/models/output.py:24
 msgid "Quantity"
@@ -1553,7 +1554,7 @@ msgstr "Miktar"
 
 #: crm/models/output.py:28
 msgid "Shipping date"
-msgstr "Gönderim Tarihi"
+msgstr "Sevkiyat Tarihi"
 
 #: crm/models/output.py:29
 msgid "Shipment date as per contract"
@@ -1561,15 +1562,15 @@ msgstr "Sözleşmeye göre sevkiyat tarihi"
 
 #: crm/models/output.py:33
 msgid "Planned shipping date"
-msgstr "Planlanan sevkiyat tarihi"
+msgstr "Planlanan Sevkiyat Tarihi"
 
 #: crm/models/output.py:37
 msgid "Actual shipping date"
-msgstr "Gerçek Sevkiyat Tarihi"
+msgstr "Gerçek kargo tarihi"
 
 #: crm/models/output.py:38
 msgid "Date when the product was shipped"
-msgstr "Ürünün sevkiyat tarihi"
+msgstr "Ürünün gönderildiği tarih"
 
 #: crm/models/output.py:42
 msgid "Shipped"
@@ -1577,11 +1578,11 @@ msgstr "Gönderildi"
 
 #: crm/models/output.py:43
 msgid "Product is shipped"
-msgstr "Ürün sevk edildi"
+msgstr "Ürün gönderildi"
 
 #: crm/models/output.py:47
 msgid "serial number"
-msgstr "Seri Numarası"
+msgstr "seri numarası"
 
 #: crm/models/output.py:58
 msgid "Quantity is required."
@@ -1589,11 +1590,11 @@ msgstr "Miktar gereklidir."
 
 #: crm/models/output.py:69
 msgid "Shipment"
-msgstr "Gönderi"
+msgstr "Sevkiyat"
 
 #: crm/models/output.py:70
 msgid "Shipments"
-msgstr "Gönderiler"
+msgstr "Sevkiyatlar"
 
 #: crm/models/payment.py:17
 msgid "Currencies"
@@ -1601,11 +1602,11 @@ msgstr "Para Birimleri"
 
 #: crm/models/payment.py:21
 msgid "Alphabetic Code for the Representation of Currencies."
-msgstr "Para Birimleri Temsil Etmek İçin Alfabetik Kod."
+msgstr "Dövizleri Temsil Etmek İçin Alfabetik Kod."
 
 #: crm/models/payment.py:26 crm/models/payment.py:198
 msgid "Rate to state currency"
-msgstr "Devlet para birimi kuru"
+msgstr "Devlet parasına dönüşüm oranı"
 
 #: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
 #: crm/models/payment.py:204
@@ -1614,7 +1615,7 @@ msgstr "Devlet para birimi karşısındaki döviz kuru."
 
 #: crm/models/payment.py:32 crm/models/payment.py:203
 msgid "Rate to marketing currency"
-msgstr "Pazarlama Para Birimine Kuru"
+msgstr "Pazarlama parasına oran"
 
 #: crm/models/payment.py:37
 msgid "Is it the state currency?"
@@ -1622,15 +1623,15 @@ msgstr "Bu devlet para birimi mi?"
 
 #: crm/models/payment.py:41
 msgid "Is it the marketing currency?"
-msgstr "Pazarlama para birimi mi?"
+msgstr "Pazarlama parası mı bu?"
 
 #: crm/models/payment.py:45
 msgid "This currency is subject to automatic updating."
-msgstr "Bu para birimi otomatik olarak güncellenecektir."
+msgstr "Bu para birimi otomatik güncellemeye tabidir."
 
 #: crm/models/payment.py:71
 msgid "without VAT"
-msgstr "Vergi Kapsamının Dışı"
+msgstr "KDV dahil değil"
 
 #: crm/models/payment.py:82
 msgid "Please specify a currency."
@@ -1666,7 +1667,7 @@ msgstr "Ödeme Durumu"
 
 #: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
 msgid "contract number"
-msgstr "anlaşma numarası"
+msgstr "sözleşme numarası"
 
 #: crm/models/payment.py:126
 msgid "invoice number"
@@ -1678,7 +1679,7 @@ msgstr "sipariş numarası"
 
 #: crm/models/payment.py:134
 msgid "Payment through representative office"
-msgstr "Temel Ofis Aracılığıyla Ödeme"
+msgstr "Temsilcilik aracılığıyla ödeme"
 
 #: crm/models/payment.py:157
 msgid "Payment share"
@@ -1686,15 +1687,15 @@ msgstr "Ödeme Payı"
 
 #: crm/models/payment.py:177
 msgid "Currency rate"
-msgstr "Para Birimi Kuru"
+msgstr "Döviz Kuru"
 
 #: crm/models/payment.py:178
 msgid "Currency rates"
-msgstr "Para Birimi Kursları"
+msgstr "Döviz Kurları"
 
 #: crm/models/payment.py:183
 msgid "approximate currency rate"
-msgstr "yaklaşık para kuru"
+msgstr "yaklaşık döviz kuru"
 
 #: crm/models/payment.py:184
 msgid "official currency rate"
@@ -1702,15 +1703,15 @@ msgstr "resmi döviz kuru"
 
 #: crm/models/payment.py:194
 msgid "Currency rate date"
-msgstr "Para Birimi Kuru Tarihi"
+msgstr "Döviz kuru tarihi"
 
 #: crm/models/payment.py:210
 msgid "Exchange rate type"
-msgstr "Değişim Oranı Türü"
+msgstr "Döviz kuru türü"
 
 #: crm/models/product.py:9 crm/models/product.py:69
 msgid "Product category"
-msgstr "Ürün Kategorisi"
+msgstr "Ürün kategorisi"
 
 #: crm/models/product.py:10
 msgid "Product categories"
@@ -1722,7 +1723,7 @@ msgstr "Satışta"
 
 #: crm/models/product.py:58
 msgid "Goods"
-msgstr "Ürünler"
+msgstr "Malzemeler"
 
 #: crm/models/product.py:59
 msgid "Service"
@@ -1738,19 +1739,19 @@ msgstr "İstekler"
 
 #: crm/models/request.py:24 crm/templates/crm/print_request.html:32
 msgid "Request for"
-msgstr "İstek için"
+msgstr "Talep için"
 
 #: crm/models/request.py:50
 msgid "Lead source"
-msgstr "İlgili Kaynak"
+msgstr "Potansiyel Kaynağı"
 
 #: crm/models/request.py:59
 msgid "Date of receipt"
-msgstr "Alınma Tarihi"
+msgstr "Alım tarihi"
 
 #: crm/models/request.py:60
 msgid "Date of receipt of the request."
-msgstr "İsteğin Alınma Tarihi"
+msgstr "Talebin alınma tarihi."
 
 #: crm/models/request.py:107 crm/site/dealadmin.py:671
 msgid "Translation"
@@ -1766,7 +1767,7 @@ msgstr "Beklemede"
 
 #: crm/models/request.py:116
 msgid "Waiting for validation of fields filling"
-msgstr "Alanların doldurulmasının doğrulanmasını bekliyoruz."
+msgstr "Alanların doldurulmasının doğrulanmasını bekliyor"
 
 #: crm/models/request.py:120
 msgid "Subsequent"
@@ -1774,33 +1775,32 @@ msgstr "Sonraki"
 
 #: crm/models/request.py:122
 msgid "Received from the client with whom you are already cooperate"
-msgstr "Zaten işbirliği içinde olduğunuz müşteriden alındı."
+msgstr "Zaten işbirliği yaptığınız müşteriden alındı"
 
 #: crm/models/request.py:126
 msgid "Duplicate"
-msgstr "Çift"
+msgstr "Kopyala"
 
 #: crm/models/request.py:127
 msgid "Duplicate request. The deal will not be created."
-msgstr "Çift talep. Anlaşma oluşturulmayacak."
+msgstr "Çoklu istek. Anlaşma oluşturulmayacak."
 
 #: crm/models/request.py:131 help/models.py:125
 msgid "Verification required"
-msgstr "Doğrulama gerekiyor"
+msgstr "Doğrulama Gerekli"
 
 #: crm/models/request.py:132
 msgid "Links are set automatically and require verification."
-msgstr "Bağlantılar otomatik olarak ayarlanır ve doğrulanması gerekir."
+msgstr "Bağlantılar otomatik olarak ayarlanır ve doğrulama gerektirir."
 
 #: crm/models/request.py:148 crm/models/request.py:149
 msgid "Company and contact person do not match."
-msgstr "Şirket ve kişi bilgileri uyuşmuyor."
+msgstr "Şirket ve iletişim kişisi eşleşmiyor."
 
 #: crm/models/request.py:153 crm/models/request.py:154
 msgid "Specify the contact person or lead. But not both."
 msgstr ""
-"İletişime geçen kişiyi veya potansiyel müşteriyi belirtin. Ancak her ikisini "
-"de belirtmeyin."
+"İletişim kişisini veya potansiyel müşteriyi belirtin. İkisini birden değil."
 
 #: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
 msgid "Tag"
@@ -1812,7 +1812,7 @@ msgstr "Etiket Adı"
 
 #: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
 msgid "competitor"
-msgstr "rekabetçi"
+msgstr "rakip"
 
 #: crm/models/to_translate.txt:3
 msgid "end customer"
@@ -1820,15 +1820,15 @@ msgstr "son kullanıcı"
 
 #: crm/models/to_translate.txt:4
 msgid "reseller"
-msgstr "toptancı"
+msgstr "bayi"
 
 #: crm/models/to_translate.txt:5
 msgid "dealer"
-msgstr "satıcı"
+msgstr "bayi"
 
 #: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
 msgid "distributor"
-msgstr "dağıcı"
+msgstr "dağıtımcı"
 
 #: crm/models/to_translate.txt:7
 msgid "educational institutions"
@@ -1840,11 +1840,11 @@ msgstr "hizmet şirketleri"
 
 #: crm/models/to_translate.txt:9
 msgid "welders"
-msgstr "dizginleyiciler"
+msgstr "lekeçiler"
 
 #: crm/models/to_translate.txt:10
 msgid "capital construction"
-msgstr "kapital inşaat"
+msgstr "sermaye inşaatı"
 
 #: crm/models/to_translate.txt:11
 msgid "automotive industry"
@@ -1856,11 +1856,11 @@ msgstr "gemi inşaatı"
 
 #: crm/models/to_translate.txt:13
 msgid "metallurgy"
-msgstr "metaloji"
+msgstr "metalurji"
 
 #: crm/models/to_translate.txt:14
 msgid "power generation"
-msgstr "güç üretimi"
+msgstr "enerji üretimi"
 
 #: crm/models/to_translate.txt:15
 msgid "pipelines"
@@ -1872,7 +1872,7 @@ msgstr "boru üretimi"
 
 #: crm/models/to_translate.txt:17
 msgid "oil & gas"
-msgstr "petrol ve doğalgaz"
+msgstr "petrol ve doğal gaz"
 
 #: crm/models/to_translate.txt:18
 msgid "aviation"
@@ -1888,15 +1888,15 @@ msgstr "madencilik"
 
 #: crm/models/to_translate.txt:21
 msgid "request"
-msgstr "talep"
+msgstr "istek"
 
 #: crm/models/to_translate.txt:22
 msgid "analysis of request"
-msgstr "talep analizi"
+msgstr "istek analizi"
 
 #: crm/models/to_translate.txt:23
 msgid "clarification of the requirements"
-msgstr "koşulların netleştirilmesi"
+msgstr "gereksinimlerin açıklanması"
 
 #: crm/models/to_translate.txt:24
 msgid "price offer"
@@ -1920,7 +1920,7 @@ msgstr "fatura"
 
 #: crm/models/to_translate.txt:29
 msgid "receiving the first payment"
-msgstr "ilk ödeme alınması"
+msgstr "ilk ödemeyi alma"
 
 #: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
 msgid "shipment"
@@ -1928,7 +1928,7 @@ msgstr "gönderi"
 
 #: crm/models/to_translate.txt:31
 msgid "closed (successful)"
-msgstr "tamamlandı (başarılı)"
+msgstr "kapalı (başarılı)"
 
 #: crm/models/to_translate.txt:32
 msgid "The client is not responding"
@@ -1936,19 +1936,19 @@ msgstr "Müşteri yanıt vermiyor"
 
 #: crm/models/to_translate.txt:33
 msgid "Specifications are not suitable"
-msgstr "Teknik özellikler uygun değil."
+msgstr "Teknik özellikler uygun değil"
 
 #: crm/models/to_translate.txt:34
 msgid "The deal was closed successfully"
-msgstr "İşlem başarıyla tamamlandı."
+msgstr "Anlaşma başarıyla kapatıldı"
 
 #: crm/models/to_translate.txt:35
 msgid "Purchase postponed"
-msgstr "Satın alma ertelendi"
+msgstr "Alım ertelendi"
 
 #: crm/models/to_translate.txt:36
 msgid "The price is not competitive"
-msgstr "Fiyat rekabetçi değil."
+msgstr "Fiyat rekabetçi değil"
 
 #: crm/models/to_translate.txt:38
 msgid "website form"
@@ -1964,12 +1964,12 @@ msgstr "sergi"
 
 #: crm/settings.py:46
 msgid "Establish the first contact with the client."
-msgstr "Müşteriyle ilk iletişimi kurun."
+msgstr "Müşteri ile ilk teması kurun."
 
 #: crm/site/companyadmin.py:25
-msgid "Attention! You can only view companies associated with your department."
-msgstr ""
-"Dikkat! Sadece departmanınızla ilişkili şirketleri görüntüleyebilirsiniz."
+msgid ""
+"Attention! You can only view companies associated with your department."
+msgstr "Dikkat! Sadece bölümünüzle ilişkili şirketleri görüntüleyebilirsiniz."
 
 #: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
 msgid "Warning:"
@@ -1977,11 +1977,11 @@ msgstr "Uyarı:"
 
 #: crm/site/companyadmin.py:210
 msgid "Owner will also be changed for contact persons."
-msgstr "İlgili kişiler için sahip de değişecektir."
+msgstr "İletişim kişileri için sahip de değiştirilecek."
 
 #: crm/site/companyadmin.py:223
 msgid "Change owner of selected Companies"
-msgstr "Seçilen Şirketlerin Sahibini Değiştirin"
+msgstr "Seçilen Şirketlerin Sahibini Değiştir"
 
 #: crm/site/crmadminsite.py:22
 msgid "Your Excel file"
@@ -1994,7 +1994,8 @@ msgstr "İmza"
 
 #: crm/site/crmemailadmin.py:31
 msgid "Please note that this is a list of unsent emails."
-msgstr "Lütfen unutmayın ki bu, gönderilmemiş e-postaların bir listesidir."
+msgstr ""
+"Lütfen bu listenin gönderilmemiş e-postaların listesi olduğunu unutmayın."
 
 #: crm/site/crmemailadmin.py:143
 msgid "Emails in the CRM database."
@@ -2010,44 +2011,44 @@ msgstr "İçerik"
 
 #: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
 msgid "Previous correspondence"
-msgstr "Önceki İletişimler"
+msgstr "Önceki yazışmalar"
 
 #: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
 #: crm/utils/import_emails.py:192
 msgid "No subject"
-msgstr "Konu yok."
+msgstr "Konu yok"
 
 #: crm/site/crmmodeladmin.py:61
 msgid "View website in new tab"
-msgstr "Web sitesini yeni sekmede aç"
+msgstr "Web sitesini yeni sekmede görüntüle"
 
 #: crm/site/crmmodeladmin.py:62
 msgid "Callback to smartphone"
-msgstr "Akıllı telefona geri çağrı"
+msgstr "Akıllı telefona geri arama"
 
 #: crm/site/crmmodeladmin.py:63
 msgid "Callback to your smartphone"
-msgstr "Akıllı telefonunuza geri çağrı yapın"
+msgstr "Akıllı telefonunuza geri arama"
 
 #: crm/site/crmmodeladmin.py:64
 msgid "Skype chat"
-msgstr "Skype Sohbeti"
+msgstr "Skype sohbeti"
 
 #: crm/site/crmmodeladmin.py:65
 msgid "Chat or Skype call"
-msgstr "Sohbet veya Skype araması"
+msgstr "Sohbet veya Skype görüşmesi"
 
 #: crm/site/crmmodeladmin.py:66
 msgid "Skype call"
-msgstr "Skype Araması"
+msgstr "Skype Görüşmesi"
 
 #: crm/site/crmmodeladmin.py:67
 msgid "To call a mobile or landline from Skype"
-msgstr "Skype'dan Cep Telefonuna veya Sabit Hattına Ara"
+msgstr "Skype'dan bir cep veya sabit telefonu aramak"
 
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
-msgstr "Viber Sohbeti"
+msgstr "Viber sohbeti"
 
 #: crm/site/crmmodeladmin.py:69
 msgid "Chat or viber call"
@@ -2055,7 +2056,7 @@ msgstr "Sohbet veya Viber araması"
 
 #: crm/site/crmmodeladmin.py:70
 msgid "WhatsApp chat"
-msgstr "WhatsApp Sohbeti"
+msgstr "WhatsApp sohbeti"
 
 #: crm/site/crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
@@ -2063,11 +2064,11 @@ msgstr "Sohbet veya WhatsApp araması"
 
 #: crm/site/crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
-msgstr "E-posta bültenleri için abone oldum"
+msgstr "E-posta bültenlerine abone oldu"
 
 #: crm/site/crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
-msgstr "E-posta bültenlerinden aboneliğimi iptal ettim."
+msgstr "E-posta bültenlerinden abonelikten çıktı"
 
 #: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
@@ -2078,12 +2079,12 @@ msgid ""
 "Note massmail is not performed on the following days: \n"
 "                        Friday, Saturday, Sunday."
 msgstr ""
-"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gerçekleştirilmez: "
+"Aşağıdaki günlerde toplu posta gönderimi yapılmamaktadır:\n"
 "Cuma, Cumartesi, Pazar."
 
 #: crm/site/crmmodeladmin.py:371
 msgid "Messengers"
-msgstr "Mesajlaşma Uygulamaları"
+msgstr "Mesaj Gönderenler"
 
 #: crm/site/currencyadmin.py:35
 msgid "State currency must be specified."
@@ -2095,11 +2096,11 @@ msgstr "Pazarlama para birimi belirtilmelidir."
 
 #: crm/site/dealadmin.py:52
 msgid "Closing date"
-msgstr "Kapama Tarihi"
+msgstr "Kapanış tarihi"
 
 #: crm/site/dealadmin.py:58
 msgid "View Contact in new tab"
-msgstr "İlişkiyi yeni sekmede görüntüle"
+msgstr "Yeni sekmede iletişimi görüntüle"
 
 #: crm/site/dealadmin.py:59
 msgid "View Company in new tab"
@@ -2107,15 +2108,15 @@ msgstr "Şirketi yeni sekmede görüntüle"
 
 #: crm/site/dealadmin.py:62
 msgid "Deal counter"
-msgstr "İşlem Sayacı"
+msgstr "Anlaşma Sayacı"
 
 #: crm/site/dealadmin.py:63
 msgid "View Lead in new tab"
-msgstr "Yeni sekmede potansiyel müşteriyi görüntüle"
+msgstr "Yeni sekmede Potansiyel Müşteriyi Görüntüle"
 
 #: crm/site/dealadmin.py:64
 msgid "Unanswered email"
-msgstr "Cevapsız E-posta"
+msgstr "Yanıtlanmamış e-posta"
 
 #: crm/site/dealadmin.py:68
 msgid "Unread chat message"
@@ -2123,31 +2124,31 @@ msgstr "Okunmamış sohbet mesajı"
 
 #: crm/site/dealadmin.py:71
 msgid "Payment received"
-msgstr "Ödeme Alındı"
+msgstr "Ödeme alındı"
 
 #: crm/site/dealadmin.py:74
 msgid "Specify the date of shipment"
-msgstr "Gönderim tarihini belirtin"
+msgstr "Sevkiyatın tarihini belirtin"
 
 #: crm/site/dealadmin.py:77
 msgid "Specify products"
-msgstr "Ürünleri Belirleyin"
+msgstr "Ürünleri belirtin"
 
 #: crm/site/dealadmin.py:80
 msgid "Expired shipment date"
-msgstr "Geçerli Gönderi Tarihi Sonu"
+msgstr "Son kullanma tarihi geçmiş kargo"
 
 #: crm/site/dealadmin.py:87
 msgid "Relevant deal"
-msgstr "İlgili anlaşma"
+msgstr "İlgili Anlaşma"
 
 #: crm/site/dealadmin.py:158
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
-msgstr "ID '{}' ile ilişkili anlaşma bulunmuyor. Belki de silindi?"
+msgstr "Anlaşma ID'si '{}' mevcut değil. Belki silinmiş?"
 
 #: crm/site/dealadmin.py:221
 msgid "View the Request"
-msgstr "İsteği Görüntüle"
+msgstr "Talebi Görüntüle"
 
 #: crm/site/dealadmin.py:536
 msgid "Create Email to Contact"
@@ -2155,20 +2156,20 @@ msgstr "İletişim İçin E-posta Oluştur"
 
 #: crm/site/dealadmin.py:539
 msgid "Create Email to Lead"
-msgstr "Lider için E-posta Oluştur"
+msgstr "Potansiyel Müşteriye E-posta Oluştur"
 
 #: crm/site/dealadmin.py:579
 msgid "Important deal"
-msgstr "Önemli Anlaşma"
+msgstr "Önemli anlaşma"
 
 #: crm/site/dealadmin.py:603
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
-msgstr "%d gün boyunca isteğime yanıt bekliyorum."
+msgstr "Ben, isteğime bir cevap için %d gündür bekliyorum."
 
 #: crm/site/dealadmin.py:633
 msgid "Expected"
-msgstr "Bekleniyor"
+msgstr "Beklenen"
 
 #: crm/site/dealadmin.py:641
 msgid "Paid"
@@ -2176,28 +2177,28 @@ msgstr "Ödenmiş"
 
 #: crm/site/dealadmin.py:696
 msgid "Contact is Lead (no company)"
-msgstr "İletişim, Lider (şirket yok)"
+msgstr "İletişim - Potansiyel Müşteri (şirket yok)"
 
 #: crm/site/leadadmin.py:118
 msgid "Person contact details"
-msgstr "Kişinin İletişim Bilgileri"
+msgstr "Kişi İletişim Bilgileri"
 
 #: crm/site/leadadmin.py:127
 msgid "Additional person details"
-msgstr "Ek Kişisel Bilgiler"
+msgstr "Ek kişi detayları"
 
 #: crm/site/leadadmin.py:140
 msgid "Company contact details"
-msgstr "Şirket İletişim Bilgileri"
+msgstr "Şirket iletişim bilgileri"
 
 #: crm/site/leadadmin.py:249
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
-msgstr "\"{obj}\" lideri başarıyla dönüştürüldü."
+msgstr "Potansiyel müşteri \"{obj}\" başarıyla dönüştürüldü."
 
 #: crm/site/leadadmin.py:264
 msgid "This Lead is disqualified! Please read the description."
-msgstr "Bu potansiyel müşteri geçersiz sayıldı! Lütfen açıklamayı okuyun."
+msgstr "Bu Lider diskalifiye edildi! Lütfen açıklamayı okuyun."
 
 #: crm/site/requestadmin.py:38
 msgid "Client Loyalty"
@@ -2205,27 +2206,27 @@ msgstr "Müşteri Sadakati"
 
 #: crm/site/requestadmin.py:45
 msgid "Country not specified in request"
-msgstr "İstekte ülke belirtilmedi."
+msgstr "İsteğe ait ülke belirtilmemiş"
 
 #: crm/site/requestadmin.py:46
 msgid "You received the deal"
-msgstr "İşlemi aldınız."
+msgstr "Anlaşmayı aldınız"
 
 #: crm/site/requestadmin.py:47
 msgid "You are the co-owner of the deal"
-msgstr "Bu anlaşma ortak sahibisiniz."
+msgstr "Sen anlaşmanın ortak sahibisin"
 
 #: crm/site/requestadmin.py:53
 msgid "Primary request"
-msgstr "Ana Talep"
+msgstr "Birincil talep"
 
 #: crm/site/requestadmin.py:54
 msgid "You are the co-owner of the request"
-msgstr "İsteğin ortak sahibi sizsiniz."
+msgstr "Sen yeni isteğin ortak sahibisin"
 
 #: crm/site/requestadmin.py:55
 msgid "You received the request"
-msgstr "Bir istek aldınız."
+msgstr "İsteği aldınız"
 
 #: crm/site/requestadmin.py:56 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
@@ -2234,7 +2235,7 @@ msgstr "beklemede"
 
 #: crm/site/requestadmin.py:57
 msgid "processed"
-msgstr "işlem görmüş"
+msgstr "işlendi"
 
 #: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
@@ -2243,32 +2244,32 @@ msgstr "Durum"
 
 #: crm/site/requestadmin.py:62
 msgid "Subsequent request"
-msgstr "Sonraki İstek"
+msgstr "Sonraki istek"
 
 #: crm/site/requestadmin.py:389
 msgid "Found the counterparty assigned to"
-msgstr "Atanan karşı taraf bulundu."
+msgstr "Karşılıklı taraf atandı"
 
 #: crm/site/requestadmin.py:488
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
-msgstr "{isim} \"{nesne}\" başarıyla eklendi."
+msgstr "“{obj}” adlı {name} başarıyla eklendi."
 
 #: crm/site/shipmentadmin.py:26
 msgid "actual"
-msgstr "gerçek"
+msgstr "fiili"
 
 #: crm/site/shipmentadmin.py:27
 msgid "Actual shipping date."
-msgstr "Gerçek sevkiyat tarihi."
+msgstr "Gerçek kargo tarihi."
 
 #: crm/site/shipmentadmin.py:32
 msgid "Deal is paid."
-msgstr "İşlem ödendi."
+msgstr "Anlaşma ödendi."
 
 #: crm/site/shipmentadmin.py:33
 msgid "Next<br>payment"
-msgstr "Sonraki<br>Ödeme"
+msgstr "Sonraki<br>ödeme"
 
 #: crm/site/shipmentadmin.py:34
 msgid "order"
@@ -2280,11 +2281,11 @@ msgstr "Ürün henüz gönderilmedi."
 
 #: crm/site/shipmentadmin.py:38
 msgid "The product has been shipped."
-msgstr "Ürün sevk edildi."
+msgstr "Ürün gönderildi."
 
 #: crm/site/shipmentadmin.py:40
 msgid "Product shipment"
-msgstr "Ürün Sevkı"
+msgstr "Ürün Sevkiyatı"
 
 #: crm/site/shipmentadmin.py:41
 msgid "to contract"
@@ -2310,13 +2311,13 @@ msgstr "ödenmiş"
 #: crm/templates/admin/crm/crmemail/change_form.html:43
 #: crm/templates/admin/crm/payment/change_list.html:52
 msgid "Please correct the error below."
-msgstr "Lütfen aşağıda belirtilen hatayı düzeltin."
+msgstr "Lütfen aşağıdaki hatayı düzeltin."
 
 #: crm/templates/admin/crm/change_form.html:43
 #: crm/templates/admin/crm/crmemail/change_form.html:43
 #: crm/templates/admin/crm/payment/change_list.html:52
 msgid "Please correct the errors below."
-msgstr "Lütfen aşağıda belirtilen hataları düzeltin."
+msgstr "Lütfen aşağıdaki hataları düzeltin."
 
 #: crm/templates/admin/crm/city/submit_line.html:5
 #: crm/templates/admin/crm/company/submit_line.html:5
@@ -2334,14 +2335,14 @@ msgstr "Yeni olarak kaydet"
 #: crm/templates/admin/crm/city/submit_line.html:6
 #: crm/templates/admin/crm/company/submit_line.html:6
 msgid "Save and add another"
-msgstr "Kaydet ve başka bir tane ekle"
+msgstr "Kaydet ve bir tane daha ekle"
 
 #: crm/templates/admin/crm/company/change_form_object_tools.html:9
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:18
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:10
 #: crm/templates/admin/crm/request/change_form_object_tools.html:19
 msgid "Сorrespondence"
-msgstr "İletişimler"
+msgstr "Mektuplaşmalar"
 
 #: crm/templates/admin/crm/company/change_form_object_tools.html:27
 msgid "Contacts"
@@ -2351,7 +2352,7 @@ msgstr "İletişim Kişileri"
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:26
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:17
 msgid "Got massmails"
-msgstr "Toplu E-postalar Alındı"
+msgstr "Alınan toplu e-postalar"
 
 #: crm/templates/admin/crm/company/change_form_object_tools.html:33
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:27
@@ -2364,7 +2365,7 @@ msgstr "Kitle E-postaları"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
 #: help/templates/admin/help/page/change_form_object_tools.html:3
 msgid "Open in Admin"
-msgstr "Yönetici Modunda Aç"
+msgstr "Yöneticide Aç"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
@@ -2380,16 +2381,16 @@ msgstr "Hepsini Dışa Aktar"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
 #: crm/templates/admin/crm/inline_emails.html:37
 msgid "reply all"
-msgstr "Hepsine yanıtla"
+msgstr "Hepsine Cevap Ver"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
 #: crm/templates/admin/crm/inline_emails.html:38
 msgid "forward"
-msgstr "İlerlet"
+msgstr "iletiş"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
 msgid "View next email"
-msgstr "Bir sonraki e-postayı görüntüle"
+msgstr "Sonraki e-postayı görüntüle"
 
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
 msgid "Next"
@@ -2421,13 +2422,14 @@ msgstr "Orijinal e-postayı EML dosyası olarak indirin."
 #: crm/templates/admin/crm/inline_emails.html:39
 #: crm/templates/admin/crm/request/change_form_object_tools.html:33
 msgid "Print preview"
-msgstr "Yazdırma Önizleme"
+msgstr "Yazdırma önizleme"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: crm/templates/admin/crm/inline_emails.html:35
-#: help/templates/admin/help/stacked.html:16 massmail/site/signatureadmin.py:31
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
 msgid "Change"
-msgstr "Değişiklik Yap"
+msgstr "Değiştirmek"
 
 #: crm/templates/admin/crm/crmemail/stacked.html:12
 #: help/templates/admin/help/stacked.html:16
@@ -2440,7 +2442,7 @@ msgstr "Cevapla"
 
 #: crm/templates/admin/crm/crmemail/submit_line.html:7
 msgid "Reply all"
-msgstr "Bütünlerine yanıtla"
+msgstr "Hepsine cevap ver"
 
 #: crm/templates/admin/crm/crmemail/submit_line.html:8
 msgid "Forward"
@@ -2465,31 +2467,31 @@ msgstr "Ofis Notu"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:14
 msgid "View the correspondence on this Deal"
-msgstr "Bu Anlaşmanın Korumasında Görüşmeleri İnceleyin"
+msgstr "Bu Anlaşmayla ilgili yazışmaları görüntüle"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:22
 msgid "Import Email regarding this Deal"
-msgstr "Bu Anlaşmayla İlgili E-postayı İçe Aktar"
+msgstr "Bu Anlaşmayla İlgili E-postayı İçeri Aktar"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:29
 msgid "View Deals with this Company"
-msgstr "Bu Şirketle İşlemleri Görüntüle"
+msgstr "Bu Şirketle Anlaşmaları Görüntüle"
 
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
-msgstr "Bu Anlaşma'nın değişiklik geçmişini gözden geçirin."
+msgstr "Bu Anlaşma için değişikliklerin geçmişini görüntüleyin"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:6
 msgid "Toggle default deal sorting"
-msgstr "Varsayılan İş Anlaşması Sıralamasını Değiştir"
+msgstr "Varsayılan anlaşma sıralamasını değiştir"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
-msgstr "Bir talep üzerine anlaşma oluşturulur."
+msgstr "Bir anlaşma, bir istek üzerine oluşturulur."
 
 #: crm/templates/admin/crm/inline_emails.html:6
 msgid "Last few letters"
-msgstr "Son birkaç mektup"
+msgstr "Son birkaç harf"
 
 #: crm/templates/admin/crm/inline_emails.html:51
 msgid "Date"
@@ -2509,7 +2511,7 @@ msgstr "Toplam Tutar"
 
 #: crm/templates/admin/crm/payment/change_list.html:41
 msgid "with VAT"
-msgstr "Katma Değer Vergisi (KDV) dahil"
+msgstr "KDV dahil"
 
 #: crm/templates/admin/crm/payment/change_list.html:63
 msgid "Filter"
@@ -2521,15 +2523,15 @@ msgstr "Bu Taleple İlgili E-postayı İçe Aktar"
 
 #: crm/templates/admin/crm/request/change_list_object_tools.html:12
 msgid "Create a request based on an email."
-msgstr "E-postaya dayalı bir talep oluşturun."
+msgstr "Bir e-postaya dayalı bir talep oluşturun."
 
 #: crm/templates/admin/crm/request/change_list_object_tools.html:13
 msgid "Import request from"
-msgstr "İsteği İçe Aktar"
+msgstr "İthalat isteği %s'den"
 
 #: crm/templates/admin/crm/request/submit_line.html:8
 msgid "Create deal"
-msgstr "İşlem Oluştur"
+msgstr "Anlaşma Oluştur"
 
 #: crm/templates/crm/addfiles.html:20
 msgid "Please select files to attach to the letter."
@@ -2539,29 +2541,29 @@ msgstr "Lütfen mektuba eklemek istediğiniz dosyaları seçin."
 msgid ""
 "Please choose a new owner for selected Companies and their Contact persons"
 msgstr ""
-"Lütfen seçilen Şirketler ve temas kuran kişiler için yeni bir sahibi seçin."
+"Lütfen seçilen Şirketler ve ilgili İletişim Kişileri için yeni bir sahip "
+"seçin"
 
 #: crm/templates/crm/del_duplicate_button.html:5
 msgid "Correctly delete this object as a duplicate."
-msgstr "Bu nesneyi doğru bir şekilde kopyasız olarak silin."
+msgstr "Bu nesneyi doğru şekilde bir kopyası olarak sil."
 
 #: crm/templates/crm/filter_scroll.html:4
 #: templates/admin/crm_date_filter.html:7
 #, python-format
 msgid " By %(filter_title)s "
-msgstr "%(filter_title)s tarafından"
+msgstr "(filter_title)s Göre"
 
 #: crm/templates/crm/import_objects.html:20
 msgid "Please select a file to import."
-msgstr "Lütfen içe aktarmak için bir dosya seçin."
+msgstr "Lütfen içe aktarmak istediğiniz bir dosya seçin."
 
 #: crm/templates/crm/import_objects.html:34
 msgid ""
-"Only the following columns will be imported if they exist (the order doesn't "
-"matter):"
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
 msgstr ""
-"Sadece aşağıdaki sütunlar mevcutsa içe aktarılacaktır (düzensizliğe gerek "
-"yok):"
+"Sadece aşağıdaki sütunlar mevcutsa içe aktarılacaktır (sır önemli değildir):"
 
 #: crm/templates/crm/make_massmail.html:22
 msgid "Make a choice"
@@ -2603,7 +2605,7 @@ msgstr "Geçen yılın ikinci yarısı"
 
 #: crm/utils/admfilters.py:417
 msgid "changed by chiefs"
-msgstr "Yönetim tarafından değiştirildi"
+msgstr "Şefler tarafından değiştirildi"
 
 #: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
 #: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
@@ -2633,7 +2635,7 @@ msgstr "posta kutusu"
 
 #: crm/utils/admfilters.py:583
 msgid "inbox"
-msgstr "gönderilenler"
+msgstr "gelen kutusu"
 
 #: crm/utils/admfilters.py:584
 msgid "sent"
@@ -2642,7 +2644,7 @@ msgstr "gönderilen"
 #: crm/utils/admfilters.py:585
 #, python-brace-format
 msgid "outbox ({num})"
-msgstr "gönderilecekler ( {num} )"
+msgstr "gönderilecek kutuya ({num})"
 
 #: crm/utils/admfilters.py:586
 msgid "trash"
@@ -2650,11 +2652,11 @@ msgstr "çöp"
 
 #: crm/utils/helpers.py:30
 msgid "No deal amount"
-msgstr "İşlem tutarı yok"
+msgstr "Anlaşma tutarı yok"
 
 #: crm/utils/helpers.py:31
 msgid "Unacceptable phone number value"
-msgstr "Geçersiz telefon numarası değeri"
+msgstr "Kabul edilemez telefon numarası değeri"
 
 #: crm/utils/helpers.py:32
 msgid "Counterparty"
@@ -2665,8 +2667,8 @@ msgid ""
 "Error: The date you set as 'Created before' has to be later \n"
 "                than the date of 'Created after'."
 msgstr ""
-"Hata: 'Oluşturuldu Önce' olarak ayarladığınız tarih, 'Oluşturuldu Sonra' "
-"tarihinin sonrasında olmalıdır."
+"Hata: 'Oluşturulmadan önce' olarak ayarladığınız tarih, 'Oluşturulduktan "
+"sonra' tarihinin daha sonrasında olmalıdır."
 
 #: crm/utils/make_massmail_form.py:42
 msgid "Industries"
@@ -2678,21 +2680,24 @@ msgstr "Türler"
 
 #: crm/utils/make_massmail_form.py:61
 msgid "Created before"
-msgstr "Oluşturulma Tarihi Öncesinde"
+msgstr "Daha önce oluşturuldu"
 
 #: crm/utils/make_massmail_form.py:66
 msgid "Created after"
-msgstr "Sonrasına oluşturulmuş"
+msgstr ""
+"Oluşturulma tarihi\n"
+"\n"
+"Создано после"
 
 #: crm/utils/restore_imap_emails.py:40
 #, python-format
 msgid "Received an email from \"%s\""
-msgstr "\"%s\" adresinden bir e-posta aldım."
+msgstr "%s'den bir e-posta alındı"
 
 #: crm/utils/send_email.py:22
 #, python-format
 msgid "The Email has been sent to \"%s\""
-msgstr "E-posta \"%s\"'ye gönderildi."
+msgstr "E-posta '%s' adresine gönderildi."
 
 #: crm/utils/send_email.py:30
 msgid "Please fill in the subject and text of the letter."
@@ -2701,8 +2706,8 @@ msgstr "Lütfen mektubun konusunu ve metnini doldurun."
 #: crm/utils/send_email.py:34
 msgid "To send a message you need to have an email account marked as main."
 msgstr ""
-"Bir mesaj göndermek için ana olarak işaretlenmiş bir e-posta hesabınızın "
-"olması gerekir."
+"Bir mesaj göndermek için ana olarak işaretlenmiş bir e-posta hesabına sahip "
+"olmanız gerekir."
 
 #: crm/utils/send_email.py:72
 #, python-format
@@ -2711,41 +2716,41 @@ msgstr "Başarısız: %s"
 
 #: crm/views/change_owner_companies.py:33
 msgid "Owner changed successfully"
-msgstr "Sahip başarıyla değiştirildi."
+msgstr "Sahip başarıyla değiştirildi"
 
 #: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
 msgid "Dear {}, thanks for your request!"
-msgstr "Sayın {}, talebiniz için teşekkür ederiz!"
+msgstr "Sayın {}, isteğiniz için teşekkürler!"
 
 #: crm/views/create_email.py:35
 msgid "No recipient"
-msgstr "Alıcı yok."
+msgstr "Alıcı yok"
 
 #: crm/views/delete_duplicate_object.py:80
 msgid "The duplicate object has been correctly deleted."
-msgstr "Çift varlık doğru bir şekilde silindi."
+msgstr "Çoğaltılmış nesne doğru şekilde silindi."
 
 #: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
 msgid "Not enough data to identify the email or email has been deleted"
-msgstr "Yeterli veri yok, e-postayı tanımlamak için veya e-posta silinmiş."
+msgstr "E-postayı tanımlamak için yeterli veri yok veya e-posta silinmiş."
 
 #: crm/views/reply_email.py:126
 msgid ""
 "You do not have an email account in CRM for sending Emails. Contact your "
 "administrator."
 msgstr ""
-"CRM'de e-posta göndermek için bir hesabınız yok. Yöneticinizle iletişime "
-"geçin."
+"E-posta göndermek için CRM'de bir e-posta hesabınız yok. Yöneticinizle "
+"iletişime geçin."
 
 #: crm/views/view_original_email.py:24
 msgid "Something went wrong"
-msgstr "Bir şeyler yanlış gitti."
+msgstr "Bir şeyler ters gitti"
 
 #: help/admin.py:78
 msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
 msgstr ""
 "Doğru bağlantıyı eklemek için gerekirse /SECRET_CRM_PREFIX/ etiketini "
-"kullanın."
+"kullanın"
 
 #: help/models.py:13
 msgid "list"
@@ -2757,11 +2762,11 @@ msgstr "örnek"
 
 #: help/models.py:24
 msgid "Help page"
-msgstr "Yardım Sayfası"
+msgstr "Yardım sayfası"
 
 #: help/models.py:25
 msgid "Help pages"
-msgstr "Yardım Sayfaları"
+msgstr "Yardım sayfaları"
 
 #: help/models.py:31
 msgid "app label"
@@ -2781,21 +2786,19 @@ msgstr "Başlık"
 
 #: help/models.py:53
 msgid "Available on CRM page"
-msgstr "CRM sayfasında mevcut"
+msgstr "CRM sayfası üzerinde mevcut"
 
 #: help/models.py:55
 msgid ""
-"Available on one of CRM pages. Otherwise, it can only be accessed via a link "
-"from another help page."
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
 msgstr ""
-"CRM sayfalarından birinde mevcuttur. Aksi takdirde, başka bir yardım "
-"sayfasındaki bağlantıya tıklayarak erişilebilir."
+"CRM sayfalarından birinde mevcuttur. Aksi takdirde, yalnızca başka bir "
+"yardım sayfasındaki bir bağlantı aracılığıyla erişilebilir."
 
 #: help/models.py:86
 msgid "Paragraph"
-msgstr ""
-"\n"
-"Paragraf"
+msgstr "Paragraf"
 
 #: help/models.py:87
 msgid "Paragraphs"
@@ -2810,12 +2813,12 @@ msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
 msgstr ""
-"Kullanıcı grubu seçilmediğinde, paragraf sadece süper kullanıcıya "
-"erişilebilir olacak."
+"Eğer hiçbir kullanıcı grubu seçilmemişse, paragraf sadece süper kullanıcıya "
+"erişilebilir olacaktır."
 
 #: help/models.py:105
 msgid "Title of paragraph."
-msgstr "Paragraf Başlığı."
+msgstr "Paragrafın başlığı."
 
 #: help/models.py:120 tasks/site/memoadmin.py:42
 msgid "draft"
@@ -2827,7 +2830,7 @@ msgstr "Yayınlanmayacak."
 
 #: help/models.py:126
 msgid "Content requires additional verification."
-msgstr "İçerik ek doğrulama gerektirir."
+msgstr "İçerik ek doğrulama gerektiriyor."
 
 #: help/models.py:131
 msgid "Index number"
@@ -2835,51 +2838,51 @@ msgstr "Sıra Numarası"
 
 #: help/models.py:132
 msgid "The sequence number of the paragraph on the page."
-msgstr "Sayfa üzerindeki paragrafın sıra numarası."
+msgstr "Sayfadaki paragrafın sıra numarası."
 
 #: help/models.py:138
 msgid "Link to a related paragraph if exists."
-msgstr "İlgili bir paragraf varsa oya bağlantı."
+msgstr "İlgili bir paragraf varsa bağlantı."
 
 #: massmail/admin.py:31
 msgid "Service information"
-msgstr "Hizmet Bilgileri"
+msgstr "Hizmet Bilgisi"
 
 #: massmail/admin_actions.py:17
 msgid "Please select recipients only with the same owner."
-msgstr "Lütfen aynı sahibine sahip yalnızca alıcıları seçin."
+msgstr "Lütfen aynı sahibi olan alıcıları sadece seçin."
 
 #: massmail/admin_actions.py:18
 msgid "Bad result - no recipients! Make another choice."
-msgstr "Kötü sonuç - alıcı yok! Başka bir seçenek belirleyin."
+msgstr "Kötü sonuç - hiç alıcı yok! Başka bir seçim yapın."
 
 #: massmail/admin_actions.py:21
 msgid "Create a mailing out for selected objects"
-msgstr "Seçilen nesneler için bir e-posta gönderimi oluşturun"
+msgstr "Seçilen nesneler için bir posta gönderisi oluştur"
 
 #: massmail/admin_actions.py:33
 msgid "Unsubscribed users were excluded from the mailing list."
-msgstr "Abone olmayan kullanıcılar posta listesinden çıkarıldı."
+msgstr "Abone olmayı bırakan kullanıcılar e-posta listesinden çıkarıldı."
 
 #: massmail/admin_actions.py:54
 msgid ""
 "Note massmail is not performed on the following days: Friday, Saturday, "
 "Sunday."
 msgstr ""
-"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gönderilmez: Cuma, "
-"Cumartesi, Pazar."
+"Toplu mail gönderiminin aşağıdaki günlerde yapılmadığını lütfen unutmayın: "
+"Cuma, Cumartesi, Pazar."
 
 #: massmail/admin_actions.py:65
 msgid "Merge selected mailing outs"
-msgstr "Seçilen gönderileri birleştir"
+msgstr "Seçilen e-posta gönderilerini birleştir"
 
 #: massmail/admin_actions.py:85
 msgid "united"
-msgstr "birlikte"
+msgstr "birleşik"
 
 #: massmail/admin_actions.py:107
 msgid "Specify VIP recipients"
-msgstr "VIP alıcıları belirleyin"
+msgstr "VIP alıcıları belirtin"
 
 #: massmail/admin_actions.py:115
 msgid "Please first add your main email account."
@@ -2889,31 +2892,31 @@ msgstr "Lütfen öncelikle ana e-posta hesabınızı ekleyin."
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
-msgstr "Ana e-posta adresi başarıyla seçilen alıcılara atandı."
+msgstr "Ana e-posta adresi seçilen alıcılara başarıyla atandı."
 
 #: massmail/admin_actions.py:149
 msgid "Please select mailings with only the same recipient type."
-msgstr "Lütfen sadece aynı alıcı türüne sahip dağıtımları seçin."
+msgstr "Lütfen yalnızca aynı alıcı türüne sahip postaları seçin."
 
 #: massmail/admin_actions.py:154
 msgid "Please select only mailings with the same message."
-msgstr "Lütfen aynı mesajı içeren yalnızca dağıtımları seçin."
+msgstr "Lütfen aynı mesajı içeren yalnızca e-posta kampanyalarını seçin."
 
 #: massmail/admin_actions.py:183
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
 msgstr ""
-"Gönderi için kullanılabilecek herhangi bir e-posta hesabı bulunmamaktadır. "
-"Lütfen CRM yöneticisiyle iletişime geçin."
+"Postalama için kullanılabilir posta hesabı yok. Lütfen yöneticinizle "
+"iletişime geçin."
 
 #: massmail/admin_actions.py:191
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
 msgstr ""
-"VIP olmayan alıcılara e-posta göndermek için kullanılabilir herhangi bir "
-"posta hesabı bulunmamaktadır. Lütfen CRM yöneticisiyle iletişime geçin."
+"VIP olmayan alıcılara posta göndermek için kullanılabilir e-posta hesapları "
+"yoktur. Lütfen yöneticinizle iletişime geçin."
 
 #: massmail/apps.py:8
 msgid "Mass mail"
@@ -2933,11 +2936,11 @@ msgstr "İmza Seçin"
 
 #: massmail/models/baseeml.py:23
 msgid "Sender's signature."
-msgstr "Gönderenin imzası."
+msgstr "Gönderenin imzasını."
 
 #: massmail/models/baseeml.py:28
 msgid "Previous correspondence. Will be added after signature"
-msgstr "Önceki iletişim. İmza atıldıktan sonra eklenecek."
+msgstr "Önceki yazışmalar. İmzadan sonra eklenecek."
 
 #: massmail/models/email_account.py:15
 msgid "Email Account"
@@ -2949,38 +2952,36 @@ msgstr "E-posta Hesapları"
 
 #: massmail/models/email_account.py:20
 msgid "The name of the Email Account. For example Gmail"
-msgstr "E-posta hesabı adı. Örneğin, Gmail"
+msgstr "E-posta Hesabı adı. Örneğin Gmail"
 
 #: massmail/models/email_account.py:24
 msgid "Use this account for regular business correspondence."
-msgstr "Bu hesabı düzenli iş iletişimi için kullanın."
+msgstr "Bu hesabı düzenli iş yazışmaları için kullanın."
 
 #: massmail/models/email_account.py:28
 msgid "Allow to use this account for massmail."
-msgstr "Bu hesabı toplu e-posta için kullanmaya izin verin."
+msgstr "Bu hesabı toplu e-posta göndermek için kullanmaya izin ver."
 
 #: massmail/models/email_account.py:32
 msgid "Import emails from this account."
-msgstr "Bu hesaptan e-postaları içe aktar."
+msgstr "Bu hesaptan e-postaları içe aktarın."
 
 #: massmail/models/email_account.py:40
 msgid "The IMAP host"
-msgstr "IMAP Sunucusu"
+msgstr "IMAP ana bilgisayarı"
 
 #: massmail/models/email_account.py:44
 msgid "The username to use to authenticate to the SMTP server."
-msgstr "SMTP sunucusuna kimlik doğrulaması için kullanılacak kullanıcı adı."
+msgstr "SMTP sunucusuna kimlik doğrulamak için kullanılacak kullanıcı adı."
 
 #: massmail/models/email_account.py:48
 msgid "The auth_password to use to authenticate to the SMTP server."
-msgstr ""
-"SMTP sunucusuna kimlik doğrulaması yapmak için kullanılacak auth_şifre."
+msgstr "SMTP sunucusuna kimlik doğrulamak için kullanılacak auth_parola."
 
 #: massmail/models/email_account.py:52
 msgid "The application password to use to authenticate to the SMTP server."
 msgstr ""
-"SMTP sunucusuna kimlik doğrulaması yapmak için kullanılacak uygulama "
-"parolası."
+"SMTP sunucusuna kimlik doğrulamak için kullanılacak uygulama parolası."
 
 #: massmail/models/email_account.py:56
 msgid "Port to use for the SMTP server"
@@ -2988,54 +2989,50 @@ msgstr "SMTP sunucusu için kullanılacak port"
 
 #: massmail/models/email_account.py:60
 msgid "The from_email field."
-msgstr "Gönderen e-posta alanı"
+msgstr "from_email alanı."
 
 #: massmail/models/email_account.py:68
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted certificate chain file to use "
-"for the SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
 msgstr ""
-"Eğer EMAIL_USE_SSL veya EMAIL_USE_TLS doğruysa, SSL bağlantısı için "
-"kullanılacak PEM biçimli sertifikalar zinciri dosyasının yolunu isteğe bağlı "
+"EĞER EMAIL_USE_SSL veya EMAIL_USE_TLS doğruysa, SSL bağlantısı için "
+"kullanılacak PEM formatlı bir sertifika zinciri dosyası yolunu isteğe bağlı "
 "olarak belirtebilirsiniz."
 
 #: massmail/models/email_account.py:73
 msgid ""
-"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally "
-"specify         the path to a PEM-formatted private key file to use for the "
-"SSL connection."
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
 msgstr ""
-"Eğer EMAIL_USE_SSL veya EMAIL_USE_TLS doğru ise, SSL bağlantısı için "
-"kullanılacak özel anahtar dosyasının yolunu isteğe bağlı olarak "
-"belirtebilirsiniz. Bu dosya PEM formatında olmalıdır."
+"Eğer EMAIL_USE_SSL veya EMAIL_USE_TLS doğruysa, SSL bağlantısı için "
+"kullanılacak PEM formatlı özel anahtar dosyasındaki yolu isteğe bağlı olarak"
+" belirtebilirsiniz."
 
 #: massmail/models/email_account.py:79
 msgid "OAuth 2.0 token for obtaining an access token."
-msgstr "OAuth 2.0 jetonu, erişim jetonu almak için kullanılır."
+msgstr "Erişim belirteci almak için OAuth 2.0 belirteci."
 
 #: massmail/models/email_account.py:106
 msgid "DateTime of last import"
-msgstr "Son İçe Aktarım Tarihi"
+msgstr "Son içe aktarma tarihi ve saati"
 
 #: massmail/models/email_account.py:117
 msgid "Specify the imap host"
-msgstr "IMAP sunucusu belirtin"
+msgstr "IMAP sunucusunu belirtin"
 
 #: massmail/models/email_message.py:10
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder or attached to this message.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
 "    "
 msgstr ""
 "\n"
-"    HTML kullanın. Dahil edilen resim için adres belirtmek için {% cid_media "
-"'path/to/pic.png' %} kullanın.<br>\n"
-"    CRM sunucusuna yüklenen dosyaları 'media/pics/' klasöründe veya bu mesaj "
-"eklerine dahil edebilirsiniz."
+"HTML kullanın. Gömülü resmin adresini belirtmek için {% cid_media ‘path/to/pic.png' %} kullanın.<br>\n"
+"CRM sunucusuna yüklenen dosyaları ‘media/pics/’ klasörüne gömebilir veya bu mesaja ekleyebilirsiniz."
 
 #: massmail/models/email_message.py:19
 msgid "Email Message"
@@ -3047,11 +3044,11 @@ msgstr "E-posta Mesajları"
 
 #: massmail/models/eml_accounts_queue.py:19
 msgid "The queue of the user email accounts."
-msgstr "Kullanıcı e-posta hesapları kuyruğu."
+msgstr "Kullanıcı e-posta hesaplarının sırası."
 
 #: massmail/models/mailing_out.py:12
 msgid "Mailing Out"
-msgstr "Faks Gönderimi"
+msgstr "Posta Gönderme"
 
 #: massmail/models/mailing_out.py:13
 msgid "Mailing Outs"
@@ -3063,11 +3060,11 @@ msgstr "Aktif ancak Hata"
 
 #: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
 msgid "Paused"
-msgstr "Duraklatıldı"
+msgstr "Durduruldu"
 
 #: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
 msgid "Interrupted"
-msgstr "Kesildi"
+msgstr "Kesintiye Uğradı"
 
 #: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
 #: tasks/models/stagebase.py:19 tasks/models/task.py:93
@@ -3076,7 +3073,7 @@ msgstr "Tamamlandı"
 
 #: massmail/models/mailing_out.py:31
 msgid "The name of the message."
-msgstr "Mesajın Adı"
+msgstr "Mesajın adı."
 
 #: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
 msgid "Number of recipients"
@@ -3084,7 +3081,7 @@ msgstr "Alıcı Sayısı"
 
 #: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
 msgid "Recipients type"
-msgstr "Alıcı Tipi"
+msgstr "Alıcılar türü"
 
 #: massmail/models/mailing_out.py:59
 msgid "Report"
@@ -3093,16 +3090,12 @@ msgstr "Rapor"
 #: massmail/models/signature.py:7
 msgid ""
 "\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media "
-"‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ "
-"folder.\n"
+"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
 "    "
 msgstr ""
 "\n"
-"    HTML kullanın. Dahili resim adresini belirtmek için {% cid_media 'path/"
-"to/pic.png' %}'yi kullanın.<br>\n"
-"    CPM sunucusuna yüklenen dosyalar, 'media/pics/' klasöründe gömülebilir."
+"HTML kullanın. Gömülü resmin adresini belirtmek için {% cid_media 'path/to/pic.png' %} kullanın.<br> 'media/pics/' klasörüne yüklenen dosyaları CRM sunucusuna gömebilirsiniz."
 
 #: massmail/models/signature.py:17
 msgid "Signatures"
@@ -3110,7 +3103,7 @@ msgstr "İmzalar"
 
 #: massmail/models/signature.py:27
 msgid "The name of the signature."
-msgstr "İmza Adı"
+msgstr "İmza adı."
 
 #: massmail/models/to_translate.txt:3
 msgid "price proposal"
@@ -3127,7 +3120,7 @@ msgstr "Düzenle"
 
 #: massmail/site/mailingoutadmin.py:17
 msgid "Available Email accounts for MassMail"
-msgstr "Kitle Posta için Kullanılabilir E-posta Hesapları"
+msgstr "Toplu Posta için Kullanılabilir E-posta Hesapları"
 
 #: massmail/site/mailingoutadmin.py:18
 msgid "Accounts"
@@ -3146,8 +3139,8 @@ msgid ""
 "Note massmail is not performed on the following days: \n"
 "                Friday, Saturday, Sunday."
 msgstr ""
-"Lütfen dikkat edin, toplu e-posta aşağıdaki günlerde gönderilmez: Cuma, "
-"Cumartesi, Pazar."
+"Aşağıdaki günlerde toplu posta gönderimi yapılmamaktadır:\n"
+"Cuma, Cumartesi, Pazar."
 
 #: massmail/site/mailingoutadmin.py:110
 msgid "notification"
@@ -3155,11 +3148,11 @@ msgstr "bildirim"
 
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
 msgid "Get or update a refresh token"
-msgstr "Yenileme jetonu alın veya güncelleyin"
+msgstr "Yenileme belirteçini al veya güncelle"
 
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
 msgid "Send a test"
-msgstr "Testi Gönder"
+msgstr "Testi gönder"
 
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
 msgid "Copy message"
@@ -3167,7 +3160,7 @@ msgstr "Mesajı kopyala"
 
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
 msgid "Successful recipients"
-msgstr "Başarılı Alıcılar"
+msgstr "Başarılı alıcılar"
 
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
 msgid "Failed recipients"
@@ -3175,30 +3168,31 @@ msgstr "Başarısız Alıcılar"
 
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
 msgid "Send failed recipients"
-msgstr "Başarısız Alıcılara Gönder"
+msgstr "Gönderim başarısız olan alıcılara tekrar gönder"
 
 #: massmail/templates/massmail/pic_upload.html:7
 msgid "Upload the image file to the CRM server"
-msgstr "CRM sunucusuna görüntü dosyasını yükleyin."
+msgstr "Görüntü dosyasını CRM sunucusuna yükle"
 
 #: massmail/templates/massmail/pic_upload.html:15
 msgid "Please select an image file to upload."
-msgstr "Lütfen yüklemek istediğiniz bir görüntü dosyası seçin."
+msgstr "Lütfen yüklemek için bir görüntü dosyası seçin."
 
 #: massmail/templates/massmail/pic_upload.html:36
 msgid "To specify the address of the uploaded file, use the tag -"
-msgstr "Yüklenen dosyanın adresini belirtmek için etiketi kullanın -"
+msgstr ""
+"Yüklenen dosyanın adresini belirtmek için aşağıdaki etiketi kullanın -"
 
 #: massmail/templates/massmail/pic_upload.html:37
 msgid ""
 "Upload only files that will be used many times. For example, a company logo."
 msgstr ""
-"Sadece tekrar tekrar kullanılacak dosyaları yükleyin. Örneğin, bir şirket "
+"Sadece birçok kez kullanılacak dosyaları yükleyin. Örneğin, bir şirket "
 "logosu."
 
 #: massmail/templates/massmail/pic_upload_buttons.html:3
 msgid "View the uploaded images on the CRM server"
-msgstr "CRM sunucusunda yüklenen görüntüleri görüntüle"
+msgstr "CRM sunucusundaki yüklenen görüntüleri görüntüle"
 
 #: massmail/templates/massmail/pic_upload_buttons.html:6
 msgid "Upload an image file to the CRM server"
@@ -3207,7 +3201,7 @@ msgstr "CRM sunucusuna bir görüntü dosyası yükleyin."
 #: massmail/templates/massmail/show_uploaded_images.html:7
 #: massmail/templates/massmail/show_uploaded_images.html:15
 msgid "Uploaded images"
-msgstr "Yüklenen Görüntüler"
+msgstr "Yüklenen Görseller"
 
 #: massmail/utils/sendmassmail.py:43
 msgid "Done successfully."
@@ -3219,20 +3213,20 @@ msgstr "İzin verilen dosya uzantıları:"
 
 #: massmail/views/get_oauth2_tokens.py:74
 msgid "Refresh token received successfully."
-msgstr "Yenileme jetonu başarıyla alındı."
+msgstr "Yenileme belirteci başarıyla alındı."
 
 #: massmail/views/get_oauth2_tokens.py:79
 msgid "Error: Failed to get authorization code."
-msgstr "Hata: Yetkilendirme kodu alınamadı."
+msgstr "Hata: Yetkilendirme kodunu almak mümkün olmadı."
 
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
-msgstr "Başarısız alıcılar başarıyla toplu posta listesine eklendi."
+msgstr "Başarısız alıcılar kitlesel e-postaya başarıyla geri döndürüldü."
 
 #: massmail/views/send_tests.py:49
 #, python-brace-format
 msgid "The Email test has been sent to {email_accounts}"
-msgstr "E-posta testi {email_hesapları} adreslerine gönderildi."
+msgstr "E-posta testi {email_accounts} adresine başarıyla gönderildi."
 
 #: settings/apps.py:8
 msgid "Settings"
@@ -3244,15 +3238,15 @@ msgstr "Yasaklanmış şirket adı"
 
 #: settings/models.py:8
 msgid "Banned company names"
-msgstr "Yasaklanmış Şirket Adları"
+msgstr "Yasaklanmış şirket isimleri"
 
 #: settings/models.py:22
 msgid "Public email domain"
-msgstr "Genel E-posta Alanı"
+msgstr "Kamu E-posta Alanı"
 
 #: settings/models.py:23
 msgid "Public email domains"
-msgstr "Genel E-posta Alanları"
+msgstr "Kamu E-posta Alan Adları"
 
 #: settings/models.py:28
 msgid "Domain"
@@ -3268,7 +3262,9 @@ msgstr "Kontrol Aralığı"
 
 #: settings/models.py:49
 msgid "Specify the interval in seconds to check if it's time for a reminder."
-msgstr "Hatırlatma için kontrol etme aralığını saniye cinsinden belirleyin."
+msgstr ""
+"Hatırlatma zamanının geldiğini kontrol etmek için saniye cinsinden aralık "
+"belirtin."
 
 #: settings/models.py:56
 msgid "Stop Phrase"
@@ -3276,28 +3272,28 @@ msgstr "Durdurma Cümlesi"
 
 #: settings/models.py:57
 msgid "Stop Phrases"
-msgstr "Durdurma İfadeleri"
+msgstr "Durdurma Cümleleri"
 
 #: settings/models.py:62
 msgid "Phrase"
-msgstr "İfade"
+msgstr "Cümle"
 
 #: settings/models.py:66
 msgid "Last occurrence date"
-msgstr "Son Görülme Tarihi"
+msgstr "Son Olay Tarihi"
 
 #: settings/models.py:67
 msgid "Date of last occurrence of the phrase"
-msgstr "Frazın son geçişi tarihi"
+msgstr "Frazın son görünüş tarihi"
 
 #: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
 msgid "Change responsible"
-msgstr "Sorumlu değiştir"
+msgstr "Sorumlu kişiyi değiştir"
 
 #: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
-msgstr "Aboneler Değiştir"
+msgstr "Abone'leri değiştir"
 
 #: tasks/apps.py:8 tasks/models/task.py:16
 #: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
@@ -3306,7 +3302,7 @@ msgstr "Görevler"
 
 #: tasks/forms.py:32
 msgid "Please specify a name"
-msgstr "Lütfen bir isim belirtin."
+msgstr "Lütfen bir ad belirtin"
 
 #: tasks/forms.py:38
 msgid "Please specify a responsible"
@@ -3318,7 +3314,7 @@ msgstr "Tarih geçmişte olmamalıdır."
 
 #: tasks/models/memo.py:13
 msgid "Memo"
-msgstr "Not"
+msgstr "Hatırlatma"
 
 #: tasks/models/memo.py:14
 msgid "Memos"
@@ -3327,15 +3323,15 @@ msgstr "Notlar"
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
 #: tasks/site/memoadmin.py:45
 msgid "postponed"
-msgstr "erteleme"
+msgstr "ertelenmiş"
 
 #: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
 msgid "reviewed"
-msgstr "incelemiş"
+msgstr "incelemeyi tamamladı"
 
 #: tasks/models/memo.py:33
 msgid "to whom"
-msgstr "kime"
+msgstr "kim"
 
 #: tasks/models/memo.py:41 tasks/models/task.py:15
 msgid "Task"
@@ -3343,7 +3339,7 @@ msgstr "Görev"
 
 #: tasks/models/memo.py:49
 msgid "For what"
-msgstr "Neden?"
+msgstr "Ne için"
 
 #: tasks/models/memo.py:57 tasks/models/project.py:9
 #: tasks/utils/admfilters.py:67
@@ -3360,11 +3356,11 @@ msgstr "Taslak"
 
 #: tasks/models/memo.py:77
 msgid "Available only to the owner."
-msgstr "Sadece sahibine göre erişilebilir."
+msgstr "Sadece sahibine özeldir."
 
 #: tasks/models/memo.py:81
 msgid "Notified"
-msgstr "Bilgilendirildi"
+msgstr "Bildirildi"
 
 #: tasks/models/memo.py:82
 msgid "The recipient and subscribers are notified."
@@ -3372,28 +3368,28 @@ msgstr "Alıcı ve aboneler bilgilendirilmiştir."
 
 #: tasks/models/memo.py:92
 msgid "Review date"
-msgstr "İnceleme tarihi"
+msgstr "Gözden Geçirme Tarihi"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
 #: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
-msgstr "aboneiler"
+msgstr "abonelikler"
 
 #: tasks/models/memo.py:110 tasks/models/taskbase.py:67
 msgid "Notified subscribers"
-msgstr "Bilgilendirilen aboneler"
+msgstr "Bildirim Alan Aboneler"
 
 #: tasks/models/memo.py:123
 msgid "The office memo has been reviewed"
-msgstr "Ofis memoru gözden geçirildi."
+msgstr "Ofis notu gözden geçirildi"
 
 #: tasks/models/project.py:10
 msgid "Projects"
-msgstr "Proje(ler)"
+msgstr "Projeler"
 
 #: tasks/models/projectstage.py:9
 msgid "Project stage"
-msgstr "Proje Aşaması"
+msgstr "Proje aşaması"
 
 #: tasks/models/projectstage.py:10
 msgid "Project stages"
@@ -3409,11 +3405,11 @@ msgstr "Çözüm"
 
 #: tasks/models/resolution.py:10
 msgid "Resolutions"
-msgstr "Çözümler"
+msgstr "Kararlar"
 
 #: tasks/models/stagebase.py:20
 msgid "Mark if this stage is \"done\""
-msgstr "Bu aşamanın \"Tamamlandı\" olduğunu işaretle."
+msgstr "Bu aşamanın 'Tamamlandı' olduğunu işaretleyin"
 
 #: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
 msgid "In progress"
@@ -3421,7 +3417,7 @@ msgstr "İşlemde"
 
 #: tasks/models/stagebase.py:25
 msgid "Mark if this stage is \"in progress\""
-msgstr "Bu aşamanın \"devam ediyor\" olduğunu işaretleyin."
+msgstr "Bu aşamanın 'devam etmekte olduğunu' işaretleyin"
 
 #: tasks/models/tag.py:17
 msgid "Tag for"
@@ -3429,19 +3425,19 @@ msgstr "Etiket için"
 
 #: tasks/models/task.py:24
 msgid "task"
-msgstr "Görev"
+msgstr "görev"
 
 #: tasks/models/task.py:32
 msgid "project"
-msgstr "Proje"
+msgstr "proje"
 
 #: tasks/models/task.py:39
 msgid "Hide main task"
-msgstr "Ana Görevi Gizle"
+msgstr "Ana görevi gizle"
 
 #: tasks/models/task.py:40
 msgid "Hide the main task when this sub-task is closed."
-msgstr "Bu alt görev tamamlandığında ana görevi gizle."
+msgstr "Bu alt görev kapatıldığında ana görevi gizle."
 
 #: tasks/models/task.py:46 tasks/site/taskadmin.py:346
 #: tasks/site/taskadmin.py:352
@@ -3450,15 +3446,15 @@ msgstr "Bekleme Süresi"
 
 #: tasks/models/task.py:47
 msgid "Task execution time in format - DD HH:MM:SS"
-msgstr "Görev yürütme süresi - GG SS:DD:SS biçiminde"
+msgstr "Görev yürütme süresi - GG HH:MM:SS formatında"
 
 #: tasks/models/task.py:64
 msgid "The task cannot be closed because there is an active subtask."
-msgstr "Görev, aktif alt görevler olduğu için kapatılamaz."
+msgstr "Görev, aktif bir alt görev olduğu için kapatılamaz."
 
 #: tasks/models/task.py:92
 msgid "The main task is closed automatically."
-msgstr "Ana görev otomatik olarak kapatıldı."
+msgstr "Ana görev otomatik olarak kapatılır."
 
 #: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
 msgid "Low"
@@ -3474,7 +3470,7 @@ msgstr "Yüksek"
 
 #: tasks/models/taskbase.py:33
 msgid "Short title"
-msgstr "Kısaltılmış Başlık"
+msgstr "Kısa Başlık"
 
 #: tasks/models/taskbase.py:42
 msgid "Start date"
@@ -3482,11 +3478,11 @@ msgstr "Başlangıç Tarihi"
 
 #: tasks/models/taskbase.py:44
 msgid "Date of task closing"
-msgstr "Görev Kapama Tarihi"
+msgstr "Görevin Kapanış Tarihi"
 
 #: tasks/models/taskbase.py:55
 msgid "Notified responsible"
-msgstr "Bilgilendirilen sorumlular"
+msgstr "Bildirimde bulunan sorumlu"
 
 #: tasks/models/taskstage.py:9
 msgid "Task stage"
@@ -3510,19 +3506,19 @@ msgstr "iptal edildi"
 
 #: tasks/models/to_translate.txt:7
 msgid "to make a decision"
-msgstr "karar vermek için"
+msgstr "karar vermek"
 
 #: tasks/models/to_translate.txt:8
 msgid "payment of regular expenses"
-msgstr "düzenli giderlerin ödenmesi"
+msgstr "düzensiz giderlerin ödemesi"
 
 #: tasks/models/to_translate.txt:9
 msgid "on approval"
-msgstr "onaylandıktan sonra"
+msgstr "onay için"
 
 #: tasks/models/to_translate.txt:10
 msgid "for consideration"
-msgstr "dikkate alınmak üzere"
+msgstr "dikkate alınması için"
 
 #: tasks/models/to_translate.txt:11
 msgid "for information"
@@ -3530,42 +3526,42 @@ msgstr "bilgi için"
 
 #: tasks/models/to_translate.txt:12
 msgid "for the record"
-msgstr "kayıt için"
+msgstr "kayıtlara geçmek için"
 
 #: tasks/site/memoadmin.py:44
 msgid "overdue"
-msgstr "gecikmiş"
+msgstr "geçmiş tarih"
 
 #: tasks/site/memoadmin.py:47
 msgid "You are subscribed to a new office memo"
-msgstr "Yeni bir ofis notu aboneliğiniz var."
+msgstr "Yeni bir ofis notuna abone oldunuz"
 
 #: tasks/site/memoadmin.py:49
 msgid "unreviewed"
-msgstr "incelenmedi"
+msgstr "incelemedi"
 
 #: tasks/site/memoadmin.py:50
 msgid "The office memo was written"
-msgstr "Ofis notu yazıldı."
+msgstr "Ofis notu yazıldı"
 
 #: tasks/site/memoadmin.py:51
 msgid "You've received a office memo"
-msgstr "Bir ofis memosu aldınız."
+msgstr "Bir ofis notu aldınız."
 
 #: tasks/site/memoadmin.py:118
 msgid "Your office memo has been deleted"
-msgstr "Ofis notunuz silinmiştir."
+msgstr "Ofis notunuz silindi."
 
 #: tasks/site/memoadmin.py:386
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
-msgstr "Görevi Görüntüle"
+msgstr "Görevini görüntüle"
 
 #: tasks/site/memoadmin.py:390
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
-msgstr "Projeyi Görüntüle"
+msgstr "Proje'yi Görüntüle"
 
 #: tasks/site/memoadmin.py:471
 msgid "View the "
@@ -3573,19 +3569,19 @@ msgstr "Görüntüle"
 
 #: tasks/site/projectadmin.py:17
 msgid "Acquainted with the project"
-msgstr "Proje hakkında bilgi sahibi olmak"
+msgstr "Proje ile Tanışmak"
 
 #: tasks/site/projectadmin.py:18
 msgid "The project was created"
-msgstr "Proje oluşturuldu."
+msgstr "Proje oluşturuldu"
 
 #: tasks/site/taskadmin.py:35
 msgid "I completed my part of the task"
-msgstr "Görevimin kısmını tamamladım."
+msgstr "Görevin benim kısmımı tamamladım"
 
 #: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
 msgid "The task was created"
-msgstr "Görev oluşturuldu."
+msgstr "Görev oluşturuldu"
 
 #: tasks/site/taskadmin.py:38
 msgid "The subtask was created"
@@ -3597,7 +3593,7 @@ msgstr "Alt Görev"
 
 #: tasks/site/taskadmin.py:242
 msgid "later than due date of parent task."
-msgstr "ana görevenin son teslim tarihinden sonra."
+msgstr "ebeveyn görevin son teslim tarihinden sonra."
 
 #: tasks/site/taskadmin.py:334
 msgid "Main task"
@@ -3607,7 +3603,7 @@ msgstr "Ana Görev"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
-msgstr "Alt Görev Oluştur"
+msgstr "Alt görev oluştur"
 
 #: tasks/site/taskadmin.py:372
 msgid ""
@@ -3616,30 +3612,29 @@ msgid ""
 "            Or press the next button when you have done your job.\n"
 "        "
 msgstr ""
-"Bu bir grup görevi.\n"
-"            Lütfen işiniz için bir alt görev oluşturun.\n"
-"            Veya işinizi tamamladığınızda \"Sonraki\" düğmesine basın."
+"Bu, kolektif bir görevdir. Lütfen kendinize çalışma için bir alt görev "
+"oluşturun. Veya işinizi bitirdiğinizde 'Sonraki' düğmesine basın."
 
 #: tasks/site/tasksbasemodeladmin.py:44
 msgid "You have been assigned as the task co-owner"
-msgstr "Siz, görev ortak sahibi olarak atanmışsınız."
+msgstr "Görevin ortak sahibi olarak atandınız."
 
 #: tasks/site/tasksbasemodeladmin.py:46
 msgid "Acquainted with the task"
-msgstr "Görevi Tanıdım"
+msgstr "Görevi tanımak"
 
 #: tasks/site/tasksbasemodeladmin.py:48
 #: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
 msgid "The task is closed"
-msgstr "Görev kapatıldı."
+msgstr "Görev kapatıldı"
 
 #: tasks/site/tasksbasemodeladmin.py:49
 msgid "The subtask is closed"
-msgstr "Alt görev tamamlandı."
+msgstr "Alt görev kapatıldı"
 
 #: tasks/site/tasksbasemodeladmin.py:50
 msgid "The next step date should not be later than due date."
-msgstr "Son adım tarihi, beklenen tarihten daha geç olmamalıdır."
+msgstr "Sonraki adım tarihi, son teslim tarihinden sonra olmamalıdır."
 
 #: tasks/site/tasksbasemodeladmin.py:53
 msgid "The Project was created"
@@ -3647,23 +3642,23 @@ msgstr "Proje oluşturuldu"
 
 #: tasks/site/tasksbasemodeladmin.py:54
 msgid "The project is closed"
-msgstr "Proje kapatıldı."
+msgstr "Proje kapatıldı"
 
 #: tasks/site/tasksbasemodeladmin.py:57
 msgid "You are subscribed to a new task"
-msgstr "Yeni bir göreve abone oldunuz."
+msgstr "Yeni bir göreve abone oldunuz"
 
 #: tasks/site/tasksbasemodeladmin.py:58
 msgid "You have a new task assigned"
-msgstr "Size yeni bir görev atandı."
+msgstr "Yeni bir göreviniz atandı."
 
 #: tasks/site/tasksbasemodeladmin.py:483
 msgid ""
 "Please edit the title and description to make it clear to other users what "
 "part of the overall task will be completed."
 msgstr ""
-"Lütfen başlığı ve açıklamayı düzenleyin, böylece diğer kullanıcılar "
-"tamamlanacak genel görevin hangi kısmını anlayabilirler."
+"Lütfen diğer kullanıcıların genel görevin hangi kısmının tamamlanacağını net"
+" bir şekilde anlamaları için başlığı ve açıklamayı düzenleyin."
 
 #: tasks/site/tasksbasemodeladmin.py:502
 msgid "responsible"
@@ -3685,7 +3680,7 @@ msgstr "Proje Oluştur"
 
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
 msgid "View main task"
-msgstr "Ana Görevi Görüntüle"
+msgstr "Ana görevi görüntüle"
 
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
@@ -3693,49 +3688,52 @@ msgstr "Alt Görevler"
 
 #: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
 msgid "Toggle default task sorting"
-msgstr "Varsayılan Görev Sıralamasını Değiştir"
+msgstr "Varsayılan görev sıralamasını değiştir"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
-msgstr "Görevi tamam olarak işaretle ve kaydet."
+msgstr "Görevi tamamlanmış olarak işaretleyin ve kaydedin."
 
 #: tasks/views/create_completed_subtask.py:43
 msgid ""
 "The task cannot be marked as completed because you have an active subtask."
-msgstr "Görev, aktif bir alt görev olduğunuz için tamamlanamaz."
+msgstr ""
+"Görev, aktif bir alt görev olduğunda tamamlanmış olarak işaretlenemez."
 
 #: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
 msgid "The Task does not exist"
-msgstr "Görev mevcut değil."
+msgstr "Görev mevcut değil"
 
 #: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
 msgid "The user does not exist"
-msgstr "Kullanıcı mevcut değil."
+msgstr "Kullanıcı mevcut değil"
 
 #: tasks/views/create_completed_subtask.py:119
 msgid ""
 "An error occurred while creating the subtask. Contact the CRM Administrator."
-msgstr "Alt görev oluştururken bir hata oluştu. CRM Yöneticisi'ne başvurun."
+msgstr ""
+"Alt görev oluşturulurken bir hata oluştu. CRM Yöneticisi ile iletişime "
+"geçin."
 
 #: templates/admin/auth/group/change_list_object_tools.html:12
 msgid "Creates a copy of the department"
-msgstr "Departmanın bir kopyasını oluştur"
+msgstr "Departmanın bir kopyasını oluşturur"
 
 #: templates/admin/auth/group/change_list_object_tools.html:13
 msgid "Copy department"
-msgstr "Kopyala Bölümü"
+msgstr "Kopyalama Bölümü"
 
 #: templates/admin/auth/user/change_list_object_tools.html:12
 msgid "Transfer of a manager to another department"
-msgstr "Bir yöneticiyi başka bir bölüme transfer etme"
+msgstr "Bir yöneticinin başka bir bölüme aktarılması"
 
 #: templates/admin/auth/user/change_list_object_tools.html:13
 msgid "Transfer of a manager"
-msgstr "Yönetici Transferi"
+msgstr "Bir yöneticinin aktarımı"
 
 #: templates/admin/base.html:50
 msgid "Skip to main content"
-msgstr "Ana içeriğe geçin"
+msgstr "Ana İçeriğe Atla"
 
 #: templates/admin/base.html:65
 msgid "Welcome,"
@@ -3743,15 +3741,15 @@ msgstr "Hoş geldiniz,"
 
 #: templates/admin/base.html:70
 msgid "View site"
-msgstr "Siteyi Görüntüle"
+msgstr "Siteyi görüntüle"
 
 #: templates/admin/base.html:75
 msgid "Documentation"
-msgstr "Belgeleme"
+msgstr "Belgelendirme"
 
 #: templates/admin/base.html:79
 msgid "Change password"
-msgstr "Parolayı Değiştir"
+msgstr "Şifreyi Değiştir"
 
 #: templates/admin/base.html:83
 msgid "Log out"
@@ -3759,19 +3757,19 @@ msgstr "Çıkış Yap"
 
 #: templates/admin/base.html:98
 msgid "Breadcrumbs"
-msgstr "Ekmek Parçacıkları"
+msgstr "Ekmek Kırıntıları"
 
 #: templates/admin/color_theme_toggle.html:3
 msgid "Toggle theme (current theme: auto)"
-msgstr "Tema değiştir (mevcut tema: otomatik)"
+msgstr "Tema seçeneğini değiştir (geçerli tema: otomatik)"
 
 #: templates/admin/color_theme_toggle.html:4
 msgid "Toggle theme (current theme: light)"
-msgstr "Tema değiştir (mevcut tema: açık)"
+msgstr "Tema geçişini değiştir (geçerli tema: açık)"
 
 #: templates/admin/color_theme_toggle.html:5
 msgid "Toggle theme (current theme: dark)"
-msgstr "Tema değiştir (mevcut tema: Koyu)"
+msgstr "Tema geçişini değiştir (geçerli tema: koyu)"
 
 #. Translators: Specify dates of date range
 #: templates/admin/crm_date_filter.html:18
@@ -3781,7 +3779,7 @@ msgstr "Tarihleri belirtin"
 #. Translators: Start of date range
 #: templates/admin/crm_date_filter.html:23
 msgid "from"
-msgstr "den"
+msgstr "gönderen"
 
 #. Translators: End of date range
 #: templates/admin/crm_date_filter.html:29
@@ -3791,7 +3789,7 @@ msgstr "önce"
 #. Translators: Year-Month Day
 #: templates/admin/crm_date_filter.html:33
 msgid "YYYY-MM-DD"
-msgstr "YYYY-AA-GG"
+msgstr "YYYY-MM-DD"
 
 #: templates/crm_help_link.html:3
 msgid "Help"
@@ -3799,19 +3797,19 @@ msgstr "Yardım"
 
 #: tests/massmail/utils/test_send_massmail.py:122
 msgid "This field is required."
-msgstr "Bu alan zorunlu."
+msgstr "Bu alan zorunludur."
 
 #: voip/models.py:9
 msgid "PBX extension"
-msgstr "PBX Uzantısı"
+msgstr "PBX uzantısı"
 
 #: voip/models.py:10
 msgid "SIP connection"
-msgstr "SIP Bağlantısı"
+msgstr "SIP bağlantısı"
 
 #: voip/models.py:11
 msgid "Virtual phone number"
-msgstr "Sanal Telefon Numarası"
+msgstr "Sanal telefon numarası"
 
 #: voip/models.py:29
 msgid "Number"
@@ -3819,25 +3817,25 @@ msgstr "Numara"
 
 #: voip/models.py:33
 msgid "Caller ID"
-msgstr "Arayan Kimlik Bilgisi"
+msgstr "Arayan Kimlik"
 
 #: voip/models.py:35
 msgid ""
-"Specify the number to be displayed as             your phone number when you "
-"call"
-msgstr "Aramada görüntülenmek üzere telefon numaranızı belirtin."
+"Specify the number to be displayed as             your phone number when you"
+" call"
+msgstr "Arama yaptığınızda görüntülenmesini istediğiniz numaranızı belirtin."
 
 #: voip/models.py:42
 msgid "Provider"
-msgstr "Tedarikçi"
+msgstr "Sağlayıcı"
 
 #: voip/models.py:43
 msgid "Specify VoIP service provider"
-msgstr "VoIP hizmeti sağlayıcısını belirtin"
+msgstr "VoIP servis sağlayıcısını belirtin"
 
 #: voip/templates/voip/connection.html:10
 msgid "Please select what's your phone number, caller display"
-msgstr "Lütfen çağrı görüntüleme olarak kullanılacak telefon numaranızı seçin."
+msgstr "Lütfen arayıcı görüntüde görünecek telefon numaranızı seçin"
 
 #: voip/views/callback.py:21
 msgid ""
@@ -3848,62 +3846,29 @@ msgstr ""
 
 #: voip/views/callback.py:88
 msgid "That something is wrong ((. Notify the administrator."
-msgstr "Bir şeyler yanlış ((. Yöneticiyi bilgilendirin."
+msgstr "Bir şey yanlış ((. Yöneticiye bildirin."
 
 #: voip/views/callback.py:90
 msgid "Expect a call to your smartphone"
-msgstr "Akıllı telefonunuza bir arama bekleyin."
+msgstr "Akıllı telefonunuza bir çağrı bekleyin"
 
 #: voip/views/voipwebhook.py:44
 msgid "An outgoing call to"
-msgstr "Bir çıkış araması yapın"
+msgstr "Giden bir çağrı"
 
 #: voip/views/voipwebhook.py:53
 msgid "An incoming call from"
-msgstr "Gelen bir çağrıdan"
+msgstr "Gelen arama %s'den"
 
 #: voip/views/voipwebhook.py:70
 #, python-brace-format
 msgid "(duration: {duration} minutes)"
-msgstr "(süreç: {süre} dakika)"
+msgstr "(süre: {duration} dakika)"
 
-#: webcrm/settings.py:260
+#: webcrm/settings.py:270
 msgid "Untitled"
-msgstr "Başsız"
+msgstr "Başlıksız"
 
-#: webcrm/settings.py:275
+#: webcrm/settings.py:285
 msgid "Main Menu"
 msgstr "Ana Menü"
-
-#~ msgid "Arabic"
-#~ msgstr "العربية"
-
-#~ msgid "German"
-#~ msgstr "Deutsch"
-
-#~ msgid "English"
-#~ msgstr "English"
-
-#~ msgid "Spanish"
-#~ msgstr "Español"
-
-#~ msgid "French"
-#~ msgstr "Français"
-
-#~ msgid "Hindi"
-#~ msgstr "Hintçe"
-
-#~ msgid "Italian"
-#~ msgstr "Italiano"
-
-#~ msgid "Dutch"
-#~ msgstr "Hollandaça"
-
-#~ msgid "Portuguese"
-#~ msgstr "Português"
-
-#~ msgid "Russian"
-#~ msgstr "русский"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ukraynalı"
