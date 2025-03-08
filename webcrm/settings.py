@@ -73,7 +73,7 @@ LANGUAGES = [
     ('it', 'Italian'),
     ('ja', 'Japanese'),
     ('ko', 'Korean'),
-    ('nl', 'Dutch'),
+    ('nl', 'Nederlands'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
     # ('ro', 'Romanian'),
