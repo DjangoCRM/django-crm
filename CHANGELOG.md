@@ -10,9 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+Added installation and configuration guide in Spanish
+
 ### Fixed
 
-Fixed Portuguese translation
+- Fixed Portuguese translation
+- Fixed Vietnamese translation
+- Fixed Turkish translation
+- Fixed Nederlands translation
+- Fixed Polish translation
 
 ## [1.2.1] - 2025-03-01
 
