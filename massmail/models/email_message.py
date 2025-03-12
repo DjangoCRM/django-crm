@@ -4,14 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 from django.urls import reverse
 
+from common.utils.helpers import USE_HTML
 from massmail.models.baseeml import BaseEml
 
-content_help_text = mark_safe(_(
-    """
-    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
-    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.
-    """
-))
+content_help_text = mark_safe(_(USE_HTML))
 
 
 class EmlMessage(BaseEml):

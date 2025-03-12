@@ -11,6 +11,7 @@ from django.db.models import OuterRef
 from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.template.defaultfilters import truncatechars
+from django.utils.translation import gettext_lazy as _
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.safestring import SafeString
@@ -27,10 +28,15 @@ CONTENT_COPY_ICON = '<i class="material-icons"style="font-size: 17px;vertical-al
 CONTENT_COPY_LINK = '<a href="{}" title="{}">{}</a>'
 CRM_NOTICE = '<i class ="material-icons" style="color: var(--body-quiet-color);\
     font-size: 17px;vertical-align: middle;">message</i>:'
+FRIDAY_SATURDAY_SUNDAY_MSG = _("Attention! Mass mailings are not carried out on: Fridays, Saturdays and Sundays.")
 LEADERS = '- - - - -'
 OBJ_DOESNT_EXIT_STR = gettext_lazy("{} with ID '{}' doesn’t exist. "
                                    "Perhaps it was deleted?")
 ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
+USE_HTML = _("""
+Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
+You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.
+""")
 USER_MODEL = get_user_model()
 
 

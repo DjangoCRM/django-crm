@@ -1,14 +1,11 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
-from common.models import Base1
 
-content_help_text = mark_safe(_(
-    """
-    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
-    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.
-    """
-))
+from common.models import Base1
+from common.utils.helpers import USE_HTML
+
+content_help_text = mark_safe(_(USE_HTML))
 
 
 class Signature(Base1):

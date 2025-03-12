@@ -10,6 +10,7 @@ from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
 from massmail.models import EmailAccount
 from massmail.models import MailingOut
 from massmail.models import MassContact
@@ -49,11 +50,7 @@ def make_mailing_out(modeladmin, request, queryset):
         recipient_ids=",".join([str(obj.id) for obj in queryset]),
         recipients_number=queryset.count()
     )
-    messages.info(
-        request,
-        _("Note massmail is not performed on the following days:"
-          " Friday, Saturday, Sunday.")
-    )
+    messages.info(request, _(FRIDAY_SATURDAY_SUNDAY_MSG))
     return HttpResponseRedirect(
         reverse(
             'site:massmail_mailingout_change',

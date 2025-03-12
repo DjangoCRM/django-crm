@@ -19,8 +19,10 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
-from common.models import Department, TheFile
+from common.models import Department
+from common.models import TheFile
 from common.site.basemodeladmin import BaseModelAdmin
+from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
 from common.utils.helpers import get_active_users
 from common.utils.helpers import get_department_id
 from common.utils.helpers import get_manager_departments
@@ -336,10 +338,7 @@ class CrmModelAdmin(BaseModelAdmin):
                         department_id=request.user.department_id
                     )
                     mailing_out.save()
-                    messages.info(
-                        request,
-                        _("""Note massmail is not performed on the following days: 
-                        Friday, Saturday, Sunday.""")
+                    messages.info(request, _(FRIDAY_SATURDAY_SUNDAY_MSG)
                     )
                     return HttpResponseRedirect(reverse(
                         'site:massmail_mailingout_change',

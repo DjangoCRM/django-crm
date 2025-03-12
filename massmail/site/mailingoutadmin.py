@@ -7,6 +7,7 @@ from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 
+from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
 from common.utils.helpers import get_today
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
@@ -67,11 +68,7 @@ class MailingOutAdmin(CrmModelAdmin):
         now = timezone.localtime(timezone.now())
         weekday = now.weekday()
         if weekday in (4, 5, 6):
-            messages.warning(
-                request,
-                gettext("""Note massmail is not performed on the following days: 
-                Friday, Saturday, Sunday.""")
-            )
+            messages.warning(request, gettext(FRIDAY_SATURDAY_SUNDAY_MSG))
         return super().changelist_view(request, extra_context)
 
     def save_model(self, request, obj, form, change):
