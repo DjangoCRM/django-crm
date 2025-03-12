@@ -157,7 +157,7 @@ class Reminder(models.Model):
     subject = models.CharField(
         max_length=250, null=False, blank=False,
         verbose_name=_("Subject"),
-        help_text=_("Briefly what about is this reminder")
+        help_text=_("Briefly, what is this reminder about?")
     )
     description = models.TextField(
         blank=True, default='',
