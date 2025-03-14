@@ -2,10 +2,12 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-hindi.md">हिन्दी</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-chinese.md">中文</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-arabic.md">اَلْعَرَبِيَّةُ</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">Deutsch</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Nederlands</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-ukrainian.md">Українська</a>
 </p>
@@ -159,8 +161,8 @@ Django-CRM se puede implementar fácilmente como un proyecto regular de Django.
 
 📚 Por favor, consulta:
 
-- [Guía de Instalación y Configuración](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
-- [Manual de Usuario](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+- [Guía de Instalación y Configuración](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide-spanish.md)
+- [Manual de Usuario](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide-spanish.md)
 
 Si encuentras útil Django-CRM, por favor ⭐️ **da una estrella** a este repositorio en GitHub para apoyar su crecimiento.
 
@@ -187,3 +189,4 @@ Django-CRM se publica bajo la licencia AGPL-3.0 - consulta el archivo [LICENSE](
 
 - Iconos de Google [material](https://fonts.google.com/icons).
 - [NicEdit](https://nicedit.com) - Editor de Contenido WYSIWYG.
+- Todos los recursos utilizados bajo otras licencias.
