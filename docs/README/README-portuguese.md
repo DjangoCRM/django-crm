@@ -1,11 +1,15 @@
 <p align="right">
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/README.md">English</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-hindi.md">हिन्दी</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-spanish.md">Español</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-chinese.md">中文</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-portuguese.md">Português</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-arabic.md">اَلْعَرَبِيَّةُ</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-french.md">Français</a> |
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-german.md">Deutsch</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Dutch</a> |
-<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-dutch.md">Nederlands</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a> |
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-ukrainian.md">Українська</a>
 </p>
 
 # Django-CRM
@@ -32,22 +36,23 @@ O CRM também aproveita ao máximo o site de administração do Django, com docu
 
 Saiba mais sobre [as capacidades do software](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
 
-Django CRM é um software de gestão de relacionamento com o cliente de código aberto. Este CRM é escrito em <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.
+Django CRM é um software de gestão de relacionamento com o cliente de código aberto.  
+Este CRM é escrito em <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="python logo" width="25" height="25"> Python</a>.
 Frontend e backend são totalmente baseados no site de administração do Django [Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).
 O aplicativo CRM usa templates HTML adaptativos do Admin prontos para uso.
 Django é um framework excelentemente documentado com muitos exemplos.
 A documentação no site de administração ocupa apenas uma página da web.  
 💡 A **ideia original** é que, como o Django Admin já é uma interface profissional de gerenciamento de objetos com um sistema de permissões flexível para usuários (visualizar, alterar, adicionar e excluir objetos), tudo o que você precisa fazer é criar modelos para os objetos (como Leads, Solicitações, Negócios, Empresas, etc.) e adicionar lógica de negócios.
 
-Tudo isso garante:
+**Tudo isso garante**:
 
-- personalização e desenvolvimento de projetos significativamente mais fáceis
-- implantação de projetos e suporte ao servidor de produção mais simples
+- **personalização e desenvolvimento de projetos significativamente mais fáceis**
+- **implantação de projetos e suporte ao servidor de produção mais simples**
 
 O pacote de software fornece dois sites:
 
-- site CRM para todos os usuários
-- site para administradores
+1. site CRM para todos os usuários
+2. site para administradores
 
 O **projeto é maduro e estável**, e tem sido usado com sucesso em aplicações reais por muitos anos.
 
@@ -137,19 +142,18 @@ Cada usuário tem uma visão clara de sua pilha de tarefas, incluindo prioridade
 
 ## Localização do Projeto
 
-O Django CRM tem suporte completo para tradução de interface, formatação de datas, horários e fusos horários.  
 <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> O software de atendimento ao cliente está agora disponível em **múltiplos idiomas**:  
-`de, en, es, fr, it, nl, pt-BR, ru, uk`
+`ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans`
+O Django CRM tem suporte completo para tradução de interface, formatação de datas, horários e fusos horários.
 
 ## Por que Escolher o Django-CRM?
 
 - **CRM Colaborativo**: Aumente a produtividade da equipe com ferramentas para gestão de tarefas, colaboração em projetos e comunicação interna.
 - **CRM Analítico**: Obtenha insights acionáveis com relatórios integrados como funil de vendas, resumo de renda e análise de fonte de leads.
 - **Baseado em Python e Django**: Sem necessidade de frameworks proprietários - tudo é construído no Django com uma interface de administração intuitiva.
+- **Python e Django-Based**: Não é necessário aprender um framework proprietário - tudo construído em Django com uma interface de administração intuitiva. O frontend e o backend, baseados em Django Admin, tornam muito mais fácil projetos de customização e desenvolvimento, bem como implantar e manter um servidor de produção.
 
 ## Começando
-
-Se você achar o Django-CRM útil, por favor, ⭐️ **estrele** este repositório no GitHub para apoiar o seu crescimento!
 
 O Django-CRM pode ser facilmente implantado como um projeto Django regular.
 
@@ -157,6 +161,10 @@ O Django-CRM pode ser facilmente implantado como um projeto Django regular.
 
 - [Guia de Instalação e Configuração](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [Guia do Usuário](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+
+Se você achar o Django-CRM útil, por favor, ⭐️ **estrele** este repositório no GitHub para apoiar o seu crescimento!
+
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM star history" align="center" style="float: center"/>
 
 ### Compatibilidade
 
@@ -179,3 +187,4 @@ O Django-CRM é lançado sob a licença AGPL-3.0 - veja o arquivo [LICENSE](http
 
 - Ícones do Google material [icons](https://fonts.google.com/icons).
 - [NicEdit](https://nicedit.com) - Editor de Conteúdo WYSIWYG.
+- Todos os recursos utilizados sob outras licenças.
