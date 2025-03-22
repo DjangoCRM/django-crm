@@ -125,6 +125,11 @@ They are captured and organized within the system using a **ticketing mechanism*
 
 The CRM can integrate with email service providers (like Gmail) that require mandatory two-step authentication (using the **OAuth 2.0** protocol) for third-party applications.
 
+## Mailing CRM
+
+The CRM system includes a **bulk mailing** feature that allows users to send personalized newsletters to their contacts.  
+Customer segmentation features allow you to create targeted email marketing campaigns, and these can be managed directly within the CRM interface.
+
 ## User Assistance  
 
 - Each CRM page includes a link <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/question-mark.svg" alt="question-mark icon" style="vertical-align: bottom" width="25" height="25"> to a context-aware help page, with content dynamically tailored to the user's role for more relevant guidance.  
@@ -153,9 +158,9 @@ Django CRM has full support for translation of interface, formatting of dates, t
 
 - **Self-Hosting**: The CRM application software is designed to be self-hosted, allowing you to have full control over your CRM data and environment. By self-hosting, you can customize the CRM to fit your specific business needs and ensure that your data remains private and secure.
 - **Collaborative CRM**: Boost team productivity with tools for task management, project collaboration, and internal communication.
+- **Automated email system**: Email marketing CRM integration and automatically saving copies of all correspondence associated with each request and deal in its database.
 - **Analytical CRM**: Gain actionable insights with built-in reports like sales funnel, income summary, and lead source analysis.
 - **Python and Django-Based**: No learning of a proprietary framework is required - all built on Django with an intuitive admin interface. The frontend and backend, based on Django Admin, make it much easier customization and development projects, as well as deploy and maintain a production server.
-
 
 ## Getting Started
 
