@@ -36,8 +36,8 @@ nav:
     - CRM Administrator's Guide: guide_for_crm_administrator.md
 
 theme:
-  name: readthedocs
-  # name: material
+  # name: readthedocs
+  name: material
   favicon: img/favicon.ico
   # logo: img/django-crm_logo.png
   # https://squidfunk.github.io/mkdocs-material/customization/
@@ -47,6 +47,18 @@ theme:
     - content.code.copy
   analytics:
     gtag: G-7Y2K5X94CR
+
+#plugins:
+#  - i18n:
+#      docs_structure: folder
+#      languages:
+#        - locale: en
+#          default: true
+#          name: English
+#          build: true
+#        - locale: es
+#          name: Spanish
+#          build: true
 
 markdown_extensions:
   - attr_list
