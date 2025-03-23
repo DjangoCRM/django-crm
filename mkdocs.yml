@@ -63,12 +63,12 @@ plugins:
         - locale: en
           default: true
           name: English
-          link: /en/latest/
+          link: /en/temp-docs/
           build: true
         - locale: es
           name: Español
           build: true
-          link: /es/latest/
+          link: /es/temp-docs/
 
 
 markdown_extensions:
