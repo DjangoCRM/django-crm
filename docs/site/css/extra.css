@@ -1,0 +1,24 @@
+
+[data-md-color-scheme="django-crm"] {
+    --md-primary-fg-color:        #233d4d;
+    --md-primary-fg-color--light: #ECB7B7;
+    --md-primary-fg-color--dark:  #90030C;
+    --md-accent-fg-color:         #23949f;
+    --md-accent-bg-color:         #f5dd5d;
+}
+:root > * {
+  --md-tabs-bg-color: var(--md-primary-fg-color);
+  --md-footer-bg-color: var(--md-primary-fg-color);
+}
+
+.md-site_name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    color: var(--md-accent-bg-color);
+}
+
+.md-tabs {
+  background-color: var(--md-accent-fg-color);
+}
+
