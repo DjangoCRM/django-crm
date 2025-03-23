@@ -36,29 +36,36 @@ nav:
     - CRM Administrator's Guide: guide_for_crm_administrator.md
 
 theme:
-  name: readthedocs
-  # name: material
+  # name: readthedocs
+  name: material
   favicon: img/favicon.ico
-  # logo: img/django-crm_logo.png
-  # https://squidfunk.github.io/mkdocs-material/customization/
+  logo: img/django-crm_logo.png
   custom_dir: docs/site/overrides/
   features:
-    - navigation.indexes
+    # - navigation.indexes  # useful for providing overview pages
+    - navigation.tracking   # the URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
     - content.code.copy
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+  palette:
+    scheme: django-crm
   analytics:
     gtag: G-7Y2K5X94CR
 
-#plugins:
-#  - i18n:
-#      docs_structure: folder
-#      languages:
-#        - locale: en
-#          default: true
-#          name: English
-#          build: true
-#        - locale: es
-#          name: Spanish
-#          build: true
+plugins:
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Spanish
+          build: true
 
 markdown_extensions:
   - attr_list
@@ -74,6 +81,7 @@ markdown_extensions:
 # Include extra CSS to make some style adjustments
 extra_css:
   - css/readthedocs.css
+  - css/extra.css
 
 # Include extra JS to set up Read the Docs addons integrations
 extra_javascript:
