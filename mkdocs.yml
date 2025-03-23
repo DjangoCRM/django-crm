@@ -55,6 +55,7 @@ theme:
   analytics:
     gtag: G-7Y2K5X94CR
 
+
 plugins:
   - i18n:
       docs_structure: folder
@@ -62,10 +63,13 @@ plugins:
         - locale: en
           default: true
           name: English
+          link: /en/latest/
           build: true
         - locale: es
-          name: Spanish
+          name: Español
           build: true
+          link: /es/latest/
+
 
 markdown_extensions:
   - attr_list
