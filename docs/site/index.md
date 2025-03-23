@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 
 # [<img src="img/django-crm_logo.png" alt="Django CRM Screenshot" width="50px" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/){target="_blank"} Welcome to Django-CRM Documentation
 
