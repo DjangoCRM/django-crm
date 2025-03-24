@@ -173,8 +173,6 @@ Django-CRM can be easily deployed as a regular Django project.
 
 If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM star history" align="center" style="float: center"/>
-
 ### Compatibility
 
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x

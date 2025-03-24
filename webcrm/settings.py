@@ -76,7 +76,7 @@ LANGUAGES = [
     ('nl', 'Nederlands'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
-    # ('ro', 'Romanian'),
+    ('ro', 'Romanian'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
     ('uk', 'Ukrainian'),
