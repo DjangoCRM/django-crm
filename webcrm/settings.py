@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from datetime import datetime as dt
 from django.utils.translation import gettext_lazy as _
 
 from crm.settings import *          # NOQA
@@ -76,7 +77,7 @@ LANGUAGES = [
     ('nl', 'Nederlands'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese'),
-    ('ro', 'Romanian'),
+    # ('ro', 'Romanian'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
     ('uk', 'Ukrainian'),
@@ -286,7 +287,7 @@ INDEX_TITLE = _('Main Menu')
 
 
 # This is copyright information. Please don't change it!
-COPYRIGHT_STRING = "Django-CRM. Copyright (c) 2024"
+COPYRIGHT_STRING = f"Django-CRM. Copyright (c) {dt.now().year}"
 PROJECT_NAME = "Django-CRM"
 PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
 
