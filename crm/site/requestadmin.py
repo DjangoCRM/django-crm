@@ -236,6 +236,9 @@ class RequestAdmin(CrmModelAdmin):
 
         super().save_model(request, obj, form, change)
 
+        if not obj.products.exists():
+                messages.warning(request, _("Specify products"))
+
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         obj = form.instance
