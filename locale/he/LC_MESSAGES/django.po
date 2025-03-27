@@ -1,0 +1,3808 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-24 08:48+0200\n"
+"PO-Revision-Date: 2025-03-27 19:44+0200\n"
+"Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: analytics/apps.py:10
+msgid "Analytics"
+msgstr "ניתוח נתונים"
+
+#: analytics/models.py:15
+msgid "IncomeStat Snapshot"
+msgstr "תמונת מצב IncomeStat"
+
+#: analytics/models.py:16
+msgid "IncomeStat Snapshots"
+msgstr "צילומי מצב IncomeStat"
+
+#: analytics/models.py:28 analytics/models.py:29
+msgid "Sales Report"
+msgstr "דוח מכירות"
+
+#: analytics/models.py:36
+msgid "Request Summary"
+msgstr "סיכום בקשות"
+
+#: analytics/models.py:37
+msgid "Requests Summary"
+msgstr "סיכום בקשות"
+
+#: analytics/models.py:44 analytics/models.py:45
+msgid "Lead source Summary"
+msgstr "סיכום מקורות לידים"
+
+#: analytics/models.py:52 analytics/models.py:53
+msgid "Closing reason Summary"
+msgstr "סיכום סיבות סגירה"
+
+#: analytics/models.py:60 analytics/models.py:61
+msgid "Deal Summary"
+msgstr "סיכום עסקה"
+
+#: analytics/models.py:68 analytics/models.py:69
+#: analytics/site/incomestatadmin.py:48
+msgid "Income Summary"
+msgstr "סיכום הכנסות"
+
+#: analytics/models.py:76 analytics/models.py:77
+msgid "Sales funnel"
+msgstr "משפך מכירות"
+
+#: analytics/models.py:84 analytics/models.py:85
+msgid "Conversion Summary"
+msgstr "סיכום המרה"
+
+#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: crm/models/payment.py:112
+msgid "Payment date"
+msgstr "תאריך תשלום"
+
+#: analytics/site/closingreasonstatadmin.py:15 crm/models/product.py:32
+#: crm/models/request.py:82
+msgid "Products"
+msgstr "מוצרים"
+
+#: analytics/site/closingreasonstatadmin.py:63
+msgid "Closing reason over month"
+msgstr "סיבות סגירה לפי חודש"
+
+#: analytics/site/conversionadmin.py:11
+msgid "Conversion of requests into successful deals (for the last 365 days)"
+msgstr "המרת בקשות לעסקאות מוצלחות (ב-365 הימים האחרונים)"
+
+#: analytics/site/conversionadmin.py:39
+msgid "Conversion of primary requests"
+msgstr "המרת בקשות ראשוניות"
+
+#: analytics/site/conversionadmin.py:41 analytics/site/conversionadmin.py:56
+msgid "Conversion"
+msgstr "המרות"
+
+#: analytics/site/conversionadmin.py:43
+#: analytics/site/leadsourcestatadmin.py:21
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+msgid "Total requests"
+msgstr "סה\"כ בקשות"
+
+#: analytics/site/conversionadmin.py:44
+msgid "Total primary requests"
+msgstr "סך כל הבקשות הראשוניות"
+
+#: analytics/site/dealstatadmin.py:17
+msgid "Deal Summary for last 365 days"
+msgstr "סיכום עסקאות עבור 365 הימים האחרונים"
+
+#: analytics/site/dealstatadmin.py:44 analytics/site/dealstatadmin.py:49
+msgid "Total deals"
+msgstr "סה\"כ עסקאות"
+
+#: analytics/site/dealstatadmin.py:45 analytics/site/dealstatadmin.py:69
+msgid "Relevant deals"
+msgstr "עסקאות רלוונטיות"
+
+#: analytics/site/dealstatadmin.py:46
+msgid "Closed successfully (primary)"
+msgstr "נסגר בהצלחה (ראשוני)"
+
+#: analytics/site/dealstatadmin.py:47
+msgid "Average days to close successfully (primary)"
+msgstr "מספר ממוצע של ימים לסגירה מוצלחת (ראשוניים)"
+
+#: analytics/site/dealstatadmin.py:60
+msgid "Irrelevant deals"
+msgstr "עסקאות לא רלוונטיות"
+
+#: analytics/site/dealstatadmin.py:78
+msgid "Won deals"
+msgstr "עסקאות מוצלחות"
+
+#: analytics/site/incomestatadmin.py:135
+msgid "The snapshot has been saved successfully."
+msgstr "הצילום נשמר בהצלחה."
+
+#: analytics/site/incomestatadmin.py:183
+msgid "Income monthly (total amount for the current period: {} {} ({}))"
+msgstr "הכנסה חודשית (סכום כולל לתקופה הנוכחית: {} {} ({}))"
+
+#: analytics/site/incomestatadmin.py:188
+msgid "Income monthly in the previous period"
+msgstr "הכנסה חודשית בתקופה הקודמת"
+
+#: analytics/site/incomestatadmin.py:193
+msgid "Payments received"
+msgstr "תשלומים שהתקבלו"
+
+#: analytics/site/incomestatadmin.py:207 crm/models/deal.py:70
+#: crm/models/payment.py:70 crm/site/paymentadmin.py:254
+msgid "Amount"
+msgstr "סכום"
+
+#: analytics/site/incomestatadmin.py:208 analytics/site/incomestatadmin.py:405
+msgid "Order"
+msgstr "הזמנה"
+
+#: analytics/site/incomestatadmin.py:239
+msgid "Guaranteed income"
+msgstr "הכנסות מובטחות"
+
+#: analytics/site/incomestatadmin.py:246
+msgid "High probability income"
+msgstr "הכנסה בהסתברות גבוהה"
+
+#: analytics/site/incomestatadmin.py:253
+msgid "Low probability income"
+msgstr "הכנסה בהסתברות נמוכה"
+
+#: analytics/site/incomestatadmin.py:295
+msgid "Income averaged over the year ({})."
+msgstr "הכנסה ממוצעת לשנה ({})"
+
+#: analytics/site/incomestatadmin.py:307
+msgid "Total won deals"
+msgstr "סה\"כ עסקאות מוצלחות"
+
+#: analytics/site/incomestatadmin.py:308
+msgid "Average won deals a month"
+msgstr "ממוצע עסקאות מוצלחות בחודש"
+
+#: analytics/site/incomestatadmin.py:309
+msgid "Average income amount a month"
+msgstr "סכום הכנסה ממוצע לחודש"
+
+#: analytics/site/incomestatadmin.py:451
+msgid "Total amount"
+msgstr "סכום כולל"
+
+#: analytics/site/leadsourcestatadmin.py:15
+#: analytics/site/requeststatadmin.py:18
+msgid "Request source statistics"
+msgstr "סטטיסטיקות מקורות בקשות"
+
+#: analytics/site/leadsourcestatadmin.py:16
+#: analytics/site/requeststatadmin.py:19
+msgid "Number of requests for each source"
+msgstr "מספר בקשות עבור כל מקור"
+
+#: analytics/site/leadsourcestatadmin.py:17
+#: analytics/site/requeststatadmin.py:20
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:18
+msgid "Requests over country"
+msgstr "בקשות לפי מדינות"
+
+#: analytics/site/leadsourcestatadmin.py:18
+#: analytics/site/requeststatadmin.py:21
+msgid "for all period"
+msgstr "לכל התקופה"
+
+#: analytics/site/leadsourcestatadmin.py:19
+#: analytics/site/requeststatadmin.py:22
+msgid "for last 365 days"
+msgstr "עבור 365 הימים האחרונים"
+
+#: analytics/site/leadsourcestatadmin.py:20
+#: analytics/site/requeststatadmin.py:23
+msgid "conversion"
+msgstr "המרה"
+
+#: analytics/site/leadsourcestatadmin.py:22
+#: analytics/site/requeststatadmin.py:25
+msgid "Not specified"
+msgstr "לא צוין"
+
+#: analytics/site/leadsourcestatadmin.py:116
+msgid "Relevant requests over month"
+msgstr "בקשות רלוונטיות לחודש"
+
+#: analytics/site/outputstatadmin.py:40 crm/models/output.py:52
+#: crm/site/shipmentadmin.py:36
+msgid "pcs"
+msgstr "יח'"
+
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
+#: crm/models/request.py:86 crm/templates/crm/print_request.html:55
+#: crm/utils/admfilters.py:113
+msgid "Country"
+msgstr "מדינה"
+
+#: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
+#: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
+#: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
+#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
+#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
+#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
+#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
+#: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
+#: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
+#: tasks/utils/admfilters.py:165 tasks/utils/admfilters.py:216
+msgid "All"
+msgstr "הכל"
+
+#: analytics/site/outputstatadmin.py:107 chat/models.py:28 common/models.py:32
+#: common/models.py:185
+#: common/templates/common/notice_participants_email.html:15
+#: crm/templates/crm/change_owner_companies.html:26
+#: crm/utils/admfilters.py:343 voip/models.py:49
+msgid "Owner"
+msgstr "בעלים"
+
+#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: crm/models/product.py:31 crm/utils/admfilters.py:266
+msgid "Product"
+msgstr "מוצר"
+
+#: analytics/site/outputstatadmin.py:199
+msgid "Sold products summary (by date of payment receipt)"
+msgstr "סיכום מוצרים שנמכרו (לפי תאריך קבלת תשלום)"
+
+#: analytics/site/outputstatadmin.py:287
+msgid "Sold products"
+msgstr "מוצרים שנמכרו"
+
+#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+msgid "Price"
+msgstr "מחיר"
+
+#: analytics/site/requeststatadmin.py:57
+msgid "Request Summary for last 365 days"
+msgstr "סיכום בקשות עבור 365 הימים האחרונים"
+
+#: analytics/site/requeststatadmin.py:91
+msgid "Conversion of primary requests into successful deals"
+msgstr "המרת בקשות ראשוניות לעסקאות מוצלחות"
+
+#: analytics/site/requeststatadmin.py:95
+msgid "Primary requests"
+msgstr "בקשות ראשוניות"
+
+#: analytics/site/requeststatadmin.py:97
+msgid "Subsequent requests"
+msgstr "בקשות המשך"
+
+#: analytics/site/requeststatadmin.py:98
+msgid "Conversion of subsequent requests"
+msgstr "המרת בקשות המשך"
+
+#: analytics/site/requeststatadmin.py:101
+msgid "average monthly value"
+msgstr "ערך חודשי ממוצע"
+
+#: analytics/site/requeststatadmin.py:102
+msgid "Requests by month"
+msgstr "בקשות לפי חודשים"
+
+#: analytics/site/requeststatadmin.py:116
+msgid "Relevant requests"
+msgstr "בקשות רלוונטיות"
+
+#: analytics/site/salesfunnelsadmin.py:42
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+msgid "Total closed deals"
+msgstr "סה\"כ עסקאות סגורות"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:4
+msgid "Statistics on the Closing reason of deals for all the time"
+msgstr "סטטיסטיקה של סיבות סגירת עסקאות לכל הזמנים"
+
+#: analytics/templates/admin/analytics/closingreasonstat/closingreasons_summary_change_list.html:12
+msgid "total requests"
+msgstr "סה\"כ בקשות"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:9
+#: analytics/templates/admin/analytics/outputstat/change_list_object_tools.html:9
+msgid "Switch currency"
+msgstr "שנה מטבע"
+
+#: analytics/templates/admin/analytics/incomestat/change_list_object_tools.html:19
+msgid "Save snapshot"
+msgstr "שמור תמונה מצב"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:4
+msgid "Sales funnel for last 365 days"
+msgstr "משפך מכירות עבור 365 הימים האחרונים"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
+msgid "The number of closed deals in stages"
+msgstr "מספר העסקאות הסגורות לפי שלבים"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
+msgid "Chart"
+msgstr "גרף"
+
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
+msgid "The percentages show the number of \"lost\" deals at each stage."
+msgstr "האחוזים מראים את מספר העסקאות \"אבודות\" בכל שלב."
+
+#: analytics/templates/analytics/bar_chart.html:58
+#: analytics/templates/analytics/bar_chart_.html:51
+msgid "Charts"
+msgstr "גרפים"
+
+#: analytics/templates/analytics/notice.html:2
+msgid ""
+"Note! The calculations use data for the whole year. But the charts begin on "
+"the first of the next month."
+msgstr ""
+"פֶּתֶק! החישובים משתמשים בנתונים של כל השנה. אבל התרשימים מתחילים בראשון "
+"לחודש הבא."
+
+#: analytics/templates/analytics/view_snapshots.html:8
+msgid "Data"
+msgstr "נתונים"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Snapshots"
+msgstr "צילומי מצב"
+
+#: analytics/templates/analytics/view_snapshots.html:9
+msgid "Now"
+msgstr "עכשיו"
+
+#: chat/apps.py:8 chat/templates/chat_buttons.html:9
+#: chat/templates/chat_buttons.html:13
+msgid "Chat"
+msgstr "צ'אט"
+
+#: chat/forms/chatmessageform.py:29
+msgid "Please write a message"
+msgstr "אנא כתוב הודעה"
+
+#: chat/forms/chatmessageform.py:35
+msgid "Please select at least one recipient"
+msgstr "אנא בחר לפחות נמען אחד"
+
+#: chat/models.py:15
+msgid "message"
+msgstr "הודעה"
+
+#: chat/models.py:16
+msgid "messages"
+msgstr "הודעות"
+
+#: chat/models.py:24 chat/templates/chat_buttons.html:3
+#: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
+#: massmail/site/emlmessageadmin.py:121
+msgid "Message"
+msgstr "הודעה"
+
+#: chat/models.py:34
+msgid "answer to"
+msgstr "תשובה ל"
+
+#: chat/models.py:42 chat/site/chatmessageadmin.py:50
+msgid "recipients"
+msgstr "נמענים"
+
+#: chat/models.py:47
+msgid "to"
+msgstr "ל"
+
+#: chat/models.py:52 common/models.py:24 common/models.py:179
+#: common/site/basemodeladmin.py:21 massmail/models/mailing_out.py:63
+msgid "Creation date"
+msgstr "תאריך יצירה"
+
+#: chat/site/chatmessageadmin.py:53
+msgid "task operator"
+msgstr "מפעיל משימות"
+
+#: chat/site/chatmessageadmin.py:54
+msgid "You received a message regarding - "
+msgstr "קיבלת הודעה בנוגע ל-"
+
+#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
+#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: tasks/site/tasksbasemodeladmin.py:223
+msgid "Additional information"
+msgstr "מידע נוסף"
+
+#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+msgid "Recipients"
+msgstr "נמענים"
+
+#: chat/site/chatmessageadmin.py:283
+#: chat/templates/chat/chatmessage_email.html:12
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
+#: crm/templates/admin/crm/inline_emails.html:36
+msgid "reply"
+msgstr "השיב"
+
+#: chat/site/chatmessageadmin.py:293
+msgid "Reply to"
+msgstr "השיב ל"
+
+#: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
+#: common/templates/common/copy_department.html:17
+#: common/templates/common/select_email_account.html:15
+#: common/templates/common/user_transfer.html:17
+#: crm/templates/admin/crm/change_form.html:21
+#: crm/templates/admin/crm/company/change_list_object_tools.html:8
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/change_form.html:21
+#: crm/templates/admin/crm/crmemail/change_list_object_tools.html:8
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:8
+#: crm/templates/admin/crm/request/change_list_object_tools.html:8
+#: crm/templates/crm/addfiles.html:15
+#: crm/templates/crm/change_owner_companies.html:15
+#: crm/templates/crm/import_objects.html:15
+#: crm/templates/crm/select_original_obj.html:27
+#: tasks/templates/admin/tasks/memo/change_list_object_tools.html:13
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:15
+#: templates/admin/auth/group/change_list_object_tools.html:8
+#: templates/admin/auth/user/change_list_object_tools.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "הוסף %(name)s"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:12
+#: crm/templates/crm/contact_form.html:44
+#: templates/admin/crm_date_filter.html:34
+msgid "Send"
+msgstr "לשלוח"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:7
+#: common/templates/admin/common/reminder/submit_line.html:8
+#: common/templates/admin/common/userprofile/submit_line.html:8
+#: crm/templates/admin/crm/city/submit_line.html:10
+#: crm/templates/admin/crm/company/submit_line.html:10
+#: crm/templates/admin/crm/contact/submit_line.html:9
+#: crm/templates/admin/crm/crmemail/submit_line.html:19
+#: crm/templates/admin/crm/deal/submit_line.html:9
+#: crm/templates/admin/crm/lead/submit_line.html:13
+#: crm/templates/admin/crm/payment/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/shipment/submit_line.html:9
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:9
+#: tasks/templates/admin/tasks/memo/submit_line.html:12
+#: tasks/templates/admin/tasks/project/submit_line.html:9
+#: tasks/templates/admin/tasks/task/submit_line.html:17
+msgid "Close"
+msgstr "סגור"
+
+#: chat/templates/admin/chat/chatmessage/submit_line.html:11
+#: common/templates/admin/common/reminder/submit_line.html:12
+#: common/templates/admin/common/userprofile/submit_line.html:12
+#: common/templates/common/select_emails.html:31
+#: common/templates/common/select_emails.html:73
+#: crm/templates/admin/crm/city/submit_line.html:14
+#: crm/templates/admin/crm/company/submit_line.html:14
+#: crm/templates/admin/crm/contact/submit_line.html:13
+#: crm/templates/admin/crm/crmemail/submit_line.html:23
+#: crm/templates/admin/crm/deal/submit_line.html:13
+#: crm/templates/admin/crm/lead/submit_line.html:17
+#: crm/templates/admin/crm/payment/submit_line.html:13
+#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/shipment/submit_line.html:13
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:13
+#: tasks/templates/admin/tasks/memo/submit_line.html:16
+#: tasks/templates/admin/tasks/project/submit_line.html:13
+#: tasks/templates/admin/tasks/task/submit_line.html:21
+msgid "Delete"
+msgstr "מחק"
+
+#: chat/templates/chat/chatmessage_email.html:5
+#: common/templates/common/select_emails.html:43 crm/models/crmemail.py:21
+#: crm/templates/admin/crm/inline_emails.html:45
+msgid "From"
+msgstr "מאת"
+
+#: chat/templates/chat/chatmessage_email.html:7
+#: common/templates/common/notice_participants_email.html:6
+msgid "View in CRM"
+msgstr "צפייה ב-CRM"
+
+#: chat/templates/chat_buttons.html:3
+msgid "Add chat message"
+msgstr "הוסף הודעה לצ'אט"
+
+#: chat/templates/chat_buttons.html:8
+msgid "There are unread messages"
+msgstr "יש הודעות שלא נקראו"
+
+#: chat/templates/chat_buttons.html:12 common/site/userprofileadmin.py:23
+#: common/utils/chat_link.py:9 tasks/site/tasksbasemodeladmin.py:55
+msgid "View chat messages"
+msgstr "צפייה בהודעות צ'אט"
+
+#: common/admin.py:85
+msgid ""
+"You can specify the name of an existing file on the server along with the "
+"path instead of uploading it."
+msgstr "ניתן לציין את שם הקובץ הקיים בשרת יחד עם הנתיב במקום להעלות אותו."
+
+#: common/admin.py:195
+msgid "staff"
+msgstr "צוות"
+
+#: common/admin.py:201
+msgid "superuser"
+msgstr "משתמש-על"
+
+#: common/apps.py:9
+msgid "Common"
+msgstr "כללי"
+
+#: common/models.py:28 crm/models/payment.py:49
+msgid "Update date"
+msgstr "תאריך עדכון"
+
+#: common/models.py:38
+msgid "Modified By"
+msgstr "שונה על ידי"
+
+#: common/models.py:56
+msgid "was added successfully."
+msgstr "נוסף בהצלחה."
+
+#: common/models.py:57
+msgid "Re-adding blocked."
+msgstr "הוספה חוזרת נחסמה."
+
+#: common/models.py:75 common/models.py:118
+#: common/templates/common/copy_department.html:30
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: tasks/site/memoadmin.py:41
+msgid "Department"
+msgstr "מחלקה"
+
+#: common/models.py:88 common/models.py:89 common/models.py:94
+msgid "Department and Owner do not match"
+msgstr "מחלקות ובעלים אינם תואמים"
+
+#: common/models.py:119
+msgid "Departments"
+msgstr "מחלקות"
+
+#: common/models.py:126
+msgid "Default country"
+msgstr "מדינה כברירת מחדל"
+
+#: common/models.py:133
+msgid "Default currency"
+msgstr "מטבע ברירת מחדל"
+
+#: common/models.py:137
+msgid "Works globally"
+msgstr "פועל באופן גלובלי"
+
+#: common/models.py:138
+msgid "The department operates in foreign markets."
+msgstr "המחלקה פועלת בשווקים זרים."
+
+#: common/models.py:144
+msgid "Reminder"
+msgstr "תזכורת"
+
+#: common/models.py:145
+msgid "Reminders"
+msgstr "תזכורות"
+
+#: common/models.py:159 crm/forms/contact_form.py:20
+#: massmail/models/baseeml.py:16
+msgid "Subject"
+msgstr "נושא"
+
+#: common/models.py:160
+msgid "Briefly, what is this reminder about?"
+msgstr "בקצרה, על מה התזכורת הזו?"
+
+#: common/models.py:164
+#: common/templates/common/notice_participants_email.html:14
+#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
+#: tasks/models/memo.py:68 tasks/models/taskbase.py:38
+msgid "Description"
+msgstr "תיאור"
+
+#: common/models.py:167
+msgid "Reminder date"
+msgstr "תאריך תזכורת"
+
+#: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
+#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
+#: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
+#: tasks/utils/admfilters.py:209 voip/models.py:25
+msgid "Active"
+msgstr "פעיל"
+
+#: common/models.py:175
+msgid "Send notification email"
+msgstr "שלח הודעת דוא\"ל"
+
+#: common/models.py:195
+msgid "File"
+msgstr "קובץ"
+
+#: common/models.py:196
+msgid "Files"
+msgstr "קבצים"
+
+#: common/models.py:200
+msgid "Attached file"
+msgstr "קובץ מצורף"
+
+#: common/models.py:206
+msgid "Attach to the deal"
+msgstr "לצרף לעסקה"
+
+#: common/models.py:228
+#: common/templates/common/notice_participants_email.html:12
+#: crm/models/deal.py:46 tasks/models/memo.py:99 tasks/models/project.py:17
+#: tasks/models/task.py:35
+msgid "Stage"
+msgstr "שלב"
+
+#: common/models.py:229
+msgid "Stages"
+msgstr "שלבים"
+
+#: common/models.py:233 tasks/models/stagebase.py:14
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: common/models.py:234 tasks/models/stagebase.py:15
+msgid "Will be selected by default when creating a new task"
+msgstr "ייבחר כברירת מחדל בעת יצירת משימה חדשה"
+
+#: common/models.py:239 tasks/models/stagebase.py:32
+msgid ""
+"The sequence number of the stage.         The indices of other instances "
+"will be sorted automatically."
+msgstr "מספר הרצף של השלב. המדדים של מופעים אחרים ימוינו אוטומטית."
+
+#: common/models.py:250
+msgid "User profile"
+msgstr "פרופיל משתמש"
+
+#: common/models.py:251
+msgid "User profiles"
+msgstr "פרופילי משתמשים"
+
+#: common/models.py:302 crm/models/base_contact.py:56 crm/models/company.py:45
+msgid "Phone"
+msgstr "טלפון"
+
+#: common/models.py:308
+msgid "UTC time zone"
+msgstr "אזור זמן UTC"
+
+#: common/models.py:312
+msgid "Activate this time zone"
+msgstr "הפעל את אזור הזמן הזה"
+
+#: common/models.py:316
+msgid "Field for temporary storage of messages to the user"
+msgstr "שדה לאחסון זמני של הודעות למשתמש"
+
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
+#: tasks/models/tag.py:9 tasks/models/taskbase.py:100
+msgid "Tags"
+msgstr "תגיות"
+
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
+#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+msgid "Add tags"
+msgstr "הוסף תגיות"
+
+#: common/site/basemodeladmin.py:22
+msgid "Export selected objects"
+msgstr "ייצא את האובייקטים הנבחרים"
+
+#: common/site/basemodeladmin.py:23
+msgid "Next step deadline"
+msgstr "מועד אחרון לשלב הבא"
+
+#: common/site/basemodeladmin.py:87
+msgid "Filters may affect search results."
+msgstr "מסננים עשויים להשפיע על תוצאות החיפוש."
+
+#: common/site/basemodeladmin.py:103 common/site/userprofileadmin.py:101
+msgid "Act"
+msgstr "פעולה"
+
+#: common/site/basemodeladmin.py:172 crm/models/deal.py:40
+#: tasks/models/taskbase.py:73
+msgid "Workflow"
+msgstr "תהליך עבודה"
+
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:121
+msgid "Language"
+msgstr "שפה"
+
+#: common/templates/admin/common/reminder/submit_line.html:4
+#: common/templates/admin/common/userprofile/submit_line.html:4
+#: crm/templates/admin/crm/city/submit_line.html:4
+#: crm/templates/admin/crm/company/submit_line.html:4
+#: crm/templates/admin/crm/contact/submit_line.html:4
+#: crm/templates/admin/crm/crmemail/submit_line.html:14
+#: crm/templates/admin/crm/deal/submit_line.html:4
+#: crm/templates/admin/crm/lead/submit_line.html:4
+#: crm/templates/admin/crm/payment/submit_line.html:4
+#: crm/templates/admin/crm/request/submit_line.html:4
+#: crm/templates/admin/crm/shipment/submit_line.html:4
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:4
+#: tasks/templates/admin/tasks/memo/submit_line.html:8
+#: tasks/templates/admin/tasks/project/submit_line.html:4
+#: tasks/templates/admin/tasks/task/submit_line.html:13
+msgid "Save"
+msgstr "שמור"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and continue editing"
+msgstr "שמור והמשך לערוך"
+
+#: common/templates/admin/common/reminder/submit_line.html:5
+#: common/templates/admin/common/userprofile/submit_line.html:5
+#: crm/templates/admin/crm/city/submit_line.html:7
+#: crm/templates/admin/crm/company/submit_line.html:7
+#: crm/templates/admin/crm/contact/submit_line.html:6
+#: crm/templates/admin/crm/crmemail/submit_line.html:16
+#: crm/templates/admin/crm/deal/submit_line.html:6
+#: crm/templates/admin/crm/lead/submit_line.html:7
+#: crm/templates/admin/crm/payment/submit_line.html:6
+#: crm/templates/admin/crm/request/submit_line.html:6
+#: crm/templates/admin/crm/shipment/submit_line.html:6
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:6
+#: tasks/templates/admin/tasks/memo/submit_line.html:9
+#: tasks/templates/admin/tasks/project/submit_line.html:5
+#: tasks/templates/admin/tasks/task/submit_line.html:14
+msgid "Save and view"
+msgstr "שמור והצג"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:6
+#: crm/templates/admin/crm/company/change_form_object_tools.html:38
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:32
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:23
+#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:31
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:29
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:12
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
+msgid "History"
+msgstr "היסטוריה"
+
+#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
+#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
+#: help/templates/admin/help/stacked.html:18
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
+#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
+msgid "View on site"
+msgstr "צפה באתר"
+
+#: common/templates/common/copy_department.html:13
+#: common/templates/common/select_email_account.html:12
+#: common/templates/common/select_emails.html:13
+#: common/templates/common/user_transfer.html:13
+#: crm/templates/admin/crm/change_form.html:18
+#: crm/templates/admin/crm/crmemail/change_form.html:18
+#: crm/templates/admin/crm/payment/change_list.html:31
+#: crm/templates/crm/addfiles.html:12
+#: crm/templates/crm/change_owner_companies.html:12
+#: crm/templates/crm/import_objects.html:12
+#: crm/templates/crm/make_massmail.html:15
+#: crm/templates/crm/select_original_obj.html:24 templates/admin/base.html:101
+msgid "Home"
+msgstr "בית"
+
+#: common/templates/common/copy_department.html:23
+msgid "Please select the department to copy."
+msgstr "אנא בחר/י את המחלקה להעתקה."
+
+#: common/templates/common/copy_department.html:40
+#: common/templates/common/user_transfer.html:51
+#: crm/templates/crm/change_owner_companies.html:36
+#: crm/templates/crm/import_objects.html:31
+#: crm/templates/crm/select_original_obj.html:48
+#: massmail/templates/massmail/pic_upload.html:32
+#: voip/templates/voip/connection.html:23
+msgid "Submit"
+msgstr "שלח"
+
+#: common/templates/common/email_notification_base.html:14
+#: tasks/models/taskbase.py:40
+msgid "Note"
+msgstr "הערה"
+
+#: common/templates/common/email_notification_base.html:24
+#: crm/templates/crm/email.html:29
+msgid "Attachments"
+msgstr "קבצים מצורפים"
+
+#: common/templates/common/email_notification_base.html:28
+#: common/templates/common/widgets/clearable_file_input.html:7
+msgid "Download"
+msgstr "הורד"
+
+#: common/templates/common/email_notification_base.html:30
+#: crm/templates/admin/crm/inline_emails.html:63
+msgid "Error: the file is missing."
+msgstr "שגיאה: הקובץ חסר."
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:41 tasks/site/tasksbasemodeladmin.py:45
+msgid "Due date"
+msgstr "תאריך יעד"
+
+#: common/templates/common/notice_participants_email.html:12
+#: tasks/models/taskbase.py:26
+msgid "Priority"
+msgstr "עדיפות"
+
+#: common/templates/common/notice_participants_email.html:15
+#: crm/models/deal.py:183 crm/models/request.py:139
+#: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
+msgid "Co-owner"
+msgstr "שותף בעלים"
+
+#: common/templates/common/notice_participants_email.html:16
+#: crm/templates/crm/print_request.html:57 tasks/models/taskbase.py:49
+#: tasks/utils/admfilters.py:89
+msgid "Responsible"
+msgstr "אחראים"
+
+#: common/templates/common/reminder_button.html:4
+msgid "There are reminders"
+msgstr "יש תזכורות"
+
+#: common/templates/common/reminder_button.html:10
+msgid "Create a reminder"
+msgstr "צור תזכורת"
+
+#: common/templates/common/reminder_message.html:4
+#: common/utils/reminders_sender.py:18
+msgid "Regarding"
+msgstr "לגבי"
+
+#: common/templates/common/select_email_account.html:20
+msgid "Please select an Email account"
+msgstr "אנא בחר/י חשבון דוא\"ל"
+
+#: common/templates/common/select_email_account.html:38
+msgid "Select"
+msgstr "בחר"
+
+#: common/templates/common/select_emails.html:30
+#: common/templates/common/select_emails.html:72
+#: crm/templates/admin/crm/company/change_list_object_tools.html:20
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:20
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:23
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:13
+#: crm/templates/admin/crm/request/change_form_object_tools.html:28
+msgid "Import"
+msgstr "ייבוא"
+
+#: common/templates/common/select_emails.html:32
+#: common/templates/common/select_emails.html:74
+msgid "Spam"
+msgstr "דואר זבל"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as read"
+msgstr "סמן כנקרא"
+
+#: common/templates/common/select_emails.html:33
+#: common/templates/common/select_emails.html:75
+msgid "Mark as"
+msgstr "סמן כ"
+
+#: common/templates/common/select_emails.html:44 crm/models/crmemail.py:16
+#: crm/templates/admin/crm/inline_emails.html:48 tasks/utils/admfilters.py:152
+msgid "To"
+msgstr "ל"
+
+#: common/templates/common/select_emails.html:56
+msgid "This email is already imported."
+msgstr "ההודעה הזו כבר יובאה."
+
+#: common/templates/common/user_transfer.html:23
+msgid "Please select a user and a new department for him."
+msgstr "אנא בחר משתמש ומחלקה חדשה עבורו."
+
+#: common/templates/common/user_transfer.html:31
+msgid "User"
+msgstr "משתמש"
+
+#: common/templatetags/util.py:114
+msgid "Task completed"
+msgstr "משימה הושלמה"
+
+#: common/templatetags/util.py:115
+msgid "I completed the task"
+msgstr "השלמתי את המשימה"
+
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Completed"
+msgstr "הושלם"
+
+#: common/utils/for_translation.py:24
+msgid ""
+"The name has been added for translation. Please update po and mo files."
+msgstr "השם נוסף לתרגום. אנא עדכנו את קבצי po ו-mo."
+
+#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:36
+msgid "Copy"
+msgstr "העתק"
+
+#: common/utils/helpers.py:31
+msgid ""
+"Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
+"Sundays."
+msgstr "שימו לב! משלוחי דואר המוני אינם מתבצעים בימים: שישי, שבת וראשון."
+
+#: common/utils/helpers.py:33
+msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
+msgstr "{} עם מזהה '{}' לא קיים. ייתכן שהוא נמחק?"
+
+#: common/utils/helpers.py:36
+msgid ""
+"\n"
+"Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+msgstr ""
+"\n"
+"השתמש ב-HTML. כדי לציין את הכתובת של התמונה המוטבעת, השתמש ב-{% cid_media 'path/to/pic.png' %}.<br>\n"
+"אתה יכול להטמיע קבצים שהועלו לשרת ה-CRM בתיקייה 'media/pics/'.\n"
+
+#: common/views/copy_department.py:48
+msgid "A new department has been created - {}. Please rename it."
+msgstr "נוצר מחלקה חדשה - {}. נא לשנות את שמה."
+
+#: common/views/select_emails_import.py:118
+msgid ""
+"You do not have mail accounts marked for importing emails. Please contact "
+"your administrator."
+msgstr ""
+"לא נמצאו חשבונות דוא\"ל המסומנים לייבוא הודעות. אנא צור קשר עם המנהל שלך."
+
+#: common/views/user_transfer.py:28
+msgid ""
+"\n"
+"Attention! Data for filters such as: \n"
+"transaction stages, reasons for closing, tags, etc. \n"
+"will be transferred only if the new department has data with the same name.\n"
+"Also Output, Payment and Product will not be affected.\n"
+msgstr ""
+"\n"
+"תְשׁוּמַת לֵב! נתונים עבור מסננים כגון:\n"
+"שלבי העסקה, סיבות לסגירה, תגים וכו'.\n"
+"יועבר רק אם למחלקה החדשה יש נתונים באותו שם.\n"
+"כמו כן התפוקה, התשלום והמוצר לא יושפעו.\n"
+
+#: common/views/user_transfer.py:131
+msgid "User transferred successfully"
+msgstr "המשתמש הועבר בהצלחה"
+
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+msgid "Contact details"
+msgstr "פרטי התקשרות"
+
+#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/models/product.py:15 crm/models/product.py:37
+#: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
+#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: tasks/models/taskbase.py:32
+msgid "Name"
+msgstr "שם"
+
+#: crm/admin.py:155 crm/site/dealadmin.py:247
+msgid "Contact info"
+msgstr "פרטי התקשרות"
+
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
+#: crm/site/requestadmin.py:88
+msgid "Relations"
+msgstr "קשרים"
+
+#: crm/forms/admin_forms.py:22
+msgid "A country must be specified."
+msgstr "יש לציין מדינה."
+
+#: crm/forms/admin_forms.py:23
+msgid "Marketing currency already exists."
+msgstr "מטבע שיווקי כבר קיים."
+
+#: crm/forms/admin_forms.py:24
+msgid "State currency already exists."
+msgstr "מטבע מדינה כבר קיים."
+
+#: crm/forms/admin_forms.py:25
+msgid "Enter a valid alphabetic code."
+msgstr "הזן קוד אלפביתי תקין."
+
+#: crm/forms/admin_forms.py:26
+msgid "The currency cannot be both state and marketing."
+msgstr "המטבע לא יכול להיות גם ממשלתי וגם שיווקי."
+
+#: crm/forms/admin_forms.py:70
+msgid "Not allowed address"
+msgstr "כתובת לא מורשית"
+
+#: crm/forms/admin_forms.py:90
+msgid "City does not match the country"
+msgstr "העיר אינה תואמת למדינה"
+
+#: crm/forms/admin_forms.py:138
+msgid "Such an object already exists"
+msgstr "כבר קיים אובייקט כזה"
+
+#: crm/forms/admin_forms.py:164
+msgid "Please fill in the field."
+msgstr "אנא מלא את השדה."
+
+#: crm/forms/admin_forms.py:172
+msgid "To convert, please fill in the fields below."
+msgstr "כדי להמיר, אנא מלאו את השדות למטה."
+
+#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+msgid "Specify the deal amount"
+msgstr "ציין את סכום העסקה"
+
+#: crm/forms/admin_forms.py:236
+msgid "Contact does not match the company"
+msgstr "איש הקשר אינו תואם לחברה"
+
+#: crm/forms/admin_forms.py:241
+msgid "Select only Contact or only Lead"
+msgstr "בחר/י רק איש קשר או רק ליד"
+
+#: crm/forms/admin_forms.py:246
+msgid "Select only Company or only Lead"
+msgstr "בחר/י רק חברה או רק ליד"
+
+#: crm/forms/admin_forms.py:325
+msgid "First select a department."
+msgstr "ראשית, בחרו מחלקה."
+
+#: crm/forms/admin_forms.py:331
+msgid "That tag already exists."
+msgstr "תגית זו כבר קיימת."
+
+#: crm/forms/contact_form.py:13
+msgid "Your name"
+msgstr "השם שלך"
+
+#: crm/forms/contact_form.py:17
+msgid "Your E-mail"
+msgstr "כתובת הדוא\"ל שלך"
+
+#: crm/forms/contact_form.py:24
+msgid "Phone number (with country code)"
+msgstr "מספר טלפון (כולל חיוג בינלאומי)"
+
+#: crm/forms/contact_form.py:28 crm/models/company.py:21 crm/models/lead.py:21
+#: crm/models/request.py:55
+msgid "Company name"
+msgstr "שם חברה"
+
+#: crm/forms/contact_form.py:72
+msgid "Sorry, invalid reCAPTCHA. Please try again or send an email."
+msgstr "מצטערים, reCAPTCHA לא תקינה. אנא נסו שוב או שלחו אימייל."
+
+#: crm/models/base_contact.py:18 crm/models/request.py:29
+msgid "The name of the contact person (one word)."
+msgstr "שם איש הקשר (מילה אחת)."
+
+#: crm/models/base_contact.py:19 crm/models/request.py:28
+msgid "First name"
+msgstr "שם פרטי"
+
+#: crm/models/base_contact.py:23 crm/models/request.py:33
+msgid "Middle name"
+msgstr "שם משפחה שני"
+
+#: crm/models/base_contact.py:24 crm/models/request.py:34
+msgid "The middle name of the contact person."
+msgstr "שם האמצע של איש הקשר."
+
+#: crm/models/base_contact.py:28 crm/models/request.py:39
+msgid "The last name of the contact person (one word)."
+msgstr "שם משפחה של איש הקשר (מילה אחת)."
+
+#: crm/models/base_contact.py:29 crm/models/request.py:38
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: crm/models/base_contact.py:33
+msgid "The title (position) of the contact person."
+msgstr "התואר (תפקיד) של איש הקשר."
+
+#: crm/models/base_contact.py:34
+msgid "Title / Position"
+msgstr "תפקיד"
+
+#: crm/models/base_contact.py:44
+msgid "Sex"
+msgstr "מין"
+
+#: crm/models/base_contact.py:48
+msgid "Date of Birth"
+msgstr "תאריך לידה"
+
+#: crm/models/base_contact.py:52
+msgid "Secondary email"
+msgstr "כתובת אימייל משנית"
+
+#: crm/models/base_contact.py:62
+msgid "Mobile phone"
+msgstr "טלפון נייד"
+
+#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
+#: crm/models/request.py:99 crm/utils/admfilters.py:33
+msgid "City"
+msgstr "עיר"
+
+#: crm/models/base_contact.py:74
+msgid "Company city"
+msgstr "עיר החברה"
+
+#: crm/models/base_contact.py:75 crm/models/request.py:93
+msgid "Object of City in database"
+msgstr "אובייקט עיר במסד הנתונים"
+
+#: crm/models/base_contact.py:113
+msgid "Address"
+msgstr "כתובת"
+
+#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/utils/admfilters.py:512
+msgid "Disqualified"
+msgstr "פסול"
+
+#: crm/models/base_contact.py:129
+msgid "Use comma to separate Emails."
+msgstr "השתמשו בפסיק כדי להפריד בין כתובות דוא\"ל."
+
+#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/request.py:51
+msgid "Lead Source"
+msgstr "מקור ליד"
+
+#: crm/models/base_contact.py:140
+msgid "Mass mailing"
+msgstr "דיוור המוני"
+
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:76
+msgid "Mailing list recipient."
+msgstr "נמען רשימת תפוצה."
+
+#: crm/models/base_contact.py:156
+msgid "Last contact date"
+msgstr "תאריך יצירת קשר אחרון"
+
+#: crm/models/base_contact.py:163
+msgid "Assigned to"
+msgstr "הוקצה ל"
+
+#: crm/models/company.py:13 crm/models/crmemail.py:59
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:7
+#: crm/templates/crm/print_request.html:49
+msgid "Company"
+msgstr "חברה"
+
+#: crm/models/company.py:14
+msgid "Companies"
+msgstr "חברות"
+
+#: crm/models/company.py:27 crm/models/country.py:21
+msgid "Alternative names"
+msgstr "שמות חלופיים"
+
+#: crm/models/company.py:28 crm/models/country.py:22
+msgid "Separate them with commas."
+msgstr "הפרד אותם בפסיקים."
+
+#: crm/models/company.py:34
+msgid "Website"
+msgstr "אתר אינטרנט"
+
+#: crm/models/company.py:51
+msgid "City name"
+msgstr "שם העיר"
+
+#: crm/models/company.py:64
+msgid "Registration number"
+msgstr "מספר רישום"
+
+#: crm/models/company.py:65
+msgid "Registration number of Company"
+msgstr "מספר רישום של חברה"
+
+#: crm/models/company.py:72 crm/models/deal.py:109
+msgid "country"
+msgstr "מדינה"
+
+#: crm/models/company.py:73
+msgid "Company Country"
+msgstr "מדינת החברה"
+
+#: crm/models/company.py:80 crm/models/lead.py:44
+msgid "Type of company"
+msgstr "סוג חברה"
+
+#: crm/models/company.py:85 crm/models/lead.py:49
+msgid "Industry of company"
+msgstr "תעשיית החברה"
+
+#: crm/models/contact.py:12
+msgid "Contact person"
+msgstr "איש קשר"
+
+#: crm/models/contact.py:13
+msgid "Contact persons"
+msgstr "אנשי קשר"
+
+#: crm/models/contact.py:19 crm/models/deal.py:141 crm/models/lead.py:57
+#: crm/models/request.py:73
+msgid "Company of contact"
+msgstr "חברת איש הקשר"
+
+#: crm/models/country.py:6
+msgid "has already been assigned to the city"
+msgstr "כבר משויך לעיר"
+
+#: crm/models/country.py:32 crm/utils/make_massmail_form.py:49
+msgid "Countries"
+msgstr "מדינות"
+
+#: crm/models/country.py:44
+msgid "Cities"
+msgstr "ערים"
+
+#: crm/models/crmemail.py:11
+#: crm/templates/admin/crm/company/change_form_object_tools.html:4
+#: crm/templates/admin/crm/inline_emails.html:18
+#: crm/templates/admin/crm/request/change_form_object_tools.html:13
+msgid "Email"
+msgstr "דוא\"ל"
+
+#: crm/models/crmemail.py:12
+msgid "Emails in CRM"
+msgstr "דואר אלקטרוני ב-CRM"
+
+#: crm/models/crmemail.py:17 crm/models/crmemail.py:26
+#: crm/models/crmemail.py:30
+msgid "You can specify multiple addresses, separated by commas"
+msgstr "תוכלו לציין מספר כתובות, מופרדות בפסיקים"
+
+#: crm/models/crmemail.py:22
+msgid "The Email address of sender"
+msgstr "כתובת הדוא\"ל של השולח"
+
+#: crm/models/crmemail.py:38
+msgid "Request a read receipt"
+msgstr "בקש אישור קריאה"
+
+#: crm/models/crmemail.py:39
+msgid "Not supported by all mail services."
+msgstr "לא נתמך על ידי כל שירותי הדואר."
+
+#: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
+#: crm/site/shipmentadmin.py:269
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+#: crm/templates/admin/crm/request/change_form_object_tools.html:7
+#: tasks/models/memo.py:65
+msgid "Deal"
+msgstr "עסקה"
+
+#: crm/models/crmemail.py:49 crm/models/deal.py:117 crm/models/lead.py:12
+#: crm/models/request.py:64
+msgid "Lead"
+msgstr "ליד"
+
+#: crm/models/crmemail.py:54 crm/models/deal.py:124 crm/models/lead.py:53
+#: crm/models/request.py:68
+#: crm/templates/admin/crm/company/change_form_object_tools.html:22
+msgid "Contact"
+msgstr "איש קשר"
+
+#: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
+#: crm/site/requestadmin.py:435
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Request"
+msgstr "בקשה"
+
+#: crm/models/deal.py:14
+#: crm/templates/admin/crm/company/change_form_object_tools.html:18
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:14
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:31
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:6
+msgid "Deals"
+msgstr "עסקאות"
+
+#: crm/models/deal.py:19
+msgid "Deal name"
+msgstr "שם עסקה"
+
+#: crm/models/deal.py:23 crm/models/deal.py:203 tasks/models/taskbase.py:77
+msgid "Next step"
+msgstr "השלב הבא"
+
+#: crm/models/deal.py:25 tasks/models/taskbase.py:78
+msgid "Describe briefly what needs to be done in the next step."
+msgstr "תאר בקצרה מה יש לעשות בשלב הבא."
+
+#: crm/models/deal.py:29 tasks/models/taskbase.py:81
+msgid "Step date"
+msgstr "תאריך שלב"
+
+#: crm/models/deal.py:30 tasks/models/taskbase.py:82
+msgid "Date to which the next step should be taken."
+msgstr "תאריך שבו יש לבצע את השלב הבא."
+
+#: crm/models/deal.py:51
+msgid "Dates of the stages"
+msgstr "תאריכי השלבים"
+
+#: crm/models/deal.py:52
+msgid "Dates of passing the stages"
+msgstr "תאריכי מעבר השלבים"
+
+#: crm/models/deal.py:57
+msgid "Date of deal closing"
+msgstr "תאריך סגירת עסקה"
+
+#: crm/models/deal.py:62
+msgid "Date of won deal closing"
+msgstr "תאריך סגירת עסקה מנצחת"
+
+#: crm/models/deal.py:71
+msgid "Total deal amount without VAT"
+msgstr "סכום עסקה כולל ללא מע\"מ"
+
+#: crm/models/deal.py:78 crm/models/payment.py:16 crm/models/payment.py:77
+#: crm/models/product.py:49
+msgid "Currency"
+msgstr "מטבע"
+
+#: crm/models/deal.py:85 crm/models/others.py:101
+msgid "Closing reason"
+msgstr "סיבת סגירה"
+
+#: crm/models/deal.py:90
+msgid "Probability (%)"
+msgstr "הסתברות (%)"
+
+#: crm/models/deal.py:148
+msgid "Partner contact"
+msgstr "איש קשר של שותף"
+
+#: crm/models/deal.py:151
+msgid "Contact person of dealer or distribution company"
+msgstr "איש קשר של חברת דילרים או מפיצים"
+
+#: crm/models/deal.py:156
+msgid "Relevant"
+msgstr "רלוונטי"
+
+#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+msgid "Important"
+msgstr "חשוב"
+
+#: crm/models/deal.py:176 tasks/models/taskbase.py:90
+msgid "Remind me."
+msgstr "הזכר לי."
+
+#: crm/models/lead.py:13
+msgid "Leads"
+msgstr "לידים"
+
+#: crm/models/lead.py:29
+msgid "Company phone"
+msgstr "טלפון של חברה"
+
+#: crm/models/lead.py:33
+msgid "Company address"
+msgstr "כתובת החברה"
+
+#: crm/models/lead.py:37
+msgid "Company email"
+msgstr "דוא\"ל חברה"
+
+#: crm/models/others.py:27
+msgid "Type of Clients"
+msgstr "סוג לקוחות"
+
+#: crm/models/others.py:28
+msgid "Types of Clients"
+msgstr "סוגי לקוחות"
+
+#: crm/models/others.py:33
+msgid "Industry of Clients"
+msgstr "תעשיית לקוחות"
+
+#: crm/models/others.py:34
+msgid "Industries of Clients"
+msgstr "תעשיות לקוחות"
+
+#: crm/models/others.py:42
+msgid "Second default"
+msgstr "ברירת מחדל שנייה"
+
+#: crm/models/others.py:43
+msgid "Will be selected next after the default stage."
+msgstr "ייבחר לאחר שלב ברירת המחדל."
+
+#: crm/models/others.py:47
+msgid "success stage"
+msgstr "שלב הצלחה"
+
+#: crm/models/others.py:51
+msgid "conditional success stage"
+msgstr "שלב הצלחה מותנה"
+
+#: crm/models/others.py:52
+msgid "For example, receiving the first payment"
+msgstr "לדוגמה, קבלת התשלום הראשון"
+
+#: crm/models/others.py:56
+msgid "goods shipped"
+msgstr "משלוח סחורות בוצע"
+
+#: crm/models/others.py:57
+msgid "Have the goods been shipped at this stage already?"
+msgstr "האם הסחורה כבר נשלחה בשלב זה?"
+
+#: crm/models/others.py:64
+msgid "Lead Sources"
+msgstr "מקורות לידים"
+
+#: crm/models/others.py:76
+msgid "form template name"
+msgstr "שם תבנית טופס"
+
+#: crm/models/others.py:77 crm/models/others.py:82
+msgid "The name of the html template file if needed."
+msgstr "שם קובץ התבנית html, אם נדרש."
+
+#: crm/models/others.py:81
+msgid "success page template name"
+msgstr "שם תבנית דף ההצלחה"
+
+#: crm/models/others.py:90
+msgid ""
+"Reason rating.         The indices of other instances will be sorted "
+"automatically."
+msgstr "דירוג סיבה. האינדקסים של מופעים אחרים ימוינו באופן אוטומטי."
+
+#: crm/models/others.py:95
+msgid "success reason"
+msgstr "סיבת הצלחה"
+
+#: crm/models/others.py:102
+msgid "Closing reasons"
+msgstr "סיבות לסגירה"
+
+#: crm/models/output.py:10
+msgid "Output"
+msgstr "מוצר"
+
+#: crm/models/output.py:11
+msgid "Outputs"
+msgstr "תְפוּקוֹת"
+
+#: crm/models/output.py:24
+msgid "Quantity"
+msgstr "כמות"
+
+#: crm/models/output.py:28
+msgid "Shipping date"
+msgstr "תאריך משלוח"
+
+#: crm/models/output.py:29
+msgid "Shipment date as per contract"
+msgstr "תאריך משלוח בהתאם לחוזה"
+
+#: crm/models/output.py:33
+msgid "Planned shipping date"
+msgstr "תאריך משלוח מתוכנן"
+
+#: crm/models/output.py:37
+msgid "Actual shipping date"
+msgstr "תאריך משלוח בפועל"
+
+#: crm/models/output.py:38
+msgid "Date when the product was shipped"
+msgstr "תאריך משלוח המוצר"
+
+#: crm/models/output.py:42
+msgid "Shipped"
+msgstr "נשלח"
+
+#: crm/models/output.py:43
+msgid "Product is shipped"
+msgstr "המוצר נשלח"
+
+#: crm/models/output.py:47
+msgid "serial number"
+msgstr "מספר סידורי"
+
+#: crm/models/output.py:58
+msgid "Quantity is required."
+msgstr "יש לציין כמות."
+
+#: crm/models/output.py:69
+msgid "Shipment"
+msgstr "משלוח"
+
+#: crm/models/output.py:70
+msgid "Shipments"
+msgstr "משלוחים"
+
+#: crm/models/payment.py:17
+msgid "Currencies"
+msgstr "מטבעות"
+
+#: crm/models/payment.py:21
+msgid "Alphabetic Code for the Representation of Currencies."
+msgstr "קוד אלפביתי לייצוג מטבעות."
+
+#: crm/models/payment.py:26 crm/models/payment.py:198
+msgid "Rate to state currency"
+msgstr "שער למטבע מדינה"
+
+#: crm/models/payment.py:27 crm/models/payment.py:33 crm/models/payment.py:199
+#: crm/models/payment.py:204
+msgid "Exchange rate against the state currency."
+msgstr "שער חליפין ביחס למטבע הממלכתי"
+
+#: crm/models/payment.py:32 crm/models/payment.py:203
+msgid "Rate to marketing currency"
+msgstr "שער למטבע שיווקי"
+
+#: crm/models/payment.py:37
+msgid "Is it the state currency?"
+msgstr "האם זה מטבע לאומי?"
+
+#: crm/models/payment.py:41
+msgid "Is it the marketing currency?"
+msgstr "האם זו מטבע השיווק?"
+
+#: crm/models/payment.py:45
+msgid "This currency is subject to automatic updating."
+msgstr "מטבע זה כפוף לעדכון אוטומטי."
+
+#: crm/models/payment.py:71
+msgid "without VAT"
+msgstr "ללא מע\"מ"
+
+#: crm/models/payment.py:82
+msgid "Please specify a currency."
+msgstr "אנא ציין מטבע."
+
+#: crm/models/payment.py:92
+msgid "Payment"
+msgstr "תשלום"
+
+#: crm/models/payment.py:93
+msgid "Payments"
+msgstr "תשלומים"
+
+#: crm/models/payment.py:100
+msgid "received"
+msgstr "התקבל"
+
+#: crm/models/payment.py:101
+msgid "guaranteed"
+msgstr "מובטח"
+
+#: crm/models/payment.py:102
+msgid "high probability"
+msgstr "הסתברות גבוהה"
+
+#: crm/models/payment.py:103
+msgid "low probability"
+msgstr "הסתברות נמוכה"
+
+#: crm/models/payment.py:118
+msgid "Payment status"
+msgstr "סטטוס תשלום"
+
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+msgid "contract number"
+msgstr "מספר חוזה"
+
+#: crm/models/payment.py:126
+msgid "invoice number"
+msgstr "מספר חשבונית"
+
+#: crm/models/payment.py:130
+msgid "order number"
+msgstr "מספר הזמנה"
+
+#: crm/models/payment.py:134
+msgid "Payment through representative office"
+msgstr "תשלום דרך משרד נציגות"
+
+#: crm/models/payment.py:157
+msgid "Payment share"
+msgstr "חלק תשלום"
+
+#: crm/models/payment.py:177
+msgid "Currency rate"
+msgstr "שער מטבע"
+
+#: crm/models/payment.py:178
+msgid "Currency rates"
+msgstr "שערי מטבע"
+
+#: crm/models/payment.py:183
+msgid "approximate currency rate"
+msgstr "שער חליפין משוערך"
+
+#: crm/models/payment.py:184
+msgid "official currency rate"
+msgstr "שער מטבע רשמי"
+
+#: crm/models/payment.py:194
+msgid "Currency rate date"
+msgstr "תאריך שער החליפין"
+
+#: crm/models/payment.py:210
+msgid "Exchange rate type"
+msgstr "סוג שער חליפין"
+
+#: crm/models/product.py:9 crm/models/product.py:69
+msgid "Product category"
+msgstr "קטגוריית מוצר"
+
+#: crm/models/product.py:10
+msgid "Product categories"
+msgstr "קטגוריות מוצרים"
+
+#: crm/models/product.py:55
+msgid "On sale"
+msgstr "למכירה"
+
+#: crm/models/product.py:58
+msgid "Goods"
+msgstr "מוצר"
+
+#: crm/models/product.py:59
+msgid "Service"
+msgstr "שירות"
+
+#: crm/models/product.py:64 voip/models.py:21
+msgid "Type"
+msgstr "סוג"
+
+#: crm/models/request.py:20
+msgid "Requests"
+msgstr "בקשות"
+
+#: crm/models/request.py:24 crm/templates/crm/print_request.html:32
+msgid "Request for"
+msgstr "בקשה עבור"
+
+#: crm/models/request.py:50
+msgid "Lead source"
+msgstr "מקור ליד"
+
+#: crm/models/request.py:59
+msgid "Date of receipt"
+msgstr "תאריך קבלה"
+
+#: crm/models/request.py:60
+msgid "Date of receipt of the request."
+msgstr "תאריך קבלת הבקשה"
+
+#: crm/models/request.py:107 crm/site/dealadmin.py:671
+msgid "Translation"
+msgstr "תרגום"
+
+#: crm/models/request.py:111
+msgid "Remark"
+msgstr "הערה"
+
+#: crm/models/request.py:115
+msgid "Pending"
+msgstr "בהמתנה"
+
+#: crm/models/request.py:116
+msgid "Waiting for validation of fields filling"
+msgstr "ממתין לאישור תקינות מילוי השדות"
+
+#: crm/models/request.py:120
+msgid "Subsequent"
+msgstr "עוקב"
+
+#: crm/models/request.py:122
+msgid "Received from the client with whom you are already cooperate"
+msgstr "התקבל מהלקוח שאיתו כבר משתפים פעולה"
+
+#: crm/models/request.py:126
+msgid "Duplicate"
+msgstr "כפול"
+
+#: crm/models/request.py:127
+msgid "Duplicate request. The deal will not be created."
+msgstr "בקשה כפולה. העסקה לא תיצור."
+
+#: crm/models/request.py:131 help/models.py:130
+msgid "Verification required"
+msgstr "נדרשת אימות"
+
+#: crm/models/request.py:132
+msgid "Links are set automatically and require verification."
+msgstr "קישורים הוגדרו באופן אוטומטי ודורשים אימות."
+
+#: crm/models/request.py:148 crm/models/request.py:149
+msgid "Company and contact person do not match."
+msgstr "החברה ואיש הקשר אינם תואמים."
+
+#: crm/models/request.py:153 crm/models/request.py:154
+msgid "Specify the contact person or lead. But not both."
+msgstr "ציין איש קשר או ליד. אך לא שניהם."
+
+#: crm/models/tag.py:9 crm/utils/admfilters.py:232 tasks/models/tag.py:8
+msgid "Tag"
+msgstr "תגית"
+
+#: crm/models/tag.py:14 tasks/models/tag.py:12
+msgid "Tag name"
+msgstr "שם תגית"
+
+#: crm/models/to_translate.txt:2 massmail/models/to_translate.txt:2
+msgid "competitor"
+msgstr "מתחרה"
+
+#: crm/models/to_translate.txt:3
+msgid "end customer"
+msgstr "לקוח קצה"
+
+#: crm/models/to_translate.txt:4
+msgid "reseller"
+msgstr "מתווך"
+
+#: crm/models/to_translate.txt:5
+msgid "dealer"
+msgstr "סוחר"
+
+#: crm/models/to_translate.txt:6 crm/models/to_translate.txt:37
+msgid "distributor"
+msgstr "מפיץ"
+
+#: crm/models/to_translate.txt:7
+msgid "educational institutions"
+msgstr "מוסדות חינוך"
+
+#: crm/models/to_translate.txt:8
+msgid "service companies"
+msgstr "חברות שירות"
+
+#: crm/models/to_translate.txt:9
+msgid "welders"
+msgstr "רתכים"
+
+#: crm/models/to_translate.txt:10
+msgid "capital construction"
+msgstr "בנייה הונית"
+
+#: crm/models/to_translate.txt:11
+msgid "automotive industry"
+msgstr "תעשיית הרכב"
+
+#: crm/models/to_translate.txt:12
+msgid "shipbuilding"
+msgstr "בניית ספינות"
+
+#: crm/models/to_translate.txt:13
+msgid "metallurgy"
+msgstr "מטלורגיה"
+
+#: crm/models/to_translate.txt:14
+msgid "power generation"
+msgstr "ייצור חשמל"
+
+#: crm/models/to_translate.txt:15
+msgid "pipelines"
+msgstr "צינורות"
+
+#: crm/models/to_translate.txt:16
+msgid "pipe production"
+msgstr "ייצור צינורות"
+
+#: crm/models/to_translate.txt:17
+msgid "oil & gas"
+msgstr "נפט וגז"
+
+#: crm/models/to_translate.txt:18
+msgid "aviation"
+msgstr "תעופה"
+
+#: crm/models/to_translate.txt:19
+msgid "railway"
+msgstr "רכבת"
+
+#: crm/models/to_translate.txt:20
+msgid "mining"
+msgstr "כרייה"
+
+#: crm/models/to_translate.txt:21
+msgid "request"
+msgstr "בקשה"
+
+#: crm/models/to_translate.txt:22
+msgid "analysis of request"
+msgstr "ניתוח בקשה"
+
+#: crm/models/to_translate.txt:23
+msgid "clarification of the requirements"
+msgstr "הבהרת דרישות"
+
+#: crm/models/to_translate.txt:24
+msgid "price offer"
+msgstr "הצעת מחיר"
+
+#: crm/models/to_translate.txt:25
+msgid "commercial proposal"
+msgstr "הצעה מסחרית"
+
+#: crm/models/to_translate.txt:26
+msgid "technical and commercial offer"
+msgstr "הצעה טכנית ומסחרית"
+
+#: crm/models/to_translate.txt:27
+msgid "agreement"
+msgstr "הסכם"
+
+#: crm/models/to_translate.txt:28
+msgid "invoice"
+msgstr "חשבונית"
+
+#: crm/models/to_translate.txt:29
+msgid "receiving the first payment"
+msgstr "קבלת התשלום הראשון"
+
+#: crm/models/to_translate.txt:30 crm/site/shipmentadmin.py:39
+msgid "shipment"
+msgstr "משלוח"
+
+#: crm/models/to_translate.txt:31
+msgid "closed (successful)"
+msgstr "סגורה (בהצלחה)"
+
+#: crm/models/to_translate.txt:32
+msgid "The client is not responding"
+msgstr "הלקוח אינו מגיב"
+
+#: crm/models/to_translate.txt:33
+msgid "Specifications are not suitable"
+msgstr "מפרטים אינם מתאימים"
+
+#: crm/models/to_translate.txt:34
+msgid "The deal was closed successfully"
+msgstr "העסקה נסגרה בהצלחה"
+
+#: crm/models/to_translate.txt:35
+msgid "Purchase postponed"
+msgstr "רכישה נדחתה"
+
+#: crm/models/to_translate.txt:36
+msgid "The price is not competitive"
+msgstr "המחיר אינו תחרותי"
+
+#: crm/models/to_translate.txt:38
+msgid "website form"
+msgstr "טופס מקוון"
+
+#: crm/models/to_translate.txt:39
+msgid "website email"
+msgstr "כתובת הדוא\"ל של האתר"
+
+#: crm/models/to_translate.txt:40
+msgid "exhibition"
+msgstr "תערוכה"
+
+#: crm/settings.py:46
+msgid "Establish the first contact with the client."
+msgstr "צור קשר ראשוני עם הלקוח."
+
+#: crm/site/companyadmin.py:25
+msgid ""
+"Attention! You can only view companies associated with your department."
+msgstr "שימו לב! ניתן לצפות רק בחברות המשויכות למחלקה שלכם."
+
+#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+msgid "Warning:"
+msgstr "אזהרה:"
+
+#: crm/site/companyadmin.py:210
+msgid "Owner will also be changed for contact persons."
+msgstr "גם הבעלים של אנשי הקשר ישתנה."
+
+#: crm/site/companyadmin.py:223
+msgid "Change owner of selected Companies"
+msgstr "שנה בעלים לחברות הנבחרות"
+
+#: crm/site/crmadminsite.py:22
+msgid "Your Excel file"
+msgstr "קובץ Excel שלך"
+
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
+#: massmail/site/emlmessageadmin.py:133
+msgid "Signature"
+msgstr "חתימה"
+
+#: crm/site/crmemailadmin.py:31
+msgid "Please note that this is a list of unsent emails."
+msgstr "שימו לב שמדובר ברשימת מיילים שלא נשלחו."
+
+#: crm/site/crmemailadmin.py:143
+msgid "Emails in the CRM database."
+msgstr "מיילים במסד הנתונים של CRM."
+
+#: crm/site/crmemailadmin.py:350
+msgid "Box"
+msgstr "קופסה"
+
+#: crm/site/crmemailadmin.py:387 crm/templates/admin/crm/inline_emails.html:54
+msgid "Content"
+msgstr "תוכן"
+
+#: crm/site/crmemailadmin.py:397 massmail/models/baseeml.py:27
+msgid "Previous correspondence"
+msgstr "התכתובות הקודמות"
+
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/utils/import_emails.py:192
+msgid "No subject"
+msgstr "ללא נושא"
+
+#: crm/site/crmmodeladmin.py:63
+msgid "View website in new tab"
+msgstr "פתח אתר בלשונית חדשה"
+
+#: crm/site/crmmodeladmin.py:64
+msgid "Callback to smartphone"
+msgstr "חזרה טלפונית לסמארטפון"
+
+#: crm/site/crmmodeladmin.py:65
+msgid "Callback to your smartphone"
+msgstr "חזרה טלפונית לסמארטפון שלך"
+
+#: crm/site/crmmodeladmin.py:66
+msgid "Skype chat"
+msgstr "צ'אט סקייפ"
+
+#: crm/site/crmmodeladmin.py:67
+msgid "Chat or Skype call"
+msgstr "צ'אט או שיחת סקייפ"
+
+#: crm/site/crmmodeladmin.py:68
+msgid "Skype call"
+msgstr "שיחת סקייפ"
+
+#: crm/site/crmmodeladmin.py:69
+msgid "To call a mobile or landline from Skype"
+msgstr "להתקשר לנייד או לטלפון קווי מ-Skype"
+
+#: crm/site/crmmodeladmin.py:70
+msgid "Viber chat"
+msgstr "צ'אט וייבר"
+
+#: crm/site/crmmodeladmin.py:71
+msgid "Chat or viber call"
+msgstr "צ'אט או שיחת וייבר"
+
+#: crm/site/crmmodeladmin.py:72
+msgid "WhatsApp chat"
+msgstr "צ'אט וואטסאפ"
+
+#: crm/site/crmmodeladmin.py:73
+msgid "Chat or WhatsApp call"
+msgstr "צ'אט או שיחת WhatsApp"
+
+#: crm/site/crmmodeladmin.py:78
+msgid "Signed up for email newsletters"
+msgstr "נרשם לניוזלטרים בדוא\"ל"
+
+#: crm/site/crmmodeladmin.py:80
+msgid "Unsubscribed from email newsletters"
+msgstr "הסיר את מנוייו לניוזלטרים בדוא\"ל"
+
+#: crm/site/crmmodeladmin.py:278
+msgid "Create Email"
+msgstr "צור אימייל"
+
+#: crm/site/crmmodeladmin.py:370
+msgid "Messengers"
+msgstr "מֶסֶנְגֶ'רִים"
+
+#: crm/site/currencyadmin.py:35
+msgid "State currency must be specified."
+msgstr "יש לציין את המטבע הממלכתי."
+
+#: crm/site/currencyadmin.py:40
+msgid "Marketing currency must be specified."
+msgstr "יש לציין מטבע שיווקי."
+
+#: crm/site/dealadmin.py:52
+msgid "Closing date"
+msgstr "תאריך סגירה"
+
+#: crm/site/dealadmin.py:58
+msgid "View Contact in new tab"
+msgstr "צפה באיש קשר בלשונית חדשה"
+
+#: crm/site/dealadmin.py:59
+msgid "View Company in new tab"
+msgstr "צפה בחברה בלשונית חדשה"
+
+#: crm/site/dealadmin.py:62
+msgid "Deal counter"
+msgstr "מונה עסקאות"
+
+#: crm/site/dealadmin.py:63
+msgid "View Lead in new tab"
+msgstr "צפייה בליד בלשונית חדשה"
+
+#: crm/site/dealadmin.py:64
+msgid "Unanswered email"
+msgstr "דוא\"ל ללא מענה"
+
+#: crm/site/dealadmin.py:68
+msgid "Unread chat message"
+msgstr "הודעת צ'אט לא נקראת"
+
+#: crm/site/dealadmin.py:71
+msgid "Payment received"
+msgstr "תשלום התקבל"
+
+#: crm/site/dealadmin.py:74
+msgid "Specify the date of shipment"
+msgstr "ציין את תאריך המשלוח"
+
+#: crm/site/dealadmin.py:77
+msgid "Specify products"
+msgstr "ציין מוצרים"
+
+#: crm/site/dealadmin.py:80
+msgid "Expired shipment date"
+msgstr "תאריך משלוח פג תוקף"
+
+#: crm/site/dealadmin.py:87
+msgid "Relevant deal"
+msgstr "עסקה רלוונטית"
+
+#: crm/site/dealadmin.py:158
+msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
+msgstr "עסקה עם מזהה '{}' לא קיימת. ייתכן שמחקו אותה?"
+
+#: crm/site/dealadmin.py:221
+msgid "View the Request"
+msgstr "צפייה בבקשה"
+
+#: crm/site/dealadmin.py:536
+msgid "Create Email to Contact"
+msgstr "צור אימייל לאיש קשר"
+
+#: crm/site/dealadmin.py:539
+msgid "Create Email to Lead"
+msgstr "צור אימייל לליד"
+
+#: crm/site/dealadmin.py:579
+msgid "Important deal"
+msgstr "עסקה חשובה"
+
+#: crm/site/dealadmin.py:603
+#, python-format
+msgid "I have been waiting for an answer to my request for %d days"
+msgstr "אני מחכה לתשובה לבקשה שלי %d ימים"
+
+#: crm/site/dealadmin.py:633
+msgid "Expected"
+msgstr "צפוי"
+
+#: crm/site/dealadmin.py:641
+msgid "Paid"
+msgstr "שולם"
+
+#: crm/site/dealadmin.py:696
+msgid "Contact is Lead (no company)"
+msgstr "איש קשר הוא ליד (ללא חברה)"
+
+#: crm/site/leadadmin.py:118
+msgid "Person contact details"
+msgstr "פרטי איש קשר"
+
+#: crm/site/leadadmin.py:127
+msgid "Additional person details"
+msgstr "פרטים נוספים על איש קשר"
+
+#: crm/site/leadadmin.py:140
+msgid "Company contact details"
+msgstr "פרטי התקשרות לחברה"
+
+#: crm/site/leadadmin.py:249
+#, python-brace-format
+msgid "The lead \"{obj}\" has been converted successfully."
+msgstr "הליד \"{obj}\" הומר בהצלחה."
+
+#: crm/site/leadadmin.py:264
+msgid "This Lead is disqualified! Please read the description."
+msgstr "ליד זה הופסל! אנא קראו את התיאור."
+
+#: crm/site/requestadmin.py:38
+msgid "Client Loyalty"
+msgstr "נאמנות לקוחות"
+
+#: crm/site/requestadmin.py:45
+msgid "Country not specified in request"
+msgstr "לא צוינה מדינה בפנייה"
+
+#: crm/site/requestadmin.py:46
+msgid "You received the deal"
+msgstr "קיבלת את העסקה"
+
+#: crm/site/requestadmin.py:47
+msgid "You are the co-owner of the deal"
+msgstr "הוגדרת כשותף בעסקה"
+
+#: crm/site/requestadmin.py:53
+msgid "Primary request"
+msgstr "בקשה ראשונית"
+
+#: crm/site/requestadmin.py:54
+msgid "You are the co-owner of the request"
+msgstr "הוגדרת כשותף בעלים של הבקשה"
+
+#: crm/site/requestadmin.py:55
+msgid "You received the request"
+msgstr "קיבלת את הבקשה"
+
+#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: tasks/models/to_translate.txt:2
+msgid "pending"
+msgstr "בהמתנה"
+
+#: crm/site/requestadmin.py:57
+msgid "processed"
+msgstr "עובד"
+
+#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+msgid "Status"
+msgstr "סטטוס"
+
+#: crm/site/requestadmin.py:62
+msgid "Subsequent request"
+msgstr "בקשה המשך"
+
+#: crm/site/requestadmin.py:389
+msgid "Found the counterparty assigned to"
+msgstr "נמצא הגורם המקושר ל"
+
+#: crm/site/requestadmin.py:488
+#, python-brace-format
+msgid "The {name} “{obj}” was added successfully."
+msgstr "{שם} \"{obj}\" נוסף בהצלחה."
+
+#: crm/site/shipmentadmin.py:26
+msgid "actual"
+msgstr "עובדתית"
+
+#: crm/site/shipmentadmin.py:27
+msgid "Actual shipping date."
+msgstr "תאריך משלוח בפועל."
+
+#: crm/site/shipmentadmin.py:32
+msgid "Deal is paid."
+msgstr "העסקה שולמה."
+
+#: crm/site/shipmentadmin.py:33
+msgid "Next<br>payment"
+msgstr "תשלום<br>הבא"
+
+#: crm/site/shipmentadmin.py:34
+msgid "order"
+msgstr "הזמנה"
+
+#: crm/site/shipmentadmin.py:37
+msgid "The product has not been shipped yet."
+msgstr "המוצר עדיין לא נשלח."
+
+#: crm/site/shipmentadmin.py:38
+msgid "The product has been shipped."
+msgstr "המוצר נשלח."
+
+#: crm/site/shipmentadmin.py:40
+msgid "Product shipment"
+msgstr "משלוח מוצרים"
+
+#: crm/site/shipmentadmin.py:41
+msgid "to contract"
+msgstr "במסגרת חוזה"
+
+#: crm/site/shipmentadmin.py:42
+msgid "Date of shipment according to a contract."
+msgstr "תאריך משלוח לפי חוזה."
+
+#: crm/site/shipmentadmin.py:47
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
+#: crm/templates/admin/crm/request/change_form_object_tools.html:5
+#: crm/templates/admin/crm/shipment/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:8
+msgid "View the deal"
+msgstr "צפייה בעסקה"
+
+#: crm/site/shipmentadmin.py:254
+msgid "paid"
+msgstr "שולם"
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the error below."
+msgstr "אנא תקן את השגיאה למטה."
+
+#: crm/templates/admin/crm/change_form.html:43
+#: crm/templates/admin/crm/crmemail/change_form.html:43
+#: crm/templates/admin/crm/payment/change_list.html:52
+msgid "Please correct the errors below."
+msgstr "אנא תקן את השגיאות למטה."
+
+#: crm/templates/admin/crm/city/submit_line.html:5
+#: crm/templates/admin/crm/company/submit_line.html:5
+#: crm/templates/admin/crm/contact/submit_line.html:5
+#: crm/templates/admin/crm/crmemail/submit_line.html:15
+#: crm/templates/admin/crm/deal/submit_line.html:5
+#: crm/templates/admin/crm/lead/submit_line.html:5
+#: crm/templates/admin/crm/payment/submit_line.html:5
+#: crm/templates/admin/crm/request/submit_line.html:5
+#: crm/templates/admin/crm/shipment/submit_line.html:5
+#: massmail/templates/admin/massmail/mailingout/submit_line.html:5
+msgid "Save as new"
+msgstr "שמור כחדש"
+
+#: crm/templates/admin/crm/city/submit_line.html:6
+#: crm/templates/admin/crm/company/submit_line.html:6
+msgid "Save and add another"
+msgstr "שמור והוסף עוד"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:9
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:18
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+msgid "Сorrespondence"
+msgstr "התכתבות"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:27
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:32
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:26
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:17
+msgid "Got massmails"
+msgstr "הודעות דואר המוניות שהתקבלו"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:33
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:27
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:18
+msgid "Massmails"
+msgstr "דיוור המוני"
+
+#: crm/templates/admin/crm/company/change_form_object_tools.html:40
+#: crm/templates/admin/crm/contact/change_form_object_tools.html:34
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:53
+#: help/templates/admin/help/page/change_form_object_tools.html:3
+msgid "Open in Admin"
+msgstr "פתח במנהל המערכת"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:14
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+msgid "Make Massmail"
+msgstr "צור דיוור המוני"
+
+#: crm/templates/admin/crm/company/change_list_object_tools.html:25
+#: crm/templates/admin/crm/contact/change_list_object_tools.html:25
+#: crm/templates/admin/crm/lead/change_list_object_tools.html:18
+msgid "Export all"
+msgstr "ייצא הכל"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:9
+#: crm/templates/admin/crm/inline_emails.html:37
+msgid "reply all"
+msgstr "השיב לכולם"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:12
+#: crm/templates/admin/crm/inline_emails.html:38
+msgid "forward"
+msgstr "העבר"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "View next email"
+msgstr "צפייה בהודעה הבאה"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:17
+msgid "Next"
+msgstr "הבא"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "View previous email"
+msgstr "צפייה בהודעה קודמת"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:22
+msgid "Previous"
+msgstr "קודם"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
+msgid "View the request"
+msgstr "צפייה בפנייה"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:36
+#: crm/templates/admin/crm/inline_emails.html:27
+msgid "View original email"
+msgstr "צפייה במייל המקורי"
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:42
+#: crm/templates/admin/crm/inline_emails.html:32
+msgid "Download the original email as an EML file."
+msgstr "הורד את המייל המקורי כקובץ EML."
+
+#: crm/templates/admin/crm/crmemail/change_form_object_tools.html:46
+#: crm/templates/admin/crm/inline_emails.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:33
+msgid "Print preview"
+msgstr "תצוגה מקדימה להדפסה"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: crm/templates/admin/crm/inline_emails.html:35
+#: help/templates/admin/help/stacked.html:16
+#: massmail/site/signatureadmin.py:31
+msgid "Change"
+msgstr "שנה"
+
+#: crm/templates/admin/crm/crmemail/stacked.html:12
+#: help/templates/admin/help/stacked.html:16
+msgid "View"
+msgstr "צפייה"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:6
+msgid "Reply"
+msgstr "השיב"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:7
+msgid "Reply all"
+msgstr "השב לכולם"
+
+#: crm/templates/admin/crm/crmemail/submit_line.html:8
+msgid "Forward"
+msgstr "העברה קדימה"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:5
+msgid "View office memos"
+msgstr "צפייה בהודעות פנימיות"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:6
+msgid "Office memos"
+msgstr "הערות פנימיות"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:14
+msgid "Add"
+msgstr "הוסף"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:9
+msgid "Office memo"
+msgstr "הערת פנים"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:14
+msgid "View the correspondence on this Deal"
+msgstr "צפייה בהתכתבויות בעסקה זו"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:22
+msgid "Import Email regarding this Deal"
+msgstr "ייבא אימייל בנוגע לעסקה זו"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:29
+msgid "View Deals with this Company"
+msgstr "הצג עסקאות עם החברה הזו"
+
+#: crm/templates/admin/crm/deal/change_form_object_tools.html:38
+msgid "View the history of changes for this Deal"
+msgstr "צפה בהיסטוריית השינויים של העסקה הזו"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
+msgid "Toggle default deal sorting"
+msgstr "החלף מיון ברירת מחדל של עסקאות"
+
+#: crm/templates/admin/crm/deal/change_list_object_tools.html:13
+msgid "A deal is created based on a request"
+msgstr "עסקה נוצרת על בסיס בקשה"
+
+#: crm/templates/admin/crm/inline_emails.html:6
+msgid "Last few letters"
+msgstr "מספר המכתבים האחרונים"
+
+#: crm/templates/admin/crm/inline_emails.html:51
+msgid "Date"
+msgstr "תאריך"
+
+#: crm/templates/admin/crm/inline_emails.html:61
+msgid "View or Download"
+msgstr "צפייה או הורדה"
+
+#: crm/templates/admin/crm/lead/submit_line.html:9
+msgid "Convert"
+msgstr "להמיר"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "Total sum"
+msgstr "סכום כולל"
+
+#: crm/templates/admin/crm/payment/change_list.html:41
+msgid "with VAT"
+msgstr "כולל מע\"מ"
+
+#: crm/templates/admin/crm/payment/change_list.html:63
+msgid "Filter"
+msgstr "סינון"
+
+#: crm/templates/admin/crm/request/change_form_object_tools.html:27
+msgid "Import Email regarding this Request"
+msgstr "ייבא אימייל בנוגע לבקשה זו"
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:12
+msgid "Create a request based on an email."
+msgstr "צור בקשה על בסיס אימייל."
+
+#: crm/templates/admin/crm/request/change_list_object_tools.html:13
+msgid "Import request from"
+msgstr "ייבא בקשה מ"
+
+#: crm/templates/admin/crm/request/submit_line.html:8
+msgid "Create deal"
+msgstr "צור עסקה"
+
+#: crm/templates/crm/addfiles.html:20
+msgid "Please select files to attach to the letter."
+msgstr "אנא בחר/י קבצים לצרף למכתב."
+
+#: crm/templates/crm/change_owner_companies.html:20
+msgid ""
+"Please choose a new owner for selected Companies and their Contact persons"
+msgstr "אנא בחר/י בעלים/ת חדש/ה עבור החברות הנבחרות ואנשי הקשר שלהן"
+
+#: crm/templates/crm/del_duplicate_button.html:5
+msgid "Correctly delete this object as a duplicate."
+msgstr "מחק נכון את האובייקט הזה כמשוכפל."
+
+#: crm/templates/crm/filter_scroll.html:4
+#: templates/admin/crm_date_filter.html:7
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "על פי %(filter_title)s"
+
+#: crm/templates/crm/import_objects.html:20
+msgid "Please select a file to import."
+msgstr "אנא בחר/י קובץ לייבוא."
+
+#: crm/templates/crm/import_objects.html:34
+msgid ""
+"Only the following columns will be imported if they exist (the order doesn't"
+" matter):"
+msgstr "יוטבעו רק העמודות הבאות אם הן קיימות (הסדר אינו חשוב):"
+
+#: crm/templates/crm/make_massmail.html:22
+msgid "Make a choice"
+msgstr "בחר אפשרות"
+
+#: crm/templates/crm/print_email.html:5 crm/templates/crm/print_email.html:26
+#: crm/templates/crm/print_request.html:5
+#: crm/templates/crm/print_request.html:26
+msgid "Print"
+msgstr "הדפסה"
+
+#: crm/templates/crm/print_request.html:36
+msgid "Received"
+msgstr "התקבל"
+
+#: crm/templates/crm/print_request.html:37
+msgid "Prepared"
+msgstr "מוכן"
+
+#: crm/templates/crm/select_original_obj.html:32
+msgid "Select the original to which the linked objects will be reconnected."
+msgstr "בחר/י את המקור אליו יחוברו מחדש האובייקטים המקושרים."
+
+#: crm/utils/admfilters.py:188
+msgid "Last month"
+msgstr "החודש שעבר"
+
+#: crm/utils/admfilters.py:197
+msgid "First half of the year"
+msgstr "מחצית השנה הראשונה"
+
+#: crm/utils/admfilters.py:206
+msgid "Nine months of this year"
+msgstr "תשעה חודשים של השנה הזו"
+
+#: crm/utils/admfilters.py:214
+msgid "Second half of the last year"
+msgstr "החצי השני של השנה שעברה"
+
+#: crm/utils/admfilters.py:417
+msgid "changed by chiefs"
+msgstr "שונה על ידי מנהלים"
+
+#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
+#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
+#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
+#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+msgid "Yes"
+msgstr "כן"
+
+#: crm/utils/admfilters.py:437
+msgid "Partner"
+msgstr "שותף"
+
+#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: tasks/utils/admfilters.py:218
+msgid "No"
+msgstr "לא"
+
+#: crm/utils/admfilters.py:498
+msgid "Has Contacts"
+msgstr "יש אנשי קשר"
+
+#: crm/utils/admfilters.py:564
+msgid "mailbox"
+msgstr "תיבת דואר"
+
+#: crm/utils/admfilters.py:583
+msgid "inbox"
+msgstr "תיבת דואר נכנס"
+
+#: crm/utils/admfilters.py:584
+msgid "sent"
+msgstr "נשלח"
+
+#: crm/utils/admfilters.py:585
+#, python-brace-format
+msgid "outbox ({num})"
+msgstr "טיוטות ({num})"
+
+#: crm/utils/admfilters.py:586
+msgid "trash"
+msgstr "סל אשפה"
+
+#: crm/utils/helpers.py:30
+msgid "No deal amount"
+msgstr "אין סכום עסקה"
+
+#: crm/utils/helpers.py:31
+msgid "Unacceptable phone number value"
+msgstr "ערך לא תקין של מספר טלפון"
+
+#: crm/utils/helpers.py:32
+msgid "Counterparty"
+msgstr "צד מקשר"
+
+#: crm/utils/make_massmail_form.py:28
+msgid ""
+"Error: The date you set as 'Created before' has to be later \n"
+"                than the date of 'Created after'."
+msgstr ""
+"שגיאה: התאריך שהגדרת כ'נוצר לפני' חייב להיות מאוחר יותר מהתאריך של 'נוצר "
+"אחרי'."
+
+#: crm/utils/make_massmail_form.py:42
+msgid "Industries"
+msgstr "תעשיות"
+
+#: crm/utils/make_massmail_form.py:56
+msgid "Types"
+msgstr "סוגים"
+
+#: crm/utils/make_massmail_form.py:61
+msgid "Created before"
+msgstr "נוצר לפני"
+
+#: crm/utils/make_massmail_form.py:66
+msgid "Created after"
+msgstr "נוצר לאחר"
+
+#: crm/utils/restore_imap_emails.py:40
+#, python-format
+msgid "Received an email from \"%s\""
+msgstr "התקבלה הודעת דוא\"ל מ- \"%s\""
+
+#: crm/utils/send_email.py:22
+#, python-format
+msgid "The Email has been sent to \"%s\""
+msgstr "הודעה נשלחה לכתובת \"%s\""
+
+#: crm/utils/send_email.py:30
+msgid "Please fill in the subject and text of the letter."
+msgstr "אנא מלא/י את הנושא ותוכן המכתב."
+
+#: crm/utils/send_email.py:34
+msgid "To send a message you need to have an email account marked as main."
+msgstr "כדי לשלוח הודעה, עליך להגדיר חשבון דוא\"ל כראשי."
+
+#: crm/utils/send_email.py:72
+#, python-format
+msgid "Failed: %s"
+msgstr "שגיאה: %s"
+
+#: crm/views/change_owner_companies.py:33
+msgid "Owner changed successfully"
+msgstr "הבעלים שונה בהצלחה"
+
+#: crm/views/contact_form.py:39 tests/crm/views/test_request_receiving.py:276
+msgid "Dear {}, thanks for your request!"
+msgstr "לכבוד {}, תודה על פנייתך!"
+
+#: crm/views/create_email.py:35
+msgid "No recipient"
+msgstr "אין נמען"
+
+#: crm/views/delete_duplicate_object.py:80
+msgid "The duplicate object has been correctly deleted."
+msgstr "האובייקט המשוכפל נמחק בהצלחה."
+
+#: crm/views/download_original_email.py:12 crm/views/view_original_email.py:22
+msgid "Not enough data to identify the email or email has been deleted"
+msgstr "אין מספיק נתונים לזיהוי האימייל או שהאימייל נמחק"
+
+#: crm/views/reply_email.py:126
+msgid ""
+"You do not have an email account in CRM for sending Emails. Contact your "
+"administrator."
+msgstr "אין לך חשבון דוא\"ל במערכת ה-CRM לשליחת מיילים. צור קשר עם המנהל שלך."
+
+#: crm/views/view_original_email.py:24
+msgid "Something went wrong"
+msgstr "משהו השתבש"
+
+#: help/admin.py:78
+msgid "To add the correct link, use the tag /SECRET_CRM_PREFIX/ if necessary"
+msgstr "כדי להוסיף קישור נכון, השתמש בתגית /SECRET_CRM_PREFIX/ במידת הצורך"
+
+#: help/models.py:13
+msgid "list"
+msgstr "רשימה"
+
+#: help/models.py:14
+msgid "instance"
+msgstr "מופע"
+
+#: help/models.py:24
+msgid "Help page"
+msgstr "עמוד עזרה"
+
+#: help/models.py:25
+msgid "Help pages"
+msgstr "עמודי עזרה"
+
+#: help/models.py:31
+msgid "app label"
+msgstr "תווית אפליקציה"
+
+#: help/models.py:37
+msgid "model"
+msgstr "מודל"
+
+#: help/models.py:44
+msgid "page"
+msgstr "דף"
+
+#: help/models.py:49 help/models.py:111
+msgid "Title"
+msgstr "כותרת"
+
+#: help/models.py:53
+msgid "Available on CRM page"
+msgstr "זמין בדף ה-CRM"
+
+#: help/models.py:55
+msgid ""
+"Available on one of CRM pages. Otherwise, it can only be accessed via a link"
+" from another help page."
+msgstr ""
+"זמין באחת מעמודי ה-CRM. אחרת, ניתן לגשת אליו רק דרך קישור מעמוד עזרה אחר."
+
+#: help/models.py:91
+msgid "Paragraph"
+msgstr "פסקה"
+
+#: help/models.py:92
+msgid "Paragraphs"
+msgstr "פסקה"
+
+#: help/models.py:102
+msgid "Groups"
+msgstr "קבוצות"
+
+#: help/models.py:104
+msgid ""
+"If no user group is selected then the paragraph will be available only to "
+"the superuser."
+msgstr "אם לא נבחרה אף קבוצת משתמשים, הפסקה תהיה זמינה רק למשתמש-על."
+
+#: help/models.py:110
+msgid "Title of paragraph."
+msgstr "כותרת פיסקה."
+
+#: help/models.py:125 tasks/site/memoadmin.py:42
+msgid "draft"
+msgstr "טיוטה"
+
+#: help/models.py:126
+msgid "Will not be published."
+msgstr "לא יפורסם."
+
+#: help/models.py:131
+msgid "Content requires additional verification."
+msgstr "התוכן דורש אימות נוסף."
+
+#: help/models.py:136
+msgid "Index number"
+msgstr "מספר סידורי"
+
+#: help/models.py:137
+msgid "The sequence number of the paragraph on the page."
+msgstr "מספר הסידורי של הפסקה בדף."
+
+#: help/models.py:143
+msgid "Link to a related paragraph if exists."
+msgstr "קישור לפסקה קשורה, אם קיימת."
+
+#: massmail/admin.py:31
+msgid "Service information"
+msgstr "למידע"
+
+#: massmail/admin_actions.py:18
+msgid "Please select recipients only with the same owner."
+msgstr "אנא בחר/י רק נמענים/ות בעלי/ות בעלים/ות זהים/ות."
+
+#: massmail/admin_actions.py:19
+msgid "Bad result - no recipients! Make another choice."
+msgstr "תוצאה גרועה - אין נמענים! תעשה בחירה אחרת."
+
+#: massmail/admin_actions.py:22
+msgid "Create a mailing out for selected objects"
+msgstr "צור דיוור עבור אובייקטים נבחרים"
+
+#: massmail/admin_actions.py:34
+msgid "Unsubscribed users were excluded from the mailing list."
+msgstr "משתמשים שהסכימו לא לקבל מיילים הוסרו מרשימת התפוצה."
+
+#: massmail/admin_actions.py:62
+msgid "Merge selected mailing outs"
+msgstr "מיזוג דיוורים נבחרים"
+
+#: massmail/admin_actions.py:82
+msgid "united"
+msgstr "מאוחד"
+
+#: massmail/admin_actions.py:104
+msgid "Specify VIP recipients"
+msgstr "ציין נמעני VIP"
+
+#: massmail/admin_actions.py:112
+msgid "Please first add your main email account."
+msgstr "אנא הוסף תחילה את חשבון הדוא\"ל הראשי שלך."
+
+#: massmail/admin_actions.py:140
+msgid ""
+"The main email address has been successfully assigned to the selected "
+"recipients."
+msgstr "כתובת הדוא\"ל הראשית הוקצתה בהצלחה לנמענים הנבחרים."
+
+#: massmail/admin_actions.py:146
+msgid "Please select mailings with only the same recipient type."
+msgstr "אנא בחר/י משלוחים עם אותו סוג נמען בלבד."
+
+#: massmail/admin_actions.py:151
+msgid "Please select only mailings with the same message."
+msgstr "אנא בחר/י רק דיוורים עם אותה הודעה."
+
+#: massmail/admin_actions.py:180
+msgid ""
+"There are no mail accounts available for mailing. Please contact your "
+"administrator."
+msgstr "אין חשבונות דואר זמינים לשליחה. נא לפנות למנהל המערכת."
+
+#: massmail/admin_actions.py:188
+msgid ""
+"There are no mail accounts available for mailing to non-VIP recipients. "
+"Please contact your administrator."
+msgstr ""
+"אין חשבונות דואר זמינים לשליחה לנמענים שאינם VIP. אנא צור קשר עם מנהל "
+"המערכת."
+
+#: massmail/apps.py:8
+msgid "Mass mail"
+msgstr "דיוור המוני"
+
+#: massmail/models/baseeml.py:14
+msgid ""
+"The subject of the message. You can use {{first_name}}, {{last_name}}, "
+"{{first_middle_name}} or {{full_name}}"
+msgstr ""
+"נושא ההודעה. אתה יכול להשתמש ב-{{first_name}}, {{last_name}}, "
+"{{first_middle_name}} או {{name_full}}"
+
+#: massmail/models/baseeml.py:22
+msgid "Choose signature"
+msgstr "בחר חתימה"
+
+#: massmail/models/baseeml.py:23
+msgid "Sender's signature."
+msgstr "חתימת השולח."
+
+#: massmail/models/baseeml.py:28
+msgid "Previous correspondence. Will be added after signature"
+msgstr "התכתבות קודמת. תתווסף לאחר החתימה."
+
+#: massmail/models/email_account.py:15
+msgid "Email Account"
+msgstr "חשבון דוא\"ל"
+
+#: massmail/models/email_account.py:16
+msgid "Email Accounts"
+msgstr "חשבונות דוא\"ל"
+
+#: massmail/models/email_account.py:20
+msgid "The name of the Email Account. For example Gmail"
+msgstr "שם חשבון הדוא\"ל. לדוגמה, Gmail"
+
+#: massmail/models/email_account.py:24
+msgid "Use this account for regular business correspondence."
+msgstr "השתמשו בחשבון זה להתכתבות עסקית שוטפת."
+
+#: massmail/models/email_account.py:28
+msgid "Allow to use this account for massmail."
+msgstr "אפשר להשתמש בחשבון זה לשליחת מיילים המוניים."
+
+#: massmail/models/email_account.py:32
+msgid "Import emails from this account."
+msgstr "ייבא מיילים מחשבון זה."
+
+#: massmail/models/email_account.py:40
+msgid "The IMAP host"
+msgstr "מארח IMAP"
+
+#: massmail/models/email_account.py:44
+msgid "The username to use to authenticate to the SMTP server."
+msgstr "שם המשתמש לביצוע אימות בשרת SMTP."
+
+#: massmail/models/email_account.py:48
+msgid "The auth_password to use to authenticate to the SMTP server."
+msgstr "auth_password לשימוש לאימות בשרת SMTP."
+
+#: massmail/models/email_account.py:52
+msgid "The application password to use to authenticate to the SMTP server."
+msgstr "סיסמת האפליקציה לשימוש לאימות בשרת SMTP."
+
+#: massmail/models/email_account.py:56
+msgid "Port to use for the SMTP server"
+msgstr "יציאה עבור שרת SMTP"
+
+#: massmail/models/email_account.py:60
+msgid "The from_email field."
+msgstr "השדה from_email"
+
+#: massmail/models/email_account.py:68
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted certificate chain file to use for the "
+"SSL connection."
+msgstr ""
+"אם EMAIL_USE_SSL או EMAIL_USE_TLS הם True, תוכלו לציין באופן אופציונלי את "
+"הנתיב לקובץ שרשרת תעודות בפורמט PEM שישמש לחיבור SSL."
+
+#: massmail/models/email_account.py:73
+msgid ""
+"If EMAIL_USE_SSL or EMAIL_USE_TLS is True, you can optionally specify"
+"         the path to a PEM-formatted private key file to use for the SSL "
+"connection."
+msgstr ""
+"אם EMAIL_USE_SSL או EMAIL_USE_TLS מוגדר כ-True, תוכלו לציין באופן אופציונלי "
+"את הנתיב לקובץ מפתח פרטי בפורמט PEM שייעשה בו שימוש לחיבור SSL."
+
+#: massmail/models/email_account.py:79
+msgid "OAuth 2.0 token for obtaining an access token."
+msgstr "אסימון OAuth 2.0 לקבלת אסימון גישה."
+
+#: massmail/models/email_account.py:106
+msgid "DateTime of last import"
+msgstr "תאריך ושעת היבוא האחרון"
+
+#: massmail/models/email_account.py:117
+msgid "Specify the imap host"
+msgstr "ציין את מארח IMAP"
+
+#: massmail/models/email_message.py:15
+msgid "Email Message"
+msgstr "הודעת דואר אלקטרוני"
+
+#: massmail/models/email_message.py:16
+msgid "Email Messages"
+msgstr "הודעות דוא\"ל"
+
+#: massmail/models/eml_accounts_queue.py:19
+msgid "The queue of the user email accounts."
+msgstr "תור חשבונות הדוא\"ל של המשתמשים."
+
+#: massmail/models/mailing_out.py:12
+msgid "Mailing Out"
+msgstr "שליחת מיילים"
+
+#: massmail/models/mailing_out.py:13
+msgid "Mailing Outs"
+msgstr "דיוורים"
+
+#: massmail/models/mailing_out.py:23
+msgid "Active but Error"
+msgstr "פעיל/ה עם שגיאות"
+
+#: massmail/models/mailing_out.py:24 massmail/utils/adminfilters.py:12
+msgid "Paused"
+msgstr "מושהה"
+
+#: massmail/models/mailing_out.py:25 massmail/utils/adminfilters.py:13
+msgid "Interrupted"
+msgstr "נקטעה"
+
+#: massmail/models/mailing_out.py:26 massmail/utils/adminfilters.py:14
+#: tasks/models/stagebase.py:19 tasks/models/task.py:93
+msgid "Done"
+msgstr "הושלם"
+
+#: massmail/models/mailing_out.py:31
+msgid "The name of the message."
+msgstr "שם ההודעה."
+
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
+msgid "Number of recipients"
+msgstr "מספר נמענים"
+
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
+msgid "Recipients type"
+msgstr "סוג נמענים"
+
+#: massmail/models/mailing_out.py:59
+msgid "Report"
+msgstr "דוח"
+
+#: massmail/models/signature.py:14
+msgid "Signatures"
+msgstr "חתימות"
+
+#: massmail/models/signature.py:24
+msgid "The name of the signature."
+msgstr "שם החתימה."
+
+#: massmail/models/to_translate.txt:3
+msgid "price proposal"
+msgstr "הצעת מחיר"
+
+#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: massmail/site/emlmessageadmin.py:73
+msgid "Edit"
+msgstr "ערוך"
+
+#: massmail/site/mailingoutadmin.py:18
+msgid "Available Email accounts for MassMail"
+msgstr "חשבונות דוא\"ל זמינים לשליחת מיילים המוניים"
+
+#: massmail/site/mailingoutadmin.py:19
+msgid "Accounts"
+msgstr "חשבונות"
+
+#: massmail/site/mailingoutadmin.py:28
+msgid "Today"
+msgstr "היום"
+
+#: massmail/site/mailingoutadmin.py:29
+msgid "Sent today"
+msgstr "נשלח היום"
+
+#: massmail/site/mailingoutadmin.py:107
+msgid "notification"
+msgstr "התראה"
+
+#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:4
+msgid "Get or update a refresh token"
+msgstr "קבל או עדכן אסימון רענון"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:5
+msgid "Send a test"
+msgstr "שלח בדיקה"
+
+#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:11
+msgid "Copy message"
+msgstr "העתק הודעה"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:13
+msgid "Successful recipients"
+msgstr "נמענים מוצלחים"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:20
+msgid "Failed recipients"
+msgstr "נמענים שנכשלו"
+
+#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:25
+msgid "Send failed recipients"
+msgstr "לשלוח שוב לנמענים שנכשלו"
+
+#: massmail/templates/massmail/pic_upload.html:7
+msgid "Upload the image file to the CRM server"
+msgstr "העלאת קובץ תמונה לשרת ה-CRM"
+
+#: massmail/templates/massmail/pic_upload.html:15
+msgid "Please select an image file to upload."
+msgstr "אנא בחר/י קובץ תמונה להעלאה."
+
+#: massmail/templates/massmail/pic_upload.html:36
+msgid "To specify the address of the uploaded file, use the tag -"
+msgstr "כדי לציין את כתובת הקובץ שהועלה, השתמש בתגית -"
+
+#: massmail/templates/massmail/pic_upload.html:37
+msgid ""
+"Upload only files that will be used many times. For example, a company logo."
+msgstr "העלו רק קבצים שיועברו לשימוש פעמים רבות. לדוגמה, לוגו של חברה."
+
+#: massmail/templates/massmail/pic_upload_buttons.html:3
+msgid "View the uploaded images on the CRM server"
+msgstr "צפייה בתמונות שהועלו בשרת ה-CRM"
+
+#: massmail/templates/massmail/pic_upload_buttons.html:6
+msgid "Upload an image file to the CRM server"
+msgstr "העלה קובץ תמונה לשרת ה-CRM"
+
+#: massmail/templates/massmail/show_uploaded_images.html:7
+#: massmail/templates/massmail/show_uploaded_images.html:15
+msgid "Uploaded images"
+msgstr "תמונות שהועלו"
+
+#: massmail/utils/sendmassmail.py:43
+msgid "Done successfully."
+msgstr "בוצע בהצלחה."
+
+#: massmail/views/file_upload.py:9
+msgid "Allowed file extensions: "
+msgstr "סיומות קבצים מותרות:"
+
+#: massmail/views/get_oauth2_tokens.py:74
+msgid "Refresh token received successfully."
+msgstr "אסימון רענון התקבל בהצלחה."
+
+#: massmail/views/get_oauth2_tokens.py:79
+msgid "Error: Failed to get authorization code."
+msgstr "שגיאה: לא ניתן לקבל קוד הרשאה."
+
+#: massmail/views/send_failed_recipients.py:14
+msgid "Failed recipients has been returned to the massmail successfully."
+msgstr "נמענים שנכשלו הוחזרו בהצלחה לרשימת התפוצה."
+
+#: massmail/views/send_tests.py:49
+#, python-brace-format
+msgid "The Email test has been sent to {email_accounts}"
+msgstr "הודעת הבדיקה נשלחה בהצלחה ל-{email_accounts}"
+
+#: settings/apps.py:8
+msgid "Settings"
+msgstr "הגדרות"
+
+#: settings/models.py:7
+msgid "Banned company name"
+msgstr "שם חברה חסום"
+
+#: settings/models.py:8
+msgid "Banned company names"
+msgstr "שמות חברות אסורות"
+
+#: settings/models.py:22
+msgid "Public email domain"
+msgstr "דומיין דוא\"ל ציבורי"
+
+#: settings/models.py:23
+msgid "Public email domains"
+msgstr "דומייני דוא\"ל ציבוריים"
+
+#: settings/models.py:28
+msgid "Domain"
+msgstr "דומיין"
+
+#: settings/models.py:41 settings/models.py:42
+msgid "Reminder settings"
+msgstr "הגדרות תזכורות"
+
+#: settings/models.py:47
+msgid "Check interval"
+msgstr "מרווח בדיקה"
+
+#: settings/models.py:49
+msgid "Specify the interval in seconds to check if it's time for a reminder."
+msgstr "ציין את המרווח בשניות כדי לבדוק אם הגיע הזמן לתזכורת."
+
+#: settings/models.py:56
+msgid "Stop Phrase"
+msgstr "ביטוי עצירה"
+
+#: settings/models.py:57
+msgid "Stop Phrases"
+msgstr "ביטויי עצירה"
+
+#: settings/models.py:62
+msgid "Phrase"
+msgstr "ביטוי"
+
+#: settings/models.py:66
+msgid "Last occurrence date"
+msgstr "תאריך ההתרחשות האחרונה"
+
+#: settings/models.py:67
+msgid "Date of last occurrence of the phrase"
+msgstr "תאריך ההופעה האחרונה של הביטוי"
+
+#: tasks/admin.py:69 tasks/admin.py:122 tasks/site/tasksbasemodeladmin.py:163
+msgid "Change responsible"
+msgstr "שנה אחראי"
+
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
+msgid "Change subscribers"
+msgstr "שנה מנויים"
+
+#: tasks/apps.py:8 tasks/models/task.py:16
+#: tasks/templates/admin/tasks/project/change_form_object_tools.html:6
+msgid "Tasks"
+msgstr "משימות"
+
+#: tasks/forms.py:32
+msgid "Please specify a name"
+msgstr "אנא ציין שם"
+
+#: tasks/forms.py:38
+msgid "Please specify a responsible"
+msgstr "אנא ציין אחראים"
+
+#: tasks/forms.py:48 tasks/forms.py:114
+msgid "Date should not be in the past."
+msgstr "התאריך לא צריך להיות בעבר."
+
+#: tasks/models/memo.py:13
+msgid "Memo"
+msgstr "הערה"
+
+#: tasks/models/memo.py:14
+msgid "Memos"
+msgstr "הערות"
+
+#: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
+#: tasks/site/memoadmin.py:45
+msgid "postponed"
+msgstr "נדחה"
+
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+msgid "reviewed"
+msgstr "נבדק"
+
+#: tasks/models/memo.py:33
+msgid "to whom"
+msgstr "למי"
+
+#: tasks/models/memo.py:41 tasks/models/task.py:15
+msgid "Task"
+msgstr "משימה"
+
+#: tasks/models/memo.py:49
+msgid "For what"
+msgstr "למה"
+
+#: tasks/models/memo.py:57 tasks/models/project.py:9
+#: tasks/utils/admfilters.py:67
+msgid "Project"
+msgstr "פרויקט"
+
+#: tasks/models/memo.py:72
+msgid "Сonclusion"
+msgstr "מסקנה"
+
+#: tasks/models/memo.py:76
+msgid "Draft"
+msgstr "טיוטה"
+
+#: tasks/models/memo.py:77
+msgid "Available only to the owner."
+msgstr "זמין רק לבעלים."
+
+#: tasks/models/memo.py:81
+msgid "Notified"
+msgstr "התראה"
+
+#: tasks/models/memo.py:82
+msgid "The recipient and subscribers are notified."
+msgstr "הנמען והמנויים מקבלים הודעה."
+
+#: tasks/models/memo.py:92
+msgid "Review date"
+msgstr "תאריך בדיקה"
+
+#: tasks/models/memo.py:104 tasks/models/taskbase.py:61
+#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+msgid "subscribers"
+msgstr "מנויים"
+
+#: tasks/models/memo.py:110 tasks/models/taskbase.py:67
+msgid "Notified subscribers"
+msgstr "מנויים שהוּתְרְעוּ"
+
+#: tasks/models/memo.py:123
+msgid "The office memo has been reviewed"
+msgstr "ההערה הפנימית נבדקה"
+
+#: tasks/models/project.py:10
+msgid "Projects"
+msgstr "פרויקטים"
+
+#: tasks/models/projectstage.py:9
+msgid "Project stage"
+msgstr "שלב הפרויקט"
+
+#: tasks/models/projectstage.py:10
+msgid "Project stages"
+msgstr "שלבי הפרויקט"
+
+#: tasks/models/projectstage.py:15
+msgid "Is the project active at this stage?"
+msgstr "האם הפרויקט פעיל בשלב זה?"
+
+#: tasks/models/resolution.py:9
+msgid "Resolution"
+msgstr "החלטה"
+
+#: tasks/models/resolution.py:10
+msgid "Resolutions"
+msgstr "החלטות"
+
+#: tasks/models/stagebase.py:20
+msgid "Mark if this stage is \"done\""
+msgstr "סמן אם השלב הזה \"הושלם\""
+
+#: tasks/models/stagebase.py:24 tasks/models/to_translate.txt:3
+msgid "In progress"
+msgstr "בתהליך"
+
+#: tasks/models/stagebase.py:25
+msgid "Mark if this stage is \"in progress\""
+msgstr "סמן אם השלב הזה \"בביצוע\""
+
+#: tasks/models/tag.py:17
+msgid "Tag for"
+msgstr "תגית עבור"
+
+#: tasks/models/task.py:24
+msgid "task"
+msgstr "משימה"
+
+#: tasks/models/task.py:32
+msgid "project"
+msgstr "פרויקט"
+
+#: tasks/models/task.py:39
+msgid "Hide main task"
+msgstr "הסתר משימה ראשית"
+
+#: tasks/models/task.py:40
+msgid "Hide the main task when this sub-task is closed."
+msgstr "הסתר את המשימה הראשית כאשר תת-משימה זו תיסגר."
+
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
+#: tasks/site/taskadmin.py:352
+msgid "Lead time"
+msgstr "זמן עבודה"
+
+#: tasks/models/task.py:47
+msgid "Task execution time in format - DD HH:MM:SS"
+msgstr "זמן ביצוע משימה בפורמט - DD HH:MM:SS"
+
+#: tasks/models/task.py:64
+msgid "The task cannot be closed because there is an active subtask."
+msgstr "לא ניתן לסגור את המשימה מכיוון שיש תת-משימה פעילה."
+
+#: tasks/models/task.py:92
+msgid "The main task is closed automatically."
+msgstr "המשימה הראשית נסגרת באופן אוטומטי."
+
+#: tasks/models/taskbase.py:20 tasks/site/tasksbasemodeladmin.py:494
+msgid "Low"
+msgstr "נמוך"
+
+#: tasks/models/taskbase.py:21 tasks/site/tasksbasemodeladmin.py:495
+msgid "Middle"
+msgstr "אמצעי"
+
+#: tasks/models/taskbase.py:22 tasks/site/tasksbasemodeladmin.py:496
+msgid "High"
+msgstr "גבוה"
+
+#: tasks/models/taskbase.py:33
+msgid "Short title"
+msgstr "כותרת קצרה"
+
+#: tasks/models/taskbase.py:42
+msgid "Start date"
+msgstr "תאריך התחלה"
+
+#: tasks/models/taskbase.py:44
+msgid "Date of task closing"
+msgstr "תאריך סגירת משימה"
+
+#: tasks/models/taskbase.py:55
+msgid "Notified responsible"
+msgstr "מוּדָּעִים/מוּדָעוֹת מְאַחֵד/מְאַחֶדֶת"
+
+#: tasks/models/taskstage.py:9
+msgid "Task stage"
+msgstr "שלב משימה"
+
+#: tasks/models/taskstage.py:10
+msgid "Task stages"
+msgstr "שלבי משימה"
+
+#: tasks/models/taskstage.py:15
+msgid "Is the task active at this stage?"
+msgstr "האם המשימה פעילה בשלב זה?"
+
+#: tasks/models/to_translate.txt:4
+msgid "done"
+msgstr "בוצע"
+
+#: tasks/models/to_translate.txt:6
+msgid "canceled"
+msgstr "מבוטל"
+
+#: tasks/models/to_translate.txt:7
+msgid "to make a decision"
+msgstr "לקבל החלטה"
+
+#: tasks/models/to_translate.txt:8
+msgid "payment of regular expenses"
+msgstr "תשלום הוצאות שוטפות"
+
+#: tasks/models/to_translate.txt:9
+msgid "on approval"
+msgstr "באישור"
+
+#: tasks/models/to_translate.txt:10
+msgid "for consideration"
+msgstr "לשיקול דעת"
+
+#: tasks/models/to_translate.txt:11
+msgid "for information"
+msgstr "למידע"
+
+#: tasks/models/to_translate.txt:12
+msgid "for the record"
+msgstr "לתיעוד"
+
+#: tasks/site/memoadmin.py:44
+msgid "overdue"
+msgstr "פג תוקף"
+
+#: tasks/site/memoadmin.py:47
+msgid "You are subscribed to a new office memo"
+msgstr "את/ה מנוי/ת להודעה פנימית חדשה"
+
+#: tasks/site/memoadmin.py:49
+msgid "unreviewed"
+msgstr "לא נבדק"
+
+#: tasks/site/memoadmin.py:50
+msgid "The office memo was written"
+msgstr "ההודעה הפנימית נכתבה"
+
+#: tasks/site/memoadmin.py:51
+msgid "You've received a office memo"
+msgstr "קיבלת הודעה פנימית"
+
+#: tasks/site/memoadmin.py:118
+msgid "Your office memo has been deleted"
+msgstr "ההודעה הפנימית שלך נמחקה"
+
+#: tasks/site/memoadmin.py:386
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
+msgid "View the task"
+msgstr "צפייה במשימה"
+
+#: tasks/site/memoadmin.py:390
+#: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
+msgid "View the project"
+msgstr "צפייה בפרויקט"
+
+#: tasks/site/memoadmin.py:471
+msgid "View the "
+msgstr "צפה ב"
+
+#: tasks/site/projectadmin.py:17
+msgid "Acquainted with the project"
+msgstr "להתעמק בפרויקט"
+
+#: tasks/site/projectadmin.py:18
+msgid "The project was created"
+msgstr "הפרויקט נוצר"
+
+#: tasks/site/taskadmin.py:35
+msgid "I completed my part of the task"
+msgstr "סיימתי את חלקי במשימה"
+
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+msgid "The task was created"
+msgstr "נוצרה משימה"
+
+#: tasks/site/taskadmin.py:38
+msgid "The subtask was created"
+msgstr "נוצרה משימה משנית"
+
+#: tasks/site/taskadmin.py:39
+msgid "The subtask"
+msgstr "משימה משנית"
+
+#: tasks/site/taskadmin.py:242
+msgid "later than due date of parent task."
+msgstr "מאוחר מתאריך היעד של המשימה הראשית."
+
+#: tasks/site/taskadmin.py:334
+msgid "Main task"
+msgstr "משימה עיקרית"
+
+#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:6
+msgid "Create subtask"
+msgstr "צור משימה משנית"
+
+#: tasks/site/taskadmin.py:372
+msgid ""
+"This is a collective task.\n"
+"            Please create a sub-task for yourself for work.\n"
+"            Or press the next button when you have done your job.\n"
+"        "
+msgstr ""
+"זו משימה קולקטיבית.\n"
+"אנא צור לעצמך מטלת משנה לעבודה.\n"
+"או לחץ על הכפתור הבא לאחר שתסיים את עבודתך."
+
+#: tasks/site/tasksbasemodeladmin.py:44
+msgid "You have been assigned as the task co-owner"
+msgstr "הוגדרת כשותף-בעלים למשימה"
+
+#: tasks/site/tasksbasemodeladmin.py:46
+msgid "Acquainted with the task"
+msgstr "להתעמק במשימה"
+
+#: tasks/site/tasksbasemodeladmin.py:48
+#: tasks/views/create_completed_subtask.py:78 tasks/views/task_completed.py:30
+msgid "The task is closed"
+msgstr "המשימה נסגרה"
+
+#: tasks/site/tasksbasemodeladmin.py:49
+msgid "The subtask is closed"
+msgstr "המשימה המשנית נסגרה"
+
+#: tasks/site/tasksbasemodeladmin.py:50
+msgid "The next step date should not be later than due date."
+msgstr "תאריך השלב הבא לא צריך להיות מאוחר מתאריך היעד."
+
+#: tasks/site/tasksbasemodeladmin.py:53
+msgid "The Project was created"
+msgstr "הפרויקט נוצר"
+
+#: tasks/site/tasksbasemodeladmin.py:54
+msgid "The project is closed"
+msgstr "הפרויקט סגור"
+
+#: tasks/site/tasksbasemodeladmin.py:57
+msgid "You are subscribed to a new task"
+msgstr "את/ה מנוי/ת למשימה חדשה"
+
+#: tasks/site/tasksbasemodeladmin.py:58
+msgid "You have a new task assigned"
+msgstr "הוקצה לך משימה חדשה"
+
+#: tasks/site/tasksbasemodeladmin.py:483
+msgid ""
+"Please edit the title and description to make it clear to other users what "
+"part of the overall task will be completed."
+msgstr ""
+"אנא ערוך את הכותרת והתיאור כדי שיהיה ברור למשתמשים אחרים איזה חלק מהמשימה "
+"הכוללת יבוצע."
+
+#: tasks/site/tasksbasemodeladmin.py:502
+msgid "responsible"
+msgstr "אחראי"
+
+#: tasks/site/tasksbasemodeladmin.py:536
+msgid "Attach files"
+msgstr "צרף קבצים"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:5
+#: tasks/templates/admin/tasks/project/submit_line.html:6
+msgid "Create task"
+msgstr "צור משימה"
+
+#: tasks/templates/admin/tasks/memo/submit_line.html:6
+#: tasks/templates/admin/tasks/task/submit_line.html:9
+msgid "Create project"
+msgstr "צור פרויקט"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:21
+msgid "View main task"
+msgstr "צפייה במשימה הראשית"
+
+#: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
+msgid "Subtasks"
+msgstr "משימות משנה"
+
+#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
+msgid "Toggle default task sorting"
+msgstr "החלף מיון ברירת מחדל של משימות"
+
+#: tasks/templates/admin/tasks/task/submit_line.html:4
+msgid "Mark the task as completed and save."
+msgstr "סמן את המשימה כהושלמה ושמור."
+
+#: tasks/views/create_completed_subtask.py:43
+msgid ""
+"The task cannot be marked as completed because you have an active subtask."
+msgstr "לא ניתן לסמן את המשימה כהושלמה מכיוון שיש לך משימת משנה פעילה."
+
+#: tasks/views/create_completed_subtask.py:70 tasks/views/task_completed.py:23
+msgid "The Task does not exist"
+msgstr "המשימה לא קיימת"
+
+#: tasks/views/create_completed_subtask.py:74 tasks/views/task_completed.py:27
+msgid "The user does not exist"
+msgstr "המשתמש לא קיים"
+
+#: tasks/views/create_completed_subtask.py:119
+msgid ""
+"An error occurred while creating the subtask. Contact the CRM Administrator."
+msgstr "אירעה שגיאה בעת יצירת תת-משימה. נא לפנות למנהל/ת מערכת CRM."
+
+#: templates/admin/auth/group/change_list_object_tools.html:12
+msgid "Creates a copy of the department"
+msgstr "יוצר עותק של המחלקה"
+
+#: templates/admin/auth/group/change_list_object_tools.html:13
+msgid "Copy department"
+msgstr "העתק מחלקה"
+
+#: templates/admin/auth/user/change_list_object_tools.html:12
+msgid "Transfer of a manager to another department"
+msgstr "העברת מנהל למחלקה אחרת"
+
+#: templates/admin/auth/user/change_list_object_tools.html:13
+msgid "Transfer of a manager"
+msgstr "העברת מנהל"
+
+#: templates/admin/base.html:50
+msgid "Skip to main content"
+msgstr "דילוג לתוכן העיקרי"
+
+#: templates/admin/base.html:65
+msgid "Welcome,"
+msgstr "ברוך הבא"
+
+#: templates/admin/base.html:70
+msgid "View site"
+msgstr "צפה באתר"
+
+#: templates/admin/base.html:75
+msgid "Documentation"
+msgstr "תיעוד"
+
+#: templates/admin/base.html:79
+msgid "Change password"
+msgstr "שנה סיסמה"
+
+#: templates/admin/base.html:83
+msgid "Log out"
+msgstr "התנתק"
+
+#: templates/admin/base.html:98
+msgid "Breadcrumbs"
+msgstr "שביל הפירורים"
+
+#: templates/admin/color_theme_toggle.html:3
+msgid "Toggle theme (current theme: auto)"
+msgstr "החלף ערכת נושא (נושא נוכחי: אוטומטי)"
+
+#: templates/admin/color_theme_toggle.html:4
+msgid "Toggle theme (current theme: light)"
+msgstr "החלף ערכת נושא (ערכת נושא נוכחית: בהיר)"
+
+#: templates/admin/color_theme_toggle.html:5
+msgid "Toggle theme (current theme: dark)"
+msgstr "החלף ערכת נושא (ערכת נושא נוכחית: כהה)"
+
+#. Translators: Specify dates of date range
+#: templates/admin/crm_date_filter.html:18
+msgid "Specify dates"
+msgstr "ציין תאריכים"
+
+#. Translators: Start of date range
+#: templates/admin/crm_date_filter.html:23
+msgid "from"
+msgstr "מאת"
+
+#. Translators: End of date range
+#: templates/admin/crm_date_filter.html:29
+msgid "before"
+msgstr "לפני"
+
+#. Translators: Year-Month Day
+#: templates/admin/crm_date_filter.html:33
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: templates/crm_help_link.html:3
+msgid "Help"
+msgstr "עזרה"
+
+#: tests/massmail/utils/test_send_massmail.py:122
+msgid "This field is required."
+msgstr "שדה זה חובה למילוי."
+
+#: voip/models.py:9
+msgid "PBX extension"
+msgstr "מספר שלוחה של PBX"
+
+#: voip/models.py:10
+msgid "SIP connection"
+msgstr "חיבור SIP"
+
+#: voip/models.py:11
+msgid "Virtual phone number"
+msgstr "מספר טלפון וירטואלי"
+
+#: voip/models.py:29
+msgid "Number"
+msgstr "מספר"
+
+#: voip/models.py:33
+msgid "Caller ID"
+msgstr "מזהה מתקשר"
+
+#: voip/models.py:35
+msgid ""
+"Specify the number to be displayed as             your phone number when you"
+" call"
+msgstr "ציין את המספר שיוצג כמספר הטלפון שלך בעת ביצוע שיחה"
+
+#: voip/models.py:42
+msgid "Provider"
+msgstr "ספק"
+
+#: voip/models.py:43
+msgid "Specify VoIP service provider"
+msgstr "ציין ספק שירותי VoIP"
+
+#: voip/templates/voip/connection.html:10
+msgid "Please select what's your phone number, caller display"
+msgstr "אנא בחר מה מספר הטלפון שלך, תצוגת המתקשר"
+
+#: voip/views/callback.py:21
+msgid ""
+"You do not have a VoiP connection configured. Please contact your "
+"administrator."
+msgstr "לא הוגדר חיבור VoIP. אנא פנה למנהל המערכת."
+
+#: voip/views/callback.py:88
+msgid "That something is wrong ((. Notify the administrator."
+msgstr "משהו לא בסדר ((. הודע למנהל המערכת."
+
+#: voip/views/callback.py:90
+msgid "Expect a call to your smartphone"
+msgstr "צפה לשיחה לסמארטפון שלך"
+
+#: voip/views/voipwebhook.py:44
+msgid "An outgoing call to"
+msgstr "שיחה יוצאת אל"
+
+#: voip/views/voipwebhook.py:53
+msgid "An incoming call from"
+msgstr "שיחה נכנסת מ"
+
+#: voip/views/voipwebhook.py:70
+#, python-brace-format
+msgid "(duration: {duration} minutes)"
+msgstr "(משך: {duration} דקות)"
+
+#: webcrm/settings.py:270
+msgid "Untitled"
+msgstr "ללא כותרת"
+
+#: webcrm/settings.py:285
+msgid "Main Menu"
+msgstr "תפריט ראשי"
