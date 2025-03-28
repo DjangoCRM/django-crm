@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Translations of CRM software into the following languages:
+  - Romanian
+  - Hebrew
+
+- Warning message “Specify products” if a Request is saved without specifying products.
+
 ## [1.2.2] - 2025-03-22
 
 ### Added
@@ -34,7 +44,7 @@ Improved help text in the `Reminder` model
 ### Fixed
 
 - Fixed display of help page in English if it is not available in the current language.
-- Fixed translations of CRM software into the following languages:
+- Fixed translations of CRM software## Unreleased
   - Spanish
   - German
   - French
