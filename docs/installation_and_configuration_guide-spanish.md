@@ -161,7 +161,7 @@ Si el proyecto se despliega en un servidor de producción, también se requerir�
 (por ejemplo, [Apache](https://httpd.apache.org/)).  
 Tutorial completo [aquí](https://docs.djangoproject.com/en/dev/topics/install/).
 
-> [!IMPORTANTE]
+> [!IMPORTANT]
 > **Por favor, da una estrella ⭐️ a este proyecto CRM para apoyar a sus desarrolladores!**  
 > Haz clic en el botón "Starred" en la esquina superior derecha del repositorio [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/).  
 
@@ -269,22 +269,29 @@ python manage.py runserver 1.2.3.4:8000
 
 ## Acceso a los sitios de CRM y administración
 
-Ahora tienes dos sitios web.  
+Ahora tienes dos sitios web: CRM y sitios de administración.  
 Usa las credenciales del superusuario para iniciar sesión.
 
-Sitio de CRM para todos los usuarios:  
+> [!IMPORTANT]
+> Los sitios de administración están pensados para usuarios experimentados.  
+> Úselos para la configuración inicial y las acciones que no se pueden realizar en el sitio de CRM. Por ejemplo, acciones con departamentos, usuarios, permisos, etc.  
+> Para todo lo demás, utilice el sitio de CRM con el rol de usuario correspondiente.
+
+### Sitio de CRM para todos los usuarios
+
 `http://127.0.0.1:8000/en/123/`  
 Está de acuerdo con la plantilla  
 `<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
-y el sitio de administración para administradores (superusuarios):  
+### El sitio de administración para administradores (superusuarios)
+
 `http://127.0.0.1:8000/en/456-admin`  
 `<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` y `SECRET_ADMIN_PREFIX`
 pueden ser cambiados en el archivo `webcrm/settings.py`
 
-> [!NOTA]
+> [!NOTE]
 > No intentes acceder a la dirección `<tu host de CRM>` sin más (`http://127.0.0.1:8000/`).  
 > Esta dirección no es compatible.  
 > Para proteger el CRM con un servidor de sitios (por ejemplo, [Apache](https://httpd.apache.org/)), se puede colocar una redirección a una página de inicio de sesión falsa en esta dirección.
@@ -428,7 +435,7 @@ Puedes ver los conjuntos de permisos para cada rol aquí:
 Un usuario puede tener múltiples roles.  
 Por ejemplo, si tu empresa no tiene un empleado que pueda desempeñar el rol de operador, entonces este rol debe ser otorgado a un empleado con el rol de gerente de ventas.
 
-> [!NOTA]
+> [!NOTE]
 > Es posible que algunas combinaciones de roles puedan llevar a un funcionamiento incorrecto de CRM. En este caso, puedes crear varias cuentas para el usuario en CRM con diferentes roles.
 
 ### Departamentos
@@ -481,7 +488,7 @@ Antes de comenzar a trabajar en Django CRM, los usuarios deben ser informados so
 - Muchos elementos de la página, como botones, íconos, enlaces, tienen descripciones emergentes. Para verlas, debe pasar el cursor del ratón sobre ellos.  
 También es importante que el administrador ayude a los usuarios a dominar el CRM.
 
-> [!NOTA]
+> [!NOTE]
 > Las páginas de ayuda son dinámicas. Su contenido depende del rol del usuario.  
 > Los usuarios a los que se les asignan derechos individualmente (sin asignación de rol) no podrán acceder a la página de ayuda. Dichos usuarios deben ser instruidos para trabajar en CRM por el administrador.
 
