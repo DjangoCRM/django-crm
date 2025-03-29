@@ -265,15 +265,22 @@ python manage.py runserver 1.2.3.4:8000
 
 ## Access to CRM and admin sites
 
-Now you have two websites.  
+Now you have two websites: CRM and Admin sites.  
 Use the superuser credentials to log in.  
 
-CRM site for all users:  
+> [!IMPORTANT]
+> Admin sites are intended for experienced users.  
+> Use it for initial settings and actions that cannot be performed on the CRM site. For example, actions with departments, users, permissions, etc.   
+> For everything else, use the CRM site in the appropriate user role.  
+
+### CRM site for all users
+
 `http://127.0.0.1:8000/en/123/`  
 It's according to the template  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
-and Admin site for administrators (superusers):  
+### Admin site for administrators (superusers)
+
 `http://127.0.0.1:8000/en/456-admin`  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
