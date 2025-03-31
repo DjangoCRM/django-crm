@@ -18,15 +18,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Warning message “Specify products” if a Request is saved without specifying products.
 
+### Improve
+
+- Improve the test of the current backend for loading currency rates.
+
 ## [1.2.2] - 2025-03-22
 
 ### Added
 
-Added installation and configuration guide in Spanish
+- Added installation and configuration guide in Spanish
 
 ### Improved
 
-Improved help text in the `Reminder` model
+- Improved help text in the `Reminder` model
 
 ### Fixed
 
