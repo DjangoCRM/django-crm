@@ -50,6 +50,7 @@ class City(BaseModel):
     )
 
     def clean(self):
+        super().clean_fields()
         if self.country:
             self.validate_name(self.name, 'name')
             if self.alternative_names:
@@ -57,7 +58,6 @@ class City(BaseModel):
                 for name in alternative_names:
                     if name:
                         self.validate_name(name.strip(), 'alternative_names')
-        super().clean()
 
     def validate_name(self, name: str, field: str) -> None:
         cities = City.objects.all()
