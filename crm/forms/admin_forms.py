@@ -319,13 +319,10 @@ class TagForm(forms.ModelForm):
         widgets = {'department': forms.HiddenInput()}
 
     def clean(self):
-        super().clean()
-        if not self.cleaned_data['department']:
-            raise forms.ValidationError(
-                _("First select a department."), code='invalid')
-        
-        if Tag.objects.filter(
-                name__iexact=self.cleaned_data['name'],
-                department=self.cleaned_data['department']).exists():
-            raise forms.ValidationError(
-                _("That tag already exists."), code='invalid')
+        cleaned_data = super().clean()
+        if 'department' in cleaned_data:
+            if Tag.objects.filter(
+                    name__iexact=cleaned_data['name'],
+                    department=cleaned_data['department']).exists():
+                raise forms.ValidationError(
+                    _("Such a tag already exists."), code='invalid')

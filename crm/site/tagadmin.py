@@ -6,19 +6,6 @@ from crm.site.crmmodeladmin import CrmModelAdmin
 
 
 class TagAdmin(CrmModelAdmin):
-    fieldsets = (
-        (None, {
-            'fields': ('name',)
-        }),
-        (_('Additional information'), {
-            'classes': ('collapse',),
-            'fields': (
-                ('owner', 'modified_by'),
-                ('creation_date', 'update_date'),
-                'department'
-            )
-        }),
-    )
     form = TagForm
     list_display = ('name',)
     readonly_fields = (
@@ -31,6 +18,21 @@ class TagAdmin(CrmModelAdmin):
 
     # -- ModelAdmin methods -- #
 
+    def get_fieldsets(self, request, obj=None):
+        return (
+            (None, {
+                'fields': ('name',)
+            }),
+            (_('Additional information'), {
+                'classes': ('collapse',) if request.user.department_id else (),
+                'fields': (
+                    ('owner', 'modified_by'),
+                    ('creation_date', 'update_date'),
+                    'department'
+                )
+            }),
+        )
+
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "department":
             kwargs["initial"] = request.user.department_id
@@ -40,10 +42,9 @@ class TagAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
      form = super().get_form(request, obj=None, **kwargs)
-     if request.user.department_id:
-         form.base_fields['department'].widget = forms.HiddenInput()
-     else:
+     if not request.user.department_id:
         form.base_fields['department'].widget = forms.Select()
+        form.base_fields['department'].required = True
      return form
 
     def has_change_permission(self, request, obj=None):
