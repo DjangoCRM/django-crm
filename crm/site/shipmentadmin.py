@@ -165,6 +165,9 @@ class ShipmentAdmin(admin.ModelAdmin):
 
         return queryset
 
+    def has_add_permission(self, request, obj=None):
+        return False
+
     def save_model(self, request, obj, form, change):
         if "actual_shipping_date" in form.changed_data:
             obj.product_is_shipped = bool(obj.actual_shipping_date)

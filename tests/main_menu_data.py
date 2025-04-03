@@ -748,7 +748,13 @@ DATA = [
                         'add_url': f'/en/{PREFIX}crm/request/add/',
                         'view_only': False
                     },
-                    get_shipment_model_data(view_only=False, is_add_url=True),
+                    get_shipment_model_data(
+                        view_only=False, is_add_url=False,
+                        perms={
+                            'add': False, 'change': True,
+                            'delete': True, 'view': True
+                        }
+                    ),
                     {
                         'name': 'Tags',
                         'object_name': 'Tag',
@@ -1037,7 +1043,11 @@ ADMIN_DATA = [
                 'view_only': False
             },
             get_shipment_model_data(
-                prefix=ADMIN_PREFIX, view_only=False, is_add_url=True
+                prefix=ADMIN_PREFIX, view_only=False, is_add_url=False,
+                perms={
+                    'add': False, 'change': True,
+                    'delete': True, 'view': True
+                }
             ),
             {
                 'name': 'Stages',
