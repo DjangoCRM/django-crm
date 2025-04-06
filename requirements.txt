@@ -5,6 +5,7 @@
     certifi==2025.1.31
     charset-normalizer==3.4.1
     Django==5.1.8
+    dj-database-url==2.3.0
     et-xmlfile==2.0.0
     frozenlist==1.5.0
     geoip2==5.0.1
@@ -17,6 +18,7 @@
     pandas==2.2.3
     polib==1.2.0
     python-dateutil==2.9.0.post0
+    python-decouple==3.8
     pytz==2025.2
     requests==2.32.3
     six==1.17.0
