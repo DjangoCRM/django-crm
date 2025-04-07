@@ -197,7 +197,8 @@ class CompanyAdmin(CrmModelAdmin):
         urls = super().get_urls()
         my_urls = [
             path('make_massmail/',
-                 self.admin_site.admin_view(self.make_massmail),
+                 admin.views.decorators.staff_member_required(
+                     self.admin_site.admin_view(self.make_massmail)),
                  name='company_make_massmail'
                  ),
         ]
