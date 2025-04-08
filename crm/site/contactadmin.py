@@ -128,7 +128,7 @@ class ContactAdmin(CrmModelAdmin):
                 )
             }),
             (_('Additional information'), {
-                'classes': ('collapse',),
+                'classes': ('collapse',) if request.user.department_id else (),
                 'fields': (
                     ('owner', 'department'),
                     'modified_by',

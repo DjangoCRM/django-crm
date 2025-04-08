@@ -1,4 +1,5 @@
-from django.contrib import admin, messages
+from django.contrib import admin
+from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext_lazy as _
@@ -140,7 +141,7 @@ class CompanyAdmin(CrmModelAdmin):
                 )
             }),
             (_('Additional information'), {
-                'classes': ('collapse',),
+                'classes': ('collapse',) if request.user.department_id else (),
                 'fields': (
                     ('owner', 'department'),
                     'warning', 'modified_by',
