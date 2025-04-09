@@ -380,9 +380,10 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
         filtered_qs = queryset.filter(q_params)
         owners = USER_MODEL.objects.annotate(
             user=Exists(filtered_qs)
-        ).filter(user=True).values_list('username', 'username').order_by('username')
+        ).filter(user=True).values_list(
+            'username', flat=True).order_by('username')
 
-        return [(x[0], x[1]) for x in owners]
+        return [(x, x) for x in owners]
 
     def queryset(self, request, queryset):
         if not any((
