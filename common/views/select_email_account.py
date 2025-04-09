@@ -3,18 +3,20 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.utils.translation import gettext as _
+
 from crm.models import Request
 from crm.site.crmadminsite import crm_site
 from massmail.models import EmailAccount
 
 
 class EaForm(forms.Form):
-    
+
     def __init__(self, ea_choices, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['ea'].choices = ea_choices
         self.fields['ea'].initial = ea_choices[0]
-        
+
     ea = forms.ChoiceField(label='', choices=(), widget=forms.RadioSelect)
 
 
@@ -25,7 +27,7 @@ def select_email_account(request: WSGIRequest):
         params = request.GET.copy()
         del params['eas']
         return HttpResponseRedirect(url + f'&{params.urlencode()}')
-        
+
     else:
         ids_str = request.GET.get('eas')
         ids = ids_str.split(',')
@@ -36,7 +38,8 @@ def select_email_account(request: WSGIRequest):
         extra_context = dict(
             crm_site.each_context(request),
             opts=Request._meta,     # NOQA
+            title=_("Please select an Email account"),
             form=form
         )            
-            
-    return render(request, 'common/select_email_account.html', extra_context)
+       
+    return render(request, 'common/select_object.html', extra_context)
