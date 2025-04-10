@@ -1,0 +1,9 @@
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+  <li>
+    <a href="{% url 'select_recipient_type' %}">
+      {% translate "Make Massmail" %}
+    </a>
+  </li>
+{% endblock %}
