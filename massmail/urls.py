@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 
+from massmail.views.select_recipient_type import select_recipient_type
 from massmail.views.copy_message import copy_message
 from massmail.views.file_upload import file_upload
 from massmail.views.get_oauth2_tokens import request_authorization_code
@@ -72,4 +73,9 @@ urlpatterns = [
         staff_member_required(show_uploaded_images),
         name='show_uploaded_images'
     ),
-]    # , document_root=settings.STATIC_ROOT
+    path(
+        'select-recipient-type/',
+        staff_member_required(select_recipient_type),
+        name='select_recipient_type'
+    ),
+]
