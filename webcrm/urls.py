@@ -31,8 +31,9 @@ if 'rosetta' in settings.INSTALLED_APPS:
     ]
 
 urlpatterns += i18n_patterns(
-    path(settings.SECRET_CRM_PREFIX, include('crm.urls')),
     path(settings.SECRET_CRM_PREFIX, include('common.urls')),
+    path(settings.SECRET_CRM_PREFIX, include('crm.urls')),
+    path(settings.SECRET_CRM_PREFIX, include('massmail.urls')),
     path(settings.SECRET_CRM_PREFIX, include('tasks.urls')),
     path(settings.SECRET_ADMIN_PREFIX, admin.site.urls),
     path('contact-form/<uuid:uuid>/', contact_form, name='contact_form'),
