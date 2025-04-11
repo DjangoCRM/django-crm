@@ -7,22 +7,13 @@ from django.utils.translation import gettext as _
 
 from crm.models import Request
 from crm.site.crmadminsite import crm_site
+from massmail.forms.radio_select_form import RadioSelectForm
 from massmail.models import EmailAccount
-
-
-class EaForm(forms.Form):
-
-    def __init__(self, ea_choices, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['ea'].choices = ea_choices
-        self.fields['ea'].initial = ea_choices[0]
-
-    ea = forms.ChoiceField(label='', choices=(), widget=forms.RadioSelect)
 
 
 def select_email_account(request: WSGIRequest):
     if request.method == "POST":
-        ea_id = request.POST.get('ea')
+        ea_id = request.POST.get('choice')
         url = reverse('select_emails_import_request') + f"?ea={ea_id}"
         params = request.GET.copy()
         del params['eas']
@@ -34,7 +25,7 @@ def select_email_account(request: WSGIRequest):
         eas = EmailAccount.objects.filter(
             id__in=ids
         ).distinct().order_by('name').values_list('id', 'name')
-        form = EaForm(eas)
+        form = RadioSelectForm(eas)
         extra_context = dict(
             crm_site.each_context(request),
             opts=Request._meta,     # NOQA

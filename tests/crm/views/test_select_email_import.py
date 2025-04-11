@@ -41,7 +41,7 @@ class SelectEmailsImportView(BaseTestCase):
 
         # submit form
         select_account_url = response.redirect_chain[0][0]
-        data = {'ea': self.ea1.id}
+        data = {'choice': self.ea1.id}
         response = self.client.post(select_account_url, data, follow=True)
         self.assertContains(response, self.ea1.email_host_user, status_code=200)
         select_emails_url = response.redirect_chain[0][0]
