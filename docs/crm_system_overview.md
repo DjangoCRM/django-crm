@@ -164,7 +164,7 @@ The Django-CRM system includes analytical features that provide various reports 
 ### Technical Aspects:
 
 - **Localization:**  Supports multiple languages  
-  (currently: de, en, es, fr, hi, it, nl, pt-BR, ru, uk)
+  (currently: ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans)
 - **Technology Stack:** Built on Django 5.1.x, Python 3.10+, MySQL 8.0.11+ or PostgreSQL 12+.
 - **License:** Released under the AGPL-3.0 open source license.
 
