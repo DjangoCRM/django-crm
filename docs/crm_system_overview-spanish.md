@@ -155,6 +155,19 @@ El sistema Django-CRM incluye funciones analíticas que proporcionan diversos in
   Un embudo de ventas integrado representa visualmente la conversión de solicitudes comerciales en negocios cerrados.  
   Esto ayuda a los equipos de ventas a comprender dónde pierden clientes potenciales y tomar medidas para mejorar.
 
+## Implementación y uso
+
+- Fácil de implementar como un proyecto Django normal.
+- Documentación completa disponible para instalación, configuración y guía de usuario.
+- Se agradece el apoyo y las contribuciones de la comunidad.
+
+### Aspectos técnicos:
+
+- **Localización:** Compatible con varios idiomas  
+  (actualmente: ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans).
+- **Pila tecnológica:** Desarrollado sobre Django 5.1.x, Python 3.10+, MySQL 8.0.11+ o PostgreSQL 12+.
+- **Licencia:** Publicado bajo la licencia de código abierto AGPL-3.0.
+
 ## Conclusión
 
 El sistema Django-CRM es una solución potente y flexible para la gestión de relaciones con clientes.  
