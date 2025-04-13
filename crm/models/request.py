@@ -368,7 +368,10 @@ class Request(Base1):
         words = phrase.split(" ")
         words_re_list = [''.join((f"[{letter}]{{1}}" for letter in word)) for word in words]
         phrase_re = ''.join((f'[^a-zA-z]*{word_re}' for word_re in words_re_list))
-        return models.Q(full_name__iregex=fr"^{phrase_re}[^a-zA-z]*$")
+        return models.Q(
+            models.Q(full_name__iregex=fr"^{phrase_re}[^a-zA-Z]*$") |
+            models.Q(alternative_names__iregex=fr"(^|,)\s*{phrase_re}\s*(,|$)")
+        )
 
     def get_or_create_contact_or_lead(self) -> None:
         if self.find_contact_or_lead():
