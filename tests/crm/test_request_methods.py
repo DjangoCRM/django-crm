@@ -89,8 +89,9 @@ class TestRequestMethods(BaseTestCase):
         self.assertFalse(self.new_lead_request.contact, msg)
         msg = "Found the wrong lead"
         self.assertFalse(self.new_lead_request.lead, msg)
-        
+
     def test_find_company(self):
+        # Test finding a company by name
         self.contact_request.find_company()
         self.assertEqual(self.contact_request.company, self.company)
         self.contact_request.company = None
@@ -108,12 +109,27 @@ class TestRequestMethods(BaseTestCase):
         self.assertEqual(self.contact_request.company, self.company)
         self.contact_request.company = None
 
+        # Test finding a company by a slightly modified name
         request = Request(
             request_for='test inquiry',
             first_name='Tom',
             email='Tom@testcompany.com',
             phone='+1234567890',
             company_name='Test - Company LLC.'
+        )
+        request.find_company()
+        self.assertEqual(request.company, self.company)
+        self.contact_request.company = None
+
+        # Test finding a company by an alternative name
+        self.company.alternative_names = 'Test Co, TestCompany'
+        self.company.save()
+        request = Request(
+            request_for='test inquiry',
+            first_name='Tom',
+            email='Tom@testcompany.com',
+            phone='+1234567890',
+            company_name='Test Co'
         )
         request.find_company()
         self.assertEqual(request.company, self.company)
