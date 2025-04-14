@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Matching of a company in the database by the contents of the alternative names field.
 - Translations of CRM software into the following languages:
   - Romanian
   - Hebrew
