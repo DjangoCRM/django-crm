@@ -1,7 +1,10 @@
+import os
 import sys
 from pathlib import Path
 from datetime import datetime as dt
 from django.utils.translation import gettext_lazy as _
+from decouple import config, Csv
+from dj_database_url import parse as dburl
 
 from crm.settings import *          # NOQA
 from massmail.settings import *     # NOQA
@@ -19,47 +22,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # To get new value of key use code:
 # from django.core.management.utils import get_random_secret_key
 # print(get_random_secret_key())
-SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
+SECRET_KEY = config('SECRET_KEY')
 
 # Add your hosts to the list.
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 # Database
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3') # Use sqlite if database is not setted in .env
+
 DATABASES = {
-    'default': {
-        # for MySQl
-        'ENGINE': 'django.db.backends.mysql',
-        'PORT': '3306',
-
-        # for PostgreSQL
-        # "ENGINE": "django.db.backends.postgresql",
-        # 'PORT': '5432',   # for PostgreSQL
-
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': 'crmpass',
-        'HOST': 'localhost',
-    }
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl) ## Configure .env with DATABASE_URL=<user>:<pass>@<host>:<port>/<dbname>
 }
 
-EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
-EMAIL_HOST_PASSWORD = '<specify password>'
-EMAIL_HOST_USER = 'crm@example.com'
-EMAIL_PORT = 587
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_SUBJECT_PREFIX = 'CRM: '
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'crm@example.com'
-DEFAULT_FROM_EMAIL = 'crm@example.com'
+SERVER_EMAIL = config('SERVER_EMAIL')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
-ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
+ADMINS = [(config('ADMIN_NAME'), config('ADMIN_EMAIL'))]   # specify admin
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 FORMS_URLFIELD_ASSUME_HTTPS = True
 
 # Internationalization
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = config('LANGUAGE_CODE')
 LANGUAGES = [
     ('ar', 'Arabic'),
     ('cs', 'Czech'),
@@ -191,14 +183,15 @@ SECURE_HSTS_PRELOAD = False
 
 # For more security, replace the url prefixes
 # with your own unique value.
-SECRET_CRM_PREFIX = '123/'
-SECRET_ADMIN_PREFIX = '456-admin/'
-SECRET_LOGIN_PREFIX = '789-login/'
+SECRET_CRM_PREFIX = config('SECRET_CRM_PREFIX')
+SECRET_ADMIN_PREFIX = config('SECRET_ADMIN_PREFIX')
+SECRET_LOGIN_PREFIX = config('SECRET_LOGIN_PREFIX')
 
 # Specify ip of host to avoid importing emails sent by CRM
-CRM_IP = "127.0.0.1"
+CRM_IP = config('CRM_IP')
 
-CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
+#CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
+CRM_REPLY_TO = config('CRM_REPLY_TO', default=[], cast=Csv())
 
 # List of addresses to which users are not allowed to send mail.
 NOT_ALLOWED_EMAILS = []
@@ -245,8 +238,8 @@ VAT = 0    # %
 
 # 2-Step Verification Credentials for Google Accounts.
 #  OAuth 2.0
-CLIENT_ID = ''
-CLIENT_SECRET = ''
+CLIENT_ID = config('CLIENT_ID')
+CLIENT_SECRET = config('CLIENT_SECRET')
 OAUTH2_DATA = {
     'smtp.gmail.com': {
         'scope': "https://mail.google.com/",
@@ -256,11 +249,11 @@ OAUTH2_DATA = {
     }
 }
 # Hardcoded dummy redirect URI for non-web apps.
-REDIRECT_URI = ''
+REDIRECT_URI = config('REDIRECT_URI')
 
 # Credentials for Google reCAPTCHA.
-GOOGLE_RECAPTCHA_SITE_KEY = ''
-GOOGLE_RECAPTCHA_SECRET_KEY = ''
+GOOGLE_RECAPTCHA_SITE_KEY = config('GOOGLE_RECAPTCHA_SITE_KEY')
+GOOGLE_RECAPTCHA_SECRET_KEY = config('GOOGLE_RECAPTCHA_SECRET_KEY')
 
 GEOIP = False
 GEOIP_PATH = MEDIA_ROOT / 'geodb'
@@ -280,9 +273,9 @@ MARK_PAYMENTS_THROUGH_REP = False
 
 
 # Site headers
-SITE_TITLE = 'CRM'
-ADMIN_HEADER = "ADMIN"
-ADMIN_TITLE = "CRM Admin"
+SITE_TITLE = config('SITE_TITLE')
+ADMIN_HEADER = config('ADMIN_HEADER')
+ADMIN_TITLE = config('ADMIN_TITLE')
 INDEX_TITLE = _('Main Menu')
 
 

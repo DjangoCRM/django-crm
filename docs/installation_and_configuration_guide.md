@@ -173,6 +173,26 @@ Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).
 The settings missing in this list are CRM specific settings. Explanations can be found in the comments to them.  
 Most of the settings can be left at their default values.
 
+### Environment Variables and `python-decouple`
+
+This project utilizes `python-decouple` to manage environment variables. This approach offers enhanced security and flexibility by keeping sensitive information out of the codebase and allowing for environment-specific configurations.
+
+#### Why Use Environment Variables?
+
+*   **Security:** Sensitive data like API keys, database credentials, and secret keys are stored outside of the code repository, reducing the risk of accidental exposure.
+*   **Flexibility:** You can easily switch between different environments (development, testing, production) by simply changing the environment variables, without modifying the code.
+*   **Organization:** All  configuration settings are centralized in a `.env` file, making them easier to manage and update.
+
+#### How to Configure Environment Variables
+
+1.  Copy contrib/env-sample to .env in the root project.
+
+    Ensure `python-decouple` is installed in your virtual environment. If you followed the "Install the requirements"  step, it should already be installed. If not, run:
+
+    ```pip install python-decouple```
+2. Replace de default values to your values in .env.
+
+
 The default settings are for running the project on a development server.
 Change them for the production server.  
 
@@ -182,16 +202,12 @@ But in the following, you will need to specify at least the `EMAIL_HOST` and `AD
 
 ### DATABASES settings
 
-Provide data to connect to the database:
+To work between development and production environments, we suggest using dj-database-url, this way, the connection will be configured as a url, in .env, and we set a default value, so if it does not exist, use sqlite3.
 
-- `ENGINE` and `PORT` are specified by default for MySQL database. Change them for PostgreSQL
-- Specify `PASSWORD`
+Ensure `dj-database-url` is installed in your virtual environment. If you followed the "Install the requirements"  step, it should already be installed. If not, run:
 
-Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES). 
+```pip install dj-database-url```
 
-In the database, configure the `USER` (by default 'crm_user') specified in the `DATABASES` setting 
-to have the right to create and drop databases (running tests will create
-and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database)).
 
 #### For MySQL database, it is recommended to  
 
@@ -211,7 +227,7 @@ You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/m
 
 ### EMAIL_HOST settings
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
+Specify details at .env for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
 
 - `EMAIL_HOST` (smtp server)
 - `EMAIL_HOST_PASSWORD`
@@ -219,7 +235,7 @@ Specify details for connecting to an email account through which CRM will be abl
 
 ### ADMINS settings
 
-Add the addresses of CRM administrators to the list, so they can receive error logs.  
+Add the addresses at .env of CRM administrators to the list, so they can receive error logs.  
 `ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
 
 ## CRM and database testing
