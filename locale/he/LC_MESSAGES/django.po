@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-24 08:48+0200\n"
-"PO-Revision-Date: 2025-03-27 19:44+0200\n"
+"POT-Creation-Date: 2025-04-21 20:45+0300\n"
+"PO-Revision-Date: 2025-04-21 20:47+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -245,10 +245,10 @@ msgstr "מדינה"
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
 #: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
+#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
+#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
+#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -264,20 +264,20 @@ msgstr "הכל"
 msgid "Owner"
 msgstr "בעלים"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: analytics/site/outputstatadmin.py:170 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "מוצר"
 
-#: analytics/site/outputstatadmin.py:199
+#: analytics/site/outputstatadmin.py:200
 msgid "Sold products summary (by date of payment receipt)"
 msgstr "סיכום מוצרים שנמכרו (לפי תאריך קבלת תשלום)"
 
-#: analytics/site/outputstatadmin.py:287
+#: analytics/site/outputstatadmin.py:288
 msgid "Sold products"
 msgstr "מוצרים שנמכרו"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: analytics/site/outputstatadmin.py:294 crm/models/product.py:45
 msgid "Price"
 msgstr "מחיר"
 
@@ -429,10 +429,10 @@ msgid "You received a message regarding - "
 msgstr "קיבלת הודעה בנוגע ל-"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
 #: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
 #: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:26 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -456,7 +456,7 @@ msgstr "השיב ל"
 
 #: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
 #: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
+#: common/templates/common/select_object.html:15
 #: common/templates/common/user_transfer.html:17
 #: crm/templates/admin/crm/change_form.html:21
 #: crm/templates/admin/crm/company/change_list_object_tools.html:8
@@ -643,7 +643,7 @@ msgid "Reminder date"
 msgstr "תאריך תזכורת"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -841,8 +841,8 @@ msgid "View on site"
 msgstr "צפה באתר"
 
 #: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
 #: common/templates/common/select_emails.html:13
+#: common/templates/common/select_object.html:12
 #: common/templates/common/user_transfer.html:13
 #: crm/templates/admin/crm/change_form.html:18
 #: crm/templates/admin/crm/crmemail/change_form.html:18
@@ -924,14 +924,6 @@ msgstr "צור תזכורת"
 msgid "Regarding"
 msgstr "לגבי"
 
-#: common/templates/common/select_email_account.html:20
-msgid "Please select an Email account"
-msgstr "אנא בחר/י חשבון דוא\"ל"
-
-#: common/templates/common/select_email_account.html:38
-msgid "Select"
-msgstr "בחר"
-
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
 #: crm/templates/admin/crm/company/change_list_object_tools.html:20
@@ -965,6 +957,10 @@ msgstr "ל"
 #: common/templates/common/select_emails.html:56
 msgid "This email is already imported."
 msgstr "ההודעה הזו כבר יובאה."
+
+#: common/templates/common/select_object.html:37
+msgid "Select"
+msgstr "בחר"
 
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
@@ -1021,6 +1017,10 @@ msgstr ""
 msgid "A new department has been created - {}. Please rename it."
 msgstr "נוצר מחלקה חדשה - {}. נא לשנות את שמה."
 
+#: common/views/select_email_account.py:32
+msgid "Please select an Email account"
+msgstr "אנא בחר/י חשבון דוא\"ל"
+
 #: common/views/select_emails_import.py:118
 msgid ""
 "You do not have mail accounts marked for importing emails. Please contact "
@@ -1046,7 +1046,7 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "המשתמש הועבר בהצלחה"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
 msgid "Contact details"
 msgstr "פרטי התקשרות"
 
@@ -1123,13 +1123,10 @@ msgstr "בחר/י רק איש קשר או רק ליד"
 msgid "Select only Company or only Lead"
 msgstr "בחר/י רק חברה או רק ליד"
 
-#: crm/forms/admin_forms.py:325
-msgid "First select a department."
-msgstr "ראשית, בחרו מחלקה."
-
-#: crm/forms/admin_forms.py:331
-msgid "That tag already exists."
-msgstr "תגית זו כבר קיימת."
+#: crm/forms/admin_forms.py:328
+#| msgid "That tag already exists."
+msgid "Such a tag already exists."
+msgstr "תג כזה כבר קיים."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1219,7 +1216,7 @@ msgid "Address"
 msgstr "כתובת"
 
 #: crm/models/base_contact.py:122 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "פסול"
 
@@ -1352,7 +1349,7 @@ msgid "Not supported by all mail services."
 msgstr "לא נתמך על ידי כל שירותי הדואר."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
+#: crm/site/shipmentadmin.py:272
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1372,7 +1369,7 @@ msgid "Contact"
 msgstr "איש קשר"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:435
+#: crm/site/requestadmin.py:438
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1451,7 +1448,7 @@ msgstr "איש קשר של חברת דילרים או מפיצים"
 msgid "Relevant"
 msgstr "רלוונטי"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: crm/models/deal.py:164 crm/utils/admfilters.py:487
 msgid "Important"
 msgstr "חשוב"
 
@@ -1674,7 +1671,7 @@ msgstr "הסתברות נמוכה"
 msgid "Payment status"
 msgstr "סטטוס תשלום"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
 msgid "contract number"
 msgstr "מספר חוזה"
 
@@ -1974,20 +1971,20 @@ msgstr "תערוכה"
 msgid "Establish the first contact with the client."
 msgstr "צור קשר ראשוני עם הלקוח."
 
-#: crm/site/companyadmin.py:25
+#: crm/site/companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "שימו לב! ניתן לצפות רק בחברות המשויכות למחלקה שלכם."
 
-#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "אזהרה:"
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:212
 msgid "Owner will also be changed for contact persons."
 msgstr "גם הבעלים של אנשי הקשר ישתנה."
 
-#: crm/site/companyadmin.py:223
+#: crm/site/companyadmin.py:225
 msgid "Change owner of selected Companies"
 msgstr "שנה בעלים לחברות הנבחרות"
 
@@ -2020,7 +2017,7 @@ msgstr "תוכן"
 msgid "Previous correspondence"
 msgstr "התכתובות הקודמות"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:343
 #: crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "ללא נושא"
@@ -2129,7 +2126,7 @@ msgstr "תשלום התקבל"
 msgid "Specify the date of shipment"
 msgstr "ציין את תאריך המשלוח"
 
-#: crm/site/dealadmin.py:77
+#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:240
 msgid "Specify products"
 msgstr "ציין מוצרים"
 
@@ -2245,11 +2242,11 @@ msgstr "סטטוס"
 msgid "Subsequent request"
 msgstr "בקשה המשך"
 
-#: crm/site/requestadmin.py:389
+#: crm/site/requestadmin.py:392
 msgid "Found the counterparty assigned to"
 msgstr "נמצא הגורם המקושר ל"
 
-#: crm/site/requestadmin.py:488
+#: crm/site/requestadmin.py:491
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{שם} \"{obj}\" נוסף בהצלחה."
@@ -2302,7 +2299,7 @@ msgstr "תאריך משלוח לפי חוזה."
 msgid "View the deal"
 msgstr "צפייה בעסקה"
 
-#: crm/site/shipmentadmin.py:254
+#: crm/site/shipmentadmin.py:257
 msgid "paid"
 msgstr "שולם"
 
@@ -2368,6 +2365,7 @@ msgstr "פתח במנהל המערכת"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: massmail/templates/admin/massmail/mailingout/change_list_object_tools.html:6
 msgid "Make Massmail"
 msgstr "צור דיוור המוני"
 
@@ -2599,50 +2597,50 @@ msgstr "תשעה חודשים של השנה הזו"
 msgid "Second half of the last year"
 msgstr "החצי השני של השנה שעברה"
 
-#: crm/utils/admfilters.py:417
+#: crm/utils/admfilters.py:418
 msgid "changed by chiefs"
 msgstr "שונה על ידי מנהלים"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
+#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
+#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "כן"
 
-#: crm/utils/admfilters.py:437
+#: crm/utils/admfilters.py:438
 msgid "Partner"
 msgstr "שותף"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
+#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "לא"
 
-#: crm/utils/admfilters.py:498
+#: crm/utils/admfilters.py:499
 msgid "Has Contacts"
 msgstr "יש אנשי קשר"
 
-#: crm/utils/admfilters.py:564
+#: crm/utils/admfilters.py:565
 msgid "mailbox"
 msgstr "תיבת דואר"
 
-#: crm/utils/admfilters.py:583
+#: crm/utils/admfilters.py:584
 msgid "inbox"
 msgstr "תיבת דואר נכנס"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "sent"
 msgstr "נשלח"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "טיוטות ({num})"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 msgid "trash"
 msgstr "סל אשפה"
 
@@ -3157,6 +3155,15 @@ msgstr "אסימון רענון התקבל בהצלחה."
 #: massmail/views/get_oauth2_tokens.py:79
 msgid "Error: Failed to get authorization code."
 msgstr "שגיאה: לא ניתן לקבל קוד הרשאה."
+
+#: massmail/views/select_recipient_type.py:30
+msgid "Use the 'Action' menu."
+msgstr "השתמש בתפריט 'פעולה'."
+
+#: massmail/views/select_recipient_type.py:39
+#| msgid "Please select at least one recipient"
+msgid "Please select the type of recipients"
+msgstr "אנא בחר את סוג הנמענים"
 
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
@@ -3799,10 +3806,13 @@ msgstr "שיחה נכנסת מ"
 msgid "(duration: {duration} minutes)"
 msgstr "(משך: {duration} דקות)"
 
-#: webcrm/settings.py:270
+#: webcrm/settings.py:271
 msgid "Untitled"
 msgstr "ללא כותרת"
 
-#: webcrm/settings.py:285
+#: webcrm/settings.py:286
 msgid "Main Menu"
 msgstr "תפריט ראשי"
+
+#~ msgid "First select a department."
+#~ msgstr "ראשית, בחרו מחלקה."
