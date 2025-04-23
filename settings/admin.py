@@ -3,8 +3,8 @@ from django.contrib import admin
 from crm.site.crmadminsite import crm_site
 from settings.models import BannedCompanyName
 from settings.models import PublicEmailDomain
-from settings.models import StopPhrase
 from settings.models import Reminders
+from settings.models import StopPhrase
 
 
 class BannedCompanyNameAdmin(admin.ModelAdmin):
@@ -29,6 +29,7 @@ class RemindersAdmin(admin.ModelAdmin):
 
 
 class StopPhraseAdmin(admin.ModelAdmin):
+    actions = ['delete_selected']
     list_display = ('phrase', 'last_occurrence_date')
     search_fields = ('phrase',)
 
