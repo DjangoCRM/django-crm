@@ -76,6 +76,7 @@ But now we are also ready to add new features.
 - A **Task-board** and **Roadmap** are available for **contributors** to obtain additional information.
 
 > [!IMPORTANT]
+> This repository follows the "[GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)" - anything in the main branch is deployable.  
 > **Run tests before creating a Pull Request!**  
 > 
 > ```cmd
