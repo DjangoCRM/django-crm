@@ -4,11 +4,13 @@
     Don't use this server in anything resembling a production environment (with access to the CRM from the Internet).  
     It is intended only for use on a personal computer or in intranet - a private local network (for example, during development).
 
+The built-in server can only be used when `DEBUG = True` (the default setting).  
+
 ``` cmd
 python manage.py runserver
 ```
 
-In this case, [Django CRM](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} will be available only on your computer on the IP address `http://127.0.0.1:8000` (localhost with port 8000).  
+In this case, [Django CRM](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} will be available on your computer on the IP address `http://127.0.0.1:8000` (localhost with port 8000).  
 Open the web page at this address in your browser.  
 If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
 
