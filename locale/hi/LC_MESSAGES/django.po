@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-23 13:20+0200\n"
-"PO-Revision-Date: 2025-02-27 20:33+0200\n"
+"POT-Creation-Date: 2025-04-25 10:48+0300\n"
+"PO-Revision-Date: 2025-04-25 10:56+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -245,10 +245,10 @@ msgstr "देश"
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
 #: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
+#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
+#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
+#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -264,21 +264,21 @@ msgstr "सभी"
 msgid "Owner"
 msgstr "मालिक"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: analytics/site/outputstatadmin.py:170 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "उत्पाद"
 
-#: analytics/site/outputstatadmin.py:199
+#: analytics/site/outputstatadmin.py:200
 msgid "Sold products summary (by date of payment receipt)"
 msgstr ""
 "आदान-प्रदान किए गए उत्पादों का सारांश (भुगतान प्राप्ति तिथि के अनुसार)"
 
-#: analytics/site/outputstatadmin.py:287
+#: analytics/site/outputstatadmin.py:288
 msgid "Sold products"
 msgstr "बिके हुए उत्पाद"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: analytics/site/outputstatadmin.py:294 crm/models/product.py:45
 msgid "Price"
 msgstr "मूल्य"
 
@@ -430,10 +430,10 @@ msgid "You received a message regarding - "
 msgstr "आपको एक संदेश प्राप्त हुआ है जो निम्नलिखित के बारे में है -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
 #: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
 #: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:26 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -457,7 +457,7 @@ msgstr "जवाब दें"
 
 #: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
 #: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
+#: common/templates/common/select_object.html:15
 #: common/templates/common/user_transfer.html:17
 #: crm/templates/admin/crm/change_form.html:21
 #: crm/templates/admin/crm/company/change_list_object_tools.html:8
@@ -630,8 +630,9 @@ msgid "Subject"
 msgstr "विषय"
 
 #: common/models.py:160
-msgid "Briefly what about is this reminder"
-msgstr "संक्षेप में यह अनुस्मारक किस बारे में है?"
+#| msgid "Briefly what about is this reminder"
+msgid "Briefly, what is this reminder about?"
+msgstr "संक्षेप में, यह अनुस्मारक किस बारे में है?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
@@ -646,7 +647,7 @@ msgid "Reminder date"
 msgstr "याद दिलाने की तारीख"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -757,7 +758,7 @@ msgstr "कार्रवाई (Action)"
 msgid "Workflow"
 msgstr "कार्य प्रवाह"
 
-#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:121
 msgid "Language"
 msgstr "भाषा"
 
@@ -847,8 +848,8 @@ msgid "View on site"
 msgstr "साइट पर देखें"
 
 #: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
 #: common/templates/common/select_emails.html:13
+#: common/templates/common/select_object.html:12
 #: common/templates/common/user_transfer.html:13
 #: crm/templates/admin/crm/change_form.html:18
 #: crm/templates/admin/crm/crmemail/change_form.html:18
@@ -930,14 +931,6 @@ msgstr "याद दिलाने का संकेत बनाएँ"
 msgid "Regarding"
 msgstr "विषय:"
 
-#: common/templates/common/select_email_account.html:20
-msgid "Please select an Email account"
-msgstr "कृपया एक ईमेल खाता चुनें"
-
-#: common/templates/common/select_email_account.html:38
-msgid "Select"
-msgstr "चुनें"
-
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
 #: crm/templates/admin/crm/company/change_list_object_tools.html:20
@@ -972,6 +965,10 @@ msgstr "को"
 msgid "This email is already imported."
 msgstr "यह ईमेल पहले से ही आयातित है।"
 
+#: common/templates/common/select_object.html:37
+msgid "Select"
+msgstr "चुनें"
+
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
 msgstr "कृपया एक उपयोगकर्ता चुनें और उसके लिए एक नया विभाग।"
@@ -998,18 +995,46 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "नाम अनुवाद के लिए जोड़ा गया है। कृपया po और mo फ़ाइलों को अपडेट करें।"
 
-#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
 #: tasks/site/taskadmin.py:36
 msgid "Copy"
 msgstr "प्रतिलिपि बनाएँ"
 
 #: common/utils/helpers.py:31
+#| msgid ""
+#| "Note massmail is not performed on the following days: Friday, Saturday, "
+#| "Sunday."
+msgid ""
+"Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
+"Sundays."
+msgstr "ध्यान दें! सामूहिक डाक शुक्रवार, शनिवार और रविवार को नहीं भेजी जाती।"
+
+#: common/utils/helpers.py:33
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} के साथ आईडी '{}' मौजूद नहीं है। शायद इसे डिलीट कर दिया गया?"
+
+#: common/utils/helpers.py:36
+#| msgid ""
+#| "\n"
+#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#| "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+#| "    "
+msgid ""
+"\n"
+"Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+msgstr ""
+"\n"
+"HTML का उपयोग करें। एम्बेड की गई छवि का पता निर्दिष्ट करने के लिए, {% cid_media ‘path/to/pic.png' %} का उपयोग करें।<br>\n"
+"आप CRM सर्वर पर अपलोड की गई फ़ाइलों को ‘media/pics/’ फ़ोल्डर में एम्बेड कर सकते हैं।\n"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
 msgstr "एक नया विभाग बनाया गया है - {}. कृपया इसका नाम बदलें।"
+
+#: common/views/select_email_account.py:32
+msgid "Please select an Email account"
+msgstr "कृपया एक ईमेल खाता चुनें"
 
 #: common/views/select_emails_import.py:118
 msgid ""
@@ -1037,7 +1062,7 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "उपयोगकर्ता का सफल स्थानांतरण हुआ"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
 msgid "Contact details"
 msgstr "संपर्क विवरण"
 
@@ -1114,13 +1139,10 @@ msgstr "केवल संपर्क या केवल लीड चुन�
 msgid "Select only Company or only Lead"
 msgstr "केवल कंपनी या केवल लीड चुनें"
 
-#: crm/forms/admin_forms.py:325
-msgid "First select a department."
-msgstr "पहले एक विभाग चुनें।"
-
-#: crm/forms/admin_forms.py:331
-msgid "That tag already exists."
-msgstr "वह टैग पहले से मौजूद है।"
+#: crm/forms/admin_forms.py:328
+#| msgid "That tag already exists."
+msgid "Such a tag already exists."
+msgstr "ऐसा टैग पहले से मौजूद है."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1211,7 +1233,7 @@ msgid "Address"
 msgstr "पता"
 
 #: crm/models/base_contact.py:122 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "अयोग्य घोषित किया गया"
 
@@ -1228,7 +1250,7 @@ msgstr "संभावित ग्राहक स्रोत"
 msgid "Mass mailing"
 msgstr "बुनियादी मेलिंग"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:76
 msgid "Mailing list recipient."
 msgstr "मेलिंग लिस्ट प्राप्तकर्ता।"
 
@@ -1344,7 +1366,7 @@ msgid "Not supported by all mail services."
 msgstr "सभी ईमेल सेवाओं द्वारा समर्थित नहीं है।"
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
+#: crm/site/shipmentadmin.py:272
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1364,7 +1386,7 @@ msgid "Contact"
 msgstr "संपर्क विवरण"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:435
+#: crm/site/requestadmin.py:438
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1445,7 +1467,7 @@ msgstr "डीलर या वितरण कंपनी का संपर�
 msgid "Relevant"
 msgstr "संबंधित"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: crm/models/deal.py:164 crm/utils/admfilters.py:487
 msgid "Important"
 msgstr "महत्वपूर्ण"
 
@@ -1668,7 +1690,7 @@ msgstr "कम संभावना"
 msgid "Payment status"
 msgstr "भुगतान स्थिति"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
 msgid "contract number"
 msgstr "अनुबंध संख्या"
 
@@ -1788,7 +1810,7 @@ msgstr "डुप्लिकेट"
 msgid "Duplicate request. The deal will not be created."
 msgstr "डुप्लिकेट अनुरोध। डील बनाई नहीं जाएगी।"
 
-#: crm/models/request.py:131 help/models.py:125
+#: crm/models/request.py:131 help/models.py:130
 msgid "Verification required"
 msgstr "सत्यापन आवश्यक है"
 
@@ -1968,20 +1990,20 @@ msgstr "प्रदर्शनी"
 msgid "Establish the first contact with the client."
 msgstr "ग्राहक के साथ पहला संपर्क स्थापित करें।"
 
-#: crm/site/companyadmin.py:25
+#: crm/site/companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "ध्यान दें! आप केवल अपने विभाग से जुड़ी कंपनियों को ही देख सकते हैं।"
 
-#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "चेतावनी:"
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:212
 msgid "Owner will also be changed for contact persons."
 msgstr "संपर्क व्यक्तियों के मालिक को भी बदल दिया जाएगा।"
 
-#: crm/site/companyadmin.py:223
+#: crm/site/companyadmin.py:225
 msgid "Change owner of selected Companies"
 msgstr "चयनित कंपनियों का मालिक बदलें"
 
@@ -1989,7 +2011,7 @@ msgstr "चयनित कंपनियों का मालिक बद�
 msgid "Your Excel file"
 msgstr "आपका एक्सेल फ़ाइल"
 
-#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
 #: massmail/site/emlmessageadmin.py:133
 msgid "Signature"
 msgstr "हस्ताक्षर"
@@ -2014,76 +2036,68 @@ msgstr "सामग्री"
 msgid "Previous correspondence"
 msgstr "पिछला संवाद"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
+#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:343
 #: crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "विषय नहीं"
 
-#: crm/site/crmmodeladmin.py:61
+#: crm/site/crmmodeladmin.py:63
 msgid "View website in new tab"
 msgstr "वेबसाइट को नए टैब में देखें"
 
-#: crm/site/crmmodeladmin.py:62
+#: crm/site/crmmodeladmin.py:64
 msgid "Callback to smartphone"
 msgstr "स्मार्टफ़ोन पर कॉलबैक"
 
-#: crm/site/crmmodeladmin.py:63
+#: crm/site/crmmodeladmin.py:65
 msgid "Callback to your smartphone"
 msgstr "आपके स्मार्टफोन पर कॉलबैक करें"
 
-#: crm/site/crmmodeladmin.py:64
+#: crm/site/crmmodeladmin.py:66
 msgid "Skype chat"
 msgstr "स्काइप चैट"
 
-#: crm/site/crmmodeladmin.py:65
+#: crm/site/crmmodeladmin.py:67
 msgid "Chat or Skype call"
 msgstr "चैट या स्काइप कॉल"
 
-#: crm/site/crmmodeladmin.py:66
+#: crm/site/crmmodeladmin.py:68
 msgid "Skype call"
 msgstr "स्काइप कॉल"
 
-#: crm/site/crmmodeladmin.py:67
+#: crm/site/crmmodeladmin.py:69
 msgid "To call a mobile or landline from Skype"
 msgstr "स्काइप से मोबाइल या लैंडलाइन को कॉल करना"
 
-#: crm/site/crmmodeladmin.py:68
+#: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"
 msgstr "वाइब्र चैट"
 
-#: crm/site/crmmodeladmin.py:69
+#: crm/site/crmmodeladmin.py:71
 msgid "Chat or viber call"
 msgstr "चैट या वाइब्र कॉल"
 
-#: crm/site/crmmodeladmin.py:70
+#: crm/site/crmmodeladmin.py:72
 msgid "WhatsApp chat"
 msgstr "व्हाट्सएप चैट"
 
-#: crm/site/crmmodeladmin.py:71
+#: crm/site/crmmodeladmin.py:73
 msgid "Chat or WhatsApp call"
 msgstr "चैट या व्हाट्सएप कॉल"
 
-#: crm/site/crmmodeladmin.py:76
+#: crm/site/crmmodeladmin.py:78
 msgid "Signed up for email newsletters"
 msgstr "ईमेल न्यूज़लेटर के लिए साइन अप किया गया"
 
-#: crm/site/crmmodeladmin.py:78
+#: crm/site/crmmodeladmin.py:80
 msgid "Unsubscribed from email newsletters"
 msgstr "ईमेल न्यूज़लेटर से सब्सक्रिप्शन रद्द किया गया"
 
-#: crm/site/crmmodeladmin.py:276
+#: crm/site/crmmodeladmin.py:278
 msgid "Create Email"
 msgstr "ईमेल बनाएँ"
 
-#: crm/site/crmmodeladmin.py:341
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                        Friday, Saturday, Sunday."
-msgstr ""
-"ध्यान दें कि निम्नलिखित दिनों पर सामूहिक मेल नहीं किया जाता है: शुक्रवार, "
-"शनिवार, रविवार।"
-
-#: crm/site/crmmodeladmin.py:371
+#: crm/site/crmmodeladmin.py:370
 msgid "Messengers"
 msgstr "संदेशवाहक"
 
@@ -2131,7 +2145,7 @@ msgstr "भुगतान प्राप्त हुआ"
 msgid "Specify the date of shipment"
 msgstr "आम्दान की तिथि निर्दिष्ट करें"
 
-#: crm/site/dealadmin.py:77
+#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:240
 msgid "Specify products"
 msgstr "उत्पाद निर्दिष्ट करें"
 
@@ -2247,11 +2261,11 @@ msgstr "स्थिति"
 msgid "Subsequent request"
 msgstr "अगला अनुरोध"
 
-#: crm/site/requestadmin.py:389
+#: crm/site/requestadmin.py:392
 msgid "Found the counterparty assigned to"
 msgstr "पाया गया प्रतिपक्षी जिसे असाइन किया गया है"
 
-#: crm/site/requestadmin.py:488
+#: crm/site/requestadmin.py:491
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "\"{name}\" नामक \"{obj}\" सफलतापूर्वक जोड़ा गया।"
@@ -2304,7 +2318,7 @@ msgstr "अनुबंध के अनुसार शिपमेंट क�
 msgid "View the deal"
 msgstr "सौदा देखें"
 
-#: crm/site/shipmentadmin.py:254
+#: crm/site/shipmentadmin.py:257
 msgid "paid"
 msgstr "चुकाया गया"
 
@@ -2370,6 +2384,7 @@ msgstr "प्रशासक में खोलें"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: massmail/templates/admin/massmail/mailingout/change_list_object_tools.html:6
 msgid "Make Massmail"
 msgstr "बुलकने वाली मेल बनाएँ"
 
@@ -2604,50 +2619,50 @@ msgstr "इस साल के नौ महीने"
 msgid "Second half of the last year"
 msgstr "पिछले साल की दूसरी छमाही"
 
-#: crm/utils/admfilters.py:417
+#: crm/utils/admfilters.py:418
 msgid "changed by chiefs"
 msgstr "मुख्यों द्वारा बदला गया"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
+#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
+#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "हाँ"
 
-#: crm/utils/admfilters.py:437
+#: crm/utils/admfilters.py:438
 msgid "Partner"
 msgstr "साझेदार"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
+#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "नहीं"
 
-#: crm/utils/admfilters.py:498
+#: crm/utils/admfilters.py:499
 msgid "Has Contacts"
 msgstr "संपर्क विवरण उपलब्ध हैं"
 
-#: crm/utils/admfilters.py:564
+#: crm/utils/admfilters.py:565
 msgid "mailbox"
 msgstr "डाक का डिब्बा"
 
-#: crm/utils/admfilters.py:583
+#: crm/utils/admfilters.py:584
 msgid "inbox"
 msgstr "प्राप्त संदेश"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "sent"
 msgstr "भेजे गए"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "ड्राफ्ट बॉक्स ({num})"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 msgid "trash"
 msgstr "कूड़ा डिब्बा"
 
@@ -2781,7 +2796,7 @@ msgstr "मॉडल"
 msgid "page"
 msgstr "पृष्ठ"
 
-#: help/models.py:49 help/models.py:106
+#: help/models.py:49 help/models.py:111
 msgid "Title"
 msgstr "शीर्षक"
 
@@ -2797,19 +2812,19 @@ msgstr ""
 "यह सीआरएम पेजों में से एक पर उपलब्ध है। अन्यथा, इसे केवल दूसरी सहायता पेज से"
 " लिंक के माध्यम से एक्सेस किया जा सकता है।"
 
-#: help/models.py:86
+#: help/models.py:91
 msgid "Paragraph"
 msgstr "अनुच्छेद"
 
-#: help/models.py:87
+#: help/models.py:92
 msgid "Paragraphs"
 msgstr "पैराग्राफ़ें"
 
-#: help/models.py:97
+#: help/models.py:102
 msgid "Groups"
 msgstr "समूह"
 
-#: help/models.py:99
+#: help/models.py:104
 msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
@@ -2817,31 +2832,31 @@ msgstr ""
 "अगर कोई उपयोगकर्ता समूह चुना नहीं जाता है तो पैराग्राफ़ केवल सुपरयूज़र के "
 "लिए उपलब्ध होगा।"
 
-#: help/models.py:105
+#: help/models.py:110
 msgid "Title of paragraph."
 msgstr "पैराग्राफ़ का शीर्षक।"
 
-#: help/models.py:120 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:42
 msgid "draft"
 msgstr "ड्राफ्ट"
 
-#: help/models.py:121
+#: help/models.py:126
 msgid "Will not be published."
 msgstr "प्रकाशित नहीं किया जाएगा।"
 
-#: help/models.py:126
+#: help/models.py:131
 msgid "Content requires additional verification."
 msgstr "सामग्री को अतिरिक्त सत्यापन की आवश्यकता है।"
 
-#: help/models.py:131
+#: help/models.py:136
 msgid "Index number"
 msgstr "सूची संख्या"
 
-#: help/models.py:132
+#: help/models.py:137
 msgid "The sequence number of the paragraph on the page."
 msgstr "पृष्ठ पर पैराग्राफ का क्रमांक।"
 
-#: help/models.py:138
+#: help/models.py:143
 msgid "Link to a related paragraph if exists."
 msgstr "यदि मौजूद है तो संबंधित अनुच्छेद का लिंक।"
 
@@ -2849,63 +2864,55 @@ msgstr "यदि मौजूद है तो संबंधित अनु�
 msgid "Service information"
 msgstr "सेवा जानकारी"
 
-#: massmail/admin_actions.py:17
+#: massmail/admin_actions.py:18
 msgid "Please select recipients only with the same owner."
 msgstr "कृपया केवल उसी मालिक वाले प्राप्तकर्ताओं का चयन करें।"
 
-#: massmail/admin_actions.py:18
+#: massmail/admin_actions.py:19
 msgid "Bad result - no recipients! Make another choice."
 msgstr "बुरा परिणाम - कोई प्राप्तकर्ता नहीं! दूसरा विकल्प चुनें।"
 
-#: massmail/admin_actions.py:21
+#: massmail/admin_actions.py:22
 msgid "Create a mailing out for selected objects"
 msgstr "चयनित वस्तुओं के लिए मेलिंग बनाएँ"
 
-#: massmail/admin_actions.py:33
+#: massmail/admin_actions.py:34
 msgid "Unsubscribed users were excluded from the mailing list."
 msgstr ""
 "मेलिंग लिस्ट से उन सब्सक्राइबर्स को हटा दिया गया है जिन्होंने सदस्यता रद्द "
 "कर दी थी।"
 
-#: massmail/admin_actions.py:54
-msgid ""
-"Note massmail is not performed on the following days: Friday, Saturday, "
-"Sunday."
-msgstr ""
-"ध्यान दें कि निम्नलिखित दिनों में बुलकने का कार्य नहीं किया जाता है: "
-"शुक्रवार, शनिवार, रविवार।"
-
-#: massmail/admin_actions.py:65
+#: massmail/admin_actions.py:62
 msgid "Merge selected mailing outs"
 msgstr "चयनित मेलिंग आउट को मर्ज करें"
 
-#: massmail/admin_actions.py:85
+#: massmail/admin_actions.py:82
 msgid "united"
 msgstr "संयुक्त"
 
-#: massmail/admin_actions.py:107
+#: massmail/admin_actions.py:104
 msgid "Specify VIP recipients"
 msgstr "वीआईपी प्राप्तकर्ताओं को निर्दिष्ट करें"
 
-#: massmail/admin_actions.py:115
+#: massmail/admin_actions.py:112
 msgid "Please first add your main email account."
 msgstr "कृपया पहले अपने मुख्य ईमेल खाते को जोड़ें।"
 
-#: massmail/admin_actions.py:143
+#: massmail/admin_actions.py:140
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
 msgstr "मुख्य ईमेल पता चयनित प्राप्तकर्ताओं को सफलतापूर्वक असाइन किया गया है।"
 
-#: massmail/admin_actions.py:149
+#: massmail/admin_actions.py:146
 msgid "Please select mailings with only the same recipient type."
 msgstr "कृपया केवल एक ही प्रकार के प्राप्तकर्ता वाले मेलिंग का चयन करें।"
 
-#: massmail/admin_actions.py:154
+#: massmail/admin_actions.py:151
 msgid "Please select only mailings with the same message."
 msgstr "कृपया केवल एक ही संदेश वाले मेलिंग का चयन करें।"
 
-#: massmail/admin_actions.py:183
+#: massmail/admin_actions.py:180
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
@@ -2913,7 +2920,7 @@ msgstr ""
 "मेलिंग के लिए कोई मेल खाता उपलब्ध नहीं है। कृपया अपने एडमिनिस्ट्रेटर से "
 "संपर्क करें।"
 
-#: massmail/admin_actions.py:191
+#: massmail/admin_actions.py:188
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
@@ -3025,22 +3032,11 @@ msgstr "अंतिम आयात की तिथि और समय"
 msgid "Specify the imap host"
 msgstr "आईमैप होस्ट को निर्दिष्ट करें"
 
-#: massmail/models/email_message.py:10
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
-"    "
-msgstr ""
-"\n"
-"HTML का उपयोग करें। एम्बेड की गई छवि का पता निर्दिष्ट करने के लिए, {% cid_media ‘path/to/pic.png' %} का उपयोग करें।<br>\n"
-"आप CRM सर्वर पर अपलोड की गई फ़ाइलों को ‘media/pics/’ फ़ोल्डर में एम्बेड कर सकते हैं या इस संदेश से जोड़ सकते हैं।"
-
-#: massmail/models/email_message.py:19
+#: massmail/models/email_message.py:15
 msgid "Email Message"
 msgstr "ईमेल संदेश"
 
-#: massmail/models/email_message.py:20
+#: massmail/models/email_message.py:16
 msgid "Email Messages"
 msgstr "ईमेल संदेश"
 
@@ -3077,11 +3073,11 @@ msgstr "किया गया"
 msgid "The name of the message."
 msgstr "संदेश का नाम।"
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
 msgid "Number of recipients"
 msgstr "प्राप्तकर्ताओं की संख्या"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
 msgid "Recipients type"
 msgstr "प्राप्तकर्ताओं का प्रकार"
 
@@ -3089,22 +3085,11 @@ msgstr "प्राप्तकर्ताओं का प्रकार"
 msgid "Report"
 msgstr "रिपोर्ट"
 
-#: massmail/models/signature.py:7
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
-"    "
-msgstr ""
-"\n"
-"HTML का उपयोग करें। एम्बेड की गई छवि का पता निर्दिष्ट करने के लिए, {% cid_media ‘path/to/pic.png' %} का उपयोग करें।<br>\n"
-"आप CRM सर्वर पर अपलोड की गई फ़ाइलों को ‘media/pics/’ फ़ोल्डर में एम्बेड कर सकते हैं।"
-
-#: massmail/models/signature.py:17
+#: massmail/models/signature.py:14
 msgid "Signatures"
 msgstr "हस्ताक्षर"
 
-#: massmail/models/signature.py:27
+#: massmail/models/signature.py:24
 msgid "The name of the signature."
 msgstr "हस्ताक्षर का नाम।"
 
@@ -3121,31 +3106,23 @@ msgstr "पूर्वावलोकन"
 msgid "Edit"
 msgstr "संपादित करें"
 
-#: massmail/site/mailingoutadmin.py:17
+#: massmail/site/mailingoutadmin.py:18
 msgid "Available Email accounts for MassMail"
 msgstr "मास मेल के लिए उपलब्ध ईमेल खाते"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:19
 msgid "Accounts"
 msgstr "खाते"
 
-#: massmail/site/mailingoutadmin.py:27
+#: massmail/site/mailingoutadmin.py:28
 msgid "Today"
 msgstr "आज"
 
-#: massmail/site/mailingoutadmin.py:28
+#: massmail/site/mailingoutadmin.py:29
 msgid "Sent today"
 msgstr "आज भेजा गया"
 
-#: massmail/site/mailingoutadmin.py:72
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                Friday, Saturday, Sunday."
-msgstr ""
-"ध्यान दें कि निम्नलिखित दिनों पर सामूहिक मेल नहीं किया जाता है: शुक्रवार, "
-"शनिवार, रविवार।"
-
-#: massmail/site/mailingoutadmin.py:110
+#: massmail/site/mailingoutadmin.py:107
 msgid "notification"
 msgstr "सूचना"
 
@@ -3220,6 +3197,15 @@ msgstr "रिफ्रेश टोकन सफलतापूर्वक प
 #: massmail/views/get_oauth2_tokens.py:79
 msgid "Error: Failed to get authorization code."
 msgstr "त्रुटि: अधिकारण कोड प्राप्त करने में असफल।"
+
+#: massmail/views/select_recipient_type.py:30
+msgid "Use the 'Action' menu."
+msgstr "'एक्शन' मेनू का उपयोग करें."
+
+#: massmail/views/select_recipient_type.py:39
+#| msgid "Please select at least one recipient"
+msgid "Please select the type of recipients"
+msgstr "कृपया प्राप्तकर्ताओं का प्रकार चुनें"
 
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
@@ -3869,10 +3855,37 @@ msgstr "से आने वाली कॉल"
 msgid "(duration: {duration} minutes)"
 msgstr "(समयावधि: {duration} मिनट)"
 
-#: webcrm/settings.py:270
+#: webcrm/settings.py:271
 msgid "Untitled"
 msgstr "शीर्षकहीन"
 
-#: webcrm/settings.py:285
+#: webcrm/settings.py:286
 msgid "Main Menu"
 msgstr "मुख्य मेनू"
+
+#~ msgid "First select a department."
+#~ msgstr "पहले एक विभाग चुनें।"
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                        Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "ध्यान दें कि निम्नलिखित दिनों पर सामूहिक मेल नहीं किया जाता है: शुक्रवार, "
+#~ "शनिवार, रविवार।"
+
+#~ msgid ""
+#~ "\n"
+#~ "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#~ "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "HTML का उपयोग करें। एम्बेड की गई छवि का पता निर्दिष्ट करने के लिए, {% cid_media ‘path/to/pic.png' %} का उपयोग करें।<br>\n"
+#~ "आप CRM सर्वर पर अपलोड की गई फ़ाइलों को ‘media/pics/’ फ़ोल्डर में एम्बेड कर सकते हैं या इस संदेश से जोड़ सकते हैं।"
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "ध्यान दें कि निम्नलिखित दिनों पर सामूहिक मेल नहीं किया जाता है: शुक्रवार, "
+#~ "शनिवार, रविवार।"
