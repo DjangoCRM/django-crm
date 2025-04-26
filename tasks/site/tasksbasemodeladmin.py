@@ -388,7 +388,7 @@ class TasksBaseModelAdmin(BaseModelAdmin):
         return super().response_post_save_change(request, obj)
 
     def save_model(self, request, obj, form, change):
-        if "next_step" in form.changed_data:
+        if "next_step" in form.changed_data and change:
             if obj.responsible.count() == 1 and obj.responsible.get() != request.user:
                 obj.next_step += f" ({request.user})"
             obj.add_to_workflow(f'{obj.next_step}.')
