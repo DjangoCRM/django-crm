@@ -50,7 +50,7 @@ class TaskBaseForm(ModelForm):
 
         # If this is a subtask,
         # then there should be only one responsible person.
-        if 'responsible' in self.changed_data and 'task' in self.cleaned_data:
+        if 'responsible' in self.changed_data and self.cleaned_data.get('task', None):
             if 'responsible' in self.cleaned_data:
                 responsible_num = len(self.cleaned_data.get('responsible'))
                 if responsible_num > 1:
