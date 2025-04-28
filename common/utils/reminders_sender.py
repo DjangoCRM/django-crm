@@ -14,6 +14,7 @@ from common.models import Reminder
 from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import save_message
 from common.utils.helpers import send_crm_email
+from settings.models import Reminders
 
 regarding_str = _('Regarding')
 
@@ -27,17 +28,24 @@ class RemindersSender(threading.Thread, SingleInstance):
             SingleInstance.__init__(self, flavor_id='Reminder_test')
         else:
             SingleInstance.__init__(self, flavor_id='Reminder')
-    
+
     def run(self):
         if not settings.TESTING:
-            # To prevent hit the db until the apps.ready() is completed.
+            # To prevent hitting the db until the apps.ready() is completed.
             time.sleep(1)
 
             while True:
                 if settings.DEBUG:
                     break
                 send_remainders()
-                time.sleep(settings.REMAINDER_CHECK_INTERVAL)
+                try:
+                    interval = Reminders.objects.get(id=1).check_interval
+                except Reminders.DoesNotExist:
+                    # TODO: The "REMAINDER_CHECK_INTERVAL" setting is deprecated and should be removed in the future.
+                    interval = getattr(settings, 'REMAINDER_CHECK_INTERVAL', None) or 300
+                    Reminders.objects.create(id=1, check_interval=interval)
+
+                time.sleep(interval)
 
 
 def send_remainders() -> None:
@@ -53,7 +61,7 @@ def send_remainders() -> None:
                 f'site:{content_obj._meta.app_label}_{content_obj._meta.model_name}_change',    # NOQA
                 args=(content_obj.id,)
             )
-            model_name = Reminder._meta.object_name
+            model_name = Reminder._meta.object_name     # NOQA
             user = r.owner
             trans_name = get_trans_for_user(model_name, user)
             subject = f'CRM {trans_name}: ' + " ".join(r.subject.splitlines())
