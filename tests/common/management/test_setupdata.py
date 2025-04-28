@@ -11,6 +11,7 @@ from crm.models import Currency
 from crm.models import Industry
 from crm.models import LeadSource
 from crm.models import Stage
+from settings.models import Reminders
 from tasks.models import ProjectStage
 from tasks.models import TaskStage
 from tasks.models import Resolution
@@ -38,3 +39,4 @@ class TestSetupData(TransactionTestCase):
         self.assertTrue(Industry.objects.filter(name="metallurgy").exists())
         self.assertTrue(LeadSource.objects.filter(name="website form").exists())
         self.assertTrue(Site.objects.filter(domain="localhost:8000").exists())
+        self.assertTrue(Reminders.objects.filter(check_interval=300).exists())
