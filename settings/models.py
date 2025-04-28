@@ -3,21 +3,46 @@ from django.utils.translation import gettext_lazy as _
 
 
 class BannedCompanyName(models.Model):
+    """
+    Model representing a banned company name.
+
+    This model is used to store company names that block the automatic generation
+    of commercial requests from spam messages.
+    Each name is unique and cannot be null or blank.
+
+    Attributes:
+        name (str): The name of the banned company, stored as a unique string
+            with a maximum length of 50 characters.
+    """
     class Meta:
         verbose_name = _("Banned company name")
         verbose_name_plural = _("Banned company names")
 
     name = models.CharField(
-        max_length=50,  unique=True,
+        max_length=50, unique=True,
         null=False, blank=False,
         verbose_name=_("Name")
     )
 
     def __str__(self):
+        """
+        Returns the string representation of the banned company name.
+        """
         return self.name
 
 
 class PublicEmailDomain(models.Model):
+    """
+    Model representing a public email domain.
+
+    This model is used to store public domains to identify them in messages
+    and prevent company identification by email domain.
+    Each domain is unique and stored in the lowercase.
+
+    Attributes:
+        domain (str): The email domain, stored as a unique string with a
+            maximum length of 20 characters.
+    """
     class Meta:
         verbose_name = _('Public email domain')
         verbose_name_plural = _('Public email domains')
@@ -29,14 +54,29 @@ class PublicEmailDomain(models.Model):
     )
 
     def save(self, *args, **kwargs):
+        """
+        Overrides the save method to ensure the domain is stored in lowercase.
+        """
         self.domain = self.domain.lower()
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Returns the string representation of the public email domain.
+        """
         return self.domain
 
 
 class Reminders(models.Model):
+    """
+    Model for storing reminder settings.
+
+    This model is used to configure the interval at which reminders are checked.
+
+    Attributes:
+        check_interval (int): The interval in seconds to check for reminders,
+            stored as a positive integer. Defaults to 300 seconds.
+    """
     class Meta:
         verbose_name = _('Reminder settings')
         verbose_name_plural = _('Reminder settings')
@@ -50,14 +90,33 @@ class Reminders(models.Model):
         )
     )
 
+    def __str__(self):
+        """
+        Returns a string representation of the reminder settings.
+        """
+        return "Settings"
+
 
 class StopPhrase(models.Model):
+    """
+    Model representing a stop phrase.
+
+    This model is used to store phrases that block the automatic generation
+    of commercial requests from spam messages. It also tracks the last
+    occurrence date of each phrase.
+
+    Attributes:
+        phrase (str): The stop phrase, stored as a unique string with a
+            maximum length of 100 characters.
+        last_occurrence_date (date): The date when the phrase was most recently
+            encountered, updated automatically whenever the record is saved.
+    """
     class Meta:
         verbose_name = _('Stop Phrase')
         verbose_name_plural = _('Stop Phrases')
 
     phrase = models.CharField(
-        max_length=100,  unique=True,
+        max_length=100, unique=True,
         null=False, blank=False,
         verbose_name=_("Phrase")
     )
@@ -68,7 +127,13 @@ class StopPhrase(models.Model):
     )
 
     def hit(self):
+        """
+        Updates the last occurrence date of the stop phrase to the current date.
+        """
         self.save()
 
     def __str__(self):
+        """
+        Returns the string representation of the stop phrase.
+        """
         return self.phrase
