@@ -30,6 +30,7 @@ class Command(BaseCommand):
             'publicemaildomain.json',
             'help_en.json',
             'sites.json',
+            'reminders.json',
             verbosity=1
         )
         if not settings.TESTING:
