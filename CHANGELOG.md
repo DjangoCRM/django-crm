@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Improve
 
 - The algorithm for creating mailings has been simplified.
+- Setting the reminder time check interval is now available through the admin site instead of using a settings file.
 - Improve the test of the current backend for loading currency rates.
 
 ## [1.2.2] - 2025-03-22
