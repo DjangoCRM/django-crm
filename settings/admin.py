@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.http import HttpResponseRedirect
 
 from crm.site.crmadminsite import crm_site
 from settings.models import BannedCompanyName
@@ -20,6 +21,9 @@ class PublicEmailDomainAdmin(admin.ModelAdmin):
 class RemindersAdmin(admin.ModelAdmin):
 
     # -- ModelAdmin methods -- #
+
+    def changelist_view(self, request, extra_context=None):
+        return HttpResponseRedirect(request.path + "1/change/")
 
     def has_add_permission(self, request):
         return False
