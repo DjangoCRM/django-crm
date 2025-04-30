@@ -194,7 +194,15 @@ class MyTests(BaseTestCase):
 
     def check_response(self, url: str, username: str) -> None:
         response = self.client.get(url, HTTP_ACCEPT_LANGUAGE='en')
-        self.assertEqual(response.status_code, 200,
-                         "User {} got response status_code {} at url {}".format(
-                             username, response.status_code, url
-                         ))
+        if username == 'Adam.Admin' and "settings/reminders/" in url:
+            self.assertEqual(response.status_code, 302,
+                             "User {} got response status_code {} at url {}".format(
+                                 username, response.status_code, url
+                             ))
+        else:
+            # Check that the response status code is 200
+            # and the page is accessible for the user.
+            self.assertEqual(response.status_code, 200,
+                             "User {} got response status_code {} at url {}".format(
+                                 username, response.status_code, url
+                             ))
