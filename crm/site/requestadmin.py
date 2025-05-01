@@ -12,6 +12,7 @@ from django.urls import reverse
 from common.admin import FileInline
 from common.models import Department
 from common.utils.helpers import get_delta_date
+from common.utils.helpers import LEADERS
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_department_id
 from common.utils.copy_files import copy_files
@@ -340,7 +341,12 @@ class RequestAdmin(CrmModelAdmin):
     )
     def request_subject(self, obj):
         if not obj.request_for:
-            obj.request_for = _('No subject')
+            obj.request_for = LEADERS
+        if obj.duplicate:
+            duplicate = obj._meta.get_field('duplicate').verbose_name  # NOQA
+            return mark_safe(
+                f'<span  style="color: var(--body-quiet-color)">({duplicate}) {obj.request_for}</span>'
+            )
         return obj.request_for
 
     @admin.display(description=status_str)
