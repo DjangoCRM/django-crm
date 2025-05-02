@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Matching of a company in the database by the contents of the alternative names field.
 - Action menu to remove stop phrases that are no longer used.
+- Visual marking of duplicate commercial requests.
 - Translations of CRM software into the following languages:
   - Romanian
   - Hebrew
