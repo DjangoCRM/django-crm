@@ -12,6 +12,8 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-ukrainian.md">Українська</a>
 </p>
 
+---
+
 # Django-CRM
 
 *(Collaborative and Analytical Customer Relationship Management Software)*
