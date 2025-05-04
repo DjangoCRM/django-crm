@@ -271,9 +271,9 @@ SHOW_USER_CURRENT_TIME_ZONE = False
 NO_NAME_STR = _('Untitled')
 
 # For automated getting currency exchange rate
-LOAD_EXCHANGE_RATE = True
+LOAD_EXCHANGE_RATE = False
 LOADING_EXCHANGE_RATE_TIME = "6:30"
-LOAD_RATE_BACKEND = "crm.backends.bank_gov_ua_backend.BankGovUaBackend"  # "crm.backends.<specify_backend>.<specify_class>"
+LOAD_RATE_BACKEND = ""  # "crm.backends.<specify_backend>.<specify_class>"
 
 # Ability to mark payments through a representation
 MARK_PAYMENTS_THROUGH_REP = False
@@ -294,12 +294,6 @@ PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
 
 TESTING = sys.argv[1:2] == ['test']
 if TESTING:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': ':memory:',
-        }
-    }
     SECURE_SSL_REDIRECT = False
     LANGUAGE_CODE = 'en'
     LANGUAGES = [('en', ''), ('uk', '')]

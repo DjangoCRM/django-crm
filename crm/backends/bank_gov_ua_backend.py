@@ -23,7 +23,7 @@ class BankGovUaBackend(BaseBackend):
         self.state_currency = self.get_state_currency()
         self.currency = currency
         self.marketing_currency = marketing_currency
-        self.rate_date = rate_date if rate_date else date.today() # Ensure rate_date is set
+        self.rate_date = rate_date if rate_date else date.today()
         self.data = self.get_data(marketing_currency)
         self.marketing_currency_rate = self.get_marketing_currency_rate()
 
@@ -32,20 +32,19 @@ class BankGovUaBackend(BaseBackend):
         params = {'date': date_str, 'valcode': currency, 'json': ''}
         try:
             response = requests.get(self.url, params=params)
-            response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+            response.raise_for_status()
             return response.json()
         except JSONDecodeError:
             self.error = f"Failed to decode JSON response from API. Status: {response.status_code}. Response text: {response.text[:100]}"
             return []
-        except requests.exceptions.RequestException as e: # Catch other request errors (timeout, connection error)
+        except requests.exceptions.RequestException as e:
             self.error = f"API request failed: {e}"
             return []
 
-    def _extract_rate(self, data: list, currency_code: str):
-        """Private helper to extract rate from API data list."""
+    def extract_rate_from_data(self, data: list, currency_code: str):
+        """Extracts rate from API data list, handles errors, returns 1 on failure."""
         if not data:
-            # self.error should be set by get_data if data is empty
-            return 1 # Return default rate
+            return 1
         try:
             return data[0]['rate']
         except (IndexError, KeyError, TypeError) as e:
@@ -53,19 +52,14 @@ class BankGovUaBackend(BaseBackend):
             return 1
 
     def get_marketing_currency_rate(self):
-        # Uses the initially fetched data (self.data)
-        return self._extract_rate(self.data, self.marketing_currency)
+        return self.extract_rate_from_data(self.data, self.marketing_currency)
 
     def get_rate_to_state_currency(self, currency: str = 'USD'):
-        # If initial marketing currency fetch already had issues, return default
         if self.error and not self.data:
             return 1
 
-        # If querying the same currency as marketing, use the already fetched data
         if currency == self.marketing_currency:
-            return self._extract_rate(self.data, self.marketing_currency)
+            return self.get_marketing_currency_rate()
 
-        # Fetch data for the specific currency if different from marketing
-        # Note: this resets self.error if the specific fetch fails
         specific_data = self.get_data(currency)
-        return self._extract_rate(specific_data, currency)
+        return self.extract_rate_from_data(specific_data, currency)
