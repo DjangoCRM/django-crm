@@ -41,39 +41,31 @@ class BankGovUaBackend(BaseBackend):
             self.error = f"API request failed: {e}"
             return []
 
-    def get_marketing_currency_rate(self):
-        # Check if data fetching failed
-        if not self.data: # Data is empty list [] if fetching failed in get_data
-            # self.error is already set in get_data
-           return 1 # Return default rate
+    def _extract_rate(self, data: list, currency_code: str):
+        """Private helper to extract rate from API data list."""
+        if not data:
+            # self.error should be set by get_data if data is empty
+            return 1 # Return default rate
         try:
-            return self.data[0]['rate']
-        except (IndexError, KeyError, TypeError) as e: # More specific potential errors accessing data
-            self.error = f"Error processing API data: {e}. Data received: {self.data}"
+            return data[0]['rate']
+        except (IndexError, KeyError, TypeError) as e:
+            self.error = f"Error processing API data for {currency_code}: {e}. Data received: {data}"
             return 1
+
+    def get_marketing_currency_rate(self):
+        # Uses the initially fetched data (self.data)
+        return self._extract_rate(self.data, self.marketing_currency)
 
     def get_rate_to_state_currency(self, currency: str = 'USD'):
-        # If marketing currency rate already had issues, don't try again
-        if self.error:
-           return 1
+        # If initial marketing currency fetch already had issues, return default
+        if self.error and not self.data:
+            return 1
 
-        # If querying the same currency as marketing, return the already fetched rate
+        # If querying the same currency as marketing, use the already fetched data
         if currency == self.marketing_currency:
-             if not self.data: # Check if initial fetch failed
-                 return 1
-             try:
-                 return self.data[0]['rate']
-             except (IndexError, KeyError, TypeError) as e:
-                 self.error = f"Error processing API data for marketing currency: {e}. Data received: {self.data}"
-                 return 1
+            return self._extract_rate(self.data, self.marketing_currency)
 
         # Fetch data for the specific currency if different from marketing
+        # Note: this resets self.error if the specific fetch fails
         specific_data = self.get_data(currency)
-        if not specific_data : # Check if fetching failed for this specific currency
-            # self.error is set within the get_data call above
-            return 1
-        try:
-            return specific_data[0]['rate']
-        except (IndexError, KeyError, TypeError) as e:
-            self.error = f"Error processing API data for {currency}: {e}. Data received: {specific_data}"
-            return 1
+        return self._extract_rate(specific_data, currency)
