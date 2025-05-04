@@ -44,8 +44,10 @@ This CRM is written in <a href="https://www.python.org" target="_blank"><img src
 Frontend and backend are entirely based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.  
-The documentation on the Admin site takes up only one web page.  
-💡 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.
+The documentation on the Admin site takes up only one web page.
+
+💡 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.  
+A **table view of CRM objects** with sorting and filtering by multiple fields enables users to quickly locate relevant information, prioritize tasks, and manage large volumes of data with greater efficiency.
 
 **All this ensures**:
 
