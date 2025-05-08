@@ -58,8 +58,6 @@ class BankGovUaBackend(BaseBackend):
         if self.error and not self.data:
             return 1
 
-        if currency == self.marketing_currency:
-            return self.get_marketing_currency_rate()
 
         specific_data = self.get_data(currency)
         return self.extract_rate_from_data(specific_data, currency)
