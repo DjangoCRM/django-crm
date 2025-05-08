@@ -59,5 +59,5 @@ class BankGovUaBackend(BaseBackend):
             return 1
 
 
-        specific_data = self.get_data(currency)
-        return self.extract_rate_from_data(specific_data, currency)
+        currency_data = self.get_data(currency)
+        return self.extract_rate_from_data(currency_data, currency)
