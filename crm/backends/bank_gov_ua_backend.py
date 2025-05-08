@@ -55,7 +55,7 @@ class BankGovUaBackend(BaseBackend):
         return self.extract_rate_from_data(self.data, self.marketing_currency)
 
     def get_rate_to_state_currency(self, currency: str = 'USD'):
-        if self.error and not self.data:
+        if self.error:
             return 1
 
 
