@@ -43,7 +43,7 @@ class BankGovUaBackend(BaseBackend):
 
     def extract_rate_from_data(self, data: list, currency_code: str):
         """Extracts rate from API data list, handles errors, returns 1 on failure."""
-        if not data:
+        if self.error:
             return 1
         try:
             return data[0]['rate']
