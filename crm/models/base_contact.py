@@ -62,7 +62,6 @@ class BaseContact(models.Model):
         verbose_name=_("Mobile phone")
     )
 
-    skype = models.CharField(max_length=50, blank=True, default='')
 
     city_name = models.CharField(
         max_length=50, blank=True, default='',

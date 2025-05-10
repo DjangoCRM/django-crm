@@ -2061,21 +2061,9 @@ msgstr "Panggilan balik ke ponsel cerdas"
 msgid "Callback to your smartphone"
 msgstr "Panggilan balik ke ponsel cerdas Anda"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "Obrolan Skype"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "Obrolan atau Panggilan Skype"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "Panggilan Skype"
-
 #: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "Untuk menelepon ponsel atau telepon tetap dari Skype"
+msgid "To call a mobile"
+msgstr "Untuk menelepon ponsel"
 
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"

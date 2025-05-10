@@ -2031,21 +2031,9 @@ msgstr "Gọi lại điện thoại thông minh"
 msgid "Callback to your smartphone"
 msgstr "Gọi lại cho điện thoại thông minh của bạn"
 
-#: crm/site/crmmodeladmin.py:64
-msgid "Skype chat"
-msgstr "Trò chuyện Skype"
-
-#: crm/site/crmmodeladmin.py:65
-msgid "Chat or Skype call"
-msgstr "Trò chuyện hoặc cuộc gọi Skype"
-
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype call"
-msgstr "Cuộc gọi Skype"
-
 #: crm/site/crmmodeladmin.py:67
-msgid "To call a mobile or landline from Skype"
-msgstr "Gọi điện thoại di động hoặc cố định từ Skype"
+msgid "To call a mobile"
+msgstr "Gọi di động"
 
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
