@@ -2052,21 +2052,9 @@ msgstr "Apelare inversă pe smartphone"
 msgid "Callback to your smartphone"
 msgstr "Apelare inversă pe smartphone-ul dumneavoastră"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "Chat Skype"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "Chat sau apel Skype"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "Apel Skype"
-
 #: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "Pentru a efectua un apel pe mobil sau fix prin Skype"
+msgid "To call a mobile"
+msgstr "Pentru a efectua un apel"
 
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"

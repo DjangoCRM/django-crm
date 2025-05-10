@@ -2016,21 +2016,9 @@ msgstr "智能手机回呼"
 msgid "Callback to your smartphone"
 msgstr "回拨到您的智能手机"
 
-#: crm/site/crmmodeladmin.py:64
-msgid "Skype chat"
-msgstr "Skype 聊天"
-
-#: crm/site/crmmodeladmin.py:65
-msgid "Chat or Skype call"
-msgstr "聊天或 Skype 通话"
-
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype call"
-msgstr "Skype 通话"
-
 #: crm/site/crmmodeladmin.py:67
-msgid "To call a mobile or landline from Skype"
-msgstr "在 Skype 上拨打移动电话或固定电话"
+msgid "To call a mobile"
+msgstr "拨打手机"
 
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"

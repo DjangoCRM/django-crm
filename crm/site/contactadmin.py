@@ -60,7 +60,7 @@ class ContactAdmin(CrmModelAdmin):
         'email', 'secondary_email',
         'description', 'phone',
         'other_phone', 'mobile',
-        'skype', 'city_name',
+        'city_name',
         'address', 'company__full_name',
         'company__website',
         'company__city_name',
@@ -121,7 +121,6 @@ class ContactAdmin(CrmModelAdmin):
                     'connections_to_other_phone',
                     'mobile',
                     'connections_to_mobile',
-                    'skype',
                     ('lead_source', 'company'),
                     ('city', 'country'),
                     'address'

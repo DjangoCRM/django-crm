@@ -2030,21 +2030,9 @@ msgstr "Zwrotny telefon na smartfon"
 msgid "Callback to your smartphone"
 msgstr "Zwrotny telefon na Twój smartfon"
 
-#: crm/site/crmmodeladmin.py:64
-msgid "Skype chat"
-msgstr "Czat Skype"
-
-#: crm/site/crmmodeladmin.py:65
-msgid "Chat or Skype call"
-msgstr "Czat lub rozmowa Skype"
-
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype call"
-msgstr "Rozmowa Skype"
-
 #: crm/site/crmmodeladmin.py:67
-msgid "To call a mobile or landline from Skype"
-msgstr "Aby zadzwonić na telefon komórkowy lub stacjonarny z aplikacji Skype"
+msgid "To call a mobile"
+msgstr "Aby zadzwonić na komórkę"
 
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
