@@ -47,7 +47,7 @@
     - [Embedding CRM form in an iframe of a website page](#embedding-crm-form-in-an-iframe-of-a-website-page)
     - [Activate form protection with Google's reCAPTCHA v3](#activate-form-protection-with-googles-recaptcha-v3)
     - [Activation of geolocation of the country and city of the counterparty by its IP](#activation-of-geolocation-of-the-country-and-city-of-the-counterparty-by-its-ip)
-    - [Adding a custom form for iframe](#adding-a-custom-form-for-iframe)
+    - [Adding a custom form for iframe](#adding-a-custom-form-for-the-iframe)
 
     </details>
   
@@ -77,7 +77,7 @@
 
 ## Introduction
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with web interface.  
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with a web interface.  
 It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
 
 The CRM project consists of the following main applications:
@@ -170,7 +170,7 @@ The syntax of the data in these files must match the syntax of the Python langua
 
 Most of the project settings are Django framework settings.
 Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).  
-The settings missing in this list are CRM specific settings. Explanations can be found in the comments to them.  
+The settings missing in this list are CRM-specific settings. Explanations can be found in the comments to them.  
 Most of the settings can be left at their default values.
 
 The default settings are for running the project on a development server.
@@ -195,7 +195,7 @@ and then destroy a separate [test database](https://docs.djangoproject.com/en/de
 
 #### For MySQL database, it is recommended to  
 
-- setup the timezone table;  
+- set up the timezone table;  
 - set the extended encoding:
   - charset `utf8mb4`
   - collation  `utf8mb4_general_ci`
@@ -241,7 +241,7 @@ python manage.py setupdata
 This command will execute `migrate`, `loaddata` and `createsuperuser`.
 As a result, the database will be populated with objects such as  
 countries, currencies, departments, industries, etc.  
-Also the superuser will be created.
+Also, the superuser will be created.
 You will be able to modify them or add your own.  
 Use the superuser credentials from the output to log into the CRM site.
 
@@ -508,7 +508,7 @@ For marketing purposes, each "Request", "Lead", "Contact" and "Company" has a li
 Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
 For convenience, CRM has a number of pre-defined "Leads Sources". These can be edited.
 Each "Lead Source" has a link to a "Department". Therefore, each department can have its own set of lead sources.  
-The "Form template name" and "Success page template name" fields are only populated when [adding a custom iframe form](#adding-a-custom-form-for-iframe).  
+The "Form template name" and "Success page template name" fields are only populated when [adding a custom iframe form](#adding-a-custom-form-for-the-iframe).  
 The "Email" field is only specified in the "Lead Source" of your website. You need to specify the Email value indicated on your site.
 
 ### Forms
@@ -547,9 +547,9 @@ Here is an example of a simple string:
 <iframe src="<url>" style="width: 600px;height: 450px;"></iframe>
 ```
 
-url must follow the format:  
+the url must follow the format:  
 `https://<yourCRM.domain>/<language_code>/contact-form/<uuid>/`
-where uuid is the values of the "UUID" field of the selected "Lead Source".
+where uuid is the value of the "UUID" field of the selected "Lead Source."
 
 #### Activate form protection with Google's reCAPTCHA v3
 
@@ -560,13 +560,13 @@ To activate it, specify the values of keys received during registration on this 
 
 #### Activation of geolocation of the country and city of the counterparty by its IP
 
-CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP.  For this purpose, GeoIP2 module is used.  
+CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP.  For this purpose, the GeoIP2 module is used.  
 To activate its work:
 
 - save the [MaxMind](https://dev.maxmind.com/geoip/docs/databases) files of the city and country databases (GeoLite2-Country.mmdb and GeoLite2-City.mmdb) to the media/geodb directory;
 - set GEOIP = True in the file
 
-#### Adding a custom form for iframe
+#### Adding a custom form for the iframe
 
 You can change the style of a preset form or add forms with different styles to fit on different pages of the site or on different sites.  
 To add a new form, place the HTML template for that form and the successful form submission message template at the following location:  
@@ -626,8 +626,8 @@ In most cases, they do not need to be changed.
 
 ## Configuring two-step OAuth 2.0 authentication
 
-In some cases, to access the CRM to the Gmail account, you will need to configure in the Gmail account access for third -party applications and once pass two -factor authentication.
-The procedure is not simple. Therefore, first, make sure that without its passage CRM will really not get access to your account.  
+In some cases, to access the CRM to the Gmail account, you will need to configure in the Gmail account access for third-party applications and once pass two-factor authentication.
+The procedure is not simple. Therefore, first, make sure that without its passage, CRM will really not get access to your account.  
 Google APIs use the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749) for authentication and authorization.
 Visit the [Google API Console](https://console.developers.google.com/). Create "OAuth 2.0 Client IDs" settings
  for "Web application" to specify the Authorized redirect URI in the format:  
@@ -685,14 +685,14 @@ Each message template must contain the UNSUBSCRIBE button with this url.
 A properly configured application allows you to make calls directly from Django CRM.
 This application allows you to integrate CRM with the services of VoIP provider ZADARMA.  But it can also be used to create integration files with other providers.
 
-It is necessary to receive from the provider (zadarma.com) and to specify in voip/settings.py file the following values: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
+It is necessary to receive from the provider (zadarma.com) and to specify in `voip/settings.py` file the following values: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
 FORWARD settings are specified independently, but only if you have a second instance of working CRM (for example, for a subsidiary company).
 
 Then add Connections objects for users in the  
  `(ADMIN) Home > Voip > Connections`
 
-To connect to a different provider, you must create new files for it
-backend (voip/backends) and (voip/views).  
+To connect to a different provider, you must create new files for its
+backend (`voip/backends`) and (`voip/views`).  
 And also add provider data to the VOIP list in the file  
 `voip/settings.py`
 
