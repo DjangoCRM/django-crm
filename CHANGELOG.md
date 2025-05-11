@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.3.0] - 2025-05-11
 
 ### Added
 
@@ -19,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Translations of CRM software into the following languages:
   - Romanian
   - Hebrew
-
 - Warning message “Specify products” if a Request is saved without specifying products.
 
 ### Improve
@@ -27,6 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The algorithm for creating mailings has been simplified.
 - Setting the reminder time check interval is now available through the admin site instead of using a settings file.
 - Improve the test of the current backend for loading currency rates.
+
+### Fixed
+- Some minor fixes
+
+#### Full Changelog: [v1.2.2...v1.3.0](https://github.com/DjangoCRM/django-crm/compare/v1.2.2...v1.3.0)
 
 ## [1.2.2] - 2025-03-22
 
