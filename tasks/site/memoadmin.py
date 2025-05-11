@@ -51,7 +51,7 @@ memo_was_written_str = _("The office memo was written")
 you_received_memo_str = _("You've received a office memo")
 
 class MemoAdmin(BaseModelAdmin):
-
+    empty_value_display = ''
     filter_horizontal = ('subscribers',)
     form = MemoForm
     inlines = [FileInline]
