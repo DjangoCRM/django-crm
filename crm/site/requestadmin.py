@@ -333,7 +333,7 @@ class RequestAdmin(CrmModelAdmin):
                 return mark_safe(link)
             elif counter == 1:
                 return mark_safe(f'<span title="{obj_plural_name}">(1)</span>')
-        return ''
+        return mark_safe('&nbsp;')  # to avoid showing dashes if there is no counter
 
     @admin.display(
         description=subject_safe_icon,
