@@ -82,7 +82,6 @@ class LeadAdmin(CrmModelAdmin):
         'phone',
         'other_phone',
         'mobile',
-        'skype',
         'city_name',
         'address'
     ]
@@ -134,7 +133,6 @@ class LeadAdmin(CrmModelAdmin):
                     'connections_to_other_phone',
                     'mobile',
                     'connections_to_mobile',
-                    'skype',
                 )
             }),
             (_('Company contact details'), {

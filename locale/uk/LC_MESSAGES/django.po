@@ -2050,22 +2050,6 @@ msgstr "Зворотній дзвінок на смартфон"
 msgid "Callback to your smartphone"
 msgstr "Зворотній дзвінок на ваш смартфон"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "Skype чат"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "Чат або Skype дзвінок"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "Skype дзвінок"
-
-#: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "Зателефонувати на мобільний або стаціонарний телефон із Skype"
-
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"
 msgstr "Viber чат"

@@ -2061,22 +2061,6 @@ msgstr "Llamada de devolución al smartphone"
 msgid "Callback to your smartphone"
 msgstr "Llamada de devolución a su teléfono inteligente"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "Chat de Skype"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "Chat o llamada de Skype"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "Llamada de Skype"
-
-#: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "Llamar a un móvil o teléfono fijo desde Skype"
-
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"
 msgstr "Chat de Viber"

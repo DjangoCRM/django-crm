@@ -63,12 +63,10 @@ _fields = {
 website_tip = _("View website in new tab")
 smartphone_callback = _("Callback to smartphone")
 smartphone_callback_tip = _("Callback to your smartphone")
-skype_chat = _("Skype chat")
-skype_chat_tip = _("Chat or Skype call")
-skype_call = _("Skype call")
-skype_call_tip = _("To call a mobile or landline from Skype")
+
 viber_chat = _("Viber chat")
 viber_chat_tip = _("Chat or viber call")
+
 whatsapp_chat = _("WhatsApp chat")
 whatsapp_chat_tip = _("Chat or WhatsApp call")
 
@@ -372,15 +370,9 @@ class CrmModelAdmin(BaseModelAdmin):
         number = ''.join(re.findall(r"\+|\d+", obj.phone))
         if not number.count('+'):
             number = '+' + number
-        skype_chat_lnk = ''
-        if hasattr(obj, 'skype') and obj.skype:
-            lnk = f'skype:{obj.skype}?call'
-            skype_chat_lnk = f'<li><a title="{skype_chat_tip}" href="{lnk}">{skype_chat}</a></li>'
 
         return mark_safe(
             f'<ul class="object-tools" style="margin-left: 0px;margin-top: 0px;">\
-                {skype_chat_lnk}\
-                <li><a title="{skype_call_tip}" href="skype:{number}?call">{skype_call}</a></li>\
                 <li><a title="{viber_chat_tip}" href="viber://chat/?number={number}">{viber_chat}</a></li>\
                 <li><a title="{whatsapp_chat_tip}" href="https://wa.me/{number}/?text=Hi!" target="_blank">\
                 {whatsapp_chat}</a></li>\
@@ -510,7 +502,6 @@ class CrmModelAdmin(BaseModelAdmin):
                         <a title="{smartphone_callback_tip}" href="#" onClick="{onclick}">\
                         {smartphone_callback}</a>
                     </li>\
-                    <li><a title="{skype_call_tip}" href="skype:{number}?call">{skype_call}</a></li>\
                     <li><a title="{viber_chat_tip}" href="viber://chat/?number={number}">{viber_chat}</a></li>\
                     <li>
                         <a title="{whatsapp_chat_tip}" href="https://wa.me/{number}/?text=Hi!" target="_blank">

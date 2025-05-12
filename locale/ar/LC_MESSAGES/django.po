@@ -2027,22 +2027,6 @@ msgstr "الاتصال المرتد إلى الهاتف الذكي"
 msgid "Callback to your smartphone"
 msgstr "مكالمة عودة إلى هاتفك الذكي"
 
-#: crm/site/crmmodeladmin.py:64
-msgid "Skype chat"
-msgstr "محادثة سكايب"
-
-#: crm/site/crmmodeladmin.py:65
-msgid "Chat or Skype call"
-msgstr "محادثة أو مكالمة سكايب"
-
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype call"
-msgstr "مكالمة سكايب"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "To call a mobile or landline from Skype"
-msgstr "الاتصال برقم هاتف محمول أو أرضي عبر سكايب"
-
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
 msgstr "محادثة فيبر"
