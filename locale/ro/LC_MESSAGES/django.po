@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-24 08:48+0200\n"
-"PO-Revision-Date: 2025-03-24 19:52+0200\n"
+"POT-Creation-Date: 2025-05-13 18:54+0300\n"
+"PO-Revision-Date: 2025-05-13 18:57+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -245,10 +245,10 @@ msgstr "Țară"
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
 #: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
+#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
+#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
+#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -264,20 +264,20 @@ msgstr "Toate"
 msgid "Owner"
 msgstr "Proprietar"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: analytics/site/outputstatadmin.py:170 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "Produs"
 
-#: analytics/site/outputstatadmin.py:199
+#: analytics/site/outputstatadmin.py:200
 msgid "Sold products summary (by date of payment receipt)"
 msgstr "Rezumat produse vândute (în funcție de data primirii plății)"
 
-#: analytics/site/outputstatadmin.py:287
+#: analytics/site/outputstatadmin.py:288
 msgid "Sold products"
 msgstr "Produse vândute"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: analytics/site/outputstatadmin.py:294 crm/models/product.py:45
 msgid "Price"
 msgstr "Preț"
 
@@ -431,10 +431,10 @@ msgid "You received a message regarding - "
 msgstr "Ai primit un mesaj referitor la -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
+#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
 #: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
 #: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: crm/site/requestadmin.py:98 crm/site/tagadmin.py:26 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -458,7 +458,7 @@ msgstr "Răspunde la"
 
 #: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
 #: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
+#: common/templates/common/select_object.html:15
 #: common/templates/common/user_transfer.html:17
 #: crm/templates/admin/crm/change_form.html:21
 #: crm/templates/admin/crm/company/change_list_object_tools.html:8
@@ -647,7 +647,7 @@ msgid "Reminder date"
 msgstr "Data memento"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -846,8 +846,8 @@ msgid "View on site"
 msgstr "Vizualizare pe site"
 
 #: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
 #: common/templates/common/select_emails.html:13
+#: common/templates/common/select_object.html:12
 #: common/templates/common/user_transfer.html:13
 #: crm/templates/admin/crm/change_form.html:18
 #: crm/templates/admin/crm/crmemail/change_form.html:18
@@ -925,17 +925,9 @@ msgid "Create a reminder"
 msgstr "Creare memento"
 
 #: common/templates/common/reminder_message.html:4
-#: common/utils/reminders_sender.py:18
+#: common/utils/reminders_sender.py:19
 msgid "Regarding"
 msgstr "În legătură cu"
-
-#: common/templates/common/select_email_account.html:20
-msgid "Please select an Email account"
-msgstr "Vă rugăm să selectați un cont de email"
-
-#: common/templates/common/select_email_account.html:38
-msgid "Select"
-msgstr "Selectați"
 
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
@@ -970,6 +962,10 @@ msgstr "Către"
 #: common/templates/common/select_emails.html:56
 msgid "This email is already imported."
 msgstr "Acest email a fost deja importat."
+
+#: common/templates/common/select_object.html:37
+msgid "Select"
+msgstr "Selectați"
 
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
@@ -1030,6 +1026,10 @@ msgstr ""
 msgid "A new department has been created - {}. Please rename it."
 msgstr "A fost creat un departament nou - {}. Vă rugăm să-l redenumiti."
 
+#: common/views/select_email_account.py:32
+msgid "Please select an Email account"
+msgstr "Vă rugăm să selectați un cont de email"
+
 #: common/views/select_emails_import.py:118
 msgid ""
 "You do not have mail accounts marked for importing emails. Please contact "
@@ -1056,14 +1056,14 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "Utilizatorul a fost transferat cu succes"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
 msgid "Contact details"
 msgstr "Detalii de contact"
 
 #: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
-#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
 #: tasks/models/taskbase.py:32
 msgid "Name"
 msgstr "Nume"
@@ -1073,7 +1073,7 @@ msgid "Contact info"
 msgstr "Informații de contact"
 
 #: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:88
+#: crm/site/requestadmin.py:89
 msgid "Relations"
 msgstr "Relații"
 
@@ -1133,13 +1133,10 @@ msgstr "Selectați doar Contact sau doar Potențial Client"
 msgid "Select only Company or only Lead"
 msgstr "Selectați doar Companie sau doar Potențial Client"
 
-#: crm/forms/admin_forms.py:325
-msgid "First select a department."
-msgstr "Mai întâi selectați un departament."
-
-#: crm/forms/admin_forms.py:331
-msgid "That tag already exists."
-msgstr "Eticheta există deja."
+#: crm/forms/admin_forms.py:328
+#| msgid "That tag already exists."
+msgid "Such a tag already exists."
+msgstr "O astfel de etichetă există deja."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1231,7 +1228,7 @@ msgid "Address"
 msgstr "Adresă"
 
 #: crm/models/base_contact.py:122 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "Descalificat"
 
@@ -1364,7 +1361,7 @@ msgid "Not supported by all mail services."
 msgstr "Nu este suportat de toate serviciile de email."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
+#: crm/site/shipmentadmin.py:272
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1384,7 +1381,7 @@ msgid "Contact"
 msgstr "Contact"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:435
+#: crm/site/requestadmin.py:444
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1463,7 +1460,7 @@ msgstr "Persoana de contact a dealer-ului sau a companiei de distribuție"
 msgid "Relevant"
 msgstr "Relevantă"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: crm/models/deal.py:164 crm/utils/admfilters.py:487
 msgid "Important"
 msgstr "Important"
 
@@ -1687,7 +1684,7 @@ msgstr "probabilitate scăzută"
 msgid "Payment status"
 msgstr "Status plată"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
 msgid "contract number"
 msgstr "număr contract"
 
@@ -1987,22 +1984,22 @@ msgstr "expoziție"
 msgid "Establish the first contact with the client."
 msgstr "Stabilește primul contact cu clientul."
 
-#: crm/site/companyadmin.py:25
+#: crm/site/companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr ""
 "Atenție! Puteți vizualiza doar companiile asociate departamentului "
 "dumneavoastră."
 
-#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "Atenție:"
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:212
 msgid "Owner will also be changed for contact persons."
 msgstr "Proprietarul va fi schimbat și pentru persoanele de contact."
 
-#: crm/site/companyadmin.py:223
+#: crm/site/companyadmin.py:225
 msgid "Change owner of selected Companies"
 msgstr "Schimbă proprietarul companiilor selectate"
 
@@ -2035,8 +2032,7 @@ msgstr "Conținut"
 msgid "Previous correspondence"
 msgstr "Corespondență anterioară"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
-#: crm/utils/import_emails.py:192
+#: crm/site/crmemailadmin.py:422 crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "Fără subiect"
 
@@ -2144,7 +2140,7 @@ msgstr "Plată primită"
 msgid "Specify the date of shipment"
 msgstr "Specificați data livrării"
 
-#: crm/site/dealadmin.py:77
+#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:241
 msgid "Specify products"
 msgstr "Specificați produsele"
 
@@ -2215,57 +2211,57 @@ msgid "This Lead is disqualified! Please read the description."
 msgstr ""
 "Acest potențial client a fost descalificat! Vă rugăm să citiți descrierea."
 
-#: crm/site/requestadmin.py:38
+#: crm/site/requestadmin.py:39
 msgid "Client Loyalty"
 msgstr "Fidelitatea clienților"
 
-#: crm/site/requestadmin.py:45
+#: crm/site/requestadmin.py:46
 msgid "Country not specified in request"
 msgstr "Țara nu a fost specificată în cerere"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:47
 msgid "You received the deal"
 msgstr "Ai primit tranzacția"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:48
 msgid "You are the co-owner of the deal"
 msgstr "Ați fost desemnat co-proprietar al tranzacției"
 
-#: crm/site/requestadmin.py:53
+#: crm/site/requestadmin.py:54
 msgid "Primary request"
 msgstr "Cerere principală"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:55
 msgid "You are the co-owner of the request"
 msgstr "Sunteți co-proprietar al cererii"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:56
 msgid "You received the request"
 msgstr "Ați primit solicitarea"
 
-#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "în așteptare"
 
-#: crm/site/requestadmin.py:57
+#: crm/site/requestadmin.py:58
 msgid "processed"
 msgstr "procesat"
 
-#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
 msgid "Status"
 msgstr "Stare"
 
-#: crm/site/requestadmin.py:62
+#: crm/site/requestadmin.py:63
 msgid "Subsequent request"
 msgstr "Cerere ulterioară"
 
-#: crm/site/requestadmin.py:389
+#: crm/site/requestadmin.py:398
 msgid "Found the counterparty assigned to"
 msgstr "S-a găsit contrapartea asignată"
 
-#: crm/site/requestadmin.py:488
+#: crm/site/requestadmin.py:497
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} \"{obj}\" a fost adăugat cu succes."
@@ -2318,7 +2314,7 @@ msgstr "Data de expediere conform contractului."
 msgid "View the deal"
 msgstr "Vizualizare ofertă"
 
-#: crm/site/shipmentadmin.py:254
+#: crm/site/shipmentadmin.py:257
 msgid "paid"
 msgstr "plătit"
 
@@ -2384,6 +2380,7 @@ msgstr "Deschide în Admin"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: massmail/templates/admin/massmail/mailingout/change_list_object_tools.html:6
 msgid "Make Massmail"
 msgstr "Creare Campanie Email"
 
@@ -2620,50 +2617,50 @@ msgstr "Nouă luni din acest an"
 msgid "Second half of the last year"
 msgstr "A doua jumătate a anului trecut"
 
-#: crm/utils/admfilters.py:417
+#: crm/utils/admfilters.py:418
 msgid "changed by chiefs"
 msgstr "Modificat de conducere"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
+#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
+#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "Da"
 
-#: crm/utils/admfilters.py:437
+#: crm/utils/admfilters.py:438
 msgid "Partner"
 msgstr "Partener"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
+#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "Nu"
 
-#: crm/utils/admfilters.py:498
+#: crm/utils/admfilters.py:499
 msgid "Has Contacts"
 msgstr "Are contacte"
 
-#: crm/utils/admfilters.py:564
+#: crm/utils/admfilters.py:565
 msgid "mailbox"
 msgstr "căsuță poștală"
 
-#: crm/utils/admfilters.py:583
+#: crm/utils/admfilters.py:584
 msgid "inbox"
 msgstr "căsuța poștală"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "sent"
 msgstr "trimise"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "căsuță de ieșire ({num})"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 msgid "trash"
 msgstr "coș de gunoi"
 
@@ -3200,6 +3197,15 @@ msgstr "Token de reîmprospătare primit cu succes."
 msgid "Error: Failed to get authorization code."
 msgstr "Eroare: Nu s-a putut obține codul de autorizare."
 
+#: massmail/views/select_recipient_type.py:30
+msgid "Use the 'Action' menu."
+msgstr "Folosește meniul „Acțiune”."
+
+#: massmail/views/select_recipient_type.py:39
+#| msgid "Please select at least one recipient"
+msgid "Please select the type of recipients"
+msgstr "Vă rugăm să selectați tipul de destinatari"
+
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
 msgstr ""
@@ -3214,57 +3220,57 @@ msgstr "Testul de email a fost trimis cu succes către {email_accounts}"
 msgid "Settings"
 msgstr "Setări"
 
-#: settings/models.py:7
+#: settings/models.py:18
 msgid "Banned company name"
 msgstr "Nume companie interzis"
 
-#: settings/models.py:8
+#: settings/models.py:19
 msgid "Banned company names"
 msgstr "Nume de companii interzise"
 
-#: settings/models.py:22
+#: settings/models.py:47
 msgid "Public email domain"
 msgstr "Domeniu public de email"
 
-#: settings/models.py:23
+#: settings/models.py:48
 msgid "Public email domains"
 msgstr "Domenii publice de email"
 
-#: settings/models.py:28
+#: settings/models.py:53
 msgid "Domain"
 msgstr "Domeniu"
 
-#: settings/models.py:41 settings/models.py:42
+#: settings/models.py:81 settings/models.py:82
 msgid "Reminder settings"
 msgstr "Setări memento"
 
-#: settings/models.py:47
+#: settings/models.py:87
 msgid "Check interval"
 msgstr "Interval de verificare"
 
-#: settings/models.py:49
+#: settings/models.py:89
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Specificați intervalul în secunde pentru a verifica dacă a sosit momentul "
 "pentru memento."
 
-#: settings/models.py:56
+#: settings/models.py:115
 msgid "Stop Phrase"
 msgstr "Fraza de oprire"
 
-#: settings/models.py:57
+#: settings/models.py:116
 msgid "Stop Phrases"
 msgstr "Fraze de oprire"
 
-#: settings/models.py:62
+#: settings/models.py:121
 msgid "Phrase"
 msgstr "Fraza"
 
-#: settings/models.py:66
+#: settings/models.py:125
 msgid "Last occurrence date"
 msgstr "Data ultimei apariții"
 
-#: settings/models.py:67
+#: settings/models.py:126
 msgid "Date of last occurrence of the phrase"
 msgstr "Data ultimei apariții a expresiei"
 
@@ -3853,10 +3859,13 @@ msgstr "Apel primit de la"
 msgid "(duration: {duration} minutes)"
 msgstr "(durată: {duration} minute)"
 
-#: webcrm/settings.py:270
+#: webcrm/settings.py:272
 msgid "Untitled"
 msgstr "Fără titlu"
 
-#: webcrm/settings.py:285
+#: webcrm/settings.py:287
 msgid "Main Menu"
 msgstr "Meniul Principal"
+
+#~ msgid "First select a department."
+#~ msgstr "Mai întâi selectați un departament."
