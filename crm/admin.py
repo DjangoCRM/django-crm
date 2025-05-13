@@ -221,7 +221,7 @@ class ContactAdmin(contactadmin.ContactAdmin):
             ('Contact details', {
                 'fields': (
                     ('email', 'secondary_email'),
-                    ('skype', 'phone'),
+                    ('phone',),
                     ('other_phone', 'mobile'),
                     ('lead_source', 'company'),
                     'address', 'country'
@@ -274,7 +274,6 @@ class LeadAdmin(leadadmin.LeadAdmin):
                 'fields': (
                     ('email', 'secondary_email'),
                     ('phone', 'other_phone'),
-                    'skype',
                     ('company_name', 'website'),
                     ('company_email', 'country'),
                     'address',

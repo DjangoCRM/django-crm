@@ -8,7 +8,7 @@ SHIPMENT_DATE_CHECK = True
 # to the Excel file when exporting contact persons.
 CONTACT_COLUMNS = [
     'first_name', 'last_name', 'title', 'sex', 'birth_date',
-    'was_in_touch', 'phone', 'other_phone', 'mobile', 'skype',
+    'was_in_touch', 'phone', 'other_phone', 'mobile', 
     'email', 'secondary_email', 'city_name', 'address',
     'country', 'description', 'birth_date', 'owner',
     'company', 'department', 'disqualified', 'massmail'
@@ -28,7 +28,7 @@ COMPANY_COLUMNS = [
 LEAD_COLUMNS = [
     'first_name', 'last_name', 'title', 'sex', 'birth_date',
     'was_in_touch', 'email', 'secondary_email', 'phone',
-    'other_phone', 'mobile', 'skype', 'city_name', 'country',
+    'other_phone', 'mobile', 'city_name', 'country',
     'address', 'description', 'lead_source', 'website',
     'company_phone', 'city_name', 'company_address',
     'company_email', 'owner', 'company_name', 'department',

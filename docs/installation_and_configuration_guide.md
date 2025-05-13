@@ -699,4 +699,4 @@ And also add provider data to the VOIP list in the file
 ## CRM integration with messengers
 
 Django CRM has the ability to send messages via messengers.  Such as  
-Viber, WhatsApp, Skype. To do this, these applications must be installed on the user's device.
+Viber, WhatsApp. To do this, these applications must be installed on the user's device.
