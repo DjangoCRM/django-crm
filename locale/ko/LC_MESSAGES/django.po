@@ -2039,22 +2039,6 @@ msgstr "스마트폰으로 환불 요청"
 msgid "Callback to your smartphone"
 msgstr "스마트폰으로 되돌려전화하기"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "스카이프 채팅"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "채팅 또는 스카이프 통화"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "스카이프 통화"
-
-#: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "스카이프를 통해 이동전화나 유선전화로 전화 걸기"
-
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"
 msgstr "비버 채팅"

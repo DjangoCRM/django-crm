@@ -700,7 +700,7 @@ Y también agregar los datos del proveedor a la lista VOIP en el archivo
 ## Integración del CRM con mensajeros
 
 Django CRM tiene la capacidad de enviar mensajes a través de mensajeros. Tales como  
-Viber, WhatsApp, Skype. Para hacer esto, estas aplicaciones deben estar instaladas en el dispositivo del usuario.
+Viber, WhatsApp, Para hacer esto, estas aplicaciones deben estar instaladas en el dispositivo del usuario.
 
 ---
 **Por favor, lea [la guía del usuario de Django-CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).**

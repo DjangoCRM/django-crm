@@ -2057,22 +2057,6 @@ msgstr "Terugbelletje naar smartphone"
 msgid "Callback to your smartphone"
 msgstr "Terugbelletje naar je smartphone"
 
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype chat"
-msgstr "Skype-chat"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "Chat or Skype call"
-msgstr "Chat of Skype-gesprek"
-
-#: crm/site/crmmodeladmin.py:68
-msgid "Skype call"
-msgstr "Videogesprek via Skype"
-
-#: crm/site/crmmodeladmin.py:69
-msgid "To call a mobile or landline from Skype"
-msgstr "Bellen naar een mobiel of vast nummer via Skype"
-
 #: crm/site/crmmodeladmin.py:70
 msgid "Viber chat"
 msgstr "Viber-chat"

@@ -2030,22 +2030,6 @@ msgstr "Akıllı telefona geri arama"
 msgid "Callback to your smartphone"
 msgstr "Akıllı telefonunuza geri arama"
 
-#: crm/site/crmmodeladmin.py:64
-msgid "Skype chat"
-msgstr "Skype sohbeti"
-
-#: crm/site/crmmodeladmin.py:65
-msgid "Chat or Skype call"
-msgstr "Sohbet veya Skype görüşmesi"
-
-#: crm/site/crmmodeladmin.py:66
-msgid "Skype call"
-msgstr "Skype Görüşmesi"
-
-#: crm/site/crmmodeladmin.py:67
-msgid "To call a mobile or landline from Skype"
-msgstr "Skype'dan bir cep veya sabit telefonu aramak"
-
 #: crm/site/crmmodeladmin.py:68
 msgid "Viber chat"
 msgstr "Viber sohbeti"
