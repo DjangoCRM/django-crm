@@ -221,7 +221,7 @@ class ContactAdmin(contactadmin.ContactAdmin):
             ('Contact details', {
                 'fields': (
                     ('email', 'secondary_email'),
-                    ('phone',),
+                    'phone',
                     ('other_phone', 'mobile'),
                     ('lead_source', 'company'),
                     'address', 'country'
