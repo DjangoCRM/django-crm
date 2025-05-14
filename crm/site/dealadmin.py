@@ -91,6 +91,7 @@ _thread_local = threading.local()
 
 class DealAdmin(CrmModelAdmin):
     actions = ['export_selected']
+    empty_value_display = ''
     form = DealForm
     inlines = [OutputInline, PaymentInline, FileInline]
     list_filter = (
