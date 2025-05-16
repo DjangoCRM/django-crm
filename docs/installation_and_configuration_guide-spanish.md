@@ -2,13 +2,15 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md">English</a>
 </p>
 
+---
+
 # Django-CRM - guía de instalación y configuración
 
 ## Tabla de contenidos
 
 - [Introducción](#introducción)
 - [Instalación del proyecto](#instalación-del-proyecto)
-  - [Hacer un Fork del Repositorio](#hacer-un-fork-del-repositorio)
+  - [Bifurcar el repositorio](#bifurcar-el-repositorio)
   - [Clonar el proyecto](#clonar-el-proyecto)
   - [Instalar los requisitos](#instalar-los-requisitos)
 - [Configuración de Django CRM](#configuración-de-django-crm)
@@ -22,12 +24,12 @@
 
 - [Pruebas de CRM y base de datos](#pruebas-de-crm-y-base-de-datos)
 - [Instalación de los datos iniciales](#instalación-de-los-datos-iniciales)
-- [Lanzar CRM en el servidor de desarrollo](#lanzar-crm-en-el-servidor-de-desarrollo)
+- [Ejecutar CRM en el servidor integrado](#ejecutar-crm-en-el-servidor-integrado)
 - [Acceso a los sitios de CRM y admin](#acceso-a-los-sitios-de-crm-y-admin)
 - [Especificar el dominio del sitio CRM](#especificar-el-dominio-del-sitio-crm)
 - [Actualización del software de Django CRM](#actualización-del-software-de-django-crm)
 - [Capacidad de traducir la interfaz de Django CRM a otro idioma](#capacidad-de-traducir-la-interfaz-de-django-crm-a-otro-idioma)
-- [Sistema de asistencia incorporado](#sistema-de-asistencia-incorporado)
+- [Sistema de asistencia integrado](#sistema-de-asistencia-integrado)
 - [Agregar usuarios a Django CRM](#agregar-usuarios-a-django-crm)
     <details>
 
@@ -41,16 +43,16 @@
   </details>
   
 - [Acceso de usuarios a aplicaciones y objetos](#acceso-de-usuarios-a-aplicaciones-y-objetos)
-- [Ayudar a los usuarios a dominar Django CRM](#ayudar-a-los-usuarios-a-dominar-django-crm)
+- [Ayudando a los usuarios a dominar Django CRM](#ayudando-a-los-usuarios-a-dominar-django-crm)
 - [Configuración de la adición de solicitudes comerciales en Django CRM](#configuración-de-la-adición-de-solicitudes-comerciales-en-django-crm)
   - [Fuentes de Leads](#fuentes-de-leads)
   - [Formularios](#formularios)
     <details>
 
     - [Enviar datos del formulario con una solicitud POST](#enviar-datos-del-formulario-con-una-solicitud-post)
-    - [Incrustar el formulario de CRM en un iframe de una página web](#incrustar-el-formulario-de-crm-en-un-iframe-de-una-página-web)
+    - [Incrustar un formulario de CRM en un iframe de una página web](#incrustar-un-formulario-de-crm-en-un-iframe-de-una-página-web)
     - [Activar la protección del formulario con reCAPTCHA v3 de Google](#activar-la-protección-del-formulario-con-recaptcha-v3-de-google)
-    - [Activar la geolocalización del país y la ciudad del contraparte por su IP](#activar-la-geolocalización-del-país-y-la-ciudad-del-contraparte-por-su-ip)
+    - [Activar la geolocalización del país y la ciudad de la contraparte por su IP](#activación-de-la-geolocalización-del-país-y-la-ciudad-de-la-contraparte-por-su-ip)
     - [Agregar un formulario personalizado para iframe](#agregar-un-formulario-personalizado-para-iframe)
 
     </details>
@@ -77,7 +79,7 @@
 - [Monedas](#monedas)
 - [Boletín informativo](#boletín-informativo)
 - [Telefonía VoIP](#telefonía-voip)
-- [Integración de CRM con mensajeros](#integración-de-crm-con-mensajeros)
+- [Integración del CRM con mensajeros](#integración-del-crm-con-mensajeros)
 
 ## Introducción
 
@@ -184,7 +186,7 @@ Para iniciar el proyecto por primera vez, es suficiente especificar las configur
 `webcrm/settings.py`  
 Pero posteriormente, necesitarás especificar al menos las configuraciones de `EMAIL_HOST` y `ADMINS`.
 
-### Configuraciones de DATABASES
+### Configuración de DATABASES
 
 Proporciona los datos para conectarse a la base de datos:
 
@@ -213,7 +215,7 @@ Configura la zona horaria a 'UTC' (cuando USE_TZ es True),
 default_transaction_isolation: 'read committed'.  
 Puedes configurarlos directamente en postgresql.conf `(/etc/postgresql/<versión>/main/)`
 
-### Configuraciones de EMAIL_HOST
+### Configuración de EMAIL_HOST
 
 Especifica los detalles para conectarse a una cuenta de correo electrónico a través de la cual el CRM podrá enviar notificaciones a los usuarios y administradores.  
 
@@ -221,7 +223,7 @@ Especifica los detalles para conectarse a una cuenta de correo electrónico a tr
 - `EMAIL_HOST_PASSWORD`
 - `EMAIL_HOST_USER` (login)
 
-### Configuraciones de ADMINS
+### Configuración de ADMINS
 
 Agrega las direcciones de los administradores del CRM a la lista, para que puedan recibir registros de errores.  
 `ADMINS = [("<NombreAdmin1>", "<admin1_box@example.com>"), (...)]`
@@ -260,14 +262,14 @@ python manage.py runserver
 
 En este caso, el CRM estará disponible solo en tu computadora en la dirección IP 127.0.0.1 (localhost) y el puerto 8000.  
 Si necesitas proporcionar acceso al CRM desde una intranet (red local), especifica la dirección IP de tu tarjeta de red y el puerto  
-(pero primero, [especifica el dominio del sitio del CRM](#specify-crm-site-domain)).
+(pero primero, [especifica el dominio del sitio del CRM](#especificar-el-dominio-del-sitio-crm)).
 Por ejemplo:
 
 ```cmd
 python manage.py runserver 1.2.3.4:8000
 ```
 
-## Acceso a los sitios de CRM y administración
+## Acceso a los sitios de CRM y admin
 
 Ahora tienes dos sitios web: CRM y sitios de administración.  
 Usa las credenciales del superusuario para iniciar sesión.
@@ -296,7 +298,7 @@ pueden ser cambiados en el archivo `webcrm/settings.py`
 > Esta dirección no es compatible.  
 > Para proteger el CRM con un servidor de sitios (por ejemplo, [Apache](https://httpd.apache.org/)), se puede colocar una redirección a una página de inicio de sesión falsa en esta dirección.
 
-## Especificar el dominio del sitio del CRM
+## Especificar el dominio del sitio CRM
 
 Por defecto, el software CRM está configurado para trabajar en un dominio "localhost" (ip: 127.0.0.1).  
 Para trabajar en otro dominio (o dirección IP), necesitas hacer lo siguiente:
@@ -305,10 +307,10 @@ Para trabajar en otro dominio (o dirección IP), necesitas hacer lo siguiente:
 `(sitio ADMIN) Inicio > Sitios > Sitios`  
 Agrega un sitio de CRM y especifica su nombre de dominio.
 - En el archivo `webcrm/settings.py`:
-  - especifica su id en la configuración `SITE_ID`,
+  - específica su id en la configuración `SITE_ID`,
   - agrégalo a la configuración `ALLOWED_HOSTS`.
 
-## Actualización del software Django CRM
+## Actualización del software de Django CRM
 
 Django-CRM está en desarrollo activo: se mejora la funcionalidad existente, se añaden nuevas funcionalidades y se corrigen errores.
 Además, se actualizan las versiones del software utilizado por el CRM.
@@ -409,7 +411,7 @@ En relación con una instancia particular de un objeto, CRM puede cambiar dinám
 ### Grupos de usuarios
 
 Los grupos son una forma conveniente de asignar a los usuarios un conjunto específico de permisos o atributos. Un usuario puede pertenecer a cualquier número de grupos. Por ejemplo, el jefe del departamento de ventas necesita ser agregado a los grupos "managers", "department heads" y al grupo del departamento en el que trabaja (por ejemplo, "Global sales").  
-Los grupos "department heads" y "Global sales" otorgan a sus miembros el atributo correspondiente pero no proporcionan ningún permiso.  
+Los grupos "department heads" y "Global sales" otorgan a sus miembros el atributo correspondiente, pero no proporcionan ningún permiso.  
 El grupo "managers" (gerentes de ventas) proporciona a sus miembros conjuntos de permisos en relación con objetos como: Solicitud, Negociación, Cliente potencial, Empresa, Persona de contacto, etc.  
 Un grupo que otorga a sus miembros ciertos derechos se llama rol.
 
@@ -426,7 +428,7 @@ Los siguientes roles están disponibles:
 | accountants    | Proporciona acceso a la analítica de CRM y a los objetos de Pago y Moneda        |
 
 El rol de operador generalmente lo desempeñan secretarias o recepcionistas.  
-A veces, el "gran jefe" comete errores o errores tipográficos al crear tareas pero no tiene tiempo para corregirlos.
+A veces, el "gran jefe" comete errores o errores tipográficos al crear tareas, pero no tiene tiempo para corregirlos.
 Para corregir errores evidentes, necesitas el rol de operador de tareas.
 
 Puedes ver los conjuntos de permisos para cada rol aquí:  
@@ -501,7 +503,7 @@ y completar el formulario.
 
 Las solicitudes que provienen de formularios en el sitio web de su empresa se crean automáticamente (si están configuradas adecuadamente).  
 En modo semiautomático, las solicitudes son creadas por gerentes de ventas u operadores al importar correos electrónicos recibidos en su correo a CRM.  
-Para hacer esto, debe especificar los detalles de sus [cuentas de correo](#setting-up-email-accounts) en CRM para asegurar el acceso de CRM a estas cuentas.
+Para hacer esto, debe especificar los detalles de sus [cuentas de correo](#configuración-de-cuentas-de-correo-electrónico) en CRM para asegurar el acceso de CRM a estas cuentas.
 CRM asigna automáticamente el propietario de la solicitud importada al propietario de la cuenta de correo electrónico.
 
 ### Fuentes de Leads
@@ -511,7 +513,7 @@ Para fines de marketing, cada "Solicitud", "Lead", "Contacto" y "Empresa" tiene 
 Cada Fuente de Lead se identifica por el valor de su campo UUID, que se genera automáticamente cuando se agrega una nueva Fuente de Lead al CRM.  
 Para mayor comodidad, CRM tiene varias "Fuentes de Leads" predefinidas. Estas pueden ser editadas.
 Cada "Fuente de Lead" tiene un enlace a un "Departamento". Por lo tanto, cada departamento puede tener su propio conjunto de fuentes de leads.  
-Los campos "Nombre de la plantilla del formulario" y "Nombre de la plantilla de la página de éxito" solo se completan al [agregar un formulario iframe personalizado](#adding-a-custom-form-for-iframe).  
+Los campos "Nombre de la plantilla del formulario" y "Nombre de la plantilla de la página de éxito" solo se completan al [agregar un formulario iframe personalizado](#agregar-un-formulario-personalizado-para-iframe).  
 El campo "Correo electrónico" solo se especifica en la "Fuente de Lead" de su sitio web. Debe especificar el valor del correo electrónico indicado en su sitio.
 
 ### Formularios
@@ -523,17 +525,17 @@ Para hacer esto, debe configurar el sitio para enviar datos del formulario POST 
 
 Su sitio puede pasar los valores de los siguientes campos de formulario a CRM mediante una solicitud POST:  
 
-| Campo del formulario | Descripción                                       |
-|----------------------|---------------------------------------------------|
-| `name`               | CharField (max_length=200, requerido)             |
-| `email`              | EmailField / CharField (max_length=254, requerido)|
-| `subject`            | CharField (max_length=200, requerido)             |
-| `phone`              | CharField (max_length=200, requerido)             |
-| `company`            | CharField (max_length=200, requerido)             |
-| `message`            | TextField                                         |
-| `country`            | CharField (max_length=40)                         |
-| `city`               | CharField (max_length=40)                         |
-| `leadsource_token`   | UUIDField (requerido, entrada oculta)             |
+| Campo del formulario | Descripción                                        |
+|----------------------|----------------------------------------------------|
+| `name`               | CharField (max_length=200, requerido)              |
+| `email`              | EmailField / CharField (max_length=254, requerido) |
+| `subject`            | CharField (max_length=200, requerido)              |
+| `phone`              | CharField (max_length=200, requerido)              |
+| `company`            | CharField (max_length=200, requerido)              |
+| `message`            | TextField                                          |
+| `country`            | CharField (max_length=40)                          |
+| `city`               | CharField (max_length=40)                          |
+| `leadsource_token`   | UUIDField (requerido, entrada oculta)              |
 
 El valor del campo "leadsource_token" debe coincidir con el valor del campo "UUID" de la correspondiente (seleccionada por usted) "Fuente de Lead".  
 `(ADMIN site) Inicio > Crm > Fuentes de Leads`
@@ -541,7 +543,7 @@ El valor del campo "leadsource_token" debe coincidir con el valor del campo "UUI
 Url para la solicitud POST:  
 `https://<suCRM.dominio>/<código_idioma>/add-request/`
 
-#### Insertar el formulario de CRM en un iframe de una página web
+#### Incrustar un formulario de CRM en un iframe de una página web
 
 Coloque una cadena de iframe en el código HTML de una página web.  
 Aquí hay un ejemplo de una cadena simple:
@@ -561,9 +563,9 @@ Para activarla, especifique los valores de las claves recibidas durante el regis
 `GOOGLE_RECAPTCHA_SITE_KEY = ''<su clave del sitio>"`  
 `GOOGLE_RECAPTCHA_SECRET_KEY = ''<su clave secreta>"`
 
-#### Activación de la geolocalización del país y la ciudad del contraparte por su IP
+#### Activación de la geolocalización del país y la ciudad de la contraparte por su IP
 
-El formulario de CRM tiene la capacidad integrada de geolocalizar el país y la ciudad del contraparte (visitante del sitio) por su IP. Para este propósito, se utiliza el módulo GeoIP2.  
+El formulario de CRM tiene la capacidad integrada de geo localizar el país y la ciudad de la contraparte (visitante del sitio) por su IP. Para este propósito, se utiliza el módulo GeoIP2.  
 Para activar su funcionamiento:
 
 - guarde los archivos de las bases de datos de la ciudad y el país de [MaxMind](https://dev.maxmind.com/geoip/docs/databases) (GeoLite2-Country.mmdb y GeoLite2-City.mmdb) en el directorio media/geodb;
@@ -582,7 +584,7 @@ Guarde los nombres de estos archivos en los campos "Nombre de la plantilla del f
 
 `(ADMIN) Inicio > Mass mail > Cuentas de correo electrónico`
 
-Las cuentas de correo deben configurarse para los usuarios con los roles "Operador", "Super Operador" y "Gerente" (Gerente de Ventas).
+Las cuentas de correo deben configurarse para los usuarios con los roles "Operador", "Superoperador" y "Gerente" (Gerente de Ventas).
 Esto permitirá realizar lo siguiente:
 
 - Los usuarios podrán enviar correos electrónicos desde CRM a través de su cuenta de correo electrónico.
@@ -666,14 +668,14 @@ Puede usar backends ya existentes como base.
 Luego, en el archivo de configuración, especifique el nombre de la clase backend en la configuración  
 `LOAD_RATE_BACKEND`
 
-## Boletín
+## Boletín informativo
 
 ¡Por favor, no use esta aplicación para enviar spam!
 
 La aplicación de correo masivo requiere:
 
 - la existencia de personas de contacto (destinatarios) en la base de datos;
-- cuentas de correo electrónico configuradas [cuentas de correo electrónico](#setting-up-email-accounts) para los gerentes de ventas (marcadas como "Massmail");
+- cuentas de correo electrónico configuradas [cuentas de correo electrónico](#configuración-de-cuentas-de-correo-electrónico) para los gerentes de ventas (marcadas como "Massmail");
 
 La aplicación proporciona a los destinatarios la oportunidad de darse de baja de los correos.  
 Para no divulgar la dirección de su CRM (en Internet), es necesario crear una página en el sitio web de su empresa, donde los usuarios que hicieron clic en el botón "darse de baja" serán redirigidos. Esta página debe mostrar un mensaje de que el usuario se dio de baja con éxito.
@@ -700,7 +702,7 @@ Y también agregar los datos del proveedor a la lista VOIP en el archivo
 ## Integración del CRM con mensajeros
 
 Django CRM tiene la capacidad de enviar mensajes a través de mensajeros. Tales como  
-Viber, WhatsApp, Para hacer esto, estas aplicaciones deben estar instaladas en el dispositivo del usuario.
+Viber, WhatsApp. Para hacer esto, estas aplicaciones deben estar instaladas en el dispositivo del usuario.
 
 ---
 **Por favor, lea [la guía del usuario de Django-CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).**
