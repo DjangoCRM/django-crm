@@ -22,7 +22,6 @@ class TestCurrencyRateBackend(TestCase):
             self.be = import_string(settings.LOAD_RATE_BACKEND)
         except ImportError:
             self.fail(f"Failed to import backend: {settings.LOAD_RATE_BACKEND}")
-        print(" Run Test Method:", self._testMethodName)
 
 
     def test_currency_rate_backend(self):
