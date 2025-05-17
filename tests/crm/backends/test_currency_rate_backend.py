@@ -14,6 +14,7 @@ MARKETING_CURRENCY = 'USD'
 class TestCurrencyRateBackend(TestCase):
 
     def setUp(self):
+        print(" Run Test Method:", self._testMethodName)
         if not settings.LOAD_RATE_BACKEND:
             self.skipTest("LOAD_RATE_BACKEND is not set in settings.")
             return
