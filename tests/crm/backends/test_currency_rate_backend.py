@@ -17,7 +17,6 @@ class TestCurrencyRateBackend(TestCase):
         print(" Run Test Method:", self._testMethodName)
         if not settings.LOAD_RATE_BACKEND:
             self.skipTest("LOAD_RATE_BACKEND is not set in settings.")
-            return
         try:
             self.be = import_string(settings.LOAD_RATE_BACKEND)
         except ImportError:
