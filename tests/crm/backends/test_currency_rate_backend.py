@@ -29,7 +29,6 @@ class TestCurrencyRateBackend(TestCase):
         # Consider mocking if live calls are undesirable.
         if not settings.LOAD_EXCHANGE_RATE:
             self.skipTest("LOAD_EXCHANGE_RATE is False in settings. Skipping live test.")
-            return
 
         today = dt.now().date()
         state_currency = self.be.get_state_currency()
