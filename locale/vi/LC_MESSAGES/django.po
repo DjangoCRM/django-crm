@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-23 13:22+0200\n"
-"PO-Revision-Date: 2025-03-06 19:39+0200\n"
+"POT-Creation-Date: 2025-05-17 13:36+0300\n"
+"PO-Revision-Date: 2025-05-17 13:39+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -236,7 +236,7 @@ msgstr "Yêu cầu liên quan trong tháng"
 msgid "pcs"
 msgstr "cái"
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:78
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
 #: crm/models/request.py:86 crm/templates/crm/print_request.html:55
 #: crm/utils/admfilters.py:113
@@ -247,10 +247,10 @@ msgstr "Quốc gia"
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
 #: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
+#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
+#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
+#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -266,20 +266,20 @@ msgstr "Tất cả"
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: analytics/site/outputstatadmin.py:170 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "Sản phẩm"
 
-#: analytics/site/outputstatadmin.py:199
+#: analytics/site/outputstatadmin.py:200
 msgid "Sold products summary (by date of payment receipt)"
 msgstr "Tóm tắt sản phẩm đã bán (theo ngày nhận thanh toán)"
 
-#: analytics/site/outputstatadmin.py:287
+#: analytics/site/outputstatadmin.py:288
 msgid "Sold products"
 msgstr "Sản phẩm đã bán"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: analytics/site/outputstatadmin.py:294 crm/models/product.py:45
 msgid "Price"
 msgstr "Giá"
 
@@ -431,10 +431,10 @@ msgid "You received a message regarding - "
 msgstr "Bạn đã nhận được một tin nhắn liên quan đến -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: crm/admin.py:230 crm/admin.py:282 crm/site/companyadmin.py:143
+#: crm/site/contactadmin.py:129 crm/site/dealadmin.py:277
+#: crm/site/leadadmin.py:152 crm/site/productadmin.py:18
+#: crm/site/requestadmin.py:98 crm/site/tagadmin.py:26 massmail/admin.py:37
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -458,7 +458,7 @@ msgstr "Trả lời"
 
 #: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
 #: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
+#: common/templates/common/select_object.html:15
 #: common/templates/common/user_transfer.html:17
 #: crm/templates/admin/crm/change_form.html:21
 #: crm/templates/admin/crm/company/change_list_object_tools.html:8
@@ -631,12 +631,13 @@ msgid "Subject"
 msgstr "Chủ đề"
 
 #: common/models.py:160
-msgid "Briefly what about is this reminder"
-msgstr "Tóm tắt nội dung của lời nhắc này là gì?"
+#| msgid "Briefly what about is this reminder"
+msgid "Briefly, what is this reminder about?"
+msgstr "Tóm lại, lời nhắc nhở này nói về điều gì?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/base_contact.py:116 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -647,7 +648,7 @@ msgid "Reminder date"
 msgstr "Ngày nhắc nhở"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -725,7 +726,7 @@ msgstr "Kích hoạt múi giờ này"
 msgid "Field for temporary storage of messages to the user"
 msgstr "Trường dành cho lưu trữ tạm thời tin nhắn đến người dùng"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -757,7 +758,7 @@ msgstr "Hành động"
 msgid "Workflow"
 msgstr "Luồng công việc"
 
-#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:121
 msgid "Language"
 msgstr "Ngôn ngữ"
 
@@ -847,8 +848,8 @@ msgid "View on site"
 msgstr "Xem trên trang web"
 
 #: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
 #: common/templates/common/select_emails.html:13
+#: common/templates/common/select_object.html:12
 #: common/templates/common/user_transfer.html:13
 #: crm/templates/admin/crm/change_form.html:18
 #: crm/templates/admin/crm/crmemail/change_form.html:18
@@ -926,17 +927,9 @@ msgid "Create a reminder"
 msgstr "Tạo lời nhắc"
 
 #: common/templates/common/reminder_message.html:4
-#: common/utils/reminders_sender.py:18
+#: common/utils/reminders_sender.py:19
 msgid "Regarding"
 msgstr "Về vấn đề"
-
-#: common/templates/common/select_email_account.html:20
-msgid "Please select an Email account"
-msgstr "Vui lòng chọn một tài khoản Email"
-
-#: common/templates/common/select_email_account.html:38
-msgid "Select"
-msgstr "Chọn"
 
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
@@ -972,6 +965,10 @@ msgstr "Cho"
 msgid "This email is already imported."
 msgstr "Email này đã được nhập."
 
+#: common/templates/common/select_object.html:37
+msgid "Select"
+msgstr "Chọn"
+
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
 msgstr "Vui lòng chọn một người dùng và bộ phận mới cho họ."
@@ -998,18 +995,47 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "Tên đã được thêm vào để dịch. Vui lòng cập nhật các tệp po và mo."
 
-#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
+#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
 #: tasks/site/taskadmin.py:36
 msgid "Copy"
 msgstr "Sao chép"
 
 #: common/utils/helpers.py:31
+#| msgid ""
+#| "Note massmail is not performed on the following days: Friday, Saturday, "
+#| "Sunday."
+msgid ""
+"Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
+"Sundays."
+msgstr ""
+"Lưu ý! Không gửi thư hàng loạt vào các ngày: Thứ sáu, Thứ bảy và Chủ Nhật."
+
+#: common/utils/helpers.py:33
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} với ID '{}' không tồn tại. Có lẽ nó đã bị xóa?"
+
+#: common/utils/helpers.py:36
+#| msgid ""
+#| "\n"
+#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#| "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+#| "    "
+msgid ""
+"\n"
+"Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+msgstr ""
+"\n"
+"Sử dụng HTML. Để chỉ định địa chỉ của hình ảnh nhúng, hãy sử dụng {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"Bạn có thể nhúng các tệp đã tải lên máy chủ CRM trong thư mục ‘media/pics/’.\n"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
 msgstr "Một bộ phận mới đã được tạo - {}. Vui lòng đổi tên nó."
+
+#: common/views/select_email_account.py:32
+msgid "Please select an Email account"
+msgstr "Vui lòng chọn một tài khoản Email"
 
 #: common/views/select_emails_import.py:118
 msgid ""
@@ -1037,24 +1063,24 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "Người dùng đã được chuyển thành công"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
 msgid "Contact details"
 msgstr "Thông tin liên hệ"
 
 #: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
-#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
 #: tasks/models/taskbase.py:32
 msgid "Name"
 msgstr "Tên"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: crm/admin.py:155 crm/site/dealadmin.py:248
 msgid "Contact info"
 msgstr "Thông tin liên hệ"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:88
+#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:269
+#: crm/site/requestadmin.py:89
 msgid "Relations"
 msgstr "Mối quan hệ"
 
@@ -1115,13 +1141,10 @@ msgstr "Chọn chỉ Liên hệ hoặc chỉ Dẫn đầu"
 msgid "Select only Company or only Lead"
 msgstr "Chọn chỉ Công ty hoặc chỉ Dẫn đầu"
 
-#: crm/forms/admin_forms.py:325
-msgid "First select a department."
-msgstr "Đầu tiên, hãy chọn một bộ phận."
-
-#: crm/forms/admin_forms.py:331
-msgid "That tag already exists."
-msgstr "Thẻ đó đã tồn tại."
+#: crm/forms/admin_forms.py:328
+#| msgid "That tag already exists."
+msgid "Such a tag already exists."
+msgstr "Thẻ như vậy đã tồn tại."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1192,51 +1215,51 @@ msgstr "Email thứ cấp"
 msgid "Mobile phone"
 msgstr "Điện thoại di động"
 
-#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/base_contact.py:67 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
 #: crm/models/request.py:99 crm/utils/admfilters.py:33
 msgid "City"
 msgstr "Thành phố"
 
-#: crm/models/base_contact.py:74
+#: crm/models/base_contact.py:72
 msgid "Company city"
 msgstr "Thành phố của công ty"
 
-#: crm/models/base_contact.py:75 crm/models/request.py:93
+#: crm/models/base_contact.py:73 crm/models/request.py:93
 msgid "Object of City in database"
 msgstr "Đối tượng thành phố trong cơ sở dữ liệu"
 
-#: crm/models/base_contact.py:113
+#: crm/models/base_contact.py:111
 msgid "Address"
 msgstr "Địa chỉ"
 
-#: crm/models/base_contact.py:122 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: crm/models/base_contact.py:120 crm/models/lead.py:17
+#: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "Bị loại"
 
-#: crm/models/base_contact.py:129
+#: crm/models/base_contact.py:127
 msgid "Use comma to separate Emails."
 msgstr "Sử dụng dấu phẩy để phân tách các địa chỉ Email."
 
-#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/base_contact.py:134 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "Nguồn Dẫn"
 
-#: crm/models/base_contact.py:140
+#: crm/models/base_contact.py:138
 msgid "Mass mailing"
 msgstr "Gửi thư hàng loạt"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "Người nhận danh sách thư điện tử."
 
-#: crm/models/base_contact.py:156
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "Ngày liên hệ gần nhất"
 
-#: crm/models/base_contact.py:163
+#: crm/models/base_contact.py:161
 msgid "Assigned to"
 msgstr "Được giao cho"
 
@@ -1344,7 +1367,7 @@ msgid "Not supported by all mail services."
 msgstr "Không được hỗ trợ bởi tất cả các dịch vụ email."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
+#: crm/site/shipmentadmin.py:272
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1364,7 +1387,7 @@ msgid "Contact"
 msgstr "Thông tin liên hệ"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:435
+#: crm/site/requestadmin.py:444
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1443,7 +1466,7 @@ msgstr "Người liên hệ của đại lý hoặc công ty phân phối"
 msgid "Relevant"
 msgstr "Liên quan"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: crm/models/deal.py:164 crm/utils/admfilters.py:487
 msgid "Important"
 msgstr "Quan trọng"
 
@@ -1667,7 +1690,7 @@ msgstr "xác suất thấp"
 msgid "Payment status"
 msgstr "Trạng thái thanh toán"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
 msgid "contract number"
 msgstr "số hợp đồng"
 
@@ -1755,7 +1778,7 @@ msgstr "Ngày nhận"
 msgid "Date of receipt of the request."
 msgstr "Ngày nhận yêu cầu."
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: crm/models/request.py:107 crm/site/dealadmin.py:672
 msgid "Translation"
 msgstr "Dịch thuật"
 
@@ -1787,7 +1810,7 @@ msgstr "Bản sao"
 msgid "Duplicate request. The deal will not be created."
 msgstr "Yêu cầu trùng lặp. Giao dịch sẽ không được tạo."
 
-#: crm/models/request.py:131 help/models.py:125
+#: crm/models/request.py:131 help/models.py:130
 msgid "Verification required"
 msgstr "Yêu cầu xác minh"
 
@@ -1968,20 +1991,20 @@ msgstr "triển lãm"
 msgid "Establish the first contact with the client."
 msgstr "Thiết lập liên hệ đầu tiên với khách hàng."
 
-#: crm/site/companyadmin.py:25
+#: crm/site/companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "Chú ý! Bạn chỉ có thể xem các công ty liên quan đến bộ phận của bạn."
 
-#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
 msgid "Warning:"
 msgstr "Cảnh báo:"
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:212
 msgid "Owner will also be changed for contact persons."
 msgstr "Chủ sở hữu của các liên hệ cũng sẽ được thay đổi."
 
-#: crm/site/companyadmin.py:223
+#: crm/site/companyadmin.py:225
 msgid "Change owner of selected Companies"
 msgstr "Thay đổi chủ sở hữu của các Công ty đã chọn"
 
@@ -1989,7 +2012,7 @@ msgstr "Thay đổi chủ sở hữu của các Công ty đã chọn"
 msgid "Your Excel file"
 msgstr "Tệp Excel của bạn"
 
-#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
 #: massmail/site/emlmessageadmin.py:133
 msgid "Signature"
 msgstr "Chữ ký"
@@ -2014,28 +2037,27 @@ msgstr "Nội dung"
 msgid "Previous correspondence"
 msgstr "Thư từ trước đó"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
-#: crm/utils/import_emails.py:192
+#: crm/site/crmemailadmin.py:422 crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "Không có chủ đề"
 
-#: crm/site/crmmodeladmin.py:61
+#: crm/site/crmmodeladmin.py:63
 msgid "View website in new tab"
 msgstr "Xem trang web trong tab mới"
 
-#: crm/site/crmmodeladmin.py:62
+#: crm/site/crmmodeladmin.py:64
 msgid "Callback to smartphone"
 msgstr "Gọi lại điện thoại thông minh"
 
-#: crm/site/crmmodeladmin.py:63
+#: crm/site/crmmodeladmin.py:65
 msgid "Callback to your smartphone"
 msgstr "Gọi lại cho điện thoại thông minh của bạn"
 
-#: crm/site/crmmodeladmin.py:68
+#: crm/site/crmmodeladmin.py:67
 msgid "Viber chat"
 msgstr "Cuộc trò chuyện Viber"
 
-#: crm/site/crmmodeladmin.py:69
+#: crm/site/crmmodeladmin.py:68
 msgid "Chat or viber call"
 msgstr "Trò chuyện hoặc cuộc gọi Viber"
 
@@ -2059,15 +2081,7 @@ msgstr "Hủy đăng ký bản tin qua email"
 msgid "Create Email"
 msgstr "Tạo Email"
 
-#: crm/site/crmmodeladmin.py:341
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                        Friday, Saturday, Sunday."
-msgstr ""
-"Lưu ý rằng việc gửi thư hàng loạt không được thực hiện vào các ngày sau: Thứ"
-" Sáu, Thứ Bảy, Chủ Nhật."
-
-#: crm/site/crmmodeladmin.py:371
+#: crm/site/crmmodeladmin.py:368
 msgid "Messengers"
 msgstr "Các Ứng dụng Nhắn tin"
 
@@ -2115,7 +2129,7 @@ msgstr "Đã nhận thanh toán"
 msgid "Specify the date of shipment"
 msgstr "Chỉ định ngày vận chuyển"
 
-#: crm/site/dealadmin.py:77
+#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:241
 msgid "Specify products"
 msgstr "Xác định sản phẩm"
 
@@ -2127,115 +2141,115 @@ msgstr "Ngày vận chuyển đã hết hạn"
 msgid "Relevant deal"
 msgstr "Giao dịch liên quan"
 
-#: crm/site/dealadmin.py:158
+#: crm/site/dealadmin.py:159
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "Giao dịch có ID '{}' không tồn tại. Có lẽ nó đã bị xóa?"
 
-#: crm/site/dealadmin.py:221
+#: crm/site/dealadmin.py:222
 msgid "View the Request"
 msgstr "Xem Yêu cầu"
 
-#: crm/site/dealadmin.py:536
+#: crm/site/dealadmin.py:537
 msgid "Create Email to Contact"
 msgstr "Tạo Email để Liên hệ"
 
-#: crm/site/dealadmin.py:539
+#: crm/site/dealadmin.py:540
 msgid "Create Email to Lead"
 msgstr "Tạo Email cho Dẫn đầu"
 
-#: crm/site/dealadmin.py:579
+#: crm/site/dealadmin.py:580
 msgid "Important deal"
 msgstr "Giao dịch quan trọng"
 
-#: crm/site/dealadmin.py:603
+#: crm/site/dealadmin.py:604
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Tôi đã chờ đợi phản hồi cho yêu cầu của mình trong %d ngày."
 
-#: crm/site/dealadmin.py:633
+#: crm/site/dealadmin.py:634
 msgid "Expected"
 msgstr "Dự kiến"
 
-#: crm/site/dealadmin.py:641
+#: crm/site/dealadmin.py:642
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: crm/site/dealadmin.py:696
+#: crm/site/dealadmin.py:697
 msgid "Contact is Lead (no company)"
 msgstr "Liên hệ là Dẫn đầu (không có công ty)"
 
-#: crm/site/leadadmin.py:118
+#: crm/site/leadadmin.py:117
 msgid "Person contact details"
 msgstr "Thông tin liên hệ cá nhân"
 
-#: crm/site/leadadmin.py:127
+#: crm/site/leadadmin.py:126
 msgid "Additional person details"
 msgstr "Chi tiết thông tin cá nhân bổ sung"
 
-#: crm/site/leadadmin.py:140
+#: crm/site/leadadmin.py:138
 msgid "Company contact details"
 msgstr "Thông tin liên hệ công ty"
 
-#: crm/site/leadadmin.py:249
+#: crm/site/leadadmin.py:247
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Dẫn dắt \"{obj}\" đã được chuyển đổi thành công."
 
-#: crm/site/leadadmin.py:264
+#: crm/site/leadadmin.py:262
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Dẫn này không hợp lệ! Vui lòng đọc mô tả."
 
-#: crm/site/requestadmin.py:38
+#: crm/site/requestadmin.py:39
 msgid "Client Loyalty"
 msgstr "Trung thành của khách hàng"
 
-#: crm/site/requestadmin.py:45
+#: crm/site/requestadmin.py:46
 msgid "Country not specified in request"
 msgstr "Quốc gia không được chỉ định trong yêu cầu"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:47
 msgid "You received the deal"
 msgstr "Bạn đã nhận được giao dịch"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:48
 msgid "You are the co-owner of the deal"
 msgstr "Bạn là đồng chủ sở hữu của giao dịch này"
 
-#: crm/site/requestadmin.py:53
+#: crm/site/requestadmin.py:54
 msgid "Primary request"
 msgstr "Yêu cầu chính"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:55
 msgid "You are the co-owner of the request"
 msgstr "Bạn là đồng chủ sở hữu của yêu cầu này"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:56
 msgid "You received the request"
 msgstr "Bạn đã nhận được yêu cầu"
 
-#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "đang chờ xử lý"
 
-#: crm/site/requestadmin.py:57
+#: crm/site/requestadmin.py:58
 msgid "processed"
 msgstr "đã được xử lý"
 
-#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
 msgid "Status"
 msgstr "Trạng thái"
 
-#: crm/site/requestadmin.py:62
+#: crm/site/requestadmin.py:63
 msgid "Subsequent request"
 msgstr "Yêu cầu tiếp theo"
 
-#: crm/site/requestadmin.py:389
+#: crm/site/requestadmin.py:398
 msgid "Found the counterparty assigned to"
 msgstr "Đã tìm thấy đối tác được chỉ định"
 
-#: crm/site/requestadmin.py:488
+#: crm/site/requestadmin.py:497
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "Tên {name} với đối tượng \"{obj}\" đã được thêm thành công."
@@ -2288,7 +2302,7 @@ msgstr "Ngày vận chuyển theo hợp đồng."
 msgid "View the deal"
 msgstr "Xem giao dịch"
 
-#: crm/site/shipmentadmin.py:254
+#: crm/site/shipmentadmin.py:257
 msgid "paid"
 msgstr "đã thanh toán"
 
@@ -2354,6 +2368,7 @@ msgstr "Mở trong Quản trị viên"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: massmail/templates/admin/massmail/mailingout/change_list_object_tools.html:6
 msgid "Make Massmail"
 msgstr "Tạo Email Hàng loạt"
 
@@ -2589,50 +2604,50 @@ msgstr "Chín tháng của năm nay"
 msgid "Second half of the last year"
 msgstr "Nửa sau của năm ngoái"
 
-#: crm/utils/admfilters.py:417
+#: crm/utils/admfilters.py:418
 msgid "changed by chiefs"
 msgstr "Đã được thay đổi bởi lãnh đạo"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
+#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
+#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "Có"
 
-#: crm/utils/admfilters.py:437
+#: crm/utils/admfilters.py:438
 msgid "Partner"
 msgstr "Đối tác"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
+#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "Không"
 
-#: crm/utils/admfilters.py:498
+#: crm/utils/admfilters.py:499
 msgid "Has Contacts"
 msgstr "Có Danh sách Liên hệ"
 
-#: crm/utils/admfilters.py:564
+#: crm/utils/admfilters.py:565
 msgid "mailbox"
 msgstr "hộp thư"
 
-#: crm/utils/admfilters.py:583
+#: crm/utils/admfilters.py:584
 msgid "inbox"
 msgstr "hộp thư đến"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "sent"
 msgstr "đã gửi"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "hộp thư chờ gửi ({num})"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 msgid "trash"
 msgstr "thùng rác"
 
@@ -2760,7 +2775,7 @@ msgstr "mẫu"
 msgid "page"
 msgstr "trang"
 
-#: help/models.py:49 help/models.py:106
+#: help/models.py:49 help/models.py:111
 msgid "Title"
 msgstr "Tiêu đề"
 
@@ -2776,19 +2791,19 @@ msgstr ""
 "Có sẵn trên một trong các trang của CRM. Nếu không, bạn chỉ có thể truy cập "
 "nó thông qua một liên kết từ một trang trợ giúp khác."
 
-#: help/models.py:86
+#: help/models.py:91
 msgid "Paragraph"
 msgstr "Đoạn văn"
 
-#: help/models.py:87
+#: help/models.py:92
 msgid "Paragraphs"
 msgstr "Đoạn văn"
 
-#: help/models.py:97
+#: help/models.py:102
 msgid "Groups"
 msgstr "Nhóm"
 
-#: help/models.py:99
+#: help/models.py:104
 msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
@@ -2796,31 +2811,31 @@ msgstr ""
 "Nếu không chọn nhóm người dùng nào, đoạn văn sẽ chỉ có sẵn cho siêu người "
 "dùng."
 
-#: help/models.py:105
+#: help/models.py:110
 msgid "Title of paragraph."
 msgstr "Tiêu đề đoạn văn."
 
-#: help/models.py:120 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:42
 msgid "draft"
 msgstr "bản nháp"
 
-#: help/models.py:121
+#: help/models.py:126
 msgid "Will not be published."
 msgstr "Sẽ không được xuất bản."
 
-#: help/models.py:126
+#: help/models.py:131
 msgid "Content requires additional verification."
 msgstr "Nội dung yêu cầu xác minh thêm."
 
-#: help/models.py:131
+#: help/models.py:136
 msgid "Index number"
 msgstr "Số thứ tự"
 
-#: help/models.py:132
+#: help/models.py:137
 msgid "The sequence number of the paragraph on the page."
 msgstr "Số thứ tự của đoạn văn trên trang."
 
-#: help/models.py:138
+#: help/models.py:143
 msgid "Link to a related paragraph if exists."
 msgstr "Liên kết đến đoạn văn liên quan nếu có."
 
@@ -2828,62 +2843,54 @@ msgstr "Liên kết đến đoạn văn liên quan nếu có."
 msgid "Service information"
 msgstr "Thông tin dịch vụ"
 
-#: massmail/admin_actions.py:17
+#: massmail/admin_actions.py:18
 msgid "Please select recipients only with the same owner."
 msgstr "Vui lòng chọn người nhận có cùng chủ sở hữu."
 
-#: massmail/admin_actions.py:18
+#: massmail/admin_actions.py:19
 msgid "Bad result - no recipients! Make another choice."
 msgstr "Kết quả xấu - không có người nhận! Hãy chọn lại."
 
-#: massmail/admin_actions.py:21
+#: massmail/admin_actions.py:22
 msgid "Create a mailing out for selected objects"
 msgstr "Tạo chiến dịch email cho các đối tượng được chọn"
 
-#: massmail/admin_actions.py:33
+#: massmail/admin_actions.py:34
 msgid "Unsubscribed users were excluded from the mailing list."
 msgstr ""
 "Những người dùng đã hủy đăng ký đã được loại trừ khỏi danh sách thư điện tử."
 
-#: massmail/admin_actions.py:54
-msgid ""
-"Note massmail is not performed on the following days: Friday, Saturday, "
-"Sunday."
-msgstr ""
-"Lưu ý rằng việc gửi email hàng loạt không được thực hiện vào các ngày sau: "
-"Thứ Sáu, Thứ Bảy, Chủ Nhật."
-
-#: massmail/admin_actions.py:65
+#: massmail/admin_actions.py:62
 msgid "Merge selected mailing outs"
 msgstr "Kết hợp các bản gửi thư đã chọn"
 
-#: massmail/admin_actions.py:85
+#: massmail/admin_actions.py:82
 msgid "united"
 msgstr "hợp nhất"
 
-#: massmail/admin_actions.py:107
+#: massmail/admin_actions.py:104
 msgid "Specify VIP recipients"
 msgstr "Chỉ định người nhận VIP"
 
-#: massmail/admin_actions.py:115
+#: massmail/admin_actions.py:112
 msgid "Please first add your main email account."
 msgstr "Vui lòng thêm tài khoản email chính của bạn trước."
 
-#: massmail/admin_actions.py:143
+#: massmail/admin_actions.py:140
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
 msgstr "Địa chỉ email chính đã được gán thành công cho người nhận được chọn."
 
-#: massmail/admin_actions.py:149
+#: massmail/admin_actions.py:146
 msgid "Please select mailings with only the same recipient type."
 msgstr "Vui lòng chọn các bản gửi thư chỉ có cùng loại người nhận."
 
-#: massmail/admin_actions.py:154
+#: massmail/admin_actions.py:151
 msgid "Please select only mailings with the same message."
 msgstr "Vui lòng chỉ chọn các bản tin có cùng nội dung."
 
-#: massmail/admin_actions.py:183
+#: massmail/admin_actions.py:180
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
@@ -2891,7 +2898,7 @@ msgstr ""
 "Không có tài khoản email nào khả dụng để gửi thư. Vui lòng liên hệ với quản "
 "trị viên của bạn."
 
-#: massmail/admin_actions.py:191
+#: massmail/admin_actions.py:188
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
@@ -3001,22 +3008,11 @@ msgstr "Thời gian ngày tháng của lần nhập cuối"
 msgid "Specify the imap host"
 msgstr "Xác định máy chủ IMAP"
 
-#: massmail/models/email_message.py:10
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
-"    "
-msgstr ""
-"\n"
-"Sử dụng HTML. Để chỉ định địa chỉ của hình ảnh nhúng, hãy sử dụng {% cid_media 'path/to/pic.png' %}.<br>\n"
-"Bạn có thể nhúng các tệp đã tải lên máy chủ CRM vào thư mục 'media/pics/' hoặc đính kèm trong tin nhắn này."
-
-#: massmail/models/email_message.py:19
+#: massmail/models/email_message.py:15
 msgid "Email Message"
 msgstr "Tin nhắn Email"
 
-#: massmail/models/email_message.py:20
+#: massmail/models/email_message.py:16
 msgid "Email Messages"
 msgstr "Tin nhắn Email"
 
@@ -3053,11 +3049,11 @@ msgstr "Hoàn thành"
 msgid "The name of the message."
 msgstr "Tên của tin nhắn."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
 msgid "Number of recipients"
 msgstr "Số lượng người nhận"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
 msgid "Recipients type"
 msgstr "Loại người nhận"
 
@@ -3065,22 +3061,11 @@ msgstr "Loại người nhận"
 msgid "Report"
 msgstr "Báo cáo"
 
-#: massmail/models/signature.py:7
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
-"    "
-msgstr ""
-"\n"
-"Sử dụng HTML. Để chỉ định địa chỉ của hình ảnh nhúng, sử dụng {% cid_media 'path/to/pic.png' %}.<br>\n"
-"Bạn có thể nhúng các tệp đã tải lên máy chủ CRM vào thư mục 'media/pics/'."
-
-#: massmail/models/signature.py:17
+#: massmail/models/signature.py:14
 msgid "Signatures"
 msgstr "Chữ ký"
 
-#: massmail/models/signature.py:27
+#: massmail/models/signature.py:24
 msgid "The name of the signature."
 msgstr "Tên chữ ký."
 
@@ -3097,31 +3082,23 @@ msgstr "Xem trước"
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: massmail/site/mailingoutadmin.py:17
+#: massmail/site/mailingoutadmin.py:18
 msgid "Available Email accounts for MassMail"
 msgstr "Tài khoản email có sẵn cho MassMail"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:19
 msgid "Accounts"
 msgstr "Tài khoản"
 
-#: massmail/site/mailingoutadmin.py:27
+#: massmail/site/mailingoutadmin.py:28
 msgid "Today"
 msgstr "Hôm nay"
 
-#: massmail/site/mailingoutadmin.py:28
+#: massmail/site/mailingoutadmin.py:29
 msgid "Sent today"
 msgstr "Đã gửi hôm nay"
 
-#: massmail/site/mailingoutadmin.py:72
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                Friday, Saturday, Sunday."
-msgstr ""
-"Lưu ý rằng việc gửi thư hàng loạt không được thực hiện vào các ngày sau: Thứ"
-" Sáu, Thứ Bảy, Chủ Nhật."
-
-#: massmail/site/mailingoutadmin.py:110
+#: massmail/site/mailingoutadmin.py:107
 msgid "notification"
 msgstr "thông báo"
 
@@ -3196,6 +3173,15 @@ msgstr "Mã thông báo cập nhật đã được nhận thành công."
 msgid "Error: Failed to get authorization code."
 msgstr "Lỗi: Không thể lấy mã ủy quyền."
 
+#: massmail/views/select_recipient_type.py:30
+msgid "Use the 'Action' menu."
+msgstr "Sử dụng menu 'Hành động'."
+
+#: massmail/views/select_recipient_type.py:39
+#| msgid "Please select at least one recipient"
+msgid "Please select the type of recipients"
+msgstr "Vui lòng chọn loại người nhận"
+
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
 msgstr "Các người nhận thất bại đã được trả lại vào danh sách thư thành công."
@@ -3209,57 +3195,57 @@ msgstr "Thử nghiệm email đã được gửi đến {email_accounts}"
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: settings/models.py:7
+#: settings/models.py:18
 msgid "Banned company name"
 msgstr "Tên công ty bị cấm"
 
-#: settings/models.py:8
+#: settings/models.py:19
 msgid "Banned company names"
 msgstr "Tên công ty bị cấm"
 
-#: settings/models.py:22
+#: settings/models.py:47
 msgid "Public email domain"
 msgstr "Miền tên miền email công cộng"
 
-#: settings/models.py:23
+#: settings/models.py:48
 msgid "Public email domains"
 msgstr "Các miền email công cộng"
 
-#: settings/models.py:28
+#: settings/models.py:53
 msgid "Domain"
 msgstr "Mã miền"
 
-#: settings/models.py:41 settings/models.py:42
+#: settings/models.py:81 settings/models.py:82
 msgid "Reminder settings"
 msgstr "Cài đặt nhắc nhở"
 
-#: settings/models.py:47
+#: settings/models.py:87
 msgid "Check interval"
 msgstr "Khoảng thời gian kiểm tra"
 
-#: settings/models.py:49
+#: settings/models.py:89
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Xác định khoảng thời gian tính bằng giây để kiểm tra xem đã đến lúc nhắc nhở"
 " chưa."
 
-#: settings/models.py:56
+#: settings/models.py:115
 msgid "Stop Phrase"
 msgstr "Câu dừng"
 
-#: settings/models.py:57
+#: settings/models.py:116
 msgid "Stop Phrases"
 msgstr "Câu dừng"
 
-#: settings/models.py:62
+#: settings/models.py:121
 msgid "Phrase"
 msgstr "Câu nói"
 
-#: settings/models.py:66
+#: settings/models.py:125
 msgid "Last occurrence date"
 msgstr "Ngày xảy ra lần cuối"
 
-#: settings/models.py:67
+#: settings/models.py:126
 msgid "Date of last occurrence of the phrase"
 msgstr "Ngày xuất hiện cuối cùng của cụm từ"
 
@@ -3844,10 +3830,37 @@ msgstr "Cuộc gọi đến từ"
 msgid "(duration: {duration} minutes)"
 msgstr "(thời lượng: {duration} phút)"
 
-#: webcrm/settings.py:270
+#: webcrm/settings.py:272
 msgid "Untitled"
 msgstr "Chưa có tiêu đề"
 
-#: webcrm/settings.py:285
+#: webcrm/settings.py:287
 msgid "Main Menu"
 msgstr "Menu Chính"
+
+#~ msgid "First select a department."
+#~ msgstr "Đầu tiên, hãy chọn một bộ phận."
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                        Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "Lưu ý rằng việc gửi thư hàng loạt không được thực hiện vào các ngày sau: Thứ"
+#~ " Sáu, Thứ Bảy, Chủ Nhật."
+
+#~ msgid ""
+#~ "\n"
+#~ "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#~ "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder or attached to this message.\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "Sử dụng HTML. Để chỉ định địa chỉ của hình ảnh nhúng, hãy sử dụng {% cid_media 'path/to/pic.png' %}.<br>\n"
+#~ "Bạn có thể nhúng các tệp đã tải lên máy chủ CRM vào thư mục 'media/pics/' hoặc đính kèm trong tin nhắn này."
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "Lưu ý rằng việc gửi thư hàng loạt không được thực hiện vào các ngày sau: Thứ"
+#~ " Sáu, Thứ Bảy, Chủ Nhật."
