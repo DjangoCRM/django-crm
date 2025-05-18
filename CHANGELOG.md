@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Changed
+
+- Removed Skype Support from the CRM software as it is no longer supported by Microsoft.
+
 ## [1.3.0] - 2025-05-11
 
 ### Added
