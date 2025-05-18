@@ -33,29 +33,26 @@ class TestCurrencyRateBackend(TestCase):
         today = dt.now().date()
         state_currency = self.be.get_state_currency()
 
-        backend_state = self.be(state_currency, MARKETING_CURRENCY, today)
-        rate_to_state_currency, rate_to_marketing_currency, error_state = backend_state.get_rates()
+        warning_msg = "Warning: Live API call in test_currency_rate_backend failed: {}"
+        currencies = (state_currency, MARKETING_CURRENCY)
+        for currency in currencies:
+            backend = self.be(currency, MARKETING_CURRENCY, today)
+            rate_to_state_currency, rate_to_marketing_currency, error = backend.get_rates()
 
-        if error_state:
-            print(f"Warning: Live API call in test_currency_rate_backend (state) failed: {error_state}")
-            self.assertNotEqual('', error_state)
-        else:
-            self.assertEqual(rate_to_state_currency, 1)
-            self.assertIsInstance(rate_to_marketing_currency, (float, int))
-            if state_currency == MARKETING_CURRENCY:
-                 self.assertEqual(rate_to_marketing_currency, 1)
-
-        backend_marketing = self.be(MARKETING_CURRENCY, MARKETING_CURRENCY, today)
-        rate_to_state_usd, rate_to_marketing_usd, error_marketing = backend_marketing.get_rates()
-
-        if error_marketing:
-            print(f"Warning: Live API call in test_currency_rate_backend (marketing) failed: {error_marketing}")
-            self.assertNotEqual('', error_marketing)
-        else:
-            self.assertEqual(rate_to_marketing_usd, 1)
-            self.assertIsInstance(rate_to_state_usd, (float, int))
-            if state_currency == MARKETING_CURRENCY:
-                self.assertEqual(rate_to_state_usd, 1)
+            if error:
+                print(warning_msg.format(error))
+                self.assertNotEqual('', error)
+            else:
+                if state_currency != MARKETING_CURRENCY:
+                    if currency == state_currency:
+                        self.assertEqual(rate_to_state_currency, 1)
+                        self.assertIsInstance(rate_to_marketing_currency, (float, int))
+                    else:
+                        self.assertEqual(rate_to_marketing_currency, 1)
+                        self.assertIsInstance(rate_to_state_currency, (float, int))
+                else:
+                    self.assertEqual(rate_to_state_currency, 1)
+                    self.assertEqual(rate_to_marketing_currency, 1)
 
     @patch('crm.backends.bank_gov_ua_backend.requests.get')
     def test_currency_rate_backend_json_error(self, mock_get):
