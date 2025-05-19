@@ -22,6 +22,7 @@ from chat.models import ChatMessage
 from common.admin import FileInline
 from common.models import Department
 from common.utils.helpers import add_chat_context
+from common.utils.helpers import set_toggle_tooltip
 from common.utils.helpers import get_now
 from common.utils.helpers import LEADERS
 from common.utils.helpers import get_today
@@ -184,6 +185,7 @@ class DealAdmin(CrmModelAdmin):
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
+        set_toggle_tooltip("deal_step_date_sorting", request, extra_context)
         next_url = request.get_full_path()
         url = reverse("toggle_default_sorting")
         extra_context['toggle_sorting_url'] = f"{url}?model=Deal&next_url={next_url}"

@@ -215,5 +215,12 @@ def send_crm_email(
     app_config.nes.send_msg(subject, body, to)
 
 
+def set_toggle_tooltip(key: str, request: WSGIRequest, extra_context: dict) -> None:
+    if key in request.session:
+        extra_context['toggle_title'] = _("sort by creation date")
+    else:
+        extra_context['toggle_title'] = _("sort by next step date")
+
+
 def token_default():
     return secrets.token_urlsafe(8)
