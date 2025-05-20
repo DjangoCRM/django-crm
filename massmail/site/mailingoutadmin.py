@@ -115,7 +115,7 @@ class MailingOutAdmin(CrmModelAdmin):
         ) if lines >= 20 else "white-space:pre-wrap;"
         custom_scrollbar = (
             "<style>"
-            "div.mailingout-scroll::-webkit-scrollbar {width:6px;}"
+            "div.mailingout-scroll::-webkit-scrollbar {width:10px;}"
             "div.mailingout-scroll::-webkit-scrollbar-thumb {background:#ccc; border-radius:3px;}"
             "</style>"
             if lines >= 20 else ""
