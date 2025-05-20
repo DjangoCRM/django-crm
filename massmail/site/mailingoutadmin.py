@@ -110,7 +110,7 @@ class MailingOutAdmin(CrmModelAdmin):
         lines = report.count('\n') + 1 if report else 0
         content = linebreaksbr(report)
         style = (
-            "overflow:auto; max-height:200px; width:500px; "
+            "overflow:auto; max-height:200px;"
             "white-space:pre-wrap;"
         ) if lines >= 20 else "white-space:pre-wrap;"
         custom_scrollbar = (
