@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf import settings
 from django.contrib import messages
-from django.template.defaultfilters import linebreaks
+from django.template.defaultfilters import linebreaksbr
 from django.utils import timezone
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
@@ -106,7 +106,24 @@ class MailingOutAdmin(CrmModelAdmin):
     @staticmethod
     @admin.display(description=_('notification'))
     def notification(instance):
-        return mark_safe(linebreaks(instance.report))
+        report = instance.report or ""
+        lines = report.count('\n') + 1 if report else 0
+        content = linebreaksbr(report)
+        style = (
+            "overflow:auto; max-height:200px;"
+            "white-space:pre-wrap;"
+        ) if lines >= 20 else "white-space:pre-wrap;"
+        custom_scrollbar = (
+            "<style>"
+            "div.mailingout-scroll::-webkit-scrollbar {width:10px;}"
+            "div.mailingout-scroll::-webkit-scrollbar-thumb {background:#ccc; border-radius:3px;}"
+            "</style>"
+            if lines >= 20 else ""
+        )
+        div_class = "mailingout-scroll" if lines >= 20 else ""
+        return mark_safe(
+            f'{custom_scrollbar}<div class="{div_class}" style="{style}">{content}</div>'
+        )
     
     @staticmethod
     @admin.display(description=progress_safe_str)
