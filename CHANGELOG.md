@@ -8,11 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.3.1] - 2025-05-23
 
 ### Changed
 
 - Removed Skype Support from the CRM software as it is no longer supported by Microsoft.
+- Enhance currency rate backend error handling and update tests accordingly.
+- Refactor currency rate backend tests for clarity and efficiency
+- Changed the company query counter to not show dashes if the value is missing
+
+### Added
+
+- Add scrollable wrapper for long mailing error notifications
+- Add dynamic tooltip for deal sorting toggle
+
+### Fixed
+
+- Fix some translations
+
+#### Full Changelog: [v1.3.0...v1.3.1](https://github.com/DjangoCRM/django-crm/compare/v1.3.0...v1.3.1)
 
 ## [1.3.0] - 2025-05-11
 
@@ -34,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improve the test of the current backend for loading currency rates.
 
 ### Fixed
+
 - Some minor fixes
 
 #### Full Changelog: [v1.2.2...v1.3.0](https://github.com/DjangoCRM/django-crm/compare/v1.2.2...v1.3.0)
