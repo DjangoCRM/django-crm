@@ -7,7 +7,7 @@ This CRM is based on the [Django Admin site](https://docs.djangoproject.com/en/d
 [<img src="img/django-crm_deals_screenshot_2x1v2.png" alt="Django CRM Screenshot" align="center" style="float: center"/>](img/django-crm_deals_screenshot_2x1v2.png){target="_blank"}
 <hr/>
 <div align="center">
-<a class="btn button" href="/en/latest/installation/">Software installation</a>
+<a class="btn button" href="/en/latest/installation/">CRM installation</a>
 <a class="btn button" href="/en/latest/introduction/">User guide</a>
 </div><br>
 
