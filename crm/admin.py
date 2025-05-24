@@ -311,6 +311,44 @@ class RequestAdmin(requestadmin.RequestAdmin):
     )
     readonly_fields = tuple()
 
+    def get_fieldsets(self, request, obj=None):
+        return (
+            (None, {
+                'fields': [
+                    'request_for',
+                    'duplicate',
+                    'pending',
+                    'subsequent',
+                    ('lead_source', 'receipt_date'),
+                    ('department', 'owner', 'co_owner'),
+                    ('first_name', 'middle_name', 'last_name'),
+                    ('email', 'phone'),
+                    'website',
+                    'company_name',
+                    ('country', 'city_name'),
+                    ('description', 'translation'),
+                    'remark',
+                    'products'
+                ]
+            }),
+            (_('Relations'), {
+                'fields': [
+                    'verification_required',
+                    'contact',
+                    'company',
+                    'lead',
+                    'deal',
+                ]
+            }),
+            (_('Additional information'), {
+                'classes': ('collapse',),
+                'fields': [
+                    'subsequent',
+                    ('modified_by', 'ticket')
+                ]
+            }),
+        )
+
 
 class StageAdmin(TranslateNameModelAdmin):
     list_display = (
