@@ -17,6 +17,7 @@ from django.utils.translation import gettext_lazy
 from django.utils.safestring import mark_safe
 
 from common.utils.helpers import add_chat_context
+from common.utils.helpers import set_toggle_tooltip
 from common.utils.helpers import CONTENT_COPY_ICON
 from common.utils.helpers import CONTENT_COPY_LINK
 from common.utils.helpers import COPY_STR
@@ -57,6 +58,7 @@ class TaskAdmin(TasksBaseModelAdmin):
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
+        set_toggle_tooltip("task_step_date_sorting", request, extra_context)
         next_url = request.get_full_path()
         url = reverse("toggle_default_sorting")
         extra_context['toggle_sorting_url'] = f"{url}?model=Task&next_url={next_url}"
