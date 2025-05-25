@@ -3,10 +3,13 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview-spanish.md">Español</a>
 </p>
 
+---
+
 # Overview of the Analytics App in Django CRM
 
 The **Analytics app** in the open source eCRM [software](https://github.com/DjangoCRM/django-crm/) is a powerful tool designed to provide comprehensive insights into customer relationship management. This app is essential for company managers, sales managers to make data-driven decisions by offering various reports and visualizations.
-
+The Analytics application is an indispensable component of Django CRM, offering valuable insights that drive strategic decision-making and enhance overall business performance.
+Underpinning these robust analytical capabilities is the powerful Django framework. Its inherent strengths in security, scalability, and rapid development provide a reliable and efficient foundation for data processing and reporting.
 ---
 
 ## Key Features
