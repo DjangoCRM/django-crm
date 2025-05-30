@@ -72,6 +72,30 @@ class MailingOutAdmin(CrmModelAdmin):
         return super().changelist_view(request, extra_context)
 
     def save_model(self, request, obj, form, change):
+        if 'status' in form.changed_data and obj.status == obj.ACTIVE:
+            eas = EmailAccount.objects.filter(
+                owner=obj.owner,
+                massmail=True
+            )
+            if not eas.exists():
+                obj.status = obj.PAUSED
+                messages.error(
+                    request,
+                    gettext(
+                        "You must have at least one Email account "
+                        "with MassMail enabled to send emails."
+                    )
+                )
+            elif eas.count() == 1 and eas.first().main:
+                messages.warning(
+                    request,
+                    gettext(
+                        "You have only one Email account with MassMail "
+                        "enabled. Since this is the main account, "
+                        "emails can only be sent to recipients marked as VIP."
+                    )
+                )
+
         if not obj.name:
             obj.name = settings.NO_NAME_STR
         super().save_model(request, obj, form, change)
