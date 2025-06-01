@@ -1,7 +1,12 @@
 
+MAILING = True  # allow mailing
+
 EMAILS_PER_DAY = 94
 
-# Sending a newsletter is performed only during working hours 
+# Newsletter distribution may only be carried out during working hours.
+
+USE_BUSINESS_TIME = False
+
 BUSINESS_TIME_START = {
     'hour': 8,
     'minute': 30

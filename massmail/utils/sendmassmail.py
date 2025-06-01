@@ -34,13 +34,9 @@ from massmail.models import EmailAccount
 from massmail.models import EmlAccountsQueue
 from massmail.models import MailingOut
 from massmail.models import MassContact
-from massmail.settings import BUSINESS_TIME_END
-from massmail.settings import BUSINESS_TIME_START
-from massmail.settings import EMAILS_PER_DAY
 from massmail.utils.email_creators import email_creator
 
 USER_MODEL = get_user_model()
-done_str = _("Done successfully.")
 
 
 class SendMassmail(threading.Thread, SingleInstance):
@@ -57,14 +53,17 @@ class SendMassmail(threading.Thread, SingleInstance):
 
         while True:
             
-            if settings.DEBUG or settings.TESTING:
+            if not settings.MAILING or settings.TESTING:
                 break
-            
-            s = get_seconds_to_business_time()
-            connection.close()
-            time.sleep(s + random.randint(120, 300))
-            
+
+            if settings.USE_BUSINESS_TIME:
+                s = get_seconds_to_business_time()
+                if s > 0:
+                    connection.close()
+                    time.sleep(s + random.randint(120, 300))
+
             send_massmail()
+            time.sleep(30)
 
 
 def send_massmail() -> None:
@@ -93,7 +92,7 @@ def send_massmail() -> None:
             )
             for ea in email_accounts:
                 if ea.today_date == today:
-                    if ea.today_count > EMAILS_PER_DAY:
+                    if ea.today_count > settings.EMAILS_PER_DAY:
                         continue
                 else:
                     ea.today_count = 0
@@ -227,12 +226,12 @@ def fix_masscontacts(mailing_out: MailingOut, recipient_ids: list) -> None:
 def get_seconds_to_business_time() -> float:
     now = timezone.localtime(timezone.now())
     bt_start = now.replace(
-        hour=BUSINESS_TIME_START['hour'],
-        minute=BUSINESS_TIME_START['minute']
+        hour=settings.BUSINESS_TIME_START['hour'],
+        minute=settings.BUSINESS_TIME_START['minute']
     )
     bt_end = now.replace(
-        hour=BUSINESS_TIME_END['hour'],
-        minute=BUSINESS_TIME_END['minute']
+        hour=settings.BUSINESS_TIME_END['hour'],
+        minute=settings.BUSINESS_TIME_END['minute']
     )
     weekday = now.weekday()
     if weekday in (4, 5, 6):
@@ -329,7 +328,7 @@ def _get_masscontact(
 def _success_report(mailing_out: MailingOut) -> None:
     """Adds a "Done successfully" message to the report."""
     date = get_formatted_short_date()
-    msg = get_trans_for_user(done_str, mailing_out.owner)
+    msg = get_trans_for_user(_("Done successfully."), mailing_out.owner)
     report_msg = f"{date} {msg}\n"
     mailing_out.report = report_msg + mailing_out.report
     mailing_out.status = mailing_out.DONE
