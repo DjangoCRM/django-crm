@@ -4,7 +4,7 @@ MAILING = True  # allow mailing
 EMAILS_PER_DAY = 94
 
 # Newsletter distribution may only be carried out during working hours.
-
+# If True, then the mailing will also not be performed on Friday, Saturday and Sunday.
 USE_BUSINESS_TIME = False
 
 BUSINESS_TIME_START = {
