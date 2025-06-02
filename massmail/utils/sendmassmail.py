@@ -53,7 +53,9 @@ class SendMassmail(threading.Thread, SingleInstance):
 
         while True:
             
-            if not settings.MAILING or settings.TESTING:
+            from massmail.models import MassmailSettings
+            mm = MassmailSettings.get_solo()
+            if not mm.mailing or settings.TESTING:
                 break
 
             if settings.USE_BUSINESS_TIME:
@@ -92,7 +94,7 @@ def send_massmail() -> None:
             )
             for ea in email_accounts:
                 if ea.today_date == today:
-                    if ea.today_count > settings.EMAILS_PER_DAY:
+                    if ea.today_count > mm.emails_per_day:
                         continue
                 else:
                     ea.today_count = 0

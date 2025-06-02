@@ -4,7 +4,6 @@ from datetime import datetime as dt
 from django.utils.translation import gettext_lazy as _
 
 from crm.settings import *          # NOQA
-from massmail.settings import *     # NOQA
 from common.settings import *       # NOQA
 from tasks.settings import *        # NOQA
 from voip.settings import *         # NOQA
@@ -48,8 +47,10 @@ EMAIL_HOST_USER = 'crm@example.com'
 EMAIL_PORT = 587
 EMAIL_SUBJECT_PREFIX = 'CRM: '
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'crm@example.com'
-DEFAULT_FROM_EMAIL = 'crm@example.com'
+
+EMAIL_SUBJECT_PREFIX = '[CRM] '
+SERVER_EMAIL = 'test@example.com'
+DEFAULT_FROM_EMAIL = 'test@example.com'
 
 ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
 

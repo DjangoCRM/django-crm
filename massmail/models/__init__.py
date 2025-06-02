@@ -4,5 +4,6 @@ from .mailing_out import MailingOut
 from .email_account import EmailAccount
 from .mass_contact import MassContact
 from .eml_accounts_queue import EmlAccountsQueue
+from .massmail_settings import MassmailSettings
 
 
