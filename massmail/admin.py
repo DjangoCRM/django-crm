@@ -143,7 +143,7 @@ class MassmailSettingsAdmin(admin.ModelAdmin):
     )
 
     def has_add_permission(self, request):
-        return MassmailSettings.objects.count() == 0
+        return False 
 
     def has_delete_permission(self, request, obj=None):
         return False

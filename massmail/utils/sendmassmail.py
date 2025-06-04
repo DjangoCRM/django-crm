@@ -35,6 +35,7 @@ from massmail.models import EmlAccountsQueue
 from massmail.models import MailingOut
 from massmail.models import MassContact
 from massmail.utils.email_creators import email_creator
+from massmail.models import MassmailSettings
 
 USER_MODEL = get_user_model()
 
@@ -53,7 +54,6 @@ class SendMassmail(threading.Thread, SingleInstance):
 
         while True:
             
-            from massmail.models import MassmailSettings
             mm = MassmailSettings.get_solo()
             if not mm.mailing or settings.TESTING:
                 break
