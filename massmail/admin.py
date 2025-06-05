@@ -15,7 +15,6 @@ from massmail.site import emlmessageadmin
 from massmail.site import mailingoutadmin
 from massmail.site import signatureadmin
 
-
 class EmailAccountAdmin(emailaccountadmin.EmailAccountAdmin):
     fieldsets = (
         (None, {
@@ -143,7 +142,7 @@ class MassmailSettingsAdmin(admin.ModelAdmin):
     )
 
     def has_add_permission(self, request):
-        return False 
+        return False
 
     def has_delete_permission(self, request, obj=None):
         return False

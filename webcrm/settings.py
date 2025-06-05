@@ -7,7 +7,6 @@ from crm.settings import *          # NOQA
 from common.settings import *       # NOQA
 from tasks.settings import *        # NOQA
 from voip.settings import *         # NOQA
-from massmail.settings import *     # NOQA
 
 # ---- Django settings ---- #
 
