@@ -36,6 +36,10 @@ This method is easier.
 
 The **second way** is to use the **Create Mailing button** and specify the values of all filters. This method is indispensable when you are dealing with a huge number of recipients.  
 
+!!! Important
+
+    The sales manager can send out mailings only to the recipients assigned to him and only through the mail accounts assigned to him.
+
 The progress of mailings is displayed on the mailing list page. The data is updated when the page is refreshed.
 
 ### Responses to newsletter
@@ -44,4 +48,5 @@ In order not to create a mess, CRM automatically imports only emails related to 
 If a commercial request comes in response to a newsletter, it can be imported using the corresponding button on the page of Requests, and then all subsequent correspondence will be imported into CRM.
 
 !!! Warning
+
     Do not use this application to send spam!
