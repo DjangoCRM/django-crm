@@ -691,6 +691,9 @@ To restrict mailings to business hours (and exclude Friday through Sunday), set 
 Prepare the message and optional signature beforehand.  
 Mailing progress is shown on the mailing list page (refresh to update).
 
+> [!NOTE]
+> The sales manager can send out mailings only to the recipients assigned to him and only through the mail accounts assigned to him.
+
 **Handling Replies:**
 Only emails tied to Requests or Deals (with a ticket) are auto-imported.  
 If a reply to a mailing is a commercial request, import it using the button on the Requests page. Future replies will import automatically.
