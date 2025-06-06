@@ -199,6 +199,11 @@ class MyTests(BaseTestCase):
                              "User {} got response status_code {} at url {}".format(
                                  username, response.status_code, url
                              ))
+        elif username == 'Adam.Admin' and "settings/massmailsettings/" in url:
+            self.assertEqual(response.status_code, 302,
+                             "User {} got response status_code {} at url {}".format(
+                                 username, response.status_code, url
+                             ))
         else:
             # Check that the response status code is 200
             # and the page is accessible for the user.

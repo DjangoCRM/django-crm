@@ -1170,6 +1170,14 @@ ADMIN_DATA = [
                 'view_only': False
             },
             {
+                'name': 'Massmail Settings',
+                'object_name': 'MassmailSettings',
+                'perms': get_perms(add=False, delete=False),
+                'admin_url': f'/en/{ADMIN_PREFIX}settings/massmailsettings/',
+                'add_url': None,
+                'view_only': False
+            },
+            {
                 'name': 'Public email domains',
                 'object_name': 'PublicEmailDomain',
                 'perms': get_perms(),

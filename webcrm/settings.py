@@ -280,13 +280,14 @@ LOAD_RATE_BACKEND = ""  # "crm.backends.<specify_backend>.<specify_class>"
 # Ability to mark payments through a representation
 MARK_PAYMENTS_THROUGH_REP = False
 
-
 # Site headers
 SITE_TITLE = 'CRM'
 ADMIN_HEADER = "ADMIN"
 ADMIN_TITLE = "CRM Admin"
 INDEX_TITLE = _('Main Menu')
 
+# Allow mailing
+MAILING = True
 
 # This is copyright information. Please don't change it!
 COPYRIGHT_STRING = f"Django-CRM. Copyright (c) {dt.now().year}"

@@ -8,6 +8,7 @@ from django.utils import timezone
 
 from common.models import Reminder
 from crm.forms.admin_forms import DealForm
+from settings.models import MassmailSettings
 from tasks.forms import TaskForm
 from tasks.forms import ProjectForm
 
@@ -23,9 +24,12 @@ def remind_me(request: WSGIRequest,
         "active": True
     }
     if obj.remind_me:
+        massmail_settings = MassmailSettings.get_solo()
+        if type(massmail_settings.business_time_start) == str:
+            massmail_settings.refresh_from_db()
         t = time(
-            settings.BUSINESS_TIME_START['hour'],
-            settings.BUSINESS_TIME_START['minute'] + 10
+            massmail_settings.business_time_start.hour,
+            massmail_settings.business_time_start.minute + 10
         )
         reminder_date = dt.combine(obj.next_step_date, t)
         if settings.USE_TZ:

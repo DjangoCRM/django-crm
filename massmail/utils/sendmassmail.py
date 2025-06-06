@@ -35,7 +35,7 @@ from massmail.models import EmlAccountsQueue
 from massmail.models import MailingOut
 from massmail.models import MassContact
 from massmail.utils.email_creators import email_creator
-from massmail.models import MassmailSettings
+from settings.models import MassmailSettings
 
 USER_MODEL = get_user_model()
 
@@ -50,15 +50,16 @@ class SendMassmail(threading.Thread, SingleInstance):
             SingleInstance.__init__(self, flavor_id='Massmail')
 
     def run(self):
+        massmail_settings = MassmailSettings.get_solo()
 
         while True:
 
-            mm = MassmailSettings.get_solo()
-            if not mm.mailing or settings.TESTING:
+            if not settings.MAILING or settings.TESTING:
                 break
 
-            if mm.use_business_time:
-                s = get_seconds_to_business_time(mm)
+            massmail_settings.refresh_from_db()
+            if massmail_settings.use_business_time:
+                s = get_seconds_to_business_time(massmail_settings)
                 if s > 0:
                     connection.close()
                     time.sleep(s + random.randint(120, 300))
@@ -67,7 +68,7 @@ class SendMassmail(threading.Thread, SingleInstance):
             time.sleep(30)
 
 def send_massmail() -> None:
-    mm = MassmailSettings.get_solo()
+    massmail_settings = MassmailSettings.get_solo()
     try:
         mailing_outs = MailingOut.objects.filter(
             status__in=['A', 'E']
@@ -93,7 +94,7 @@ def send_massmail() -> None:
             )
             for ea in email_accounts:
                 if ea.today_date == today:
-                    if ea.today_count > mm.emails_per_day:
+                    if ea.today_count > massmail_settings.emails_per_day:
                         continue
                 else:
                     ea.today_count = 0
@@ -224,7 +225,7 @@ def fix_masscontacts(mailing_out: MailingOut, recipient_ids: list) -> None:
                 )
 
 
-def get_seconds_to_business_time(massmail_settings) -> float:
+def get_seconds_to_business_time(massmail_settings: MassmailSettings) -> float:
     now = timezone.localtime(timezone.now())
     bt_start = now.replace(
         hour=massmail_settings.business_time_start.hour,

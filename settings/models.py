@@ -31,9 +31,48 @@ class BannedCompanyName(models.Model):
         return self.name
 
 
+class MassmailSettings(models.Model):
+    """
+    Model for mass mailing settings.
+    """
+
+    class Meta:
+        verbose_name = _("Massmail Settings")
+        verbose_name_plural = _("Massmail Settings")
+
+    emails_per_day = models.PositiveIntegerField(
+        default=94,
+        help_text="Daily message limit for email accounts."
+    )
+    use_business_time = models.BooleanField(
+        default=False,
+        help_text="Send only during business hours."
+    )
+    business_time_start = models.TimeField(
+        default="08:30",
+        help_text="Start of working hours."
+    )
+    business_time_end = models.TimeField(
+        default="17:30",
+        help_text="End of working hours."
+    )
+    unsubscribe_url = models.URLField(
+        default="https://www.example.com/unsubscribe",
+        help_text='"Unsubscribed successfully" page."'
+    )
+
+    def __str__(self):
+        return "Settings"
+
+    @classmethod
+    def get_solo(cls):
+        obj, _ = cls.objects.get_or_create(pk=1)
+        return obj
+
+
 class PublicEmailDomain(models.Model):
     """
-    Model representing a public email domain.
+    Model representing a public email domain list.
 
     This model is used to store public domains to identify them in messages
     and prevent company identification by email domain.
