@@ -15,7 +15,6 @@ from massmail.site import emlmessageadmin
 from massmail.site import mailingoutadmin
 from massmail.site import signatureadmin
 
-
 class EmailAccountAdmin(emailaccountadmin.EmailAccountAdmin):
     fieldsets = (
         (None, {
@@ -111,3 +110,39 @@ crm_site.register(EmailAccount, emailaccountadmin.EmailAccountAdmin)
 crm_site.register(EmlMessage, emlmessageadmin.EmlMessageAdmin)
 crm_site.register(MailingOut, mailingoutadmin.MailingOutAdmin)
 crm_site.register(Signature, signatureadmin.SignatureAdmin)
+
+from .models import MassmailSettings
+
+@admin.register(MassmailSettings)
+class MassmailSettingsAdmin(admin.ModelAdmin):
+    list_display = (
+        "mailing",
+        "emails_per_day",
+        "use_business_time",
+        "business_time_start",
+        "business_time_end",
+        "unsubscribe_url",
+    )
+
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "mailing",
+                    "emails_per_day",
+                    "use_business_time",
+                    "business_time_start",
+                    "business_time_end",
+                    "unsubscribe_url",
+                ),
+                "description": "Configure massmail limits, timings, and unsubscribe behavior here.",
+            },
+        ),
+    )
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False

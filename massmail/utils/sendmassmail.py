@@ -35,9 +35,9 @@ from massmail.models import EmlAccountsQueue
 from massmail.models import MailingOut
 from massmail.models import MassContact
 from massmail.utils.email_creators import email_creator
+from massmail.models import MassmailSettings
 
 USER_MODEL = get_user_model()
-
 
 class SendMassmail(threading.Thread, SingleInstance):
 
@@ -52,12 +52,13 @@ class SendMassmail(threading.Thread, SingleInstance):
     def run(self):
 
         while True:
-            
-            if not settings.MAILING or settings.TESTING:
+
+            mm = MassmailSettings.get_solo()
+            if not mm.mailing or settings.TESTING:
                 break
 
-            if settings.USE_BUSINESS_TIME:
-                s = get_seconds_to_business_time()
+            if mm.use_business_time:
+                s = get_seconds_to_business_time(mm)
                 if s > 0:
                     connection.close()
                     time.sleep(s + random.randint(120, 300))
@@ -65,8 +66,8 @@ class SendMassmail(threading.Thread, SingleInstance):
             send_massmail()
             time.sleep(30)
 
-
 def send_massmail() -> None:
+    mm = MassmailSettings.get_solo()
     try:
         mailing_outs = MailingOut.objects.filter(
             status__in=['A', 'E']
@@ -92,7 +93,7 @@ def send_massmail() -> None:
             )
             for ea in email_accounts:
                 if ea.today_date == today:
-                    if ea.today_count > settings.EMAILS_PER_DAY:
+                    if ea.today_count > mm.emails_per_day:
                         continue
                 else:
                     ea.today_count = 0
@@ -223,15 +224,15 @@ def fix_masscontacts(mailing_out: MailingOut, recipient_ids: list) -> None:
                 )
 
 
-def get_seconds_to_business_time() -> float:
+def get_seconds_to_business_time(massmail_settings) -> float:
     now = timezone.localtime(timezone.now())
     bt_start = now.replace(
-        hour=settings.BUSINESS_TIME_START['hour'],
-        minute=settings.BUSINESS_TIME_START['minute']
+        hour=massmail_settings.business_time_start.hour,
+        minute=massmail_settings.business_time_start.minute
     )
     bt_end = now.replace(
-        hour=settings.BUSINESS_TIME_END['hour'],
-        minute=settings.BUSINESS_TIME_END['minute']
+        hour=massmail_settings.business_time_end.hour,
+        minute=massmail_settings.business_time_end.minute
     )
     weekday = now.weekday()
     if weekday in (4, 5, 6):
