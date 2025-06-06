@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Dynamic tooltip for task sorting toggle
+- The number of Request fields available for modification via the administrators' site has been expanded
+- Validation for mailing status and dynamic user hints
+- Mailing status flag and support for optional business hours in massmail
+- Expand newsletter mailing documentation with detailed usage instructions
 
 ## [1.3.1] - 2025-05-23
 
@@ -25,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add scrollable wrapper for long mailing error notifications
+- Add scrollable wrapper for long mailing error notifications by @MULTidll in #217
 - Add dynamic tooltip for deal sorting toggle
 
 ### Fixed
