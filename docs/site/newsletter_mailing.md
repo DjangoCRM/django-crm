@@ -26,7 +26,6 @@ The address of this page must be specified in the settings file as follows:
 `UNSUBSCRIBE_URL = 'https://<www.your_site.com>/unsubscribe'`  
 Each message template must contain the **UNSUBSCRIBE** button with this url.
 
-
 ### How to create mailing
 
 There are two ways to create a mailing list.
@@ -35,7 +34,19 @@ But in any case, you first need to prepare a message for the mailing list and a 
 The **first way** is to simply select recipients, for example, on the company list page, and then use the **Action menu** to create a mailing list.
 This method is easier.
 
-The **second way** is to use the **Create Mailing button** and specify the values of all filters. This method is indispensable when you are dealing with a huge number of recipients.
+The **second way** is to use the **Create Mailing button** and specify the values of all filters. This method is indispensable when you are dealing with a huge number of recipients.  
+
+!!! Important
+
+    The sales manager can send out mailings only to the recipients assigned to him and only through the mail accounts assigned to him.
+
+The progress of mailings is displayed on the mailing list page. The data is updated when the page is refreshed.
+
+### Responses to newsletter
+
+In order not to create a mess, CRM automatically imports only emails related to Requests and Deals (they are provided with a ticket).
+If a commercial request comes in response to a newsletter, it can be imported using the corresponding button on the page of Requests, and then all subsequent correspondence will be imported into CRM.
 
 !!! Warning
+
     Do not use this application to send spam!

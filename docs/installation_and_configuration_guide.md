@@ -71,7 +71,7 @@
 - [Company product categories](#company-product-categories)
 - [Company products](#company-products)
 - [Currencies](#currencies)
-- [Newsletter](#newsletter)
+- [Mailing](#mailing)
 - [VoIP telephony](#voip-telephony)
 - [CRM integration with messengers](#crm-integration-with-messengers)
 
@@ -664,21 +664,41 @@ You can use already existing backends as a basis.
 Then in the settings file, specify the name of the backend class in the setting  
 `LOAD_RATE_BACKEND`
 
-## Newsletter
+## Mailing
 
-Please do not use this application to send spam!
+The Massmail app in Django CRM lets you send newsletters to contacts, leads, and companies from within the CRM.  
+You need:
 
-The Massmail application requires:
+* Recipients in the CRM
+* [Email accounts](#setting-up-email-accounts) configured for sales managers (marked "Massmail")
 
-- the existence of contact persons (recipients) in the database;
-- configured [email accounts](#setting-up-email-accounts) for sales managers (marked "Massmail");
+Mailings from the **main** sales manager account are only sent to **VIP recipients** to avoid spam filters. Mark VIPs via the Action menu on contact, company, or lead pages. For others, use additional accounts.
 
-The application provides recipients with an opportunity to unsubscribe from mailings.  
-In order not to disclose the address of your CRM (on the Internet), it is necessary to create a page on your company's website, where users who clicked the "unsubscribe" button will be forwarded.  This page should show a message that the user unsubscribed successfully.
-The address of this page should be specified in the settings (massmail/settings.py)  
-`UNSUBSCRIBE_URL = 'https://<www.your_site.com>/unsubscribe'`
+**Business Hours Sending:**
+To restrict mailings to business hours (and exclude Friday through Sunday), set `USE_BUSINESS_TIME = True` in `massmail/settings.py`.
 
-Each message template must contain the UNSUBSCRIBE button with this url.
+**Unsubscribe Option:**
+
+* Create a "unsubscribed successfully" page on your company website (not the CRM site!).
+* Add its URL in settings: `UNSUBSCRIBE_URL = 'https://<your_site>/unsubscribe'`
+* Include an **UNSUBSCRIBE** button with this URL in each email template.
+
+**Creating a Mailing:**
+
+1. **Quick method:** Select recipients (e.g., on company list page), then use the Action menu.
+2. **Detailed method:** Use **Make Massmail** button, applying filters — best for large lists.
+
+Prepare the message and optional signature beforehand.  
+Mailing progress is shown on the mailing list page (refresh to update).
+
+> [!NOTE]
+> The sales manager can send out mailings only to the recipients assigned to him and only through the mail accounts assigned to him.
+
+**Handling Replies:**
+Only emails tied to Requests or Deals (with a ticket) are auto-imported.  
+If a reply to a mailing is a commercial request, import it using the button on the Requests page. Future replies will import automatically.
+
+**Important:** Do not use this app for spam!
 
 ## VoIP telephony
 
