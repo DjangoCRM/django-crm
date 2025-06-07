@@ -503,7 +503,7 @@ CRM automatically assigns the owner of the imported request to the owner of the 
 
 ### Sources of Leads
 
-`(ADMIN) Home > Crm > Lead Sources`  
+`(ADMIN site) Home > Crm > Lead Sources`  
 For marketing purposes, each "Request", "Lead", "Contact" and "Company" has a link to the corresponding "Lead Source".  
 Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
 For convenience, CRM has a number of pre-defined "Leads Sources". These can be edited.
@@ -577,7 +577,7 @@ Save the names of these files in the "Form template name" and "Success page temp
 
 ## Setting up email accounts
 
-`(ADMIN) Home > Mass mail > Email Accounts`
+`(ADMIN site) Home > Mass mail > Email Accounts`
 
 Mail accounts must be set up for users with the roles "Operator", "Super Operator" and "Manager" (Sales Manager).
 This will allow the following to be realized:
@@ -637,7 +637,7 @@ And also get the credentials OAuth 2.0 "CLIENT_ID" and "CLIENT_SECRET". Save the
 `<crmproject>/webcrm/settings.py`
 
 Then on the desired "Email Account" page  
- `(ADMIN) Home > Mass mail > Email Accounts`  
+ `(ADMIN site) Home > Mass mail > Email Accounts`  
 In the upper right corner, click the button "Get or update a refresh token".  
 CRM will open the authorization page. After successful authorization, the "Refresh token" value will be received and CRM will get access to this account.  
 Please note that to receive a refresh token, the CRM must be running on a server that supports the HTTPS scheme.  
@@ -646,13 +646,13 @@ The refresh token can also be obtained separately from the CRM, for example, usi
 ## Company product categories
 
 Add categories of your company's products, goods or services.  
-`(ADMIN) Home > Crm > Product categories`
+`(ADMIN site) Home > Crm > Product categories`
 
 ## Company products
 
 Add your company's products, services or goods
 (this can be done later by sales managers).  
-`(ADMIN) Home > Crm > Products`
+`(ADMIN site) Home > Crm > Products`
 
 ## Currencies
 
@@ -674,16 +674,20 @@ You need:
 
 Mailings from the **main** sales manager account are only sent to **VIP recipients** to avoid spam filters. Mark VIPs via the Action menu on contact, company, or lead pages. For others, use additional accounts.
 
+### Settings
+
+`(ADMIN site) Home > Settings > Massmail Settings`
+
 **Business Hours Sending:**
-To restrict mailings to business hours (and exclude Friday through Sunday), set `USE_BUSINESS_TIME = True` in `massmail/settings.py`.
+To restrict mailings to business hours (and exclude Friday through Sunday), select `Use business time` check box.
 
 **Unsubscribe Option:**
 
-* Create a "unsubscribed successfully" page on your company website (not the CRM site!).
-* Add its URL in settings: `UNSUBSCRIBE_URL = 'https://<your_site>/unsubscribe'`
-* Include an **UNSUBSCRIBE** button with this URL in each email template.
+* Create an "unsubscribed successful" page on your company website (not the CRM site!).
+* Enter its URL in the field: `URL to unsubscribe`.
+* Include an **UNSUBSCRIBE** link button in each message template with `unsubscribe_url` tag - `href="{{ unsubscribe_url }}"`.
 
-**Creating a Mailing:**
+### Creating a Mailing
 
 1. **Quick method:** Select recipients (e.g., on company list page), then use the Action menu.
 2. **Detailed method:** Use **Make Massmail** button, applying filters — best for large lists.
@@ -709,7 +713,7 @@ It is necessary to receive from the provider (zadarma.com) and to specify in `vo
 FORWARD settings are specified independently, but only if you have a second instance of working CRM (for example, for a subsidiary company).
 
 Then add Connections objects for users in the  
- `(ADMIN) Home > Voip > Connections`
+ `(ADMIN site) Home > Voip > Connections`
 
 To connect to a different provider, you must create new files for its
 backend (`voip/backends`) and (`voip/views`).  
