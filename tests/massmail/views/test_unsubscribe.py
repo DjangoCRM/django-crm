@@ -7,6 +7,7 @@ from crm.models.company import Company
 from crm.models.contact import Contact
 from massmail.models.mass_contact import MassContact
 from tests.base_test_classes import BaseTestCase
+from settings.models import MassmailSettings
 
 # manage.py test tests.massmail.views.test_unsubscribe --keepdb
 
@@ -25,13 +26,20 @@ class TestUnsubscribe(BaseTestCase):
             content_type=content_type, object_id=contact.id)
         url = reverse('unsubscribe', args=(mc.uuid,))
         home_url = reverse('site:index')
-        with self.settings(UNSUBSCRIBE_URL=home_url):
-            response = self.client.get(url, follow=True)
-            self.assertEqual(response.status_code, 200, response.reason_phrase)
-            self.assertEqual(
-                response.redirect_chain[0][0],
-                settings.UNSUBSCRIBE_URL
-            )
+        massmail_settings = MassmailSettings.get_solo()
+        unsubscribe_url = massmail_settings.unsubscribe_url
+        massmail_settings.unsubscribe_url = home_url
+        massmail_settings.save(update_fields=['unsubscribe_url'])
+
+        response = self.client.get(url, follow=True)
+
+        massmail_settings.unsubscribe_url = unsubscribe_url
+        massmail_settings.save(update_fields=['unsubscribe_url'])
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        self.assertEqual(
+            response.redirect_chain[0][0],
+            home_url
+        )
         mc.refresh_from_db()
         self.assertEqual(mc.massmail, False)
         contact.refresh_from_db()
