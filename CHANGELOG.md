@@ -15,8 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dynamic tooltip for task sorting toggle
 - The number of Request fields available for modification via the administrators' site has been expanded
 - Validation for mailing status and dynamic user hints
-- Mailing status flag and support for optional business hours in massmail
+- Flag for mass mailing only during business hours
 - Expand newsletter mailing documentation with detailed usage instructions
+
+### Changed
+
+- Moved Massmail settings from settings.py to Admin web UI by @Ishubhammohole in #229  
+  (**Update your settings:** `(ADMIN site) Home > Settings > Massmail Settings`)
 
 ## [1.3.1] - 2025-05-23
 
