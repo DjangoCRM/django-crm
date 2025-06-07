@@ -12,19 +12,23 @@ Mailings from the **main** sales manager account are only sent to **VIP recipien
 Use the **Action menu** on the Contact persons, Companies and Leads pages to **mark them as VIP**.  
 For other recipients, it is recommended to set up additional email accounts.
 
-### Use of business time
+### Settings
 
-The application allows you to send mailings only during business hours, which are defined in the settings file (`massmail/settings.py`).  
-To do this, set the `USE_BUSINESS_TIME` setting to `True` (default: `False`) then the mailing will also not be performed on Friday, Saturday and Sunday.
+`(ADMIN site) Home > Settings > Massmail Settings`
 
-### Unsubscribe from the mailing list
+
+#### Use of business time
+
+The application allows you to send mail only during working hours, which can be changed.  
+To do this, check the box "Use working hours", then the mailing will also not be carried out on Friday, Saturday and Sunday.
+
+#### Unsubscribe from the mailing list
 
 The application provides recipients with an opportunity to unsubscribe from mailings.  
 To prevent revealing your CRM site's web address, create a page on your company's website to which users clicking the **UNSUBSCRIBE** button will be redirected.
 This page should show a message that the user unsubscribed successfully.  
-The address of this page must be specified in the settings file as follows:  
-`UNSUBSCRIBE_URL = 'https://<www.your_site.com>/unsubscribe'`  
-Each message template must contain the **UNSUBSCRIBE** button with this url.
+The address of this page must be specified in the field: `URL to unsubscribe`.  
+Each message template must contain the **UNSUBSCRIBE** button with `unsubscribe_url` tag - `href="{{ unsubscribe_url }}"`.
 
 ### How to create mailing
 
