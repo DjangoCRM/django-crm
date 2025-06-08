@@ -21,6 +21,11 @@ accounts_str = _('Accounts')
 accounts_safe_str = mark_safe(
     f'<div title="{accounts_title}">{accounts_str}</div>')
 content_type__str = _("Recipients type")
+no_massmal_account_str = _("You do not have an email account available for massmaling.")
+no_redirect_url_str = _("The address for redirecting unsubscribed recipients is not specified."
+                       " Contact the administrator.")
+vip_recipients_only_str = _("You have one Email account with Mailing enabled. "
+        "As the main account, it can only send emails to VIP recipients.")
 progress_safe_str = mark_safe(
     f'<i class="material-icons" style="color: var(--body-quiet-color)">'
     f'trending_up</i></a>'
@@ -82,28 +87,18 @@ class MailingOutAdmin(CrmModelAdmin):
                 obj.status = obj.PAUSED
                 messages.error(
                     request,
-                    gettext(
-                        "You must have at least one Email account "
-                        "with MassMail enabled to send emails."
-                    )
+                    gettext(no_massmal_account_str)
                 )
             elif eas.count() == 1 and eas.first().main:
                 messages.warning(
                     request,
-                    gettext(
-                        "You have only one Email account with MassMail "
-                        "enabled. Since this is the main account, "
-                        "emails can only be sent to recipients marked as VIP."
-                    )
+                    gettext(vip_recipients_only_str)
                 )
             massmail_settings = MassmailSettings.get_solo()
             if massmail_settings.unsubscribe_url in ("https://www.example.com/unsubscribe", ''):
                 messages.warning(
                     request,
-                    gettext(
-                        "The address for redirecting unsubscribed recipients is not specified. "
-                        "Contact the administrator."
-                    )
+                    gettext(no_redirect_url_str)
                 )
         if not obj.name:
             obj.name = settings.NO_NAME_STR

@@ -8,9 +8,12 @@ from crm.models import ClientType
 from crm.models import Industry
 from common.utils.helpers import get_department_id
 from common.utils.helpers import USER_MODEL
-from massmail.models import MailingOut
+from massmail.models import MailingOut, EmlMessage
 from massmail.models.email_account import EmailAccount
+from massmail.site.mailingoutadmin import no_redirect_url_str, vip_recipients_only_str, no_massmal_account_str
 from tests.base_test_classes import BaseTestCase
+from tests.utils.helpers import get_adminform_initials
+
 
 # manage.py test tests.massmail.test_make_massmail --keepdb
 
@@ -74,13 +77,14 @@ class TestMakeMassmail(BaseTestCase):
             country=cls.country,
         )
         cls.company_make_massmail_url = reverse("site:company_make_massmail")
-        EmailAccount.objects.create(
+        cls.ea = EmailAccount.objects.create(
             name='Email Account',
             email_host='smtp.example.com',
             email_host_user='andrew@example.com',
             email_host_password='password',
             from_email='andrew@example.com',
             owner=cls.user,
+            main=True,
         )
 
     def setUp(self):
@@ -106,12 +110,41 @@ class TestMakeMassmail(BaseTestCase):
             self.company_make_massmail_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
-        self.assertTrue(
-            MailingOut.objects.filter(
+        try:
+            mailing_out = MailingOut.objects.get(
                 recipient_ids=f'{self.company1.id},{self.company2.id}'
-            ).exists(),
-            "The Obj DoesNotExist"
+            )
+        except MailingOut.DoesNotExist:
+            self.fail("The MailingOut instance DoesNotExist")
+
+        # Testing the tips when saving the mailing_out
+        change_url = reverse('site:massmail_mailingout_change', args=(mailing_out.id,))
+        response = self.client.get(change_url)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        eml_msg = EmlMessage.objects.create(
+            subject='Test Subject',
+            content='Test Content',
+            owner=self.user,
         )
+        data = get_adminform_initials(response)
+        data['status'] = MailingOut.ACTIVE
+        data['message'] = str(eml_msg.id)
+        response = self.client.post(change_url, data, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        messages = list(response.context['messages'])
+        self.assertNoFormErrors(response)
+        self.assertEqual(messages[0].message, vip_recipients_only_str)
+        self.assertEqual(messages[1].message, no_redirect_url_str)
+        self.ea.owner = self.user2
+        self.ea.save(update_fields=['owner'])
+        mailing_out.status = MailingOut.PAUSED
+        mailing_out.save(update_fields=['status'])
+        response = self.client.post(change_url, data, follow=True)
+        messages = list(response.context['messages'])
+        self.assertEqual(messages[0].message, no_massmal_account_str)
+
+
+
 
     def test_make_contact_massmail(self):
         """Make massmail for contacts using form."""
