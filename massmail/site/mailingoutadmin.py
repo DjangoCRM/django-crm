@@ -14,6 +14,7 @@ from crm.utils.admfilters import ByOwnerFilter
 from massmail.admin_actions import merge_mailing_outs
 from massmail.models import EmailAccount
 from massmail.utils.adminfilters import StatusMailingFilter
+from settings.models import MassmailSettings
 
 accounts_title = _("Available Email accounts for MassMail")
 accounts_str = _('Accounts')
@@ -95,7 +96,15 @@ class MailingOutAdmin(CrmModelAdmin):
                         "emails can only be sent to recipients marked as VIP."
                     )
                 )
-
+            massmail_settings = MassmailSettings.get_solo()
+            if massmail_settings.unsubscribe_url in ("https://www.example.com/unsubscribe", ''):
+                messages.warning(
+                    request,
+                    gettext(
+                        "The address for redirecting unsubscribed recipients is not specified. "
+                        "Contact the administrator."
+                    )
+                )
         if not obj.name:
             obj.name = settings.NO_NAME_STR
         super().save_model(request, obj, form, change)
