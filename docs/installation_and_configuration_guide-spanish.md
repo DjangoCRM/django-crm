@@ -670,19 +670,43 @@ Luego, en el archivo de configuración, especifique el nombre de la clase backen
 
 ## Boletín informativo
 
-¡Por favor, no use esta aplicación para enviar spam!
+La aplicación **Massmail** en Django CRM te permite enviar boletines a contactos, oportunidades y empresas directamente desde el CRM.
+Necesitas:
 
-La aplicación de correo masivo requiere:
+* Destinatarios dentro del CRM
+* [Cuentas de correo electrónico](#setting-up-email-accounts) configuradas para los gestores de ventas (marcadas como "Massmail")
 
-- la existencia de personas de contacto (destinatarios) en la base de datos;
-- cuentas de correo electrónico configuradas [cuentas de correo electrónico](#configuración-de-cuentas-de-correo-electrónico) para los gerentes de ventas (marcadas como "Massmail");
+Los envíos desde la cuenta del **gestor de ventas principal** se envían solo a **destinatarios VIP** para evitar los filtros de spam. Marca como VIP a los destinatarios desde el menú de **Acciones** en las páginas de contacto, empresa u oportunidad. Para los demás destinatarios, utiliza cuentas de correo adicionales.
 
-La aplicación proporciona a los destinatarios la oportunidad de darse de baja de los correos.  
-Para no divulgar la dirección de su CRM (en Internet), es necesario crear una página en el sitio web de su empresa, donde los usuarios que hicieron clic en el botón "darse de baja" serán redirigidos. Esta página debe mostrar un mensaje de que el usuario se dio de baja con éxito.
-La dirección de esta página debe especificarse en la configuración (massmail/settings.py)  
-`UNSUBSCRIBE_URL = 'https://<www.su_sitio.com>/unsubscribe'`
+### Configuración
 
-Cada plantilla de mensaje debe contener el botón de CANCELAR SUSCRIPCIÓN con esta url.
+`(Sitio ADMIN) Inicio > Configuración > Configuración de Massmail`
+
+**Envío en horario laboral:**
+Para restringir los envíos a horario laboral (y excluir los viernes, sábados y domingos), marca la casilla `Usar horario laboral` (`Use business time`).
+
+**Opción de desuscripción:**
+
+* Crea una página de “desuscripción exitosa” en el sitio web de tu empresa (¡no en el sitio del CRM!).
+* Ingresa la URL de esa página en el campo `URL para desuscribirse` (`URL to unsubscribe`).
+* Incluye un botón de **DESUSCRIBIRSE** en cada plantilla de mensaje utilizando la etiqueta `unsubscribe_url` — `href="{{ unsubscribe_url }}"`.
+
+### Crear un Mailing
+
+1. **Método rápido:** Selecciona los destinatarios (por ejemplo, en la página de lista de empresas), luego usa el menú de **Acciones**.
+2. **Método detallado:** Usa el botón **Make Massmail**, aplicando filtros — ideal para listas grandes.
+
+Prepara el mensaje y la firma opcional con anticipación.
+El progreso del mailing se muestra en la página de lista de envíos (actualiza para ver cambios).
+
+> [!NOTA]
+> El gestor de ventas solo puede enviar mailings a los destinatarios asignados a él y solo usando las cuentas de correo que tenga asignadas.
+
+**Gestión de respuestas:**
+Solo los correos relacionados con Solicitudes o Negociaciones (con ticket) se importan automáticamente.
+Si una respuesta a un mailing es una solicitud comercial, impórtala usando el botón en la página de **Solicitudes**. Las futuras respuestas se importarán automáticamente.
+
+**Importante:** ¡No uses esta aplicación para hacer spam!
 
 ## Telefonía VoIP
 
