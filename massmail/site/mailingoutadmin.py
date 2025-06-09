@@ -94,7 +94,7 @@ class MailingOutAdmin(CrmModelAdmin):
                     request,
                     gettext(vip_recipients_only_str)
                 )
-            massmail_settings = MassmailSettings.get_solo()
+            massmail_settings = MassmailSettings.objects.get(id=1)
             if massmail_settings.unsubscribe_url in ("https://www.example.com/unsubscribe", ''):
                 messages.warning(
                     request,
