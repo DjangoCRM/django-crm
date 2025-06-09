@@ -24,7 +24,7 @@ def remind_me(request: WSGIRequest,
         "active": True
     }
     if obj.remind_me:
-        massmail_settings = MassmailSettings.get_solo()
+        massmail_settings = MassmailSettings.objects.get(id=1)
         if type(massmail_settings.business_time_start) == str:
             massmail_settings.refresh_from_db()
         t = time(
