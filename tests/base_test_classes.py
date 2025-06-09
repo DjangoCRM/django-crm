@@ -9,7 +9,7 @@ class BaseTestCase(TestCase):
         'groups.json', 'department.json', 'test_users.json',
         'deal_stage.json',  'projectstage.json', 'taskstage.json',
         'client_type.json', 'closing_reason.json', 'industry.json',
-        'lead_source.json'
+        'lead_source.json', 'massmailsettings.json'
     )
 
     def assertNoFormErrors(self, response):
@@ -24,7 +24,7 @@ class BaseTestCase(TestCase):
             if errors:  # ErrorDict
                 msg = ""
                 errors = errors.get_context()
-                data = errors['errors']     # FIXME: is is work?
+                data = errors['errors']     # FIXME: does this work?
                 for field, error in data:
                     msg = f"{msg}\n{field}: {error}"
                 raise self.failureException(msg)
