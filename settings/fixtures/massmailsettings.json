@@ -1,0 +1,13 @@
+[
+{
+    "model": "settings.massmailsettings",
+    "pk": 1,
+    "fields": {
+        "emails_per_day": 94,
+        "use_business_time": false,
+        "business_time_start": "08:30:00",
+        "business_time_end": "17:30:00",
+        "unsubscribe_url": "https://www.example.com/unsubscribe"
+    }
+}
+]
