@@ -25,7 +25,7 @@ class TestUnsubscribe(BaseTestCase):
             content_type=content_type, object_id=contact.id)
         url = reverse('unsubscribe', args=(mc.uuid,))
         home_url = reverse('site:index')
-        massmail_settings = MassmailSettings.get_solo()
+        massmail_settings = MassmailSettings.objects.get(id=1)
         unsubscribe_url = massmail_settings.unsubscribe_url
         massmail_settings.unsubscribe_url = home_url
         massmail_settings.save(update_fields=['unsubscribe_url'])
