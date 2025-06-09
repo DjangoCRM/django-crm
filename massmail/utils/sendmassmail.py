@@ -50,13 +50,11 @@ class SendMassmail(threading.Thread, SingleInstance):
             SingleInstance.__init__(self, flavor_id='Massmail')
 
     def run(self):
-        massmail_settings = MassmailSettings.get_solo()
+        massmail_settings = MassmailSettings.objects.get(id=1)
+        if not settings.MAILING or settings.TESTING:
+            return
 
         while True:
-
-            if not settings.MAILING or settings.TESTING:
-                break
-
             massmail_settings.refresh_from_db()
             if massmail_settings.use_business_time:
                 s = get_seconds_to_business_time(massmail_settings)
@@ -64,11 +62,11 @@ class SendMassmail(threading.Thread, SingleInstance):
                     connection.close()
                     time.sleep(s + random.randint(120, 300))
 
-            send_massmail()
+            send_massmail(massmail_settings)
             time.sleep(30)
 
-def send_massmail() -> None:
-    massmail_settings = MassmailSettings.get_solo()
+
+def send_massmail(massmail_settings: MassmailSettings) -> None:
     try:
         mailing_outs = MailingOut.objects.filter(
             status__in=['A', 'E']
@@ -79,8 +77,8 @@ def send_massmail() -> None:
         now = get_now()
         today = now.date()
         mailing_outs = check_owners(mailing_outs)
-        while mailing_outs:
 
+        while mailing_outs:
             mailing_out = mailing_outs.pop(0)
             if mailing_out.sending_date != today:
                 mailing_out.today_count = 0
@@ -115,7 +113,7 @@ def send_massmail() -> None:
                         extra_context=extra_context,
                         force_multipart=True, inline_images=True
                     )
-                    if not settings.DEBUG:
+                    if settings.MAILING or not settings.MAILING and settings.TESTING:
                         msg.send(fail_silently=False)
                     mailing_out.move_to_successful_ids(mc.object_id)
                 except (SMTPAuthenticationError, SMTPSenderRefused) as e:
@@ -137,8 +135,8 @@ def send_massmail() -> None:
 
                 counter_increment(ea, mailing_out, today)
 
-                if not any((settings.DEBUG, settings.TESTING)):
-                    time.sleep(random.randint(5, 25))
+                if not settings.TESTING:
+                    time.sleep(random.randint(15, 35))
     except Exception as err:
         msg = f"Exception at send_massmail"
         mail_admins(

@@ -14,6 +14,7 @@ from massmail.models.mass_contact import MassContact
 from massmail.models.mailing_out import MailingOut
 from massmail.models.signature import Signature
 from massmail.utils.sendmassmail import send_massmail
+from settings.models import MassmailSettings
 from tests.base_test_classes import BaseTestCase
 from tests.utils.helpers import get_adminform_initials
 
@@ -87,6 +88,7 @@ class TestMassMil(BaseTestCase):
             email_account=cls.ea,
             massmail=True
         )
+        cls.massmail_settings = MassmailSettings.objects.get(id=1)
 
     def setUp(self):
         print("Run Test Method:", self._testMethodName)
@@ -103,7 +105,7 @@ class TestMassMil(BaseTestCase):
 
     def test_send_2_recipient(self):
         # with self.settings(TESTING=True):
-        send_massmail()
+        send_massmail(self.massmail_settings)
         self.assertEqual(2, len(mail.outbox))   # NOQA
         self.assertEqual(self.eml.subject, mail.outbox[0].subject)
         mail.outbox = []
@@ -131,7 +133,7 @@ class TestMassMil(BaseTestCase):
         self.mo.message = eml
         self.mo.save(update_fields=['message'])
         # with self.settings(TESTING=True):
-        send_massmail()
+        send_massmail(self.massmail_settings)
         self.mo.refresh_from_db()
         self.assertEqual(0, len(mail.outbox))   # NOQA
         mail.outbox = []
