@@ -31,6 +31,7 @@ class Command(BaseCommand):
             'help_en.json',
             'sites.json',
             'reminders.json',
+            'massmailsettings.json',
             verbosity=1
         )
         if not settings.TESTING:
