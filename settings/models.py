@@ -64,11 +64,6 @@ class MassmailSettings(models.Model):
     def __str__(self):
         return "Settings"
 
-    @classmethod
-    def get_solo(cls):
-        obj, _ = cls.objects.get_or_create(pk=1)
-        return obj
-
 
 class PublicEmailDomain(models.Model):
     """
