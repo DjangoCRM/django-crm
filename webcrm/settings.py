@@ -48,7 +48,6 @@ EMAIL_PORT = 587
 EMAIL_SUBJECT_PREFIX = 'CRM: '
 EMAIL_USE_TLS = True
 
-EMAIL_SUBJECT_PREFIX = '[CRM] '
 SERVER_EMAIL = 'test@example.com'
 DEFAULT_FROM_EMAIL = 'test@example.com'
 
