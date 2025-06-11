@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-08 12:50+0200\n"
-"PO-Revision-Date: 2025-02-08 12:53+0200\n"
+"POT-Creation-Date: 2025-06-10 20:37+0300\n"
+"PO-Revision-Date: 2025-06-10 20:42+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -234,7 +234,7 @@ msgstr "الطلبات ذات الصلة حسب الشهر"
 msgid "pcs"
 msgstr "قطعات"
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:78
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
 #: crm/models/request.py:86 crm/templates/crm/print_request.html:55
 #: crm/utils/admfilters.py:113
@@ -245,10 +245,10 @@ msgstr "بلد"
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
 #: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:422
-#: crm/utils/admfilters.py:472 crm/utils/admfilters.py:492
-#: crm/utils/admfilters.py:505 crm/utils/admfilters.py:519
-#: crm/utils/admfilters.py:538 crm/utils/admfilters.py:543
+#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
+#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
+#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
+#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -264,20 +264,20 @@ msgstr "كلها"
 msgid "Owner"
 msgstr "المالك"
 
-#: analytics/site/outputstatadmin.py:169 crm/models/output.py:20
+#: analytics/site/outputstatadmin.py:170 crm/models/output.py:20
 #: crm/models/product.py:31 crm/utils/admfilters.py:266
 msgid "Product"
 msgstr "منتج"
 
-#: analytics/site/outputstatadmin.py:199
+#: analytics/site/outputstatadmin.py:200
 msgid "Sold products summary (by date of payment receipt)"
 msgstr "ملخص المنتجات المباعة (حسب تاريخ استلام دفع الثمن)"
 
-#: analytics/site/outputstatadmin.py:287
+#: analytics/site/outputstatadmin.py:288
 msgid "Sold products"
 msgstr "المنتجات المباعة"
 
-#: analytics/site/outputstatadmin.py:293 crm/models/product.py:45
+#: analytics/site/outputstatadmin.py:294 crm/models/product.py:45
 msgid "Price"
 msgstr "السعر"
 
@@ -429,10 +429,11 @@ msgid "You received a message regarding - "
 msgstr "تلقيت رسالة تتعلق بـ:"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:142
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:13 massmail/admin.py:37
+#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
+#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
+#: crm/site/dealadmin.py:279 crm/site/leadadmin.py:152
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:98
+#: crm/site/tagadmin.py:26 massmail/admin.py:36
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -456,7 +457,7 @@ msgstr "الرد على"
 
 #: chat/templates/admin/chat/chatmessage/change_list_object_tools.html:13
 #: common/templates/common/copy_department.html:17
-#: common/templates/common/select_email_account.html:15
+#: common/templates/common/select_object.html:15
 #: common/templates/common/user_transfer.html:17
 #: crm/templates/admin/crm/change_form.html:21
 #: crm/templates/admin/crm/company/change_list_object_tools.html:8
@@ -628,12 +629,13 @@ msgid "Subject"
 msgstr "الموضوع"
 
 #: common/models.py:160
-msgid "Briefly what about is this reminder"
-msgstr "باختصار، ما هو هذا التذكير حوله؟"
+#| msgid "Briefly what about is this reminder"
+msgid "Briefly, what is this reminder about?"
+msgstr "باختصار، ما هو هذا التذكير؟"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/base_contact.py:116 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -644,7 +646,7 @@ msgid "Reminder date"
 msgstr "تاريخ التذكير"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:526 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -720,7 +722,7 @@ msgstr "تفعيل هذا التوقيت الزمني"
 msgid "Field for temporary storage of messages to the user"
 msgstr "حقل لتخزين الرسائل مؤقتًا للمستخدم"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -752,7 +754,7 @@ msgstr "إجراء"
 msgid "Workflow"
 msgstr "تدفق العمل"
 
-#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:116
+#: common/site/userprofileadmin.py:120 help/models.py:62 help/models.py:121
 msgid "Language"
 msgstr "اللغة"
 
@@ -842,8 +844,8 @@ msgid "View on site"
 msgstr "عرض على الموقع"
 
 #: common/templates/common/copy_department.html:13
-#: common/templates/common/select_email_account.html:12
 #: common/templates/common/select_emails.html:13
+#: common/templates/common/select_object.html:12
 #: common/templates/common/user_transfer.html:13
 #: crm/templates/admin/crm/change_form.html:18
 #: crm/templates/admin/crm/crmemail/change_form.html:18
@@ -921,17 +923,9 @@ msgid "Create a reminder"
 msgstr "إنشاء تذكير"
 
 #: common/templates/common/reminder_message.html:4
-#: common/utils/reminders_sender.py:18
+#: common/utils/reminders_sender.py:19
 msgid "Regarding"
 msgstr "بخصوص"
-
-#: common/templates/common/select_email_account.html:20
-msgid "Please select an Email account"
-msgstr "يرجى اختيار حساب بريد إلكتروني."
-
-#: common/templates/common/select_email_account.html:38
-msgid "Select"
-msgstr "اختر"
 
 #: common/templates/common/select_emails.html:30
 #: common/templates/common/select_emails.html:72
@@ -967,6 +961,10 @@ msgstr "إلى"
 msgid "This email is already imported."
 msgstr "تم بالفعل استيراد هذه الرسالة الإلكترونية."
 
+#: common/templates/common/select_object.html:37
+msgid "Select"
+msgstr "اختر"
+
 #: common/templates/common/user_transfer.html:23
 msgid "Please select a user and a new department for him."
 msgstr "يرجى اختيار مستخدم وقسم جديد له."
@@ -983,7 +981,7 @@ msgstr "تمت المهمة"
 msgid "I completed the task"
 msgstr "أتممت المهمة"
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:367
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "مكتمل"
@@ -993,26 +991,67 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "تم إضافة الاسم للترجمة. يرجى تحديث ملفات po و mo."
 
-#: common/utils/helpers.py:25 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
+#: tasks/site/taskadmin.py:37
 msgid "Copy"
 msgstr "نسخ"
 
 #: common/utils/helpers.py:31
+#| msgid ""
+#| "Note massmail is not performed on the following days: Friday, Saturday, "
+#| "Sunday."
+msgid ""
+"Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
+"Sundays."
+msgstr "انتبه! لا يتم إرسال البريد الجماعي أيام: الجمعة والسبت والأحد."
+
+#: common/utils/helpers.py:33
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "لا يوجد {} بمعرف '{}'، ربما تم حذفها؟"
+
+#: common/utils/helpers.py:36
+#| msgid ""
+#| "\n"
+#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#| "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
+#| "    "
+msgid ""
+"\n"
+"Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+"You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
+msgstr ""
+"\n"
+"استخدم HTML. لتحديد عنوان الصورة المُضمَّنة، استخدم {% cid_media ‘path/to/pic.png’ %}.<br>\n"
+"يمكنك تضمين الملفات المُحمَّلة إلى خادم CRM في مجلد ‘media/pics/’.\n"
+
+#: common/utils/helpers.py:220
+#| msgid "Creation date"
+msgid "sort by creation date"
+msgstr "فرز حسب تاريخ الإنشاء"
+
+#: common/utils/helpers.py:222
+#| msgid "Next step deadline"
+msgid "sort by next step date"
+msgstr "فرز حسب تاريخ الخطوة التالية"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
 msgstr "تم إنشاء قسم جديد - {}. يرجى إعادة تسميته."
 
+#: common/views/select_email_account.py:32
+msgid "Please select an Email account"
+msgstr "يرجى اختيار حساب بريد إلكتروني."
+
 #: common/views/select_emails_import.py:118
+#| msgid ""
+#| "You do not have mail accounts marked for importing emails.Please contact "
+#| "your administrator."
 msgid ""
-"You do not have mail accounts marked for importing emails.Please contact "
+"You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
 msgstr ""
-"لا تتوفر لديك حسابات بريد إلكتروني مُحددة لاستيراد الرسائل. يرجى التواصل مع "
-"مسؤول النظام."
+"ليس لديك حسابات بريد إلكتروني مخصصة لاستيراد رسائل البريد الإلكتروني. يُرجى "
+"التواصل مع المسؤول."
 
 #: common/views/user_transfer.py:28
 msgid ""
@@ -1033,24 +1072,24 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "تم نقل المستخدم بنجاح"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:133
+#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
 msgid "Contact details"
 msgstr "تفاصيل الاتصال"
 
 #: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
-#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
 #: tasks/models/taskbase.py:32
 msgid "Name"
 msgstr "اسم"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: crm/admin.py:155 crm/site/dealadmin.py:250
 msgid "Contact info"
 msgstr "معلومات الاتصال"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:88
+#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:271 crm/site/requestadmin.py:89
 msgid "Relations"
 msgstr "علاقات"
 
@@ -1110,13 +1149,10 @@ msgstr "اختر فقط جهة اتصال أو فقط عميل محتمل"
 msgid "Select only Company or only Lead"
 msgstr "اختر فقط الشركة أو فقط العميل المحتمل"
 
-#: crm/forms/admin_forms.py:325
-msgid "First select a department."
-msgstr "أولاً، اختر قسمًا."
-
-#: crm/forms/admin_forms.py:331
-msgid "That tag already exists."
-msgstr "توجد هذه العلامة بالفعل."
+#: crm/forms/admin_forms.py:328
+#| msgid "That tag already exists."
+msgid "Such a tag already exists."
+msgstr "مثل هذه العلامة موجودة بالفعل."
 
 #: crm/forms/contact_form.py:13
 msgid "Your name"
@@ -1127,7 +1163,6 @@ msgid "Your E-mail"
 msgstr "بريدك الإلكتروني"
 
 #: crm/forms/contact_form.py:24
-#| msgid "Phone number(with country code)"
 msgid "Phone number (with country code)"
 msgstr "رقم الهاتف (مع رمز البلد)"
 
@@ -1189,51 +1224,51 @@ msgstr "البريد الإلكتروني البديل"
 msgid "Mobile phone"
 msgstr "هاتف محمول"
 
-#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/base_contact.py:67 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
 #: crm/models/request.py:99 crm/utils/admfilters.py:33
 msgid "City"
 msgstr "مدينة"
 
-#: crm/models/base_contact.py:74
+#: crm/models/base_contact.py:72
 msgid "Company city"
 msgstr "مدينة الشركة"
 
-#: crm/models/base_contact.py:75 crm/models/request.py:93
+#: crm/models/base_contact.py:73 crm/models/request.py:93
 msgid "Object of City in database"
 msgstr "كائن المدينة في قاعدة البيانات"
 
-#: crm/models/base_contact.py:113
+#: crm/models/base_contact.py:111
 msgid "Address"
 msgstr "عنوان"
 
-#: crm/models/base_contact.py:122 crm/models/lead.py:17
-#: crm/utils/admfilters.py:512
+#: crm/models/base_contact.py:120 crm/models/lead.py:17
+#: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "مُستبعد"
 
-#: crm/models/base_contact.py:129
+#: crm/models/base_contact.py:127
 msgid "Use comma to separate Emails."
 msgstr "استخدموا فاصلة لفصل عناوين البريد الإلكتروني."
 
-#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/base_contact.py:134 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "مصدر العملاء المحتملين"
 
-#: crm/models/base_contact.py:140
+#: crm/models/base_contact.py:138
 msgid "Mass mailing"
 msgstr "البريد الجماعي"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:74
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "متلقي قائمة البريد."
 
-#: crm/models/base_contact.py:156
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "تاريخ الاتصال الأخير"
 
-#: crm/models/base_contact.py:163
+#: crm/models/base_contact.py:161
 msgid "Assigned to"
 msgstr "مُكلف به"
 
@@ -1341,7 +1376,7 @@ msgid "Not supported by all mail services."
 msgstr "لا يتم دعمه من جميع خدمات البريد الإلكتروني."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:269
+#: crm/site/shipmentadmin.py:272
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1361,7 +1396,7 @@ msgid "Contact"
 msgstr "اتصال"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:435
+#: crm/site/requestadmin.py:444
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1440,7 +1475,7 @@ msgstr "شخص الاتصال في شركة التاجر أو التوزيع"
 msgid "Relevant"
 msgstr "ذات صلة"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:486
+#: crm/models/deal.py:164 crm/utils/admfilters.py:487
 msgid "Important"
 msgstr "مهم"
 
@@ -1583,7 +1618,6 @@ msgid "serial number"
 msgstr "رقم التسلسل"
 
 #: crm/models/output.py:58
-#| msgid "This field is required."
 msgid "Quantity is required."
 msgstr "الكمية المطلوبة."
 
@@ -1664,7 +1698,7 @@ msgstr "منخفضة الاحتمالية"
 msgid "Payment status"
 msgstr "حالة الدفع"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:245
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
 msgid "contract number"
 msgstr "رقم العقد"
 
@@ -1752,7 +1786,7 @@ msgstr "تاريخ الاستلام"
 msgid "Date of receipt of the request."
 msgstr "تاريخ استلام الطلب."
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: crm/models/request.py:107 crm/site/dealadmin.py:674
 msgid "Translation"
 msgstr "ترجمة"
 
@@ -1784,7 +1818,7 @@ msgstr "نسخة مكررة"
 msgid "Duplicate request. The deal will not be created."
 msgstr "طلب مكرر. لن يتم إنشاء الصفقة."
 
-#: crm/models/request.py:131 help/models.py:125
+#: crm/models/request.py:131 help/models.py:130
 msgid "Verification required"
 msgstr "يتطلب التحقق"
 
@@ -1964,20 +1998,20 @@ msgstr "معرض"
 msgid "Establish the first contact with the client."
 msgstr "إقامة أول اتصال مع العميل."
 
-#: crm/site/companyadmin.py:25
+#: crm/site/companyadmin.py:26
 msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "انتباه! يمكنك عرض الشركات المرتبطة بقسمك فقط."
 
-#: crm/site/companyadmin.py:208 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
 msgid "Warning:"
 msgstr "تحذير:"
 
-#: crm/site/companyadmin.py:210
+#: crm/site/companyadmin.py:212
 msgid "Owner will also be changed for contact persons."
 msgstr "سيتم تغيير مالك الأشخاص المتصلين أيضًا."
 
-#: crm/site/companyadmin.py:223
+#: crm/site/companyadmin.py:225
 msgid "Change owner of selected Companies"
 msgstr "تغيير مالك الشركات المختارة"
 
@@ -1985,7 +2019,7 @@ msgstr "تغيير مالك الشركات المختارة"
 msgid "Your Excel file"
 msgstr "ملف إكسل الخاص بكم"
 
-#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:16
+#: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
 #: massmail/site/emlmessageadmin.py:133
 msgid "Signature"
 msgstr "توقيع"
@@ -2010,28 +2044,27 @@ msgstr "المحتوى"
 msgid "Previous correspondence"
 msgstr "المراسلات السابقة"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:340
-#: crm/utils/import_emails.py:192
+#: crm/site/crmemailadmin.py:422 crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "لا موضوع"
 
-#: crm/site/crmmodeladmin.py:61
+#: crm/site/crmmodeladmin.py:63
 msgid "View website in new tab"
 msgstr "فتح الموقع في علامة تبويب جديدة"
 
-#: crm/site/crmmodeladmin.py:62
+#: crm/site/crmmodeladmin.py:64
 msgid "Callback to smartphone"
 msgstr "الاتصال المرتد إلى الهاتف الذكي"
 
-#: crm/site/crmmodeladmin.py:63
+#: crm/site/crmmodeladmin.py:65
 msgid "Callback to your smartphone"
 msgstr "مكالمة عودة إلى هاتفك الذكي"
 
-#: crm/site/crmmodeladmin.py:68
+#: crm/site/crmmodeladmin.py:67
 msgid "Viber chat"
 msgstr "محادثة فيبر"
 
-#: crm/site/crmmodeladmin.py:69
+#: crm/site/crmmodeladmin.py:68
 msgid "Chat or viber call"
 msgstr "محادثة أو مكالمة عبر فيبر"
 
@@ -2055,15 +2088,7 @@ msgstr "ألغيت الاشتراك في نشرات البريد الإلكتر�
 msgid "Create Email"
 msgstr "إنشاء رسالة بريد إلكتروني"
 
-#: crm/site/crmmodeladmin.py:341
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                        Friday, Saturday, Sunday."
-msgstr ""
-"يرجى الملاحظة أن البريد الجماعي لا يتم إجراؤه في الأيام التالية: الجمعة، "
-"السبت، الأحد."
-
-#: crm/site/crmmodeladmin.py:371
+#: crm/site/crmmodeladmin.py:368
 msgid "Messengers"
 msgstr "رسائل فورية"
 
@@ -2075,163 +2100,163 @@ msgstr "يجب تحديد العملة الرسمية للدولة."
 msgid "Marketing currency must be specified."
 msgstr "يجب تحديد عملة التسويق."
 
-#: crm/site/dealadmin.py:52
+#: crm/site/dealadmin.py:53
 msgid "Closing date"
 msgstr "تاريخ الإغلاق"
 
-#: crm/site/dealadmin.py:58
+#: crm/site/dealadmin.py:59
 msgid "View Contact in new tab"
 msgstr "عرض جهة الاتصال في علامة تبويب جديدة"
 
-#: crm/site/dealadmin.py:59
+#: crm/site/dealadmin.py:60
 msgid "View Company in new tab"
 msgstr "عرض الشركة في علامة تبويب جديدة"
 
-#: crm/site/dealadmin.py:62
+#: crm/site/dealadmin.py:63
 msgid "Deal counter"
 msgstr "عداد الصفقات"
 
-#: crm/site/dealadmin.py:63
+#: crm/site/dealadmin.py:64
 msgid "View Lead in new tab"
 msgstr "عرض العميل المحتمل في علامة تبويب جديدة"
 
-#: crm/site/dealadmin.py:64
+#: crm/site/dealadmin.py:65
 msgid "Unanswered email"
 msgstr "البريد الإلكتروني غير المجاب عليه"
 
-#: crm/site/dealadmin.py:68
+#: crm/site/dealadmin.py:69
 msgid "Unread chat message"
 msgstr "رسالة محادثة غير مقروءة"
 
-#: crm/site/dealadmin.py:71
+#: crm/site/dealadmin.py:72
 msgid "Payment received"
 msgstr "تم استلام الدفع"
 
-#: crm/site/dealadmin.py:74
+#: crm/site/dealadmin.py:75
 msgid "Specify the date of shipment"
 msgstr "حدد تاريخ الشحن"
 
-#: crm/site/dealadmin.py:77
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:241
 msgid "Specify products"
 msgstr "تحديد المنتجات"
 
-#: crm/site/dealadmin.py:80
+#: crm/site/dealadmin.py:81
 msgid "Expired shipment date"
 msgstr "تاريخ انتهاء الشحنة"
 
-#: crm/site/dealadmin.py:87
+#: crm/site/dealadmin.py:88
 msgid "Relevant deal"
 msgstr "العرض ذي الصلة"
 
-#: crm/site/dealadmin.py:158
+#: crm/site/dealadmin.py:160
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "لا يوجد صفقة برقم تعريف \"{}\". ربما تم حذفها؟"
 
-#: crm/site/dealadmin.py:221
+#: crm/site/dealadmin.py:224
 msgid "View the Request"
 msgstr "عرض الطلب"
 
-#: crm/site/dealadmin.py:536
+#: crm/site/dealadmin.py:539
 msgid "Create Email to Contact"
 msgstr "إنشاء بريد إلكتروني للتواصل"
 
-#: crm/site/dealadmin.py:539
+#: crm/site/dealadmin.py:542
 msgid "Create Email to Lead"
 msgstr "إنشاء بريد إلكتروني للعميل المحتمل"
 
-#: crm/site/dealadmin.py:579
+#: crm/site/dealadmin.py:582
 msgid "Important deal"
 msgstr "صفقة مهمة"
 
-#: crm/site/dealadmin.py:603
+#: crm/site/dealadmin.py:606
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "لقد كنت أنتظر إجابة على طلبي لمدة %d أيام."
 
-#: crm/site/dealadmin.py:633
+#: crm/site/dealadmin.py:636
 msgid "Expected"
 msgstr "متوقع"
 
-#: crm/site/dealadmin.py:641
+#: crm/site/dealadmin.py:644
 msgid "Paid"
 msgstr "مدفوع"
 
-#: crm/site/dealadmin.py:696
+#: crm/site/dealadmin.py:699
 msgid "Contact is Lead (no company)"
 msgstr "التواصل هو \"قائد\" (بدون شركة)"
 
-#: crm/site/leadadmin.py:118
+#: crm/site/leadadmin.py:117
 msgid "Person contact details"
 msgstr "تفاصيل اتصال الشخص"
 
-#: crm/site/leadadmin.py:127
+#: crm/site/leadadmin.py:126
 msgid "Additional person details"
 msgstr "تفاصيل إضافية عن الشخص"
 
-#: crm/site/leadadmin.py:140
+#: crm/site/leadadmin.py:138
 msgid "Company contact details"
 msgstr "تفاصيل التواصل للشركة"
 
-#: crm/site/leadadmin.py:249
+#: crm/site/leadadmin.py:247
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "تم تحويل العميل المحتمل \"{obj}\" بنجاح."
 
-#: crm/site/leadadmin.py:264
+#: crm/site/leadadmin.py:262
 msgid "This Lead is disqualified! Please read the description."
 msgstr "هذا العميل غير مؤهل! يرجى قراءة الوصف."
 
-#: crm/site/requestadmin.py:38
+#: crm/site/requestadmin.py:39
 msgid "Client Loyalty"
 msgstr "ولاء العملاء"
 
-#: crm/site/requestadmin.py:45
+#: crm/site/requestadmin.py:46
 msgid "Country not specified in request"
 msgstr "لم يتم تحديد البلد في الطلب."
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:47
 msgid "You received the deal"
 msgstr "لقد تلقيت الصفقة"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:48
 msgid "You are the co-owner of the deal"
 msgstr "أنت الشريك في الصفقة."
 
-#: crm/site/requestadmin.py:53
+#: crm/site/requestadmin.py:54
 msgid "Primary request"
 msgstr "طلب رئيسي"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:55
 msgid "You are the co-owner of the request"
 msgstr "أنت الشريك في طلب هذا"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:56
 msgid "You received the request"
 msgstr "لقد تلقيت الطلب."
 
-#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "في الانتظار"
 
-#: crm/site/requestadmin.py:57
+#: crm/site/requestadmin.py:58
 msgid "processed"
 msgstr "معالج"
 
-#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
 msgid "Status"
 msgstr "الحالة"
 
-#: crm/site/requestadmin.py:62
+#: crm/site/requestadmin.py:63
 msgid "Subsequent request"
 msgstr "طلب لاحق"
 
-#: crm/site/requestadmin.py:389
+#: crm/site/requestadmin.py:398
 msgid "Found the counterparty assigned to"
 msgstr "تم العثور على الطرف المقابل المُكلف بـ"
 
-#: crm/site/requestadmin.py:488
+#: crm/site/requestadmin.py:497
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "تم إضافة {الاسم} \"{الكائن}\" بنجاح."
@@ -2284,7 +2309,7 @@ msgstr "تاريخ الشحن وفقًا للعقد."
 msgid "View the deal"
 msgstr "عرض الصفقة"
 
-#: crm/site/shipmentadmin.py:254
+#: crm/site/shipmentadmin.py:257
 msgid "paid"
 msgstr "مدفوع"
 
@@ -2350,6 +2375,7 @@ msgstr "فتح في لوحة التحكم الإدارية"
 
 #: crm/templates/admin/crm/company/change_list_object_tools.html:14
 #: crm/templates/admin/crm/contact/change_list_object_tools.html:14
+#: massmail/templates/admin/massmail/mailingout/change_list_object_tools.html:6
 msgid "Make Massmail"
 msgstr "إنشاء رسالة جماعية بالبريد الإلكتروني"
 
@@ -2461,10 +2487,6 @@ msgstr "عرض الصفقات مع هذه الشركة"
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "عرض سجل التغييرات لهذه الصفقة"
-
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
-msgid "Toggle default deal sorting"
-msgstr "تبديل ترتيب الصفقات الافتراضي"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
@@ -2581,50 +2603,50 @@ msgstr "تسعة أشهر من هذا العام"
 msgid "Second half of the last year"
 msgstr "النصف الثاني من العام الماضي"
 
-#: crm/utils/admfilters.py:417
+#: crm/utils/admfilters.py:418
 msgid "changed by chiefs"
 msgstr "تم تغييرها من قبل الإدارة"
 
-#: crm/utils/admfilters.py:423 crm/utils/admfilters.py:473
-#: crm/utils/admfilters.py:493 crm/utils/admfilters.py:506
-#: crm/utils/admfilters.py:520 crm/utils/admfilters.py:539
-#: crm/utils/admfilters.py:544 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
+#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
+#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
+#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "نعم"
 
-#: crm/utils/admfilters.py:437
+#: crm/utils/admfilters.py:438
 msgid "Partner"
 msgstr "شريك"
 
-#: crm/utils/admfilters.py:454 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
-#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
+#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
+#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "لا"
 
-#: crm/utils/admfilters.py:498
+#: crm/utils/admfilters.py:499
 msgid "Has Contacts"
 msgstr "لدى جهات اتصال"
 
-#: crm/utils/admfilters.py:564
+#: crm/utils/admfilters.py:565
 msgid "mailbox"
 msgstr "صندوق البريد"
 
-#: crm/utils/admfilters.py:583
+#: crm/utils/admfilters.py:584
 msgid "inbox"
 msgstr "صندوق الوارد"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "sent"
 msgstr "مرسلة"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "صندوق الإرسال ({عدد})"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 msgid "trash"
 msgstr "مهملات"
 
@@ -2753,7 +2775,7 @@ msgstr "نموذج"
 msgid "page"
 msgstr "صفحة"
 
-#: help/models.py:49 help/models.py:106
+#: help/models.py:49 help/models.py:111
 msgid "Title"
 msgstr "العنوان"
 
@@ -2769,19 +2791,19 @@ msgstr ""
 "متاح على إحدى صفحات نظام إدارة علاقات العملاء (CRM). في حال عدم توفره، يمكن "
 "الوصول إليه فقط من خلال رابط على صفحة مساعدة أخرى."
 
-#: help/models.py:86
+#: help/models.py:91
 msgid "Paragraph"
 msgstr "فقرة"
 
-#: help/models.py:87
+#: help/models.py:92
 msgid "Paragraphs"
 msgstr "فقرات"
 
-#: help/models.py:97
+#: help/models.py:102
 msgid "Groups"
 msgstr "مجموعات"
 
-#: help/models.py:99
+#: help/models.py:104
 msgid ""
 "If no user group is selected then the paragraph will be available only to "
 "the superuser."
@@ -2789,93 +2811,85 @@ msgstr ""
 "إذا لم يتم اختيار أي مجموعة مستخدمين، فسيكون الفقرة متاحة فقط للمستخدم "
 "الفائق الامتياز."
 
-#: help/models.py:105
+#: help/models.py:110
 msgid "Title of paragraph."
 msgstr "عنوان الفقرة."
 
-#: help/models.py:120 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:42
 msgid "draft"
 msgstr "مسودة"
 
-#: help/models.py:121
+#: help/models.py:126
 msgid "Will not be published."
 msgstr "لن ينشر."
 
-#: help/models.py:126
+#: help/models.py:131
 msgid "Content requires additional verification."
 msgstr "يتطلب المحتوى تحققًا إضافيًا."
 
-#: help/models.py:131
+#: help/models.py:136
 msgid "Index number"
 msgstr "رقم الفهرس"
 
-#: help/models.py:132
+#: help/models.py:137
 msgid "The sequence number of the paragraph on the page."
 msgstr "رقم تسلسل الفقرة على الصفحة."
 
-#: help/models.py:138
+#: help/models.py:143
 msgid "Link to a related paragraph if exists."
 msgstr "رابط للفقرة ذات الصلة، إن وجدت."
 
-#: massmail/admin.py:31
+#: massmail/admin.py:30
 msgid "Service information"
 msgstr "معلومات الخدمة"
 
-#: massmail/admin_actions.py:17
+#: massmail/admin_actions.py:18
 msgid "Please select recipients only with the same owner."
 msgstr "يرجى اختيار المستلمين الذين يمتلكهم نفس المالك فقط."
 
-#: massmail/admin_actions.py:18
+#: massmail/admin_actions.py:19
 msgid "Bad result - no recipients! Make another choice."
 msgstr "نتيجة سيئة - لا متلقين! اختر خياراً آخر."
 
-#: massmail/admin_actions.py:21
+#: massmail/admin_actions.py:22
 msgid "Create a mailing out for selected objects"
 msgstr "إنشاء رسالة بريد إلكتروني للعناصر المختارة"
 
-#: massmail/admin_actions.py:33
+#: massmail/admin_actions.py:34
 msgid "Unsubscribed users were excluded from the mailing list."
 msgstr "تم استبعاد المستخدمين غير المشتركين من قائمة البريد الإلكتروني."
 
-#: massmail/admin_actions.py:54
-msgid ""
-"Note massmail is not performed on the following days: Friday, Saturday, "
-"Sunday."
-msgstr ""
-"يرجى ملاحظة أن البريد الجماعي لا يتم إجراؤه في الأيام التالية: الجمعة، "
-"السبت، الأحد."
-
-#: massmail/admin_actions.py:65
+#: massmail/admin_actions.py:62
 msgid "Merge selected mailing outs"
 msgstr "دمج الرسائل المختارة"
 
-#: massmail/admin_actions.py:85
+#: massmail/admin_actions.py:82
 msgid "united"
 msgstr "موحدة"
 
-#: massmail/admin_actions.py:107
+#: massmail/admin_actions.py:104
 msgid "Specify VIP recipients"
 msgstr "تحديد المستلمين المميزين (VIP)"
 
-#: massmail/admin_actions.py:115
+#: massmail/admin_actions.py:112
 msgid "Please first add your main email account."
 msgstr "يرجى إضافة حساب بريدك الإلكتروني الرئيسي أولاً."
 
-#: massmail/admin_actions.py:143
+#: massmail/admin_actions.py:140
 msgid ""
 "The main email address has been successfully assigned to the selected "
 "recipients."
 msgstr "تم تخصيص عنوان البريد الإلكتروني الرئيسي بنجاح للمستلمين المحددين."
 
-#: massmail/admin_actions.py:149
+#: massmail/admin_actions.py:146
 msgid "Please select mailings with only the same recipient type."
 msgstr "يرجى اختيار الإرسالات البريدية التي تحتوي على نفس نوع المستلمين فقط."
 
-#: massmail/admin_actions.py:154
+#: massmail/admin_actions.py:151
 msgid "Please select only mailings with the same message."
 msgstr "يرجى اختيار الرسائل الإخبارية فقط التي تحتوي على نفس الرسالة."
 
-#: massmail/admin_actions.py:183
+#: massmail/admin_actions.py:180
 msgid ""
 "There are no mail accounts available for mailing. Please contact your "
 "administrator."
@@ -2883,7 +2897,7 @@ msgstr ""
 "لا توجد حسابات بريد إلكتروني متاحة للبريد. يرجى التواصل مع مدير نظام إدارة "
 "علاقات العملاء (CRM)."
 
-#: massmail/admin_actions.py:191
+#: massmail/admin_actions.py:188
 msgid ""
 "There are no mail accounts available for mailing to non-VIP recipients. "
 "Please contact your administrator."
@@ -2993,21 +3007,11 @@ msgstr "تاريخ ووقت آخر استيراد"
 msgid "Specify the imap host"
 msgstr "حدد مضيف IMAP"
 
-#: massmail/models/email_message.py:10
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
-"    "
-msgstr ""
-"يمكنك دمج الملفات المحمّلة إلى خادم إدارة علاقات العملاء في مجلد "
-"\"media/pics/\" أو المرفقة بهذه الرسالة."
-
-#: massmail/models/email_message.py:19
+#: massmail/models/email_message.py:15
 msgid "Email Message"
 msgstr "رسالة بريد إلكتروني"
 
-#: massmail/models/email_message.py:20
+#: massmail/models/email_message.py:16
 msgid "Email Messages"
 msgstr "Сообщения для рассылки"
 
@@ -3044,11 +3048,11 @@ msgstr "مكتمل"
 msgid "The name of the message."
 msgstr "اسم الرسالة."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:26
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:33
 msgid "Number of recipients"
 msgstr "عدد المستلمين"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:21
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:23
 msgid "Recipients type"
 msgstr "نوع المستلمين"
 
@@ -3056,19 +3060,11 @@ msgstr "نوع المستلمين"
 msgid "Report"
 msgstr "تقرير"
 
-#: massmail/models/signature.py:7
-msgid ""
-"\n"
-"    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-"    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
-"    "
-msgstr "    يمكنك دمج الملفات المحمّلة إلى خادم CRM في مجلد \"media/pics/\"."
-
-#: massmail/models/signature.py:17
+#: massmail/models/signature.py:14
 msgid "Signatures"
 msgstr "التوقيعات"
 
-#: massmail/models/signature.py:27
+#: massmail/models/signature.py:24
 msgid "The name of the signature."
 msgstr "اسم التوقيع."
 
@@ -3085,31 +3081,44 @@ msgstr "معاينة"
 msgid "Edit"
 msgstr "تعديل"
 
-#: massmail/site/mailingoutadmin.py:17
+#: massmail/site/mailingoutadmin.py:19
 msgid "Available Email accounts for MassMail"
 msgstr "حسابات البريد الإلكتروني المتاحة للبريد الجماعي"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:20
 msgid "Accounts"
 msgstr "الحسابات"
 
+#: massmail/site/mailingoutadmin.py:24
+#| msgid ""
+#| "To send a message you need to have an email account marked as main."
+msgid "You do not have an email account available for massmaling."
+msgstr "ليس لديك حساب بريد إلكتروني متاح للنشر الشامل."
+
+#: massmail/site/mailingoutadmin.py:25
+msgid ""
+"The address for redirecting unsubscribed recipients is not specified. "
+"Contact the administrator."
+msgstr ""
+"لم يتم تحديد عنوان إعادة توجيه المستلمين غير المشتركين. تواصل مع المسؤول."
+
 #: massmail/site/mailingoutadmin.py:27
+msgid ""
+"You have one Email account with Mailing enabled. As the main account, it can"
+" only send emails to VIP recipients."
+msgstr ""
+"لديك حساب بريد إلكتروني واحد مُفعّل عليه البريد. بصفته الحساب الرئيسي، "
+"يُمكنه إرسال رسائل البريد الإلكتروني فقط إلى مُستلمي VIP."
+
+#: massmail/site/mailingoutadmin.py:34
 msgid "Today"
 msgstr "اليوم"
 
-#: massmail/site/mailingoutadmin.py:28
+#: massmail/site/mailingoutadmin.py:35
 msgid "Sent today"
 msgstr "أُرسل اليوم"
 
-#: massmail/site/mailingoutadmin.py:72
-msgid ""
-"Note massmail is not performed on the following days: \n"
-"                Friday, Saturday, Sunday."
-msgstr ""
-"يرجى ملاحظة أنه لا يتم إرسال البريد الجماعي في الأيام التالية: الجمعة، "
-"السبت، الأحد."
-
-#: massmail/site/mailingoutadmin.py:110
+#: massmail/site/mailingoutadmin.py:135
 msgid "notification"
 msgstr "إشعار"
 
@@ -3169,7 +3178,7 @@ msgstr "قم بتحميل ملف صورة إلى خادم نظام إدارة ع
 msgid "Uploaded images"
 msgstr "الصور المحملة"
 
-#: massmail/utils/sendmassmail.py:43
+#: massmail/utils/sendmassmail.py:331
 msgid "Done successfully."
 msgstr "تم بنجاح."
 
@@ -3185,6 +3194,15 @@ msgstr "تم استلام رمز التحديث بنجاح."
 msgid "Error: Failed to get authorization code."
 msgstr "خطأ: فشل الحصول على رمز التصريح."
 
+#: massmail/views/select_recipient_type.py:30
+msgid "Use the 'Action' menu."
+msgstr "استخدم قائمة \"الإجراء\"."
+
+#: massmail/views/select_recipient_type.py:39
+#| msgid "Please select at least one recipient"
+msgid "Please select the type of recipients"
+msgstr "الرجاء تحديد نوع المستلمين"
+
 #: massmail/views/send_failed_recipients.py:14
 msgid "Failed recipients has been returned to the massmail successfully."
 msgstr "تم إعادة المرسل إليهم الفاشلين بنجاح إلى الحملة البريدية الجماعية."
@@ -3198,56 +3216,61 @@ msgstr "تم إرسال اختبار البريد الإلكتروني إلى {�
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: settings/models.py:7
+#: settings/models.py:18
 msgid "Banned company name"
 msgstr "اسم الشركة المحظور"
 
-#: settings/models.py:8
+#: settings/models.py:19
 msgid "Banned company names"
 msgstr "أسماء الشركات المحظورة"
 
-#: settings/models.py:22
+#: settings/models.py:40 settings/models.py:41
+#| msgid "Mass mailing"
+msgid "Massmail Settings"
+msgstr "إعدادات البريد الجماعي"
+
+#: settings/models.py:81
 msgid "Public email domain"
 msgstr "نطاق بريد إلكتروني عام"
 
-#: settings/models.py:23
+#: settings/models.py:82
 msgid "Public email domains"
 msgstr "نطاقات البريد الإلكتروني العامة"
 
-#: settings/models.py:28
+#: settings/models.py:87
 msgid "Domain"
 msgstr "نطاق"
 
-#: settings/models.py:41 settings/models.py:42
+#: settings/models.py:115 settings/models.py:116
 msgid "Reminder settings"
 msgstr "إعدادات التذكير"
 
-#: settings/models.py:47
+#: settings/models.py:121
 msgid "Check interval"
 msgstr "فترة الفحص"
 
-#: settings/models.py:49
+#: settings/models.py:123
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "حدد الفترة الزمنية بالثواني للتحقق من مرور الوقت المناسب لإرسال تنبيه."
 
-#: settings/models.py:56
+#: settings/models.py:149
 msgid "Stop Phrase"
 msgstr "عبارة التوقف"
 
-#: settings/models.py:57
+#: settings/models.py:150
 msgid "Stop Phrases"
 msgstr "عبارات التوقف"
 
-#: settings/models.py:62
+#: settings/models.py:155
 msgid "Phrase"
 msgstr "عبارة"
 
-#: settings/models.py:66
+#: settings/models.py:159
 msgid "Last occurrence date"
 msgstr "تاريخ الحدوث الأخير"
 
-#: settings/models.py:67
+#: settings/models.py:160
 msgid "Date of last occurrence of the phrase"
 msgstr "تاريخ آخر ظهور للجملة"
 
@@ -3404,8 +3427,8 @@ msgstr "إخفاء المهمة الرئيسية"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "إخفاء المهمة الرئيسية عند إتمام هذه المهمة الفرعية."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:348
+#: tasks/site/taskadmin.py:354
 msgid "Lead time"
 msgstr "الوقت المستغرق"
 
@@ -3540,41 +3563,37 @@ msgstr "مألوف بالمشروع"
 msgid "The project was created"
 msgstr "تم إنشاء المشروع"
 
-#: tasks/site/taskadmin.py:35
+#: tasks/site/taskadmin.py:36
 msgid "I completed my part of the task"
 msgstr "أنجزت الجزء المنوط بي من المهمة."
 
-#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+#: tasks/site/taskadmin.py:38 tasks/site/tasksbasemodeladmin.py:47
 msgid "The task was created"
 msgstr "تم إنشاء المهمة"
 
-#: tasks/site/taskadmin.py:38
+#: tasks/site/taskadmin.py:39
 msgid "The subtask was created"
 msgstr "تم إنشاء المهمة الفرعية"
 
-#: tasks/site/taskadmin.py:39
+#: tasks/site/taskadmin.py:40
 msgid "The subtask"
 msgstr "المهمة الفرعية"
 
-#: tasks/site/taskadmin.py:242
+#: tasks/site/taskadmin.py:244
 msgid "later than due date of parent task."
 msgstr "بعد تاريخ استحقاق المهمة الرئيسية."
 
-#: tasks/site/taskadmin.py:334
+#: tasks/site/taskadmin.py:336
 msgid "Main task"
 msgstr "المهمة الرئيسية"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/site/taskadmin.py:363 tasks/site/taskadmin.py:364
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "إنشاء مهمة فرعية"
 
-#: tasks/site/taskadmin.py:372
-#| msgid ""
-#| "This is a collective task.\n"
-#| "Please create a sub-task for yourself for work.\n"
-#| "Or press the next button when you have done your job.\n"
+#: tasks/site/taskadmin.py:374
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3655,10 +3674,6 @@ msgstr "عرض المهمة الرئيسية"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "مهام فرعية"
-
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
-msgid "Toggle default task sorting"
-msgstr "تغيير ترتيب المهام الافتراضي"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
@@ -3764,7 +3779,7 @@ msgstr "YYYY-MM-DD"
 msgid "Help"
 msgstr "مساعدة"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: tests/massmail/utils/test_send_massmail.py:124
 msgid "This field is required."
 msgstr "هذا الحقل مطلوب."
 
@@ -3789,8 +3804,6 @@ msgid "Caller ID"
 msgstr "هوية المتصل"
 
 #: voip/models.py:35
-#| msgid ""
-#| "Specify the number to be displayed as your phone number when you call"
 msgid ""
 "Specify the number to be displayed as             your phone number when you"
 " call"
@@ -3835,13 +3848,45 @@ msgstr "مكالمة واردة من"
 msgid "(duration: {duration} minutes)"
 msgstr "(المدة: {duration} دقائق)"
 
-#: webcrm/settings.py:261
+#: webcrm/settings.py:272
 msgid "Untitled"
 msgstr "غير مسمى"
 
-#: webcrm/settings.py:276
+#: webcrm/settings.py:286
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
+
+#~ msgid "First select a department."
+#~ msgstr "أولاً، اختر قسمًا."
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                        Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "يرجى الملاحظة أن البريد الجماعي لا يتم إجراؤه في الأيام التالية: الجمعة، "
+#~ "السبت، الأحد."
+
+#~ msgid "Toggle default deal sorting"
+#~ msgstr "تبديل ترتيب الصفقات الافتراضي"
+
+#~ msgid ""
+#~ "\n"
+#~ "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
+#~ "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder or attached to this message.\n"
+#~ "    "
+#~ msgstr ""
+#~ "يمكنك دمج الملفات المحمّلة إلى خادم إدارة علاقات العملاء في مجلد "
+#~ "\"media/pics/\" أو المرفقة بهذه الرسالة."
+
+#~ msgid ""
+#~ "Note massmail is not performed on the following days: \n"
+#~ "                Friday, Saturday, Sunday."
+#~ msgstr ""
+#~ "يرجى ملاحظة أنه لا يتم إرسال البريد الجماعي في الأيام التالية: الجمعة، "
+#~ "السبت، الأحد."
+
+#~ msgid "Toggle default task sorting"
+#~ msgstr "تغيير ترتيب المهام الافتراضي"
 
 #~ msgid "German"
 #~ msgstr "الألماني"
