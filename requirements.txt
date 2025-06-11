@@ -6,7 +6,7 @@
     charset-normalizer==3.4.2
     Django==5.2.3
     et-xmlfile==2.0.0
-    frozenlist==1.6.2
+    frozenlist==1.7.0
     geoip2==5.1.0
     idna==3.10
     maxminddb==2.7.0
