@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-19 17:33+0300\n"
-"PO-Revision-Date: 2025-04-19 17:37+0300\n"
+"POT-Creation-Date: 2025-06-12 20:39+0300\n"
+"PO-Revision-Date: 2025-06-12 20:41+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -235,7 +235,7 @@ msgstr "Σχετικές αιτήσεις ανά μήνα"
 msgid "pcs"
 msgstr "τεμ"
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:78
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
 #: crm/models/request.py:86 crm/templates/crm/print_request.html:55
 #: crm/utils/admfilters.py:113
@@ -432,10 +432,11 @@ msgid "You received a message regarding - "
 msgstr "Έλαβες ένα μήνυμα σχετικά με -"
 
 #: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:97 crm/site/tagadmin.py:26 massmail/admin.py:37
+#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
+#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
+#: crm/site/dealadmin.py:279 crm/site/leadadmin.py:152
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:98
+#: crm/site/tagadmin.py:26 massmail/admin.py:36
 #: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
 #: tasks/site/tasksbasemodeladmin.py:223
@@ -632,13 +633,12 @@ msgid "Subject"
 msgstr "Θέμα"
 
 #: common/models.py:160
-#| msgid "Briefly what about is this reminder"
 msgid "Briefly, what is this reminder about?"
 msgstr "Εν συντομία, τι είναι αυτή η υπενθύμιση;"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/base_contact.py:116 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -727,7 +727,7 @@ msgstr "Ενεργοποίηση αυτής της ζώνης ώρας"
 msgid "Field for temporary storage of messages to the user"
 msgstr "Πεδίο προσωρινής αποθήκευσης μηνυμάτων προς τον χρήστη"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -928,7 +928,7 @@ msgid "Create a reminder"
 msgstr "Δημιουργία υπενθύμισης"
 
 #: common/templates/common/reminder_message.html:4
-#: common/utils/reminders_sender.py:18
+#: common/utils/reminders_sender.py:19
 msgid "Regarding"
 msgstr "Σχετικά με"
 
@@ -986,7 +986,7 @@ msgstr "Εργασία ολοκληρώθηκε"
 msgid "I completed the task"
 msgstr "Ολοκλήρωσα την εργασία."
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:367
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "Ολοκληρωμένο"
@@ -998,14 +998,11 @@ msgstr ""
 "Το όνομα προστέθηκε για μετάφραση. Παρακαλώ ενημερώστε τα αρχεία po και mo."
 
 #: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: tasks/site/taskadmin.py:37
 msgid "Copy"
 msgstr "Αντιγραφή"
 
 #: common/utils/helpers.py:31
-#| msgid ""
-#| "Note massmail is not performed on the following days: Friday, Saturday, "
-#| "Sunday."
 msgid ""
 "Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
 "Sundays."
@@ -1018,11 +1015,6 @@ msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} με ID '{}' δεν υπάρχει. Ίσως διαγράφηκε;"
 
 #: common/utils/helpers.py:36
-#| msgid ""
-#| "\n"
-#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-#| "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
-#| "    "
 msgid ""
 "\n"
 "Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -1031,6 +1023,16 @@ msgstr ""
 "\n"
 "Χρησιμοποιήστε HTML. Για να καθορίσετε τη διεύθυνση της ενσωματωμένης εικόνας, χρησιμοποιήστε το {% cid_media 'path/to/pic.png' %}.<br>\n"
 "Μπορείτε να ενσωματώσετε αρχεία που έχουν μεταφορτωθεί στον διακομιστή CRM στο φάκελο \"μέσα/φωτογραφίες/\".\n"
+
+#: common/utils/helpers.py:220
+#| msgid "Creation date"
+msgid "sort by creation date"
+msgstr "ταξινόμηση κατά ημερομηνία δημιουργίας"
+
+#: common/utils/helpers.py:222
+#| msgid "Next step deadline"
+msgid "sort by next step date"
+msgstr "ταξινόμηση κατά ημερομηνία επόμενου βήματος"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
@@ -1041,9 +1043,6 @@ msgid "Please select an Email account"
 msgstr "Παρακαλώ επιλέξτε έναν Λογαριασμό Ηλεκτρονικού Ταχυδρομείου"
 
 #: common/views/select_emails_import.py:118
-#| msgid ""
-#| "You do not have mail accounts marked for importing emails.Please contact "
-#| "your administrator."
 msgid ""
 "You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
@@ -1076,17 +1075,17 @@ msgstr "Στοιχεία επικοινωνίας"
 #: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
-#: settings/models.py:13 tasks/models/memo.py:27 tasks/models/resolution.py:13
+#: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
 #: tasks/models/taskbase.py:32
 msgid "Name"
 msgstr "Όνομα"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: crm/admin.py:155 crm/site/dealadmin.py:250
 msgid "Contact info"
 msgstr "Πληροφορίες επικοινωνίας"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:88
+#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:271 crm/site/requestadmin.py:89
 msgid "Relations"
 msgstr "Σχέσεις"
 
@@ -1147,7 +1146,6 @@ msgid "Select only Company or only Lead"
 msgstr "Επιλέξτε μόνο Εταιρεία ή μόνο Επικεφαλής"
 
 #: crm/forms/admin_forms.py:328
-#| msgid "That tag already exists."
 msgid "Such a tag already exists."
 msgstr "Μια τέτοια ετικέτα υπάρχει ήδη."
 
@@ -1222,53 +1220,53 @@ msgstr "Δευτερεύον email"
 msgid "Mobile phone"
 msgstr "Κινητό τηλέφωνο"
 
-#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/base_contact.py:67 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
 #: crm/models/request.py:99 crm/utils/admfilters.py:33
 msgid "City"
 msgstr "Πόλη"
 
-#: crm/models/base_contact.py:74
+#: crm/models/base_contact.py:72
 msgid "Company city"
 msgstr "Πόλη εταιρείας"
 
-#: crm/models/base_contact.py:75 crm/models/request.py:93
+#: crm/models/base_contact.py:73 crm/models/request.py:93
 msgid "Object of City in database"
 msgstr "Αντικείμενο Πόλης στη βάση δεδομένων"
 
-#: crm/models/base_contact.py:113
+#: crm/models/base_contact.py:111
 msgid "Address"
 msgstr "Διεύθυνση"
 
-#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/models/base_contact.py:120 crm/models/lead.py:17
 #: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "Αποκλεισμένος"
 
-#: crm/models/base_contact.py:129
+#: crm/models/base_contact.py:127
 msgid "Use comma to separate Emails."
 msgstr ""
 "Χρησιμοποιήστε κόμμα για να διαχωρίσετε τις διευθύνσεις ηλεκτρονικού "
 "ταχυδρομείου."
 
-#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/base_contact.py:134 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "Πηγή Προοπτικών Πελατών"
 
-#: crm/models/base_contact.py:140
+#: crm/models/base_contact.py:138
 msgid "Mass mailing"
 msgstr "Μαζική αποστολή email"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:76
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "Παραλήπτης λίστας αλληλογραφίας."
 
-#: crm/models/base_contact.py:156
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "Ημερομηνία τελευταίας επαφής"
 
-#: crm/models/base_contact.py:163
+#: crm/models/base_contact.py:161
 msgid "Assigned to"
 msgstr "Ανατεθειμένο σε"
 
@@ -1396,7 +1394,7 @@ msgid "Contact"
 msgstr "Επαφή"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:438
+#: crm/site/requestadmin.py:444
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1787,7 +1785,7 @@ msgstr "Ημερομηνία παραλαβής"
 msgid "Date of receipt of the request."
 msgstr "Ημερομηνία λήψης του αιτήματος."
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: crm/models/request.py:107 crm/site/dealadmin.py:674
 msgid "Translation"
 msgstr "Μετάφραση"
 
@@ -2005,7 +2003,7 @@ msgid ""
 msgstr ""
 "Προσοχή! Μπορείτε να δείτε μόνο εταιρείες που σχετίζονται με το τμήμα σας."
 
-#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
 msgid "Warning:"
 msgstr "Προσοχή:"
 
@@ -2047,8 +2045,7 @@ msgstr "Περιεχόμενα"
 msgid "Previous correspondence"
 msgstr "Προηγούμενη αλληλογραφία"
 
-#: crm/site/crmemailadmin.py:422 crm/site/requestadmin.py:343
-#: crm/utils/import_emails.py:192
+#: crm/site/crmemailadmin.py:422 crm/utils/import_emails.py:192
 msgid "No subject"
 msgstr "Χωρίς θέμα"
 
@@ -2064,35 +2061,35 @@ msgstr "Επανακλήση σε έξυπνο τηλέφωνο"
 msgid "Callback to your smartphone"
 msgstr "Επιστροφή κλήσης στο smartphone σας"
 
-#: crm/site/crmmodeladmin.py:70
+#: crm/site/crmmodeladmin.py:67
 msgid "Viber chat"
 msgstr "Συνομιλία Viber"
 
-#: crm/site/crmmodeladmin.py:71
+#: crm/site/crmmodeladmin.py:68
 msgid "Chat or viber call"
 msgstr "Συνομιλία ή κλήση Viber"
 
-#: crm/site/crmmodeladmin.py:72
+#: crm/site/crmmodeladmin.py:70
 msgid "WhatsApp chat"
 msgstr "Συνομιλία WhatsApp"
 
-#: crm/site/crmmodeladmin.py:73
+#: crm/site/crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
 msgstr "Συνομιλία ή κλήση WhatsApp"
 
-#: crm/site/crmmodeladmin.py:78
+#: crm/site/crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
 msgstr "Εγγραφή σε ενημερωτικά δελτία μέσω email"
 
-#: crm/site/crmmodeladmin.py:80
+#: crm/site/crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
 msgstr "Απεγγραφή από ενημερωτικά δελτία μέσω email"
 
-#: crm/site/crmmodeladmin.py:278
+#: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
 msgstr "Δημιουργία Email"
 
-#: crm/site/crmmodeladmin.py:370
+#: crm/site/crmmodeladmin.py:368
 msgid "Messengers"
 msgstr "Διαβιβαστές μηνυμάτων"
 
@@ -2104,165 +2101,165 @@ msgstr "Πρέπει να καθοριστεί το κρατικό νόμισμ�
 msgid "Marketing currency must be specified."
 msgstr "Πρέπει να καθοριστεί το νόμισμα μάρκετινγκ."
 
-#: crm/site/dealadmin.py:52
+#: crm/site/dealadmin.py:53
 msgid "Closing date"
 msgstr "Ημερομηνία Λήξης"
 
-#: crm/site/dealadmin.py:58
+#: crm/site/dealadmin.py:59
 msgid "View Contact in new tab"
 msgstr "Προβολή Επαφής σε νέα καρτέλα"
 
-#: crm/site/dealadmin.py:59
+#: crm/site/dealadmin.py:60
 msgid "View Company in new tab"
 msgstr "Προβολή Εταιρείας σε νέα καρτέλα"
 
-#: crm/site/dealadmin.py:62
+#: crm/site/dealadmin.py:63
 msgid "Deal counter"
 msgstr "Μετρητής συναλλαγών"
 
-#: crm/site/dealadmin.py:63
+#: crm/site/dealadmin.py:64
 msgid "View Lead in new tab"
 msgstr "Προβολή Επαφής σε νέα καρτέλα"
 
-#: crm/site/dealadmin.py:64
+#: crm/site/dealadmin.py:65
 msgid "Unanswered email"
 msgstr "Απάντηση σε μη διαβασμένο email"
 
-#: crm/site/dealadmin.py:68
+#: crm/site/dealadmin.py:69
 msgid "Unread chat message"
 msgstr "Απανάγνωστο μήνυμα συνομιλίας"
 
-#: crm/site/dealadmin.py:71
+#: crm/site/dealadmin.py:72
 msgid "Payment received"
 msgstr "Λήψη πληρωμής"
 
-#: crm/site/dealadmin.py:74
+#: crm/site/dealadmin.py:75
 msgid "Specify the date of shipment"
 msgstr "Καθορίστε την ημερομηνία αποστολής"
 
-#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:240
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:241
 msgid "Specify products"
 msgstr "Προσδιορίστε τα προϊόντα"
 
-#: crm/site/dealadmin.py:80
+#: crm/site/dealadmin.py:81
 msgid "Expired shipment date"
 msgstr "Λήξη ημερομηνίας αποστολής"
 
-#: crm/site/dealadmin.py:87
+#: crm/site/dealadmin.py:88
 msgid "Relevant deal"
 msgstr "Σχετική συμφωνία"
 
-#: crm/site/dealadmin.py:158
+#: crm/site/dealadmin.py:160
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "Η συμφωνία με αναγνωριστικό '{}' δεν υπάρχει. Ίσως έχει διαγραφεί;"
 
-#: crm/site/dealadmin.py:221
+#: crm/site/dealadmin.py:224
 msgid "View the Request"
 msgstr "Προβολή του Αιτήματος"
 
-#: crm/site/dealadmin.py:536
+#: crm/site/dealadmin.py:539
 msgid "Create Email to Contact"
 msgstr "Δημιουργία Email προς Επικοινωνία"
 
-#: crm/site/dealadmin.py:539
+#: crm/site/dealadmin.py:542
 msgid "Create Email to Lead"
 msgstr "Αποστολή Email σε Δυναμικό Επαφή"
 
-#: crm/site/dealadmin.py:579
+#: crm/site/dealadmin.py:582
 msgid "Important deal"
 msgstr "Σημαδιακή συμφωνία"
 
-#: crm/site/dealadmin.py:603
+#: crm/site/dealadmin.py:606
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Περιμένω απάντηση στο αίτημά μου για %d μέρες"
 
-#: crm/site/dealadmin.py:633
+#: crm/site/dealadmin.py:636
 msgid "Expected"
 msgstr "Αναμένεται"
 
-#: crm/site/dealadmin.py:641
+#: crm/site/dealadmin.py:644
 msgid "Paid"
 msgstr "Πληρωμένο"
 
-#: crm/site/dealadmin.py:696
+#: crm/site/dealadmin.py:699
 msgid "Contact is Lead (no company)"
 msgstr "Η επαφή είναι Δυναμικό (χωρίς εταιρεία)"
 
-#: crm/site/leadadmin.py:118
+#: crm/site/leadadmin.py:117
 msgid "Person contact details"
 msgstr "Στοιχεία επικοινωνίας ατόμου"
 
-#: crm/site/leadadmin.py:127
+#: crm/site/leadadmin.py:126
 msgid "Additional person details"
 msgstr "Επιπρόσθετες λεπτομέρειες για το άτομο"
 
-#: crm/site/leadadmin.py:140
+#: crm/site/leadadmin.py:138
 msgid "Company contact details"
 msgstr "Στοιχεία επικοινωνίας εταιρείας"
 
-#: crm/site/leadadmin.py:249
+#: crm/site/leadadmin.py:247
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Η προοπτική \"{obj}\" μετατράπηκε με επιτυχία."
 
-#: crm/site/leadadmin.py:264
+#: crm/site/leadadmin.py:262
 msgid "This Lead is disqualified! Please read the description."
 msgstr ""
 "Αυτή η Δυναμική Προοπτική δεν πληροί τις προϋποθέσεις! Παρακαλούμε διαβάστε "
 "την περιγραφή."
 
-#: crm/site/requestadmin.py:38
+#: crm/site/requestadmin.py:39
 msgid "Client Loyalty"
 msgstr "Πιστότητα Πελατών"
 
-#: crm/site/requestadmin.py:45
+#: crm/site/requestadmin.py:46
 msgid "Country not specified in request"
 msgstr "Χώρα δεν καθορίστηκε στο αίτημα"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:47
 msgid "You received the deal"
 msgstr "Έλαβες τη συμφωνία"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:48
 msgid "You are the co-owner of the deal"
 msgstr "Είστε συνιδιοκτήτης της συμφωνίας"
 
-#: crm/site/requestadmin.py:53
+#: crm/site/requestadmin.py:54
 msgid "Primary request"
 msgstr "Αρχικό αίτημα"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:55
 msgid "You are the co-owner of the request"
 msgstr "Είστε συνιδιοκτήτης του αιτήματος"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:56
 msgid "You received the request"
 msgstr "Έχετε λάβει το αίτημα"
 
-#: crm/site/requestadmin.py:56 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "εκκρεμές"
 
-#: crm/site/requestadmin.py:57
+#: crm/site/requestadmin.py:58
 msgid "processed"
 msgstr "επεξεργασμένο"
 
-#: crm/site/requestadmin.py:58 massmail/models/mailing_out.py:41
+#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: crm/site/requestadmin.py:62
+#: crm/site/requestadmin.py:63
 msgid "Subsequent request"
 msgstr "Επόμενο αίτημα"
 
-#: crm/site/requestadmin.py:392
+#: crm/site/requestadmin.py:398
 msgid "Found the counterparty assigned to"
 msgstr "Βρέθηκε το αντισυμβαλλόμενο μέρος που έχει ανατεθεί"
 
-#: crm/site/requestadmin.py:491
+#: crm/site/requestadmin.py:497
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "Το \"{name}\" \"{obj}\" προστέθηκε επιτυχώς."
@@ -2493,10 +2490,6 @@ msgstr "Προβολή συναλλαγών με αυτήν την Εταιρε�
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "Δείτε το ιστορικό των αλλαγών για αυτήν τη Συμφωνία"
-
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
-msgid "Toggle default deal sorting"
-msgstr "Εναλλαγή προεπιλεγμένης ταξινόμησης συμφωνιών"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
@@ -2859,7 +2852,7 @@ msgstr "Ο σειριακός αριθμός της παραγράφου στη 
 msgid "Link to a related paragraph if exists."
 msgstr "Σύνδεσμος σε σχετικό παράγραφο, εάν υπάρχει."
 
-#: massmail/admin.py:31
+#: massmail/admin.py:30
 msgid "Service information"
 msgstr "Πληροφορίες υπηρεσίας"
 
@@ -3088,11 +3081,11 @@ msgstr "Ολοκληρώθηκε"
 msgid "The name of the message."
 msgstr "Όνομα μηνύματος."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:33
 msgid "Number of recipients"
 msgstr "Αριθμός παραληπτών"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
+#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:23
 msgid "Recipients type"
 msgstr "Τύπος παραληπτών"
 
@@ -3121,24 +3114,47 @@ msgstr "Προεπισκόπηση"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:19
 msgid "Available Email accounts for MassMail"
 msgstr ""
 "Λογαριασμοί ηλεκτρονικού ταχυδρομείου διαθέσιμοι για αποστολή μαζικών email"
 
-#: massmail/site/mailingoutadmin.py:19
+#: massmail/site/mailingoutadmin.py:20
 msgid "Accounts"
 msgstr "Λογαριασμοί"
 
-#: massmail/site/mailingoutadmin.py:28
+#: massmail/site/mailingoutadmin.py:24
+#| msgid ""
+#| "To send a message you need to have an email account marked as main."
+msgid "You do not have an email account available for massmaling."
+msgstr "Δεν έχετε διαθέσιμο λογαριασμό email για massmaling."
+
+#: massmail/site/mailingoutadmin.py:25
+msgid ""
+"The address for redirecting unsubscribed recipients is not specified. "
+"Contact the administrator."
+msgstr ""
+"Η διεύθυνση για την ανακατεύθυνση των μη εγγεγραμμένων παραληπτών δεν έχει "
+"καθοριστεί. Επικοινωνήστε με τον διαχειριστή."
+
+#: massmail/site/mailingoutadmin.py:27
+msgid ""
+"You have one Email account with Mailing enabled. As the main account, it can"
+" only send emails to VIP recipients."
+msgstr ""
+"Έχετε έναν λογαριασμό ηλεκτρονικού ταχυδρομείου με ενεργοποιημένη την "
+"Αλληλογραφία. Ως κύριος λογαριασμός, μπορεί να στέλνει μηνύματα ηλεκτρονικού"
+" ταχυδρομείου μόνο σε VIP παραλήπτες."
+
+#: massmail/site/mailingoutadmin.py:34
 msgid "Today"
 msgstr "Σήμερα"
 
-#: massmail/site/mailingoutadmin.py:29
+#: massmail/site/mailingoutadmin.py:35
 msgid "Sent today"
 msgstr "Αποστάλθηκε σήμερα"
 
-#: massmail/site/mailingoutadmin.py:107
+#: massmail/site/mailingoutadmin.py:135
 msgid "notification"
 msgstr "ειδοποίηση"
 
@@ -3200,7 +3216,7 @@ msgstr "Ανέβασμα αρχείου εικόνας στον διακομισ
 msgid "Uploaded images"
 msgstr "Ανεβασμένες εικόνες"
 
-#: massmail/utils/sendmassmail.py:43
+#: massmail/utils/sendmassmail.py:331
 msgid "Done successfully."
 msgstr "Εκτελέστηκε με επιτυχία."
 
@@ -3221,7 +3237,6 @@ msgid "Use the 'Action' menu."
 msgstr "Χρησιμοποιήστε το μενού «Ενέργεια»."
 
 #: massmail/views/select_recipient_type.py:39
-#| msgid "Please select at least one recipient"
 msgid "Please select the type of recipients"
 msgstr "Επιλέξτε τον τύπο των παραληπτών"
 
@@ -3238,60 +3253,65 @@ msgstr "Το τεστ email έχει σταλεί σε {email_accounts}"
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: settings/models.py:7
+#: settings/models.py:18
 msgid "Banned company name"
 msgstr "Απαγορευμένο όνομα εταιρείας"
 
-#: settings/models.py:8
+#: settings/models.py:19
 msgid "Banned company names"
 msgstr "Απαγορευμένες ονομασίες εταιρειών"
 
-#: settings/models.py:22
+#: settings/models.py:40 settings/models.py:41
+#| msgid "Mass mailing"
+msgid "Massmail Settings"
+msgstr "Ρυθμίσεις Massmail"
+
+#: settings/models.py:81
 msgid "Public email domain"
 msgstr "Δημόσιο τομέα ηλεκτρονικού ταχυδρομείου"
 
-#: settings/models.py:23
+#: settings/models.py:82
 msgid "Public email domains"
 msgstr "Δημόσιες διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
-#: settings/models.py:28
+#: settings/models.py:87
 msgid "Domain"
 msgstr ""
 "Αυτή η λέξη μπορεί επίσης να μεταφραστεί ως \"τομέας\" ανάλογα με το "
 "πλαίσιο, αλλά \"τομέας\" είναι μια πιο γενική και ευρέως χρησιμοποιούμενη "
 "μετάφραση για τη λέξη \"domain\"."
 
-#: settings/models.py:41 settings/models.py:42
+#: settings/models.py:115 settings/models.py:116
 msgid "Reminder settings"
 msgstr "Ρυθμίσεις υπενθυμίσεων"
 
-#: settings/models.py:47
+#: settings/models.py:121
 msgid "Check interval"
 msgstr "Διαστήμα ελέγχου"
 
-#: settings/models.py:49
+#: settings/models.py:123
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Προσδιορίστε το διάστημα σε δευτερόλεπτα για να ελέγχετε αν έχει έρθει η ώρα"
 " για υπενθύμιση."
 
-#: settings/models.py:56
+#: settings/models.py:149
 msgid "Stop Phrase"
 msgstr "Φράση Διακοπής"
 
-#: settings/models.py:57
+#: settings/models.py:150
 msgid "Stop Phrases"
 msgstr "Φράσεις Διακοπής"
 
-#: settings/models.py:62
+#: settings/models.py:155
 msgid "Phrase"
 msgstr "Φράση"
 
-#: settings/models.py:66
+#: settings/models.py:159
 msgid "Last occurrence date"
 msgstr "Ημερομηνία τελευταίας εμφάνισης"
 
-#: settings/models.py:67
+#: settings/models.py:160
 msgid "Date of last occurrence of the phrase"
 msgstr "Ημερομηνία τελευταίας εμφάνισης της φράσης"
 
@@ -3448,8 +3468,8 @@ msgstr "Απόκρυψη κύριας εργασίας"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "Απόκρυψη της κύριας εργασίας όταν κλείσει αυτή η υποεργασία."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:348
+#: tasks/site/taskadmin.py:354
 msgid "Lead time"
 msgstr "Χρόνος Παραγωγής"
 
@@ -3584,37 +3604,37 @@ msgstr "Ενημέρωση για το έργο"
 msgid "The project was created"
 msgstr "Το έργο δημιουργήθηκε"
 
-#: tasks/site/taskadmin.py:35
+#: tasks/site/taskadmin.py:36
 msgid "I completed my part of the task"
 msgstr "Ολοκλήρωσα το μερίδιό μου από το έργο."
 
-#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
+#: tasks/site/taskadmin.py:38 tasks/site/tasksbasemodeladmin.py:47
 msgid "The task was created"
 msgstr "Δημιουργήθηκε εργασία"
 
-#: tasks/site/taskadmin.py:38
+#: tasks/site/taskadmin.py:39
 msgid "The subtask was created"
 msgstr "Δημιουργήθηκε υποεργασία"
 
-#: tasks/site/taskadmin.py:39
+#: tasks/site/taskadmin.py:40
 msgid "The subtask"
 msgstr "Υποεργασία"
 
-#: tasks/site/taskadmin.py:242
+#: tasks/site/taskadmin.py:244
 msgid "later than due date of parent task."
 msgstr "μετά την ημερομηνία λήξης της γονικής εργασίας."
 
-#: tasks/site/taskadmin.py:334
+#: tasks/site/taskadmin.py:336
 msgid "Main task"
 msgstr "Κύρια εργασία"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/site/taskadmin.py:363 tasks/site/taskadmin.py:364
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "Δημιουργία υποεργασίας"
 
-#: tasks/site/taskadmin.py:372
+#: tasks/site/taskadmin.py:374
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3697,10 +3717,6 @@ msgstr "Δείτε την κύρια εργασία"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "Υποεργασίες"
-
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
-msgid "Toggle default task sorting"
-msgstr "Εναλλαγή προεπιλεγμένης ταξινόμησης εργασιών"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
@@ -3808,7 +3824,7 @@ msgstr "ΕΕΕΕ-ΜΜ-ΗΗ"
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: tests/massmail/utils/test_send_massmail.py:124
 msgid "This field is required."
 msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
 
@@ -3882,13 +3898,19 @@ msgstr "Εισερχόμενη κλήση από"
 msgid "(duration: {duration} minutes)"
 msgstr "(διάρκεια: {duration} λεπτά)"
 
-#: webcrm/settings.py:271
+#: webcrm/settings.py:272
 msgid "Untitled"
 msgstr "Χωρίς τίτλο"
 
 #: webcrm/settings.py:286
 msgid "Main Menu"
 msgstr "Κύριο Μενού"
+
+#~ msgid "Toggle default deal sorting"
+#~ msgstr "Εναλλαγή προεπιλεγμένης ταξινόμησης συμφωνιών"
+
+#~ msgid "Toggle default task sorting"
+#~ msgstr "Εναλλαγή προεπιλεγμένης ταξινόμησης εργασιών"
 
 #~ msgid "First select a department."
 #~ msgstr "Πρώτα επιλέξτε ένα τμήμα."
