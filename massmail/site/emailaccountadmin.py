@@ -32,6 +32,7 @@ class EmailAccountAdmin(CrmModelAdmin):
         }),
     )
     save_as = True
+    search_fields = ('name', "email_host", "email_host_user")
 
     # -- ModelAdmin methods -- #
 
