@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The number of Request fields available for modification via the administrators' site has been expanded
 - Validation for mailing status and dynamic user hints
 - Flag for mass mailing only during business hours
+- Search field on the email accounts list page
 - Expand newsletter mailing documentation with detailed usage instructions
 
 ### Changed
