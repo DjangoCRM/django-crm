@@ -74,6 +74,40 @@ class ChatMessageAdmin(admin.ModelAdmin):
 
     # -- ModelAdmin methods -- #
 
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+        initial = dict(request.GET.items())
+        if initial.get('content_type__id__exact', None):
+            extra_context['content_type_id'] = int(
+                initial.get('content_type__id__exact'))
+            extra_context['object_id'] = int(initial.get('object_id'))
+            ct = ContentType.objects.get(id=extra_context['content_type_id'])
+            extra_context['view_button_url'] = reverse(
+                f'site:{ct.app_label}_{ct.model}_change', args=(extra_context['object_id'],)
+            )
+            extra_context['view_button_title'] = f"{gettext('View')} - {gettext(f'{ct}')}"
+        return super().changelist_view(request, extra_context)
+
+    def get_changelist_instance(self, request):
+        cl = super().get_changelist_instance(request)
+        id_list = []
+        for msg in cl.result_list.filter(recipients=request.user):
+            msg.recipients.remove(request.user.id)
+            id_list.append(msg.id)
+        cl.result_list = cl.result_list.annotate(
+            top_id=Coalesce('topic_id', 'id'),
+            date=Least(
+                Coalesce('topic_id__creation_date', 'creation_date'),
+                'creation_date'
+            ),
+            is_unread=Case(
+                When(id__in=id_list, then=Value(True)),
+                default=Value(False),
+                output_field=BooleanField()
+            ),
+        ).order_by('-date', 'top_id', 'id')
+        return cl
+
     def get_fieldsets(self, request, obj=None):
         fieldsets = [
             (None, {'fields': [
@@ -99,20 +133,6 @@ class ChatMessageAdmin(admin.ModelAdmin):
             fieldsets[0][1]['fields'].append('recipients')
         return fieldsets
 
-    def changelist_view(self, request, extra_context=None):
-        extra_context = extra_context or {}
-        initial = dict(request.GET.items())
-        if initial.get('content_type__id__exact', None):
-            extra_context['content_type_id'] = int(
-                initial.get('content_type__id__exact'))
-            extra_context['object_id'] = int(initial.get('object_id'))
-            ct = ContentType.objects.get(id=extra_context['content_type_id'])
-            extra_context['view_button_url'] = reverse(
-                f'site:{ct.app_label}_{ct.model}_change', args=(extra_context['object_id'],)
-            )
-            extra_context['view_button_title'] = f"{gettext('View')} - {gettext(f'{ct}')}"
-        return super().changelist_view(request, extra_context)
-
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         form.base_fields['recipients'] = MyModelMultipleChoiceField(
@@ -123,10 +143,6 @@ class ChatMessageAdmin(admin.ModelAdmin):
         return form
 
     def get_queryset(self, request):
-        """
-        Return queryset annotated for unread messages for current user.
-        Remove the current user from the list of recipients in such messages.
-        """
         qs = super().get_queryset(request)
         initial = dict(request.GET.items())
         if '_changelist_filters' in initial:
@@ -137,23 +153,6 @@ class ChatMessageAdmin(admin.ModelAdmin):
                 Q(owner_id=request.user.id) |
                 Q(to=request.user.id)
             ).distinct()
-        id_list = []
-        for msg in qs.filter(recipients=request.user):
-            msg.recipients.remove(request.user.id)
-            id_list.append(msg.id)
-        qs = qs.annotate(
-            top_id=Coalesce('topic_id', 'id'),
-            date=Least(
-                Coalesce('topic_id__creation_date', 'creation_date'),
-                'creation_date'
-            ),
-            is_unread=Case(
-                When(id__in=id_list, then=Value(True)),
-                default=Value(False),
-                output_field=BooleanField()
-            ),
-        ).order_by('-date', 'top_id', 'id')
-
         return qs
 
     def response_add(self, request, obj, post_url_continue=None):
