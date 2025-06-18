@@ -94,6 +94,30 @@ class ShipmentAdmin(admin.ModelAdmin):
             request, object_id, form_url, extra_context=extra_context
         )
 
+    def get_changelist_instance(self, request):
+        cl = super().get_changelist_instance(request)
+        payments = Payment.objects.filter(
+            deal=OuterRef('deal')
+        ).order_by().values('deal')
+        received_payment = payments.filter(
+            status=Payment.RECEIVED
+        ).annotate(
+            payment_sum=Sum('amount')
+        )
+        next_payment = payments.filter(
+            status=Payment.GUARANTEED
+        ).order_by('-payment_date')
+        cl.result_list = cl.result_list.annotate(
+            received_payment_sum=Subquery(
+                received_payment.values('payment_sum')),
+            next_payment_amount=Subquery(next_payment.values('amount')[:1]),
+            next_payment_currency=Subquery(
+                next_payment.values('currency__name')[:1]),
+            next_payment_date=Subquery(
+                next_payment.values('payment_date')[:1]),
+        )
+        return cl
+
     def get_list_display(self, request):
         list_display = [
             'product',
@@ -142,27 +166,6 @@ class ShipmentAdmin(admin.ModelAdmin):
                 Q(deal__owner=request.user) |
                 Q(deal__co_owner=request.user)
             )
-        payments = Payment.objects.filter(
-            deal=OuterRef('deal')
-        ).order_by().values('deal')
-        received_payment = payments.filter(
-            status=Payment.RECEIVED
-        ).annotate(
-            payment_sum=Sum('amount')
-        )
-        next_payment = payments.filter(
-            status=Payment.GUARANTEED
-        ).order_by('-payment_date')
-        queryset = queryset.annotate(
-            received_payment_sum=Subquery(
-                received_payment.values('payment_sum')),
-            next_payment_amount=Subquery(next_payment.values('amount')[:1]),
-            next_payment_currency=Subquery(
-                next_payment.values('currency__name')[:1]),
-            next_payment_date=Subquery(
-                next_payment.values('payment_date')[:1]),
-        )
-
         return queryset
 
     def has_add_permission(self, request, obj=None):
