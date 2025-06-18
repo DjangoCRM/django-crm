@@ -160,6 +160,16 @@ class MemoAdmin(BaseModelAdmin):
 
         return initial
 
+    def get_changelist_instance(self, request):
+        cl = super().get_changelist_instance(request)
+        cl.result_list = cl.result_list.annotate(department=Subquery(
+            USER_MODEL.objects.filter(
+                id=OuterRef('owner__pk'),
+                groups__department__isnull=False
+            ).values('groups__name')[:1]
+        ))
+        return cl
+
     def get_fieldsets(self, request, obj=None):
         fieldsets = [
             (None, {
@@ -253,12 +263,6 @@ class MemoAdmin(BaseModelAdmin):
                     | Q(owner=request.user)
                     | Q(subscribers=request.user)
                 )
-        qs = qs.annotate(department=Subquery(
-            USER_MODEL.objects.filter(
-                id=OuterRef('owner__pk'),
-                groups__department__isnull=False
-            ).values('groups__name')[:1]
-        )).distinct()
         return qs
 
     def has_change_permission(self, request, obj=None):
