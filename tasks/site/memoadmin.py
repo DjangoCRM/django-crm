@@ -15,8 +15,10 @@ from django.utils.safestring import mark_safe
 
 from common.admin import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
+from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.utils.helpers import add_chat_context
+from common.utils.helpers import annotate_chat
 from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import compose_message
 from common.utils.helpers import CONTENT_COPY_ICON
@@ -76,6 +78,7 @@ class MemoAdmin(BaseModelAdmin):
         'attachment',
         'content_copy',
         "subscribers_list",
+        'chat_link'
     ]
     search_fields = ('name', 'description', 'note')
     radio_fields = {'stage': admin.HORIZONTAL}
@@ -161,12 +164,14 @@ class MemoAdmin(BaseModelAdmin):
 
     def get_changelist_instance(self, request):
         cl = super().get_changelist_instance(request)
-        cl.result_list = cl.result_list.annotate(department=Subquery(
-            USER_MODEL.objects.filter(
-                id=OuterRef('owner__pk'),
-                groups__department__isnull=False
-            ).values('groups__name')[:1]
-        ))
+        if cl.result_list:
+            cl.result_list = cl.result_list.annotate(department=Subquery(
+                USER_MODEL.objects.filter(
+                    id=OuterRef('owner__pk'),
+                    groups__department__isnull=False
+                ).values('groups__name')[:1]
+            ))
+            cl.result_list = annotate_chat(request, cl.result_list)
         return cl
 
     def get_fieldsets(self, request, obj=None):
@@ -225,6 +230,7 @@ class MemoAdmin(BaseModelAdmin):
         if request.user.is_chief:
             return (
                 'name_icon',
+                'chat_link',
                 'attachment',
                 'person',
                 'status',
@@ -236,6 +242,7 @@ class MemoAdmin(BaseModelAdmin):
             )
         return (
             'name_icon',
+            'chat_link',
             'attachment',
             'to',
             'status',
@@ -401,6 +408,10 @@ class MemoAdmin(BaseModelAdmin):
             '<ul class="object-tools" style="margin-top:0px;'
             f'margin-left:-10px;white-space:nowrap;">{li}</ul>'
         )
+
+    @admin.display(description='')
+    def chat_link(self, obj):
+        return get_chat_link(obj)
 
     @admin.display(description='')
     def content_copy(self, obj):
