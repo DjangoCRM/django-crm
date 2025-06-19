@@ -23,6 +23,6 @@
     sqlparse==0.5.3
     tendo==0.3.0
     tzdata==2025.2
-    urllib3==2.4.0
+    urllib3==2.5.0
     XlsxWriter==3.2.5
     yarl==1.20.1
