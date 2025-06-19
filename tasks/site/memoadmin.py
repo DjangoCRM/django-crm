@@ -37,7 +37,6 @@ from tasks.utils.admfilters import ByToFilter
 from tasks.utils.admfilters import TaskTagFilter
 
 
-copy_str = _('Copy')
 department_str = _('Department')
 draft_str = _('draft')
 event_available_icon = '<i class="material-icons" title="{}">event_available</i>'
