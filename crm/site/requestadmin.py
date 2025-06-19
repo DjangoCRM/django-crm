@@ -11,11 +11,14 @@ from django.urls import reverse
 
 from common.admin import FileInline
 from common.models import Department
+from common.utils.copy_files import copy_files
+from common.utils.helpers import CONTENT_COPY_ICON
+from common.utils.helpers import CONTENT_COPY_LINK
+from common.utils.helpers import COPY_STR
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import LEADERS
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_department_id
-from common.utils.copy_files import copy_files
 from common.utils.notify_user import notify_user
 from common.utils.parse_full_name import parse_contacts_name
 from crm.forms.admin_forms import RequestForm
@@ -35,6 +38,31 @@ from crm.utils.helpers import get_counterparty_header
 ATTR_LIST = (
     'lead',
     'deal',
+)
+COPIED_FIELDS = (
+    'request_for',
+    'first_name',
+    'middle_name',
+    'last_name',
+    'email',
+    'phone',
+    'website',
+    'lead_source',
+    'company_name',
+    'lead',
+    'contact',
+    'company',
+    'country',
+    'city',
+    'city_name',
+    'description',
+    'translation',
+    'remark',
+    'subsequent',
+    'department',
+    'owner',
+    'co_owner',
+    'verification_required'
 )
 client_loyalty_title = _("Client Loyalty")
 CONTACT_ATTR_LIST = (
@@ -118,7 +146,8 @@ class RequestAdmin(CrmModelAdmin):
         'modified_by', 'person',
         'request_subject', 'the_full_name',
         'the_receipt_date', 'counterparty',
-        'the_city', 'loyalty', 'request_counter'
+        'the_city', 'loyalty', 'request_counter',
+        'content_copy'
     )
     search_fields = [
         'request_for', 'first_name',
@@ -158,6 +187,16 @@ class RequestAdmin(CrmModelAdmin):
                 form.country_must_be_specified = True
         return form
 
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        request_id = request.GET.get('copy_request')
+        if request_id:
+            inquiry = Request.objects.get(id=request_id)
+            for f in COPIED_FIELDS:
+                initial[f] = getattr(inquiry, f)
+            initial['products'] = inquiry.products.all()
+        return initial
+
     def get_list_display(self, request):
         list_display = [
             'request_subject',
@@ -170,6 +209,7 @@ class RequestAdmin(CrmModelAdmin):
         if not (request.user.is_manager and 'owner' not in request.GET):
             list_display.append('person')
         list_display.append('status')
+        list_display.append('content_copy')
         self.list_display = list_display
         return super().get_list_display(request)
 
@@ -287,6 +327,13 @@ class RequestAdmin(CrmModelAdmin):
             _update_deal_attr(obj, 'company')
 
     # -- ModelAdmin callables -- #
+
+    @admin.display(description='')
+    def content_copy(self, obj):
+        url = reverse("site:crm_request_add") + f"?copy_request={obj.id}"
+        return mark_safe(
+            CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON)
+        )
 
     @admin.display(description=get_counterparty_header())
     def counterparty(self, obj):
