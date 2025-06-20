@@ -180,6 +180,12 @@ class TaskAdmin(TasksBaseModelAdmin):
             initial['tags'] = task.tags.all()
         return initial
 
+    def get_changelist_instance(self, request):
+        cl = super().get_changelist_instance(request)
+        if cl.result_list:
+            cl.result_list = annotate_chat(request, cl.result_list)
+        return cl
+    
     def get_list_filter(self, request, obj=None):
         list_filter = super().get_list_filter(request, obj)
         list_filter.append(ByProject)
@@ -207,7 +213,6 @@ class TaskAdmin(TasksBaseModelAdmin):
                 parent_id=Coalesce("task_id", "id"),
             )
             queryset = qs.order_by("-parent_id", "parent_task", "step_date", "id")
-        queryset = annotate_chat(request, queryset)
         return queryset
 
     def get_readonly_fields(self, request, obj=None):
