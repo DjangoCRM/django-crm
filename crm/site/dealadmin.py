@@ -211,6 +211,54 @@ class DealAdmin(CrmModelAdmin):
                 set_currency_initial(request, kwargs)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+    def get_changelist_instance(self, request):
+        cl = super().get_changelist_instance(request)
+        newest = CrmEmail.objects.filter(
+            deal=OuterRef('pk'),
+            trash=False
+        ).order_by('-creation_date')
+        unread = ChatMessage.objects.filter(
+            content_type=ContentType.objects.get_for_model(Deal),
+            object_id=OuterRef('pk'),
+            recipients=request.user
+        ).values('id')
+        received_payments = Payment.objects.filter(
+            deal=OuterRef('pk'),
+            status=Payment.RECEIVED,
+        ).values('id')
+        product = Output.objects.filter(
+            deal=OuterRef('pk')
+        ).values('id')
+        kwargs = {
+            'is_unanswered_email': Subquery(
+                newest.values('incoming')[:1]
+            ),
+            'is_unanswered_inquiry': Subquery(
+                newest.values('inquiry')[:1]
+            ),
+            'is_unread_chat': Exists(unread),
+            'is_received_payment': Exists(received_payments),
+            'is_no_product': ~Exists(product),
+        }
+        if settings.SHIPMENT_DATE_CHECK:
+            today = get_today()
+            expired_shipment_date = Output.objects.filter(
+                deal=OuterRef('pk'),
+                shipping_date__lt=today
+            ).values('id')
+            empty_date = Output.objects.filter(
+                deal=OuterRef('pk'),
+                shipping_date__isnull=True
+            ).values('id')
+            kwargs['is_empty_shipping_date'] = Exists(empty_date)
+            kwargs['is_expired_shipment_date'] = Exists(
+                expired_shipment_date
+            )
+            kwargs['is_goods_shipped'] = F('stage__goods_shipped')
+
+        cl.result_list = cl.result_list.annotate(**kwargs)
+        return cl
+
     def get_fieldsets(self, request, obj=None):
         inquiry = None
         contact_fields = []
@@ -303,53 +351,6 @@ class DealAdmin(CrmModelAdmin):
                 "deal_step_date_sorting" in request.session:
             return 'next_step_date',
         return '-id',
-
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        newest = CrmEmail.objects.filter(
-            deal=OuterRef('pk'),
-            trash=False
-        ).order_by('-creation_date')
-        unread = ChatMessage.objects.filter(
-            content_type=ContentType.objects.get_for_model(Deal),
-            object_id=OuterRef('pk'),
-            recipients=request.user
-        ).values('id')
-        received_payments = Payment.objects.filter(
-            deal=OuterRef('pk'),
-            status=Payment.RECEIVED,
-        ).values('id')
-        product = Output.objects.filter(
-            deal=OuterRef('pk')
-        ).values('id')
-        kwargs = {
-            'is_unanswered_email': Subquery(
-                newest.values('incoming')[:1]
-            ),
-            'is_unanswered_inquiry': Subquery(
-                newest.values('inquiry')[:1]
-            ),
-            'is_unread_chat': Exists(unread),
-            'is_received_payment': Exists(received_payments),
-            'is_no_product': ~Exists(product),
-        }
-        if settings.SHIPMENT_DATE_CHECK:
-            today = get_today()
-            expired_shipment_date = Output.objects.filter(
-                deal=OuterRef('pk'),
-                shipping_date__lt=today
-            ).values('id')
-            empty_date = Output.objects.filter(
-                deal=OuterRef('pk'),
-                shipping_date__isnull=True
-            ).values('id')
-            kwargs['is_empty_shipping_date'] = Exists(empty_date)
-            kwargs['is_expired_shipment_date'] = Exists(
-                expired_shipment_date
-            )
-            kwargs['is_goods_shipped'] = F('stage__goods_shipped')
-        qs = qs.annotate(**kwargs)
-        return qs
 
     def get_readonly_fields(self, request, obj=None):
         readonly_fields = [
