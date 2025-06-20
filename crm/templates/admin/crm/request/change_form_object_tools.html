@@ -32,6 +32,7 @@
 <li>
     <a href="{% url 'print_request' object_id %}" title="{% translate 'Print preview' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">print</i></a>
 </li>
+<li>{{ content_copy_link }}</li>
 <li>
     {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
     <a href="{% add_preserved_filters history_url %}" class="historylink">{% translate "History" %}</a>
