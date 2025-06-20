@@ -171,10 +171,19 @@ class RequestAdmin(CrmModelAdmin):
         extra_context['has_change_deal_perm'] = request.user.has_perm(
             'crm.change_deal'
         )
+        url = reverse("site:crm_request_add") + f"?copy_request={object_id}"
+        extra_context['content_copy_link'] = mark_safe(
+            CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON))
         check_for_counterparty_assignment(request, object_id)
         return super().change_view(
             request, object_id, form_url,
             extra_context=extra_context,
+        )
+
+    def changelist_view(self, request, extra_context=None):
+        self.add_request_url = reverse("site:crm_request_add")
+        return super().changelist_view(
+            request, extra_context=extra_context,
         )
 
     def get_form(self, request, obj=None, **kwargs):
@@ -330,7 +339,7 @@ class RequestAdmin(CrmModelAdmin):
 
     @admin.display(description='')
     def content_copy(self, obj):
-        url = reverse("site:crm_request_add") + f"?copy_request={obj.id}"
+        url = self.add_request_url + f"?copy_request={obj.id}"
         return mark_safe(
             CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON)
         )
