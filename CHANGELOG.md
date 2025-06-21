@@ -12,17 +12,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Dynamic tooltip for task sorting toggle
-- The number of Request fields available for modification via the administrators' site has been expanded
-- Validation for mailing status and dynamic user hints
-- Flag for mass mailing only during business hours
-- Search field on the email accounts list page
-- Expand newsletter mailing documentation with detailed usage instructions
+- The ability to create a new commercial request based on an existing one.
+- An icon has been added to the memos on the list page, displaying the presence of new messages in  
+  the memos chat and the ability to immediately go to the selected chat.
+- Dynamic tooltip for task sorting toggle.
+- The number of Request fields available for modification via the administrators' site has been expanded.
+- Validation for mailing status and dynamic user hints.
+- Flag for mass mailing only during business hours.
+- Search field on the email accounts list page.
+- Expand newsletter mailing documentation with detailed usage instructions.
 
 ### Changed
 
+- To improve the performance of the CRM and reduce peak RAM consumption,  
+  annotation is now performed not on the entire queryset, but only on the objects of the current changelist page.
 - Moved Massmail settings from settings.py to Admin web UI by @Ishubhammohole in #229  
-  (**Update your settings:** `(ADMIN site) Home > Settings > Massmail Settings`)
+  (**Update your settings:** `(ADMIN site) Home > Settings > Massmail Settings`).
 
 ## [1.3.1] - 2025-05-23
 
