@@ -678,6 +678,10 @@ Mailings from the **main** sales manager account are only sent to **VIP recipien
 
 `(ADMIN site) Home > Settings > Massmail Settings`
 
+> [!NOTE]
+> Changed in Django CRM 1.4.0:  
+> The settings have been moved from the `settings.py` file to the Admin web UI.
+
 **Business Hours Sending:**
 To restrict mailings to business hours (and exclude Friday through Sunday), select `Use business time` check box.
 
