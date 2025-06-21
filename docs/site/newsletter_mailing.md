@@ -14,8 +14,13 @@ For other recipients, it is recommended to set up additional email accounts.
 
 ### Settings
 
+The settings are available only to administrators (superusers).  
 `(ADMIN site) Home > Settings > Massmail Settings`
 
+!!! Note
+
+    Changed in Django CRM 1.4.0:  
+    The settings have been moved from the `settings.py` file to the Admin web UI.
 
 #### Use of business time
 
