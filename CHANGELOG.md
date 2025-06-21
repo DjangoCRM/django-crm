@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.4.0] - 2025-06-21
 
 ### Added
 
@@ -28,6 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   annotation is now performed not on the entire queryset, but only on the objects of the current changelist page.
 - Moved Massmail settings from settings.py to Admin web UI by @Ishubhammohole in #229  
   (**Update your settings:** `(ADMIN site) Home > Settings > Massmail Settings`).
+
+#### Full Changelog: [v1.3.1...v1.4.0](https://github.com/DjangoCRM/django-crm/compare/v1.3.1...v1.4.0)
 
 ## [1.3.1] - 2025-05-23
 
