@@ -682,14 +682,18 @@ Los envíos desde la cuenta del **gestor de ventas principal** se envían solo a
 
 `(Sitio ADMIN) Inicio > Configuración > Configuración de Massmail`
 
-**Envío en horario laboral:**
-Para restringir los envíos a horario laboral (y excluir los viernes, sábados y domingos), marca la casilla `Usar horario laboral` (`Use business time`).
+> [!NOTA]
+> Cambiado en Django CRM 1.4.0:
+> La configuración se ha trasladado del archivo `settings.py` a la interfaz web de administración.
 
-**Opción de desuscripción:**
+**Envío en Horario Laboral:**
+Para limitar los envíos al horario laboral (excluyendo de viernes a domingo), marque la casilla `Usar horario laboral`.
 
-* Crea una página de “desuscripción exitosa” en el sitio web de tu empresa (¡no en el sitio del CRM!).
-* Ingresa la URL de esa página en el campo `URL para desuscribirse` (`URL to unsubscribe`).
-* Incluye un botón de **DESUSCRIBIRSE** en cada plantilla de mensaje utilizando la etiqueta `unsubscribe_url` — `href="{{ unsubscribe_url }}"`.
+**Opción de Cancelar Suscripción:**
+
+* Cree una página de “cancelación de suscripción exitosa” en el sitio web de su empresa (¡no en el sitio del CRM!).
+* Ingrese su URL en el campo: `URL para cancelar suscripción`.
+* Incluya un botón de enlace **CANCELAR SUSCRIPCIÓN** en cada plantilla de mensaje con la etiqueta `unsubscribe_url` – `href="{{ unsubscribe_url }}"`.
 
 ### Crear un Mailing
 
