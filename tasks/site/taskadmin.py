@@ -34,7 +34,6 @@ from tasks.site.tasksbasemodeladmin import TasksBaseModelAdmin
 from tasks.utils.admfilters import ByProject
 
 COMPLETED_TITLE = gettext_lazy("I completed my part of the task")
-copy_str = _("Copy")
 task_was_created_str = _("The task was created")
 subtask_was_created_str = _("The subtask was created")
 the_subtask_str = _("The subtask")
@@ -43,6 +42,7 @@ the_subtask_str = _("The subtask")
 class TaskAdmin(TasksBaseModelAdmin):
 
     actions = ['export_selected']
+    empty_value_display = ''
     filter_horizontal = ('responsible', 'subscribers')
     form = TaskForm
     list_display = (
