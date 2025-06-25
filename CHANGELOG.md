@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased 
+
+### Added
+
+- Add visualization of mailing messages on the list page of these messages.
+- Add the ability to rewrite the date and time format for a more compact data presentation.  
+  This can be done in the webcrm/datetime_settings.py file.
+
 ## [1.4.0] - 2025-06-21
 
 ### Added
