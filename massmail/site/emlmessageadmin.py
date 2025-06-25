@@ -25,7 +25,7 @@ class EmlMessageAdmin(CrmModelAdmin):
 
     inlines = [FileInline]
     list_display = (
-        'subject',
+        'display_preview',
         'person',
         'update_date',
         'content_copy',
@@ -118,6 +118,20 @@ class EmlMessageAdmin(CrmModelAdmin):
         url = reverse("site:massmail_emlmessage_add") + f"?copy_emlmessage={obj.id}"
         return mark_safe(CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON))
 
+    @admin.display(description=mark_safe(
+        '<i class="material-icons" style="color: '
+        'var(--body-quiet-color)">subject</i>'
+    ), ordering='subject')
+    def display_preview(self, obj):
+        content = self.msg_preview(obj)
+        style = (
+            'max-height: 200px; '
+            'overflow: auto;'
+        )
+        return mark_safe(
+            f'<div class="emlmessage-scroll" style="{style}">{content}</div>'
+        )
+    
     @admin.display(description=_("Message"))
     def msg_preview(self, obj):
         load_mailbuilder = "{% load mailbuilder %}"
