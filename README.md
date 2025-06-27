@@ -174,6 +174,8 @@ Django-CRM can be easily deployed as a regular Django project.
 
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+- or visit [Read The Docs](django-crm-admin.readthedocs.io)
+- For unreleased changes, see [CHANGELOG](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
 
 If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
 
