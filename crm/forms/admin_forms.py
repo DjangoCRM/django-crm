@@ -1,7 +1,9 @@
 import json
+from email.utils import parseaddr
 from django import forms
 from django.conf import settings
 from django.core.exceptions import NON_FIELD_ERRORS
+from django.core.validators import EmailValidator
 from django.db.models import Q
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -91,7 +93,17 @@ class BaseCallablesForm(forms.ModelForm):
                 self.add_error('city', msg)
                 self.add_error('country', msg)
                 raise forms.ValidationError(msg, code='invalid')
-
+        
+    def clean_email(self):
+        """
+        Validate a string containing a list of email addresses.
+        """        
+        value = self.cleaned_data.get("email")
+        if value:
+            email_validator = EmailValidator()
+            for email in value.split(","):
+                email_validator(parseaddr(email.strip())[1])
+        return value
 
 class CompanyForm(BaseCallablesForm):
     class Meta:
