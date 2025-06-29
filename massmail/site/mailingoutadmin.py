@@ -9,10 +9,13 @@ from django.utils.safestring import mark_safe
 
 from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
 from common.utils.helpers import get_today
+from crm.site.crmadminsite import crm_site
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.admin_actions import merge_mailing_outs
 from massmail.models import EmailAccount
+from massmail.models import EmlMessage
+from massmail.site.emlmessageadmin import EmlMessageAdmin
 from massmail.utils.adminfilters import StatusMailingFilter
 from settings.models import MassmailSettings
 
@@ -20,7 +23,7 @@ accounts_title = _("Available Email accounts for MassMail")
 accounts_str = _('Accounts')
 accounts_safe_str = mark_safe(
     f'<div title="{accounts_title}">{accounts_str}</div>')
-content_type__str = _("Recipients type")
+content_type_str = _("Recipient<br>type")
 no_massmal_account_str = _("You do not have an email account available for massmaling.")
 no_redirect_url_str = _("The address for redirecting unsubscribed recipients is not specified."
                        " Contact the administrator.")
@@ -40,7 +43,7 @@ today_safe_str = mark_safe(
 class MailingOutAdmin(CrmModelAdmin):
     raw_id_fields = ('message',)
     list_display = (
-        'mailingout_name', 'content_type_name', 'status',
+        'display_preview', 'content_type_name', 'status',
         'progress', 'person', 'sent_today', 'recipients',
         'available_accounts', 'created', 'notification'
     )
@@ -51,7 +54,7 @@ class MailingOutAdmin(CrmModelAdmin):
     )
     readonly_fields = (
         'recipients_number', 'owner', 'modified_by',
-        'content_type', 'sent_today', 'mailingout_name',
+        'content_type', 'sent_today', 'display_preview',
         'available_accounts', 'notification', 'recipients'
     )
     actions = [merge_mailing_outs]
@@ -59,7 +62,7 @@ class MailingOutAdmin(CrmModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                ('name', 'status'),
+                'status',
                 ('content_type', 'recipients_number'),
                 'message', 'report', ('owner', 'modified_by'),
             )
@@ -101,7 +104,13 @@ class MailingOutAdmin(CrmModelAdmin):
                     gettext(no_redirect_url_str)
                 )
         if not obj.name:
-            obj.name = settings.NO_NAME_STR
+            if obj.message:
+                obj.name = obj.message.subject
+            else:
+                obj.name = settings.NO_NAME_STR
+        else:
+            if obj.name == settings.NO_NAME_STR and obj.message:
+                obj.name = obj.message.subject
         super().save_model(request, obj, form, change)
 
     # -- ModelAdmin callables -- #
@@ -123,11 +132,23 @@ class MailingOutAdmin(CrmModelAdmin):
         '<i class="material-icons" style="color: '
         'var(--body-quiet-color)">subject</i>'
     ), ordering='name')
-    def mailingout_name(instance):
-        return instance.name
+    def display_preview(obj):
+        msg = obj.message
+        if msg:
+            ema = EmlMessageAdmin(EmlMessage, crm_site)
+            content = ema.msg_preview(msg)
+            style = (
+                "overflow:auto; "
+                "max-height:300px; "
+                "max-width:300px;"
+            )
+            return mark_safe(
+                f'<div class="mailingout-scroll" style="{style}">{content}</div>'
+            )
+        return obj.name
     
     @staticmethod
-    @admin.display(description=content_type__str)
+    @admin.display(description=mark_safe(content_type_str))
     def content_type_name(instance):
         return instance.content_type.name
     
@@ -138,19 +159,14 @@ class MailingOutAdmin(CrmModelAdmin):
         lines = report.count('\n') + 1 if report else 0
         content = linebreaksbr(report)
         style = (
-            "overflow:auto; max-height:200px;"
-            "white-space:pre-wrap;"
+            "overflow:auto; "
+            "max-height:300px; "
+            "white-space:pre-wrap; "
+            "word-wrap: break-word;"
         ) if lines >= 20 else "white-space:pre-wrap;"
-        custom_scrollbar = (
-            "<style>"
-            "div.mailingout-scroll::-webkit-scrollbar {width:10px;}"
-            "div.mailingout-scroll::-webkit-scrollbar-thumb {background:#ccc; border-radius:3px;}"
-            "</style>"
-            if lines >= 20 else ""
-        )
         div_class = "mailingout-scroll" if lines >= 20 else ""
         return mark_safe(
-            f'{custom_scrollbar}<div class="{div_class}" style="{style}">{content}</div>'
+            f'<div class="{div_class}" style="{style}">{content}</div>'
         )
     
     @staticmethod
