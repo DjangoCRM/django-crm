@@ -1,14 +1,11 @@
 import threading
 from django.contrib import admin
-from django.template import Context
-from django.template import Template
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.admin import FileInline
 from common.utils.copy_files import copy_files
-from common.utils.get_signature_preview import get_rendered_context
 from common.utils.get_signature_preview import get_signature_preview
 from common.utils.helpers import CONTENT_COPY_ICON
 from common.utils.helpers import CONTENT_COPY_LINK
@@ -17,6 +14,7 @@ from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.models import EmlMessage
 from massmail.models import Signature
+from massmail.utils.helpers import get_rendered_msg
 
 _thread_local = threading.local()
 
@@ -123,10 +121,12 @@ class EmlMessageAdmin(CrmModelAdmin):
         'var(--body-quiet-color)">subject</i>'
     ), ordering='subject')
     def display_preview(self, obj):
-        content = self.msg_preview(obj)
+        content = get_rendered_msg(obj)
         style = (
             'max-height: 200px; '
             'overflow: auto;'
+            "max-width:500px;"
+            "overflow-x: hidden;"
         )
         return mark_safe(
             f'<div class="emlmessage-scroll" style="{style}">{content}</div>'
@@ -134,15 +134,7 @@ class EmlMessageAdmin(CrmModelAdmin):
     
     @admin.display(description=_("Message"))
     def msg_preview(self, obj):
-        load_mailbuilder = "{% load mailbuilder %}"
-        content = f"""
-        {load_mailbuilder} 
-        SUBJECT: {obj.subject}<br>
-        {obj.content}<br>
-        """
-        template = Template(content)
-        context = Context({'preview': True})
-        return get_rendered_context(template, context)
+        return get_rendered_msg(obj, show_signature=False)
 
     @admin.display(description=_("Signature"))
     def signature_preview(self, obj):
