@@ -2,12 +2,13 @@ from django.urls import path
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 
-from massmail.views.select_recipient_type import select_recipient_type
 from massmail.views.copy_message import copy_message
+from massmail.views.exclude import exclude_recipients
 from massmail.views.file_upload import file_upload
 from massmail.views.get_oauth2_tokens import request_authorization_code
 from massmail.views.message_previews import message_preview
 from massmail.views.recipient_ids import view_recipient_ids
+from massmail.views.select_recipient_type import select_recipient_type
 from massmail.views.send_failed_recipients import send_failed_recipients
 from massmail.views.send_tests import send_test
 from massmail.views.show_uploaded_images import show_uploaded_images
@@ -77,5 +78,10 @@ urlpatterns = [
         'select-recipient-type/',
         staff_member_required(select_recipient_type),
         name='select_recipient_type'
+    ),
+    path(
+        'exclude-recipients/<int:object_id>/',
+        staff_member_required(exclude_recipients),
+        name='exclude_recipients'
     ),
 ]
