@@ -9,14 +9,12 @@ from django.utils.safestring import mark_safe
 
 from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
 from common.utils.helpers import get_today
-from crm.site.crmadminsite import crm_site
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.admin_actions import merge_mailing_outs
 from massmail.models import EmailAccount
-from massmail.models import EmlMessage
-from massmail.site.emlmessageadmin import EmlMessageAdmin
 from massmail.utils.adminfilters import StatusMailingFilter
+from massmail.utils.helpers import get_rendered_msg
 from settings.models import MassmailSettings
 
 accounts_title = _("Available Email accounts for MassMail")
@@ -55,19 +53,11 @@ class MailingOutAdmin(CrmModelAdmin):
     readonly_fields = (
         'recipients_number', 'owner', 'modified_by',
         'content_type', 'sent_today', 'display_preview',
-        'available_accounts', 'notification', 'recipients'
+        'available_accounts', 'notification', 'recipients',
+        "msg_preview", 'exclude_recipients'
     )
     actions = [merge_mailing_outs]
     list_per_page = 20
-    fieldsets = (
-        (None, {
-            'fields': (
-                'status',
-                ('content_type', 'recipients_number'),
-                'message', 'report', ('owner', 'modified_by'),
-            )
-        }),
-    )
     search_fields = ("name", "message__subject", "message__content")
 
     # -- ModelAdmin methods -- #
@@ -79,6 +69,27 @@ class MailingOutAdmin(CrmModelAdmin):
         if weekday in (4, 5, 6):
             messages.warning(request, gettext(FRIDAY_SATURDAY_SUNDAY_MSG))
         return super().changelist_view(request, extra_context)
+
+    def get_fieldsets(self, request, obj=None):
+        fields = [
+            ('status', 'content_type'),
+        ]
+        if obj:
+            if obj.message:
+                fields.append(
+                    ('recipients_number', 'exclude_recipients')
+                )
+            else:
+                fields.append('recipients_number')
+        fields.append('message')
+        if obj:
+            if obj.report:
+                fields.append('report')
+            if obj.message:
+                fields.append('msg_preview')
+        fields.append(('owner', 'modified_by'))
+        fieldsets = [(None, {'fields': fields})]
+        return fieldsets
 
     def save_model(self, request, obj, form, change):
         if 'status' in form.changed_data and obj.status == obj.ACTIVE:
@@ -126,7 +137,12 @@ class MailingOutAdmin(CrmModelAdmin):
             else:
                 value += '<span style="color: var(--error-fg)">&#9733;</span>'
         return mark_safe(value)
-    
+
+    @staticmethod
+    @admin.display(description=mark_safe(content_type_str))
+    def content_type_name(instance):
+        return instance.content_type.name
+
     @staticmethod
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: '
@@ -135,8 +151,7 @@ class MailingOutAdmin(CrmModelAdmin):
     def display_preview(obj):
         msg = obj.message
         if msg:
-            ema = EmlMessageAdmin(EmlMessage, crm_site)
-            content = ema.msg_preview(msg)
+            content = get_rendered_msg(msg)
             style = (
                 "overflow:auto; "
                 "max-height:300px; "
@@ -146,12 +161,35 @@ class MailingOutAdmin(CrmModelAdmin):
                 f'<div class="mailingout-scroll" style="{style}">{content}</div>'
             )
         return obj.name
-    
-    @staticmethod
-    @admin.display(description=mark_safe(content_type_str))
-    def content_type_name(instance):
-        return instance.content_type.name
-    
+
+    @admin.display(description='')
+    def exclude_recipients(self, obj):
+        from django.urls import reverse
+        url = '#'
+        if obj.recipient_ids:
+            url = reverse(
+                'exclude_recipients', args=(obj.id,)
+            )
+        name = _("Exclude recipients")
+        tooltip = _(
+            "Exclude recipients who have already received this message.")
+        return mark_safe(
+            f'<ul class="object-tools" style="margin-left: 0px;margin-top: 0px;">'
+            f'<li><a title="{tooltip}" href="{url}">{name}</a></li></ul>'
+        )
+
+    @admin.display(description=_("Message"))
+    def msg_preview(self, obj):
+        if obj.message:
+            content = get_rendered_msg(obj.message)
+            style = (
+                'max-height: 400px; '
+                'overflow: auto;'
+            )
+            return mark_safe(
+                f'<div class="emlmessage-scroll" style="{style}">{content}</div>'
+            )
+
     @staticmethod
     @admin.display(description=_('notification'))
     def notification(instance):
