@@ -12,12 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add visualization of mailing messages:
+- Added visualization of mailing messages:
   - on the list page of these messages
   -  on mailing list page
-- Add the URL of the page "you have unsubscribed successfully" to the context of the preview of messages for the mailing.
-- Add the ability to rewrite the date and time format for a more compact data presentation.  
+- Added the URL of the page "you have unsubscribed successfully" to the context of the preview of messages for the mailing.
+- The ability to rewrite the date and time format for a more compact data presentation.  
   This can be done in the webcrm/datetime_settings.py file.
+- Added functionality to exclude recipients from created mailing
+
+### Fixed
+
+-   Added a delay to ensure Django starts before executing massmail and avoid a RuntimeWarning.
 
 ## [1.4.0] - 2025-06-21
 
