@@ -50,6 +50,7 @@ class SendMassmail(threading.Thread, SingleInstance):
             SingleInstance.__init__(self, flavor_id='Massmail')
 
     def run(self):
+        time.sleep(0.5)  # wait for django to start
         massmail_settings = MassmailSettings.objects.get(id=1)
         if not settings.MAILING or settings.TESTING:
             return
