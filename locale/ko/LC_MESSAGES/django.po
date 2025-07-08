@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 18:51+0300\n"
-"PO-Revision-Date: 2025-05-08 18:56+0300\n"
+"POT-Creation-Date: 2025-07-08 16:30+0000\n"
+"PO-Revision-Date: 2025-07-08 19:44+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -234,7 +234,7 @@ msgstr "월별 관련 요청 수"
 msgid "pcs"
 msgstr "개수"
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:78
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
 #: crm/models/request.py:86 crm/templates/crm/print_request.html:55
 #: crm/utils/admfilters.py:113
@@ -397,7 +397,7 @@ msgstr "메시지"
 
 #: chat/models.py:24 chat/templates/chat_buttons.html:3
 #: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
-#: massmail/site/emlmessageadmin.py:121
+#: massmail/site/emlmessageadmin.py:135 massmail/site/mailingoutadmin.py:181
 msgid "Message"
 msgstr "메시지"
 
@@ -426,29 +426,30 @@ msgstr "작업 운영자"
 msgid "You received a message regarding - "
 msgstr "당신은 다음과 관한 메시지를 받았습니다 -"
 
-#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:98 crm/site/tagadmin.py:26 massmail/admin.py:37
-#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: chat/site/chatmessageadmin.py:128 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
+#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
+#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:152
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:126
+#: crm/site/tagadmin.py:26 massmail/admin.py:36
+#: massmail/site/emlmessageadmin.py:78 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:190
 #: tasks/site/tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+#: chat/site/chatmessageadmin.py:141 massmail/models/mailing_out.py:44
 msgid "Recipients"
 msgstr "수신자"
 
-#: chat/site/chatmessageadmin.py:283
+#: chat/site/chatmessageadmin.py:282
 #: chat/templates/chat/chatmessage_email.html:12
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
 #: crm/templates/admin/crm/inline_emails.html:36
 msgid "reply"
 msgstr "답변"
 
-#: chat/site/chatmessageadmin.py:293
+#: chat/site/chatmessageadmin.py:292
 msgid "Reply to"
 msgstr "답장하기"
 
@@ -583,7 +584,7 @@ msgstr "차단된 항목 재추가됨"
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
 #: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
-#: tasks/site/memoadmin.py:41
+#: tasks/site/memoadmin.py:42
 msgid "Department"
 msgstr "부서"
 
@@ -625,13 +626,12 @@ msgid "Subject"
 msgstr "주제"
 
 #: common/models.py:160
-#| msgid "Briefly what about is this reminder"
 msgid "Briefly, what is this reminder about?"
 msgstr "간단히 말해서, 이 알림은 무슨 뜻인가요?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/base_contact.py:116 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -718,7 +718,7 @@ msgstr "이 시간대 활성화하기"
 msgid "Field for temporary storage of messages to the user"
 msgstr "사용자에게 전달되는 메시지를 일시적으로 저장하는 필드"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -814,7 +814,7 @@ msgstr "저장하고 보기"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:23
-#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/request/change_form_object_tools.html:38
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
@@ -829,7 +829,7 @@ msgstr "역사"
 #: common/templates/admin/common/userprofile/change_form_object_tools.html:8
 #: crm/templates/admin/crm/crmemail/stacked.html:14
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:25
-#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:40
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
 #: help/templates/admin/help/stacked.html:18
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
@@ -977,7 +977,7 @@ msgstr "작업 완료"
 msgid "I completed the task"
 msgstr "작업을 완료했습니다."
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:372
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "완료"
@@ -987,15 +987,11 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "번역할 이름이 추가되었습니다. po 및 mo 파일을 업데이트해 주세요."
 
-#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: common/utils/helpers.py:26
 msgid "Copy"
 msgstr "복사"
 
 #: common/utils/helpers.py:31
-#| msgid ""
-#| "Note massmail is not performed on the following days: Friday, Saturday, "
-#| "Sunday."
 msgid ""
 "Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
 "Sundays."
@@ -1006,11 +1002,6 @@ msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "ID '{}'}를 가진 {}는 존재하지 않습니다. 삭제되었는지 확인해 보세요."
 
 #: common/utils/helpers.py:36
-#| msgid ""
-#| "\n"
-#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-#| "    You can embed files uploaded to the CPM server in the ‘media/pics/’ folder.\n"
-#| "    "
 msgid ""
 "\n"
 "Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -1019,6 +1010,16 @@ msgstr ""
 "\n"
 "HTML을 사용하세요. 삽입된 이미지의 주소를 지정하려면 {% cid_media ‘path/to/pic.png' %}를 사용하세요.<br>\n"
 "CRM 서버에 업로드된 파일은 ‘media/pics/’ 폴더에 삽입할 수 있습니다.\n"
+
+#: common/utils/helpers.py:220
+#| msgid "Creation date"
+msgid "sort by creation date"
+msgstr "생성 날짜순으로 정렬"
+
+#: common/utils/helpers.py:222
+#| msgid "Next step deadline"
+msgid "sort by next step date"
+msgstr "다음 단계 날짜별로 정렬"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
@@ -1029,9 +1030,6 @@ msgid "Please select an Email account"
 msgstr "이메일 계정을 선택해 주세요."
 
 #: common/views/select_emails_import.py:118
-#| msgid ""
-#| "You do not have mail accounts marked for importing emails.Please contact "
-#| "your administrator."
 msgid ""
 "You do not have mail accounts marked for importing emails. Please contact "
 "your administrator."
@@ -1064,73 +1062,72 @@ msgstr "연락처 정보"
 msgid "Name"
 msgstr "이름"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: crm/admin.py:155 crm/site/dealadmin.py:298
 msgid "Contact info"
 msgstr "연락처 정보"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:89
+#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:117
 msgid "Relations"
 msgstr "관계"
 
-#: crm/forms/admin_forms.py:22
+#: crm/forms/admin_forms.py:24
 msgid "A country must be specified."
 msgstr "국가를 지정해야 합니다."
 
-#: crm/forms/admin_forms.py:23
+#: crm/forms/admin_forms.py:25
 msgid "Marketing currency already exists."
 msgstr "마케팅 통화가 이미 존재합니다."
 
-#: crm/forms/admin_forms.py:24
+#: crm/forms/admin_forms.py:26
 msgid "State currency already exists."
 msgstr "국가 통화가 이미 존재합니다."
 
-#: crm/forms/admin_forms.py:25
+#: crm/forms/admin_forms.py:27
 msgid "Enter a valid alphabetic code."
 msgstr "유효한 알파벳 코드를 입력하세요."
 
-#: crm/forms/admin_forms.py:26
+#: crm/forms/admin_forms.py:28
 msgid "The currency cannot be both state and marketing."
 msgstr "화폐는 동시에 국가 및 마케팅 화폐가 될 수 없습니다."
 
-#: crm/forms/admin_forms.py:70
+#: crm/forms/admin_forms.py:72
 msgid "Not allowed address"
 msgstr "허가되지 않은 주소"
 
-#: crm/forms/admin_forms.py:90
+#: crm/forms/admin_forms.py:92
 msgid "City does not match the country"
 msgstr "도시가 국가와 일치하지 않습니다."
 
-#: crm/forms/admin_forms.py:138
+#: crm/forms/admin_forms.py:150
 msgid "Such an object already exists"
 msgstr "이러한 항목은 이미 존재합니다."
 
-#: crm/forms/admin_forms.py:164
+#: crm/forms/admin_forms.py:176
 msgid "Please fill in the field."
 msgstr "이 필드를 채우세요."
 
-#: crm/forms/admin_forms.py:172
+#: crm/forms/admin_forms.py:184
 msgid "To convert, please fill in the fields below."
 msgstr "변환을 위해 아래 필드에 정보를 입력해 주세요."
 
-#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+#: crm/forms/admin_forms.py:219 crm/forms/admin_forms.py:220
 msgid "Specify the deal amount"
 msgstr "거래 금액을 지정하세요."
 
-#: crm/forms/admin_forms.py:236
+#: crm/forms/admin_forms.py:248
 msgid "Contact does not match the company"
 msgstr "연락처가 회사 정보와 일치하지 않습니다."
 
-#: crm/forms/admin_forms.py:241
+#: crm/forms/admin_forms.py:253
 msgid "Select only Contact or only Lead"
 msgstr "연락처 또는 리드 중 하나만 선택하세요."
 
-#: crm/forms/admin_forms.py:246
+#: crm/forms/admin_forms.py:258
 msgid "Select only Company or only Lead"
 msgstr "회사 또는 리드 중 하나만 선택하세요."
 
-#: crm/forms/admin_forms.py:328
-#| msgid "That tag already exists."
+#: crm/forms/admin_forms.py:340
 msgid "Such a tag already exists."
 msgstr "해당 태그가 이미 존재합니다."
 
@@ -1203,51 +1200,51 @@ msgstr "제2 이메일"
 msgid "Mobile phone"
 msgstr "스마트폰"
 
-#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/base_contact.py:67 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
 #: crm/models/request.py:99 crm/utils/admfilters.py:33
 msgid "City"
 msgstr "도시"
 
-#: crm/models/base_contact.py:74
+#: crm/models/base_contact.py:72
 msgid "Company city"
 msgstr "회사 위치"
 
-#: crm/models/base_contact.py:75 crm/models/request.py:93
+#: crm/models/base_contact.py:73 crm/models/request.py:93
 msgid "Object of City in database"
 msgstr "데이터베이스 내 도시의 목적물"
 
-#: crm/models/base_contact.py:113
+#: crm/models/base_contact.py:111
 msgid "Address"
 msgstr "주소"
 
-#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/models/base_contact.py:120 crm/models/lead.py:17
 #: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "자격 박탈"
 
-#: crm/models/base_contact.py:129
+#: crm/models/base_contact.py:127
 msgid "Use comma to separate Emails."
 msgstr "이메일 주소를 구분하기 위해 쉼표를 사용하세요."
 
-#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/base_contact.py:134 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "리드 소스"
 
-#: crm/models/base_contact.py:140
+#: crm/models/base_contact.py:138
 msgid "Mass mailing"
 msgstr "대량 메일링"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:76
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "메일링 리스트 수신자"
 
-#: crm/models/base_contact.py:156
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "최종 연락일"
 
-#: crm/models/base_contact.py:163
+#: crm/models/base_contact.py:161
 msgid "Assigned to"
 msgstr "배정됨"
 
@@ -1355,7 +1352,7 @@ msgid "Not supported by all mail services."
 msgstr "모든 이메일 서비스에서 지원되지 않습니다."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:272
+#: crm/site/shipmentadmin.py:275
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1375,7 +1372,7 @@ msgid "Contact"
 msgstr "연락처"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:444
+#: crm/site/requestadmin.py:500
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1677,7 +1674,7 @@ msgstr "낮은 확률"
 msgid "Payment status"
 msgstr "결제 상태"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:251
 msgid "contract number"
 msgstr "계약 번호"
 
@@ -1765,7 +1762,7 @@ msgstr "수령일"
 msgid "Date of receipt of the request."
 msgstr "요청 수령일"
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: crm/models/request.py:107 crm/site/dealadmin.py:675
 msgid "Translation"
 msgstr "번역"
 
@@ -1982,7 +1979,7 @@ msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "주의사항: 본 부서와 관련된 회사만 확인할 수 있습니다."
 
-#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
 msgid "Warning:"
 msgstr "주의:"
 
@@ -1999,7 +1996,7 @@ msgid "Your Excel file"
 msgstr "당신의 엑셀 파일"
 
 #: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
-#: massmail/site/emlmessageadmin.py:133
+#: massmail/site/emlmessageadmin.py:139
 msgid "Signature"
 msgstr "서명"
 
@@ -2039,35 +2036,35 @@ msgstr "스마트폰으로 환불 요청"
 msgid "Callback to your smartphone"
 msgstr "스마트폰으로 되돌려전화하기"
 
-#: crm/site/crmmodeladmin.py:70
+#: crm/site/crmmodeladmin.py:67
 msgid "Viber chat"
 msgstr "비버 채팅"
 
-#: crm/site/crmmodeladmin.py:71
+#: crm/site/crmmodeladmin.py:68
 msgid "Chat or viber call"
 msgstr "채팅 또는 바이버 통화"
 
-#: crm/site/crmmodeladmin.py:72
+#: crm/site/crmmodeladmin.py:70
 msgid "WhatsApp chat"
 msgstr "와츠앱 채팅"
 
-#: crm/site/crmmodeladmin.py:73
+#: crm/site/crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
 msgstr "채팅 또는 왓츠앱 통화"
 
-#: crm/site/crmmodeladmin.py:78
+#: crm/site/crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
 msgstr "이메일 뉴스레터 구독하기"
 
-#: crm/site/crmmodeladmin.py:80
+#: crm/site/crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
 msgstr "이메일 뉴스레터 구독 취소"
 
-#: crm/site/crmmodeladmin.py:278
+#: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
 msgstr "이메일 작성하기"
 
-#: crm/site/crmmodeladmin.py:370
+#: crm/site/crmmodeladmin.py:368
 msgid "Messengers"
 msgstr "메신저"
 
@@ -2079,163 +2076,163 @@ msgstr "국가 통화를 지정해야 합니다."
 msgid "Marketing currency must be specified."
 msgstr "마케팅 통화를 명시해야 합니다."
 
-#: crm/site/dealadmin.py:52
+#: crm/site/dealadmin.py:53
 msgid "Closing date"
 msgstr "마감일"
 
-#: crm/site/dealadmin.py:58
+#: crm/site/dealadmin.py:59
 msgid "View Contact in new tab"
 msgstr "새 탭에서 연락처 보기"
 
-#: crm/site/dealadmin.py:59
+#: crm/site/dealadmin.py:60
 msgid "View Company in new tab"
 msgstr "새 탭에서 회사 보기"
 
-#: crm/site/dealadmin.py:62
+#: crm/site/dealadmin.py:63
 msgid "Deal counter"
 msgstr "거래 카운터"
 
-#: crm/site/dealadmin.py:63
+#: crm/site/dealadmin.py:64
 msgid "View Lead in new tab"
 msgstr "새 탭에서 리드 보기"
 
-#: crm/site/dealadmin.py:64
+#: crm/site/dealadmin.py:65
 msgid "Unanswered email"
 msgstr "답변 없는 이메일"
 
-#: crm/site/dealadmin.py:68
+#: crm/site/dealadmin.py:69
 msgid "Unread chat message"
 msgstr "읽지 않은 채팅 메시지"
 
-#: crm/site/dealadmin.py:71
+#: crm/site/dealadmin.py:72
 msgid "Payment received"
 msgstr "결제 수령"
 
-#: crm/site/dealadmin.py:74
+#: crm/site/dealadmin.py:75
 msgid "Specify the date of shipment"
 msgstr "배송일을 지정하세요."
 
-#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:241
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:290
 msgid "Specify products"
 msgstr "제품 지정하기"
 
-#: crm/site/dealadmin.py:80
+#: crm/site/dealadmin.py:81
 msgid "Expired shipment date"
 msgstr "만료된 배송일"
 
-#: crm/site/dealadmin.py:87
+#: crm/site/dealadmin.py:88
 msgid "Relevant deal"
 msgstr "관련 거래"
 
-#: crm/site/dealadmin.py:158
+#: crm/site/dealadmin.py:160
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "ID '{}'로 식별되는 거래는 존재하지 않습니다. 삭제되었는지 확인해 주세요."
 
-#: crm/site/dealadmin.py:221
+#: crm/site/dealadmin.py:272
 msgid "View the Request"
 msgstr "요청 보기"
 
-#: crm/site/dealadmin.py:536
+#: crm/site/dealadmin.py:540
 msgid "Create Email to Contact"
 msgstr "연락처로 이메일 작성하기"
 
-#: crm/site/dealadmin.py:539
+#: crm/site/dealadmin.py:543
 msgid "Create Email to Lead"
 msgstr "리드 생성 이메일 작성하기"
 
-#: crm/site/dealadmin.py:579
+#: crm/site/dealadmin.py:583
 msgid "Important deal"
 msgstr "중요 거래"
 
-#: crm/site/dealadmin.py:603
+#: crm/site/dealadmin.py:607
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "저는 제 요청에 대한 답변을 %d일 동안 기다렸습니다."
 
-#: crm/site/dealadmin.py:633
+#: crm/site/dealadmin.py:637
 msgid "Expected"
 msgstr "예상됨"
 
-#: crm/site/dealadmin.py:641
+#: crm/site/dealadmin.py:645
 msgid "Paid"
 msgstr "결제됨"
 
-#: crm/site/dealadmin.py:696
+#: crm/site/dealadmin.py:700
 msgid "Contact is Lead (no company)"
 msgstr "연락처는 리드(회사 없음)입니다."
 
-#: crm/site/leadadmin.py:118
+#: crm/site/leadadmin.py:117
 msgid "Person contact details"
 msgstr "개인 연락처 정보"
 
-#: crm/site/leadadmin.py:127
+#: crm/site/leadadmin.py:126
 msgid "Additional person details"
 msgstr "추가 인적 정보"
 
-#: crm/site/leadadmin.py:140
+#: crm/site/leadadmin.py:138
 msgid "Company contact details"
 msgstr "회사 연락처 정보"
 
-#: crm/site/leadadmin.py:249
+#: crm/site/leadadmin.py:247
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "\"{obj}\" 리드 변환이 성공적으로 완료되었습니다."
 
-#: crm/site/leadadmin.py:264
+#: crm/site/leadadmin.py:262
 msgid "This Lead is disqualified! Please read the description."
 msgstr "이 리드 자격을 상실했습니다! 설명서를 읽어주세요."
 
-#: crm/site/requestadmin.py:39
+#: crm/site/requestadmin.py:67
 msgid "Client Loyalty"
 msgstr "고객 충성도"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:74
 msgid "Country not specified in request"
 msgstr "요청에 국가가 명시되지 않았습니다."
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:75
 msgid "You received the deal"
 msgstr "거래를 받으셨습니다."
 
-#: crm/site/requestadmin.py:48
+#: crm/site/requestadmin.py:76
 msgid "You are the co-owner of the deal"
 msgstr "이 거래의 공동 소유자입니다."
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:82
 msgid "Primary request"
 msgstr "주 요청사항"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:83
 msgid "You are the co-owner of the request"
 msgstr "당신은 요청의 공동 소유자입니다."
 
-#: crm/site/requestadmin.py:56
+#: crm/site/requestadmin.py:84
 msgid "You received the request"
 msgstr "당신은 요청을 받았습니다."
 
-#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:85 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "대기 중"
 
-#: crm/site/requestadmin.py:58
+#: crm/site/requestadmin.py:86
 msgid "processed"
 msgstr "처리됨"
 
-#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
-#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+#: crm/site/requestadmin.py:87 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:47
 msgid "Status"
 msgstr "상태"
 
-#: crm/site/requestadmin.py:63
+#: crm/site/requestadmin.py:91
 msgid "Subsequent request"
 msgstr "추가 요청"
 
-#: crm/site/requestadmin.py:398
+#: crm/site/requestadmin.py:454
 msgid "Found the counterparty assigned to"
 msgstr "배정된 상대방이 발견되었습니다."
 
-#: crm/site/requestadmin.py:497
+#: crm/site/requestadmin.py:553
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "\"{이름}\" \"{객체}\"가 성공적으로 추가되었습니다."
@@ -2288,7 +2285,7 @@ msgstr "계약서에 따른 배송일"
 msgid "View the deal"
 msgstr "거래 보기"
 
-#: crm/site/shipmentadmin.py:257
+#: crm/site/shipmentadmin.py:260
 msgid "paid"
 msgstr "결제됨"
 
@@ -2466,10 +2463,6 @@ msgstr "이 회사와 관련된 거래 보기"
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "이 거래의 변경 내역 보기"
-
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
-msgid "Toggle default deal sorting"
-msgstr "기본 거래 정렬 전환"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
@@ -2788,7 +2781,7 @@ msgstr "사용자 그룹이 선택되지 않으면 해당 단락은 슈퍼 유�
 msgid "Title of paragraph."
 msgstr "단락 제목."
 
-#: help/models.py:125 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:43
 msgid "draft"
 msgstr "초안"
 
@@ -2812,7 +2805,7 @@ msgstr "페이지 상의 단락 번호 순서"
 msgid "Link to a related paragraph if exists."
 msgstr "관련 문단으로 연결되는 링크가 있다면 해당 링크를 제공합니다."
 
-#: massmail/admin.py:31
+#: massmail/admin.py:30
 msgid "Service information"
 msgstr "서비스 정보"
 
@@ -3017,11 +3010,11 @@ msgstr "완료"
 msgid "The name of the message."
 msgstr "메시지 이름"
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:34
 msgid "Number of recipients"
 msgstr "수신자 수"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
+#: massmail/models/mailing_out.py:55
 msgid "Recipients type"
 msgstr "수신자 유형"
 
@@ -3041,32 +3034,64 @@ msgstr "서명 이름"
 msgid "price proposal"
 msgstr "가격 제안"
 
-#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/site/emlmessageadmin.py:66 massmail/site/signatureadmin.py:48
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
 msgid "Preview"
 msgstr "미리보기"
 
-#: massmail/site/emlmessageadmin.py:73
+#: massmail/site/emlmessageadmin.py:71
 msgid "Edit"
 msgstr "수정하다"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:20
 msgid "Available Email accounts for MassMail"
 msgstr "대량 메일 발송을 위한 이용 가능한 이메일 계정"
 
-#: massmail/site/mailingoutadmin.py:19
+#: massmail/site/mailingoutadmin.py:21
 msgid "Accounts"
 msgstr "계정"
 
+#: massmail/site/mailingoutadmin.py:24
+#| msgid "Recipients type"
+msgid "Recipient<br>type"
+msgstr "수신자<br>유형"
+
+#: massmail/site/mailingoutadmin.py:25
+#| msgid ""
+#| "To send a message you need to have an email account marked as main."
+msgid "You do not have an email account available for massmaling."
+msgstr "대량 메일링에 사용할 수 있는 이메일 계정이 없습니다."
+
+#: massmail/site/mailingoutadmin.py:26
+msgid ""
+"The address for redirecting unsubscribed recipients is not specified. "
+"Contact the administrator."
+msgstr "수신 거부된 수신자를 리디렉션할 주소가 지정되지 않았습니다. 관리자에게 문의하세요."
+
 #: massmail/site/mailingoutadmin.py:28
+msgid ""
+"You have one Email account with Mailing enabled. As the main account, it can"
+" only send emails to VIP recipients."
+msgstr "메일링 기능이 활성화된 이메일 계정이 하나 있습니다. 기본 계정이므로 VIP 수신자에게만 이메일을 보낼 수 있습니다."
+
+#: massmail/site/mailingoutadmin.py:35
 msgid "Today"
 msgstr "오늘"
 
-#: massmail/site/mailingoutadmin.py:29
+#: massmail/site/mailingoutadmin.py:36
 msgid "Sent today"
 msgstr "오늘 전송됨"
 
-#: massmail/site/mailingoutadmin.py:107
+#: massmail/site/mailingoutadmin.py:173
+#| msgid "Failed recipients"
+msgid "Exclude recipients"
+msgstr "수신자 제외"
+
+#: massmail/site/mailingoutadmin.py:175
+msgid "Exclude recipients who have already received this message."
+msgstr "이미 이 메시지를 받은 수신자를 제외합니다."
+
+#: massmail/site/mailingoutadmin.py:194
 msgid "notification"
 msgstr "알림"
 
@@ -3124,9 +3149,14 @@ msgstr "CRM 서버에 이미지 파일 업로드하기"
 msgid "Uploaded images"
 msgstr "업로드된 이미지"
 
-#: massmail/utils/sendmassmail.py:43
+#: massmail/utils/sendmassmail.py:332
 msgid "Done successfully."
 msgstr "성공적으로 완료되었습니다."
+
+#: massmail/views/exclude.py:42
+#| msgid "Number of recipients"
+msgid "Number of excluded recipients: {}."
+msgstr "제외된 수신자 수: {}."
 
 #: massmail/views/file_upload.py:9
 msgid "Allowed file extensions: "
@@ -3145,7 +3175,6 @@ msgid "Use the 'Action' menu."
 msgstr "'동작' 메뉴를 사용하세요."
 
 #: massmail/views/select_recipient_type.py:39
-#| msgid "Please select at least one recipient"
 msgid "Please select the type of recipients"
 msgstr "수신자 유형을 선택해 주세요"
 
@@ -3170,47 +3199,52 @@ msgstr "제한된 회사 이름"
 msgid "Banned company names"
 msgstr "금지된 회사 이름"
 
-#: settings/models.py:47
+#: settings/models.py:40 settings/models.py:41
+#| msgid "Mass mailing"
+msgid "Massmail Settings"
+msgstr "대량 메일 설정"
+
+#: settings/models.py:81
 msgid "Public email domain"
 msgstr "공개 이메일 도메인"
 
-#: settings/models.py:48
+#: settings/models.py:82
 msgid "Public email domains"
 msgstr "공용 이메일 도메인"
 
-#: settings/models.py:53
+#: settings/models.py:87
 msgid "Domain"
 msgstr "도메인"
 
-#: settings/models.py:81 settings/models.py:82
+#: settings/models.py:115 settings/models.py:116
 msgid "Reminder settings"
 msgstr "알림 설정"
 
-#: settings/models.py:87
+#: settings/models.py:121
 msgid "Check interval"
 msgstr "점검 간격"
 
-#: settings/models.py:89
+#: settings/models.py:123
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr "알림을 확인해야 하는 간격을 초 단위로 지정하세요."
 
-#: settings/models.py:115
+#: settings/models.py:149
 msgid "Stop Phrase"
 msgstr "정지 구문"
 
-#: settings/models.py:116
+#: settings/models.py:150
 msgid "Stop Phrases"
 msgstr "정지 구문"
 
-#: settings/models.py:121
+#: settings/models.py:155
 msgid "Phrase"
 msgstr "구절"
 
-#: settings/models.py:125
+#: settings/models.py:159
 msgid "Last occurrence date"
 msgstr "최근 발생일"
 
-#: settings/models.py:126
+#: settings/models.py:160
 msgid "Date of last occurrence of the phrase"
 msgstr "구절의 마지막 발생일"
 
@@ -3218,7 +3252,7 @@ msgstr "구절의 마지막 발생일"
 msgid "Change responsible"
 msgstr "책임자 변경"
 
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:187
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "구독자 변경"
@@ -3249,11 +3283,11 @@ msgid "Memos"
 msgstr "메모"
 
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
-#: tasks/site/memoadmin.py:45
+#: tasks/site/memoadmin.py:46
 msgid "postponed"
 msgstr "미루다"
 
-#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:49
 msgid "reviewed"
 msgstr "검토됨"
 
@@ -3299,7 +3333,7 @@ msgid "Review date"
 msgstr "검토일"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+#: tasks/site/memoadmin.py:472 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
 msgstr "구독자"
 
@@ -3367,8 +3401,8 @@ msgstr "주요 작업 숨기기"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "이 하위 작업이 완료되면 메인 작업을 숨깁니다."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:353
+#: tasks/site/taskadmin.py:359
 msgid "Lead time"
 msgstr "선행 시간"
 
@@ -3456,42 +3490,42 @@ msgstr "정보를 위해"
 msgid "for the record"
 msgstr "기록상"
 
-#: tasks/site/memoadmin.py:44
+#: tasks/site/memoadmin.py:45
 msgid "overdue"
 msgstr "연체"
 
-#: tasks/site/memoadmin.py:47
+#: tasks/site/memoadmin.py:48
 msgid "You are subscribed to a new office memo"
 msgstr "새로운 사무 메모에 구독되었습니다."
 
-#: tasks/site/memoadmin.py:49
+#: tasks/site/memoadmin.py:50
 msgid "unreviewed"
 msgstr "검토되지 않음"
 
-#: tasks/site/memoadmin.py:50
+#: tasks/site/memoadmin.py:51
 msgid "The office memo was written"
 msgstr "사무 메모가 작성되었습니다."
 
-#: tasks/site/memoadmin.py:51
+#: tasks/site/memoadmin.py:52
 msgid "You've received a office memo"
 msgstr "당신은 사무 메모를 받았습니다."
 
-#: tasks/site/memoadmin.py:118
+#: tasks/site/memoadmin.py:120
 msgid "Your office memo has been deleted"
 msgstr "당신의 사무 메모가 삭제되었습니다."
 
-#: tasks/site/memoadmin.py:386
+#: tasks/site/memoadmin.py:396
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
 msgstr "과제 보기"
 
-#: tasks/site/memoadmin.py:390
+#: tasks/site/memoadmin.py:400
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
 msgstr "프로젝트 보기"
 
-#: tasks/site/memoadmin.py:471
+#: tasks/site/memoadmin.py:485
 msgid "View the "
 msgstr "보기"
 
@@ -3503,7 +3537,7 @@ msgstr "프로젝트 숙지하기"
 msgid "The project was created"
 msgstr "프로젝트가 생성되었습니다."
 
-#: tasks/site/taskadmin.py:35
+#: tasks/site/taskadmin.py:36
 msgid "I completed my part of the task"
 msgstr "저는 제가 해야 할 임무를 마쳤습니다."
 
@@ -3519,21 +3553,21 @@ msgstr "서브 작업이 생성되었습니다."
 msgid "The subtask"
 msgstr "하위 작업"
 
-#: tasks/site/taskadmin.py:242
+#: tasks/site/taskadmin.py:249
 msgid "later than due date of parent task."
 msgstr "부모 작업 마감일 이후."
 
-#: tasks/site/taskadmin.py:334
+#: tasks/site/taskadmin.py:341
 msgid "Main task"
 msgstr "주된 임무"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/site/taskadmin.py:368 tasks/site/taskadmin.py:369
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "서브 작업 생성"
 
-#: tasks/site/taskadmin.py:372
+#: tasks/site/taskadmin.py:379
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3612,10 +3646,6 @@ msgstr "주요 작업 보기"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "하위 작업"
-
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
-msgid "Toggle default task sorting"
-msgstr "기본 작업 정렬 전환"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
@@ -3719,7 +3749,7 @@ msgstr "YYYY-MM-DD"
 msgid "Help"
 msgstr "도움말"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: tests/massmail/utils/test_send_massmail.py:124
 msgid "This field is required."
 msgstr "이 필드는 필수입니다."
 
@@ -3788,13 +3818,19 @@ msgstr "입고 있는 전화"
 msgid "(duration: {duration} minutes)"
 msgstr "(지속 시간: {시간} 분)"
 
-#: webcrm/settings.py:271
+#: webcrm/settings.py:273
 msgid "Untitled"
 msgstr "제목 없음"
 
-#: webcrm/settings.py:286
+#: webcrm/settings.py:287
 msgid "Main Menu"
 msgstr "메인 메뉴"
+
+#~ msgid "Toggle default deal sorting"
+#~ msgstr "기본 거래 정렬 전환"
+
+#~ msgid "Toggle default task sorting"
+#~ msgstr "기본 작업 정렬 전환"
 
 #~ msgid "First select a department."
 #~ msgstr "먼저 부서를 선택하세요."
