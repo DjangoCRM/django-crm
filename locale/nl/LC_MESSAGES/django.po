@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 18:02+0300\n"
-"PO-Revision-Date: 2025-05-09 18:06+0300\n"
+"POT-Creation-Date: 2025-07-08 16:47+0000\n"
+"PO-Revision-Date: 2025-07-08 19:57+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -236,7 +236,7 @@ msgstr "Relevante verzoeken per maand"
 msgid "pcs"
 msgstr "st."
 
-#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:80
+#: analytics/site/outputstatadmin.py:45 crm/models/base_contact.py:78
 #: crm/models/country.py:31 crm/models/country.py:49 crm/models/deal.py:110
 #: crm/models/request.py:86 crm/templates/crm/print_request.html:55
 #: crm/utils/admfilters.py:113
@@ -402,7 +402,7 @@ msgstr "berichten"
 
 #: chat/models.py:24 chat/templates/chat_buttons.html:3
 #: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
-#: massmail/site/emlmessageadmin.py:121
+#: massmail/site/emlmessageadmin.py:135 massmail/site/mailingoutadmin.py:181
 msgid "Message"
 msgstr "Bericht"
 
@@ -431,29 +431,30 @@ msgstr "taakoperator"
 msgid "You received a message regarding - "
 msgstr "Je hebt een bericht ontvangen betreffende -"
 
-#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:283 crm/site/companyadmin.py:143
-#: crm/site/contactadmin.py:130 crm/site/dealadmin.py:276
-#: crm/site/leadadmin.py:154 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:98 crm/site/tagadmin.py:26 massmail/admin.py:37
-#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: chat/site/chatmessageadmin.py:128 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
+#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
+#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:152
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:126
+#: crm/site/tagadmin.py:26 massmail/admin.py:36
+#: massmail/site/emlmessageadmin.py:78 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:190
 #: tasks/site/tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "Aanvullende informatie"
 
-#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+#: chat/site/chatmessageadmin.py:141 massmail/models/mailing_out.py:44
 msgid "Recipients"
 msgstr "Ontvangers"
 
-#: chat/site/chatmessageadmin.py:283
+#: chat/site/chatmessageadmin.py:282
 #: chat/templates/chat/chatmessage_email.html:12
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
 #: crm/templates/admin/crm/inline_emails.html:36
 msgid "reply"
 msgstr "antwoorden"
 
-#: chat/site/chatmessageadmin.py:293
+#: chat/site/chatmessageadmin.py:292
 msgid "Reply to"
 msgstr "Beantwoorden"
 
@@ -590,7 +591,7 @@ msgstr "Hertoevoegen geblokkeerd."
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
 #: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
-#: tasks/site/memoadmin.py:41
+#: tasks/site/memoadmin.py:42
 msgid "Department"
 msgstr "Afdeling"
 
@@ -632,13 +633,12 @@ msgid "Subject"
 msgstr "Onderwerp"
 
 #: common/models.py:160
-#| msgid "Briefly what about is this reminder"
 msgid "Briefly, what is this reminder about?"
 msgstr "Waar gaat deze herinnering in het kort over?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:118 crm/models/deal.py:35
+#: crm/models/base_contact.py:116 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -727,7 +727,7 @@ msgstr "Activeer deze tijdzone"
 msgid "Field for temporary storage of messages to the user"
 msgstr "Veld voor tijdelijke opslag van berichten aan de gebruiker"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:146
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
@@ -823,7 +823,7 @@ msgstr "Opslaan en bekijken"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:23
-#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/request/change_form_object_tools.html:38
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
@@ -838,7 +838,7 @@ msgstr "Geschiedenis"
 #: common/templates/admin/common/userprofile/change_form_object_tools.html:8
 #: crm/templates/admin/crm/crmemail/stacked.html:14
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:25
-#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:40
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
 #: help/templates/admin/help/stacked.html:18
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
@@ -986,7 +986,7 @@ msgstr "Taak voltooid"
 msgid "I completed the task"
 msgstr "Ik heb de taak voltooid."
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:372
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "Voltooid"
@@ -998,15 +998,11 @@ msgstr ""
 "De naam is toegevoegd voor vertaling. Werk alsjeblieft de po- en mo-"
 "bestanden bij."
 
-#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: common/utils/helpers.py:26
 msgid "Copy"
 msgstr "Kopieer"
 
 #: common/utils/helpers.py:31
-#| msgid ""
-#| "Note massmail is not performed on the following days: Friday, Saturday, "
-#| "Sunday."
 msgid ""
 "Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
 "Sundays."
@@ -1019,11 +1015,6 @@ msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} met ID '{}' bestaat niet. Misschien is het verwijderd?"
 
 #: common/utils/helpers.py:36
-#| msgid ""
-#| "\n"
-#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-#| "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
-#| "    "
 msgid ""
 "\n"
 "Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -1032,6 +1023,16 @@ msgstr ""
 "\n"
 "Gebruik HTML. Om het adres van de ingesloten afbeelding op te geven, gebruikt u {% cid_media ‘path/to/pic.png' %}.<br>\n"
 "Bestanden die naar de CRM-server zijn geüpload, kunt u insluiten in de map ‘media/pics/’.\n"
+
+#: common/utils/helpers.py:220
+#| msgid "Creation date"
+msgid "sort by creation date"
+msgstr "sorteren op aanmaakdatum"
+
+#: common/utils/helpers.py:222
+#| msgid "Next step deadline"
+msgid "sort by next step date"
+msgstr "sorteren op volgende stapdatum"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
@@ -1079,73 +1080,72 @@ msgstr "Contactgegevens"
 msgid "Name"
 msgstr "Naam"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:247
+#: crm/admin.py:155 crm/site/dealadmin.py:298
 msgid "Contact info"
 msgstr "Contactgegevens"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:268
-#: crm/site/requestadmin.py:89
+#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:117
 msgid "Relations"
 msgstr "Relaties"
 
-#: crm/forms/admin_forms.py:22
+#: crm/forms/admin_forms.py:24
 msgid "A country must be specified."
 msgstr "Een land moet worden opgegeven."
 
-#: crm/forms/admin_forms.py:23
+#: crm/forms/admin_forms.py:25
 msgid "Marketing currency already exists."
 msgstr "Marketingvaluta bestaat al."
 
-#: crm/forms/admin_forms.py:24
+#: crm/forms/admin_forms.py:26
 msgid "State currency already exists."
 msgstr "De staatsvaluta bestaat al."
 
-#: crm/forms/admin_forms.py:25
+#: crm/forms/admin_forms.py:27
 msgid "Enter a valid alphabetic code."
 msgstr "Voer een geldig alfabetisch code in."
 
-#: crm/forms/admin_forms.py:26
+#: crm/forms/admin_forms.py:28
 msgid "The currency cannot be both state and marketing."
 msgstr "De valuta kan niet zowel staats- als marketinggerelateerd zijn."
 
-#: crm/forms/admin_forms.py:70
+#: crm/forms/admin_forms.py:72
 msgid "Not allowed address"
 msgstr "Niet toegestane adres"
 
-#: crm/forms/admin_forms.py:90
+#: crm/forms/admin_forms.py:92
 msgid "City does not match the country"
 msgstr "Stad komt niet overeen met het land"
 
-#: crm/forms/admin_forms.py:138
+#: crm/forms/admin_forms.py:150
 msgid "Such an object already exists"
 msgstr "Een dergelijk object bestaat al"
 
-#: crm/forms/admin_forms.py:164
+#: crm/forms/admin_forms.py:176
 msgid "Please fill in the field."
 msgstr "Vul alstublieft het veld in."
 
-#: crm/forms/admin_forms.py:172
+#: crm/forms/admin_forms.py:184
 msgid "To convert, please fill in the fields below."
 msgstr "Om te converteren, vult u de onderstaande velden in."
 
-#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+#: crm/forms/admin_forms.py:219 crm/forms/admin_forms.py:220
 msgid "Specify the deal amount"
 msgstr "Geef het bedrag van de deal op"
 
-#: crm/forms/admin_forms.py:236
+#: crm/forms/admin_forms.py:248
 msgid "Contact does not match the company"
 msgstr "Contact komt niet overeen met het bedrijf"
 
-#: crm/forms/admin_forms.py:241
+#: crm/forms/admin_forms.py:253
 msgid "Select only Contact or only Lead"
 msgstr "Selecteer alleen Contact of alleen Lead"
 
-#: crm/forms/admin_forms.py:246
+#: crm/forms/admin_forms.py:258
 msgid "Select only Company or only Lead"
 msgstr "Selecteer alleen Bedrijf of alleen Lead"
 
-#: crm/forms/admin_forms.py:328
-#| msgid "That tag already exists."
+#: crm/forms/admin_forms.py:340
 msgid "Such a tag already exists."
 msgstr "Zo'n tag bestaat al."
 
@@ -1218,51 +1218,51 @@ msgstr "Secundaire e-mail"
 msgid "Mobile phone"
 msgstr "Mobiele telefoon"
 
-#: crm/models/base_contact.py:69 crm/models/company.py:57
+#: crm/models/base_contact.py:67 crm/models/company.py:57
 #: crm/models/country.py:43 crm/models/deal.py:101 crm/models/request.py:92
 #: crm/models/request.py:99 crm/utils/admfilters.py:33
 msgid "City"
 msgstr "Stad"
 
-#: crm/models/base_contact.py:74
+#: crm/models/base_contact.py:72
 msgid "Company city"
 msgstr "Stad van het bedrijf"
 
-#: crm/models/base_contact.py:75 crm/models/request.py:93
+#: crm/models/base_contact.py:73 crm/models/request.py:93
 msgid "Object of City in database"
 msgstr "Voorwerp van de stad in de database"
 
-#: crm/models/base_contact.py:113
+#: crm/models/base_contact.py:111
 msgid "Address"
 msgstr "Adres"
 
-#: crm/models/base_contact.py:122 crm/models/lead.py:17
+#: crm/models/base_contact.py:120 crm/models/lead.py:17
 #: crm/utils/admfilters.py:513
 msgid "Disqualified"
 msgstr "Gediskwalificeerd"
 
-#: crm/models/base_contact.py:129
+#: crm/models/base_contact.py:127
 msgid "Use comma to separate Emails."
 msgstr "Gebruik een komma om e-mailadressen te scheiden."
 
-#: crm/models/base_contact.py:136 crm/models/others.py:63
+#: crm/models/base_contact.py:134 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "Bron van Lead"
 
-#: crm/models/base_contact.py:140
+#: crm/models/base_contact.py:138
 msgid "Mass mailing"
 msgstr "Groepsverzending"
 
-#: crm/models/base_contact.py:141 crm/site/crmmodeladmin.py:76
+#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "Ontvanger van de e-maillijst."
 
-#: crm/models/base_contact.py:156
+#: crm/models/base_contact.py:154
 msgid "Last contact date"
 msgstr "Datum van laatste contact"
 
-#: crm/models/base_contact.py:163
+#: crm/models/base_contact.py:161
 msgid "Assigned to"
 msgstr "Toegewezen aan"
 
@@ -1370,7 +1370,7 @@ msgid "Not supported by all mail services."
 msgstr "Niet ondersteund door alle e-mailservices."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:272
+#: crm/site/shipmentadmin.py:275
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1390,7 +1390,7 @@ msgid "Contact"
 msgstr "Contactpersoon"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:444
+#: crm/site/requestadmin.py:500
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1694,7 +1694,7 @@ msgstr "lage waarschijnlijkheid"
 msgid "Payment status"
 msgstr "Betalingsstatus"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:251
 msgid "contract number"
 msgstr "contractnummer"
 
@@ -1782,7 +1782,7 @@ msgstr "Datum van ontvangst"
 msgid "Date of receipt of the request."
 msgstr "Datum van ontvangst van de aanvraag."
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:671
+#: crm/models/request.py:107 crm/site/dealadmin.py:675
 msgid "Translation"
 msgstr "Vertaling"
 
@@ -2000,7 +2000,7 @@ msgid ""
 msgstr ""
 "Let op! U kunt alleen bedrijven bekijken die aan uw afdeling zijn gekoppeld."
 
-#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:262
+#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
@@ -2017,7 +2017,7 @@ msgid "Your Excel file"
 msgstr "Uw Excel-bestand"
 
 #: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
-#: massmail/site/emlmessageadmin.py:133
+#: massmail/site/emlmessageadmin.py:139
 msgid "Signature"
 msgstr "Handtekening"
 
@@ -2057,35 +2057,35 @@ msgstr "Terugbelletje naar smartphone"
 msgid "Callback to your smartphone"
 msgstr "Terugbelletje naar je smartphone"
 
-#: crm/site/crmmodeladmin.py:70
+#: crm/site/crmmodeladmin.py:67
 msgid "Viber chat"
 msgstr "Viber-chat"
 
-#: crm/site/crmmodeladmin.py:71
+#: crm/site/crmmodeladmin.py:68
 msgid "Chat or viber call"
 msgstr "Chat of Viber-gesprek"
 
-#: crm/site/crmmodeladmin.py:72
+#: crm/site/crmmodeladmin.py:70
 msgid "WhatsApp chat"
 msgstr "WhatsApp-chat"
 
-#: crm/site/crmmodeladmin.py:73
+#: crm/site/crmmodeladmin.py:71
 msgid "Chat or WhatsApp call"
 msgstr "Chat of WhatsApp-gesprek"
 
-#: crm/site/crmmodeladmin.py:78
+#: crm/site/crmmodeladmin.py:76
 msgid "Signed up for email newsletters"
 msgstr "Aangemeld voor e-mailnieuwsbrieven"
 
-#: crm/site/crmmodeladmin.py:80
+#: crm/site/crmmodeladmin.py:78
 msgid "Unsubscribed from email newsletters"
 msgstr "Afgemeld voor e-mailnieuwsbrieven"
 
-#: crm/site/crmmodeladmin.py:278
+#: crm/site/crmmodeladmin.py:276
 msgid "Create Email"
 msgstr "Maak E-mail"
 
-#: crm/site/crmmodeladmin.py:370
+#: crm/site/crmmodeladmin.py:368
 msgid "Messengers"
 msgstr "Berichtenapps"
 
@@ -2097,163 +2097,163 @@ msgstr "De staatsvaluta moet worden opgegeven."
 msgid "Marketing currency must be specified."
 msgstr "De marketingvaluta moet worden opgegeven."
 
-#: crm/site/dealadmin.py:52
+#: crm/site/dealadmin.py:53
 msgid "Closing date"
 msgstr "Sluitingsdatum"
 
-#: crm/site/dealadmin.py:58
+#: crm/site/dealadmin.py:59
 msgid "View Contact in new tab"
 msgstr "Bekijk contact in nieuw tabblad"
 
-#: crm/site/dealadmin.py:59
+#: crm/site/dealadmin.py:60
 msgid "View Company in new tab"
 msgstr "Bekijk bedrijf in nieuw tabblad"
 
-#: crm/site/dealadmin.py:62
+#: crm/site/dealadmin.py:63
 msgid "Deal counter"
 msgstr "Deal teller"
 
-#: crm/site/dealadmin.py:63
+#: crm/site/dealadmin.py:64
 msgid "View Lead in new tab"
 msgstr "Bekijk lead in nieuw tabblad"
 
-#: crm/site/dealadmin.py:64
+#: crm/site/dealadmin.py:65
 msgid "Unanswered email"
 msgstr "Onbeantwoord e-mail"
 
-#: crm/site/dealadmin.py:68
+#: crm/site/dealadmin.py:69
 msgid "Unread chat message"
 msgstr "Ongelezen chatbericht"
 
-#: crm/site/dealadmin.py:71
+#: crm/site/dealadmin.py:72
 msgid "Payment received"
 msgstr "Betaling ontvangen"
 
-#: crm/site/dealadmin.py:74
+#: crm/site/dealadmin.py:75
 msgid "Specify the date of shipment"
 msgstr "Geef de verzenddatum op"
 
-#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:241
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:290
 msgid "Specify products"
 msgstr "Specificeer producten"
 
-#: crm/site/dealadmin.py:80
+#: crm/site/dealadmin.py:81
 msgid "Expired shipment date"
 msgstr "Verstreken verzenddatum"
 
-#: crm/site/dealadmin.py:87
+#: crm/site/dealadmin.py:88
 msgid "Relevant deal"
 msgstr "Relevante deal"
 
-#: crm/site/dealadmin.py:158
+#: crm/site/dealadmin.py:160
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "De deal met ID '{}' bestaat niet. Misschien is deze verwijderd?"
 
-#: crm/site/dealadmin.py:221
+#: crm/site/dealadmin.py:272
 msgid "View the Request"
 msgstr "Bekijk de Verzoek"
 
-#: crm/site/dealadmin.py:536
+#: crm/site/dealadmin.py:540
 msgid "Create Email to Contact"
 msgstr "Maak e-mail voor Contact"
 
-#: crm/site/dealadmin.py:539
+#: crm/site/dealadmin.py:543
 msgid "Create Email to Lead"
 msgstr "Maak e-mail voor Lead"
 
-#: crm/site/dealadmin.py:579
+#: crm/site/dealadmin.py:583
 msgid "Important deal"
 msgstr "Belangrijke deal"
 
-#: crm/site/dealadmin.py:603
+#: crm/site/dealadmin.py:607
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Ik wacht al %d dagen op een antwoord op mijn verzoek."
 
-#: crm/site/dealadmin.py:633
+#: crm/site/dealadmin.py:637
 msgid "Expected"
 msgstr "Verwacht"
 
-#: crm/site/dealadmin.py:641
+#: crm/site/dealadmin.py:645
 msgid "Paid"
 msgstr "Betaald"
 
-#: crm/site/dealadmin.py:696
+#: crm/site/dealadmin.py:700
 msgid "Contact is Lead (no company)"
 msgstr "Contact is Potentiële Klant (geen bedrijf)"
 
-#: crm/site/leadadmin.py:118
+#: crm/site/leadadmin.py:117
 msgid "Person contact details"
 msgstr "Contactgegevens van de persoon"
 
-#: crm/site/leadadmin.py:127
+#: crm/site/leadadmin.py:126
 msgid "Additional person details"
 msgstr "Aanvullende persoonsgegevens"
 
-#: crm/site/leadadmin.py:140
+#: crm/site/leadadmin.py:138
 msgid "Company contact details"
 msgstr "Bedrijfscontactgegevens"
 
-#: crm/site/leadadmin.py:249
+#: crm/site/leadadmin.py:247
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "De lead \"{obj}\" is met succes omgezet."
 
-#: crm/site/leadadmin.py:264
+#: crm/site/leadadmin.py:262
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Deze Lead is gediskwalificeerd! Lees de beschrijving."
 
-#: crm/site/requestadmin.py:39
+#: crm/site/requestadmin.py:67
 msgid "Client Loyalty"
 msgstr "Klantentrouw"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:74
 msgid "Country not specified in request"
 msgstr "Land niet gespecificeerd in de aanvraag"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:75
 msgid "You received the deal"
 msgstr "U hebt de deal ontvangen"
 
-#: crm/site/requestadmin.py:48
+#: crm/site/requestadmin.py:76
 msgid "You are the co-owner of the deal"
 msgstr "U bent mede-eigenaar van de deal"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:82
 msgid "Primary request"
 msgstr "Hoofdverzoek"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:83
 msgid "You are the co-owner of the request"
 msgstr "U bent mede-eigenaar van de aanvraag"
 
-#: crm/site/requestadmin.py:56
+#: crm/site/requestadmin.py:84
 msgid "You received the request"
 msgstr "Je hebt de aanvraag ontvangen"
 
-#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:85 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "in afwachting"
 
-#: crm/site/requestadmin.py:58
+#: crm/site/requestadmin.py:86
 msgid "processed"
 msgstr "verwerkt"
 
-#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
-#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+#: crm/site/requestadmin.py:87 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:47
 msgid "Status"
 msgstr "Status"
 
-#: crm/site/requestadmin.py:63
+#: crm/site/requestadmin.py:91
 msgid "Subsequent request"
 msgstr "Volgend verzoek"
 
-#: crm/site/requestadmin.py:398
+#: crm/site/requestadmin.py:454
 msgid "Found the counterparty assigned to"
 msgstr "De tegenpartij is gevonden en toegewezen."
 
-#: crm/site/requestadmin.py:497
+#: crm/site/requestadmin.py:553
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "De {name} \"{obj}\" is succesvol toegevoegd."
@@ -2306,7 +2306,7 @@ msgstr "Datum van verzending volgens het contract."
 msgid "View the deal"
 msgstr "Bekijk de deal"
 
-#: crm/site/shipmentadmin.py:257
+#: crm/site/shipmentadmin.py:260
 msgid "paid"
 msgstr "betaald"
 
@@ -2484,10 +2484,6 @@ msgstr "Bekijk deals met dit bedrijf"
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "Bekijk de geschiedenis van wijzigingen voor deze deal"
-
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
-msgid "Toggle default deal sorting"
-msgstr "Schakel standaard sortering van deals om"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
@@ -2827,7 +2823,7 @@ msgstr ""
 msgid "Title of paragraph."
 msgstr "Titel van de alinea."
 
-#: help/models.py:125 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:43
 msgid "draft"
 msgstr "concept"
 
@@ -2851,7 +2847,7 @@ msgstr "Het volgnummer van de alinea op de pagina."
 msgid "Link to a related paragraph if exists."
 msgstr "Link naar een gerelateerde paragraaf, indien aanwezig."
 
-#: massmail/admin.py:31
+#: massmail/admin.py:30
 msgid "Service information"
 msgstr "Service-informatie"
 
@@ -3069,11 +3065,11 @@ msgstr "Voltooid"
 msgid "The name of the message."
 msgstr "De naam van het bericht."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:34
 msgid "Number of recipients"
 msgstr "Aantal ontvangers"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
+#: massmail/models/mailing_out.py:55
 msgid "Recipients type"
 msgstr "Ontvangers type"
 
@@ -3093,32 +3089,68 @@ msgstr "De naam van de handtekening."
 msgid "price proposal"
 msgstr "prijsvoorstel"
 
-#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/site/emlmessageadmin.py:66 massmail/site/signatureadmin.py:48
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
 msgid "Preview"
 msgstr "Voorbeeldweergave"
 
-#: massmail/site/emlmessageadmin.py:73
+#: massmail/site/emlmessageadmin.py:71
 msgid "Edit"
 msgstr "Bewerken"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:20
 msgid "Available Email accounts for MassMail"
 msgstr "Beschikbare e-mailaccounts voor MassMail"
 
-#: massmail/site/mailingoutadmin.py:19
+#: massmail/site/mailingoutadmin.py:21
 msgid "Accounts"
 msgstr "Rekeningen"
 
+#: massmail/site/mailingoutadmin.py:24
+#| msgid "Recipients type"
+msgid "Recipient<br>type"
+msgstr "Ontvanger<br>type"
+
+#: massmail/site/mailingoutadmin.py:25
+#| msgid ""
+#| "To send a message you need to have an email account marked as main."
+msgid "You do not have an email account available for massmaling."
+msgstr "U heeft geen e-mailaccount beschikbaar voor massmaling."
+
+#: massmail/site/mailingoutadmin.py:26
+msgid ""
+"The address for redirecting unsubscribed recipients is not specified. "
+"Contact the administrator."
+msgstr ""
+"Het adres voor het doorsturen van afgemelde ontvangers is niet opgegeven. "
+"Neem contact op met de beheerder."
+
 #: massmail/site/mailingoutadmin.py:28
+msgid ""
+"You have one Email account with Mailing enabled. As the main account, it can"
+" only send emails to VIP recipients."
+msgstr ""
+"Je hebt één e-mailaccount met ingeschakelde e-mail. Als hoofdaccount kun je "
+"hiermee alleen e-mails versturen naar VIP-ontvangers."
+
+#: massmail/site/mailingoutadmin.py:35
 msgid "Today"
 msgstr "Vandaag"
 
-#: massmail/site/mailingoutadmin.py:29
+#: massmail/site/mailingoutadmin.py:36
 msgid "Sent today"
 msgstr "Verzonden vandaag"
 
-#: massmail/site/mailingoutadmin.py:107
+#: massmail/site/mailingoutadmin.py:173
+#| msgid "Failed recipients"
+msgid "Exclude recipients"
+msgstr "Ontvangers uitsluiten"
+
+#: massmail/site/mailingoutadmin.py:175
+msgid "Exclude recipients who have already received this message."
+msgstr "Ontvangers uitsluiten die dit bericht al hebben ontvangen."
+
+#: massmail/site/mailingoutadmin.py:194
 msgid "notification"
 msgstr "melding"
 
@@ -3178,9 +3210,14 @@ msgstr "Laad een afbeeldingsbestand op naar de CRM-server."
 msgid "Uploaded images"
 msgstr "Geüploade afbeeldingen"
 
-#: massmail/utils/sendmassmail.py:43
+#: massmail/utils/sendmassmail.py:332
 msgid "Done successfully."
 msgstr "Succesvol voltooid."
+
+#: massmail/views/exclude.py:42
+#| msgid "Number of recipients"
+msgid "Number of excluded recipients: {}."
+msgstr "Aantal uitgesloten ontvangers: {}."
 
 #: massmail/views/file_upload.py:9
 msgid "Allowed file extensions: "
@@ -3199,7 +3236,6 @@ msgid "Use the 'Action' menu."
 msgstr "Gebruik het menu 'Actie'."
 
 #: massmail/views/select_recipient_type.py:39
-#| msgid "Please select at least one recipient"
 msgid "Please select the type of recipients"
 msgstr "Selecteer het type ontvangers"
 
@@ -3224,49 +3260,54 @@ msgstr "Verboden bedrijfsnaam"
 msgid "Banned company names"
 msgstr "Verboden bedrijfsnamen"
 
-#: settings/models.py:47
+#: settings/models.py:40 settings/models.py:41
+#| msgid "Mass mailing"
+msgid "Massmail Settings"
+msgstr "Massmail-instellingen"
+
+#: settings/models.py:81
 msgid "Public email domain"
 msgstr "Openbaar e-maildomein"
 
-#: settings/models.py:48
+#: settings/models.py:82
 msgid "Public email domains"
 msgstr "Openbare e-maildomeinen"
 
-#: settings/models.py:53
+#: settings/models.py:87
 msgid "Domain"
 msgstr "Domein"
 
-#: settings/models.py:81 settings/models.py:82
+#: settings/models.py:115 settings/models.py:116
 msgid "Reminder settings"
 msgstr "Herinneringinstellingen"
 
-#: settings/models.py:87
+#: settings/models.py:121
 msgid "Check interval"
 msgstr "Controleinterval"
 
-#: settings/models.py:89
+#: settings/models.py:123
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Geef het interval in seconden op om te controleren of het tijd is voor een "
 "herinnering."
 
-#: settings/models.py:115
+#: settings/models.py:149
 msgid "Stop Phrase"
 msgstr "Stopzin"
 
-#: settings/models.py:116
+#: settings/models.py:150
 msgid "Stop Phrases"
 msgstr "Stopfrases"
 
-#: settings/models.py:121
+#: settings/models.py:155
 msgid "Phrase"
 msgstr "Zin"
 
-#: settings/models.py:125
+#: settings/models.py:159
 msgid "Last occurrence date"
 msgstr "Datum van laatste voorkomen"
 
-#: settings/models.py:126
+#: settings/models.py:160
 msgid "Date of last occurrence of the phrase"
 msgstr "Datum van de laatste keer dat de zin voorkwam"
 
@@ -3274,7 +3315,7 @@ msgstr "Datum van de laatste keer dat de zin voorkwam"
 msgid "Change responsible"
 msgstr "Verander verantwoordelijke"
 
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:187
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "Wijzig abonnees"
@@ -3305,11 +3346,11 @@ msgid "Memos"
 msgstr "Notities"
 
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
-#: tasks/site/memoadmin.py:45
+#: tasks/site/memoadmin.py:46
 msgid "postponed"
 msgstr "uitgesteld"
 
-#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:49
 msgid "reviewed"
 msgstr "beoordeeld"
 
@@ -3355,7 +3396,7 @@ msgid "Review date"
 msgstr "Herzieningsdatum"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+#: tasks/site/memoadmin.py:472 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
 msgstr "abonnees"
 
@@ -3423,8 +3464,8 @@ msgstr "Hoofdtaak verbergen"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "Verberg de hoofdtaken wanneer deze subtaak is voltooid."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:353
+#: tasks/site/taskadmin.py:359
 msgid "Lead time"
 msgstr "Leidtijd"
 
@@ -3512,42 +3553,42 @@ msgstr "voor informatie"
 msgid "for the record"
 msgstr "voor de registratie"
 
-#: tasks/site/memoadmin.py:44
+#: tasks/site/memoadmin.py:45
 msgid "overdue"
 msgstr "overwegend"
 
-#: tasks/site/memoadmin.py:47
+#: tasks/site/memoadmin.py:48
 msgid "You are subscribed to a new office memo"
 msgstr "Je bent geabonneerd op een nieuwe kantoornotitie"
 
-#: tasks/site/memoadmin.py:49
+#: tasks/site/memoadmin.py:50
 msgid "unreviewed"
 msgstr "niet beoordeeld"
 
-#: tasks/site/memoadmin.py:50
+#: tasks/site/memoadmin.py:51
 msgid "The office memo was written"
 msgstr "Het kantoormemo is geschreven"
 
-#: tasks/site/memoadmin.py:51
+#: tasks/site/memoadmin.py:52
 msgid "You've received a office memo"
 msgstr "Je hebt een interne memo ontvangen"
 
-#: tasks/site/memoadmin.py:118
+#: tasks/site/memoadmin.py:120
 msgid "Your office memo has been deleted"
 msgstr "Uw kantoornota is verwijderd."
 
-#: tasks/site/memoadmin.py:386
+#: tasks/site/memoadmin.py:396
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
 msgstr "Bekijk de taak"
 
-#: tasks/site/memoadmin.py:390
+#: tasks/site/memoadmin.py:400
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
 msgstr "Bekijk het project"
 
-#: tasks/site/memoadmin.py:471
+#: tasks/site/memoadmin.py:485
 msgid "View the "
 msgstr "Bekijk de"
 
@@ -3559,7 +3600,7 @@ msgstr "Bekend met het project"
 msgid "The project was created"
 msgstr "Het project is aangemaakt"
 
-#: tasks/site/taskadmin.py:35
+#: tasks/site/taskadmin.py:36
 msgid "I completed my part of the task"
 msgstr "Ik heb mijn deel van de taak voltooid."
 
@@ -3575,21 +3616,21 @@ msgstr "De subtaak is aangemaakt"
 msgid "The subtask"
 msgstr "De deeltaak"
 
-#: tasks/site/taskadmin.py:242
+#: tasks/site/taskadmin.py:249
 msgid "later than due date of parent task."
 msgstr "later dan de vervaldatum van de hoofdtaken."
 
-#: tasks/site/taskadmin.py:334
+#: tasks/site/taskadmin.py:341
 msgid "Main task"
 msgstr "Hoofdtaak"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/site/taskadmin.py:368 tasks/site/taskadmin.py:369
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "Maak een subtaak"
 
-#: tasks/site/taskadmin.py:372
+#: tasks/site/taskadmin.py:379
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3670,10 +3711,6 @@ msgstr "Bekijk hoofdaanvraag"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "Onderstappen"
-
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
-msgid "Toggle default task sorting"
-msgstr "Standaard sortering van taken omzetten"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
@@ -3781,7 +3818,7 @@ msgstr "JJJJ-MM-DD"
 msgid "Help"
 msgstr "Hulp"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: tests/massmail/utils/test_send_massmail.py:124
 msgid "This field is required."
 msgstr "Dit veld is verplicht."
 
@@ -3856,13 +3893,19 @@ msgstr "Een inkomende oproep van"
 msgid "(duration: {duration} minutes)"
 msgstr "(duur: {duration} minuten)"
 
-#: webcrm/settings.py:271
+#: webcrm/settings.py:273
 msgid "Untitled"
 msgstr "Onbetiteld"
 
-#: webcrm/settings.py:286
+#: webcrm/settings.py:287
 msgid "Main Menu"
 msgstr "Hoofdmenu"
+
+#~ msgid "Toggle default deal sorting"
+#~ msgstr "Schakel standaard sortering van deals om"
+
+#~ msgid "Toggle default task sorting"
+#~ msgstr "Standaard sortering van taken omzetten"
 
 #~ msgid "First select a department."
 #~ msgstr "Kies eerst een afdeling."
