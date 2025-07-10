@@ -268,7 +268,7 @@ class MemoAdmin(BaseModelAdmin):
                     Q(to=request.user) & Q(draft=False)
                     | Q(owner=request.user)
                     | Q(subscribers=request.user)
-                )
+                ).distinct()
         return qs
 
     def has_change_permission(self, request, obj=None):
