@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.admin.models import LogEntry
 
 PREFIX = settings.SECRET_CRM_PREFIX
 ADMIN_PREFIX = settings.SECRET_ADMIN_PREFIX
@@ -851,6 +852,22 @@ DATA = [
 
 # data for admin site
 ADMIN_DATA = [
+    {
+        'name': 'Administration',
+        'app_label': 'admin',
+        'app_url': f'/en/{ADMIN_PREFIX}admin/',
+        'has_module_perms': True,
+        'models': [
+            {
+                'name': 'Log entries',
+                'admin_url': f'/en/{ADMIN_PREFIX}admin/logentry/',
+                'model': LogEntry,
+                'object_name': 'LogEntry',
+                'perms': {'add': False, 'change': False, 'delete': False, 'view': True},
+                'view_only': True
+            }
+        ],
+    },
     {
         'name': 'Analytics',
         'app_label': 'analytics',

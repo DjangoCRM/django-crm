@@ -2,6 +2,7 @@ import re
 from django import forms
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
+from django.db.models import Q
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -29,6 +30,30 @@ class DepartmentAdmin(admin.ModelAdmin):
             )
         }),
     )
+
+
+class LogEntrytAdmin(admin.ModelAdmin):
+    list_display = ("__str__", "user", "content_type", 'object_id')
+    list_display_links = ("__str__",)
+    list_filter = ('action_flag', 'action_time', 'user', 'content_type')
+    search_fields = ('change_message',)
+
+    def get_search_results(self, request, queryset, search_term):
+        if search_term:
+            st = " ".join(search_term.splitlines()).strip()
+            if re.match(r"^[iI][dD]\s*\d+$", st):
+                return self.model.objects.filter(Q(object_id=st[2:]) | Q(id=st[2:])), True
+            return queryset.filter(change_message__contains=search_term), True
+        return super().get_search_results(request, queryset, search_term)
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 class ReminderAdmin(admin.ModelAdmin):
@@ -209,6 +234,7 @@ crm_site.register(Reminder, reminderadmin.ReminderAdmin)
 crm_site.register(UserProfile, userprofileadmin.UserProfileAdmin)
 
 admin.site.register(Department, DepartmentAdmin)
+admin.site.register(admin.models.LogEntry, LogEntrytAdmin)
 admin.site.register(Reminder, ReminderAdmin)
 admin.site.register(TheFile, TheFileAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
