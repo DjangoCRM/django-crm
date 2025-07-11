@@ -269,6 +269,10 @@ Por ejemplo:
 python manage.py runserver 1.2.3.4:8000
 ```
 
+Es posible que vea mensajes como **"Ya se está ejecutando otra instancia, cerrando"** en los registros de la terminal o del servidor.  
+Esto es normal y no requiere ninguna acción.  
+Django CRM es una aplicación web, y el servidor web suele ejecutar varias instancias (trabajadores) del CRM simultáneamente. Sin embargo, algunos componentes del CRM están diseñados para ejecutarse en una sola instancia para funcionar correctamente. Cuando el sistema detecta que dicho componente ya se está ejecutando, evita automáticamente que se inicien instancias duplicadas.
+
 ## Acceso a los sitios de CRM y admin
 
 Ahora tienes dos sitios web: CRM y sitios de administración.  
