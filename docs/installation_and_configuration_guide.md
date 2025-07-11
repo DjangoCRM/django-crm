@@ -1,319 +1,329 @@
-# Django-CRM - installation and configuration guide
+<p align="right">
+<a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md">English</a>
+</p>
 
-## Table of contents
+---
 
-- [Introduction](#introduction)
-- [Project installation](#project-installation)
-  - [Fork the Repository](#fork-the-repository)
-  - [Clone the project](#clone-the-project)
-  - [Install the requirements](#install-the-requirements)
-- [Settings of Django CRM](#settings-of-django-crm)
+# Django-CRM - guía de instalación y configuración
+
+## Tabla de contenidos
+
+- [Introducción](#introducción)
+- [Instalación del proyecto](#instalación-del-proyecto)
+  - [Bifurcar el repositorio](#bifurcar-el-repositorio)
+  - [Clonar el proyecto](#clonar-el-proyecto)
+  - [Instalar los requisitos](#instalar-los-requisitos)
+- [Configuración de Django CRM](#configuración-de-django-crm)
   <details>
 
-  - [DATABASES settings](#databases-settings)
-  - [EMAIL_HOST settings](#email_host-settings)
-  - [ADMINS settings](#admins-settings)
+  - [Configuración de DATABASES](#configuración-de-databases)
+  - [Configuración de EMAIL_HOST](#configuración-de-email_host)
+  - [Configuración de ADMINS](#configuración-de-admins)
 
   </details>
 
-- [CRM and database testing](#crm-and-database-testing)
-- [Installing the initial data](#installing-the-initial-data)
-- [Launch CRM on the development server](#run-crm-on-the-built-in-server)
-- [Access to CRM and admin sites](#access-to-crm-and-admin-sites)
-- [Specify CRM site domain](#specify-crm-site-domain)
-- [Updating Django CRM software](#updating-django-crm-software)
-- [Ability to translate Django CRM interface into another language](#ability-to-translate-django-crm-interface-into-another-language)
-- [Built-in assistance system](#built-in-assistance-system)
-- [Adding Django CRM users](#adding-django-crm-users)
+- [Pruebas de CRM y base de datos](#pruebas-de-crm-y-base-de-datos)
+- [Instalación de los datos iniciales](#instalación-de-los-datos-iniciales)
+- [Ejecutar CRM en el servidor integrado](#ejecutar-crm-en-el-servidor-integrado)
+- [Acceso a los sitios de CRM y admin](#acceso-a-los-sitios-de-crm-y-admin)
+- [Especificar el dominio del sitio CRM](#especificar-el-dominio-del-sitio-crm)
+- [Actualización del software de Django CRM](#actualización-del-software-de-django-crm)
+- [Capacidad de traducir la interfaz de Django CRM a otro idioma](#capacidad-de-traducir-la-interfaz-de-django-crm-a-otro-idioma)
+- [Sistema de asistencia integrado](#sistema-de-asistencia-integrado)
+- [Agregar usuarios a Django CRM](#agregar-usuarios-a-django-crm)
     <details>
 
-    <summary>Permissions, Groups, Departments</summary>
+    <summary>Permisos, Grupos, Departamentos</summary>
   
-  - [Permissions for users](#permissions-for-users)
-  - [User groups](#user-groups)
-  - [Departments ](#departments)
-  - [Adding users](#adding-users)
+  - [Permisos para usuarios](#permisos-para-usuarios)
+  - [Grupos de usuarios](#grupos-de-usuarios)
+  - [Departamentos](#departamentos)
+  - [Agregar usuarios](#agregar-usuarios)
 
   </details>
   
-- [User access to applications and objects](#user-access-to-applications-and-objects)
-- [Helping users to master Django CRM](#helping-users-to-master-django-crm)
-- [Setting up adding commercial requests in Django CRM](#setting-up-adding-commercial-requests-in-django-crm)
-  - [Sources of Leads](#sources-of-leads)
-  - [Forms](#forms)
+- [Acceso de usuarios a aplicaciones y objetos](#acceso-de-usuarios-a-aplicaciones-y-objetos)
+- [Ayudando a los usuarios a dominar Django CRM](#ayudando-a-los-usuarios-a-dominar-django-crm)
+- [Configuración de la adición de solicitudes comerciales en Django CRM](#configuración-de-la-adición-de-solicitudes-comerciales-en-django-crm)
+  - [Fuentes de Leads](#fuentes-de-leads)
+  - [Formularios](#formularios)
     <details>
 
-    - [Submitting form data with a POST request](#submitting-form-data-with-a-post-request)
-    - [Embedding CRM form in an iframe of a website page](#embedding-crm-form-in-an-iframe-of-a-website-page)
-    - [Activate form protection with Google's reCAPTCHA v3](#activate-form-protection-with-googles-recaptcha-v3)
-    - [Activation of geolocation of the country and city of the counterparty by its IP](#activation-of-geolocation-of-the-country-and-city-of-the-counterparty-by-its-ip)
-    - [Adding a custom form for iframe](#adding-a-custom-form-for-the-iframe)
+    - [Enviar datos del formulario con una solicitud POST](#enviar-datos-del-formulario-con-una-solicitud-post)
+    - [Incrustar un formulario de CRM en un iframe de una página web](#incrustar-un-formulario-de-crm-en-un-iframe-de-una-página-web)
+    - [Activar la protección del formulario con reCAPTCHA v3 de Google](#activar-la-protección-del-formulario-con-recaptcha-v3-de-google)
+    - [Activar la geolocalización del país y la ciudad de la contraparte por su IP](#activación-de-la-geolocalización-del-país-y-la-ciudad-de-la-contraparte-por-su-ip)
+    - [Agregar un formulario personalizado para iframe](#agregar-un-formulario-personalizado-para-iframe)
 
     </details>
   
-- [Setting up email accounts](#setting-up-email-accounts)
+- [Configuración de cuentas de correo electrónico](#configuración-de-cuentas-de-correo-electrónico)
   <details>
 
-  <summary>Fields</summary>
+  <summary>Campos</summary>
 
-  - [Fields](#fields)
-    - ["Main"](#main)
+  - [Campos](#campos)
+    - ["Principal"](#principal)
     - ["Massmail"](#massmail)
-    - ["Do import"](#do-import)
-    - ["Email app password"](#email-app-password)
-    - [Section "Service information"](#section-service-information)
-    - [Section "Additional information"](#section-additional-information)
+    - ["Importar"](#importar)
+    - ["Contraseña de la aplicación de correo electrónico"](#contraseña-de-la-aplicación-de-correo-electrónico)
+    - [Sección "Información del servicio"](#sección-información-del-servicio)
+    - [Sección "Información adicional"](#sección-información-adicional)
   
   </details>
 
-- [IMAP4 protocol client](#imap4-protocol-client)
-- [Configuring two-step OAuth 2.0 authentication](#configuring-two-step-oauth-20-authentication)
-- [Company product categories](#company-product-categories)
-- [Company products](#company-products)
-- [Currencies](#currencies)
-- [Mailing](#mailing)
-- [VoIP telephony](#voip-telephony)
-- [CRM integration with messengers](#crm-integration-with-messengers)
+- [Cliente del protocolo IMAP4](#cliente-del-protocolo-imap4)
+- [Configuración de la autenticación de dos pasos OAuth 2.0](#configuración-de-la-autenticación-de-dos-pasos-oauth-20)
+- [Categorías de productos de la empresa](#categorías-de-productos-de-la-empresa)
+- [Productos de la empresa](#productos-de-la-empresa)
+- [Monedas](#monedas)
+- [Boletín informativo](#boletín-informativo)
+- [Telefonía VoIP](#telefonía-voip)
+- [Integración del CRM con mensajeros](#integración-del-crm-con-mensajeros)
 
-## Introduction
+## Introducción
 
-[Django-CRM](https://github.com/DjangoCRM/django-crm/) (client relationship software) is an open source application with a web interface.  
-It is based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and is written in the [Python](https://www.python.org/) programming language.
+[Django-CRM](https://github.com/DjangoCRM/django-crm/) (software de relación con clientes) es una aplicación de código abierto con interfaz web.  
+Está basada en el [sitio de administración de Django](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) y está escrita en el lenguaje de programación [Python](https://www.python.org/).
 
-The CRM project consists of the following main applications:
+El proyecto CRM consta de las siguientes aplicaciones principales:
 
-- TASKS
+- TAREAS
 - CRM
-- ANALYTICS
-- MASS MAIL
+- ANALÍTICA
+- CORREO MASIVO
 
-The TASKS application does not require CRM configuration and allows individual users or teams to work with the following objects:
+La aplicación TAREAS no requiere configuración de CRM y permite a usuarios individuales o equipos trabajar con los siguientes objetos:
 
-- Tasks / subtasks
-- Projects
-- Memos (office memos)
+- Tareas / subtareas
+- Proyectos
+- Memorandos (memorandos de oficina)
 
-Each instance of these objects also has integration with:
+Cada instancia de estos objetos también tiene integración con:
 
 - Chat
-- Tags
-- Remainders
-- Files
+- Etiquetas
+- Recordatorios
+- Archivos
 
-Notifications within CRM and to Email are also available.  
-All CRM users have access to this application by default.
+Las notificaciones dentro de CRM y al correo electrónico también están disponibles.  
+Todos los usuarios de CRM tienen acceso a esta aplicación por defecto.
 
-Access to the rest of the applications is only available to users with the appropriate roles, such as sales managers, company executives, etc.  
-To use all the features of these applications, you need to set up CRM integration:
+El acceso al resto de las aplicaciones solo está disponible para usuarios con los roles apropiados, como gerentes de ventas, ejecutivos de la empresa, etc.  
+Para usar todas las funciones de estas aplicaciones, necesita configurar la integración de CRM:
 
-- with your company's websites;
-- with your company's mailboxes and sales managers' mailboxes;
-- with the service of receiving current exchange rates (if necessary);
-- with VoIP telephony service (if necessary).
+- con los sitios web de su empresa;
+- con los buzones de correo de su empresa y los buzones de los gerentes de ventas;
+- con el servicio de recepción de tasas de cambio actuales (si es necesario);
+- con el servicio de telefonía VoIP (si es necesario).
 
-## Project installation
+## Instalación del proyecto
 
-To deploy the project, you will need: [Python](https://www.python.org/) and database.  
-This Python CRM software is developed taking into account compatibility with [MySQL](https://www.mysql.com/) and [PostgreSQL](https://www.postgresql.org) databases.
+Para desplegar el proyecto, necesitarás: [Python](https://www.python.org/) y una base de datos.  
+Este software CRM en Python está desarrollado teniendo en cuenta la compatibilidad con las bases de datos [MySQL](https://www.mysql.com/) y [PostgreSQL](https://www.postgresql.org).
 
-### Fork the Repository
+### Bifurcar el repositorio
 
-Click the Fork button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository's home page.
-You now have a copy of the repository in your personal GitHub account.
+Haz clic en el botón Fork en la esquina superior derecha de la página principal del repositorio [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/).
+Ahora tienes una copia del repositorio en tu cuenta personal de GitHub.
 
-### Clone the project
+### Clonar el proyecto
 
-To clone a repository, you must have [Git](https://git-scm.com/downloads) installed on your system and use terminal or cmd.  
-Clone this GitHub repository:
+Para clonar un repositorio, debes tener [Git](https://git-scm.com/downloads) instalado en tu sistema y usar terminal o cmd.  
+Clona este repositorio de GitHub:
 
 ```cmd
 git clone https://github.com/DjangoCRM/django-crm.git
 ```
 
-Or clone your forked GitHub repository:
+O clona tu repositorio bifurcado de GitHub:
 
 ```cmd
-git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
+git clone https://github.com/<TU NOMBRE DE CUENTA>/django-crm.git
 ```
 
-The project will be cloned into the 'django-crm' folder.
+El proyecto se clonará en la carpeta 'django-crm'.
 
-### Install the requirements
+### Instalar los requisitos
 
-It is recommended to first create a virtual environment:
+Se recomienda primero crear un entorno virtual:
 
-| action   | on Unix/macOS                 | on Windows                |
+| acción   | en Unix/macOS                 | en Windows                |
 |----------|-------------------------------|---------------------------|
-| create   | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
-| activate | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
+| crear    | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
+| activar  | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
 
-#### Then install the project requirements:
+#### Luego instala los requisitos del proyecto:
 
 ```cmd
 pip install -r requirements.txt
 ```
 
-If the project is deployed on a production server, a website server will also be required
-(for example, [Apache](https://httpd.apache.org/)).  
-Full tutorial [here](https://docs.djangoproject.com/en/dev/topics/install/).
+Si el proyecto se despliega en un servidor de producción, también se requerirá un servidor web
+(por ejemplo, [Apache](https://httpd.apache.org/)).  
+Tutorial completo [aquí](https://docs.djangoproject.com/en/dev/topics/install/).
 
 > [!IMPORTANT]
-> **Please give this CRM project a star ⭐️ to support its developers!**  
-> Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/) repository.  
+> **Por favor, da una estrella ⭐️ a este proyecto CRM para apoyar a sus desarrolladores!**  
+> Haz clic en el botón "Starred" en la esquina superior derecha del repositorio [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/).  
 
-## Settings of Django CRM
+## Configuración de Django CRM
 
-Project settings are contained in files `settings.py`.  
-The main project settings are contained in the file  
+La configuración del proyecto se encuentra en los archivos `settings.py`.  
+La configuración principal del proyecto se encuentra en el archivo  
 `webcrm/settings.py`  
-The syntax of the data in these files must match the syntax of the Python language.
+La sintaxis de los datos en estos archivos debe coincidir con la sintaxis del lenguaje Python.
 
-Most of the project settings are Django framework settings.
-Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).  
-The settings missing in this list are CRM-specific settings. Explanations can be found in the comments to them.  
-Most of the settings can be left at their default values.
+La mayoría de las configuraciones del proyecto son configuraciones del framework Django.
+Su lista completa está [aquí](https://docs.djangoproject.com/en/dev/ref/settings/).  
+Las configuraciones que faltan en esta lista son configuraciones específicas del CRM. Las explicaciones se pueden encontrar en los comentarios a ellas.  
+La mayoría de las configuraciones se pueden dejar en sus valores predeterminados.
 
-The default settings are for running the project on a development server.
-Change them for the production server.  
+Las configuraciones predeterminadas son para ejecutar el proyecto en un servidor de desarrollo.
+Cámbialas para el servidor de producción.  
 
-To start the project for the first time, it is enough to specify the `DATABASES` settings in the file  
+Para iniciar el proyecto por primera vez, es suficiente especificar las configuraciones de `DATABASES` en el archivo  
 `webcrm/settings.py`  
-But in the following, you will need to specify at least the `EMAIL_HOST` and `ADMINS` settings.
+Pero posteriormente, necesitarás especificar al menos las configuraciones de `EMAIL_HOST` y `ADMINS`.
 
-### DATABASES settings
+### Configuración de DATABASES
 
-Provide data to connect to the database:
+Proporciona los datos para conectarse a la base de datos:
 
-- `ENGINE` and `PORT` are specified by default for MySQL database. Change them for PostgreSQL
-- Specify `PASSWORD`
+- `ENGINE` y `PORT` están especificados por defecto para la base de datos MySQL. Cámbialos para PostgreSQL
+- Especifica `PASSWORD`
 
-Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES). 
+Instrucciones detalladas [aquí](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES). 
 
-In the database, configure the `USER` (by default 'crm_user') specified in the `DATABASES` setting 
-to have the right to create and drop databases (running tests will create
-and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database)).
+En la base de datos, configura el `USER` (por defecto 'crm_user') especificado en la configuración de `DATABASES` 
+para que tenga el derecho de crear y eliminar bases de datos (ejecutar pruebas creará
+y luego destruirá una [base de datos de prueba](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database) separada).
 
-#### For MySQL database, it is recommended to  
+#### Para la base de datos MySQL, se recomienda  
 
-- set up the timezone table;  
-- set the extended encoding:
+- configurar la tabla de zona horaria;  
+- establecer la codificación extendida:
   - charset `utf8mb4`
   - collation  `utf8mb4_general_ci`
 
-And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
+Y también si ocurre un error de agregación o anotación al ejecutar las pruebas, necesitas cambiar sql_mode a `ONLY_FULL_GROUP_BY`.
 
-#### Optimizing PostgreSQL's configuration
+#### Optimización de la configuración de PostgreSQL
 
-You'll need the [psycopg](https://www.psycopg.org/psycopg3/) or [psycopg2](https://www.psycopg.org/) package.
-Set the timezone to 'UTC' (when USE_TZ is True),
+Necesitarás el paquete [psycopg](https://www.psycopg.org/psycopg3/) o [psycopg2](https://www.psycopg.org/).
+Configura la zona horaria a 'UTC' (cuando USE_TZ es True),
 default_transaction_isolation: 'read committed'.  
-You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`
+Puedes configurarlos directamente en postgresql.conf `(/etc/postgresql/<versión>/main/)`
 
-### EMAIL_HOST settings
+### Configuración de EMAIL_HOST
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
+Especifica los detalles para conectarse a una cuenta de correo electrónico a través de la cual el CRM podrá enviar notificaciones a los usuarios y administradores.  
 
-- `EMAIL_HOST` (smtp server)
+- `EMAIL_HOST` (servidor smtp)
 - `EMAIL_HOST_PASSWORD`
 - `EMAIL_HOST_USER` (login)
 
-### ADMINS settings
+### Configuración de ADMINS
 
-Add the addresses of CRM administrators to the list, so they can receive error logs.  
-`ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
+Agrega las direcciones de los administradores del CRM a la lista, para que puedan recibir registros de errores.  
+`ADMINS = [("<NombreAdmin1>", "<admin1_box@example.com>"), (...)]`
 
-## CRM and database testing
+## Pruebas de CRM y base de datos
 
-Run the built-in tests:  
+Ejecuta las pruebas integradas:
 
 ```cmd
 python manage.py test tests/ --noinput
 ```
 
-## Installing the initial data
+## Instalación de los datos iniciales
 
-To fill CRM with initial data, you need to execute the command "setupdata" in the root directory of the project:  
+Para llenar el CRM con datos iniciales, necesitas ejecutar el comando "setupdata" en el directorio raíz del proyecto:
 
 ```cmd
 python manage.py setupdata
 ```
 
-This command will execute `migrate`, `loaddata` and `createsuperuser`.
-As a result, the database will be populated with objects such as  
-countries, currencies, departments, industries, etc.  
-Also, the superuser will be created.
-You will be able to modify them or add your own.  
-Use the superuser credentials from the output to log into the CRM site.
+Este comando ejecutará `migrate`, `loaddata` y `createsuperuser`.
+Como resultado, la base de datos se poblará con objetos como  
+países, monedas, departamentos, industrias, etc.  
+También se creará el superusuario.
+Podrás modificarlos o agregar los tuyos propios.  
+Usa las credenciales del superusuario del resultado para iniciar sesión en el sitio del CRM.
 
-## Run CRM on the built-in server
+## Ejecutar CRM en el servidor integrado
 
-Don't use this server in anything resembling a production environment (with internet access to the CRM).  
-It is intended only for use on a personal computer or in a private local network (during development, for example).
+No uses este servidor en nada que se asemeje a un entorno de producción (con acceso a internet al CRM).  
+Está destinado solo para uso en una computadora personal o en una red local privada (por ejemplo, durante el desarrollo).
 
 ```cmd
 python manage.py runserver
 ```
 
-In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
-If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
-(but first, [specify the CRM website domain](#specify-crm-site-domain)).
-For example:
+En este caso, el CRM estará disponible solo en tu computadora en la dirección IP 127.0.0.1 (localhost) y el puerto 8000.  
+Si necesitas proporcionar acceso al CRM desde una intranet (red local), especifica la dirección IP de tu tarjeta de red y el puerto  
+(pero primero, [especifica el dominio del sitio del CRM](#especificar-el-dominio-del-sitio-crm)).
+Por ejemplo:
 
 ```cmd
 python manage.py runserver 1.2.3.4:8000
 ```
 
-## Access to CRM and admin sites
+Es posible que vea mensajes como **"Ya se está ejecutando otra instancia, cerrando"** en los registros de la terminal o del servidor.  
+Esto es normal y no requiere ninguna acción.  
+Django CRM es una aplicación web, y el servidor web suele ejecutar varias instancias (trabajadores) del CRM simultáneamente. Sin embargo, algunos componentes del CRM están diseñados para ejecutarse en una sola instancia para funcionar correctamente. Cuando el sistema detecta que dicho componente ya se está ejecutando, evita automáticamente que se inicien instancias duplicadas.
 
-Now you have two websites: CRM and Admin sites.  
-Use the superuser credentials to log in.  
+## Acceso a los sitios de CRM y admin
+
+Ahora tienes dos sitios web: CRM y sitios de administración.  
+Usa las credenciales del superusuario para iniciar sesión.
 
 > [!IMPORTANT]
-> Admin sites are intended for experienced users.  
-> Use it for initial settings and actions that cannot be performed on the CRM site. For example, actions with departments, users, permissions, etc.   
-> For everything else, use the CRM site in the appropriate user role.  
+> Los sitios de administración están pensados para usuarios experimentados.  
+> Úselos para la configuración inicial y las acciones que no se pueden realizar en el sitio de CRM. Por ejemplo, acciones con departamentos, usuarios, permisos, etc.  
+> Para todo lo demás, utilice el sitio de CRM con el rol de usuario correspondiente.
 
-### CRM site for all users
+### Sitio de CRM para todos los usuarios
 
 `http://127.0.0.1:8000/en/123/`  
-It's according to the template  
-`<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
+Está de acuerdo con la plantilla  
+`<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
-### Admin site for administrators (superusers)
+### El sitio de administración para administradores (superusuarios)
 
 `http://127.0.0.1:8000/en/456-admin`  
-`<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
+`<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
-`LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
-can be changed in the file `webcrm/settings.py`
+`LANGUAGE_CODE`, `SECRET_CRM_PREFIX` y `SECRET_ADMIN_PREFIX`
+pueden ser cambiados en el archivo `webcrm/settings.py`
 
 > [!NOTE]
-> Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
-> This address is not supported.  
-> To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/)), a redirect to a fake login page can be placed on this address.
+> No intentes acceder a la dirección `<tu host de CRM>` sin más (`http://127.0.0.1:8000/`).  
+> Esta dirección no es compatible.  
+> Para proteger el CRM con un servidor de sitios (por ejemplo, [Apache](https://httpd.apache.org/)), se puede colocar una redirección a una página de inicio de sesión falsa en esta dirección.
 
-## Specify CRM site domain
+## Especificar el dominio del sitio CRM
 
-By default, CRM software is configured to work on a domain "localhost" (ip: 127.0.0.1).  
-To work on another domain (or IP address), you need to do the following:  
+Por defecto, el software CRM está configurado para trabajar en un dominio "localhost" (ip: 127.0.0.1).  
+Para trabajar en otro dominio (o dirección IP), necesitas hacer lo siguiente:
 
-- In the SITES section for administrators (superusers):  
-`(ADMIN site) Home > Sites > Sites`  
-Add a CRM site and specify its domain name.
-- In the file `webcrm/settings.py`:
-  - specify its id in the setting `SITE_ID`,
-  - add it to the setting `ALLOWED_HOSTS`.
+- En la sección SITES para administradores (superusuarios):  
+`(sitio ADMIN) Inicio > Sitios > Sitios`  
+Agrega un sitio de CRM y especifica su nombre de dominio.
+- En el archivo `webcrm/settings.py`:
+  - específica su id en la configuración `SITE_ID`,
+  - agrégalo a la configuración `ALLOWED_HOSTS`.
 
-## Updating Django CRM software
+## Actualización del software de Django CRM
 
-Django-CRM is actively developing: existing functionality is being improved, new functionality is being added, and bugs are being fixed.
-In addition, the versions of software used by CRM are updated.
-Therefore, it is important to set up system updates based on new releases of Django-CRM.
-Here are some tips on how to do it better:
+Django-CRM está en desarrollo activo: se mejora la funcionalidad existente, se añaden nuevas funcionalidades y se corrigen errores.
+Además, se actualizan las versiones del software utilizado por el CRM.
+Por lo tanto, es importante configurar las actualizaciones del sistema basadas en los nuevos lanzamientos de Django-CRM.
+Aquí hay algunos consejos sobre cómo hacerlo mejor:
 
-- To prevent your system settings from being overwritten when you upgrade CRM, it is recommended that you save them in a separate settings file, such as local_settings.py.
-In this file, add the line `from .settings import *` and save all your settings. In this way, the default project settings contained in the settings.py file will be overwritten by your settings.  
-To ensure stable execution of tests when language settings are overridden, add the following code to the end of the file:
+- Para evitar que tus configuraciones del sistema se sobrescriban cuando actualices el CRM, se recomienda que las guardes en un archivo de configuraciones separado, como local_settings.py.
+En este archivo, agrega la línea `from .settings import *` y guarda todas tus configuraciones. De esta manera, las configuraciones predeterminadas del proyecto contenidas en el archivo settings.py serán sobrescritas por tus configuraciones.  
+Para asegurar la ejecución estable de las pruebas cuando se sobrescriben las configuraciones de idioma, agrega el siguiente código al final del archivo:
 
 ```cmd
 if TESTING:
@@ -322,33 +332,33 @@ if TESTING:
     LANGUAGES = [('en', ''), ('uk', '')]
 ```
 
-Now, specify your settings file when launching CRM.
+Ahora, especifica tu archivo de configuraciones al iniciar el CRM.
 
 ```cmd
 python manage.py runserver --settings=webcrm.local_settings
 ```
 
-- The new release may contain database migration files, so you need to run the migration command.
+- El nuevo lanzamiento puede contener archivos de migración de la base de datos, por lo que necesitas ejecutar el comando de migración.
 
 ```cmd
 python manage.py migrate --settings=webcrm.local_settings
 ```
 
-- A new release may contain new or modified static files. Therefore, the static files collection command must be run on the production server.
+- Un nuevo lanzamiento puede contener archivos estáticos nuevos o modificados. Por lo tanto, el comando de recolección de archivos estáticos debe ejecutarse en el servidor de producción.
 
 ```cmd
 python manage.py collectstatic --settings=webcrm.local_settings
 ```
 
-- Provide meaningful comments on the code you are modifying. This will help in case of conflict when merging your project with a new Django-CRM release.
+- Proporciona comentarios significativos sobre el código que estás modificando. Esto ayudará en caso de conflicto al fusionar tu proyecto con un nuevo lanzamiento de Django-CRM.
 
-## Ability to translate Django CRM interface into another language
+## Capacidad de traducir la interfaz de Django CRM a otro idioma
 
-Users can choose the language of the [Django-CRM](https://github.com/DjangoCRM/django-crm/) interface.  
-The list of available languages (LANGUAGES) and the default language (LANGUAGE_CODE) are defined in the file:
+Los usuarios pueden elegir el idioma de la interfaz de [Django-CRM](https://github.com/DjangoCRM/django-crm/).  
+La lista de idiomas disponibles (LANGUAGES) y el idioma predeterminado (LANGUAGE_CODE) se definen en el archivo:
 `webcrm/settings.py`
 
-Add the desired language, e.g., German:  
+Agrega el idioma deseado, por ejemplo, alemán:
 
 ```cmd
 LANGUAGES = [
@@ -357,374 +367,374 @@ LANGUAGES = [
 ]
 ```
 
-Save the file.  
-Run the following command in the terminal in the root directory of the project:
+Guarda el archivo.  
+Ejecuta el siguiente comando en el terminal en el directorio raíz del proyecto:
 
 ```cmd
 python manage.py makemessages -l de
 ```
 
-In the directory  
+En el directorio  
 `locale/de/LC_MESSAGES`  
-django.po file will appear.  
-Use the po file editor to translate its contents and create a mo file.  
-Put the mo file in the same directory.
+aparecerá el archivo django.po.  
+Usa el editor de archivos po para traducir su contenido y crear un archivo mo.  
+Coloca el archivo mo en el mismo directorio.
 
-CRM remembers the user's language choice, so there is no need to change the default language.
+CRM recuerda la elección de idioma del usuario, por lo que no es necesario cambiar el idioma predeterminado.
 
-Restart CRM.
+Reinicia CRM.
 
-If the objects you added, such as deal stages, reasons for closing deals, have names in English, these names can also be translated. To do this, perform the above steps again, starting with the "makemessages" command.
+Si los objetos que agregaste, como etapas de negociación, razones para cerrar tratos, tienen nombres en inglés, estos nombres también pueden ser traducidos. Para hacerlo, realiza los pasos anteriores nuevamente, comenzando con el comando "makemessages".
 
-More details [here](https://docs.djangoproject.com/en/5.0/topics/i18n/translation/).
+Más detalles [aquí](https://docs.djangoproject.com/en/5.0/topics/i18n/translation/).
 
-## Built-in assistance system
+## Sistema de asistencia integrado
 
-Many pages have an icon (?) in the upper right corner.  
-This is a link to a help page.
+Muchas páginas tienen un ícono (?) en la esquina superior derecha.  
+Este es un enlace a una página de ayuda.
 
-Many buttons and icons on CRM pages have tooltips that appear when you hover your mouse over them.
+Muchos botones e íconos en las páginas de CRM tienen descripciones emergentes que aparecen cuando pasas el cursor sobre ellos.
 
-## Adding Django CRM users
+## Agregar usuarios a Django CRM
 
-After completing the previous steps of this instruction, you can begin adding users. But in order for sales managers to be able to use all the features of Django CRM, they must follow the remaining points of this instruction.  
-Please review the following sections before adding users.
+Después de completar los pasos anteriores de esta instrucción, puedes comenzar a agregar usuarios. Pero para que los gerentes de ventas puedan usar todas las funciones de Django CRM, deben seguir los puntos restantes de esta instrucción.  
+Por favor, revisa las siguientes secciones antes de agregar usuarios.
 
-### Permissions for users
+### Permisos para usuarios
 
-There are four permissions for users in relation to objects (e.g., Tasks, Deals, etc.):  
+Hay cuatro permisos para los usuarios en relación con los objetos (por ejemplo, Tareas, Negociaciones, etc.):
 
-- add (create),
-- view,
-- change,
-- delete.
+- agregar (crear),
+- ver,
+- cambiar,
+- eliminar.
 
-Permissions can be assigned to individual users or groups of users.  
-In relation to a particular object instance, CRM can dynamically change the permissions set for the object type. For example, a user who has permission to modify emails will not be able to modify an email if it is an incoming email.
+Los permisos pueden asignarse a usuarios individuales o a grupos de usuarios.  
+En relación con una instancia particular de un objeto, CRM puede cambiar dinámicamente el conjunto de permisos para el tipo de objeto. Por ejemplo, un usuario que tiene permiso para modificar correos electrónicos no podrá modificar un correo electrónico si es un correo entrante.
 
-### User groups
+### Grupos de usuarios
 
-Groups are a convenient way to assign users a specific set of permissions or attributes. A user can belong to any number of groups. For example, the head of the sales department needs to be added to the "managers", "department heads" groups and the group of the department in which he works (for example, "Global sales").  
-The "department heads" and "Global sales" groups give their members the appropriate attribute but do not provide any permissions.  
-The "managers" (sales managers) group provides its members with sets of permissions in relation to such objects as: Request, Deal, Lead, Company, Contact person, etc.  
-A group that gives its members certain rights is called a role.
+Los grupos son una forma conveniente de asignar a los usuarios un conjunto específico de permisos o atributos. Un usuario puede pertenecer a cualquier número de grupos. Por ejemplo, el jefe del departamento de ventas necesita ser agregado a los grupos "managers", "department heads" y al grupo del departamento en el que trabaja (por ejemplo, "Global sales").  
+Los grupos "department heads" y "Global sales" otorgan a sus miembros el atributo correspondiente, pero no proporcionan ningún permiso.  
+El grupo "managers" (gerentes de ventas) proporciona a sus miembros conjuntos de permisos en relación con objetos como: Solicitud, Negociación, Cliente potencial, Empresa, Persona de contacto, etc.  
+Un grupo que otorga a sus miembros ciertos derechos se llama rol.
 
-The following roles are available:
+Los siguientes roles están disponibles:
 
-
-| Role           | Description                                                                      |
+| Rol            | Descripción                                                                      |
 |----------------|----------------------------------------------------------------------------------|
-| chiefs         | Company executives                                                               |
-| managers       | Sales managers                                                                   |
-| operators      | Employees who receive commercial requests coming to the company                  |
-| superoperators | Operator but with the rights to serve several sales departments                  |
-| co-workers     | This group is added to all users by default to work with TASKS                   |
-| task_operators | Provides permissions to edit Office Memos and Tasks objects owned by other users |
-| accountants    | Provides access to CRM analytics and Payment and Currency objects                |
+| chiefs         | Ejecutivos de la empresa                                                         |
+| managers       | Gerentes de ventas                                                               |
+| operators      | Empleados que reciben solicitudes comerciales que llegan a la empresa            |
+| superoperators | Operador pero con derechos para atender varios departamentos de ventas           |
+| co-workers     | Este grupo se agrega a todos los usuarios por defecto para trabajar con TAREAS   |
+| task_operators | Proporciona permisos para editar Memorias de Oficina y Tareas de otros usuarios  |
+| accountants    | Proporciona acceso a la analítica de CRM y a los objetos de Pago y Moneda        |
 
-The role of operator is usually performed by secretaries or receptionists.  
-Sometimes the "big boss" makes mistakes or typos when creating tasks but doesn't have time to fix them.
-To fix obvious mistakes, you need the task operator role.
+El rol de operador generalmente lo desempeñan secretarias o recepcionistas.  
+A veces, el "gran jefe" comete errores o errores tipográficos al crear tareas, pero no tiene tiempo para corregirlos.
+Para corregir errores evidentes, necesitas el rol de operador de tareas.
 
-You can view the permission sets for each role here:  
- `(ADMIN site) Home > Authentication and Authorization > Groups`
+Puedes ver los conjuntos de permisos para cada rol aquí:  
+ `(sitio ADMIN) Inicio > Autenticación y Autorización > Grupos`
 
-A user can have multiple roles.  
-For example, if your company does not have an employee who could perform the role of operator, then this role should be given to an employee with the role of sales manager.  
+Un usuario puede tener múltiples roles.  
+Por ejemplo, si tu empresa no tiene un empleado que pueda desempeñar el rol de operador, entonces este rol debe ser otorgado a un empleado con el rol de gerente de ventas.
 
 > [!NOTE]
-> It is possible that some combinations of roles can lead to incorrect CRM operation. In this case, you can create several accounts for the user in CRM with different roles.
+> Es posible que algunas combinaciones de roles puedan llevar a un funcionamiento incorrecto de CRM. En este caso, puedes crear varias cuentas para el usuario en CRM con diferentes roles.
 
-### Departments
+### Departamentos
 
-The Department object contains the name and properties of a specific department.
-You need to create a department on the page:  
-`(ADMIN site) Home > Common > Departments`
+El objeto Departamento contiene el nombre y las propiedades de un departamento específico.
+Necesitas crear un departamento en la página:  
+`(sitio ADMIN) Inicio > Común > Departamentos`
 
-When creating a department, a group with the same name is automatically created.  
-**Please note** that creating a group for use as a department without creating a Department object will result in CRM not working correctly.
-The following departments are preinstalled in CRM:  
+Al crear un departamento, se crea automáticamente un grupo con el mismo nombre.  
+**Ten en cuenta** que crear un grupo para usarlo como departamento sin crear un objeto Departamento resultará en un funcionamiento incorrecto de CRM.
+Los siguientes departamentos están preinstalados en CRM:
 
 - Global sales,
 - Local sales,
 - Bookkeeping.
 
-You can rename them or add new ones.
+Puedes renombrarlos o agregar nuevos.
 
-### Adding users
+### Agregar usuarios
 
-`(ADMIN site) Home > Authentication and Authorization > Users`
+`(sitio ADMIN) Inicio > Autenticación y Autorización > Usuarios`
 
-To allow user access to the CRM website, check the following check-boxes:  
-Active and Staff status.
+Para permitir el acceso del usuario al sitio de CRM, marca las siguientes casillas:  
+Estado Activo y Personal.
 
-If there is no suitable role for a user, then the set of permissions for him can be set individually.
-All users must be added to their department group. The only exceptions are company managers (users with the "chiefs" roles).
-For superusers (CRM administrators), assigning a department is optional.
+Si no hay un rol adecuado para un usuario, entonces el conjunto de permisos para él puede establecerse individualmente.
+Todos los usuarios deben ser agregados a su grupo de departamento. Las únicas excepciones son los gerentes de la empresa (usuarios con los roles de "chiefs").
+Para los superusuarios (administradores de CRM), asignar un departamento es opcional.
 
-A User profile is automatically created for each user. You can specify additional data in the User profile.  
- `(ADMIN site) Home > Common > User profiles`
+Un perfil de usuario se crea automáticamente para cada usuario. Puedes especificar datos adicionales en el perfil de usuario.  
+ `(sitio ADMIN) Inicio > Común > Perfiles de usuario`
 
-This profile will be available to all CRM users at:  
- `(CRM site) Home > Common > User profiles`
+Este perfil estará disponible para todos los usuarios de CRM en:  
+ `(sitio CRM) Inicio > Común > Perfiles de usuario`
 
-## User access to applications and objects
+## Acceso de usuarios a aplicaciones y objetos
 
-CRM may contain commercial information or confidential information. Therefore, a user's access to applications and objects is determined by his role (set of rights).  
-The rights can be permanent or dynamic.  
-For example, if a company has two sales departments, sales managers can always see only objects (Requests, Deals, Reports, etc.) related to their department.
+CRM puede contener información comercial o confidencial. Por lo tanto, el acceso de un usuario a aplicaciones y objetos se determina por su rol (conjunto de derechos).  
+Los derechos pueden ser permanentes o dinámicos.  
+Por ejemplo, si una empresa tiene dos departamentos de ventas, los gerentes de ventas solo podrán ver los objetos (Solicitudes, Negociaciones, Informes, etc.) relacionados con su departamento.
 
-Dynamic rights can depend on many factors. For example, the value of filters. Even company managers or CRM administrators who can see all objects will not be able to see an object belonging to a department different from the current one selected in the department filter. To see this object, you need to select the corresponding department in the filter or select the "all" value.
+Los derechos dinámicos pueden depender de muchos factores. Por ejemplo, el valor de los filtros. Incluso los gerentes de la empresa o los administradores de CRM que pueden ver todos los objetos no podrán ver un objeto perteneciente a un departamento diferente al seleccionado actualmente en el filtro de departamento. Para ver este objeto, debe seleccionar el departamento correspondiente en el filtro o seleccionar el valor "todos".
 
-## Helping users to master Django CRM
+## Ayudando a los usuarios a dominar Django CRM
 
-Before starting to work in Django CRM, users should be informed about the following:  
+Antes de comenzar a trabajar en Django CRM, los usuarios deben ser informados sobre lo siguiente:  
 
-- It is important to familiarize yourself with the user guide to learn the CRM more easily.
-- Many CRM pages have a button to go to the help page - (?). It is located in the upper right corner. Help pages should be read.
-- Many page elements such as buttons, icons, links have tooltips. To do this, you need to hover the mouse cursor over them.  
-It is also important for the administrator to help users to master the CRM.
+- Es importante familiarizarse con la guía del usuario para aprender a usar el CRM más fácilmente.
+- Muchas páginas de CRM tienen un botón para ir a la página de ayuda - (?). Está ubicado en la esquina superior derecha. Las páginas de ayuda deben ser leídas.
+- Muchos elementos de la página, como botones, íconos, enlaces, tienen descripciones emergentes. Para verlas, debe pasar el cursor del ratón sobre ellos.  
+También es importante que el administrador ayude a los usuarios a dominar el CRM.
 
 > [!NOTE]
-> Help pages are dynamic. Their content depends on the user's role.  
-> Users who are assigned rights individually (without a role assignment) will not be able to access the help page. Such users should be instructed to work in CRM by the administrator.
+> Las páginas de ayuda son dinámicas. Su contenido depende del rol del usuario.  
+> Los usuarios a los que se les asignan derechos individualmente (sin asignación de rol) no podrán acceder a la página de ayuda. Dichos usuarios deben ser instruidos para trabajar en CRM por el administrador.
 
-## Setting up adding commercial requests in Django CRM
+## Configuración de la adición de solicitudes comerciales en Django CRM
 
-In Django CRM you can add commercial requests ("Requests") in manual, automatic and semi-automatic mode.
-In manual mode, you must press the "ADD REQUESTS" button at:  
-  `Home > Crm > Requests`  
-and fill out the form.
+En Django CRM puede agregar solicitudes comerciales ("Solicitudes") en modo manual, automático y semiautomático.
+En modo manual, debe presionar el botón "AGREGAR SOLICITUDES" en:  
+  `Inicio > Crm > Solicitudes`  
+y completar el formulario.
 
-Requests coming from forms on your company's website are automatically created (if configured accordingly).  
-In a semi-automatic mode, requests are created by sales managers or operators when importing emails received to their mail into CRM.  
-To do this, you need to specify the details of their [mail accounts](#setting-up-email-accounts) in CRM to ensure CRM access to these accounts.
-CRM automatically assigns the owner of the imported request to the owner of the email account.
+Las solicitudes que provienen de formularios en el sitio web de su empresa se crean automáticamente (si están configuradas adecuadamente).  
+En modo semiautomático, las solicitudes son creadas por gerentes de ventas u operadores al importar correos electrónicos recibidos en su correo a CRM.  
+Para hacer esto, debe especificar los detalles de sus [cuentas de correo](#configuración-de-cuentas-de-correo-electrónico) en CRM para asegurar el acceso de CRM a estas cuentas.
+CRM asigna automáticamente el propietario de la solicitud importada al propietario de la cuenta de correo electrónico.
 
-### Sources of Leads
+### Fuentes de Leads
 
-`(ADMIN site) Home > Crm > Lead Sources`  
-For marketing purposes, each "Request", "Lead", "Contact" and "Company" has a link to the corresponding "Lead Source".  
-Each Lead Source is identified by the value of its UUID field, which is generated automatically when a new Lead Source is added to the CRM.  
-For convenience, CRM has a number of pre-defined "Leads Sources". These can be edited.
-Each "Lead Source" has a link to a "Department". Therefore, each department can have its own set of lead sources.  
-The "Form template name" and "Success page template name" fields are only populated when [adding a custom iframe form](#adding-a-custom-form-for-the-iframe).  
-The "Email" field is only specified in the "Lead Source" of your website. You need to specify the Email value indicated on your site.
+`(ADMIN) Inicio > Crm > Fuentes de Leads`  
+Para fines de marketing, cada "Solicitud", "Lead", "Contacto" y "Empresa" tiene un enlace a la correspondiente "Fuente de Lead".  
+Cada Fuente de Lead se identifica por el valor de su campo UUID, que se genera automáticamente cuando se agrega una nueva Fuente de Lead al CRM.  
+Para mayor comodidad, CRM tiene varias "Fuentes de Leads" predefinidas. Estas pueden ser editadas.
+Cada "Fuente de Lead" tiene un enlace a un "Departamento". Por lo tanto, cada departamento puede tener su propio conjunto de fuentes de leads.  
+Los campos "Nombre de la plantilla del formulario" y "Nombre de la plantilla de la página de éxito" solo se completan al [agregar un formulario iframe personalizado](#agregar-un-formulario-personalizado-para-iframe).  
+El campo "Correo electrónico" solo se especifica en la "Fuente de Lead" de su sitio web. Debe especificar el valor del correo electrónico indicado en su sitio.
 
-### Forms
+### Formularios
 
-CRM can automatically receive data from forms on your company's websites and, based on it, create commercial requests in the database.
-To do this, you need to configure the site to send POST form data via a request to CRM. Or use CRM forms by adding them to sites via iframe.
+CRM puede recibir automáticamente datos de formularios en los sitios web de su empresa y, con base en ellos, crear solicitudes comerciales en la base de datos.
+Para hacer esto, debe configurar el sitio para enviar datos del formulario POST a través de una solicitud a CRM. O usar formularios de CRM agregándolos a los sitios a través de iframe.
 
-#### Submitting form data with a POST request
+#### Enviar datos del formulario con una solicitud POST
 
-Your site can pass the values of the following form fields to CRM by POST request:  
+Su sitio puede pasar los valores de los siguientes campos de formulario a CRM mediante una solicitud POST:  
 
-| Form field         | Description                                       |
-|--------------------|---------------------------------------------------|
-| `name`             | CharField (max_length=200, required)              |
-| `email`            | EmailField / CharField (max_length=254, required) |
-| `subject`          | CharField (max_length=200, required)              |
-| `phone`            | CharField (max_length=200, required)              |
-| `company`          | CharField (max_length=200, required)              |
-| `message`          | TextField                                         |
-| `country`          | CharField (max_length=40)                         |
-| `city`             | CharField (max_length=40)                         |
-| `leadsource_token` | UUIDField (required, hidden input)                |
+| Campo del formulario | Descripción                                        |
+|----------------------|----------------------------------------------------|
+| `name`               | CharField (max_length=200, requerido)              |
+| `email`              | EmailField / CharField (max_length=254, requerido) |
+| `subject`            | CharField (max_length=200, requerido)              |
+| `phone`              | CharField (max_length=200, requerido)              |
+| `company`            | CharField (max_length=200, requerido)              |
+| `message`            | TextField                                          |
+| `country`            | CharField (max_length=40)                          |
+| `city`               | CharField (max_length=40)                          |
+| `leadsource_token`   | UUIDField (requerido, entrada oculta)              |
 
-The value of the "leadsource_token" field must match the value of the "UUID" field of the corresponding (selected by you) "Leadsource".  
-`(ADMIN site) Home > Crm > Lead Sources`
+El valor del campo "leadsource_token" debe coincidir con el valor del campo "UUID" de la correspondiente (seleccionada por usted) "Fuente de Lead".  
+`(ADMIN site) Inicio > Crm > Fuentes de Leads`
 
-Url for POST request:  
-`https://<yourCRM.domain>/<language_code>/add-request/`
+Url para la solicitud POST:  
+`https://<suCRM.dominio>/<código_idioma>/add-request/`
 
-#### Embedding CRM form in an iframe of a website page
+#### Incrustar un formulario de CRM en un iframe de una página web
 
-Place an iframe string in the HTML code of a website page.  
-Here is an example of a simple string:
+Coloque una cadena de iframe en el código HTML de una página web.  
+Aquí hay un ejemplo de una cadena simple:
 
-```HTL
+```html
 <iframe src="<url>" style="width: 600px;height: 450px;"></iframe>
 ```
 
-the url must follow the format:  
-`https://<yourCRM.domain>/<language_code>/contact-form/<uuid>/`
-where uuid is the value of the "UUID" field of the selected "Lead Source."
+La url debe seguir el formato:  
+`https://<suCRM.dominio>/<código_idioma>/contact-form/<uuid>/`
+donde uuid es el valor del campo "UUID" de la "Fuente de Lead" seleccionada.
 
-#### Activate form protection with Google's reCAPTCHA v3
+#### Activar la protección del formulario con reCAPTCHA v3 de Google
 
-CRM form has built-in reCAPTCHA v3 protection.  
-To activate it, specify the values of keys received during registration on this service:  
-`GOOGLE_RECAPTCHA_SITE_KEY = ''<your site key>"`  
-`GOOGLE_RECAPTCHA_SECRET_KEY = ''<your secret key>"`
+El formulario de CRM tiene protección integrada con reCAPTCHA v3.  
+Para activarla, especifique los valores de las claves recibidas durante el registro en este servicio:  
+`GOOGLE_RECAPTCHA_SITE_KEY = ''<su clave del sitio>"`  
+`GOOGLE_RECAPTCHA_SECRET_KEY = ''<su clave secreta>"`
 
-#### Activation of geolocation of the country and city of the counterparty by its IP
+#### Activación de la geolocalización del país y la ciudad de la contraparte por su IP
 
-CRM form has a built-in ability to geolocate the country and city of the counterparty (site visitor) by its IP.  For this purpose, the GeoIP2 module is used.  
-To activate its work:
+El formulario de CRM tiene la capacidad integrada de geo localizar el país y la ciudad de la contraparte (visitante del sitio) por su IP. Para este propósito, se utiliza el módulo GeoIP2.  
+Para activar su funcionamiento:
 
-- save the [MaxMind](https://dev.maxmind.com/geoip/docs/databases) files of the city and country databases (GeoLite2-Country.mmdb and GeoLite2-City.mmdb) to the media/geodb directory;
-- set GEOIP = True in the file
+- guarde los archivos de las bases de datos de la ciudad y el país de [MaxMind](https://dev.maxmind.com/geoip/docs/databases) (GeoLite2-Country.mmdb y GeoLite2-City.mmdb) en el directorio media/geodb;
+- establezca GEOIP = True en el archivo
 
-#### Adding a custom form for the iframe
+#### Agregar un formulario personalizado para iframe
 
-You can change the style of a preset form or add forms with different styles to fit on different pages of the site or on different sites.  
-To add a new form, place the HTML template for that form and the successful form submission message template at the following location:  
+Puede cambiar el estilo de un formulario preestablecido o agregar formularios con diferentes estilos para que se ajusten a diferentes páginas del sitio o a diferentes sitios.  
+Para agregar un nuevo formulario, coloque la plantilla HTML para ese formulario y la plantilla del mensaje de éxito de envío del formulario en la siguiente ubicación:  
 `<crmproject>/crm/templates/crm/`
 
-Save the names of these files in the "Form template name" and "Success page template name" fields of the selected "Lead Source" in the following format:  
- `"crm/<file name>.html"`
+Guarde los nombres de estos archivos en los campos "Nombre de la plantilla del formulario" y "Nombre de la plantilla de la página de éxito" de la "Fuente de Lead" seleccionada en el siguiente formato:  
+ `"crm/<nombre del archivo>.html"`
 
-## Setting up email accounts
+## Configuración de cuentas de correo electrónico
 
-`(ADMIN site) Home > Mass mail > Email Accounts`
+`(ADMIN) Inicio > Mass mail > Cuentas de correo electrónico`
 
-Mail accounts must be set up for users with the roles "Operator", "Super Operator" and "Manager" (Sales Manager).
-This will allow the following to be realized:
+Las cuentas de correo deben configurarse para los usuarios con los roles "Operador", "Superoperador" y "Gerente" (Gerente de Ventas).
+Esto permitirá realizar lo siguiente:
 
-- Users will be able to send emails from CRM through their email account.
-- CRM will have access to the user's account and will be able to import and link to Deals letters sent not from CRM (if there is a corresponding ticket in the letters).
-- Users will be able to import requests from email into CRM.
-- When performing a newsletter, CRM will be able to send emails through the user's account on the user's behalf.
+- Los usuarios podrán enviar correos electrónicos desde CRM a través de su cuenta de correo electrónico.
+- CRM tendrá acceso a la cuenta del usuario y podrá importar y vincular a Negociaciones cartas enviadas no desde CRM (si hay un ticket correspondiente en las cartas).
+- Los usuarios podrán importar solicitudes desde el correo electrónico a CRM.
+- Al realizar un boletín, CRM podrá enviar correos electrónicos a través de la cuenta del usuario en nombre del usuario.
 
-### Fields
+### Campos
 
-#### "Main"
+#### "Principal"
 
-One user can have several accounts, but sending work emails from CRM will be done only through the account marked as "Main".
+Un usuario puede tener varias cuentas, pero el envío de correos electrónicos de trabajo desde CRM se realizará solo a través de la cuenta marcada como "Principal".
 
 #### "Massmail"
 
-Mass mailing can be sent through all accounts marked "Massmail".
+El envío masivo de correos electrónicos se puede realizar a través de todas las cuentas marcadas como "Massmail".
 
-#### "Do import"
+#### "Importar"
 
-The mark "Do import" should be made for accounts through which managers conduct business correspondence or for accounts specified on the company's website, as they may receive requests from customers.
+La marca "Importar" debe hacerse para las cuentas a través de las cuales los gerentes realizan correspondencia comercial o para las cuentas especificadas en el sitio web de la empresa, ya que pueden recibir solicitudes de clientes.
 
-#### "Email app password"
+#### "Contraseña de la aplicación de correo electrónico"
 
-The "Email app password" field value is specified for those accounts where you can set a password for applications.  In this case, CRM will use it when logging in to the user account.
+El valor del campo "Contraseña de la aplicación de correo electrónico" se especifica para aquellas cuentas donde puede establecerse una contraseña para aplicaciones. En este caso, CRM la utilizará al iniciar sesión en la cuenta del usuario.
 
-#### Section "Service information"
+#### Sección "Información del servicio"
 
-This section displays statistics and service information of CRM activity in this account.
+Esta sección muestra estadísticas e información del servicio de la actividad de CRM en esta cuenta.
 
-#### Section "Additional information"
+#### Sección "Información adicional"
 
-Here you need to specify the account owner and its department.  
-The other fields are described in detail in the "[Settings](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-EMAIL_HOST)" section of Django documentation.
+Aquí debe especificar el propietario de la cuenta y su departamento.  
+Los otros campos se describen en detalle en la sección "[Configuración](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-EMAIL_HOST)" de la documentación de Django.
 
-## IMAP4 protocol client
+## Cliente del protocolo IMAP4
 
-Django CRM uses an IMAP4 protocol client to allow users to view, import and delete emails in their email account.  
-Unfortunately, the operation of the IMAP4 client depends on the mail service. Because not all email services strictly adhere to the IMAP4 protocol.  
-In some cases, changing CRM settings will not help. You need to either make changes to the code or change the service provider. For example, if the service does not support IMAP4 or only supports some commands.
+Django CRM utiliza un cliente del protocolo IMAP4 para permitir a los usuarios ver, importar y eliminar correos electrónicos en su cuenta de correo electrónico.  
+Desafortunadamente, el funcionamiento del cliente IMAP4 depende del servicio de correo. Porque no todos los servicios de correo electrónico cumplen estrictamente con el protocolo IMAP4.  
+En algunos casos, cambiar la configuración de CRM no ayudará. Necesita hacer cambios en el código o cambiar el proveedor de servicios. Por ejemplo, si el servicio no admite IMAP4 o solo admite algunos comandos.
 
-CRM settings related to IMAP4 client operation are in the file:  
+Las configuraciones de CRM relacionadas con el funcionamiento del cliente IMAP4 están en el archivo:  
 `<crmproject>/crm/settings.py`  
-In most cases, they do not need to be changed.
+En la mayoría de los casos, no necesitan ser cambiadas.
 
-## Configuring two-step OAuth 2.0 authentication
+## Configuración de la autenticación de dos pasos OAuth 2.0
 
-In some cases, to access the CRM to the Gmail account, you will need to configure in the Gmail account access for third-party applications and once pass two-factor authentication.
-The procedure is not simple. Therefore, first, make sure that without its passage, CRM will really not get access to your account.  
-Google APIs use the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749) for authentication and authorization.
-Visit the [Google API Console](https://console.developers.google.com/). Create "OAuth 2.0 Client IDs" settings
- for "Web application" to specify the Authorized redirect URI in the format:  
- `https://<yourCRM.domain>/OAuth-2/authorize/?user=<box_name>@gmail.com`
+En algunos casos, para acceder al CRM desde la cuenta de Gmail, será necesario configurar en la cuenta de Gmail el acceso para aplicaciones de terceros y pasar una vez la autenticación de dos factores.
+El procedimiento no es sencillo. Por lo tanto, primero asegúrese de que sin su paso, el CRM realmente no tendrá acceso a su cuenta.  
+Las API de Google utilizan el [protocolo OAuth 2.0](https://tools.ietf.org/html/rfc6749) para la autenticación y autorización.
+Visite la [Consola de API de Google](https://console.developers.google.com/). Cree configuraciones de "ID de cliente OAuth 2.0" para "Aplicación web" para especificar el URI de redirección autorizado en el formato:  
+ `https://<suCRM.dominio>/OAuth-2/authorize/?user=<nombre_caja>@gmail.com`
 
-And also get the credentials OAuth 2.0 "CLIENT_ID" and "CLIENT_SECRET". Save them in the project settings  
+Y también obtenga las credenciales OAuth 2.0 "CLIENT_ID" y "CLIENT_SECRET". Guárdelas en la configuración del proyecto  
 `<crmproject>/webcrm/settings.py`
 
-Then on the desired "Email Account" page  
- `(ADMIN site) Home > Mass mail > Email Accounts`  
-In the upper right corner, click the button "Get or update a refresh token".  
-CRM will open the authorization page. After successful authorization, the "Refresh token" value will be received and CRM will get access to this account.  
-Please note that to receive a refresh token, the CRM must be running on a server that supports the HTTPS scheme.  
-The refresh token can also be obtained separately from the CRM, for example, using curl.
+Luego, en la página deseada de "Cuenta de correo electrónico"  
+ `(ADMIN) Inicio > Correo masivo > Cuentas de correo electrónico`  
+En la esquina superior derecha, haga clic en el botón "Obtener o actualizar un token de actualización".  
+El CRM abrirá la página de autorización. Después de la autorización exitosa, se recibirá el valor del "token de actualización" y el CRM obtendrá acceso a esta cuenta.  
+Tenga en cuenta que para recibir un token de actualización, el CRM debe estar ejecutándose en un servidor que soporte el esquema HTTPS.  
+El token de actualización también se puede obtener por separado del CRM, por ejemplo, usando curl.
 
-## Company product categories
+## Categorías de productos de la empresa
 
-Add categories of your company's products, goods or services.  
-`(ADMIN site) Home > Crm > Product categories`
+Agregue categorías de los productos, bienes o servicios de su empresa.  
+`(ADMIN) Inicio > Crm > Categorías de productos`
 
-## Company products
+## Productos de la empresa
 
-Add your company's products, services or goods
-(this can be done later by sales managers).  
-`(ADMIN site) Home > Crm > Products`
+Agregue los productos, servicios o bienes de su empresa
+(esto puede hacerse más tarde por los gerentes de ventas).  
+`(ADMIN) Inicio > Crm > Productos`
 
-## Currencies
+## Monedas
 
-Since CRM uses currencies for marketing purposes, users can change the exchange rates themselves.  
-But it is also possible to configure CRM to automatically receive accurate exchange rates from a bank or other service in your country.  
-To do this, you need to create a backend file, put it in the directory  
+Dado que el CRM utiliza monedas para fines de marketing, los usuarios pueden cambiar las tasas de cambio ellos mismos.  
+Pero también es posible configurar el CRM para recibir automáticamente tasas de cambio precisas de un banco u otro servicio en su país.  
+Para hacer esto, necesita crear un archivo backend, colocarlo en el directorio  
 `crm/backends`  
-You can use already existing backends as a basis.  
-Then in the settings file, specify the name of the backend class in the setting  
+Puede usar backends ya existentes como base.  
+Luego, en el archivo de configuración, especifique el nombre de la clase backend en la configuración  
 `LOAD_RATE_BACKEND`
 
-## Mailing
+## Boletín informativo
 
-The Massmail app in Django CRM lets you send newsletters to contacts, leads, and companies from within the CRM.  
-You need:
+La aplicación **Massmail** en Django CRM te permite enviar boletines a contactos, oportunidades y empresas directamente desde el CRM.
+Necesitas:
 
-* Recipients in the CRM
-* [Email accounts](#setting-up-email-accounts) configured for sales managers (marked "Massmail")
+* Destinatarios dentro del CRM
+* [Cuentas de correo electrónico](#setting-up-email-accounts) configuradas para los gestores de ventas (marcadas como "Massmail")
 
-Mailings from the **main** sales manager account are only sent to **VIP recipients** to avoid spam filters. Mark VIPs via the Action menu on contact, company, or lead pages. For others, use additional accounts.
+Los envíos desde la cuenta del **gestor de ventas principal** se envían solo a **destinatarios VIP** para evitar los filtros de spam. Marca como VIP a los destinatarios desde el menú de **Acciones** en las páginas de contacto, empresa u oportunidad. Para los demás destinatarios, utiliza cuentas de correo adicionales.
 
-### Settings
+### Configuración
 
-`(ADMIN site) Home > Settings > Massmail Settings`
+`(Sitio ADMIN) Inicio > Configuración > Configuración de Massmail`
 
-> [!NOTE]
-> Changed in Django CRM 1.4.0:  
-> The settings have been moved from the `settings.py` file to the Admin web UI.
+> [!NOTA]
+> Cambiado en Django CRM 1.4.0:
+> La configuración se ha trasladado del archivo `settings.py` a la interfaz web de administración.
 
-**Business Hours Sending:**
-To restrict mailings to business hours (and exclude Friday through Sunday), select `Use business time` check box.
+**Envío en Horario Laboral:**
+Para limitar los envíos al horario laboral (excluyendo de viernes a domingo), marque la casilla `Usar horario laboral`.
 
-**Unsubscribe Option:**
+**Opción de Cancelar Suscripción:**
 
-* Create an "unsubscribed successful" page on your company website (not the CRM site!).
-* Enter its URL in the field: `URL to unsubscribe`.
-* Include an **UNSUBSCRIBE** link button in each message template with `unsubscribe_url` tag - `href="{{ unsubscribe_url }}"`.
+* Cree una página de “cancelación de suscripción exitosa” en el sitio web de su empresa (¡no en el sitio del CRM!).
+* Ingrese su URL en el campo: `URL para cancelar suscripción`.
+* Incluya un botón de enlace **CANCELAR SUSCRIPCIÓN** en cada plantilla de mensaje con la etiqueta `unsubscribe_url` – `href="{{ unsubscribe_url }}"`.
 
-### Creating a Mailing
+### Crear un Mailing
 
-1. **Quick method:** Select recipients (e.g., on company list page), then use the Action menu.
-2. **Detailed method:** Use **Make Massmail** button, applying filters — best for large lists.
+1. **Método rápido:** Selecciona los destinatarios (por ejemplo, en la página de lista de empresas), luego usa el menú de **Acciones**.
+2. **Método detallado:** Usa el botón **Make Massmail**, aplicando filtros — ideal para listas grandes.
 
-Prepare the message and optional signature beforehand.  
-Mailing progress is shown on the mailing list page (refresh to update).
+Prepara el mensaje y la firma opcional con anticipación.
+El progreso del mailing se muestra en la página de lista de envíos (actualiza para ver cambios).
 
-> [!NOTE]
-> The sales manager can send out mailings only to the recipients assigned to him and only through the mail accounts assigned to him.
+> [!NOTA]
+> El gestor de ventas solo puede enviar mailings a los destinatarios asignados a él y solo usando las cuentas de correo que tenga asignadas.
 
-**Handling Replies:**
-Only emails tied to Requests or Deals (with a ticket) are auto-imported.  
-If a reply to a mailing is a commercial request, import it using the button on the Requests page. Future replies will import automatically.
+**Gestión de respuestas:**
+Solo los correos relacionados con Solicitudes o Negociaciones (con ticket) se importan automáticamente.
+Si una respuesta a un mailing es una solicitud comercial, impórtala usando el botón en la página de **Solicitudes**. Las futuras respuestas se importarán automáticamente.
 
-**Important:** Do not use this app for spam!
+**Importante:** ¡No uses esta aplicación para hacer spam!
 
-## VoIP telephony
+## Telefonía VoIP
 
-A properly configured application allows you to make calls directly from Django CRM.
-This application allows you to integrate CRM with the services of VoIP provider ZADARMA.  But it can also be used to create integration files with other providers.
+Una aplicación configurada correctamente le permite hacer llamadas directamente desde Django CRM.
+Esta aplicación le permite integrar el CRM con los servicios del proveedor de VoIP ZADARMA. Pero también se puede usar para crear archivos de integración con otros proveedores.
 
-It is necessary to receive from the provider (zadarma.com) and to specify in `voip/settings.py` file the following values: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
-FORWARD settings are specified independently, but only if you have a second instance of working CRM (for example, for a subsidiary company).
+Es necesario recibir del proveedor (zadarma.com) y especificar en el archivo voip/settings.py los siguientes valores: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
+Las configuraciones de FORWARD se especifican de forma independiente, pero solo si tiene una segunda instancia de CRM en funcionamiento (por ejemplo, para una empresa subsidiaria).
 
-Then add Connections objects for users in the  
- `(ADMIN site) Home > Voip > Connections`
+Luego agregue objetos de Conexiones para los usuarios en  
+ `(ADMIN) Inicio > Voip > Conexiones`
 
-To connect to a different provider, you must create new files for its
-backend (`voip/backends`) and (`voip/views`).  
-And also add provider data to the VOIP list in the file  
+Para conectarse a un proveedor diferente, debe crear nuevos archivos para su backend (voip/backends) y (voip/views).  
+Y también agregar los datos del proveedor a la lista VOIP en el archivo  
 `voip/settings.py`
 
-## CRM integration with messengers
+## Integración del CRM con mensajeros
 
-Django CRM has the ability to send messages via messengers.  Such as  
-Viber, WhatsApp. To do this, these applications must be installed on the user's device.
+Django CRM tiene la capacidad de enviar mensajes a través de mensajeros. Tales como  
+Viber, WhatsApp. Para hacer esto, estas aplicaciones deben estar instaladas en el dispositivo del usuario.
+
+---
+**Por favor, lea [la guía del usuario de Django-CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md).**
