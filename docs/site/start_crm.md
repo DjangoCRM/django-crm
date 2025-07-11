@@ -23,6 +23,12 @@ For example:
 python manage.py runserver 1.2.3.4:8000
 ```
 
+You may encounter log messages such as:  
+`Another instance is already running, quitting.`  
+This behavior is expected and requires no intervention.  
+Django CRM operates as a web application where the server may spawn multiple worker processes to handle concurrent tasks. However, certain internal services within the CRM are designed to run as a single instance to maintain data integrity or avoid conflicts. To enforce this, duplicate instances of these services are automatically detected and terminated during startup.
+
+
 ## Access to CRM and admin sites
 
 Now you have two websites.  
