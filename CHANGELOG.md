@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased 
+## [1.5.0] - 2025-07-12
 
 ### Added
 
@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added a delay to ensure Django starts before executing massmail and avoid a RuntimeWarning.
 - Added distinct() to `get_queryset` in MemoAdmin to eliminate duplicate results.
+
+#### Full Changelog: [v1.4.0...v1.5.0](https://github.com/DjangoCRM/django-crm/compare/v1.4.0...v1.5.0)
 
 ## [1.4.0] - 2025-06-21
 
