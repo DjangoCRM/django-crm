@@ -20,8 +20,13 @@
 
 **Django-CRM** is an open-source CRM solution designed with **two primary goals**:
 
-- **For users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
-- **For developers**: Simplify the processes of development, customization, and production server support.
+- **For end users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
+- **For maintainers and developers**: Significantly simplify the:
+
+  - Customization of the application
+  - Set up and maintain a production environment
+  - Development of new features and integrations
+
 
 **No need to learn a proprietary framework**: everything is built using the popular Django framework.  
 CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
