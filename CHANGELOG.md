@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added visualization of mailing messages:
   - on the list page of these messages
   - on mailing list page
+- The site for administrators has been expanded to provide access to logs of user actions on CRM objects. In addition to searching and filtering by many parameters, this allows administrators to see the history of all objects, including deleted ones.
 - Added the URL of the page "you have unsubscribed successfully" to the context of the preview of messages for the mailing.
 - The ability to rewrite the date and time format for a more compact data presentation.  
   This can be done in the `webcrm/datetime_settings.py` file.
