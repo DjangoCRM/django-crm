@@ -1,7 +1,6 @@
-
 ## Working in the TASKS section (for all users)
 
-In this section, users can work with office memos, tasks, and projects (collections of tasks).  
+[CRM task management](https://djangocrm.github.io/info/features/tasks-app-features/){target="_blank"} allows users to work with office memos, tasks, and projects (collections of tasks).  
 Participating users receive notifications about all events in [CRM application](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} and by email.  
 !!! Important
     Only users specified in them in any role and company managers have access to specific memos, tasks, and projects.
