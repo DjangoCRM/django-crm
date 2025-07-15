@@ -147,7 +147,7 @@ Customer segmentation features allow you to create targeted email marketing camp
 
 ## Elevate Your Team's Productivity with Collaborative CRM Solutions
 
-This CRM is designed to enhance collaboration within teams and streamline project management processes.  
+The [CRM Task management](https://djangocrm.github.io/info/features/tasks-app-features/) is designed to enhance collaboration within teams and streamline project management processes.  
 As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease.  
 [Office memos](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md) can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors.  
 [Tasks](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) can be individual or collective.  
