@@ -33,7 +33,8 @@ class DepartmentAdmin(admin.ModelAdmin):
 
 
 class LogEntrytAdmin(admin.ModelAdmin):
-    list_display = ("__str__", "user", "content_type", 'object_id')
+    list_display = ("__str__", "user", "content_type",
+                    "action_time", 'object_id')
     list_display_links = ("__str__",)
     list_filter = ('action_flag', 'action_time', 'user', 'content_type')
     search_fields = ('change_message',)
@@ -43,7 +44,11 @@ class LogEntrytAdmin(admin.ModelAdmin):
             st = " ".join(search_term.splitlines()).strip()
             if re.match(r"^[iI][dD]\s*\d+$", st):
                 return self.model.objects.filter(Q(object_id=st[2:]) | Q(id=st[2:])), True
-            return queryset.filter(change_message__contains=search_term), True
+            ids = []
+            for obj in queryset.iterator():
+                if obj.get_change_message().find(search_term) != -1:
+                    ids.append(obj.id)
+            return queryset.filter(id__in=ids), True
         return super().get_search_results(request, queryset, search_term)
 
     def has_add_permission(self, request, obj=None):
@@ -121,7 +126,8 @@ class TheFileForm(ModelForm):
 
 class TheFileAdmin(admin.ModelAdmin):
     form = TheFileForm
-    list_display = ('id', 'content_type', 'object_id', 'to_object', 'file_name')
+    list_display = ('id', 'content_type', 'object_id',
+                    'to_object', 'file_name')
     search_fields = ('id', 'object_id', 'file')
     list_filter = ('content_type',)
     read_only = ('file_url', 'to_object')
