@@ -67,6 +67,12 @@ To comply with email marketing standards, every message should include an unsubs
 
 For detailed usage instructions, see the [official documentation](https://django-crm-admin.readthedocs.io/en/latest/newsletter_mailing).
 
+## Related core modules
+
+- [CRM module](https://github.com/DjangoCRM/django-crm/blob/main/crm/README.md)
+- [Analitics module](https://github.com/DjangoCRM/django-crm/blob/main/analytics/README.md)
+- [Tasks module](https://github.com/DjangoCRM/django-crm/blob/main/tasks/README.md)
+
 ---
 
 Massmail makes Django CRM a complete CRM and email marketing software solution, ready to power your business communications and campaigns.
