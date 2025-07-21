@@ -46,7 +46,7 @@ Learn more about [the software's capabilities](https://github.com/DjangoCRM/djan
 
 Django CRM is an open-source client relationship management software.  
 This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: bottom" alt="python logo" width="25" height="25"> Python</a>.  
-Frontend and backend are entirely based on the [Django Admin site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/).  
+Frontend and backend are entirely based on the <a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/" target="_blank">Django Admin site</a>.  
 CRM app uses adaptive Admin HTML templates out-of-the-box.  
 Django is an excellently documented framework with lots of examples.  
 The documentation on the Admin site takes up only one web page.
@@ -94,7 +94,7 @@ The CRM software suite consists of the following **main applications** and their
   - Sales funnel report
   - Lead source Summary report
   - ... (+ *5 more analytical reports*)
-- **MASS MAIL app**:
+- **MASS MAIL app** ([Email Marketing Software](https://github.com/DjangoCRM/django-crm/blob/main/massmail/README.md)):
   - Email Accounts
   - Email Messages (newsletters)
   - Email Signatures (user signatures)
@@ -179,7 +179,7 @@ Django-CRM can be easily deployed as a regular Django project.
 
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
-- or visit [Read The Docs](https://django-crm-admin.readthedocs.io)
+- or visit <a href="https://django-crm-admin.readthedocs.io" target="_blank">Read The Docs</a>
 - For unreleased changes, see [CHANGELOG](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
 
 If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
@@ -203,6 +203,6 @@ Django-CRM is released under the AGPL-3.0 license - see the [LICENSE](https://gi
 
 ## Credits
 
-- Google material [icons](https://fonts.google.com/icons).
-- [NicEdit](https://nicedit.com) - WYSIWYG Content Editor.
+- Google material <a href="https://fonts.google.com/icons" target="_blank">icons</a>.
+- <a href="https://nicedit.com" target="_blank">NicEdit</a> - WYSIWYG Content Editor.
 - All resources used under other licenses.
