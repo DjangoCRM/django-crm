@@ -27,5 +27,7 @@ def message_preview(request, message_id):
         }
     )
     template = Template(content)
-
-    return HttpResponse(template.render(context)) 
+    try:
+        return HttpResponse(template.render(context))
+    except Exception as e:
+        return HttpResponse(str(e))
