@@ -29,5 +29,7 @@ def message_preview(request, message_id):
     template = Template(content)
     try:
         return HttpResponse(template.render(context))
-    except Exception as e:
-        return HttpResponse(str(e))
+    except FileNotFoundError:
+        return HttpResponse("[Errno 2] No file or directory.")
+    except Exception:
+        return HttpResponse("Error rendering template.")
