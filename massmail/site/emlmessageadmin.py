@@ -121,15 +121,14 @@ class EmlMessageAdmin(CrmModelAdmin):
         'var(--body-quiet-color)">subject</i>'
     ), ordering='subject')
     def display_preview(self, obj):
-        content = get_rendered_msg(obj)
         style = (
-            'max-height: 200px; '
-            'overflow: auto;'
-            "max-width:500px;"
-            "overflow-x: hidden;"
+            'height: 300px; '
+            "width:300px;"
         )
+        url = reverse("message_preview", args=[obj.id])
         return mark_safe(
-            f'<div class="emlmessage-scroll" style="{style}">{content}</div>'
+            f'<div>{obj.subject}</div>'
+            f'<iframe  style="{style}" loading="lazy" src="{url}"></iframe>'
         )
     
     @admin.display(description=_("Message"))
