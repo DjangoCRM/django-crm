@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib import messages
 from django.template.defaultfilters import linebreaksbr
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
@@ -149,16 +150,15 @@ class MailingOutAdmin(CrmModelAdmin):
         'var(--body-quiet-color)">subject</i>'
     ), ordering='name')
     def display_preview(obj):
-        msg = obj.message
-        if msg:
-            content = get_rendered_msg(msg)
+        if obj.message:
             style = (
-                "overflow:auto; "
-                "max-height:300px; "
-                "max-width:300px;"
+                'height: 300px; '
+                "width:300px;"
             )
+            url = reverse("message_preview", args=[obj.message_id])
             return mark_safe(
-                f'<div class="mailingout-scroll" style="{style}">{content}</div>'
+                f'<div>{obj.message.subject}</div>'
+                f'<iframe  style="{style}" loading="lazy" src="{url}"></iframe>'
             )
         return obj.name
 
