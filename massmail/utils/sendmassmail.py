@@ -12,6 +12,7 @@ from smtplib import SMTPSenderRefused
 from tendo.singleton import SingleInstance
 from typing import Optional
 from typing import Union
+from django.apps import apps
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
@@ -50,7 +51,8 @@ class SendMassmail(threading.Thread, SingleInstance):
             SingleInstance.__init__(self, flavor_id='Massmail')
 
     def run(self):
-        time.sleep(0.01)  # wait for django to start
+        while not apps.ready:
+            time.sleep(0.01)  # wait for django to start
         massmail_settings = MassmailSettings.objects.get(id=1)
         if not settings.MAILING or settings.TESTING:
             return
