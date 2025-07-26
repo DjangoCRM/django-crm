@@ -8,6 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Fixed
+
+- Fixed rendering of change list pages for mailings and messages if the HTML code of some messages contains errors.
+
+### Improve
+
+- LogEntrytAdmin:
+  - improve search functionality
+  - add `action_time` to `list_display`
+
+### Added
+
+- Add error handling to `message_preview` view
+
+### Changed
+
+- Set X_FRAME_OPTIONS to SAMEORIGIN for allow massmail message preview in iframe.
+
 ## [1.5.0] - 2025-07-12
 
 ### Added
