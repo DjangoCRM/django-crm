@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.5.1] - 2025-07-27
 
 ### Fixed
 
@@ -27,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Set X_FRAME_OPTIONS to SAMEORIGIN for allow massmail message preview in iframe.
+
+#### Full Changelog: [v1.5.0...v1.5.1](https://github.com/DjangoCRM/django-crm/compare/v1.5.0...v1.5.1)
 
 ## [1.5.0] - 2025-07-12
 
