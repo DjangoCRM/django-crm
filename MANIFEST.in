@@ -8,6 +8,7 @@ recursive-include **/fixtures *
 recursive-include **/static *
 recursive-include **/templates *
 recursive-include locale/**/django.mo
+recursive-exclude static/admin/rosetta *
 global-exclude .gitignore
 exclude webcrm/local*.py
 prune **/__pycache__
