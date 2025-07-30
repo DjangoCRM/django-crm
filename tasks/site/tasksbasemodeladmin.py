@@ -632,12 +632,14 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
     return obj_modified
 
 
-def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project]):
-
+def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project]) -> None:
+    """Notify participants about the task or project closure."""
     recipient_list = []
+    responsible = None
     if obj.__class__ == Task:
         if obj.task:
             task_is_closed = subtask_is_closed_str
+            responsible = obj.responsible.first()
         else:
             task_is_closed = TASK_IS_CLOSED_str
     else:
@@ -650,7 +652,7 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         users.append(obj.owner)
     if obj.co_owner and obj.co_owner != request.user:
         users.append(obj.co_owner)
-    
+
     for u in users:
         trans_msg = get_trans_for_user(task_is_closed, u)
         msg = compose_message(obj, trans_msg)
@@ -660,4 +662,4 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         else:
             notify_admins_no_email(u)
     if recipient_list:
-        email_to_participants(obj, task_is_closed, recipient_list)
+        email_to_participants(obj, task_is_closed, recipient_list, responsible=responsible)
