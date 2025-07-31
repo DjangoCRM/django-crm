@@ -21,7 +21,8 @@ def email_to_participants(obj, subject: str, recipient_list: List[User],
         code = user.profile.language_code   # NOQA
         with override(code):
             if not composed_subject:
-                composed_subject = compose_subject(obj, _(subject))
+                composed_subject = compose_subject(
+                    obj, _(subject), responsible)
             html_message = template.render(context)
         temp_list = []
         while recipient_list:
