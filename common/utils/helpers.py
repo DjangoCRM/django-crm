@@ -3,6 +3,7 @@ from datetime import timedelta
 from django.apps import apps
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.core.handlers.wsgi import WSGIRequest
 from django.core.mail import mail_admins
@@ -83,7 +84,7 @@ def annotate_chat(request: WSGIRequest, queryset: QuerySet) -> QuerySet:
 
 
 def get_active_users() -> QuerySet:
-    return USER_MODEL.objects.exclude(
+    return User.objects.exclude(
         Q(is_active=False) |
         Q(is_staff=False)
     )
@@ -185,11 +186,25 @@ def compose_message(obj, message: str) -> SafeString:
     return msg
 
 
-def compose_subject(obj, message) -> str:
+def compose_subject(obj, message: str, user: User =None) -> str:
+    """Compose a subject for CRM emails.
+    This function creates a subject line that includes the object name,
+    a message, and optionally the username of the responsible user.
+    Args:
+        obj (Task, Project, Memo): Object for which the subject is composed.
+        message (str): Main message for the subject.
+        user (auth.User, optional): Defaults to None.
+
+    Returns:
+        str: Composed subject line.
+    """
     obj_name = get_obj_name(obj)
     obj_name = " ".join(obj_name.splitlines())
     obj_name = truncatechars(obj_name, 90)
-    subject = f"CRM: {message} - {obj_name}"
+    if user:
+        subject = f"CRM: {message} ({user.username}) - {obj_name}"
+    else:
+        subject = f"CRM: {message} - {obj_name}"
     return subject
 
 
