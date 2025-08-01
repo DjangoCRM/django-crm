@@ -20,11 +20,11 @@
         position: relative;
         background-color: var(--primary);
         height: 60px;
-        margin: 0 auto;
+        margin: 2px auto;
     }
-   
     .bar-chart .bar:hover {
         background-color: var(--secondary);
+        color: var(--accent);
     }
     .bar-chart .bar .bar-tooltip {
         position: relative;
@@ -46,24 +46,14 @@
     </style>
      
 <div class="results">
-    <h2>{% translate 'The number of closed deals in stages' %}:</h2>
-    <h3>{% translate 'Total closed deals' %}: {{ total }}</h3>
-
-    <br>
-	{% for n, v in summary.items %}
-    	<p>{{ n }} = {{ v }}</p>
-    {% endfor %}
-    <br>
+    <h2>{% translate 'Number of deals closed/lost at each stage.' %}</h2>
     <div class="results">
-	<h2>{% translate 'Chart' %}</h2>
-	<h3>{% translate 'The percentages show the number of "lost" deals at each stage.' %}</h3>
         <div class="bar-chart">
         {% for x in sales_funnel %}
             <div class="bar" style="width:{{x.pct}}%">
                 <div class="bar-tooltip">
-                    {{x.stage__name}}
-					<br>
-					{{ x.perc }}
+                    {{x.stage__name}}: {{ x.total}}<br>
+					{% if not forloop.last %}{{ x.perc }}{% endif %}
                 </div>
             </div>
         {% endfor %}

@@ -22,11 +22,7 @@ class SalesFunnelAdmin(AnlModelAdmin):
             active=False
         )
         amount = qs.count()
-        response.context_data['total'] = amount
         data = qs.values('stage__name').annotate(total=Count('id')).order_by('stage')
-        response.context_data['summary'] = {
-            **{x['stage__name']: x['total'] for x in data}
-        }
         high = amount_x = amount
         low = 9E10
         for x in data:
@@ -34,19 +30,20 @@ class SalesFunnelAdmin(AnlModelAdmin):
             perc = perc_x if perc_x != 100 else 0
             x['perc'] = f'-{perc}%'
             amount_x -= x['total']
-            x['total'] = amount_x if amount_x else x['total']
-            low = x['total'] if x['total'] < low else low
+            x['rest'] = amount_x if amount_x else x['total']
+            low = x['rest'] if x['rest'] < low else low
 
         data_list = list(data)
         data_list.insert(0, {
             'stage__name': _('Total closed deals'),
             'total': amount,
-            'perc': ''
+            'perc': '',
+            'rest': amount,
         })
         response.context_data['sales_funnel'] = [{
             'stage__name': x['stage__name'],
             'total': x['total'] or 2,
             'perc': x['perc'],
-            'pct': (int(round((x['total'] or 2)) / high * 100))
+            'pct': (int(round((x['rest'] or 2)) / high * 100))
             if high > low else 2,
         } for x in data_list]
