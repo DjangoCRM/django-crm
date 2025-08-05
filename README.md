@@ -27,11 +27,32 @@
   - Set up and maintain a production environment
   - Development of new features and integrations
 
-
 **No need to learn a proprietary framework**: everything is built using the popular Django framework.  
 CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
+
+## Why was Django CRM created?
+
+Many companies using SaaS CRM platforms (such as...  well, you know) face the following problems:
+
+- **High subscription costs** for features they barely use.
+- **Rigid workflows** that force teams to adapt their processes to the platform.
+- **Customizations that break** after vendor updates.
+- **Vendor lock-in**, making migrations painful and expensive.
+- Hidden costs for **integrations, consultants, and manual workarounds**.
+
+**Django CRM solves these issues by offering:**
+
+- **Open-source, free CRM software** — no licensing fees, no vendor lock-in.
+- **Full code ownership** — customize models, views, and business logic to match your exact workflow.
+- A **modular architecture** — create and add only the components you need.
+- Built on **Django/Python**, making integrations and extensions easy.
+- Stable customizations — you control when and how to update.
+
+⭐️ Star if you like it!
+
+---
 
 ## Customer Relationship Management Features
 
@@ -127,12 +148,8 @@ The CRM package also contains **supporting applications** such as:
 
 ## Email Client
 
-The Python CRM system includes a built-in email client that operates using **SMTP** and **IMAP** protocols.  
-This enables Django-CRM to automatically store copies of all correspondence related to each request and deal within its database.  
-The functionality ensures that even if communications occur through the user's external email account (outside the CRM).  
+Python CRM with email integration includes a built-in **email client** that works via **SMTP** and **IMAP** protocols with any email service provider (e.g. Gmail). It also supports two-step authentication using the **OAuth 2.0** protocol for third-party applications if required. This enables Django-CRM to automatically store copies of all correspondence related to each request and deal within its database. The functionality ensures that even if communications occur through the user's external email account (outside the CRM).  
 They are captured and organized within the system using a **ticketing mechanism**.
-
-The CRM can integrate with email service providers (like Gmail) that require mandatory two-step authentication (using the **OAuth 2.0** protocol) for third-party applications.
 
 ## Mailing CRM
 
