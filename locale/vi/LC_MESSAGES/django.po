@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-17 13:36+0300\n"
-"PO-Revision-Date: 2025-05-17 13:39+0300\n"
+"POT-Creation-Date: 2025-08-06 19:09+0300\n"
+"PO-Revision-Date: 2025-08-06 19:14+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Translated-Using: django-rosetta 0.10.1\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: analytics/apps.py:10
 msgid "Analytics"
@@ -315,8 +315,7 @@ msgstr "Yêu cầu theo tháng"
 msgid "Relevant requests"
 msgstr "Yêu cầu liên quan"
 
-#: analytics/site/salesfunnelsadmin.py:42
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+#: analytics/site/salesfunnelsadmin.py:38
 msgid "Total closed deals"
 msgstr "Tổng số giao dịch đã đóng"
 
@@ -342,16 +341,9 @@ msgid "Sales funnel for last 365 days"
 msgstr "Đường ống bán hàng trong 365 ngày qua"
 
 #: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
-msgid "The number of closed deals in stages"
-msgstr "Số lượng giao dịch đã đóng ở các giai đoạn"
-
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
-msgid "Chart"
-msgstr "Biểu đồ"
-
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
-msgid "The percentages show the number of \"lost\" deals at each stage."
-msgstr "Các phần trăm thể hiện số lượng \"giao dịch bị mất\" ở mỗi giai đoạn."
+#| msgid "The number of closed deals in stages"
+msgid "Number of deals closed/lost at each stage."
+msgstr "Số lượng giao dịch đã chốt/mất ở mỗi giai đoạn."
 
 #: analytics/templates/analytics/bar_chart.html:58
 #: analytics/templates/analytics/bar_chart_.html:51
@@ -401,7 +393,7 @@ msgstr "tin nhắn"
 
 #: chat/models.py:24 chat/templates/chat_buttons.html:3
 #: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
-#: massmail/site/emlmessageadmin.py:121
+#: massmail/site/emlmessageadmin.py:134 massmail/site/mailingoutadmin.py:181
 msgid "Message"
 msgstr "Tin nhắn"
 
@@ -430,29 +422,30 @@ msgstr "người điều hành nhiệm vụ"
 msgid "You received a message regarding - "
 msgstr "Bạn đã nhận được một tin nhắn liên quan đến -"
 
-#: chat/site/chatmessageadmin.py:94 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:282 crm/site/companyadmin.py:143
-#: crm/site/contactadmin.py:129 crm/site/dealadmin.py:277
-#: crm/site/leadadmin.py:152 crm/site/productadmin.py:18
-#: crm/site/requestadmin.py:98 crm/site/tagadmin.py:26 massmail/admin.py:37
-#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:176
+#: chat/site/chatmessageadmin.py:128 crm/admin.py:112 crm/admin.py:183
+#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
+#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
+#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:152
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:126
+#: crm/site/tagadmin.py:26 massmail/admin.py:36
+#: massmail/site/emlmessageadmin.py:78 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:190
 #: tasks/site/tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "Thông tin bổ sung"
 
-#: chat/site/chatmessageadmin.py:121 massmail/models/mailing_out.py:44
+#: chat/site/chatmessageadmin.py:141 massmail/models/mailing_out.py:44
 msgid "Recipients"
 msgstr "Người nhận"
 
-#: chat/site/chatmessageadmin.py:283
+#: chat/site/chatmessageadmin.py:282
 #: chat/templates/chat/chatmessage_email.html:12
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:6
 #: crm/templates/admin/crm/inline_emails.html:36
 msgid "reply"
 msgstr "Trả lời"
 
-#: chat/site/chatmessageadmin.py:293
+#: chat/site/chatmessageadmin.py:292
 msgid "Reply to"
 msgstr "Trả lời"
 
@@ -550,7 +543,7 @@ msgstr "Có tin nhắn chưa đọc"
 msgid "View chat messages"
 msgstr "Xem tin nhắn trò chuyện"
 
-#: common/admin.py:85
+#: common/admin.py:115
 msgid ""
 "You can specify the name of an existing file on the server along with the "
 "path instead of uploading it."
@@ -558,11 +551,11 @@ msgstr ""
 "Bạn có thể chỉ định tên của một tệp hiện có trên máy chủ cùng với đường dẫn "
 "thay vì tải lên nó."
 
-#: common/admin.py:195
+#: common/admin.py:226
 msgid "staff"
 msgstr "nhân viên"
 
-#: common/admin.py:201
+#: common/admin.py:232
 msgid "superuser"
 msgstr "siêu người dùng"
 
@@ -589,7 +582,7 @@ msgstr "Thêm lại bị chặn."
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
 #: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
-#: tasks/site/memoadmin.py:41
+#: tasks/site/memoadmin.py:42
 msgid "Department"
 msgstr "Phòng ban"
 
@@ -631,7 +624,6 @@ msgid "Subject"
 msgstr "Chủ đề"
 
 #: common/models.py:160
-#| msgid "Briefly what about is this reminder"
 msgid "Briefly, what is this reminder about?"
 msgstr "Tóm lại, lời nhắc nhở này nói về điều gì?"
 
@@ -822,7 +814,7 @@ msgstr "Lưu và xem"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:23
-#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/request/change_form_object_tools.html:38
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
@@ -837,7 +829,7 @@ msgstr "Lịch sử"
 #: common/templates/admin/common/userprofile/change_form_object_tools.html:8
 #: crm/templates/admin/crm/crmemail/stacked.html:14
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:25
-#: crm/templates/admin/crm/request/change_form_object_tools.html:39
+#: crm/templates/admin/crm/request/change_form_object_tools.html:40
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
 #: help/templates/admin/help/stacked.html:18
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
@@ -985,7 +977,7 @@ msgstr "Nhiệm vụ đã hoàn thành"
 msgid "I completed the task"
 msgstr "Tôi đã hoàn thành nhiệm vụ."
 
-#: common/templatetags/util.py:118 tasks/site/taskadmin.py:365
+#: common/templatetags/util.py:118 tasks/site/taskadmin.py:372
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Completed"
 msgstr "Hoàn thành"
@@ -995,31 +987,22 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "Tên đã được thêm vào để dịch. Vui lòng cập nhật các tệp po và mo."
 
-#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:36
+#: common/utils/helpers.py:27
 msgid "Copy"
 msgstr "Sao chép"
 
-#: common/utils/helpers.py:31
-#| msgid ""
-#| "Note massmail is not performed on the following days: Friday, Saturday, "
-#| "Sunday."
+#: common/utils/helpers.py:32
 msgid ""
 "Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
 "Sundays."
 msgstr ""
 "Lưu ý! Không gửi thư hàng loạt vào các ngày: Thứ sáu, Thứ bảy và Chủ Nhật."
 
-#: common/utils/helpers.py:33
+#: common/utils/helpers.py:34
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "{} với ID '{}' không tồn tại. Có lẽ nó đã bị xóa?"
 
-#: common/utils/helpers.py:36
-#| msgid ""
-#| "\n"
-#| "    Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
-#| "    You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.\n"
-#| "    "
+#: common/utils/helpers.py:37
 msgid ""
 "\n"
 "Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -1028,6 +1011,16 @@ msgstr ""
 "\n"
 "Sử dụng HTML. Để chỉ định địa chỉ của hình ảnh nhúng, hãy sử dụng {% cid_media ‘path/to/pic.png' %}.<br>\n"
 "Bạn có thể nhúng các tệp đã tải lên máy chủ CRM trong thư mục ‘media/pics/’.\n"
+
+#: common/utils/helpers.py:235
+#| msgid "Creation date"
+msgid "sort by creation date"
+msgstr "sắp xếp theo ngày tạo"
+
+#: common/utils/helpers.py:237
+#| msgid "Next step deadline"
+msgid "sort by next step date"
+msgstr "sắp xếp theo ngày bước tiếp theo"
 
 #: common/views/copy_department.py:48
 msgid "A new department has been created - {}. Please rename it."
@@ -1075,74 +1068,73 @@ msgstr "Thông tin liên hệ"
 msgid "Name"
 msgstr "Tên"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:248
+#: crm/admin.py:155 crm/site/dealadmin.py:298
 msgid "Contact info"
 msgstr "Thông tin liên hệ"
 
-#: crm/admin.py:176 crm/site/crmemailadmin.py:220 crm/site/dealadmin.py:269
-#: crm/site/requestadmin.py:89
+#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:117
 msgid "Relations"
 msgstr "Mối quan hệ"
 
-#: crm/forms/admin_forms.py:22
+#: crm/forms/admin_forms.py:24
 msgid "A country must be specified."
 msgstr "Phải chỉ định một quốc gia."
 
-#: crm/forms/admin_forms.py:23
+#: crm/forms/admin_forms.py:25
 msgid "Marketing currency already exists."
 msgstr "Tiền tệ tiếp thị đã tồn tại."
 
-#: crm/forms/admin_forms.py:24
+#: crm/forms/admin_forms.py:26
 msgid "State currency already exists."
 msgstr "Đồng tiền quốc gia đã tồn tại."
 
-#: crm/forms/admin_forms.py:25
+#: crm/forms/admin_forms.py:27
 msgid "Enter a valid alphabetic code."
 msgstr "Nhập mã chữ cái hợp lệ."
 
-#: crm/forms/admin_forms.py:26
+#: crm/forms/admin_forms.py:28
 msgid "The currency cannot be both state and marketing."
 msgstr ""
 "Tiền tệ không thể cùng lúc là cả tiền tệ nhà nước và tiền tệ thị trường."
 
-#: crm/forms/admin_forms.py:70
+#: crm/forms/admin_forms.py:72
 msgid "Not allowed address"
 msgstr "Địa chỉ không được phép"
 
-#: crm/forms/admin_forms.py:90
+#: crm/forms/admin_forms.py:92
 msgid "City does not match the country"
 msgstr "Thành phố không phù hợp với quốc gia"
 
-#: crm/forms/admin_forms.py:138
+#: crm/forms/admin_forms.py:150
 msgid "Such an object already exists"
 msgstr "Đối tượng như vậy đã tồn tại."
 
-#: crm/forms/admin_forms.py:164
+#: crm/forms/admin_forms.py:176
 msgid "Please fill in the field."
 msgstr "Vui lòng điền vào trường này."
 
-#: crm/forms/admin_forms.py:172
+#: crm/forms/admin_forms.py:184
 msgid "To convert, please fill in the fields below."
 msgstr "Để chuyển đổi, vui lòng điền vào các trường dưới đây."
 
-#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+#: crm/forms/admin_forms.py:219 crm/forms/admin_forms.py:220
 msgid "Specify the deal amount"
 msgstr "Chọn số tiền giao dịch"
 
-#: crm/forms/admin_forms.py:236
+#: crm/forms/admin_forms.py:248
 msgid "Contact does not match the company"
 msgstr "Thông tin liên hệ không phù hợp với công ty"
 
-#: crm/forms/admin_forms.py:241
+#: crm/forms/admin_forms.py:253
 msgid "Select only Contact or only Lead"
 msgstr "Chọn chỉ Liên hệ hoặc chỉ Dẫn đầu"
 
-#: crm/forms/admin_forms.py:246
+#: crm/forms/admin_forms.py:258
 msgid "Select only Company or only Lead"
 msgstr "Chọn chỉ Công ty hoặc chỉ Dẫn đầu"
 
-#: crm/forms/admin_forms.py:328
-#| msgid "That tag already exists."
+#: crm/forms/admin_forms.py:340
 msgid "Such a tag already exists."
 msgstr "Thẻ như vậy đã tồn tại."
 
@@ -1367,7 +1359,7 @@ msgid "Not supported by all mail services."
 msgstr "Không được hỗ trợ bởi tất cả các dịch vụ email."
 
 #: crm/models/crmemail.py:44 crm/models/deal.py:13 crm/models/request.py:77
-#: crm/site/shipmentadmin.py:272
+#: crm/site/shipmentadmin.py:275
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:27
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 #: crm/templates/admin/crm/request/change_form_object_tools.html:7
@@ -1387,7 +1379,7 @@ msgid "Contact"
 msgstr "Thông tin liên hệ"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:444
+#: crm/site/requestadmin.py:500
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1690,7 +1682,7 @@ msgstr "xác suất thấp"
 msgid "Payment status"
 msgstr "Trạng thái thanh toán"
 
-#: crm/models/payment.py:122 crm/site/shipmentadmin.py:248
+#: crm/models/payment.py:122 crm/site/shipmentadmin.py:251
 msgid "contract number"
 msgstr "số hợp đồng"
 
@@ -1778,7 +1770,7 @@ msgstr "Ngày nhận"
 msgid "Date of receipt of the request."
 msgstr "Ngày nhận yêu cầu."
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:672
+#: crm/models/request.py:107 crm/site/dealadmin.py:675
 msgid "Translation"
 msgstr "Dịch thuật"
 
@@ -2013,7 +2005,7 @@ msgid "Your Excel file"
 msgstr "Tệp Excel của bạn"
 
 #: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
-#: massmail/site/emlmessageadmin.py:133
+#: massmail/site/emlmessageadmin.py:138
 msgid "Signature"
 msgstr "Chữ ký"
 
@@ -2093,88 +2085,88 @@ msgstr "Phải chỉ định tiền tệ của quốc gia."
 msgid "Marketing currency must be specified."
 msgstr "Phải chỉ định loại tiền tệ tiếp thị."
 
-#: crm/site/dealadmin.py:52
+#: crm/site/dealadmin.py:53
 msgid "Closing date"
 msgstr "Ngày kết thúc"
 
-#: crm/site/dealadmin.py:58
+#: crm/site/dealadmin.py:59
 msgid "View Contact in new tab"
 msgstr "Xem thông tin liên hệ ở tab mới"
 
-#: crm/site/dealadmin.py:59
+#: crm/site/dealadmin.py:60
 msgid "View Company in new tab"
 msgstr "Xem Công ty trong tab mới"
 
-#: crm/site/dealadmin.py:62
+#: crm/site/dealadmin.py:63
 msgid "Deal counter"
 msgstr "Bộ đếm giao dịch"
 
-#: crm/site/dealadmin.py:63
+#: crm/site/dealadmin.py:64
 msgid "View Lead in new tab"
 msgstr "Xem Dẫn dắt trong tab mới"
 
-#: crm/site/dealadmin.py:64
+#: crm/site/dealadmin.py:65
 msgid "Unanswered email"
 msgstr "Email chưa được trả lời"
 
-#: crm/site/dealadmin.py:68
+#: crm/site/dealadmin.py:69
 msgid "Unread chat message"
 msgstr "Tin nhắn trò chuyện chưa đọc"
 
-#: crm/site/dealadmin.py:71
+#: crm/site/dealadmin.py:72
 msgid "Payment received"
 msgstr "Đã nhận thanh toán"
 
-#: crm/site/dealadmin.py:74
+#: crm/site/dealadmin.py:75
 msgid "Specify the date of shipment"
 msgstr "Chỉ định ngày vận chuyển"
 
-#: crm/site/dealadmin.py:77 crm/site/requestadmin.py:241
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:290
 msgid "Specify products"
 msgstr "Xác định sản phẩm"
 
-#: crm/site/dealadmin.py:80
+#: crm/site/dealadmin.py:81
 msgid "Expired shipment date"
 msgstr "Ngày vận chuyển đã hết hạn"
 
-#: crm/site/dealadmin.py:87
+#: crm/site/dealadmin.py:88
 msgid "Relevant deal"
 msgstr "Giao dịch liên quan"
 
-#: crm/site/dealadmin.py:159
+#: crm/site/dealadmin.py:160
 msgid "Deal with ID '{}' does not exist. Perhaps it was deleted?"
 msgstr "Giao dịch có ID '{}' không tồn tại. Có lẽ nó đã bị xóa?"
 
-#: crm/site/dealadmin.py:222
+#: crm/site/dealadmin.py:272
 msgid "View the Request"
 msgstr "Xem Yêu cầu"
 
-#: crm/site/dealadmin.py:537
+#: crm/site/dealadmin.py:540
 msgid "Create Email to Contact"
 msgstr "Tạo Email để Liên hệ"
 
-#: crm/site/dealadmin.py:540
+#: crm/site/dealadmin.py:543
 msgid "Create Email to Lead"
 msgstr "Tạo Email cho Dẫn đầu"
 
-#: crm/site/dealadmin.py:580
+#: crm/site/dealadmin.py:583
 msgid "Important deal"
 msgstr "Giao dịch quan trọng"
 
-#: crm/site/dealadmin.py:604
+#: crm/site/dealadmin.py:607
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "Tôi đã chờ đợi phản hồi cho yêu cầu của mình trong %d ngày."
 
-#: crm/site/dealadmin.py:634
+#: crm/site/dealadmin.py:637
 msgid "Expected"
 msgstr "Dự kiến"
 
-#: crm/site/dealadmin.py:642
+#: crm/site/dealadmin.py:645
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: crm/site/dealadmin.py:697
+#: crm/site/dealadmin.py:700
 msgid "Contact is Lead (no company)"
 msgstr "Liên hệ là Dẫn đầu (không có công ty)"
 
@@ -2199,57 +2191,57 @@ msgstr "Dẫn dắt \"{obj}\" đã được chuyển đổi thành công."
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Dẫn này không hợp lệ! Vui lòng đọc mô tả."
 
-#: crm/site/requestadmin.py:39
+#: crm/site/requestadmin.py:67
 msgid "Client Loyalty"
 msgstr "Trung thành của khách hàng"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:74
 msgid "Country not specified in request"
 msgstr "Quốc gia không được chỉ định trong yêu cầu"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:75
 msgid "You received the deal"
 msgstr "Bạn đã nhận được giao dịch"
 
-#: crm/site/requestadmin.py:48
+#: crm/site/requestadmin.py:76
 msgid "You are the co-owner of the deal"
 msgstr "Bạn là đồng chủ sở hữu của giao dịch này"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:82
 msgid "Primary request"
 msgstr "Yêu cầu chính"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:83
 msgid "You are the co-owner of the request"
 msgstr "Bạn là đồng chủ sở hữu của yêu cầu này"
 
-#: crm/site/requestadmin.py:56
+#: crm/site/requestadmin.py:84
 msgid "You received the request"
 msgstr "Bạn đã nhận được yêu cầu"
 
-#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:85 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "đang chờ xử lý"
 
-#: crm/site/requestadmin.py:58
+#: crm/site/requestadmin.py:86
 msgid "processed"
 msgstr "đã được xử lý"
 
-#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
-#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+#: crm/site/requestadmin.py:87 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:47
 msgid "Status"
 msgstr "Trạng thái"
 
-#: crm/site/requestadmin.py:63
+#: crm/site/requestadmin.py:91
 msgid "Subsequent request"
 msgstr "Yêu cầu tiếp theo"
 
-#: crm/site/requestadmin.py:398
+#: crm/site/requestadmin.py:454
 msgid "Found the counterparty assigned to"
 msgstr "Đã tìm thấy đối tác được chỉ định"
 
-#: crm/site/requestadmin.py:497
+#: crm/site/requestadmin.py:553
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "Tên {name} với đối tượng \"{obj}\" đã được thêm thành công."
@@ -2302,7 +2294,7 @@ msgstr "Ngày vận chuyển theo hợp đồng."
 msgid "View the deal"
 msgstr "Xem giao dịch"
 
-#: crm/site/shipmentadmin.py:257
+#: crm/site/shipmentadmin.py:260
 msgid "paid"
 msgstr "đã thanh toán"
 
@@ -2480,10 +2472,6 @@ msgstr "Xem các Giao dịch với Công ty này"
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 msgid "View the history of changes for this Deal"
 msgstr "Xem lịch sử thay đổi của Giao dịch này"
-
-#: crm/templates/admin/crm/deal/change_list_object_tools.html:6
-msgid "Toggle default deal sorting"
-msgstr "Chuyển đổi sắp xếp giao dịch mặc định"
 
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:13
 msgid "A deal is created based on a request"
@@ -2815,7 +2803,7 @@ msgstr ""
 msgid "Title of paragraph."
 msgstr "Tiêu đề đoạn văn."
 
-#: help/models.py:125 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:43
 msgid "draft"
 msgstr "bản nháp"
 
@@ -2839,7 +2827,7 @@ msgstr "Số thứ tự của đoạn văn trên trang."
 msgid "Link to a related paragraph if exists."
 msgstr "Liên kết đến đoạn văn liên quan nếu có."
 
-#: massmail/admin.py:31
+#: massmail/admin.py:30
 msgid "Service information"
 msgstr "Thông tin dịch vụ"
 
@@ -3049,11 +3037,11 @@ msgstr "Hoàn thành"
 msgid "The name of the message."
 msgstr "Tên của tin nhắn."
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:27
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:35
 msgid "Number of recipients"
 msgstr "Số lượng người nhận"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:22
+#: massmail/models/mailing_out.py:55
 msgid "Recipients type"
 msgstr "Loại người nhận"
 
@@ -3073,32 +3061,68 @@ msgstr "Tên chữ ký."
 msgid "price proposal"
 msgstr "đề xuất giá"
 
-#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/site/emlmessageadmin.py:66 massmail/site/signatureadmin.py:48
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
 msgid "Preview"
 msgstr "Xem trước"
 
-#: massmail/site/emlmessageadmin.py:73
+#: massmail/site/emlmessageadmin.py:71
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: massmail/site/mailingoutadmin.py:18
+#: massmail/site/mailingoutadmin.py:21
 msgid "Available Email accounts for MassMail"
 msgstr "Tài khoản email có sẵn cho MassMail"
 
-#: massmail/site/mailingoutadmin.py:19
+#: massmail/site/mailingoutadmin.py:22
 msgid "Accounts"
 msgstr "Tài khoản"
 
-#: massmail/site/mailingoutadmin.py:28
+#: massmail/site/mailingoutadmin.py:25
+#| msgid "Recipients type"
+msgid "Recipient<br>type"
+msgstr "Loại người<br>nhận"
+
+#: massmail/site/mailingoutadmin.py:26
+#| msgid ""
+#| "To send a message you need to have an email account marked as main."
+msgid "You do not have an email account available for massmaling."
+msgstr "Bạn không có tài khoản email để gửi massmaling."
+
+#: massmail/site/mailingoutadmin.py:27
+msgid ""
+"The address for redirecting unsubscribed recipients is not specified. "
+"Contact the administrator."
+msgstr ""
+"Địa chỉ để chuyển hướng người nhận đã hủy đăng ký không được chỉ định. Hãy "
+"liên hệ với quản trị viên."
+
+#: massmail/site/mailingoutadmin.py:29
+msgid ""
+"You have one Email account with Mailing enabled. As the main account, it can"
+" only send emails to VIP recipients."
+msgstr ""
+"Bạn có một tài khoản Email đã bật tính năng Gửi thư. Là tài khoản chính, tài"
+" khoản này chỉ có thể gửi email đến người nhận VIP."
+
+#: massmail/site/mailingoutadmin.py:36
 msgid "Today"
 msgstr "Hôm nay"
 
-#: massmail/site/mailingoutadmin.py:29
+#: massmail/site/mailingoutadmin.py:37
 msgid "Sent today"
 msgstr "Đã gửi hôm nay"
 
-#: massmail/site/mailingoutadmin.py:107
+#: massmail/site/mailingoutadmin.py:173
+#| msgid "Failed recipients"
+msgid "Exclude recipients"
+msgstr "Loại trừ người nhận"
+
+#: massmail/site/mailingoutadmin.py:175
+msgid "Exclude recipients who have already received this message."
+msgstr "Loại trừ những người nhận đã nhận được tin nhắn này."
+
+#: massmail/site/mailingoutadmin.py:194
 msgid "notification"
 msgstr "thông báo"
 
@@ -3157,9 +3181,14 @@ msgstr "Tải lên tệp hình ảnh lên máy chủ CRM"
 msgid "Uploaded images"
 msgstr "Hình ảnh đã tải lên"
 
-#: massmail/utils/sendmassmail.py:43
+#: massmail/utils/sendmassmail.py:334
 msgid "Done successfully."
 msgstr "Đã hoàn thành thành công."
+
+#: massmail/views/exclude.py:42
+#| msgid "Number of recipients"
+msgid "Number of excluded recipients: {}."
+msgstr "Số lượng người nhận bị loại trừ: {}."
 
 #: massmail/views/file_upload.py:9
 msgid "Allowed file extensions: "
@@ -3178,7 +3207,6 @@ msgid "Use the 'Action' menu."
 msgstr "Sử dụng menu 'Hành động'."
 
 #: massmail/views/select_recipient_type.py:39
-#| msgid "Please select at least one recipient"
 msgid "Please select the type of recipients"
 msgstr "Vui lòng chọn loại người nhận"
 
@@ -3203,49 +3231,54 @@ msgstr "Tên công ty bị cấm"
 msgid "Banned company names"
 msgstr "Tên công ty bị cấm"
 
-#: settings/models.py:47
+#: settings/models.py:40 settings/models.py:41
+#| msgid "Mass mailing"
+msgid "Massmail Settings"
+msgstr "Cài đặt Massmail"
+
+#: settings/models.py:81
 msgid "Public email domain"
 msgstr "Miền tên miền email công cộng"
 
-#: settings/models.py:48
+#: settings/models.py:82
 msgid "Public email domains"
 msgstr "Các miền email công cộng"
 
-#: settings/models.py:53
+#: settings/models.py:87
 msgid "Domain"
 msgstr "Mã miền"
 
-#: settings/models.py:81 settings/models.py:82
+#: settings/models.py:115 settings/models.py:116
 msgid "Reminder settings"
 msgstr "Cài đặt nhắc nhở"
 
-#: settings/models.py:87
+#: settings/models.py:121
 msgid "Check interval"
 msgstr "Khoảng thời gian kiểm tra"
 
-#: settings/models.py:89
+#: settings/models.py:123
 msgid "Specify the interval in seconds to check if it's time for a reminder."
 msgstr ""
 "Xác định khoảng thời gian tính bằng giây để kiểm tra xem đã đến lúc nhắc nhở"
 " chưa."
 
-#: settings/models.py:115
+#: settings/models.py:149
 msgid "Stop Phrase"
 msgstr "Câu dừng"
 
-#: settings/models.py:116
+#: settings/models.py:150
 msgid "Stop Phrases"
 msgstr "Câu dừng"
 
-#: settings/models.py:121
+#: settings/models.py:155
 msgid "Phrase"
 msgstr "Câu nói"
 
-#: settings/models.py:125
+#: settings/models.py:159
 msgid "Last occurrence date"
 msgstr "Ngày xảy ra lần cuối"
 
-#: settings/models.py:126
+#: settings/models.py:160
 msgid "Date of last occurrence of the phrase"
 msgstr "Ngày xuất hiện cuối cùng của cụm từ"
 
@@ -3253,7 +3286,7 @@ msgstr "Ngày xuất hiện cuối cùng của cụm từ"
 msgid "Change responsible"
 msgstr "Thay đổi người chịu trách nhiệm"
 
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:173
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:187
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "Thay đổi người đăng ký"
@@ -3284,11 +3317,11 @@ msgid "Memos"
 msgstr "Ghi chú"
 
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
-#: tasks/site/memoadmin.py:45
+#: tasks/site/memoadmin.py:46
 msgid "postponed"
 msgstr "đã hoãn"
 
-#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:49
 msgid "reviewed"
 msgstr "đã được xem xét"
 
@@ -3334,7 +3367,7 @@ msgid "Review date"
 msgstr "Ngày xem xét"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:458 tasks/site/tasksbasemodeladmin.py:508
+#: tasks/site/memoadmin.py:472 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
 msgstr "độc giả đăng ký"
 
@@ -3402,8 +3435,8 @@ msgstr "Ẩn nhiệm vụ chính"
 msgid "Hide the main task when this sub-task is closed."
 msgstr "Ẩn nhiệm vụ chính khi nhiệm vụ con này được hoàn thành."
 
-#: tasks/models/task.py:46 tasks/site/taskadmin.py:346
-#: tasks/site/taskadmin.py:352
+#: tasks/models/task.py:46 tasks/site/taskadmin.py:353
+#: tasks/site/taskadmin.py:359
 msgid "Lead time"
 msgstr "Thời gian thực hiện"
 
@@ -3491,42 +3524,42 @@ msgstr "cho thông tin"
 msgid "for the record"
 msgstr "để lưu hồ sơ"
 
-#: tasks/site/memoadmin.py:44
+#: tasks/site/memoadmin.py:45
 msgid "overdue"
 msgstr "quá hạn"
 
-#: tasks/site/memoadmin.py:47
+#: tasks/site/memoadmin.py:48
 msgid "You are subscribed to a new office memo"
 msgstr "Bạn đã đăng ký nhận bản ghi nhớ văn phòng mới."
 
-#: tasks/site/memoadmin.py:49
+#: tasks/site/memoadmin.py:50
 msgid "unreviewed"
 msgstr "chưa được xem xét"
 
-#: tasks/site/memoadmin.py:50
+#: tasks/site/memoadmin.py:51
 msgid "The office memo was written"
 msgstr "Bản ghi nhớ nội bộ đã được viết"
 
-#: tasks/site/memoadmin.py:51
+#: tasks/site/memoadmin.py:52
 msgid "You've received a office memo"
 msgstr "Bạn đã nhận được một bản ghi nhớ văn phòng"
 
-#: tasks/site/memoadmin.py:118
+#: tasks/site/memoadmin.py:120
 msgid "Your office memo has been deleted"
 msgstr "Bản ghi nhớ văn phòng của bạn đã bị xóa."
 
-#: tasks/site/memoadmin.py:386
+#: tasks/site/memoadmin.py:396
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
 msgstr "Xem nhiệm vụ"
 
-#: tasks/site/memoadmin.py:390
+#: tasks/site/memoadmin.py:400
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
 msgstr "Xem dự án"
 
-#: tasks/site/memoadmin.py:471
+#: tasks/site/memoadmin.py:485
 msgid "View the "
 msgstr "Xem"
 
@@ -3538,7 +3571,7 @@ msgstr "Quen thuộc với dự án"
 msgid "The project was created"
 msgstr "Dự án đã được tạo"
 
-#: tasks/site/taskadmin.py:35
+#: tasks/site/taskadmin.py:36
 msgid "I completed my part of the task"
 msgstr "Tôi đã hoàn thành phần công việc của mình"
 
@@ -3554,21 +3587,21 @@ msgstr "Nhiệm vụ con đã được tạo"
 msgid "The subtask"
 msgstr "Nhiệm vụ phụ"
 
-#: tasks/site/taskadmin.py:242
+#: tasks/site/taskadmin.py:249
 msgid "later than due date of parent task."
 msgstr "sau ngày đến hạn của nhiệm vụ chính."
 
-#: tasks/site/taskadmin.py:334
+#: tasks/site/taskadmin.py:341
 msgid "Main task"
 msgstr "Nhiệm vụ chính"
 
-#: tasks/site/taskadmin.py:361 tasks/site/taskadmin.py:362
+#: tasks/site/taskadmin.py:368 tasks/site/taskadmin.py:369
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:6
 #: tasks/templates/admin/tasks/task/submit_line.html:6
 msgid "Create subtask"
 msgstr "Tạo tiểu nhiệm"
 
-#: tasks/site/taskadmin.py:372
+#: tasks/site/taskadmin.py:379
 msgid ""
 "This is a collective task.\n"
 "            Please create a sub-task for yourself for work.\n"
@@ -3649,10 +3682,6 @@ msgstr "Xem nhiệm vụ chính"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:28
 msgid "Subtasks"
 msgstr "Nhiệm vụ phụ"
-
-#: tasks/templates/admin/tasks/task/change_list_object_tools.html:6
-msgid "Toggle default task sorting"
-msgstr "Chuyển đổi sắp xếp nhiệm vụ mặc định"
 
 #: tasks/templates/admin/tasks/task/submit_line.html:4
 msgid "Mark the task as completed and save."
@@ -3759,7 +3788,7 @@ msgstr "NNNN-MM-NG"
 msgid "Help"
 msgstr "Trợ giúp"
 
-#: tests/massmail/utils/test_send_massmail.py:122
+#: tests/massmail/utils/test_send_massmail.py:124
 msgid "This field is required."
 msgstr "Trường này là bắt buộc."
 
@@ -3830,13 +3859,25 @@ msgstr "Cuộc gọi đến từ"
 msgid "(duration: {duration} minutes)"
 msgstr "(thời lượng: {duration} phút)"
 
-#: webcrm/settings.py:272
+#: webcrm/settings.py:274
 msgid "Untitled"
 msgstr "Chưa có tiêu đề"
 
-#: webcrm/settings.py:287
+#: webcrm/settings.py:288
 msgid "Main Menu"
 msgstr "Menu Chính"
+
+#~ msgid "Chart"
+#~ msgstr "Biểu đồ"
+
+#~ msgid "The percentages show the number of \"lost\" deals at each stage."
+#~ msgstr "Các phần trăm thể hiện số lượng \"giao dịch bị mất\" ở mỗi giai đoạn."
+
+#~ msgid "Toggle default deal sorting"
+#~ msgstr "Chuyển đổi sắp xếp giao dịch mặc định"
+
+#~ msgid "Toggle default task sorting"
+#~ msgstr "Chuyển đổi sắp xếp nhiệm vụ mặc định"
 
 #~ msgid "First select a department."
 #~ msgstr "Đầu tiên, hãy chọn một bộ phận."
