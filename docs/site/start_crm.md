@@ -60,13 +60,15 @@ To work on another domain (or IP address), you need to do the following:
 `(ADMIN site) Home > Sites > Sites`  
 Add a CRM site and specify its domain name.
 - In the file `webcrm/settings.py`:
-  - specify its id in the setting `SITE_ID`,
-  - add it to the setting `ALLOWED_HOSTS`.
-
+  - add it to the setting `ALLOWED_HOSTS`
+  - the site ID can be changed at will in the setting `SITE_ID`
 
 ## Built-in assistance system
+
+Many buttons and icons on CRM pages have tooltips that appear when you hover over them with your mouse.
+
+![CRM tooltip screenshot](img/crm_tooltip_screenshot.png)
 
 Many pages have an icon <span style="vertical-align: baseline"><img src="../icons/question-mark.svg" alt="Question-mark icon" width="25" height="25"></span> in the upper right corner.  
 This is a link to a help page.
 
-Many buttons and icons on CRM pages have tooltips that appear when you hover your mouse over them.
