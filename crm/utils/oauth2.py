@@ -311,8 +311,8 @@ def main(argv):
     options = {
         'generate_oauth2_token': True,
         'generate_oauth2_string': None,
-        'client_id': '834389600402-1li8omdva9u1rmr0eu2hga28ld627ach.apps.googleusercontent.com',
-        'client_secret': '3z-xdCNSJqw9tvhfThFInNAy',
+        'client_id': '',
+        'client_secret': '',
         'access_token': None,
         'refresh_token': None,
         'scope': 'https://mail.google.com/',
@@ -334,10 +334,10 @@ def main(argv):
     elif options['generate_oauth2_string']:
         RequireOptions(options, 'user', 'access_token')
         oauth2_string = GenerateOAuth2String(options['user'], options['access_token'])
-        if options['quiet']:
-            print(oauth2_string)
-        else:
-            print('OAuth2 argument:\n' + oauth2_string)
+        # if options['quiet']:
+        #     print(oauth2_string)
+        # else:
+        #     print('OAuth2 argument:\n' + oauth2_string)
     elif options['generate_oauth2_token']:
         RequireOptions(options, 'client_id', 'client_secret')
         print('To authorize token, visit this url and follow the directions:')
