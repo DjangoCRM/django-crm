@@ -50,7 +50,7 @@ Many companies using SaaS CRM platforms (such as...  well, you know) face the fo
 - Built on **Django/Python**, making integrations and extensions easy.
 - Stable customizations — you control when and how to update.
 
-⭐️ Star if you like it!
+⭐️ Star if you like it! It will help others discover this project too.
 
 ---
 
