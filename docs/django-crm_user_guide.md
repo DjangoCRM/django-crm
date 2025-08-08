@@ -38,6 +38,8 @@
 [Django-CRM](https://github.com/DjangoCRM/django-crm/) is an application with a web interface. Therefore, you can use an internet browser on your computer, tablet and smartphone to work with it.
 
 To make your work easier, CRM provides help pages and tooltips when you hover your mouse over certain page elements such as icons, buttons, etc.  
+![CRM tooltip screenshot](https://github.com/DjangoCRM/django-crm/raw/main/docs/site/img/crm_tooltip_screenshot.png)
+
 Many pages have an icon (?) in the upper right corner. Clicking on it will open the help page.
 
 Django CRM is a powerful software package that requires customization and integration with other services. If something does not work as expected - report it to your CRM administrator.
