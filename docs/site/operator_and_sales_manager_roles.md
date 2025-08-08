@@ -45,10 +45,10 @@ CRM operators and administrators have the permissions to delete requests.
 
 In Django CRM can be configured and activated geolocation of the country and city of the counterparty by its IP. In this case, the country and city will be automatically filled in the requests. But in cases where VPN is used, this data may be unreliable.
 
-### Search for objects by ticket
+### <span style="vertical-align: baseline"><img src="../icons/magnifying-glass.svg" alt="Magnifying glass icon" width="17" height="17"></span> Search for objects by ticket
 
-You can search for requests, deals, and emails by ticket.
-To do this, in the search bar you need to enter, for example,
+You can search for requests, deals, and emails by ticket.  
+To do this, in the search bar you need to enter, for example:  
  *ticket:lzeH07E8aHI* or *ticket lzeH07E8aHI*
 
 ### Company object
@@ -64,7 +64,7 @@ This allows you to see the list:
 
 On the company object page you can:
 
-- create and send an email to the company,
+- create an email and send it to the company,
 - contact the company by phone,
 - go to the company's website,
 - add the object of a new contact person.
@@ -94,7 +94,7 @@ To do this, the administrator must configure CRM access to user mailboxes.
 Django CRM scans the mailboxes of operators and sales managers and automatically imports emails containing a ticket but not in the CRM database.  
 Therefore, it is enough to send the first letter (with a ticket) from the CRM. The user can conduct further correspondence from his mailbox.
 
-For a number of reasons, imported emails are stored in CRM in text format.  
+For a number of reasons, CRM imports and saves emails in text format (the same format in which it receives them from the email provider).  
 Therefore, some letters, for example, those containing tables, may be difficult to read. Use the button with the eye <span style="vertical-align: baseline"><img src="../icons/eye.svg" alt="Eye icon" width="25" height="25"></span> icon. The letter will be downloaded from the mail server and shown in the original.  
 Emails from clients that do not contain a ticket will not be uploaded to CRM automatically.  
 They can be downloaded and associated with the request and deal using the "Import letter" button. This can be done on the request or deal page.
@@ -108,4 +108,3 @@ In this case, you can link the email to objects by specifying their IDs in the "
 !!! Tip
     Before a user starts working with mail, it is recommended to create one or more user signatures. One of them should be selected as the default signature.  
     `Home > Mass mail > Signatures`
-
