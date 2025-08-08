@@ -38,6 +38,8 @@
 [Django-CRM](https://github.com/DjangoCRM/django-crm/) es una aplicación con una interfaz web. Por lo tanto, puede usar un navegador de internet en su computadora, tableta y teléfono inteligente para trabajar con ella.
 
 Para facilitar su trabajo, CRM proporciona páginas de ayuda y descripciones emergentes cuando pasa el mouse sobre ciertos elementos de la página, como íconos, botones, etc.  
+![CRM tooltip screenshot](https://github.com/DjangoCRM/django-crm/raw/main/docs/site/img/crm_tooltip_screenshot.png)
+
 Muchas páginas tienen un ícono <span style="vertical-align: bottom"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/question-mark.svg" alt="Icono de signo de interrogación" width="25" height="25"></span> en la esquina superior derecha. Al hacer clic en él, se abrirá la página de ayuda.
 
 Django CRM es un paquete de software potente que requiere personalización e integración con otros servicios. Si algo no funciona como se espera, repórtelo a su administrador de CRM.
@@ -264,7 +266,7 @@ Para hacer esto, el administrador debe configurar el acceso de CRM a los buzones
 Django CRM escanea los buzones de correo de los operadores y gerentes de ventas e importa automáticamente los correos electrónicos que contienen un ticket pero no están en la base de datos de CRM.  
 Por lo tanto, es suficiente enviar la primera carta (con un ticket) desde el CRM. El usuario puede llevar a cabo la correspondencia posterior desde su buzón de correo.
 
-Por varias razones, los correos electrónicos importados se almacenan en CRM en formato de texto.  
+Por varias razones, CRM importa y guarda correos electrónicos en formato de texto (el mismo formato en el que los recibe del proveedor de correo electrónico).  
 Por lo tanto, algunas cartas, por ejemplo, las que contienen tablas, pueden ser difíciles de leer. Use el botón con el icono de ojo. La carta se descargará del servidor de correo y se mostrará en el original.  
 Los correos electrónicos de los clientes que no contienen un ticket no se cargarán automáticamente en CRM.  
 Se pueden descargar y asociar con la solicitud y el acuerdo usando el botón "Importar carta". Esto se puede hacer en la página de la solicitud o del acuerdo.
