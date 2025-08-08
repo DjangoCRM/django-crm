@@ -1,4 +1,4 @@
-﻿# Django-CRM user guide
+# Django-CRM user guide
 
 ## Table of contents
 
@@ -267,7 +267,7 @@ To do this, the administrator must configure CRM access to user mailboxes.
 Django CRM scans the mailboxes of operators and sales managers and automatically imports emails containing a ticket but not in the CRM database.  
 Therefore, it is enough to send the first letter (with a ticket) from the CRM. The user can conduct further correspondence from his mailbox.
 
-For a number of reasons, imported emails are stored in CRM in text format.  
+For a number of reasons, CRM imports and saves emails in text format (the same format in which it receives them from the email provider).  
 Therefore, some letters, for example, those containing tables, may be difficult to read. Use the button with the eye icon. The letter will be downloaded from the mail server and shown in the original.  
 Emails from clients that do not contain a ticket will not be uploaded to CRM automatically.  
 They can be downloaded and associated with the request and deal using the "Import letter" button. This can be done on the request or deal page.
@@ -325,7 +325,7 @@ In addition to the usual data, the payment can have one of the following statuse
 
 This is used to create a summary of income, including its forecast.  
 The income summary is important for management decision-making by the company's executives.  
- `Home > Analytics > Income Summary
+ `Home > Analytics > Income Summary`
 
 
 ### List of Deals
