@@ -30,13 +30,16 @@ git clone https://github.com/<YOUR ACCOUNT NAME>/django-crm.git
 
 The project will be cloned into the "django-crm" folder.
 
-### Download the zip file
+### Free CRM software download
+
+You can simply download the CRM software as a zip file and then unzip it to a directory of your choice.
 
 <a class="btn button" href="https://github.com/DjangoCRM/django-crm/archive/refs/heads/main.zip" style="margin-left: 20%">Download CRM Software</a>
 
 ### Install the requirements
 
-It is recommended to first create a virtual environment:
+To run CRM software on your computer/server, you need to install certain dependencies.  
+It is recommended to first create and activate a Python virtual environment:
 
 | action   | on Unix/macOS                 | on Windows                |
 |----------|-------------------------------|---------------------------|
@@ -56,5 +59,5 @@ If the project is deployed on a production server, a website server will also be
 
 !!! Important
 
-    __Please give this CRM project a star ⭐️ to support its developers!__  
+    __Please give this CRM project a star ⭐️ to support its developments!__  
     Click the "Starred" button in the upper right corner of the [Django CRM GitHub](https://github.com/DjangoCRM/django-crm/){target="_blank"} repository.  
