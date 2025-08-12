@@ -18,6 +18,9 @@ class Contact(BaseCounterparty, BaseContact, Base1):
         related_name="contacts",
         verbose_name=_("Company of contact")
     )
+    state = models.CharField(
+        max_length=100, blank=True, null=True,
+        verbose_name=_("State of contact"),)
 
     @property
     def company_country(self):

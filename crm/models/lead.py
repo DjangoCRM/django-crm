@@ -32,6 +32,10 @@ class Lead(BaseCounterparty, BaseContact, Base1):
         blank=True, default='',
         verbose_name=_("Company address"),
     )
+    state = models.CharField(
+        max_length=100, blank=True, null=True,
+        verbose_name=_("Company State"),
+    )
     company_email = models.EmailField(
         blank=True, default='',
         verbose_name=_("Company email"),

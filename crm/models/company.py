@@ -72,6 +72,12 @@ class Company(BaseCounterparty, Base1):
         verbose_name=_("country"),
         help_text=_("Company Country")
     )
+    state = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Company State")
+    )
     type = models.ForeignKey(
         'ClientType', 
         blank=True, 
