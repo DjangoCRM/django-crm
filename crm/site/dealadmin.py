@@ -484,6 +484,12 @@ class DealAdmin(CrmModelAdmin):
                 Payment.objects.filter(deal=obj).exclude(
                     status=Payment.RECEIVED,
                 ).delete()
+        # Add products to the request if none are specified in it
+        if not obj.request.products.exists() and Output.objects.filter(deal=obj).exists():
+            outputs = Output.objects.filter(deal=obj)
+            for o in outputs:
+                obj.request.products.add(o.product)
+            obj.request.save()
 
     # -- ModelAdmin Callables -- #
 
