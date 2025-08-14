@@ -21,7 +21,7 @@ def get_rendered_context(template: Template,
     """
     try:
         rendered_context = template.render(context)
-    except FileNotFoundError as err:
+    except (FileNotFoundError, TypeError) as err:
         e = str(err)
         return e.split(':')[0] + ': media' + e.split('media')[-1]
     return rendered_context
