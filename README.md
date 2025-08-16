@@ -87,27 +87,32 @@ The software package provides two websites:
 
 The **project is mature and stable**, and has been successfully used in real applications for many years.
 
+## Technologies
+
+CRM is intentionally built using an **extremely short list of technologies:**  
+Python, Django, MySQL or PostgreSQL and Apache or Nginx (if access from the Internet). **That's all!**
+
 ## Main Applications
 
 The CRM software suite consists of the following **main applications** and their models:
 
 - **TASKS Management app**:
-  (available to all users by default, regardless of their role)
-  - Task (with related: files, chat, reminders, tags - see [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md))
+  (*available to all users by default, regardless of their role*)
+  - Task (*with related: files, chat, reminders, tags - see [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)*)
     - subtasks
-  - Memo (office memo) - see [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
+  - Memo (*office memo*) - see [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
     - tasks / project
   - Project (*tasks collection*):
   - ... (+ *4 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/tasks/models" target="_blank">models</a>*)
 - **CRM app**:
-  - Requests (commercial inquiries)
-  - Leads (potential customers)
+  - Requests (*commercial inquiries*)
+  - Leads (*potential customers*)
   - Companies
-  - Contact persons (associated with their companies)
-  - Deals (like "Opportunities")
-  - Email messages (sync with user email accounts)
-  - Products (goods and services)
-  - Payments (received, guaranteed, high and low probability)
+  - Contact persons (*associated with their companies*)
+  - Deals (*like "Opportunities"*)
+  - Email messages (*sync with user email accounts*)
+  - Products (*goods and services*)
+  - Payments (*received, guaranteed, high and low probability*)
   - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
 - **ANALYTICS app**: ([detailed software overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
@@ -116,10 +121,10 @@ The CRM software suite consists of the following **main applications** and their
   - Lead source Summary report
   - ... (+ *5 more analytical reports*)
 - **MASS MAIL app** ([Email Marketing Software](https://github.com/DjangoCRM/django-crm/blob/main/massmail/README.md)):
-  - Email Accounts
-  - Email Messages (newsletters)
-  - Email Signatures (user signatures)
-  - Mailings
+  - Email Accounts (*any providers with access via SMTP*)
+  - Email Messages (*newsletters*)
+  - Email Signatures (*user signatures*)
+  - Mailings (*email campaigns using dynamic templates*)
 
 ## Supporting Applications
 
