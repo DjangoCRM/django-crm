@@ -110,6 +110,18 @@ class BaseCounterparty(models.Model):
         default='',
         verbose_name=_("Address")
     )
+    region = models.CharField(
+        max_length=100,
+        blank=True, 
+        default='',
+        verbose_name=_("Region/State")
+    )
+    district = models.CharField(
+        max_length=100,
+        blank=True, 
+        default='',
+        verbose_name=_("District/County")
+    )
     description = models.TextField(
         blank=True,
         default='',
