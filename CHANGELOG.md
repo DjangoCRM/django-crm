@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.5.2] - 2025-08-16
 
 ### Added
 
@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Unused 'View on site' button in change forms of Request, Lead, Shipment.
+
+#### Full Changelog: [v1.5.1...v1.5.2](https://github.com/DjangoCRM/django-crm/compare/v1.5.1...v1.5.2)
 
 ## [1.5.1] - 2025-07-27
 
