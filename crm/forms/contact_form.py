@@ -38,6 +38,10 @@ class ContactForm(forms.Form):
         required=False,
         widget=forms.HiddenInput
     )
+    state = forms.CharField(
+        max_length=100,
+        required=False,
+    )
     city = forms.CharField(
         max_length=40,
         required=False,
