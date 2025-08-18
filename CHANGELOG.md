@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Added the fields `region` and `district` to the models Company, Contact and Lead by @Tosinibikunle in #262.
+
 ## [1.5.2] - 2025-08-16
 
 ### Added
