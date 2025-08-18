@@ -137,6 +137,7 @@ class CompanyAdmin(CrmModelAdmin):
                     'connections_to_phone',
                     'website', 'view_website_button',
                     ('city', 'country'),
+                    'region', 'district',
                     'address',
                 )
             }),
