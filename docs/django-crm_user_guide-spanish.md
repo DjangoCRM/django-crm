@@ -72,10 +72,12 @@ La lista de objetos eliminados se mostrará en la página de confirmación de el
 
 ### Historial del objeto
 
-Todos los objetos conservan su historial de modificaciones. Al hacer clic en el botón "Historial", puede ver quién cambió qué y cuándo.
+El historial de cambios en los objetos se almacena. Al hacer clic en el botón "Historial" (ver captura de pantalla anterior), puede ver quién modificó qué y cuándo. El historial se guarda incluso después de eliminar el objeto.  
+Para ver el historial de un objeto eliminado, contacte con el administrador (disponible desde la versión 1.5).
 
 ### Objeto de archivo
 
+📎 Muchos objetos (como Acuerdo, Correo electrónico, Tarea, Memorándum) permiten adjuntar archivos. En CRM, los archivos también se almacenan como objetos.  
 El objeto de archivo no contiene el archivo en sí, sino solo un enlace a él. Puede haber muchos objetos del mismo archivo en el CRM.  
 Por lo tanto, al eliminar un objeto de archivo, solo se eliminará la referencia al archivo.
 El archivo se eliminará cuando se elimine el último enlace a él en CRM.  

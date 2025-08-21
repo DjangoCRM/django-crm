@@ -8,6 +8,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Added the fields `region` and `district` to the models Company, Contact and Lead by @Tosinibikunle in #262.
+
+## [1.5.2] - 2025-08-16
+
+### Added
+
+- Added icon marking for Requests that do not specify products.
+- When saving a Deal with specified Products, adding products to the Request has been added if none are specified in it.
+- Added the responsible user to the subject of the task/project closure email notification.
+- New translations.
+
+### Improve
+
+- Visualization of the Sales Funnel report.
+- Improved 'Correspondence' button title.
+
+### Removed
+
+- Unused 'View on site' button in change forms of Request, Lead, Shipment.
+
+#### Full Changelog: [v1.5.1...v1.5.2](https://github.com/DjangoCRM/django-crm/compare/v1.5.1...v1.5.2)
+
 ## [1.5.1] - 2025-07-27
 
 ### Fixed

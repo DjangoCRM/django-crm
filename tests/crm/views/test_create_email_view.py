@@ -1,16 +1,17 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.test import tag
 from django.urls import reverse
 
-from crm.models import Company
-from crm.models import Contact
-from crm.models import Deal
-from crm.models import Lead
-from crm.models import Stage
-from crm.models import CrmEmail
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_department_id
-from common.utils.helpers import USER_MODEL
+from crm.models import Company
+from crm.models import Contact
+from crm.models import CrmEmail
+from crm.models import Deal
+from crm.models import Lead
+from crm.models import Request
+from crm.models import Stage
 from massmail.models.email_account import EmailAccount
 from tests.crm.test_request_methods import populate_db
 from tests.base_test_classes import BaseTestCase
@@ -26,7 +27,7 @@ class TestCreateEmailView(BaseTestCase):
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
-        cls.owner = USER_MODEL.objects.get(username="Andrew.Manager.Global")
+        cls.owner = User.objects.get(username="Andrew.Manager.Global")
         cls.department_id = get_department_id(cls.owner)
         cls.ea = EmailAccount.objects.create(
             name='CRM Email Account',
@@ -46,6 +47,14 @@ class TestCreateEmailView(BaseTestCase):
         )
         populate_db(cls)
         stage = Stage.objects.filter(department=cls.department_id).first()
+        request = Request.objects.create(
+            request_for="Mock request for test email creation",
+            department_id=cls.department_id,
+            ticket='123',
+            contact=cls.contact,
+            company=cls.contact.company,
+            country=cls.contact.company.country
+        )
         cls.deal = Deal.objects.create(
             name="Mock deal for test email creation",
             department_id=get_department_id(cls.owner),
@@ -59,7 +68,8 @@ class TestCreateEmailView(BaseTestCase):
             workflow='{date} - {msg}\n',
             contact=cls.contact,
             company=cls.contact.company,
-            country=cls.contact.company.country
+            country=cls.contact.company.country,
+            request=request
         )
         cls.deal_change_url = reverse(
             "site:crm_deal_change", args=(cls.deal.id,)

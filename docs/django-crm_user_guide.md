@@ -72,10 +72,12 @@ The list of deleted objects will be shown on the deleting confirmation page.
 
 ### History of the object
 
-All objects retain their modification history. By clicking the "History" button, you can see who changed what and when.
+The history of changes to objects is stored. By clicking the “History” button (see screenshot above), you can see who changed what and when.  The history is saved even after the object is deleted.  
+To see the history of a deleted object, contact the administrator (available since v1.5).
 
 ### File object
 
+📎 Many objects (such as: Deal, Email, Task, Memo) allow you to attach files. In CRM, files are also stored as objects.  
 The file object does not contain the file itself, but only a link to it. There can be many objects of the same file in the CRM.  
 Therefore, when deleting a file object, only the reference to the file will be deleted.
 The file will be deleted when the last link to it is deleted in CRM.  

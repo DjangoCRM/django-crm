@@ -30,6 +30,7 @@ from crm.models import Request
 from crm.models import Stage
 from crm.settings import FIRST_STEP
 from crm.site.crmmodeladmin import CrmModelAdmin
+from crm.site.dealadmin import add_shopping_cart_icon
 from crm.utils.check_city import check_city
 from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
@@ -97,6 +98,7 @@ _thread_local = threading.local()
 
 
 class RequestAdmin(CrmModelAdmin):
+    empty_value_display = ''
     fieldsets = [
         (None, {
             'fields': [
@@ -147,7 +149,7 @@ class RequestAdmin(CrmModelAdmin):
         'request_subject', 'the_full_name',
         'the_receipt_date', 'counterparty',
         'the_city', 'loyalty', 'request_counter',
-        'content_copy'
+        'content_copy', 'mark_no_products'
     )
     search_fields = [
         'request_for', 'first_name',
@@ -210,6 +212,7 @@ class RequestAdmin(CrmModelAdmin):
         list_display = [
             'request_subject',
             'loyalty',
+            'mark_no_products',
             'counterparty',
         ]
         if not any(('company' in request.GET, 'lead' in request.GET)):
@@ -365,6 +368,13 @@ class RequestAdmin(CrmModelAdmin):
         return mark_safe(
             primary_icon.format(primary_title)
         )
+
+    @staticmethod
+    @admin.display(description='')
+    def mark_no_products(obj):
+        if not obj.products.exists():
+            return mark_safe(add_shopping_cart_icon)
+        return ''
 
     @staticmethod
     @admin.display(description='')
