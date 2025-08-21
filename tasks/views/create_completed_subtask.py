@@ -118,16 +118,17 @@ class CreateSubtask(TestCase):
         data['stage'] = str(TaskStage.objects.get(done=True).id)
         data['hide_main_task'] = True
 
-    response = self.client.post(url, data, follow=True)
-    self.assertEqual(response.status_code, 200, response.reason_phrase)
-    form = response.context_data
-    if 'adminform' in form:
-        err = _(
-            "An error occurred while creating the subtask. Contact the CRM Administrator.")
-        mail_admins(
-            "Exception: CreateSubtask.do()",
-            f'''
-            \nUser: {user}
-            \nException: {form['adminform'].errors.as_text()}''',
-            fail_silently=False,
-        )
+        response = self.client.post(url, data, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        form = response.context_data
+        if 'adminform' in form:
+            err = _(
+                "An error occurred while creating the subtask. Contact the CRM Administrator.")
+            mail_admins(
+                "Exception: CreateSubtask.do()",
+                f'''
+                \nUser: {user}
+                \nException: {form['adminform'].errors.as_text()}''',
+                fail_silently=False,
+            )
+            return err
