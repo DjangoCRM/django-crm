@@ -31,13 +31,19 @@ def check_subtasks(object_id: int, request: WSGIRequest) -> str:
             responsible=request.user
         ).aggregate(
             active_subtask=Count('pk', filter=Q(stage__active=True)),
-            closed_subtasks=Count('pk', filter=Q(stage__active=False, hide_main_task=True))
+            closed_subtasks=Count(
+                'pk',
+                filter=Q(stage__active=False, hide_main_task=True)
+            )
         )
         if data['active_subtask'] or data['closed_subtasks']:
             url = reverse('site:tasks_task_changelist')
             redirect_url = url
             if data['active_subtask']:
-                redirect_url = f"{url}?task__id__exact={object_id}&responsible={request.user.username}"
+                redirect_url = (
+                    f"{url}?task__id__exact={object_id}"
+                    f"&responsible={request.user.username}"
+                )
                 messages.warning(
                     request,
                     _("The task cannot be marked as completed because you have an active subtask.")
@@ -45,11 +51,13 @@ def check_subtasks(object_id: int, request: WSGIRequest) -> str:
     return redirect_url
 
 
-def create_completed_subtask(request: WSGIRequest, object_id: int) -> HttpResponseRedirect:
+def create_completed_subtask(
+    request: WSGIRequest,
+    object_id: int
+) -> HttpResponseRedirect:
     redirect_url = check_subtasks(object_id, request)       # NOQA
     if redirect_url:
         return HttpResponseRedirect(redirect_url)
-
     add_subtask_url = TaskAdmin.get_add_subtask_url(object_id)
     cs = CreateSubtask()
     err = cs.do(add_subtask_url, request.user)
@@ -88,8 +96,6 @@ def email_subtask_completion(request: WSGIRequest, token: str, object_id: int
 @skip("This is not a test")
 class CreateSubtask(TestCase):
     """Creates a completed subtask."""
-
-
     @override_settings(
         SECURE_HSTS_SECONDS=0,
         SECURE_SSL_REDIRECT=False,
@@ -112,17 +118,16 @@ class CreateSubtask(TestCase):
         data['stage'] = str(TaskStage.objects.get(done=True).id)
         data['hide_main_task'] = True
 
-        response = self.client.post(url, data, follow=True)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
-        form = response.context_data
-        if 'adminform' in form:
-            err = _("An error occurred while creating the subtask. Contact the CRM Administrator.")
-            mail_admins(
-                "Exception: CreateSubtask.do()",
-                f'''
-                \nUser: {user}
-                \nException: {form['adminform'].errors.as_text()}''',
-                fail_silently=False,
-            )
-
-        return err
+    response = self.client.post(url, data, follow=True)
+    self.assertEqual(response.status_code, 200, response.reason_phrase)
+    form = response.context_data
+    if 'adminform' in form:
+        err = _(
+            "An error occurred while creating the subtask. Contact the CRM Administrator.")
+        mail_admins(
+            "Exception: CreateSubtask.do()",
+            f'''
+            \nUser: {user}
+            \nException: {form['adminform'].errors.as_text()}''',
+            fail_silently=False,
+        )
