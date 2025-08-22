@@ -20,145 +20,176 @@ class Request(Base1):
         verbose_name_plural = _("Requests")
 
     request_for = models.CharField(
-        max_length=250, null=False, blank=False,
+        max_length=250,
+        null=False,
+        blank=False,
         verbose_name=_("Request for"),
     )
     first_name = models.CharField(
-        max_length=100, null=False, blank=False,
+        max_length=100,
+        null=False,
+        blank=False,
         verbose_name=_("First name"),
-        help_text=_("The name of the contact person (one word).")
+        help_text=_("The name of the contact person (one word)."),
     )
     middle_name = models.CharField(
-        max_length=100, blank=True, default='',
+        max_length=100,
+        blank=True,
+        default="",
         verbose_name=_("Middle name"),
-        help_text=_("The middle name of the contact person.")
+        help_text=_("The middle name of the contact person."),
     )
     last_name = models.CharField(
-        max_length=100, blank=True, default='',
+        max_length=100,
+        blank=True,
+        default="",
         verbose_name=_("Last name"),
-        help_text=_("The last name of the contact person (one word).")
+        help_text=_("The last name of the contact person (one word)."),
     )
-    email = models.CharField(max_length=250, blank=True, default='')
+    email = models.CharField(max_length=250, blank=True, default="")
 
-    phone = models.CharField(max_length=200, blank=True, default='')
+    phone = models.CharField(max_length=200, blank=True, default="")
 
-    website = models.URLField(max_length=200, blank=True, default='')
+    website = models.URLField(max_length=200, blank=True, default="")
 
     lead_source = models.ForeignKey(
-        'LeadSource', blank=True, null=True,
+        "LeadSource",
+        blank=True,
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_("Lead source"),
-        help_text=_("Lead Source")
+        help_text=_("Lead Source"),
     )
     company_name = models.CharField(
-        max_length=200, blank=True, default='',
+        max_length=200,
+        blank=True,
+        default="",
         verbose_name=_("Company name"),
     )
     receipt_date = models.DateField(
-        blank=True, null=True,
+        blank=True,
+        null=True,
         verbose_name=_("Date of receipt"),
-        help_text=_("Date of receipt of the request.")
+        help_text=_("Date of receipt of the request."),
     )
     lead = models.ForeignKey(
-        'Lead', blank=True, null=True, on_delete=models.SET_NULL,
-        verbose_name=_("Lead")
+        "Lead", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Lead")
     )
     contact = models.ForeignKey(
-        'Contact', blank=True, null=True, on_delete=models.CASCADE,
-        verbose_name=_("Contact")
+        "Contact",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("Contact"),
     )
     company = models.ForeignKey(
-        'Company', blank=True, null=True, on_delete=models.CASCADE,
+        "Company",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
         related_name="requests",
-        verbose_name=_("Company of contact")
+        verbose_name=_("Company of contact"),
     )
     deal = models.ForeignKey(
-        'Deal', blank=True, null=True, on_delete=models.CASCADE,
+        "Deal",
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
         verbose_name=_("Deal"),
         related_name="requests",
     )
-    products = models.ManyToManyField(
-        'Product', blank=True,
-        verbose_name=_("Products")
-    )
+    products = models.ManyToManyField("Product", blank=True, verbose_name=_("Products"))
     country = models.ForeignKey(
-        'Country', blank=True, null=True,
+        "Country",
+        blank=True,
+        null=True,
         verbose_name=_("Country"),
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
     )
     city = models.ForeignKey(
-        'City', blank=True, null=True,
+        "City",
+        blank=True,
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_("City"),
-        help_text=_("Object of City in database")
+        help_text=_("Object of City in database"),
     )
     city_name = models.CharField(
-        max_length=100,
-        blank=True,
-        default='',
-        verbose_name=_("City")
+        max_length=100, blank=True, default="", verbose_name=_("City")
     )
     description = models.TextField(
-        blank=True, default='',
+        blank=True,
+        default="",
         verbose_name=_("Description"),
     )
     translation = models.TextField(
-        blank=True, default='',
+        blank=True,
+        default="",
         verbose_name=_("Translation"),
     )
     remark = models.TextField(
-        blank=True, default='',
+        blank=True,
+        default="",
         verbose_name=_("Remark"),
     )
     pending = models.BooleanField(
         default=True,
         verbose_name=_("Pending"),
-        help_text=_("Waiting for validation of fields filling")
+        help_text=_("Waiting for validation of fields filling"),
     )
     subsequent = models.BooleanField(
         default=False,
         verbose_name=_("Subsequent"),
-        help_text=_(
-            "Received from the client with whom you are already cooperate")
+        help_text=_("Received from the client with whom you are already cooperate"),
     )
     duplicate = models.BooleanField(
         default=False,
         verbose_name=_("Duplicate"),
-        help_text=_("Duplicate request. The deal will not be created.")
+        help_text=_("Duplicate request. The deal will not be created."),
     )
     verification_required = models.BooleanField(
         default=False,
         verbose_name=_("Verification required"),
-        help_text=_("Links are set automatically and require verification.")
+        help_text=_("Links are set automatically and require verification."),
     )
-    ticket = models.CharField(
-        max_length=16, default=new_ticket
+    case = models.BooleanField(
+        default=False,
+        verbose_name=_("Case/Incident"),
+        help_text=_("A request that does not involve payment"),
     )
+    ticket = models.CharField(max_length=16, default=new_ticket)
     co_owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.SET_NULL,
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
         verbose_name=_("Co-owner"),
         related_name="%(app_label)s_%(class)s_co_owner_related",
     )
-    files = GenericRelation('common.TheFile')
+    files = GenericRelation("common.TheFile")
 
     def clean(self):
         if self.contact and self.company:
             if self.contact.company != self.company:
-                raise ValidationError({
-                    'contact': _("Company and contact person do not match."),
-                    'company': _("Company and contact person do not match.")
-                })
+                raise ValidationError(
+                    {
+                        "contact": _("Company and contact person do not match."),
+                        "company": _("Company and contact person do not match."),
+                    }
+                )
         if self.contact and self.lead:
-            raise ValidationError({
-                'contact': _("Specify the contact person or lead. But not both."),
-                'company': _("Specify the contact person or lead. But not both.")
-            })
+            raise ValidationError(
+                {
+                    "contact": _("Specify the contact person or lead. But not both."),
+                    "company": _("Specify the contact person or lead. But not both."),
+                }
+            )
 
     def __str__(self):
         return self.request_for
 
     def get_absolute_url(self):
-        return reverse('site:crm_request_change', args=(self.id,))
+        return reverse("site:crm_request_change", args=(self.id,))
 
     @property
     def full_name(self):
@@ -173,9 +204,9 @@ class Request(Base1):
             _, email = parseaddr(self.email)
             email_params = models.Q(email__icontains=email)
             email_params |= models.Q(secondary_email__icontains=email)
-        contact_model = apps.get_model('crm', 'Contact')
-        lead_model = apps.get_model('crm', 'Lead')
-        for model, attr in ((contact_model, 'contact'), (lead_model, 'lead')):
+        contact_model = apps.get_model("crm", "Contact")
+        lead_model = apps.get_model("crm", "Lead")
+        for model, attr in ((contact_model, "contact"), (lead_model, "lead")):
             args = []
             contacts1_len = contacts2_len = contacts3_len = 0
             kwargs = {"first_name__iexact": self.first_name}
@@ -209,10 +240,16 @@ class Request(Base1):
                         self._set_contact(attr, contacts3)
                         return True
 
-            if self.company_name and any((contacts3, contacts2, contacts1)) or self.last_name:
+            if (
+                self.company_name
+                and any((contacts3, contacts2, contacts1))
+                or self.last_name
+            ):
 
                 if model == contact_model:
-                    company_params = models.Q(company__full_name__icontains=self.company_name)
+                    company_params = models.Q(
+                        company__full_name__icontains=self.company_name
+                    )
                     company_params |= models.Q(company__full_name__in=self.company_name)
                 else:
                     company_params = models.Q(company_name__icontains=self.company_name)
@@ -238,7 +275,7 @@ class Request(Base1):
 
     def _set_contact(self, attr: str, contacts: models.query.QuerySet) -> None:
         contact = contacts.first()
-        if attr == 'contact':
+        if attr == "contact":
             if self.company:
                 if self.company == contact.company:
                     self.contact = contact
@@ -269,15 +306,15 @@ class Request(Base1):
         if not all((self.company, self.contact, self.lead)):
             companies4 = companies3 = companies2 = companies1 = None
             companies1_len = companies2_len = companies3_len = companies4_len = 0
-            company_model = apps.get_model('crm', 'Company')
-            contact_model = apps.get_model('crm', 'Contact')
+            company_model = apps.get_model("crm", "Company")
+            contact_model = apps.get_model("crm", "Contact")
             if self.email:
                 realname, email = parseaddr(self.email)  # NOQA
                 contact_email_param = models.Q(email__icontains=email)
                 contact_email_param |= models.Q(secondary_email__icontains=email)
                 companies1 = contact_model.objects.filter(
                     contact_email_param
-                ).values_list('company_id', flat=True)
+                ).values_list("company_id", flat=True)
                 companies1_len = companies1.count()
                 if companies1_len == 1:
                     self.company_id = companies1.first()
@@ -290,11 +327,11 @@ class Request(Base1):
                 if companies1_len > 1:
                     companies2 = contact_model.objects.filter(
                         contact_phone_param, company_id__in=companies1
-                    ).values_list('company_id', flat=True)
+                    ).values_list("company_id", flat=True)
                 else:
                     companies2 = contact_model.objects.filter(
                         contact_phone_param
-                    ).values_list('company_id', flat=True)
+                    ).values_list("company_id", flat=True)
                 companies2_len = companies2.count()
                 if companies2_len == 1:
                     self.company_id = companies2.first()
@@ -305,9 +342,13 @@ class Request(Base1):
             if self.company_name:
                 name_param = self._get_company_name_q_param()
                 if companies1_len > 1:
-                    companies3 = company_model.objects.filter(name_param, id__in=companies1)
+                    companies3 = company_model.objects.filter(
+                        name_param, id__in=companies1
+                    )
                 elif companies2_len > 1:
-                    companies3 = company_model.objects.filter(name_param, id__in=companies2)
+                    companies3 = company_model.objects.filter(
+                        name_param, id__in=companies2
+                    )
                 else:
                     companies3 = company_model.objects.filter(name_param)
                 companies3_len = companies3.count()
@@ -321,9 +362,13 @@ class Request(Base1):
                     if companies3_len > 1:
                         companies4 = companies3.filter(country=self.country)
                     elif companies1_len > 1:
-                        companies4 = company_model.objects.filter(country=self.country, id__in=companies1)
+                        companies4 = company_model.objects.filter(
+                            country=self.country, id__in=companies1
+                        )
                     elif companies2_len > 1:
-                        companies4 = company_model.objects.filter(country=self.country, id__in=companies2)
+                        companies4 = company_model.objects.filter(
+                            country=self.country, id__in=companies2
+                        )
                     if companies4 is not None:
                         companies4_len = companies4.count()
                         if companies4_len == 1:
@@ -342,7 +387,9 @@ class Request(Base1):
                                 self.verification_required = True
                             return
 
-            if not any((companies4_len, companies3_len, companies2_len, companies1_len)):
+            if not any(
+                (companies4_len, companies3_len, companies2_len, companies1_len)
+            ):
                 if self.email:
                     email_domain = get_email_domain(self.email)
                     if email_domain:
@@ -364,13 +411,15 @@ class Request(Base1):
 
     def _get_company_name_q_param(self) -> models.Q:
         letters = [i for i in self.company_name if i.isalpha() or i.isspace()]
-        phrase = ''.join(letters)
+        phrase = "".join(letters)
         words = phrase.split(" ")
-        words_re_list = [''.join((f"[{letter}]{{1}}" for letter in word)) for word in words]
-        phrase_re = ''.join((f'[^a-zA-z]*{word_re}' for word_re in words_re_list))
+        words_re_list = [
+            "".join((f"[{letter}]{{1}}" for letter in word)) for word in words
+        ]
+        phrase_re = "".join((f"[^a-zA-z]*{word_re}" for word_re in words_re_list))
         return models.Q(
-            models.Q(full_name__iregex=fr"^{phrase_re}[^a-zA-Z]*$") |
-            models.Q(alternative_names__iregex=fr"(^|,)\s*{phrase_re}\s*(,|$)")
+            models.Q(full_name__iregex=rf"^{phrase_re}[^a-zA-Z]*$")
+            | models.Q(alternative_names__iregex=rf"(^|,)\s*{phrase_re}\s*(,|$)")
         )
 
     def get_or_create_contact_or_lead(self) -> None:
@@ -379,7 +428,7 @@ class Request(Base1):
             return
         self.find_company()
         if all((self.company, self.first_name, self.email)):
-            contact_model = apps.get_model('crm', 'Contact')
+            contact_model = apps.get_model("crm", "Contact")
             contact = contact_model.objects.create(
                 first_name=self.first_name,
                 last_name=self.last_name,
@@ -393,7 +442,7 @@ class Request(Base1):
             self.verification_required = True
             return
 
-        lead_model = apps.get_model('crm', 'Lead')
+        lead_model = apps.get_model("crm", "Lead")
         lead = lead_model(
             first_name=self.first_name,
             last_name=self.last_name,
