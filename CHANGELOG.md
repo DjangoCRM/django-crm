@@ -12,7 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added the fields `region` and `district` to the models Company, Contact and Lead by @Tosinibikunle in #262.
+- Added the fields `region` ("Region/State") and `district` ("District/County"):
+  - to the models Company, Contact and Lead by @Tosinibikunle in #262
+  - to the `fieldsets` of `CompanyAdmin` by @summer1220 in #265
 
 ## [1.5.2] - 2025-08-16
 
