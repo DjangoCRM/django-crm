@@ -129,6 +129,7 @@ class RequestAdmin(CrmModelAdmin):
             'classes': ('collapse',),
             'fields': [
                 'subsequent',
+                'case',
                 ('modified_by', 'ticket')
             ]
         }),
@@ -139,7 +140,7 @@ class RequestAdmin(CrmModelAdmin):
     list_filter = [
         'pending', ByOwnerFilter, 'receipt_date',
         ('products', ScrollRelatedOnlyFieldListFilter),
-        'subsequent'
+        'subsequent', 'case'
     ]
     list_per_page = 30
     raw_id_fields = ('lead', 'contact', 'company', 'deal')
