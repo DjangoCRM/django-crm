@@ -106,6 +106,7 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
                     'website',
                     'city_name',
                     ('city', 'country'),
+                    'region', 'district',
                     'address',
                 )
             }),

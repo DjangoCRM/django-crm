@@ -27,6 +27,7 @@ nav:
     - Newsletter mailing: newsletter_mailing.md
     - VoIP telephony and messengers: voip_and_messengers.md
     - Translate the Django CRM interface: translate_django_crm.md
+    - Renaming CRM fields: renaming_crm_fields.md
   - User guide:
     - Introduction: introduction.md
     - TASKS section: tasks_section.md

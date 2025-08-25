@@ -5,10 +5,10 @@
 ### Contribution opportunities
 Code contributions are not the only way to help the project. There are many opportunities to support and contribute:
 
-- Just add a star ⭐️ and fork the repository, this will already be a valuable help for the project.
+- Please give a star ⭐️, it will also be a valuable help for the project.
 - Submit GitHub issues about bugs or desired new features.
   - Please follow the <a href="https://github.com/DjangoCRM/django-crm?tab=security-ov-file#security-ov-file" target="_blank">security policy</a>.
-- Improving <a href="https://django-crm-admin.readthedocs.io/" title="Django CRM documentation" target="_blank">Documentation</a> and help pages.
+- Improving <a href="https://django-crm-admin.readthedocs.io/" title="Django CRM documentation" target="_blank">CRM Documentation</a> and help pages.
 - Take part in the development of [the CRM](https://DjangoCRM.github.io/info/) website.
 - Localization - the creation of a new or improvement of an existing translation (in context) of the CRM interface:
 
@@ -83,4 +83,4 @@ But now we are also ready to add new features.
 >   python manage.py test tests/ --noinput
 > ```
 
-😎👌🔥 We appreciate any contribution!
+😎👌🔥 We appreciate any contribution and starring ⭐️!
