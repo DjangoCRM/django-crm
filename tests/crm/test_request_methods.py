@@ -229,6 +229,25 @@ class TestRequestMethods(BaseTestCase):
             self.contact_request.clean()
         self.contact_request.lead = None
 
+    def test_case_field_default(self):
+        """Test that the case field defaults to False."""
+        request = Request(
+            request_for='test inquiry',
+            first_name='John',
+            email='john@example.com'
+        )
+        self.assertFalse(request.case, "Case field should default to False")
+        
+    def test_case_field_assignment(self):
+        """Test that the case field can be set to True."""
+        request = Request(
+            request_for='test case inquiry',
+            first_name='Jane',
+            email='jane@example.com',
+            case=True
+        )
+        self.assertTrue(request.case, "Case field should be settable to True")
+
 
 def populate_db(cls):
     cls.owner = USER_MODEL.objects.get(username="Andrew.Manager.Global")
