@@ -195,9 +195,9 @@ class DealAdmin(CrmModelAdmin):
         extra_context['has_add_request_permission'] = has_add_permission
 
         func = getattr(self.__class__, 'dynamic_name')
-        title = gettext(
-            self.model._meta.get_field("name").help_text._args[0]  # NOQA
-        )
+        # Use gettext directly on help_text to support lazy translation objects
+        help_text = self.model._meta.get_field("name").help_text
+        title = gettext(help_text)
         func.short_description = mark_safe(
             f'<i title="{title}" class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
         )
