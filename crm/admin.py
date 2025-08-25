@@ -348,6 +348,8 @@ class RequestAdmin(requestadmin.RequestAdmin):
                     ('modified_by', 'ticket')
                 ]
             }),
+                                       'region',
+                                       'district',
         )
 
 
@@ -477,3 +479,4 @@ crm_site.register(Product, productadmin.ProductAdmin)
 crm_site.register(Request, requestadmin.RequestAdmin)
 crm_site.register(Shipment, ShipmentAdmin)
 crm_site.register(Tag, tagadmin.TagAdmin)
+
