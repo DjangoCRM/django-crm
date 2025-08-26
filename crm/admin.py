@@ -106,7 +106,6 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
                     'website',
                     'city_name',
                     ('city', 'country'),
-                    'region', 'district',
                     'address',
                 )
             }),
@@ -278,6 +277,7 @@ class LeadAdmin(leadadmin.LeadAdmin):
                     ('company_name', 'website'),
                     ('company_email', 'country'),
                     'address',
+                    'region', 'district'
                 )
             }),
             (_('Additional information'), {
