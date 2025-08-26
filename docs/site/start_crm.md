@@ -1,4 +1,4 @@
-## Run CRM on the built-in server
+# Run CRM using the built-in server
 
 !!! Note
     Don't use this server in anything resembling a production environment (with access to the CRM from the Internet).  
@@ -6,13 +6,24 @@
 
 The built-in server can only be used when `DEBUG = True` (the default setting).  
 
+## Run CRM on localhost
+
 ``` cmd
 python manage.py runserver
 ```
 
-In this case, [Django CRM](https://docs.djangoproject.com/en/dev/ref/contrib/admin/){target="_blank"} will be available on your computer on the IP address `http://127.0.0.1:8000` (localhost with port 8000).  
-Open the web page at this address in your browser.  
-If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
+In this case, CRM will be available on your computer on the IP address `http://127.0.0.1:8000` (localhost with port 8000).  
+But if you open the web page at this address in your browser, you will see an error page.
+The login address for CRM is listed below, in the ["Access to CRM and admin sites"](#access-to-crm-and-admin-sites) section.
+
+You may encounter log messages such as:  
+`Another instance is already running, quitting.`  
+This behavior is expected and requires no intervention.  
+Django CRM operates as a self-hosted web application where the server may spawn multiple worker processes to handle concurrent tasks. However, certain internal services within the CRM are designed to run as a single instance to maintain data integrity or avoid conflicts. To enforce this, duplicate instances of these services are automatically detected and terminated during startup.
+
+## Run CRM on a specific IP address and port
+
+If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port.
 
 !!! Important
     But first, [specify the CRM website domain](#specify-crm-site-domain).
@@ -22,12 +33,6 @@ For example:
 ```cmd
 python manage.py runserver 1.2.3.4:8000
 ```
-
-You may encounter log messages such as:  
-`Another instance is already running, quitting.`  
-This behavior is expected and requires no intervention.  
-Django CRM operates as a web application where the server may spawn multiple worker processes to handle concurrent tasks. However, certain internal services within the CRM are designed to run as a single instance to maintain data integrity or avoid conflicts. To enforce this, duplicate instances of these services are automatically detected and terminated during startup.
-
 
 ## Access to CRM and admin sites
 
@@ -47,7 +52,7 @@ and Admin site for administrators (superusers):
 can be changed in the file `webcrm/settings.py`
 
 !!! Note 
-    Do not attempt to access the bare `<your CRM host>` address ( `http://127.0.0.1:8000/` ).  
+    Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
     This address is not supported.  
     To protect CRM with a site server (e.g. [Apache](https://httpd.apache.org/){target="_blank"}), a redirect to a fake login page can be placed on this address.
 
@@ -71,4 +76,3 @@ Many buttons and icons on CRM pages have tooltips that appear when you hover ove
 
 Many pages have an icon <span style="vertical-align: baseline"><img src="../icons/question-mark.svg" alt="Question-mark icon" width="25" height="25"></span> in the upper right corner.  
 This is a link to a help page.
-
