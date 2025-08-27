@@ -106,10 +106,10 @@ All CRM users have access to this application by default.
 Access to the rest of the applications is only available to users with the appropriate roles, such as sales managers, company executives, etc.  
 To use all the features of these applications, you need to set up CRM integration:
 
-- with your company's websites;
-- with your company's mailboxes and sales managers' mailboxes;
-- with the service of receiving current exchange rates (if necessary);
-- with VoIP telephony service (if necessary).
+- with your company's websites
+- with your company's mailboxes and sales managers' mailboxes
+- with the service of receiving current exchange rates (if necessary)
+- with VoIP telephony service (if necessary)
 
 ## Project installation
 
@@ -195,7 +195,7 @@ and then destroy a separate [test database](https://docs.djangoproject.com/en/de
 
 #### For MySQL database, it is recommended to  
 
-- set up the timezone table;  
+- set up the timezone table
 - set the extended encoding:
   - charset `utf8mb4`
   - collation  `utf8mb4_general_ci`
@@ -255,6 +255,14 @@ python manage.py runserver
 ```
 
 In this case, CRM will be available only on your computer on the IP address 127.0.0.1 (localhost) and port 8000.  
+But if you open this address in your browser, you will see an error page.  
+The address for logging into CRM is provided in the next section.
+
+> [!NOTE]
+> You may see messages like **"Another instance is already running, quitting"** in the terminal or server logs.  
+> This is normal and requires no action.  
+> Django CRM is a web application, and the web server typically runs multiple CRM instances (workers) simultaneously. However, some CRM components are designed to run on a single instance to function properly. When the system detects that such a component is already running, it automatically prevents duplicate instances from starting.
+
 If you need to provide access to CRM from an intranet (local network), specify the IP address of your network card and port  
 (but first, [specify the CRM website domain](#specify-crm-site-domain)).
 For example:
@@ -262,10 +270,6 @@ For example:
 ```cmd
 python manage.py runserver 1.2.3.4:8000
 ```
-> [!NOTE]
-> You may see messages like **"Another instance is already running, quitting"** in the terminal or server logs.  
-> This is normal and requires no action.  
-> Django CRM is a web application, and the web server typically runs multiple CRM instances (workers) simultaneously. However, some CRM components are designed to run on a single instance to function properly. When the system detects that such a component is already running, it automatically prevents duplicate instances from starting.
 
 ## Access to CRM and admin sites
 

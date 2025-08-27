@@ -261,6 +261,14 @@ python manage.py runserver
 ```
 
 En este caso, el CRM estará disponible solo en tu computadora en la dirección IP 127.0.0.1 (localhost) y el puerto 8000.  
+Pero si abres esta dirección en tu navegador, verás una página de error.  
+La dirección para iniciar sesión en CRM se proporciona en la siguiente sección.
+
+> [!IMPORTANT]
+> Los sitios de administración están pensados para usuarios experimentados.  
+> Úselos para la configuración inicial y las acciones que no se pueden realizar en el sitio de CRM. Por ejemplo, acciones con departamentos, usuarios, permisos, etc.  
+> Para todo lo demás, utilice el sitio de CRM con el rol de usuario correspondiente.
+
 Si necesitas proporcionar acceso al CRM desde una intranet (red local), especifica la dirección IP de tu tarjeta de red y el puerto  
 (pero primero, [especifica el dominio del sitio del CRM](#especificar-el-dominio-del-sitio-crm)).
 Por ejemplo:
@@ -277,11 +285,6 @@ Django CRM es una aplicación web, y el servidor web suele ejecutar varias insta
 
 Ahora tienes dos sitios web: CRM y sitios de administración.  
 Usa las credenciales del superusuario para iniciar sesión.
-
-> [!IMPORTANT]
-> Los sitios de administración están pensados para usuarios experimentados.  
-> Úselos para la configuración inicial y las acciones que no se pueden realizar en el sitio de CRM. Por ejemplo, acciones con departamentos, usuarios, permisos, etc.  
-> Para todo lo demás, utilice el sitio de CRM con el rol de usuario correspondiente.
 
 ### Sitio de CRM para todos los usuarios
 
