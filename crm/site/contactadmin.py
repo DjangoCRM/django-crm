@@ -110,7 +110,7 @@ class ContactAdmin(CrmModelAdmin):
                 )
             }],
             *self.get_tag_fieldsets(obj),
-            ('Contact details', {
+            (_('Contact details'), {
                 'fields': (
                     'email',
                     'create_email',

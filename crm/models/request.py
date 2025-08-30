@@ -131,6 +131,11 @@ class Request(Base1):
         verbose_name=_("Verification required"),
         help_text=_("Links are set automatically and require verification.")
     )
+    case = models.BooleanField(
+        default=False,
+        verbose_name=_("Case/Incident"),
+        help_text=_("A request that does not involve payment")
+    )
     ticket = models.CharField(
         max_length=16, default=new_ticket
     )
