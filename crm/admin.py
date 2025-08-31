@@ -277,6 +277,7 @@ class LeadAdmin(leadadmin.LeadAdmin):
                     ('phone', 'other_phone'),
                     ('company_name', 'website'),
                     ('company_email', 'country'),
+                    'region','district'
                     'address',
                 )
             }),
