@@ -141,7 +141,7 @@ class LeadAdmin(CrmModelAdmin):
                     'company_email',
                     ('city', 'country'),
                     'region',
-                    'district'
+                    'district',
                     'address',
                     'type',
                     'industry',
