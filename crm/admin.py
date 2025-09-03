@@ -319,6 +319,7 @@ class RequestAdmin(requestadmin.RequestAdmin):
                 'fields': [
                     'request_for',
                     'duplicate',
+                    'case',
                     'pending',
                     'subsequent',
                     ('lead_source', 'receipt_date'),
