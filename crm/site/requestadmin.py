@@ -77,7 +77,8 @@ DEAL_OWNER_NOTICE = _("You received the deal")
 DEAL_CO_OWNER_NOTICE = _("You are the co-owner of the deal")
 LEAD_ATTR_LIST = CONTACT_ATTR_LIST + ('country', 'company_name')
 table_loyalty_icon = '<i title="{}" class="material-icons" ' \
-                     'style="color: var(--body-quiet-color)">loyalty</i>'.format(client_loyalty_title)
+                     'style="color: var(--body-quiet-color)">loyalty</i>'.format(
+                         client_loyalty_title)
 loyalty_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: var(--green-fg)">loyalty</i>'
 primary_icon = '<i title="{}" class="material-icons" style="font-size: 17px;color: #ECBA82">local_offer</i>'
 primary_title = _("Primary request")
@@ -104,7 +105,6 @@ class RequestAdmin(CrmModelAdmin):
             'fields': [
                 'request_for',
                 'duplicate',
-                'case',
                 ('lead_source', 'receipt_date'),
                 ('department', 'owner', 'co_owner'),
                 ('first_name', 'middle_name', 'last_name'),
@@ -219,7 +219,8 @@ class RequestAdmin(CrmModelAdmin):
         if not any(('company' in request.GET, 'lead' in request.GET)):
             list_display.append('request_counter')
         list_display.extend(('the_full_name', 'the_receipt_date'))
-        if not (request.user.is_manager and 'owner' not in request.GET):
+        if not (request.user.is_manager and 'owner' not in request.GET) \
+                or request.user.is_chief:
             list_display.append('person')
         list_display.append('status')
         list_display.append('content_copy')
@@ -291,7 +292,7 @@ class RequestAdmin(CrmModelAdmin):
         super().save_model(request, obj, form, change)
 
         if not obj.products.exists():
-                messages.warning(request, _("Specify products"))
+            messages.warning(request, _("Specify products"))
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
@@ -355,7 +356,7 @@ class RequestAdmin(CrmModelAdmin):
             url = counterparty.get_crm_url()
             return mark_safe(
                 f'<a href="{url}">{counterparty.full_name}</a>'
-                )
+            )
         return obj.company_name
 
     @staticmethod
@@ -400,7 +401,8 @@ class RequestAdmin(CrmModelAdmin):
                 return mark_safe(link)
             elif counter == 1:
                 return mark_safe(f'<span title="{obj_plural_name}">(1)</span>')
-        return mark_safe('&nbsp;')  # to avoid showing dashes if there is no counter
+        # to avoid showing dashes if there is no counter
+        return mark_safe('&nbsp;')
 
     @admin.display(
         description=subject_safe_icon,
@@ -414,11 +416,6 @@ class RequestAdmin(CrmModelAdmin):
             return mark_safe(
                 f'<span  style="color: var(--body-quiet-color)">({duplicate}) {obj.request_for}</span>'
             )
-        if obj.case:  
-            case = obj._meta.get_field('case').verbose_name
-            return mark_safe(
-                f'<span style="color: var(--body-quiet-color)">({case}) {obj.request_for}</span>'
-        )
         return obj.request_for
 
     @admin.display(description=status_str)
