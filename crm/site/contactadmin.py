@@ -123,6 +123,8 @@ class ContactAdmin(CrmModelAdmin):
                     'connections_to_mobile',
                     ('lead_source', 'company'),
                     ('city', 'country'),
+                    'region',
+                    'district',
                     'address'
                 )
             }),

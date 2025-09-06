@@ -225,6 +225,8 @@ class ContactAdmin(contactadmin.ContactAdmin):
                     'phone',
                     ('other_phone', 'mobile'),
                     ('lead_source', 'company'),
+                    'region',
+                    'district',
                     'address', 'country'
                 )
             }),
