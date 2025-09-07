@@ -225,6 +225,8 @@ class ContactAdmin(contactadmin.ContactAdmin):
                     'phone',
                     ('other_phone', 'mobile'),
                     ('lead_source', 'company'),
+                    'region',
+                    'district',
                     'address', 'country'
                 )
             }),
@@ -277,6 +279,7 @@ class LeadAdmin(leadadmin.LeadAdmin):
                     ('phone', 'other_phone'),
                     ('company_name', 'website'),
                     ('company_email', 'country'),
+                    'region', 'district',
                     'address',
                 )
             }),
@@ -318,6 +321,7 @@ class RequestAdmin(requestadmin.RequestAdmin):
                 'fields': [
                     'request_for',
                     'duplicate',
+                    'case',
                     'pending',
                     'subsequent',
                     ('lead_source', 'receipt_date'),

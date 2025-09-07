@@ -1,6 +1,8 @@
 ## Introduction
 
-📈 The use of CRM by companies allows them to improve the sales performance of their products and services.  
+📈 Django CRM offers [powerful tools](guide_for_company_executives.md): the [**CRM Task management solution**](https://djangocrm.github.io/info/features/tasks-app-features){target="_blank"} for company-wide task tracking and office memos,
+the **CRM Module** for managing customer data and launching targeted email campaigns, and [**CRM analytics software**](https://github.com/DjangoCRM/django-crm/){target="_blank"} for insights into sales and business performance.
+The use of CRM by companies allows them to improve the sales performance of their products and services.
 The more complex and time-consuming the sales process, the greater the improvement.  
 
 [Django-CRM](https://github.com/DjangoCRM/django-crm/){target="_blank"} is an application with a web interface. Therefore, you can use an internet browser on your computer, tablet and smartphone to work with it.
@@ -49,7 +51,7 @@ The history of an object is retained even after it has been deleted.
 
 !!! Note
 
-    To view the history of a deleted object, contact the administrator (available from 1.5).
+    To view the history of a deleted object, contact the administrator (available from v1.5).
 
 ### File object
 
