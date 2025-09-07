@@ -283,7 +283,10 @@ def create_company(obj: Lead) -> Company:
         owner=obj.owner,
         department=obj.department,
         disqualified=obj.disqualified,
-        massmail=obj.massmail
+        massmail=obj.massmail,
+        # -- new fields region and district -- #
+        region=obj.region,
+        district=obj.district
     )
 
 
@@ -308,5 +311,8 @@ def create_contact(obj: Lead, company: Company) -> Contact:
         owner=obj.owner,
         department=obj.department,
         disqualified=obj.disqualified,
-        massmail=obj.massmail
+        massmail=obj.massmail,
+       # -- new fields region and district -- #
+        region=obj.region,
+        district=obj.district
     )

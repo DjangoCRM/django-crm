@@ -102,6 +102,9 @@ class TestLeadConversion(BaseTestCase):
             email='Bruno@company.com',
             phone='+0182345678',
             company_name='Bruno Company LLC',
+            # -- new fields region and district -- #
+            region='west',
+            district='district 9',
             country=self.country,
             department_id=self.department_id,
             owner=self.owner
@@ -126,6 +129,14 @@ class TestLeadConversion(BaseTestCase):
             Lead.objects.filter(id=lead.id).exists(),
             "The Lead not deleted"
         )
+        # -- fetch created company --#
+        company = Company.objects.get(company_name='Bruno Company LLC')
+        self.assertEqual(company.region, 'west')
+        self.assertEqual(company.district, 'district 9')
+        # -- fetch created contact --#
+        contact = Contact.objects.get(first_name='Bruno')
+        self.assertEqual(contact.region, 'west')
+        self.assertEqual(contact.district, 'district 9')
 
     def test_lead_conversion_new_contact(self):
         """Converting a lead with the creation of a new contact for an existing company."""
