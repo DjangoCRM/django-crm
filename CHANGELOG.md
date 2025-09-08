@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - to the models Company, Contact and Lead by @Tosinibikunle in #262
   - to the `CompanyAdmin` by @summer1220 in #265
   - to the `LeadAdmin` by @Faria-Shahid in #276
+  - to the `ContactAdmin` by @ritkaarsingh30 in #281
 - Added the `case` field:
   - to the Request model by @iclectic in #273
   - to the `RequestAdmin` by @souhil25 in #278
