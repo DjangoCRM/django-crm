@@ -319,7 +319,8 @@ class RequestAdmin(CrmModelAdmin):
             _change_related_objs_attrs(obj, attrs)
 
         if '_create-deal' in request.POST:
-            if not any((obj.pending, obj.deal, obj.duplicate)):
+            # -- Added obj.case to prevent creating deal for requests -- #
+            if not any((obj.pending, obj.deal, obj.duplicate, obj.case)):
                 update_fields = ['deal']
                 d = _get_or_create_deal(obj, request)
                 obj.deal = d
