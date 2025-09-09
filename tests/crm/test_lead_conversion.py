@@ -129,7 +129,7 @@ class TestLeadConversion(BaseTestCase):
             "The Lead not deleted"
         )
         # -- check that new company and contact created with correct data -- #
-        company = Company.objects.get(first_name='Bruno')
+        company = Company.objects.get(full_name='Bruno Company LLC')
         self.assertEqual(company.region, 'west')
         self.assertEqual(company.district, 'district 9')
 
