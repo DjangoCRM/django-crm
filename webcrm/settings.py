@@ -14,7 +14,6 @@ from .datetime_settings import *    # NOQA
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 # To get new value of key use code:
 # from django.core.management.utils import get_random_secret_key
@@ -188,8 +187,6 @@ CSRF_COOKIE_SECURE = False
 SECURE_HSTS_PRELOAD = False
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
-DJANGO_RUNSERVER_HIDE_WARNING = True
-
 # ---- CRM settings ---- #
 
 # For more security, replace the url prefixes
@@ -293,7 +290,7 @@ MAILING = True
 # This is copyright information. Please don't change it!
 COPYRIGHT_STRING = f"Django-CRM. Copyright (c) {dt.now().year}"
 PROJECT_NAME = "Django-CRM"
-PROJECT_SITE = "https://github.com/DjangoCRM/django-crm/"
+PROJECT_SITE = "https://djangocrm.github.io/info/"
 
 
 TESTING = sys.argv[1:2] == ['test']
