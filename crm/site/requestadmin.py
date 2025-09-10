@@ -105,6 +105,8 @@ class RequestAdmin(CrmModelAdmin):
             'fields': [
                 'request_for',
                 'duplicate',
+                # -- Added case field -- #
+                'case',
                 ('lead_source', 'receipt_date'),
                 ('department', 'owner', 'co_owner'),
                 ('first_name', 'middle_name', 'last_name'),
@@ -416,6 +418,12 @@ class RequestAdmin(CrmModelAdmin):
             duplicate = obj._meta.get_field('duplicate').verbose_name  # NOQA
             return mark_safe(
                 f'<span  style="color: var(--body-quiet-color)">({duplicate}) {obj.request_for}</span>'
+            )
+        # -- Added obj.case handling -- #
+        if obj.case:
+            case = obj._meta.get_field('case').verbose_name  
+            return mark_safe(
+                f'<span  style="color: var(--body-quiet-color)">({case}) {obj.request_for}</span>'
             )
         return obj.request_for
 
