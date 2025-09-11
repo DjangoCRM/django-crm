@@ -314,7 +314,7 @@ class RequestAdmin(requestadmin.RequestAdmin):
     readonly_fields = tuple()
 
     def get_fieldsets(self, request, obj=None):
-        return (
+        fieldsets = [
             (None, {
                 'fields': [
                     'request_for',
@@ -350,7 +350,14 @@ class RequestAdmin(requestadmin.RequestAdmin):
                     ('modified_by', 'ticket')
                 ]
             }),
-        )
+        ]
+    
+        if obj and obj.deal:
+            main_fields = fieldsets[0][1]['fields']
+            filtered = [f for f in main_fields if f not in ('duplicate', 'case')]
+            fieldsets[0][1]['fields'] = filtered
+    
+        return fieldsets
 
 
 class StageAdmin(TranslateNameModelAdmin):
