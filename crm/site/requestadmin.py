@@ -105,7 +105,6 @@ class RequestAdmin(CrmModelAdmin):
             'fields': [
                 'request_for',
                 'duplicate',
-                # -- Added case field -- #
                 'case',
                 ('lead_source', 'receipt_date'),
                 ('department', 'owner', 'co_owner'),
@@ -321,7 +320,6 @@ class RequestAdmin(CrmModelAdmin):
             _change_related_objs_attrs(obj, attrs)
 
         if '_create-deal' in request.POST:
-            # -- Added obj.case to prevent creating deal for requests -- #
             if not any((obj.pending, obj.deal, obj.duplicate, obj.case)):
                 update_fields = ['deal']
                 d = _get_or_create_deal(obj, request)
@@ -417,14 +415,18 @@ class RequestAdmin(CrmModelAdmin):
         if obj.duplicate:
             duplicate = obj._meta.get_field('duplicate').verbose_name  # NOQA
             return mark_safe(
-                f'<span  style="color: var(--body-quiet-color)">({duplicate}) {obj.request_for}</span>'
+                f'<span style="color: var(--body-quiet-color)">({duplicate}) {obj.request_for}</span>'
             )
-        # -- Added obj.case handling -- #
         if obj.case:
-            case = obj._meta.get_field('case').verbose_name  
-            return mark_safe(
-                f'<span  style="color: var(--body-quiet-color)">({case}) {obj.request_for}</span>'
-            )
+            case = obj._meta.get_field('case').verbose_name
+            if obj.pending:
+                return mark_safe(
+                    f'<span style="color: var(--green-fg)">({case}) {obj.request_for}</span>'
+                )
+            else:
+                return mark_safe(
+                    f'<span style="color: var(--body-quiet-color)">({case}) {obj.request_for}</span>'
+                )
         return obj.request_for
 
     @admin.display(description=status_str)
