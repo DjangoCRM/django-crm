@@ -449,6 +449,21 @@ class RequestAdmin(CrmModelAdmin):
     def the_receipt_date(self, instance):
         return instance.receipt_date
 
+    def get_fieldsets(self, request, obj=None):
+        """
+        Dynamically remove 'duplicate' and 'case' checkboxes if a Deal is already
+        linked to this Request.
+        """        
+
+        fieldsets = super().get_fieldsets(request, obj)
+
+        if obj and obj.deal:
+            main_fields = fieldsets[0][1]['fields']
+
+            filtered = [f for f in main_fields if f not in ('duplicate', 'case')]
+            fieldsets[0][1]['fields'] = filtered
+        
+        return fieldsets
 
 # -- Custom methods -- #
 
