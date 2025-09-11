@@ -251,7 +251,7 @@ class TagFilter(SimpleListFilter):
         ).values_list('id', 'name').order_by('name')
         lookups = [*objects]
         if len(lookups) > 9:
-            self.template = "crm/filter_scroll.html"        
+            self.template = "crm/filter_scroll.html"
         return lookups
 
     def queryset(self, request, queryset):
@@ -268,7 +268,8 @@ class ByProductFilter(SimpleListFilter):
 
     def lookups(self, request, model_admin):
         products = Product.objects.all()
-        department_id = request.GET.get('department') or request.user.department_id
+        department_id = request.GET.get(
+            'department') or request.user.department_id
         if department_id and department_id != 'all':
             products = products.filter(
                 department_id=int(department_id)
@@ -297,7 +298,7 @@ class ByDepartmentFilter(SimpleListFilter):
             self.used_parameters[self.parameter_name] = value
         if request.user.is_superoperator:
             departments = request.user.groups.all()
-        else:            
+        else:
             departments = request.user.groups.model.objects.all()
         departments = departments.filter(
             department__isnull=False,
@@ -317,16 +318,16 @@ class ByDepartmentFilter(SimpleListFilter):
 
     def queryset(self, request, queryset):
         value = self.value()
-        
+
         if value in ('all', None):
             return queryset
-        
+
         if hasattr(queryset.model, 'department_id'):
             return queryset.filter(department_id=value)
-        
+
         if hasattr(queryset.model, 'deal'):
             return queryset.filter(deal__department_id=value)
-        
+
         return queryset
 
 
@@ -355,7 +356,7 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
         if not any((
                 request.user.is_superuser,
                 request.user.is_superoperator,
-                request.user.is_chief,
+                request.user.is_chief and not request.user.is_manager,
                 request.user.is_task_operator,
                 request.user.is_accountant
         )) and not any((deal_id, request_id)):
@@ -389,7 +390,7 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
         if not any((
                 request.user.is_superuser,
                 request.user.is_superoperator,
-                request.user.is_chief,
+                request.user.is_chief and not request.user.is_manager,
                 request.user.is_task_operator,
                 request.user.is_accountant
         )):
@@ -457,10 +458,10 @@ class ByPartnerFilter(SimpleListFilter):
     def queryset(self, request, queryset):
         if self.value() == 'IsNull':
             return queryset.filter(partner_contact_id__isnull=True)
-        
+
         if self.value() is not None:
             return queryset.filter(partner_contact_id=self.value())
-        
+
         return queryset
 
 

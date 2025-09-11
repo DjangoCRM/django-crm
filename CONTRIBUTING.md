@@ -76,11 +76,14 @@ But now we are also ready to add new features.
 - A **Task-board** and **Roadmap** are available for **contributors** to obtain additional information.
 
 > [!IMPORTANT]
-> This repository follows the "[GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)" - anything in the main branch is deployable.  
+> 1. This repository follows the "[GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)" - anything in the main branch is deployable.  
 > **Run tests before creating a Pull Request!**  
 > 
 > ```cmd
 >   python manage.py test tests/ --noinput
 > ```
+>
+> 2. Check whether the **email address** used for commit authorship in the pull request is **associated with your GitHub account**.
+> Otherwise, GitHub will not be able to add you to the list of **project contributors**.
 
 😎👌🔥 We appreciate any contribution and starring ⭐️!

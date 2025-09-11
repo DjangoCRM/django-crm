@@ -24,14 +24,14 @@ nav:
     - IMAP4 protocol client: imap4_protocol_client.md
     - Adding products, services and goods: adding_products_and_services.md
     - Currencies: currencies.md
-    - Newsletter mailing: newsletter_mailing.md
+    - CRM email marketing: newsletter_mailing.md
     - VoIP telephony and messengers: voip_and_messengers.md
     - Translate the Django CRM interface: translate_django_crm.md
     - Renaming CRM fields: renaming_crm_fields.md
   - User guide:
     - Introduction: introduction.md
     - TASKS section: tasks_section.md
-    - Guide for company executives: guide_for_company_executives.md
+    - Key CRM Modules for Company Managers: guide_for_company_executives.md
     - Operator and Sales Manager Roles: operator_and_sales_manager_roles.md
     - Sales Manager's Guide: guide_for_sales_manager.md
     - CRM Administrator's Guide: guide_for_crm_administrator.md
