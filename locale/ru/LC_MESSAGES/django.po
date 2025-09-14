@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-17 12:05+0300\n"
-"PO-Revision-Date: 2025-08-17 12:14+0300\n"
+"POT-Creation-Date: 2025-09-14 13:29+0300\n"
+"PO-Revision-Date: 2025-09-14 13:32+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -244,11 +244,11 @@ msgstr "Страна"
 #: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
-#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
-#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
-#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
-#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
+#: crm/utils/admfilters.py:309 crm/utils/admfilters.py:349
+#: crm/utils/admfilters.py:367 crm/utils/admfilters.py:424
+#: crm/utils/admfilters.py:474 crm/utils/admfilters.py:494
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -260,7 +260,7 @@ msgstr "Все"
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
 #: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:343 voip/models.py:49
+#: crm/utils/admfilters.py:344 voip/models.py:49
 msgid "Owner"
 msgstr "Владелец"
 
@@ -419,11 +419,11 @@ msgstr "оператор задач"
 msgid "You received a message regarding - "
 msgstr "Вы получили сообщение относительно -"
 
-#: chat/site/chatmessageadmin.py:128 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
-#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
-#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:152
-#: crm/site/productadmin.py:18 crm/site/requestadmin.py:128
+#: chat/site/chatmessageadmin.py:128 crm/admin.py:113 crm/admin.py:184
+#: crm/admin.py:233 crm/admin.py:286 crm/admin.py:348
+#: crm/site/companyadmin.py:144 crm/site/contactadmin.py:131
+#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:154
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:130
 #: crm/site/tagadmin.py:26 massmail/admin.py:36
 #: massmail/site/emlmessageadmin.py:78 massmail/site/signatureadmin.py:37
 #: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:190
@@ -578,7 +578,7 @@ msgstr "Повторное добавление заблокировано."
 
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
-#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:291
 #: tasks/site/memoadmin.py:42
 msgid "Department"
 msgstr "Отдел"
@@ -637,7 +637,7 @@ msgid "Reminder date"
 msgstr "Дата напоминания"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:528 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -721,8 +721,8 @@ msgstr "Поле для временного хранения сообщений
 msgid "Tags"
 msgstr "Ярлыки"
 
-#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
-#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:173
+#: crm/admin.py:219 crm/admin.py:271 tasks/site/tasksbasemodeladmin.py:216
 msgid "Add tags"
 msgstr "Добавить ярлыки"
 
@@ -883,7 +883,7 @@ msgid "Priority"
 msgstr "Приоритет"
 
 #: common/templates/common/notice_participants_email.html:15
-#: crm/models/deal.py:183 crm/models/request.py:139
+#: crm/models/deal.py:183 crm/models/request.py:144
 #: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
 msgid "Co-owner"
 msgstr "Совладелец"
@@ -1039,11 +1039,12 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "Пользователь успешно перенесен"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
+#: crm/admin.py:103 crm/admin.py:275 crm/site/companyadmin.py:134
+#: crm/site/contactadmin.py:113
 msgid "Contact details"
 msgstr "Контактные данные"
 
-#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/admin.py:126 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
 #: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
@@ -1051,12 +1052,12 @@ msgstr "Контактные данные"
 msgid "Name"
 msgstr "Название"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:298
+#: crm/admin.py:156 crm/site/dealadmin.py:298
 msgid "Contact info"
 msgstr "Контактная информация"
 
-#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
-#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:119
+#: crm/admin.py:177 crm/admin.py:339 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:121
 msgid "Relations"
 msgstr "Связи"
 
@@ -1218,7 +1219,7 @@ msgid "District/County"
 msgstr "Район/Округ"
 
 #: crm/models/base_contact.py:132 crm/models/lead.py:17
-#: crm/utils/admfilters.py:513
+#: crm/utils/admfilters.py:514
 msgid "Disqualified"
 msgstr "Дисквалифицирован"
 
@@ -1371,7 +1372,7 @@ msgid "Contact"
 msgstr "Контактное лицо"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:510
+#: crm/site/requestadmin.py:524
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1450,7 +1451,7 @@ msgstr "Контактное лицо дилерской или дистрибь
 msgid "Relevant"
 msgstr "Релевантная"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:487
+#: crm/models/deal.py:164 crm/utils/admfilters.py:488
 msgid "Important"
 msgstr "Важная"
 
@@ -1803,11 +1804,19 @@ msgstr "Требуется проверка"
 msgid "Links are set automatically and require verification."
 msgstr "Ссылки установлены автоматически и требуют проверки."
 
-#: crm/models/request.py:148 crm/models/request.py:149
+#: crm/models/request.py:136
+msgid "Case/Incident"
+msgstr "Случай/инцидент"
+
+#: crm/models/request.py:137
+msgid "A request that does not involve payment"
+msgstr "Запрос, не подразумевающий оплату"
+
+#: crm/models/request.py:153 crm/models/request.py:154
 msgid "Company and contact person do not match."
 msgstr "Компания и контактное лицо не совпадают."
 
-#: crm/models/request.py:153 crm/models/request.py:154
+#: crm/models/request.py:158 crm/models/request.py:159
 msgid "Specify the contact person or lead. But not both."
 msgstr "Укажите контактное лицо или лид. Но не оба."
 
@@ -1980,15 +1989,15 @@ msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "Вы можете просматривать только компании, связанные с вашим отделом."
 
-#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
+#: crm/site/companyadmin.py:211 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "Внимание:"
 
-#: crm/site/companyadmin.py:212
+#: crm/site/companyadmin.py:213
 msgid "Owner will also be changed for contact persons."
 msgstr "Владелец контактных лиц будет также изменен."
 
-#: crm/site/companyadmin.py:225
+#: crm/site/companyadmin.py:226
 msgid "Change owner of selected Companies"
 msgstr "Сменить владельца выбранных компаний"
 
@@ -2113,7 +2122,7 @@ msgstr "Получен платеж"
 msgid "Specify the date of shipment"
 msgstr "Укажите дату отгрузки"
 
-#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:293
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:296
 msgid "Specify products"
 msgstr "Укажите продукты"
 
@@ -2174,12 +2183,12 @@ msgstr "Дополнительные данные о человеке"
 msgid "Company contact details"
 msgstr "Контактные данные компании"
 
-#: crm/site/leadadmin.py:247
+#: crm/site/leadadmin.py:249
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "Лид \"{obj}\" успешно конвертирован."
 
-#: crm/site/leadadmin.py:262
+#: crm/site/leadadmin.py:264
 msgid "This Lead is disqualified! Please read the description."
 msgstr "Этот Лид дисквалифицирован! Пожалуйста, прочтите описание."
 
@@ -2199,41 +2208,41 @@ msgstr "Вы получили сделку"
 msgid "You are the co-owner of the deal"
 msgstr "Вы назначены совладельцем новой сделки"
 
-#: crm/site/requestadmin.py:83
+#: crm/site/requestadmin.py:84
 msgid "Primary request"
 msgstr "Первичный запрос"
 
-#: crm/site/requestadmin.py:84
+#: crm/site/requestadmin.py:85
 msgid "You are the co-owner of the request"
 msgstr "Вы назначены совладельцем нового запроса"
 
-#: crm/site/requestadmin.py:85
+#: crm/site/requestadmin.py:86
 msgid "You received the request"
 msgstr "Вы получили запрос"
 
-#: crm/site/requestadmin.py:86 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:87 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "в ожидании"
 
-#: crm/site/requestadmin.py:87
+#: crm/site/requestadmin.py:88
 msgid "processed"
 msgstr "обработано"
 
-#: crm/site/requestadmin.py:88 massmail/models/mailing_out.py:41
+#: crm/site/requestadmin.py:89 massmail/models/mailing_out.py:41
 #: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:47
 msgid "Status"
 msgstr "Статус"
 
-#: crm/site/requestadmin.py:92
+#: crm/site/requestadmin.py:93
 msgid "Subsequent request"
 msgstr "Последующий запрос"
 
-#: crm/site/requestadmin.py:464
+#: crm/site/requestadmin.py:478
 msgid "Found the counterparty assigned to"
 msgstr "Найден контрагент, назначенный"
 
-#: crm/site/requestadmin.py:563
+#: crm/site/requestadmin.py:577
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} «{obj}» был успешно добавлен."
@@ -2486,7 +2495,6 @@ msgstr "Посмотреть или скачать"
 
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:10
 #: crm/templates/admin/crm/request/change_form_object_tools.html:19
-#| msgid "Сorrespondence"
 msgid "View correspondence"
 msgstr "Просмотреть переписку"
 
@@ -2593,50 +2601,50 @@ msgstr "Девять месяцев этого года"
 msgid "Second half of the last year"
 msgstr "Вторая половина прошлого года"
 
-#: crm/utils/admfilters.py:418
+#: crm/utils/admfilters.py:419
 msgid "changed by chiefs"
 msgstr "Изменены руководством"
 
-#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
-#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
-#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:425 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:495 crm/utils/admfilters.py:508
+#: crm/utils/admfilters.py:522 crm/utils/admfilters.py:541
+#: crm/utils/admfilters.py:546 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "Да"
 
-#: crm/utils/admfilters.py:438
+#: crm/utils/admfilters.py:439
 msgid "Partner"
 msgstr "Партнер"
 
-#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
-#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
-#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
+#: crm/utils/admfilters.py:456 crm/utils/admfilters.py:476
+#: crm/utils/admfilters.py:509 crm/utils/admfilters.py:523
+#: crm/utils/admfilters.py:542 crm/utils/admfilters.py:547
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "Нет"
 
-#: crm/utils/admfilters.py:499
+#: crm/utils/admfilters.py:500
 msgid "Has Contacts"
 msgstr "Есть контактные лица"
 
-#: crm/utils/admfilters.py:565
+#: crm/utils/admfilters.py:566
 msgid "mailbox"
 msgstr "почтовый ящик"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "inbox"
 msgstr "входящие"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 msgid "sent"
 msgstr "отправленные"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "черновики  ({num})"
 
-#: crm/utils/admfilters.py:587
+#: crm/utils/admfilters.py:588
 msgid "trash"
 msgstr "корзина"
 
@@ -3862,11 +3870,11 @@ msgstr "Входящий звонок от"
 msgid "(duration: {duration} minutes)"
 msgstr "(продолжительность: {duration} минут)"
 
-#: webcrm/settings.py:274
+#: webcrm/settings.py:271
 msgid "Untitled"
 msgstr "Без названия"
 
-#: webcrm/settings.py:288
+#: webcrm/settings.py:285
 msgid "Main Menu"
 msgstr "Главное меню"
 
