@@ -50,7 +50,7 @@ class MyModelAdmin(admin.ModelAdmin):
     list_filter = (ByDepartmentFilter,)
 
     # -- ModelAdmin methods -- #
-    
+
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'department':
             kwargs["queryset"] = Group.objects.filter(
@@ -61,7 +61,7 @@ class MyModelAdmin(admin.ModelAdmin):
 class TranslateNameModelAdmin(MyModelAdmin):
 
     # -- ModelAdmin methods -- #
-    
+
     def save_model(self, request, obj, form, change):
         if 'index_number' in form.changed_data:
             # arrange indexes
@@ -79,7 +79,7 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
     raw_id_fields = ('city',)
 
     # -- ModelAdmin methods -- #
-    
+
     def get_fieldsets(self, request, obj=None):
         return (
             (None, {
@@ -120,7 +120,7 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
                 )
             }),
         )
-    
+
     # -- ModelAdmin callables -- #
 
     @admin.display(description=_("Name"), ordering='name')
@@ -143,7 +143,7 @@ class DealAdmin(dealadmin.DealAdmin):
     )
 
     # -- ModelAdmin methods -- #
-    
+
     def get_fieldsets(self, request, obj=None):
         return (
             (None, {
@@ -203,7 +203,7 @@ class DealAdmin(dealadmin.DealAdmin):
 
 class ContactAdmin(contactadmin.ContactAdmin):
     readonly_fields = ['creation_date', 'update_date']
-    
+
     # -- ModelAdmin methods -- #
 
     def get_fieldsets(self, request, obj=None):
@@ -246,9 +246,9 @@ class CountryAdmin(admin.ModelAdmin):
 
 
 class LeadAdmin(leadadmin.LeadAdmin):
-    
+
     # -- ModelAdmin methods -- #
-    
+
     def get_fieldsets(self, request, obj=None):
         return (
             (None, {
@@ -386,7 +386,7 @@ class ProductAdmin(productadmin.ProductAdmin):
     list_display = ('name', 'price', 'currency', 'department')
 
     # -- ModelAdmin methods -- #
-    
+
     def get_fieldsets(self, request, obj=None):
         fieldsets = self.fieldsets
         fls = fieldsets[1][1]['fields']
@@ -396,7 +396,6 @@ class ProductAdmin(productadmin.ProductAdmin):
 
 
 class ProductCategoryAdmin(TranslateNameModelAdmin):
-    
     fieldsets = (
         (None, {
             'fields': [
