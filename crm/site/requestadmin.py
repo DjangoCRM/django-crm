@@ -243,10 +243,12 @@ class RequestAdmin(CrmModelAdmin):
             if request.user.is_manager:
                 obj.subsequent = True
 
-        if '_create-deal' in request.POST or \
-                'duplicate' in form.changed_data and obj.duplicate:
+        if any((
+            '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
+            '_close-case' in request.POST)):
             obj.pending = False
-
+        elif '_activate-case' in request.POST:
+            obj.pending = True
         if not obj.pending:
             if not obj.owner:
                 obj.owner = request.user
