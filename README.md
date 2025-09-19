@@ -32,24 +32,6 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
-## Why was Django CRM created?
-
-Many companies using SaaS CRM platforms (such as...  well, you know) face the following problems:
-
-- **High subscription costs** for features they barely use.
-- **Rigid workflows** that force teams to adapt their processes to the platform.
-- **Customizations that break** after vendor updates.
-- **Vendor lock-in**, making migrations painful and expensive.
-- Hidden costs for **integrations, consultants, and manual workarounds**.
-
-**Django CRM solves these issues by offering:**
-
-- **Open-source, free CRM software** — no licensing fees, no vendor lock-in.
-- **Full code ownership** — customize models, views, and business logic to match your exact workflow.
-- A **modular architecture** — create and add only the components you need.
-- Built on **Django/Python**, making integrations and extensions easy.
-- Stable customizations — you control when and how to update.
-
 ⭐️ Star if you like it! It will help others discover this project too.
 
 ---
