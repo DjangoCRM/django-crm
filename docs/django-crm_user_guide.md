@@ -103,11 +103,11 @@ In the general section, you can see a list of all created reminders. If necessar
 
 ### Tasks
 
-Tasks can be collective and individual, main and subtasks.  
+Tasks can be team or individual, main or subtasks.  
 The task can include subscribers. These are the users who should be notified when the task is created and completed. They can see the task.  
 By default, only active tasks are displayed in the task list.
 
-If several users (responsible) are assigned to perform a task, then this is a collective task. To work on a collective task, performers:
+If several users (responsible) are assigned to perform a task, then this is a team task. To work on a team task, performers:
 
 - must create subtasks for themselves;
 - can create subtasks for each other.
@@ -119,7 +119,7 @@ Tasks can have the following status:
 - done;
 - canceled.
 
-Django CRM automatically marks a collective task as completed if each responsible person has at least one subtask and all subtasks are completed.  
+Django CRM automatically marks a team task as completed if each responsible person has at least one subtask and all subtasks are completed.  
 In other cases, it is up to the owner (co-owner) of the task to change the status of the main task.
 
 Users can create tasks for themselves. In this case, CRM automatically assigns a co-owner of the task to the head of the executor's department. This allows department heads to be aware of their employees' tasks.

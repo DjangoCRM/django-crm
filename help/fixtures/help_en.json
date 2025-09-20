@@ -789,7 +789,7 @@
     "fields": {
         "document": 59,
         "title": "Types of tasks",
-        "content": "<div>Tasks are personal and collective.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
+        "content": "<div>Tasks are personal or team.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
         "language_code": "ru",
         "draft": false,
         "verification_required": true,
@@ -827,7 +827,7 @@
     "fields": {
         "document": 59,
         "title": "Who can create tasks",
-        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a collective task, performers can create subtasks for each other.</div>",
+        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a Team task, performers can create subtasks for each other.</div>",
         "language_code": "ru",
         "draft": false,
         "verification_required": true,
@@ -846,7 +846,7 @@
     "fields": {
         "document": 59,
         "title": "Task Stages",
-        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by the task owners or operator.</div><div>In a collective task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if a task is not completely completed, the owner can specify the next step in the \"next step\" field.</div><div>this in the \"next step\" field, and change the \"completed\" stage to \"in progress\".</div>",
+        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by the task owners or operator.</div><div>In a Team task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if a task is not completely completed, the owner can specify the next step in the \"next step\" field.</div><div>this in the \"next step\" field, and change the \"completed\" stage to \"in progress\".</div>",
         "language_code": "ru",
         "draft": false,
         "verification_required": true,
@@ -902,8 +902,8 @@
     "pk": 181,
     "fields": {
         "document": 59,
-        "title": "Working in a collective task",
-        "content": "<div>The executors of the collective task should create a subtask for themselves, and all other executors of the main task will be added as subscribers.  </div><div>all other executors of the main task.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the executor may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this executor.</div><div>The executors of a collective task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each execution has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
+        "title": "Working in a Team task",
+        "content": "<div>The executors of the Team task should create a subtask for themselves, and all other executors of the main task will be added as subscribers.  </div><div>all other executors of the main task.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the executor may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this executor.</div><div>The executors of a Team task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each execution has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
         "language_code": "ru",
         "draft": false,
         "verification_required": true,
@@ -997,8 +997,8 @@
     "pk": 186,
     "fields": {
         "document": 60,
-        "title": "Working in a collective task",
-        "content": "<div><div>If there are other people responsible for the task besides you, then you should create a subtask for yourself to work on.</div><div>Or other performers of this task can do this for you.</div></div><div>Within the main task, performers are authorized to create subtasks for each other to transfer their completed part of the task.</div><div>It is not required to belong to the same department.</div><div>A subtask cannot be a collective task.</div>",
+        "title": "Working in a Team task",
+        "content": "<div><div>If there are other people responsible for the task besides you, then you should create a subtask for yourself to work on.</div><div>Or other performers of this task can do this for you.</div></div><div>Within the main task, performers are authorized to create subtasks for each other to transfer their completed part of the task.</div><div>It is not required to belong to the same department.</div><div>A subtask cannot be a Team task.</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1055,7 +1055,7 @@
     "fields": {
         "document": 60,
         "title": "Hide the main task",
-        "content": "<div>If you are one of the executors of a collective task, but your part of the task does not depend on the other executors, then you can choose not to create a subtask and click the \"Done\" button.</div><div>Or create a subtask and check the \"Hide main task\" checkbox.</div><div>In these cases, the main task will be hidden in your task list.</div><div>You will also not receive notifications about opening/closing subtasks by other executors.</div>",
+        "content": "<div>If you are one of the executors of a Team task, but your part of the task does not depend on the other executors, then you can choose not to create a subtask and click the \"Done\" button.</div><div>Or create a subtask and check the \"Hide main task\" checkbox.</div><div>In these cases, the main task will be hidden in your task list.</div><div>You will also not receive notifications about opening/closing subtasks by other executors.</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1324,7 +1324,7 @@
     "fields": {
         "document": 65,
         "title": "You can set tasks for your subordinates",
-        "content": "<div>You can create a task for yourself or for your subordinates (personal or collective).</div><div>This is convenient, because the department head can see the tasks of his/her employees in addition to his/her own tasks and receive notifications about their fulfillment.</div>",
+        "content": "<div>You can create a task for yourself or for your subordinates (personal or team).</div><div>This is convenient, because the department head can see the tasks of his/her employees in addition to his/her own tasks and receive notifications about their fulfillment.</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1812,7 +1812,7 @@
     "fields": {
         "document": 59,
         "title": "Types of task",
-        "content": "<div>Tasks are personal and collective.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
+        "content": "<div>Tasks are personal or team.</div><div>Subtasks can be created for a task.</div><div>A task is called a main task if it has</div><div>at least one subtask.</div><div>Tasks can be part of a project.</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1850,7 +1850,7 @@
     "fields": {
         "document": 59,
         "title": "Who can create tasks",
-        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a collective task, performers can create subtasks for each other.</div>",
+        "content": "<div>A task for a user can be created by the head of his department or by the company management.</div><div>A user can also create a task for himself. In this case the head of his department will be added as a co-owner of the task by default.</div><div>In a Team task, performers can create subtasks for each other.</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1869,7 +1869,7 @@
     "fields": {
         "document": 59,
         "title": "Task stages",
-        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by task owners or operator.</div><div>In a collective task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if the task is not completely completed, the owner can specify this in the \"next step\" field and change the \"completed\" stage to \"in progress\".</div>",
+        "content": "<div>In order to inform the participants of the task</div><div>the following task stages are provided: \"pending\", \"in progress\", \"completed\", \"postponed\", \"canceled\".</div><div>The task stage should be changed by the executor.</div><div>But it can also be done by task owners or operator.</div><div>In a team task, the first three stages are set automatically.</div><div>But these and other stages can also be set by task owners or operators.</div><div>A task stage can be changed at any time.</div><div>For example, if the task is not completely completed, the owner can specify this in the \"next step\" field and change the \"completed\" stage to \"in progress\".</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,
@@ -1925,8 +1925,8 @@
     "pk": 234,
     "fields": {
         "document": 59,
-        "title": "Working in a collective task",
-        "content": "<div>Working in a collective task.</div><div>The responsible of a collective task must create a subtask for themselves, and all other executors of the main task will be added as subscribers.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the responsible  may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this responsible.</div><div>The responsible  of a collective task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each responsible  has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
+        "title": "Working in a Team task",
+        "content": "<div>Working in a Team task.</div><div>The responsible of a team task must create a subtask for themselves, and all other executors of the main task will be added as subscribers.</div><div>When creating a subtask, its title and content are copied from the main task.</div><div>The executor should edit this information so that all participants could understand what part of work will be performed in this subtask.</div><div>If necessary, the responsible  may not create a subtask, but immediately press the \"done\" button.</div><div>In this case, a subtask with the \"done\" stage will be automatically created. The main task will be hidden from the list of this responsible.</div><div>The responsible  of a Team task can create subtasks for each other.</div><div>As soon as the first subtask is created, the stage of the main task will be automatically changed from \"pending\" to \"in progress\".</div><div>For the stage to be automatically changed to \"completed\", it is necessary that each responsible  has at least one subtask completed.</div><div>And additionally, there are no pending subtasks (\"pending\" or \"in progress\").</div>",
         "language_code": "en",
         "draft": false,
         "verification_required": true,

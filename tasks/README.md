@@ -6,7 +6,7 @@ This module provides advanced **CRM task management** features, enabling users t
 ## Overview
 
 This README provides an overview of the task system's structure, features, usage patterns, and its role as a **CRM task manager** within the larger CRM and task management stack.  
-The Tasks management app is designed to enhance productivity and organization for teams and individuals. It integrates with project workflows, supports individual and collective tasks, and facilitates communication between team members. As a core part of the CRM task manager, it ensures that all task-related activities are efficiently managed within the CRM. This integration makes Django CRM a true CRM and task management solution — avoiding the need for separate external tools.
+The Tasks management app is designed to enhance productivity and organization for teams and individuals. It integrates with project workflows, supports individual and team tasks, and facilitates communication between team members. As a core part of the CRM task manager, it ensures that all task-related activities are efficiently managed within the CRM. This integration makes Django CRM a true CRM and task management solution — avoiding the need for separate external tools.
 
 ## 📂 Directory Structure
 
@@ -46,7 +46,7 @@ The /tasks directory includes models, views, templates, and utilities for managi
 
 - Default stages: Pending, In Progress, Completed, Postponed, Canceled.
 - Status updates by executors, owners, or operators.
-- Automated status changes for collective tasks based on subtask progress.
+- Automated status changes for team tasks based on subtask progress.
 
 ### 🧑‍🤝‍🧑 Notifications & Communication
 

@@ -114,9 +114,9 @@ Read more detailed [memo features](https://github.com/DjangoCRM/django-crm/blob/
 
 ### Task Management
 
-- **Types of Tasks**: Tasks can be personal or collective, with options for creating subtasks under main tasks.  
+- **Types of Tasks**: Tasks can be personal or team, with options for creating subtasks under main tasks.  
   The CRM tracks the progress of tasks and sends notifications to all participants.
-  - **Working in a Collective Task**: Collective tasks involve creating subtasks for oneself, with stages updated automatically as task's progress.
+  - **Working in a Team Task**: Collective tasks involve creating subtasks for oneself, with stages updated automatically as task's progress.
 - **User Roles**: Roles related to tasks include owners, responsible, subscribers, and task operators.
 - **Set Tasks for Subordinates**: Tasks can be created for oneself or subordinates, with department heads having oversight.
   - **Why Set Tasks for Ourselves**: Self-created tasks provide a ToDo list and record of completed work, visible to managers.

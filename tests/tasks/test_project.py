@@ -77,7 +77,7 @@ class TestProject(BaseTestCase):
     def test_completed_button(self):
         content = random()
         project = Project.objects.create(
-            name="Test collective project",
+            name="Test team project",
             priority=Project.HIGH,
             description=content,
             stage=self.default_stage,
@@ -110,7 +110,7 @@ class TestProject(BaseTestCase):
 
     def test_fix_project_by_admin(self):
         project = Project.objects.create(
-            name="Test collective project",
+            name="Test team project",
             priority=Project.HIGH,
             description='content',
             stage=self.default_stage,

@@ -202,7 +202,7 @@ class TestTask(BaseTestCase):
     def test_completed_button(self):
         content = random()
         task = Task.objects.create(
-            name="Test collective task",
+            name="Test team task",
             priority='1',
             description=content,
             stage=self.default_stage,
@@ -233,7 +233,7 @@ class TestTask(BaseTestCase):
 
     def test_fix_task_by_admin(self):
         task = Task.objects.create(
-            name="Test collective task",
+            name="Test team task",
             priority='1',
             description='content',
             stage=self.default_stage,

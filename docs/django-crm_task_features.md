@@ -5,7 +5,10 @@
 
 # Detailed Overview of the Task features for Django-CRM Users
 
-The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** streamlines task management, enabling users to create, assign, track, and collaborate on tasks efficiently. It supports individual and collective tasks, integrates with project workflows, and ensures seamless communication between team members.
+The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** streamlines task management,
+enabling users to create, assign, track, and collaborate on tasks efficiently.
+It supports individual and team tasks, integrates with project workflows,
+and ensures seamless communication between team members.
 
 ---
 
@@ -42,7 +45,7 @@ The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** stream
 
 - Tasks move through customizable statuses:  
   *Pending*, *In Progress*, *Completed*, *Postponed*, and *Canceled*.
-- Status updates can be made by executors, owners, or operators. In collective tasks, status changes are partially automated based on subtask progress.
+- Status updates can be made by executors, owners, or operators. In team tasks, status changes are partially automated based on subtask progress.
 
 ---
 
@@ -72,9 +75,9 @@ The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** stream
 
 ## Special Features
 
-1. **Subtasks and Collective Tasks**
+1. **Subtasks and Team Tasks**
    - Tasks can be broken down into subtasks for better organization.
-   - In collective tasks:
+   - In team tasks:
       - Executors create subtasks for themselves or others.
       - Main task status updates automatically based on subtask progress.
       - Executors can hide the main task from their list if their subtasks are completed.
@@ -93,7 +96,7 @@ The **Task app in [Django-CRM](https://github.com/DjangoCRM/django-crm)** stream
 
 ## **How Teams Use the Task App**
 
-1. **Collective Tasks**:
+1. **Team Tasks**:
    - Performers create subtasks for themselves and others.
    - Automatic updates ensure visibility into task progress, with notifications reducing manual follow-ups.
 

@@ -376,7 +376,7 @@ class TaskAdmin(TasksBaseModelAdmin):
              f'<li><a title="{COMPLETED_TITLE}" href="{completed_url}">' \
              f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment_turned_in</i>' \
              f' {completed_button_name}</a></li>'
-        msg = _("""This is a collective task.
+        msg = _("""This is a team task.
             Please create a sub-task for yourself for work.
             Or press the next button when you have done your job.
         """)
