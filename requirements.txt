@@ -26,3 +26,5 @@
     urllib3==2.5.0
     XlsxWriter==3.2.9
     yarl==1.20.1
+    psycopg2-binary>=2.9.6
+
