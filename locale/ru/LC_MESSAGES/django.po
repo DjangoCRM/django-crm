@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-14 13:29+0300\n"
-"PO-Revision-Date: 2025-09-14 13:32+0300\n"
+"POT-Creation-Date: 2025-09-21 14:57+0300\n"
+"PO-Revision-Date: 2025-09-21 15:01+0300\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -486,7 +486,8 @@ msgstr "Отправить"
 #: crm/templates/admin/crm/deal/submit_line.html:9
 #: crm/templates/admin/crm/lead/submit_line.html:13
 #: crm/templates/admin/crm/payment/submit_line.html:9
-#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/request/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:18
 #: crm/templates/admin/crm/shipment/submit_line.html:9
 #: massmail/templates/admin/massmail/mailingout/submit_line.html:9
 #: tasks/templates/admin/tasks/memo/submit_line.html:12
@@ -507,7 +508,7 @@ msgstr "Закрыть"
 #: crm/templates/admin/crm/deal/submit_line.html:13
 #: crm/templates/admin/crm/lead/submit_line.html:17
 #: crm/templates/admin/crm/payment/submit_line.html:13
-#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/request/submit_line.html:22
 #: crm/templates/admin/crm/shipment/submit_line.html:13
 #: massmail/templates/admin/massmail/mailingout/submit_line.html:13
 #: tasks/templates/admin/tasks/memo/submit_line.html:16
@@ -1372,7 +1373,7 @@ msgid "Contact"
 msgstr "Контактное лицо"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:524
+#: crm/site/requestadmin.py:526
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -2122,7 +2123,7 @@ msgstr "Получен платеж"
 msgid "Specify the date of shipment"
 msgstr "Укажите дату отгрузки"
 
-#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:296
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:298
 msgid "Specify products"
 msgstr "Укажите продукты"
 
@@ -2238,11 +2239,11 @@ msgstr "Статус"
 msgid "Subsequent request"
 msgstr "Последующий запрос"
 
-#: crm/site/requestadmin.py:478
+#: crm/site/requestadmin.py:480
 msgid "Found the counterparty assigned to"
 msgstr "Найден контрагент, назначенный"
 
-#: crm/site/requestadmin.py:577
+#: crm/site/requestadmin.py:579
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{name} «{obj}» был успешно добавлен."
@@ -2526,7 +2527,12 @@ msgstr "Создать запрос на основе письма."
 msgid "Import request from"
 msgstr "Импортировать запрос из"
 
-#: crm/templates/admin/crm/request/submit_line.html:8
+#: crm/templates/admin/crm/request/submit_line.html:11
+#| msgid "Active"
+msgid "Activate"
+msgstr "Активировать"
+
+#: crm/templates/admin/crm/request/submit_line.html:14
 msgid "Create deal"
 msgstr "Создать сделку"
 
@@ -3613,8 +3619,13 @@ msgid "Create subtask"
 msgstr "Создать подзадачу"
 
 #: tasks/site/taskadmin.py:379
+#| msgid ""
+#| "This is a collective task.\n"
+#| "            Please create a sub-task for yourself for work.\n"
+#| "            Or press the next button when you have done your job.\n"
+#| "        "
 msgid ""
-"This is a collective task.\n"
+"This is a team task.\n"
 "            Please create a sub-task for yourself for work.\n"
 "            Or press the next button when you have done your job.\n"
 "        "
