@@ -41,6 +41,16 @@ DATABASES = {
     }
 }
 
+'''
+# No DB configuration requrement for quick start enable by commenting out 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+'''
+
 EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
 EMAIL_HOST_PASSWORD = '<specify password>'
 EMAIL_HOST_USER = 'crm@example.com'
