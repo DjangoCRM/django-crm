@@ -38,18 +38,13 @@ DATABASES = {
         'USER': 'crm_user',
         'PASSWORD': 'crmpass',
         'HOST': 'localhost',
-    }
-}
 
-'''
-# No DB configuration requrement for quick start enable by commenting out 
-DATABASES = {
-    'default': {
+        # for SQLite3. Remove all the above
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
+
 
 EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
 EMAIL_HOST_PASSWORD = '<specify password>'
