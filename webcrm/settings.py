@@ -26,9 +26,13 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Database
 DATABASES = {
     'default': {
+        # for SQLite3
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
         # for MySQl
-        'ENGINE': 'django.db.backends.mysql',
-        'PORT': '3306',
+        #'ENGINE': 'django.db.backends.mysql',
+        #'PORT': '3306',
 
         # for PostgreSQL
         # "ENGINE": "django.db.backends.postgresql",
@@ -39,12 +43,8 @@ DATABASES = {
         'PASSWORD': 'crmpass',
         'HOST': 'localhost',
 
-        # for SQLite3. Remove all the above
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
 EMAIL_HOST_PASSWORD = '<specify password>'
