@@ -16,7 +16,7 @@ Django CRM offers a comprehensive CRM solution and consists of the following cor
 - __TASKS__ ([CRM task management](https://djangocrm.github.io/info/features/tasks-app-features){target="_blank"}: management of tasks, projects, memos)
 - __CRM__ ([CRM Application](https://djangocrm.github.io/info/features/crm-app-features){target="_blank"}: management of leads, contacts, companies, deals, products, etc.)
 - __ANALYTICS__ ([CRM Analytics software](https://djangocrm.github.io/info/features/analytics-app-features){target="_blank"}: sales funnel and other seven reports)
-- __MASS MAIL__ ([CRM email marketing](https://djangocrm.github.io/info/features/mass-mail-app-features){target="_blank"}: free mass email sender)
+- __MASS MAIL__ ([CRM email marketing](https://djangocrm.github.io/info/features/massmail-app-features){target="_blank"}: free mass email sender)
 
 The CRM task management does not require configuration and allows individual users or teams to work with the following objects and objects associated with them:
 
