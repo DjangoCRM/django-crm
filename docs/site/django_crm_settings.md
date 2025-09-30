@@ -71,7 +71,7 @@ Add the addresses of CRM administrators to the list, so they can receive error l
 
 This is the **mailing CRM**, so email campaigns are allowed by default.  
 If you do not intend to use them, set the `MAILING` parameter to `False` (recommended).  
-Learn more about this [CRM and email marketing](https://djangocrm.github.io/info/features/massmail-app-features){target="_blank"}.
+Learn more about this [CRM and email marketing](https://djangocrm.github.io/info/features/massmail-app-features/){target="_blank"}.
 
 ## CRM and database testing
 

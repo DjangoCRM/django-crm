@@ -20,7 +20,7 @@ In addition to standard task management, it supports **office memos (service not
 allowing employees to share internal updates, instructions, or approvals in a structured way.
 Whether it’s handling customer requests, coordinating project activities, or managing internal workflows,
 the task manager provides transparency and accountability across the entire organization.  
-Learn more about [CRM Task management solution](https://djangocrm.github.io/info/features/tasks-app-features){target="_blank"}.
+Learn more about [CRM Task management solution](https://djangocrm.github.io/info/features/tasks-app-features/){target="_blank"}.
 
 ## CRM Module
 
@@ -28,7 +28,7 @@ At the core of Django CRM, this module centralizes all customer-related informat
 Managers and sales teams can monitor leads, track opportunities, and oversee client communications in one place.
 Using the data collected here, **sales managers can launch targeted email campaigns via the Mass Mail application directly from the CRM**,
 ensuring outreach is relevant and timely. This integration supports both daily operations and long-term customer relationship strategies.  
-Read more about [eCRM software](https://djangocrm.github.io/info/features/crm-app-features){target="_blank"}.
+Read more about [eCRM software](https://djangocrm.github.io/info/features/crm-app-features/){target="_blank"}.
 
 ## CRM Analytics
 
@@ -95,7 +95,7 @@ Reports include both tabular and graphical representations for intuitive data in
 - Fully integrated with other Django CRM modules, ensuring seamless data flow and analysis.  
 - Supports customization to tailor reports to specific metrics or time frames, meeting diverse business needs.  
 
-[More about analytical CRM software](https://djangocrm.github.io/info/features/analytics-app-features){target="_blank"}
+[More about analytical CRM software](https://djangocrm.github.io/info/features/analytics-app-features/){target="_blank"}
 
 The Django CRM Analytics application is a powerful, secure, and scalable solution designed to transform raw business data 
 into actionable intelligence. By leveraging the robust Django framework, it provides a reliable foundation 

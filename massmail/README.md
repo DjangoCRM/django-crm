@@ -11,7 +11,7 @@ The Massmail module is designed for organizations that require a **CRM and email
 - Track the progress and status of mailings within the CRM interface.
 - Ensure compliance with best practices by supporting unsubscribe functionality and business hour restrictions.
 
-With Massmail, Django CRM becomes a [CRM with email](https://djangocrm.github.io/info/features/massmail-app-features) capabilities, supporting both day-to-day client communication and large-scale marketing campaigns.
+With Massmail, Django CRM becomes a [CRM with email](https://djangocrm.github.io/info/features/massmail-app-features/) capabilities, supporting both day-to-day client communication and large-scale marketing campaigns.
 
 ## Key Features
 
