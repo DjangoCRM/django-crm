@@ -179,6 +179,13 @@ class RequestAdmin(CrmModelAdmin):
         extra_context['content_copy_link'] = mark_safe(
             CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON))
         check_for_counterparty_assignment(request, object_id)
+        try: 
+            obj = Request.objects.get(pk=object_id)
+            if getattr(obj, 'case', False):
+                extra_context['skip_deactivation'] = True
+                extra_context['skip_country_requirement'] = True
+        except Request.DoesNotExist:
+            pass
         return super().change_view(
             request, object_id, form_url,
             extra_context=extra_context,
