@@ -192,12 +192,17 @@ class RequestAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
+        # we're interested only when Create Deal button is clicked and request is not saved.
         if request.method == "POST" and '_create-deal' in request.POST:
-            department_id = request.user.department_id
-            works_globally = Department.objects.get(
-                id=department_id).works_globally
-            if works_globally:
-                form.country_must_be_specified = True
+            case_checked = request.POST.get('case') is not None
+            if case_checked and obj is None:
+               form.country_must_be_specified = False
+            else:     
+               department_id = request.user.department_id
+               works_globally = Department.objects.get(
+                  id=department_id).works_globally
+               if works_globally:
+                  form.country_must_be_specified = True
         return form
 
     def get_changeform_initial_data(self, request):
@@ -242,13 +247,15 @@ class RequestAdmin(CrmModelAdmin):
             self.set_owner(request, obj)
             if request.user.is_manager:
                 obj.subsequent = True
-
-        if any((
-            '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
-            '_close-case' in request.POST)):
-            obj.pending = False
-        elif '_activate-case' in request.POST:
-            obj.pending = True
+        if '_create-deal' in request.POST and obj.case and not obj.pk:
+            pass
+        else:
+            if any((
+                '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
+                '_close-case' in request.POST)):
+                obj.pending = False
+            elif '_activate-case' in request.POST:
+                obj.pending = True
         if not obj.pending:
             if not obj.owner:
                 obj.owner = request.user
