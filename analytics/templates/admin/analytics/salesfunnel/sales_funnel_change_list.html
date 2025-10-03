@@ -2,64 +2,74 @@
 {% load i18n %}
 {% block content_title %}
     <h1>{% translate 'Sales funnel for last 365 days' %}</h1>
-
 {% endblock %}
 {% block result_list %}
-
-    <style>
+<style>
     .bar-chart {
-      /*display: flex;*/
-      justify-content: space-around;
-      height: 100%;
-      padding-top: 60px;
-      overflow: hidden;
+        justify-content: space-around;
+        height: 100%;
+        padding-top: 60px;
+        overflow: hidden;
     }
     .bar-chart .bar {
         flex: 100%;
         align-self: flex-end;
         position: relative;
-        background-color: var(--primary);
         height: 60px;
         margin: 2px auto;
+        border-radius: 4px;
+        transition: filter 0.2s;
     }
+
+
+    /* alternating colors */
+    .bar-odd  { background-color:  #4CAF50; }   /* green */
+    .bar-even { background-color:  #2196F3; }   /* blue */
+
     .bar-chart .bar:hover {
-        background-color: var(--secondary);
-        color: var(--accent);
+        filter: brightness(115%);
     }
-    .bar-chart .bar .bar-tooltip {
-        position: relative;
-        z-index: 999;
-    }
+
     .bar-chart .bar .bar-tooltip {
         position: absolute;
-        /*top: -60px;*/
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
         font-weight: bold;
+
+        /* initially 0 */
         opacity: 1;
-		white-space: nowrap;
+        white-space: nowrap;
+        
+        /* variable coulour for dark/light mode */
+        color: var(--body-fg, #333333);
+        padding: 6px 12px;
+        border-radius: 4px;
+        pointer-events: none;
+        z-index: 999;
+        transition: color 0.2s;
     }
-    .bar-chart .bar:hover .bar-tooltip {
+
+    /* commented out hover effect */
+    /*.bar-chart .bar:hover .bar-tooltip {
         opacity: 1;
-    }
-    </style>
-     
+    }*/
+</style>
+
 <div class="results">
     <h2>{% translate 'Number of deals closed/lost at each stage.' %}</h2>
     <div class="results">
         <div class="bar-chart">
-        {% for x in sales_funnel %}
-            <div class="bar" style="width:{{x.pct}}%">
-                <div class="bar-tooltip">
-                    {{x.stage__name}}: {{ x.total}}<br>
-					{% if not forloop.last %}{{ x.perc }}{% endif %}
+            {% for x in sales_funnel %}
+                <div class="bar {% if forloop.counter|divisibleby:2 %}bar-even{% else %}bar-odd{% endif %}" style="width:{{x.pct}}%">
+                    <div class="bar-tooltip">
+                        {{x.stage__name}}: {{ x.total}}<br>
+                        {% if not forloop.last %}{{ x.perc }}{% endif %}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
-</div>    
-    
+</div>
 {% endblock %}
 {% block pagination %}{% endblock %}
