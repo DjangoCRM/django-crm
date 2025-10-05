@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added SQLite3 option, which makes it easier to run and try out CRM locally, without installing a database by @alanmehio.
+- Added SQLite3 option, which makes it easier to run and try out CRM locally, without installing a database by @alanmehio.  
+  **Important!** SQLite3 is not suitable for regular CRM operation.
 - Functionality for working with cases (incidents) has been added to the CRM:
   - Added the `case` field:
     - to the Request model by @iclectic in #273
