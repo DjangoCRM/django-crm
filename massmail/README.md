@@ -65,7 +65,7 @@ To comply with email marketing standards, every message should include an unsubs
 
 ## Documentation
 
-For detailed usage instructions, see the [official documentation](https://django-crm-admin.readthedocs.io/en/latest/newsletter_mailing).
+For detailed usage instructions, see the [official documentation](https://django-crm-admin.readthedocs.io/en/latest/newsletter_mailing/.
 
 ## Related core modules
 

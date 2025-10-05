@@ -86,7 +86,7 @@ The CRM module supports role-based access, ensuring users only interact with dat
 
 ## 📚 Documentation
 
-For full documentation, visit the [official CRM manual](https://django-crm-admin.readthedocs.io/en/latest/) or explore the [CRM features overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md).
+For full documentation, visit the [official CRM manual](https://django-crm-admin.readthedocs.io/) or explore the [CRM features overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_app_features.md).
 
 ---
 
