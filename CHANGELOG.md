@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added SQLite3 option, which makes it easier to run and try out CRM locally, without installing a database by @alanmehio.
 - Functionality for working with cases (incidents) has been added to the CRM:
   - Added the `case` field:
     - to the Request model by @iclectic in #273
@@ -25,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - to the `LeadAdmin` by @Faria-Shahid in #276
   - to the `ContactAdmin` by @ritkaarsingh30 in #281
   - Fields added to lead conversion by @Tosinibikunle
+
+### Improve
+
+- Improve the visual representation of the sales funnel in CRM Analytics by @Sohamactive
 
 ### Fixed
 
