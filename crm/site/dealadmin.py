@@ -136,7 +136,11 @@ class DealAdmin(CrmModelAdmin):
 
     def _create_formsets(self, request, obj, change):
         formsets, inline_instances = super()._create_formsets(request, obj, change)
-        p = Payment.objects.filter(deal=obj).last()
+
+        p = None
+        if obj and obj.pk:
+            p = Payment.objects.filter(deal=obj).last()
+
         if p:
             # change initial data for an empty inline form of payment
             d = formsets[1].empty_form.base_fields
@@ -146,6 +150,7 @@ class DealAdmin(CrmModelAdmin):
             d['order_number'].initial = p.order_number
             if settings.MARK_PAYMENTS_THROUGH_REP:
                 d['through_representation'].initial = p.through_representation
+
         return formsets, inline_instances
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
@@ -424,16 +429,21 @@ class DealAdmin(CrmModelAdmin):
             obj.active = not bool(obj.closing_reason)
             if obj.closing_reason:
                 obj.closing_date = today
-                if obj.closing_reason == ClosingReason.objects.get(
+                try:
+                    success_reason = ClosingReason.objects.get(
                         success_reason=True,
                         department=obj.department
-                ):
-                    obj.stage = Stage.objects.get(
-                        success_stage=True,
-                        department=obj.department
                     )
-                    obj.change_stage_data(formatted_today)
-                    obj.win_closing_date = now
+
+                    if obj.closing_reason == success_reason:
+                        obj.stage = Stage.objects.get(
+                            success_stage=True,
+                            department=obj.department
+                        )
+                        obj.change_stage_data(formatted_today)
+                        obj.win_closing_date = now
+                except ClosingReason.DoesNotExist:
+                    pass
             else:
                 obj.closing_date = None
         if 'stage' in form.changed_data:
@@ -485,7 +495,7 @@ class DealAdmin(CrmModelAdmin):
                     status=Payment.RECEIVED,
                 ).delete()
         # Add products to the request if none are specified in it
-        if not obj.request.products.exists() and Output.objects.filter(deal=obj).exists():
+        if obj.request and not obj.request.products.exists() and Output.objects.filter(deal=obj).exists():
             outputs = Output.objects.filter(deal=obj)
             for o in outputs:
                 obj.request.products.add(o.product)
