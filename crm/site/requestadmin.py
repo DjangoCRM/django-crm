@@ -22,7 +22,7 @@ from common.utils.helpers import get_department_id
 from common.utils.notify_user import notify_user
 from common.utils.parse_full_name import parse_contacts_name
 from crm.forms.admin_forms import RequestForm
-from crm.models import Currency, request
+from crm.models import Currency
 from crm.models import CrmEmail
 from crm.models import Deal
 from crm.models import Output
@@ -192,6 +192,7 @@ class RequestAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
+        # we're interested only when Create Deal button is clicked and request is not saved.
         if request.method == "POST" and '_create-deal' in request.POST:
            if obj.case:
               form.country_must_be_specified = False
@@ -199,8 +200,8 @@ class RequestAdmin(CrmModelAdmin):
               department_id = request.user.department_id
               works_globally = Department.objects.get(
                   id=department_id).works_globally
-              if works_globally:
-                form.country_must_be_specified = True
+               if works_globally:
+                  form.country_must_be_specified = True
         return form
 
     def get_changeform_initial_data(self, request):
@@ -329,7 +330,7 @@ class RequestAdmin(CrmModelAdmin):
             _change_related_objs_attrs(obj, attrs)
 
         if '_create-deal' in request.POST:
-            if not any((obj.pending, obj.deal, obj.duplicate)): # remove obj.case check
+            if not any((obj.pending, obj.deal, obj.duplicate, obj.case)):
                 update_fields = ['deal']
                 d = _get_or_create_deal(obj, request)
                 obj.deal = d
