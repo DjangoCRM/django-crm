@@ -193,7 +193,9 @@ class RequestAdmin(CrmModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         if request.method == "POST" and '_create-deal' in request.POST:
-           if not (obj and obj.case and not obj.pk):  # Skip if case + unsaved
+           if obj.case:
+              form.country_must_be_specified = False
+           else:
               department_id = request.user.department_id
               works_globally = Department.objects.get(
                   id=department_id).works_globally
@@ -243,13 +245,15 @@ class RequestAdmin(CrmModelAdmin):
             self.set_owner(request, obj)
             if request.user.is_manager:
                 obj.subsequent = True
-        if '_create-deal' in request.POST and obj.case and not obj.pk:
-            pass  # Skip if case + unsaved
-        else:
-            if any((
-                '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
-                '_close-case' in request.POST)):
-                obj.pending = False
+
+            if '_create-deal' in request.POST:
+                # Do not deactivate if this is a case
+                if  not obj.case:
+                    obj.pending = False
+                else:
+                    obj.pending = True    
+            elif ('duplicate' in form.changed_data and obj.duplicate) or '_close-case' in request.POST:
+                obj.pending = False        
             elif '_activate-case' in request.POST:
                 obj.pending = True
         if not obj.pending:
