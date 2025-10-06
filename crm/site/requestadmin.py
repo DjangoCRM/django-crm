@@ -192,7 +192,6 @@ class RequestAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
-        # we're interested only when Create Deal button is clicked and request is not saved.
         if request.method == "POST" and '_create-deal' in request.POST:
            if obj.case:
               form.country_must_be_specified = False
@@ -200,7 +199,7 @@ class RequestAdmin(CrmModelAdmin):
               department_id = request.user.department_id
               works_globally = Department.objects.get(
                   id=department_id).works_globally
-               if works_globally:
+              if works_globally:
                   form.country_must_be_specified = True
         return form
 
