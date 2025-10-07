@@ -69,11 +69,6 @@ The software package provides two websites:
 
 The **project is mature and stable**, and has been successfully used in real applications for many years.
 
-## Technologies
-
-CRM is intentionally built using an **extremely short list of technologies:**  
-Python, Django, MySQL or PostgreSQL and Apache or Nginx (if access from the Internet). **That's all!**
-
 ## Main Applications
 
 The CRM software suite consists of the following **main applications** and their models:
@@ -177,7 +172,8 @@ Django CRM has full support for translation of interface, formatting of dates, t
 
 ## Getting Started
 
-Django-CRM can be easily deployed as a regular Django project.
+Django-CRM can be easily deployed as a regular Django project.  
+For first-time exploration of the CRM (not for regular use), no database installation is required—simply use Python's built-in SQLite3 with default settings.
 
 📚 Please refer to:
 
@@ -190,7 +186,7 @@ If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to su
 
 ### Compatibility
 
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x, 5.2.1+ (LTS - long-term support release)
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.13, 5.2.7+ (LTS - long-term support release)
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+  
