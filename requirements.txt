@@ -1,4 +1,4 @@
-    aiohttp==3.12.15
+    aiohttp==3.13.0
     aiosignal==1.4.0
     asgiref==3.10.0
     attrs==25.4.0
