@@ -24,6 +24,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.formats import date_format
 from django.utils.translation import gettext_lazy as _
+from django.db.utils import OperationalError
 
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_now
@@ -53,7 +54,14 @@ class SendMassmail(threading.Thread, SingleInstance):
     def run(self):
         while not apps.ready:
             time.sleep(0.01)  # wait for django to start
-        massmail_settings = MassmailSettings.objects.get(id=1)
+        
+        while True: #This will wait for the db to be ready
+            try:
+                massmail_settings = MassmailSettings.objects.get(id=1)
+                break
+            except (OperationalError, MassmailSettings.DoesNotExist):
+                time.sleep(1)
+
         if not settings.MAILING or settings.TESTING:
             return
 
