@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.core.handlers.wsgi import WSGIRequest
+from django.forms.widgets import HiddenInput
 from django.http import HttpResponseRedirect
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
@@ -195,9 +196,9 @@ class RequestAdmin(CrmModelAdmin):
         
         if obj and getattr(obj, "deal", None):
             if "duplicate" in form.base_fields:
-                form.base_fields["duplicate"].widget = admin.widgets.AdminHiddenInput()
+                form.base_fields["duplicate"].widget = HiddenInput()
             if "case" in form.base_fields:
-                form.base_fields["case"].widget = admin.widgets.AdminHiddenInput()
+                form.base_fields["case"].widget = HiddenInput()
 
         if request.method == "POST" and '_create-deal' in request.POST:
             department_id = request.user.department_id
