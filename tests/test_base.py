@@ -73,15 +73,6 @@ class MyTests(BaseTestCase):
                             ))
                             reminder_model['perms']['add'] = False
                             reminder_model['add_url'] = None
-                        # Remove "add" permission for "Deals"
-                        if app['app_label'] == 'crm':
-                            deal_model = next((
-                                m for m in app['models']
-                                if m['object_name'] == 'Deal'
-                            ), None)
-                            if deal_model:
-                                deal_model['perms']['add'] = False
-                                deal_model['add_url'] = None
             self.client.force_login(self.users.get(username=username))
             
             response = self.client.get(
@@ -151,20 +142,6 @@ class MyTests(BaseTestCase):
             ))
             reminder['perms']['add'] = False
         """
-        # Remove "add" permission for "Deals" in admin
-        crm_app = next((
-            a for a in correct_app_list
-            if a['name'] == 'Crm'
-        ), None)
-        if crm_app:
-            deal_model = next((
-                m for m in crm_app['models']
-                if m['object_name'] == 'Deal'
-            ), None)
-            if deal_model:
-                deal_model['perms']['add'] = False
-                deal_model['add_url'] = None
-        
         self.check_app_availability_and_model_permissions(username, correct_app_list, context_app_list)
 
     def check_app_availability_and_model_permissions(self, username, correct_app_list, context_app_list):

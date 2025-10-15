@@ -70,7 +70,7 @@ def get_contact_model_data(prefix: str = '',
 
 
 def get_deal_model_data(prefix: str = '',
-                            perms: dict = {},   # NOQA
+                            perms: dict = {'add':False},   # NOQA
                             view_only: bool = True,
                             is_add_url: bool = False,
                             ) -> dict:
@@ -142,15 +142,15 @@ def get_publicemaildomain_model_data(name: str = '', prefix: str = '') -> dict:
     }
 
 
-def get_reminder_model_data(name: str = '', prefix: str = '') -> dict:
+def get_reminder_model_data(name: str = '', prefix: str = '', add: bool = False) -> dict:
     prefix = prefix or PREFIX
     name = name or "Reminders"
     return {
         'name': name,
         'object_name': 'Reminder',
-        'perms': get_perms(),
+        'perms': get_perms(add=add),
         'admin_url': f'/en/{prefix}common/reminder/',
-        'add_url': f'/en/{prefix}common/reminder/add/',
+        'add_url': f'/en/{prefix}common/reminder/add/' if add else None,
         'view_only': False
     }
 
@@ -708,7 +708,7 @@ DATA = [
                         'add_url': f'/en/{PREFIX}crm/currency/add/',
                         'view_only': False
                     },
-                    get_deal_model_data(is_add_url=True, view_only=False),
+                    get_deal_model_data(perms={'add': False}, view_only=False),
                     {
                         'name': 'Emails in CRM',
                         'object_name': 'CrmEmail',
@@ -934,7 +934,7 @@ ADMIN_DATA = [
         add_models=(
             get_department_model_data(prefix=ADMIN_PREFIX),
             get_thefile_model_data(prefix=ADMIN_PREFIX),
-            get_reminder_model_data(prefix=ADMIN_PREFIX),
+            get_reminder_model_data(prefix=ADMIN_PREFIX, add=True),
             get_userprofile_model_data(
                 prefix=ADMIN_PREFIX,
                 perms={'add': True, 'change': True, 'delete': True, 'view': True},
@@ -993,7 +993,7 @@ ADMIN_DATA = [
                 'view_only': False
             },
             get_deal_model_data(
-                prefix=ADMIN_PREFIX, is_add_url=True, view_only=False
+                prefix=ADMIN_PREFIX, is_add_url=False, view_only=False
             ),
             {
                 'name': 'Emails in CRM',
