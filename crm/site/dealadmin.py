@@ -491,6 +491,11 @@ class DealAdmin(CrmModelAdmin):
                 obj.request.products.add(o.product)
             obj.request.save()
 
+    def has_add_permission(self, request):
+        # Blocks user the ability to add a deal in Home page (Main Menu) and the crm section page (Home > CRM)
+        return False
+        
+
     # -- ModelAdmin Callables -- #
 
     @admin.display(description=person_outline_safe_icon)
@@ -705,3 +710,5 @@ class DealAdmin(CrmModelAdmin):
         if obj.lead:
             return _("Contact is Lead (no company)")
         return LEADERS
+
+

@@ -75,6 +75,12 @@ But now we are also ready to add new features.
 - Create a draft PR when starting work on bigger changes for discussion and assistance.
 - A **Task-board** and **Roadmap** are available for **contributors** to obtain additional information.
 
+### Updating Test Permissions
+
+When making changes that affect user permissions or app structures in the admin interface, update the expected data in `tests/main_menu_data.py` rather than modifying the test logic. This file contains `DATA` (for user roles) and `ADMIN_DATA` (for admin roles) dictionaries that define the expected app and model permissions for each role. Keeping this data centralized ensures tests remain maintainable and focused on validation.
+
+For example, if a new permission is added or removed for a model, update the corresponding entries in these dictionaries to match the actual behavior.
+
 > [!IMPORTANT]
 > 1. This repository follows the "[GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)" - anything in the main branch is deployable.  
 > **Run tests before creating a Pull Request!**  
