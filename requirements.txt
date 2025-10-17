@@ -12,7 +12,7 @@
     maxminddb==2.8.2
     multidict==6.7.0
     mysqlclient==2.2.7
-    numpy==2.3.3
+    numpy==2.3.4
     openpyxl==3.1.5
     pandas==2.3.3
     polib==1.2.0
