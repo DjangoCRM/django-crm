@@ -8,12 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.6.0] - 2025-10-18
 
 ### Added
 
 - Added SQLite3 option, which makes it easier to run and try out CRM locally, without installing a database by @alanmehio.  
   **Important!** SQLite3 is not suitable for regular CRM operation.
+- An automatic redirect (AdminRedirectMiddleware) has been implemented from the administrators' website
+  to the CRM website for users who do not have superuser status. 
 - Functionality for working with cases (incidents) has been added to the CRM:
   - Added the `case` field:
     - to the Request model by @iclectic in #273
@@ -30,12 +32,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Improve
 
-- Improve the visual representation of the sales funnel in CRM Analytics by @Sohamactive
+- Improve the visual representation of the sales funnel in CRM Analytics by @Sohamactive.
+- Hide `duplicate` and `case` fields (checkboxes) on a change page of Request
+  if Deal was created (`if obj.deal`) by @MULTidll.
 
 ### Fixed
 
+- Handle the exception `django.db.utils.OperationalError: no such table: settings_massmailsettings`
+  that occurs when running the `python manage.py setupdata` command (during project installation) by @MULTidll.
 - Fixed several conflicts between the roles boss and sales manager in case these roles are assigned to the same user.
 
+### Removed
+
+- Remove the unused "+ Add" button for deals on the CRM homepage by @MULTidll.
+
+### Full Changelog: [v1.5.2...v1.6.0](https://github.com/DjangoCRM/django-crm/compare/v1.5.2...v1.6.0)
 
 ## [1.5.2] - 2025-08-16
 
