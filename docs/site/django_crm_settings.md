@@ -20,9 +20,10 @@ Most of the settings can be left at their default values.
 The default settings are for running the project on a development server.
 Change them for the production server.  
 
-To start the project for the first time, it is enough to specify the `DATABASES` settings in the file  
+To start the project for the first time, you can use the default settings (the built-in SQLite3 database will be used).
+To continue using the CRM, please specify other `DATABASES` settings in the file  
 `webcrm/settings.py`  
-But in the following, you will need to specify at least the `EMAIL_HOST` and `ADMINS` settings.
+and at least specify the `EMAIL_HOST` and `ADMINS` settings.
 
 ### DATABASES settings
 
@@ -100,3 +101,5 @@ You will be able to modify them or add your own.
 
 !!! Note
     Use the superuser credentials from the output to log into the CRM site.
+
+If you have any difficulties, get [support](https://djangocrm.github.io/info/support/){target="_blank"}.
