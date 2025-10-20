@@ -169,6 +169,13 @@ Tutorial completo [aquí](https://docs.djangoproject.com/en/dev/topics/install/)
 
 ## Configuración de Django CRM
 
+Para una introducción inicial al CRM, puede usar la configuración predeterminada.
+Esta incluye el uso de una base de datos SQLite3, por lo que no es necesario instalar ninguna.
+
+> [!WARNING]
+> SQLite3 no es adecuado para el trabajo habitual con CRM. Utilice MySQL
+> o PostgreSQL en su lugar.
+
 La configuración del proyecto se encuentra en los archivos `settings.py`.  
 La configuración principal del proyecto se encuentra en el archivo  
 `webcrm/settings.py`  
@@ -182,9 +189,8 @@ La mayoría de las configuraciones se pueden dejar en sus valores predeterminado
 Las configuraciones predeterminadas son para ejecutar el proyecto en un servidor de desarrollo.
 Cámbialas para el servidor de producción.  
 
-Para iniciar el proyecto por primera vez, es suficiente especificar las configuraciones de `DATABASES` en el archivo  
-`webcrm/settings.py`  
-Pero posteriormente, necesitarás especificar al menos las configuraciones de `EMAIL_HOST` y `ADMINS`.
+Para comenzar a utilizar CRM regularmente, especifique la configuración `DATABASES` en el archivo `webcrm/settings.py`
+y al menos las configuraciones `EMAIL_HOST` y `ADMINS`.
 
 ### Configuración de DATABASES
 
