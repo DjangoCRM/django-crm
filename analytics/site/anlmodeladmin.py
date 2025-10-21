@@ -11,6 +11,7 @@ from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 
 from analytics.utils.helpers import get_item_list
+from crm.models.request import Request
 from crm.site import crmmodeladmin
 
 
@@ -45,6 +46,12 @@ class AnlModelAdmin(crmmodeladmin.CrmModelAdmin):
         self.year_ago_date = localtime(now()) + relativedelta(months=-12)
         self.create_context_data(request, response, queryset)
         return response
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if Request in self.model.__bases__:
+            qs = qs.exclude(duplicate=True).exclude(case=True)
+        return qs
 
     def get_urls(self):
         urls = [

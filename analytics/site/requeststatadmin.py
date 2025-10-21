@@ -40,8 +40,7 @@ class BaseRequestStatAdmin(AnlModelAdmin):
 
     def get_total_requests(self, queryset: QuerySet) -> QuerySet:
         return queryset.filter(
-            receipt_date__gte=self.year_ago_date,
-            duplicate=False
+            receipt_date__gte=self.year_ago_date
         ).exclude(lead__disqualified=True)
 
     @staticmethod
