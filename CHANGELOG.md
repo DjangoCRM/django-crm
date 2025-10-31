@@ -8,11 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.6.1] - 2025-10-31
+
+### Fixed
+
+- Fixed dependency conflict - rolled back maxminddb to version 2.8.2.
 
 ### Improve
 
 - Eliminate duplicate requests and cases from analytical reports
+
+### Full Changelog: [v1.6.0...v1.6.1](https://github.com/DjangoCRM/django-crm/compare/v1.6.0...v1.6.1)
 
 ## [1.6.0] - 2025-10-18
 
