@@ -172,7 +172,7 @@ Django CRM has full support for translation of interface, formatting of dates, t
 
 ## Getting Started
 
-Django-CRM can be easily deployed as a regular Django project.  
+Django-CRM can be easily deployed as a regular Django project with fixtures loaded to initially populate the database.  
 For first-time exploration of the CRM (not for regular use), no database installation is required—simply use Python's built-in SQLite3 with default settings.
 
 📚 Please refer to:
