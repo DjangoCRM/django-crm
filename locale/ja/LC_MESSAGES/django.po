@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-18 19:29+0300\n"
-"PO-Revision-Date: 2025-06-18 19:32+0300\n"
+"POT-Creation-Date: 2025-11-05 20:50+0200\n"
+"PO-Revision-Date: 2025-11-05 20:56+0200\n"
 "Last-Translator: Vadym Kharchenko <vadkhar@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Translated-Using: django-rosetta 0.10.1\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: analytics/apps.py:10
 msgid "Analytics"
@@ -68,7 +68,7 @@ msgstr "販売ファネル"
 msgid "Conversion Summary"
 msgstr "変換まとめ"
 
-#: analytics/site/anlmodeladmin.py:105 analytics/site/outputstatadmin.py:39
+#: analytics/site/anlmodeladmin.py:112 analytics/site/outputstatadmin.py:39
 #: crm/models/payment.py:112
 msgid "Payment date"
 msgstr "支払い日"
@@ -96,7 +96,7 @@ msgstr "変換"
 
 #: analytics/site/conversionadmin.py:43
 #: analytics/site/leadsourcestatadmin.py:21
-#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:94
+#: analytics/site/requeststatadmin.py:24 analytics/site/requeststatadmin.py:93
 msgid "Total requests"
 msgstr "合計リクエスト数"
 
@@ -244,11 +244,11 @@ msgstr "国"
 #: analytics/site/outputstatadmin.py:49 analytics/site/outputstatadmin.py:77
 #: analytics/site/outputstatadmin.py:112 analytics/site/outputstatadmin.py:122
 #: crm/utils/admfilters.py:117 crm/utils/admfilters.py:144
-#: crm/utils/admfilters.py:308 crm/utils/admfilters.py:348
-#: crm/utils/admfilters.py:366 crm/utils/admfilters.py:423
-#: crm/utils/admfilters.py:473 crm/utils/admfilters.py:493
-#: crm/utils/admfilters.py:506 crm/utils/admfilters.py:520
-#: crm/utils/admfilters.py:539 crm/utils/admfilters.py:544
+#: crm/utils/admfilters.py:309 crm/utils/admfilters.py:349
+#: crm/utils/admfilters.py:367 crm/utils/admfilters.py:424
+#: crm/utils/admfilters.py:474 crm/utils/admfilters.py:494
+#: crm/utils/admfilters.py:507 crm/utils/admfilters.py:521
+#: crm/utils/admfilters.py:540 crm/utils/admfilters.py:545
 #: tasks/utils/admfilters.py:31 tasks/utils/admfilters.py:37
 #: tasks/utils/admfilters.py:111 tasks/utils/admfilters.py:115
 #: tasks/utils/admfilters.py:119 tasks/utils/admfilters.py:156
@@ -260,7 +260,7 @@ msgstr "すべて"
 #: common/models.py:185
 #: common/templates/common/notice_participants_email.html:15
 #: crm/templates/crm/change_owner_companies.html:26
-#: crm/utils/admfilters.py:343 voip/models.py:49
+#: crm/utils/admfilters.py:344 voip/models.py:49
 msgid "Owner"
 msgstr "所有者"
 
@@ -281,40 +281,39 @@ msgstr "販売済み製品"
 msgid "Price"
 msgstr "価格"
 
-#: analytics/site/requeststatadmin.py:57
+#: analytics/site/requeststatadmin.py:56
 msgid "Request Summary for last 365 days"
 msgstr "過去365日のリクエスト概要"
 
-#: analytics/site/requeststatadmin.py:91
+#: analytics/site/requeststatadmin.py:90
 msgid "Conversion of primary requests into successful deals"
 msgstr "プライマリリクエストを成功した取引に変換する"
 
-#: analytics/site/requeststatadmin.py:95
+#: analytics/site/requeststatadmin.py:94
 msgid "Primary requests"
 msgstr "主要なリクエスト"
 
-#: analytics/site/requeststatadmin.py:97
+#: analytics/site/requeststatadmin.py:96
 msgid "Subsequent requests"
 msgstr "随時のリクエスト"
 
-#: analytics/site/requeststatadmin.py:98
+#: analytics/site/requeststatadmin.py:97
 msgid "Conversion of subsequent requests"
 msgstr "後続リクエストの変換"
 
-#: analytics/site/requeststatadmin.py:101
+#: analytics/site/requeststatadmin.py:100
 msgid "average monthly value"
 msgstr "平均月間価値"
 
-#: analytics/site/requeststatadmin.py:102
+#: analytics/site/requeststatadmin.py:101
 msgid "Requests by month"
 msgstr "月別リクエスト"
 
-#: analytics/site/requeststatadmin.py:116
+#: analytics/site/requeststatadmin.py:115
 msgid "Relevant requests"
 msgstr "関連リクエスト"
 
-#: analytics/site/salesfunnelsadmin.py:42
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:50
+#: analytics/site/salesfunnelsadmin.py:38
 msgid "Total closed deals"
 msgstr "総閉じる取引数"
 
@@ -339,17 +338,10 @@ msgstr "スナップショットを保存"
 msgid "Sales funnel for last 365 days"
 msgstr "過去365日の販売ファネル"
 
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:49
-msgid "The number of closed deals in stages"
-msgstr "ステージごとのクローズド取引数"
-
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:58
-msgid "Chart"
-msgstr "チャート"
-
-#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:59
-msgid "The percentages show the number of \"lost\" deals at each stage."
-msgstr "割合は、各ステージでの「失われた」取引の数を示します。"
+#: analytics/templates/admin/analytics/salesfunnel/sales_funnel_change_list.html:60
+#| msgid "The number of closed deals in stages"
+msgid "Number of deals closed/lost at each stage."
+msgstr "各段階で成立した/失敗した取引の数。"
 
 #: analytics/templates/analytics/bar_chart.html:58
 #: analytics/templates/analytics/bar_chart_.html:51
@@ -397,7 +389,7 @@ msgstr "メッセージ"
 
 #: chat/models.py:24 chat/templates/chat_buttons.html:3
 #: crm/forms/contact_form.py:32 massmail/models/mailing_out.py:37
-#: massmail/site/emlmessageadmin.py:121
+#: massmail/site/emlmessageadmin.py:134 massmail/site/mailingoutadmin.py:181
 msgid "Message"
 msgstr "メッセージ"
 
@@ -426,14 +418,14 @@ msgstr "タスクオペレーター"
 msgid "You received a message regarding - "
 msgstr "あなたは、以下の件に関するメッセージを受け取りました。"
 
-#: chat/site/chatmessageadmin.py:128 crm/admin.py:112 crm/admin.py:183
-#: crm/admin.py:230 crm/admin.py:282 crm/admin.py:343
-#: crm/site/companyadmin.py:143 crm/site/contactadmin.py:129
-#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:152
-#: crm/site/productadmin.py:18 crm/site/requestadmin.py:98
+#: chat/site/chatmessageadmin.py:128 crm/admin.py:113 crm/admin.py:184
+#: crm/admin.py:233 crm/admin.py:286 crm/admin.py:348
+#: crm/site/companyadmin.py:144 crm/site/contactadmin.py:131
+#: crm/site/dealadmin.py:327 crm/site/leadadmin.py:154
+#: crm/site/productadmin.py:18 crm/site/requestadmin.py:131
 #: crm/site/tagadmin.py:26 massmail/admin.py:36
-#: massmail/site/emlmessageadmin.py:80 massmail/site/signatureadmin.py:37
-#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:186
+#: massmail/site/emlmessageadmin.py:78 massmail/site/signatureadmin.py:37
+#: tasks/admin.py:80 tasks/admin.py:133 tasks/site/memoadmin.py:190
 #: tasks/site/tasksbasemodeladmin.py:223
 msgid "Additional information"
 msgstr "追加情報"
@@ -493,7 +485,8 @@ msgstr "送信する"
 #: crm/templates/admin/crm/deal/submit_line.html:9
 #: crm/templates/admin/crm/lead/submit_line.html:13
 #: crm/templates/admin/crm/payment/submit_line.html:9
-#: crm/templates/admin/crm/request/submit_line.html:12
+#: crm/templates/admin/crm/request/submit_line.html:9
+#: crm/templates/admin/crm/request/submit_line.html:18
 #: crm/templates/admin/crm/shipment/submit_line.html:9
 #: massmail/templates/admin/massmail/mailingout/submit_line.html:9
 #: tasks/templates/admin/tasks/memo/submit_line.html:12
@@ -514,7 +507,7 @@ msgstr "閉じる"
 #: crm/templates/admin/crm/deal/submit_line.html:13
 #: crm/templates/admin/crm/lead/submit_line.html:17
 #: crm/templates/admin/crm/payment/submit_line.html:13
-#: crm/templates/admin/crm/request/submit_line.html:16
+#: crm/templates/admin/crm/request/submit_line.html:22
 #: crm/templates/admin/crm/shipment/submit_line.html:13
 #: massmail/templates/admin/massmail/mailingout/submit_line.html:13
 #: tasks/templates/admin/tasks/memo/submit_line.html:16
@@ -549,17 +542,17 @@ msgstr "未読メッセージがあります。"
 msgid "View chat messages"
 msgstr "チャットメッセージを表示する"
 
-#: common/admin.py:85
+#: common/admin.py:115
 msgid ""
 "You can specify the name of an existing file on the server along with the "
 "path instead of uploading it."
 msgstr "アップロードする代わりに、サーバーにすでに存在するファイルの名前とそのパスを指定することができます。"
 
-#: common/admin.py:195
+#: common/admin.py:226
 msgid "staff"
 msgstr "スタッフ"
 
-#: common/admin.py:201
+#: common/admin.py:232
 msgid "superuser"
 msgstr "スーパーユーザー"
 
@@ -585,8 +578,8 @@ msgstr "ブロックが解除されました。"
 
 #: common/models.py:75 common/models.py:118
 #: common/templates/common/copy_department.html:30
-#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:290
-#: tasks/site/memoadmin.py:41
+#: common/templates/common/user_transfer.html:41 crm/utils/admfilters.py:291
+#: tasks/site/memoadmin.py:42
 msgid "Department"
 msgstr "部門"
 
@@ -633,7 +626,7 @@ msgstr "簡単に言うと、このリマインダーとは何でしょうか?"
 
 #: common/models.py:164
 #: common/templates/common/notice_participants_email.html:14
-#: crm/models/base_contact.py:116 crm/models/deal.py:35
+#: crm/models/base_contact.py:128 crm/models/deal.py:35
 #: crm/models/product.py:19 crm/models/product.py:41 crm/models/request.py:103
 #: tasks/models/memo.py:68 tasks/models/taskbase.py:38
 msgid "Description"
@@ -644,7 +637,7 @@ msgid "Reminder date"
 msgstr "リマインダー日"
 
 #: common/models.py:171 crm/models/company.py:39 crm/models/deal.py:160
-#: crm/utils/admfilters.py:527 massmail/models/mailing_out.py:22
+#: crm/utils/admfilters.py:528 massmail/models/mailing_out.py:22
 #: massmail/utils/adminfilters.py:11 tasks/models/projectstage.py:14
 #: tasks/models/taskbase.py:86 tasks/models/taskstage.py:14
 #: tasks/utils/admfilters.py:209 voip/models.py:25
@@ -720,14 +713,14 @@ msgstr "このタイムゾーンを有効にする"
 msgid "Field for temporary storage of messages to the user"
 msgstr "ユーザーへのメッセージの一時保存用フィールド"
 
-#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:144
+#: common/site/basemodeladmin.py:19 crm/models/base_contact.py:156
 #: crm/models/deal.py:169 crm/models/tag.py:10 tasks/models/memo.py:87
 #: tasks/models/tag.py:9 tasks/models/taskbase.py:100
 msgid "Tags"
 msgstr "タグ"
 
-#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:172
-#: crm/admin.py:218 crm/admin.py:268 tasks/site/tasksbasemodeladmin.py:216
+#: common/site/basemodeladmin.py:20 crm/admin.py:99 crm/admin.py:173
+#: crm/admin.py:219 crm/admin.py:271 tasks/site/tasksbasemodeladmin.py:216
 msgid "Add tags"
 msgstr "タグを追加する"
 
@@ -816,7 +809,7 @@ msgstr "保存して表示する"
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:50
 #: crm/templates/admin/crm/deal/change_form_object_tools.html:38
 #: crm/templates/admin/crm/lead/change_form_object_tools.html:23
-#: crm/templates/admin/crm/request/change_form_object_tools.html:37
+#: crm/templates/admin/crm/request/change_form_object_tools.html:38
 #: crm/templates/admin/crm/shipment/change_form_object_tools.html:12
 #: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:8
 #: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:18
@@ -827,19 +820,6 @@ msgstr "保存して表示する"
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:36
 msgid "History"
 msgstr "履歴"
-
-#: common/templates/admin/common/userprofile/change_form_object_tools.html:8
-#: crm/templates/admin/crm/crmemail/stacked.html:14
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:25
-#: crm/templates/admin/crm/request/change_form_object_tools.html:39
-#: crm/templates/admin/crm/shipment/change_form_object_tools.html:14
-#: help/templates/admin/help/stacked.html:18
-#: massmail/templates/admin/massmail/emailaccount/change_form_object_tools.html:10
-#: massmail/templates/admin/massmail/emlmessage/change_form_object_tools.html:20
-#: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:33
-#: massmail/templates/admin/massmail/signature/change_form_object_tools.html:8
-msgid "View on site"
-msgstr "サイトで確認する"
 
 #: common/templates/common/copy_department.html:13
 #: common/templates/common/select_emails.html:13
@@ -901,7 +881,7 @@ msgid "Priority"
 msgstr "優先度"
 
 #: common/templates/common/notice_participants_email.html:15
-#: crm/models/deal.py:183 crm/models/request.py:139
+#: crm/models/deal.py:183 crm/models/request.py:144
 #: massmail/models/email_account.py:110 tasks/models/taskbase.py:97
 msgid "Co-owner"
 msgstr "共同所有者"
@@ -989,22 +969,21 @@ msgid ""
 "The name has been added for translation. Please update po and mo files."
 msgstr "翻訳用に名前が追加されました。poファイルとmoファイルを更新してください。"
 
-#: common/utils/helpers.py:26 tasks/site/memoadmin.py:40
-#: tasks/site/taskadmin.py:37
+#: common/utils/helpers.py:27
 msgid "Copy"
 msgstr "コピー"
 
-#: common/utils/helpers.py:31
+#: common/utils/helpers.py:32
 msgid ""
 "Attention! Mass mailings are not carried out on: Fridays, Saturdays and "
 "Sundays."
 msgstr "注意！ 金曜日、土曜日、日曜日には大量メール送信は行われません。"
 
-#: common/utils/helpers.py:33
+#: common/utils/helpers.py:34
 msgid "{} with ID '{}' doesn’t exist. Perhaps it was deleted?"
 msgstr "ID '{}' の {} は存在しません。削除された可能性があります。"
 
-#: common/utils/helpers.py:36
+#: common/utils/helpers.py:37
 msgid ""
 "\n"
 "Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>\n"
@@ -1014,13 +993,11 @@ msgstr ""
 "HTMLを使用してください。埋め込み画像のアドレスを指定するには、{% cid_media ‘path/to/pic.png’ %} を使用します。<br>\n"
 "CRMサーバーにアップロードされたファイルは、「media/pics/」フォルダに埋め込むことができます。\n"
 
-#: common/utils/helpers.py:220
-#| msgid "Creation date"
+#: common/utils/helpers.py:235
 msgid "sort by creation date"
 msgstr "作成日で並べ替え"
 
-#: common/utils/helpers.py:222
-#| msgid "Next step deadline"
+#: common/utils/helpers.py:237
 msgid "sort by next step date"
 msgstr "次のステップの日付で並べ替え"
 
@@ -1053,11 +1030,12 @@ msgstr ""
 msgid "User transferred successfully"
 msgstr "ユーザーが正常に転送されました。"
 
-#: crm/admin.py:103 crm/admin.py:272 crm/site/companyadmin.py:134
+#: crm/admin.py:103 crm/admin.py:275 crm/site/companyadmin.py:134
+#: crm/site/contactadmin.py:113
 msgid "Contact details"
 msgstr "連絡先情報"
 
-#: crm/admin.py:125 crm/models/country.py:15 crm/models/deal.py:18
+#: crm/admin.py:126 crm/models/country.py:15 crm/models/deal.py:18
 #: crm/models/product.py:15 crm/models/product.py:37
 #: crm/templates/crm/print_request.html:50 massmail/models/mailing_out.py:30
 #: settings/models.py:24 tasks/models/memo.py:27 tasks/models/resolution.py:13
@@ -1065,74 +1043,74 @@ msgstr "連絡先情報"
 msgid "Name"
 msgstr "名称"
 
-#: crm/admin.py:155 crm/site/dealadmin.py:298
+#: crm/admin.py:156 crm/site/dealadmin.py:298
 msgid "Contact info"
 msgstr "連絡先情報"
 
-#: crm/admin.py:176 crm/admin.py:334 crm/site/crmemailadmin.py:220
-#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:89
+#: crm/admin.py:177 crm/admin.py:339 crm/site/crmemailadmin.py:220
+#: crm/site/dealadmin.py:319 crm/site/requestadmin.py:122
 msgid "Relations"
 msgstr "関係（かんけい）"
 
-#: crm/forms/admin_forms.py:22
+#: crm/forms/admin_forms.py:24
 msgid "A country must be specified."
 msgstr "国を指定する必要があります。"
 
-#: crm/forms/admin_forms.py:23
+#: crm/forms/admin_forms.py:25
 msgid "Marketing currency already exists."
 msgstr "マーケティング通貨は既に存在します。"
 
-#: crm/forms/admin_forms.py:24
+#: crm/forms/admin_forms.py:26
 msgid "State currency already exists."
 msgstr "国営通貨はすでに存在します。"
 
-#: crm/forms/admin_forms.py:25
+#: crm/forms/admin_forms.py:27
 msgid "Enter a valid alphabetic code."
 msgstr "有効なアルファベットコードを入力してください。"
 
-#: crm/forms/admin_forms.py:26
+#: crm/forms/admin_forms.py:28
 msgid "The currency cannot be both state and marketing."
 msgstr "通貨は、同時に国家通貨とマーケティング通貨であることはできません。"
 
-#: crm/forms/admin_forms.py:70
+#: crm/forms/admin_forms.py:72
 msgid "Not allowed address"
 msgstr "無効なアドレス"
 
-#: crm/forms/admin_forms.py:90
+#: crm/forms/admin_forms.py:92
 msgid "City does not match the country"
 msgstr "国と都市が一致しません。"
 
-#: crm/forms/admin_forms.py:138
+#: crm/forms/admin_forms.py:150
 msgid "Such an object already exists"
 msgstr "そのようなオブジェクトはすでに存在します。"
 
-#: crm/forms/admin_forms.py:164
+#: crm/forms/admin_forms.py:176
 msgid "Please fill in the field."
 msgstr "このフィールドに記入してください。"
 
-#: crm/forms/admin_forms.py:172
+#: crm/forms/admin_forms.py:184
 msgid "To convert, please fill in the fields below."
 msgstr "変換するには、以下のフィールドに記入してください。"
 
-#: crm/forms/admin_forms.py:207 crm/forms/admin_forms.py:208
+#: crm/forms/admin_forms.py:219 crm/forms/admin_forms.py:220
 msgid "Specify the deal amount"
 msgstr "取引額を指定してください。"
 
-#: crm/forms/admin_forms.py:236
+#: crm/forms/admin_forms.py:248
 msgid "Contact does not match the company"
 msgstr "連絡先が会社と一致しません。"
 
-#: crm/forms/admin_forms.py:241
+#: crm/forms/admin_forms.py:253
 msgid "Select only Contact or only Lead"
 msgstr ""
 "\n"
 "コンタクトのみ、またはリードのみを選択します。"
 
-#: crm/forms/admin_forms.py:246
+#: crm/forms/admin_forms.py:258
 msgid "Select only Company or only Lead"
 msgstr "会社またはリードを選択する（いずれかを選択）"
 
-#: crm/forms/admin_forms.py:328
+#: crm/forms/admin_forms.py:340
 msgid "Such a tag already exists."
 msgstr "そのようなタグはすでに存在します。"
 
@@ -1223,33 +1201,41 @@ msgstr "データベース内の都市のオブジェクト"
 msgid "Address"
 msgstr "住所"
 
-#: crm/models/base_contact.py:120 crm/models/lead.py:17
-#: crm/utils/admfilters.py:513
+#: crm/models/base_contact.py:117
+msgid "Region/State"
+msgstr "地域/州"
+
+#: crm/models/base_contact.py:123
+msgid "District/County"
+msgstr "地区/郡"
+
+#: crm/models/base_contact.py:132 crm/models/lead.py:17
+#: crm/utils/admfilters.py:514
 msgid "Disqualified"
 msgstr "失格"
 
-#: crm/models/base_contact.py:127
+#: crm/models/base_contact.py:139
 msgid "Use comma to separate Emails."
 msgstr "メールアドレスはコンマで区切ってください。"
 
-#: crm/models/base_contact.py:134 crm/models/others.py:63
+#: crm/models/base_contact.py:146 crm/models/others.py:63
 #: crm/models/request.py:51
 msgid "Lead Source"
 msgstr "リード源"
 
-#: crm/models/base_contact.py:138
+#: crm/models/base_contact.py:150
 msgid "Mass mailing"
 msgstr "大量メール送信"
 
-#: crm/models/base_contact.py:139 crm/site/crmmodeladmin.py:74
+#: crm/models/base_contact.py:151 crm/site/crmmodeladmin.py:74
 msgid "Mailing list recipient."
 msgstr "メールマガジン受信者"
 
-#: crm/models/base_contact.py:154
+#: crm/models/base_contact.py:166
 msgid "Last contact date"
 msgstr "最終連絡日"
 
-#: crm/models/base_contact.py:161
+#: crm/models/base_contact.py:173
 msgid "Assigned to"
 msgstr "割り当てられました"
 
@@ -1377,7 +1363,7 @@ msgid "Contact"
 msgstr "連絡先"
 
 #: crm/models/crmemail.py:64 crm/models/deal.py:132 crm/models/request.py:19
-#: crm/site/requestadmin.py:444
+#: crm/site/requestadmin.py:536
 #: crm/templates/admin/crm/crmemail/change_form_object_tools.html:31
 #: crm/templates/admin/crm/deal/change_list_object_tools.html:14
 msgid "Request"
@@ -1456,7 +1442,7 @@ msgstr "ディーラーまたは販売会社の担当者"
 msgid "Relevant"
 msgstr "関連性のある"
 
-#: crm/models/deal.py:164 crm/utils/admfilters.py:487
+#: crm/models/deal.py:164 crm/utils/admfilters.py:488
 msgid "Important"
 msgstr "重要"
 
@@ -1767,7 +1753,7 @@ msgstr "受信日"
 msgid "Date of receipt of the request."
 msgstr "要求受信日"
 
-#: crm/models/request.py:107 crm/site/dealadmin.py:675
+#: crm/models/request.py:107 crm/site/dealadmin.py:686
 msgid "Translation"
 msgstr "翻訳"
 
@@ -1807,11 +1793,19 @@ msgstr "検証が必要です。"
 msgid "Links are set automatically and require verification."
 msgstr "リンクは自動的に設定され、検証が必要です。"
 
-#: crm/models/request.py:148 crm/models/request.py:149
+#: crm/models/request.py:136
+msgid "Case/Incident"
+msgstr "事件/インシデント"
+
+#: crm/models/request.py:137
+msgid "A request that does not involve payment"
+msgstr "支払いを伴わないリクエスト"
+
+#: crm/models/request.py:153 crm/models/request.py:154
 msgid "Company and contact person do not match."
 msgstr "会社と連絡先が一致しません。"
 
-#: crm/models/request.py:153 crm/models/request.py:154
+#: crm/models/request.py:158 crm/models/request.py:159
 msgid "Specify the contact person or lead. But not both."
 msgstr "連絡先担当者または見込み客を指定してください。ただし、両方を指定する必要はありません。"
 
@@ -1984,15 +1978,15 @@ msgid ""
 "Attention! You can only view companies associated with your department."
 msgstr "注意！ ご所属部署に関連する企業のみを閲覧できます。"
 
-#: crm/site/companyadmin.py:210 crm/site/leadadmin.py:260
+#: crm/site/companyadmin.py:211 crm/site/leadadmin.py:262
 msgid "Warning:"
 msgstr "注意："
 
-#: crm/site/companyadmin.py:212
+#: crm/site/companyadmin.py:213
 msgid "Owner will also be changed for contact persons."
 msgstr "連絡先の所有者も変更されます。"
 
-#: crm/site/companyadmin.py:225
+#: crm/site/companyadmin.py:226
 msgid "Change owner of selected Companies"
 msgstr "選択した会社の所有者を変更する"
 
@@ -2001,7 +1995,7 @@ msgid "Your Excel file"
 msgstr "あなたのExcelファイル"
 
 #: crm/site/crmemailadmin.py:30 massmail/models/signature.py:13
-#: massmail/site/emlmessageadmin.py:133
+#: massmail/site/emlmessageadmin.py:138
 msgid "Signature"
 msgstr "署名"
 
@@ -2117,7 +2111,7 @@ msgstr "支払い受信"
 msgid "Specify the date of shipment"
 msgstr "出荷日を指定してください。"
 
-#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:241
+#: crm/site/dealadmin.py:78 crm/site/requestadmin.py:308
 msgid "Specify products"
 msgstr "製品を指定する"
 
@@ -2137,32 +2131,32 @@ msgstr "ID '{}' の取引は存在しません。削除された可能性があ�
 msgid "View the Request"
 msgstr "リクエストを表示する"
 
-#: crm/site/dealadmin.py:540
+#: crm/site/dealadmin.py:551
 msgid "Create Email to Contact"
 msgstr "連絡先へのメールを作成する"
 
-#: crm/site/dealadmin.py:543
+#: crm/site/dealadmin.py:554
 msgid "Create Email to Lead"
 msgstr "見込み客へのメール作成"
 
-#: crm/site/dealadmin.py:583
+#: crm/site/dealadmin.py:594
 msgid "Important deal"
 msgstr "重要な取引"
 
-#: crm/site/dealadmin.py:607
+#: crm/site/dealadmin.py:618
 #, python-format
 msgid "I have been waiting for an answer to my request for %d days"
 msgstr "私は%d日間、私の要求に対する回答を待っています。"
 
-#: crm/site/dealadmin.py:637
+#: crm/site/dealadmin.py:648
 msgid "Expected"
 msgstr "期待される"
 
-#: crm/site/dealadmin.py:645
+#: crm/site/dealadmin.py:656
 msgid "Paid"
 msgstr "支払済み"
 
-#: crm/site/dealadmin.py:700
+#: crm/site/dealadmin.py:711
 msgid "Contact is Lead (no company)"
 msgstr "リード（会社不明）"
 
@@ -2178,66 +2172,66 @@ msgstr "追加の個人情報"
 msgid "Company contact details"
 msgstr "会社連絡先情報"
 
-#: crm/site/leadadmin.py:247
+#: crm/site/leadadmin.py:249
 #, python-brace-format
 msgid "The lead \"{obj}\" has been converted successfully."
 msgstr "リード「{obj}」を正常に変換しました。"
 
-#: crm/site/leadadmin.py:262
+#: crm/site/leadadmin.py:264
 msgid "This Lead is disqualified! Please read the description."
 msgstr "このリードは不適格です！ 説明をご確認ください。"
 
-#: crm/site/requestadmin.py:39
+#: crm/site/requestadmin.py:69
 msgid "Client Loyalty"
 msgstr "顧客ロイヤリティ"
 
-#: crm/site/requestadmin.py:46
+#: crm/site/requestadmin.py:76
 msgid "Country not specified in request"
 msgstr "リクエストに国が指定されていません。"
 
-#: crm/site/requestadmin.py:47
+#: crm/site/requestadmin.py:77
 msgid "You received the deal"
 msgstr "あなたは取引を受け取りました。"
 
-#: crm/site/requestadmin.py:48
+#: crm/site/requestadmin.py:78
 msgid "You are the co-owner of the deal"
 msgstr "この取引の共同所有者です。"
 
-#: crm/site/requestadmin.py:54
+#: crm/site/requestadmin.py:85
 msgid "Primary request"
 msgstr "主要リクエスト"
 
-#: crm/site/requestadmin.py:55
+#: crm/site/requestadmin.py:86
 msgid "You are the co-owner of the request"
 msgstr "あなたはこのリクエストの共同所有者です。"
 
-#: crm/site/requestadmin.py:56
+#: crm/site/requestadmin.py:87
 msgid "You received the request"
 msgstr "あなたはリクエストを受け取りました。"
 
-#: crm/site/requestadmin.py:57 tasks/models/memo.py:20
+#: crm/site/requestadmin.py:88 tasks/models/memo.py:20
 #: tasks/models/to_translate.txt:2
 msgid "pending"
 msgstr "保留中"
 
-#: crm/site/requestadmin.py:58
+#: crm/site/requestadmin.py:89
 msgid "processed"
 msgstr "処理済み"
 
-#: crm/site/requestadmin.py:59 massmail/models/mailing_out.py:41
-#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:46
+#: crm/site/requestadmin.py:90 massmail/models/mailing_out.py:41
+#: massmail/utils/adminfilters.py:6 tasks/site/memoadmin.py:47
 msgid "Status"
 msgstr "ステータス"
 
-#: crm/site/requestadmin.py:63
+#: crm/site/requestadmin.py:94
 msgid "Subsequent request"
 msgstr "追記リクエスト"
 
-#: crm/site/requestadmin.py:398
+#: crm/site/requestadmin.py:490
 msgid "Found the counterparty assigned to"
 msgstr "割り当てられた相手先が見つかりました。"
 
-#: crm/site/requestadmin.py:497
+#: crm/site/requestadmin.py:589
 #, python-brace-format
 msgid "The {name} “{obj}” was added successfully."
 msgstr "{名前} の \"{オブジェクト}\" が正常に追加されました。"
@@ -2326,8 +2320,6 @@ msgstr "保存してもう一つ追加する"
 
 #: crm/templates/admin/crm/company/change_form_object_tools.html:9
 #: crm/templates/admin/crm/contact/change_form_object_tools.html:18
-#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
-#: crm/templates/admin/crm/request/change_form_object_tools.html:19
 msgid "Сorrespondence"
 msgstr "通信"
 
@@ -2424,6 +2416,11 @@ msgstr "変更"
 msgid "View"
 msgstr "表示"
 
+#: crm/templates/admin/crm/crmemail/stacked.html:14
+#: help/templates/admin/help/stacked.html:18
+msgid "View on site"
+msgstr "サイトで確認する"
+
 #: crm/templates/admin/crm/crmemail/submit_line.html:6
 msgid "Reply"
 msgstr "返信"
@@ -2485,6 +2482,12 @@ msgstr "日付"
 msgid "View or Download"
 msgstr "表示またはダウンロード"
 
+#: crm/templates/admin/crm/lead/change_form_object_tools.html:10
+#: crm/templates/admin/crm/request/change_form_object_tools.html:19
+#| msgid "Сorrespondence"
+msgid "View correspondence"
+msgstr "通信文を表示"
+
 #: crm/templates/admin/crm/lead/submit_line.html:9
 msgid "Convert"
 msgstr "変換"
@@ -2513,7 +2516,12 @@ msgstr "メールを基にリクエストを作成します。"
 msgid "Import request from"
 msgstr "インポートリクエストから"
 
-#: crm/templates/admin/crm/request/submit_line.html:8
+#: crm/templates/admin/crm/request/submit_line.html:11
+#| msgid "Active"
+msgid "Activate"
+msgstr "活性化"
+
+#: crm/templates/admin/crm/request/submit_line.html:14
 msgid "Create deal"
 msgstr "取引を作成する"
 
@@ -2584,50 +2592,50 @@ msgstr "今年の九ヶ月間"
 msgid "Second half of the last year"
 msgstr "昨年の後半"
 
-#: crm/utils/admfilters.py:418
+#: crm/utils/admfilters.py:419
 msgid "changed by chiefs"
 msgstr "経営陣によって変更されました"
 
-#: crm/utils/admfilters.py:424 crm/utils/admfilters.py:474
-#: crm/utils/admfilters.py:494 crm/utils/admfilters.py:507
-#: crm/utils/admfilters.py:521 crm/utils/admfilters.py:540
-#: crm/utils/admfilters.py:545 tasks/utils/admfilters.py:217
+#: crm/utils/admfilters.py:425 crm/utils/admfilters.py:475
+#: crm/utils/admfilters.py:495 crm/utils/admfilters.py:508
+#: crm/utils/admfilters.py:522 crm/utils/admfilters.py:541
+#: crm/utils/admfilters.py:546 tasks/utils/admfilters.py:217
 msgid "Yes"
 msgstr "はい"
 
-#: crm/utils/admfilters.py:438
+#: crm/utils/admfilters.py:439
 msgid "Partner"
 msgstr "パートナー"
 
-#: crm/utils/admfilters.py:455 crm/utils/admfilters.py:475
-#: crm/utils/admfilters.py:508 crm/utils/admfilters.py:522
-#: crm/utils/admfilters.py:541 crm/utils/admfilters.py:546
+#: crm/utils/admfilters.py:456 crm/utils/admfilters.py:476
+#: crm/utils/admfilters.py:509 crm/utils/admfilters.py:523
+#: crm/utils/admfilters.py:542 crm/utils/admfilters.py:547
 #: tasks/utils/admfilters.py:218
 msgid "No"
 msgstr "いいえ"
 
-#: crm/utils/admfilters.py:499
+#: crm/utils/admfilters.py:500
 msgid "Has Contacts"
 msgstr "連絡先があります。"
 
-#: crm/utils/admfilters.py:565
+#: crm/utils/admfilters.py:566
 msgid "mailbox"
 msgstr "メールボックス"
 
-#: crm/utils/admfilters.py:584
+#: crm/utils/admfilters.py:585
 msgid "inbox"
 msgstr "受信箱"
 
-#: crm/utils/admfilters.py:585
+#: crm/utils/admfilters.py:586
 msgid "sent"
 msgstr "送信済み"
 
-#: crm/utils/admfilters.py:586
+#: crm/utils/admfilters.py:587
 #, python-brace-format
 msgid "outbox ({num})"
 msgstr "アウトボックス ({num})"
 
-#: crm/utils/admfilters.py:587
+#: crm/utils/admfilters.py:588
 msgid "trash"
 msgstr "ゴミ箱"
 
@@ -2786,7 +2794,7 @@ msgstr "ユーザーグループが選択されていない場合、そのパラ
 msgid "Title of paragraph."
 msgstr "パラグラフのタイトル。"
 
-#: help/models.py:125 tasks/site/memoadmin.py:42
+#: help/models.py:125 tasks/site/memoadmin.py:43
 msgid "draft"
 msgstr "草案"
 
@@ -3013,11 +3021,11 @@ msgstr "完了"
 msgid "The name of the message."
 msgstr "メッセージ名"
 
-#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:33
+#: massmail/models/mailing_out.py:45 massmail/site/mailingoutadmin.py:35
 msgid "Number of recipients"
 msgstr "受信者数"
 
-#: massmail/models/mailing_out.py:55 massmail/site/mailingoutadmin.py:23
+#: massmail/models/mailing_out.py:55
 msgid "Recipients type"
 msgstr "受信者タイプ"
 
@@ -3037,50 +3045,62 @@ msgstr "署名名"
 msgid "price proposal"
 msgstr "価格提案"
 
-#: massmail/site/emlmessageadmin.py:68 massmail/site/signatureadmin.py:48
+#: massmail/site/emlmessageadmin.py:66 massmail/site/signatureadmin.py:48
 #: massmail/templates/admin/massmail/mailingout/change_form_object_tools.html:6
 msgid "Preview"
 msgstr "プレビュー"
 
-#: massmail/site/emlmessageadmin.py:73
+#: massmail/site/emlmessageadmin.py:71
 msgid "Edit"
 msgstr "編集"
 
-#: massmail/site/mailingoutadmin.py:19
+#: massmail/site/mailingoutadmin.py:21
 msgid "Available Email accounts for MassMail"
 msgstr "大量メール送信用の利用可能なメールアカウント"
 
-#: massmail/site/mailingoutadmin.py:20
+#: massmail/site/mailingoutadmin.py:22
 msgid "Accounts"
 msgstr "アカウント"
 
-#: massmail/site/mailingoutadmin.py:24
-#| msgid ""
-#| "To send a message you need to have an email account marked as main."
+#: massmail/site/mailingoutadmin.py:25
+#| msgid "Recipients type"
+msgid "Recipient<br>type"
+msgstr "受信者の種類"
+
+#: massmail/site/mailingoutadmin.py:26
 msgid "You do not have an email account available for massmaling."
 msgstr "massmailing に使用できる電子メール アカウントがありません。"
 
-#: massmail/site/mailingoutadmin.py:25
+#: massmail/site/mailingoutadmin.py:27
 msgid ""
 "The address for redirecting unsubscribed recipients is not specified. "
 "Contact the administrator."
 msgstr "登録解除した受信者をリダイレクトするアドレスが指定されていません。管理者に問い合わせてください。"
 
-#: massmail/site/mailingoutadmin.py:27
+#: massmail/site/mailingoutadmin.py:29
 msgid ""
 "You have one Email account with Mailing enabled. As the main account, it can"
 " only send emails to VIP recipients."
 msgstr "メール配信が有効になっているメールアカウントが1つあります。メインアカウントであるため、VIP受信者にのみメールを送信できます。"
 
-#: massmail/site/mailingoutadmin.py:34
+#: massmail/site/mailingoutadmin.py:36
 msgid "Today"
 msgstr "今日"
 
-#: massmail/site/mailingoutadmin.py:35
+#: massmail/site/mailingoutadmin.py:37
 msgid "Sent today"
 msgstr "今日送信"
 
-#: massmail/site/mailingoutadmin.py:135
+#: massmail/site/mailingoutadmin.py:173
+#| msgid "Failed recipients"
+msgid "Exclude recipients"
+msgstr "受信者を除外する"
+
+#: massmail/site/mailingoutadmin.py:175
+msgid "Exclude recipients who have already received this message."
+msgstr "このメッセージを既に受信した受信者を除外します。"
+
+#: massmail/site/mailingoutadmin.py:194
 msgid "notification"
 msgstr "通知"
 
@@ -3138,9 +3158,14 @@ msgstr "CRMサーバーに画像ファイルをアップロードします。"
 msgid "Uploaded images"
 msgstr "アップロード画像"
 
-#: massmail/utils/sendmassmail.py:331
+#: massmail/utils/sendmassmail.py:342
 msgid "Done successfully."
 msgstr "成功しました。"
+
+#: massmail/views/exclude.py:42
+#| msgid "Number of recipients"
+msgid "Number of excluded recipients: {}."
+msgstr "除外された受信者の数: {}。"
 
 #: massmail/views/file_upload.py:9
 msgid "Allowed file extensions: "
@@ -3184,7 +3209,6 @@ msgid "Banned company names"
 msgstr "禁止企業名"
 
 #: settings/models.py:40 settings/models.py:41
-#| msgid "Mass mailing"
 msgid "Massmail Settings"
 msgstr "マスメール設定"
 
@@ -3236,7 +3260,7 @@ msgstr "フレーズの最後の出現日"
 msgid "Change responsible"
 msgstr "担当者を変更する"
 
-#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:183
+#: tasks/admin.py:76 tasks/admin.py:129 tasks/site/memoadmin.py:187
 #: tasks/site/tasksbasemodeladmin.py:171 tasks/site/tasksbasemodeladmin.py:212
 msgid "Change subscribers"
 msgstr "購読者を変更する"
@@ -3267,11 +3291,11 @@ msgid "Memos"
 msgstr "メモ"
 
 #: tasks/models/memo.py:21 tasks/models/to_translate.txt:5
-#: tasks/site/memoadmin.py:45
+#: tasks/site/memoadmin.py:46
 msgid "postponed"
 msgstr "延期"
 
-#: tasks/models/memo.py:22 tasks/site/memoadmin.py:48
+#: tasks/models/memo.py:22 tasks/site/memoadmin.py:49
 msgid "reviewed"
 msgstr "確認済み"
 
@@ -3317,7 +3341,7 @@ msgid "Review date"
 msgstr "レビュー日"
 
 #: tasks/models/memo.py:104 tasks/models/taskbase.py:61
-#: tasks/site/memoadmin.py:462 tasks/site/tasksbasemodeladmin.py:508
+#: tasks/site/memoadmin.py:472 tasks/site/tasksbasemodeladmin.py:508
 msgid "subscribers"
 msgstr "購読者"
 
@@ -3474,42 +3498,42 @@ msgstr "情報用"
 msgid "for the record"
 msgstr "記録のために"
 
-#: tasks/site/memoadmin.py:44
+#: tasks/site/memoadmin.py:45
 msgid "overdue"
 msgstr "未払い"
 
-#: tasks/site/memoadmin.py:47
+#: tasks/site/memoadmin.py:48
 msgid "You are subscribed to a new office memo"
 msgstr "あなたは新しいオフィスメモに登録されています。"
 
-#: tasks/site/memoadmin.py:49
+#: tasks/site/memoadmin.py:50
 msgid "unreviewed"
 msgstr "未確認"
 
-#: tasks/site/memoadmin.py:50
+#: tasks/site/memoadmin.py:51
 msgid "The office memo was written"
 msgstr "社内メモが作成されました。"
 
-#: tasks/site/memoadmin.py:51
+#: tasks/site/memoadmin.py:52
 msgid "You've received a office memo"
 msgstr "社内メモを受け取りました。"
 
-#: tasks/site/memoadmin.py:118
+#: tasks/site/memoadmin.py:120
 msgid "Your office memo has been deleted"
 msgstr "あなたのオフィスメモが削除されました。"
 
-#: tasks/site/memoadmin.py:390
+#: tasks/site/memoadmin.py:396
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:14
 msgid "View the task"
 msgstr "タスクを表示する"
 
-#: tasks/site/memoadmin.py:394
+#: tasks/site/memoadmin.py:400
 #: tasks/templates/admin/tasks/memo/change_form_object_tools.html:21
 #: tasks/templates/admin/tasks/task/change_form_object_tools.html:14
 msgid "View the project"
 msgstr "プロジェクトを表示する"
 
-#: tasks/site/memoadmin.py:475
+#: tasks/site/memoadmin.py:485
 msgid "View the "
 msgstr "表示する"
 
@@ -3525,15 +3549,15 @@ msgstr "プロジェクトが作成されました"
 msgid "I completed my part of the task"
 msgstr "タスクの自分の部分を完了しました。"
 
-#: tasks/site/taskadmin.py:38 tasks/site/tasksbasemodeladmin.py:47
+#: tasks/site/taskadmin.py:37 tasks/site/tasksbasemodeladmin.py:47
 msgid "The task was created"
 msgstr "タスクが作成されました"
 
-#: tasks/site/taskadmin.py:39
+#: tasks/site/taskadmin.py:38
 msgid "The subtask was created"
 msgstr "サブタスクが作成されました"
 
-#: tasks/site/taskadmin.py:40
+#: tasks/site/taskadmin.py:39
 msgid "The subtask"
 msgstr "サブタスク"
 
@@ -3552,15 +3576,20 @@ msgid "Create subtask"
 msgstr "サブタスクを作成する"
 
 #: tasks/site/taskadmin.py:379
+#| msgid ""
+#| "This is a collective task.\n"
+#| "            Please create a sub-task for yourself for work.\n"
+#| "            Or press the next button when you have done your job.\n"
+#| "        "
 msgid ""
-"This is a collective task.\n"
+"This is a team task.\n"
 "            Please create a sub-task for yourself for work.\n"
 "            Or press the next button when you have done your job.\n"
 "        "
 msgstr ""
-"これは集団的なタスクです。\n"
-"作業のために自分にサブタスクを作成してください。\n"
-"または、作業が終了したら「次の」ボタンを押してください。"
+"これはチームタスクです。\n"
+"ご自身の作業用にサブタスクを作成してください。\n"
+"または、作業が完了したら「次へ」ボタンを押してください。"
 
 #: tasks/site/tasksbasemodeladmin.py:44
 msgid "You have been assigned as the task co-owner"
@@ -3808,13 +3837,19 @@ msgstr "着信あり"
 msgid "(duration: {duration} minutes)"
 msgstr "（所要時間：{期間}分）"
 
-#: webcrm/settings.py:272
+#: webcrm/settings.py:275
 msgid "Untitled"
 msgstr "無題"
 
-#: webcrm/settings.py:286
+#: webcrm/settings.py:289
 msgid "Main Menu"
 msgstr "メイン メニュー"
+
+#~ msgid "Chart"
+#~ msgstr "チャート"
+
+#~ msgid "The percentages show the number of \"lost\" deals at each stage."
+#~ msgstr "割合は、各ステージでの「失われた」取引の数を示します。"
 
 #~ msgid "Toggle default deal sorting"
 #~ msgstr "デフォルトの取引ソートを切り替え"
