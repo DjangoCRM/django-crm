@@ -2,6 +2,7 @@ from dateutil.relativedelta import relativedelta
 from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from django.contrib.admin.filters import DateFieldListFilter
+from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import CharField
 from django.db.models import Exists
@@ -23,6 +24,7 @@ from crm.models import Product
 from crm.models import Tag
 from crm.models import Output
 from crm.models.country import City
+from massmail.models import MassContact
 
 # Lookup parameters must be removed from the querystring when
 # the corresponding filter is executed!
@@ -75,6 +77,38 @@ class ByCityFilter(SimpleListFilter):
             return queryset.filter(city_id__isnull=True)
 
         return queryset.filter(city_id=int(self.value()))
+
+
+class ByVIPStatus(SimpleListFilter):
+    """ Filter by recipients' VIP status. """
+    title = _('VIP Status')
+    parameter_name = 'vip_status'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('yes', _('VIP')),
+            ('no', _('Non-VIP')),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value():
+            content_type = ContentType.objects.get_for_model(queryset.model)
+            ids = queryset.values_list('id', flat=True)
+            mcs = MassContact.objects.filter(
+                object_id__in=ids,
+                content_type=content_type,
+            )
+        if self.value() == 'yes':
+            vip_ids = mcs.filter(
+                email_account__main=True
+            ).values_list('object_id', flat=True)
+            return queryset.filter(id__in=list(vip_ids))
+        if self.value() == 'no':
+            non_vip_ids = mcs.filter(
+                email_account__main=False
+            ).values_list('object_id', flat=True)
+            return queryset.filter(id__in=list(non_vip_ids))
+        return queryset
 
 
 class ChoicesSimpleListFilter(SimpleListFilter):
