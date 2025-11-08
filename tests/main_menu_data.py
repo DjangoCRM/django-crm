@@ -811,9 +811,9 @@ DATA = [
                 get_reminder_model_data(name=reminder_iconed_name),
                 get_userprofile_model_data(
                     name=userprofile_iconed_name,
-                    perms={'add': True, 'change': True, 'delete': True, 'view': True},
+                    perms={'add': False, 'change': True, 'delete': True, 'view': True},
                     view_only=False,
-                    is_add_url=True
+                    is_add_url=False
                 ),                
             )),
             {
@@ -937,9 +937,9 @@ ADMIN_DATA = [
             get_reminder_model_data(prefix=ADMIN_PREFIX, add=True),
             get_userprofile_model_data(
                 prefix=ADMIN_PREFIX,
-                perms={'add': True, 'change': True, 'delete': True, 'view': True},
+                perms={'add': False, 'change': True, 'delete': True, 'view': True},
                 view_only=False,
-                is_add_url=True
+                is_add_url=False
             ),
         ),
         prefix=ADMIN_PREFIX
