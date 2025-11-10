@@ -77,8 +77,6 @@ class UserProfileAdmin(admin.ModelAdmin):
         return qs.filter(user__is_active=True)
 
     def has_add_permission(self, request):
-        if request.user.is_superuser:
-            return True
         return False
 
     def has_change_permission(self, request, obj=None):
