@@ -41,6 +41,7 @@ from crm.models import Stage
 from crm.models import ClosingReason
 from crm.models import CrmEmail
 from crm.models.request import Request
+from crm.utils.admfilters import ByVIPStatus
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from crm.utils.admfilters import TagFilter
 from crm.utils.clarify_permission import clarify_permission
@@ -196,7 +197,7 @@ class CrmModelAdmin(BaseModelAdmin):
             if country_filter_needed:
                 list_filter.append(('country', ScrollRelatedOnlyFieldListFilter))
             if self.model in (Company, Contact, Lead):
-                list_filter.append('massmail')
+                list_filter.extend(('massmail', ByVIPStatus))
             if hasattr(self.model, 'city'):
                 if "country__id__exact" in request.GET or \
                         "city__id__exact" in request.GET or \
