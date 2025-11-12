@@ -1,3 +1,4 @@
+import time
 from random import random
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
@@ -64,10 +65,9 @@ class TestReminder(BaseTestCase):
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
 
-        site = Site.objects.get_current()
-        template = loader.get_template("common/reminder_message.html")
-        # with self.settings(TESTING=True):
         send_remainders()
+        time.sleep(0.01)  # wait for email sending
         self.assertEqual(1, len(mail.outbox))
         self.assertIn(data['subject'], mail.outbox[0].subject)
+        self.assertIn(str(content), mail.outbox[0].body)
         mail.outbox = []
