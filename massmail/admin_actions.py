@@ -18,9 +18,10 @@ from massmail.models import MassContact
 MULTIPLE_OWNERS_MSG = _("Please select recipients only with the same owner.")
 BAD_RESULT_MSG = _("Bad result - no recipients! Make another choice.")
 
+
 @admin.action(description=_(
     "Create a mailing out for selected objects"))
-def make_mailing_out(modeladmin, request, queryset):
+def make_mailing_out(modeladmin, request, queryset) -> HttpResponseRedirect:
     if not have_massmail_accounts(request)\
             or multiple_owners(request, queryset):
         return HttpResponseRedirect(request.path)
@@ -28,7 +29,7 @@ def make_mailing_out(modeladmin, request, queryset):
     q_params = Q(massmail=False)
     q_params |= Q(disqualified=True)
     if queryset.filter(q_params).exists():
-        queryset= queryset.exclude(q_params)
+        queryset = queryset.exclude(q_params)
         messages.warning(
             request,
             _("Unsubscribed users were excluded from the mailing list.")
@@ -60,7 +61,7 @@ def make_mailing_out(modeladmin, request, queryset):
 
 
 @admin.action(description=_("Merge selected mailing outs"))
-def merge_mailing_outs(modeladmin, request, queryset):
+def merge_mailing_outs(modeladmin, request, queryset) -> HttpResponseRedirect:
     if any((multiple_owners(request, queryset),
             multiple_content_types(request, queryset),
             multiple_messages(request, queryset))):
@@ -102,7 +103,10 @@ def merge_mailing_outs(modeladmin, request, queryset):
 
 
 @admin.action(description=_("Specify VIP recipients"))
-def specify_vip_recipients(modeladmin, request, queryset):
+def specify_vip_recipients(modeladmin, request, queryset) -> HttpResponseRedirect:
+    if multiple_owners(request, queryset):
+        return HttpResponseRedirect(request.path)
+
     owner = queryset[0].owner
     try:
         mea = EmailAccount.objects.get(owner=owner, main=True)
@@ -111,9 +115,6 @@ def specify_vip_recipients(modeladmin, request, queryset):
             request,
             _('Please first add your main email account.')
         )
-        return HttpResponseRedirect(request.path)
-
-    if multiple_owners(request, queryset):
         return HttpResponseRedirect(request.path)
 
     selected = list(set(request.POST.getlist(ACTION_CHECKBOX_NAME)))
@@ -138,6 +139,23 @@ def specify_vip_recipients(modeladmin, request, queryset):
     messages.success(
         request,
         _("The main email address has been successfully assigned to the selected recipients.")
+    )
+    return HttpResponseRedirect(request.path)
+
+
+@admin.action(description=_("Remove the recipient's VIP status"))
+def remove_vip_status(modeladmin, request, queryset) -> HttpResponseRedirect:
+    selected = list(set(request.POST.getlist(ACTION_CHECKBOX_NAME)))
+    selected_ids = [int(x) for x in selected]
+    content_type = ContentType.objects.get_for_model(queryset.model)
+    mcs = MassContact.objects.filter(
+        object_id__in=selected_ids,
+        content_type=content_type
+    )
+    mcs.delete()
+    messages.success(
+        request,
+        _("The VIP status has been successfully removed from the selected recipients.")
     )
     return HttpResponseRedirect(request.path)
 
