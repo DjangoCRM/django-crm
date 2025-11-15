@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- VIP status filter to enhance recipient filtering options (Company, Contact, Lead).
+
 ## [1.6.1] - 2025-10-31
 
 ### Fixed
