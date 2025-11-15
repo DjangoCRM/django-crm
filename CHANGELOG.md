@@ -5,7 +5,7 @@ All notable changes to the [Django CRM project](https://github.com/DjangoCRM/dja
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!-- Types of changes: Added, Changed, Deprecated, Improve, Fixed, Removed, -->
+<!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
 ## Unreleased
@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - VIP status filter to enhance recipient filtering options (Company, Contact, Lead).
+
+### Improved
+
+- Hide the unused "+ Add" button for User profile on the CRM home pages.
 
 ## [1.6.1] - 2025-10-31
 
