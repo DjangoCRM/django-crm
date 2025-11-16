@@ -13,6 +13,7 @@ from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from massmail.admin_actions import make_mailing_out
+from massmail.admin_actions import remove_vip_status
 from massmail.admin_actions import specify_vip_recipients
 
 
@@ -20,6 +21,7 @@ class ContactAdmin(CrmModelAdmin):
     actions = [
         make_mailing_out,
         specify_vip_recipients,
+        remove_vip_status,
         'export_selected'
     ]
     form = ContactForm

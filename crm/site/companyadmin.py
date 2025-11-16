@@ -19,6 +19,7 @@ from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import HasContactsFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from massmail.admin_actions import make_mailing_out
+from massmail.admin_actions import remove_vip_status
 from massmail.admin_actions import specify_vip_recipients
 from common.admin import FileInline
 
@@ -73,6 +74,7 @@ class CompanyAdmin(CrmModelAdmin):
     actions = [
         make_mailing_out,
         specify_vip_recipients,
+        remove_vip_status,
         'export_selected',
         'change_owner'
     ]

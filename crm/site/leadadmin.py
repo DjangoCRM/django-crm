@@ -23,6 +23,7 @@ from crm.utils.admfilters import TagFilter
 from crm.utils.check_city import check_city
 from crm.utils.helpers import get_email_domain
 from massmail.admin_actions import make_mailing_out
+from massmail.admin_actions import remove_vip_status
 from massmail.admin_actions import specify_vip_recipients
 
 THE_SAME_COMPANY_NAME_MSG = "Error! A new company was not created because a company " \
@@ -35,6 +36,7 @@ class LeadAdmin(CrmModelAdmin):
     actions = [
         make_mailing_out,
         specify_vip_recipients,
+        remove_vip_status,
         'export_selected'
     ]
     filter_horizontal = ('industry',)
