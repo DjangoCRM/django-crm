@@ -77,7 +77,8 @@ subscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;
 subscribed_title = _("Signed up for email newsletters")
 unsubscribed_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--body-quiet-color)">markunread_mailbox</i>'
 unsubscribed_title = _("Unsubscribed from email newsletters")
-
+did_not_receive_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--orange-fg)">markunread_mailbox</i>'
+did_not_receive_title = _("The recipient has not received any mailings.")
 
 class CrmModelAdmin(BaseModelAdmin):
 
@@ -386,6 +387,17 @@ class CrmModelAdmin(BaseModelAdmin):
     ))
     def newsletters_subscriptions(obj):
         if obj.massmail:
+            if not obj.disqualified:
+                content_type = ContentType.objects.get_for_model(obj.__class__)
+                id_str = str(obj.id)
+                is_mcs = MailingOut.objects.filter(
+                    content_type=content_type,
+                    successful_ids__regex=fr"(^|,){id_str}(,|$)"
+                )
+                if not is_mcs:
+                    return mark_safe(
+                        did_not_receive_icon.format(did_not_receive_title)
+                    )
             return mark_safe(
                 subscribed_icon.format(subscribed_title)
             )
