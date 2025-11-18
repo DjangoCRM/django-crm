@@ -792,9 +792,9 @@ DATA = [
                     {
                         'name': 'Mailing Outs',
                         'object_name': 'MailingOut',
-                        'perms': get_perms(),
+                        'perms': get_perms(add=False),
                         'admin_url': f'/en/{PREFIX}massmail/mailingout/',
-                        'add_url': f'/en/{PREFIX}massmail/mailingout/add/',
+                        'add_url': None,
                         'view_only': False
                     },
                     {
@@ -1149,9 +1149,9 @@ ADMIN_DATA = [
             {
                 'name': 'Mailing Outs',
                 'object_name': 'MailingOut',
-                'perms': get_perms(),
+                'perms': get_perms(add=False),
                 'admin_url': f'/en/{ADMIN_PREFIX}massmail/mailingout/',
-                'add_url': f'/en/{ADMIN_PREFIX}massmail/mailingout/add/',
+                'add_url': None,
                 'view_only': False
             },
             {

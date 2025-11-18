@@ -63,6 +63,9 @@ class MailingOutAdmin(CrmModelAdmin):
 
     # -- ModelAdmin methods -- #
 
+    def has_add_permission(self, request):
+        return False  # Completely disable adding Mailing Outs
+
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
         now = timezone.localtime(timezone.now())
