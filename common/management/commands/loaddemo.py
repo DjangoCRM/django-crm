@@ -53,7 +53,7 @@ class Command(BaseCommand):
         dept = Department.objects.order_by('id').first()
         ls = LeadSource.objects.order_by('id').first()
         # Company
-        comp, was = Company.objects.get_or_create(name='Acme Corp', defaults={'owner': user, 'department': dept})
+        comp, was = Company.objects.get_or_create(full_name='Acme Corp', defaults={'owner': user, 'department': dept})
         created += int(was)
         # Contact
         cont, was = Contact.objects.get_or_create(email='john.doe@acme.test', defaults={
