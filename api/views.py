@@ -16,6 +16,8 @@ from crm.models import Company, Contact, Deal, Lead, Stage, Tag as CrmTag
 from crm.utils.ticketproc import new_ticket
 from tasks.models import Memo, Project, ProjectStage, Task, TaskStage, Tag as TaskTag
 from chat.models import ChatMessage
+from crm.models.others import CallLog
+from .serializers import CallLogSerializer
 
 from api.permissions import OwnedObjectPermission
 from .serializers import (
@@ -36,6 +38,18 @@ from .serializers import (
 )
 
 User = get_user_model()
+
+
+class CallLogViewSet(viewsets.ModelViewSet):
+    """API endpoint to view and create call logs."""
+    serializer_class = CallLogSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.request.user.call_logs.all().order_by('-timestamp')
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 def _has_field(model, field_name: str) -> bool:

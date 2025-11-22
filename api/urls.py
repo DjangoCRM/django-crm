@@ -16,6 +16,7 @@ from .views import (
     StageViewSet,
     TaskStageViewSet,
     TaskTagViewSet,
+    CallLogViewSet,
     TaskViewSet,
     UserViewSet,
     dashboard_analytics,
@@ -39,6 +40,7 @@ router.register('task-stages', TaskStageViewSet, basename='task-stage')
 router.register('project-stages', ProjectStageViewSet, basename='project-stage')
 router.register('crm-tags', CrmTagViewSet, basename='crm-tag')
 router.register('task-tags', TaskTagViewSet, basename='task-tag')
+router.register('call-logs', CallLogViewSet, basename='calllog')
 
 urlpatterns = [
     path('schema/', SpectacularAPIView.as_view(), name='schema'),

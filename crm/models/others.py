@@ -2,8 +2,10 @@ import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
+from django.conf import settings
 
 from common.models import StageBase
+from .contact import Contact
 
 
 class Base(models.Model):
@@ -86,6 +88,37 @@ class LeadSource(Base):
         verbose_name=_("SLA hours"),
         help_text=_("Override default first-response SLA hours for this source.")
     )
+
+
+class CallLog(models.Model):
+    DIRECTION_CHOICES = [
+        ('inbound', 'Inbound'),
+        ('outbound', 'Outbound'),
+    ]
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='call_logs'
+    )
+    contact = models.ForeignKey(
+        Contact,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='call_logs'
+    )
+    direction = models.CharField(max_length=10, choices=DIRECTION_CHOICES)
+    number = models.CharField(max_length=50)
+    duration = models.PositiveIntegerField(default=0, help_text="Duration in seconds")
+    timestamp = models.DateTimeField(auto_now_add=True)
+    voip_call_id = models.CharField(max_length=255, null=True, blank=True, unique=True, help_text="ID from VoIP provider")
+
+    def __str__(self):
+        return f"{self.get_direction_display()} call with {self.number} at {self.timestamp}"
+
+    class Meta:
+        ordering = ['-timestamp']
 
 
 class ClosingReason(Base):

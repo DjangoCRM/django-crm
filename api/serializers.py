@@ -19,6 +19,7 @@ from tasks.models import (
     Tag as TaskTag,
 )
 from chat.models import ChatMessage
+from crm.models.others import CallLog
 from .validators import (
     ValidationMixin,
     validate_currency_amount,
@@ -594,6 +595,13 @@ class MemoSerializer(ValidationMixin, serializers.ModelSerializer):
     
     def get_tag_names(self, obj):
         return [tag.name for tag in obj.tags.all()]
+
+
+class CallLogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CallLog
+        fields = '__all__'
+        read_only_fields = ('user',)
 
 
 class ChatMessageSerializer(serializers.ModelSerializer):
