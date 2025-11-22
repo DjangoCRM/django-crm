@@ -71,6 +71,7 @@ class Command(BaseCommand):
         created += int(was)
         # Deal
         from django.utils import timezone
+        from uuid import uuid4
         deal, was = Deal.objects.get_or_create(name='Acme First Deal', defaults={
             'company': comp,
             'contact': cont,
@@ -80,6 +81,7 @@ class Command(BaseCommand):
             'department': dept,
             'next_step': 'Initial contact',
             'next_step_date': timezone.now().date(),
+            'ticket': f'DEMO-{uuid4().hex[:8]}',
         })
         created += int(was)
         # set USD currency if exists
