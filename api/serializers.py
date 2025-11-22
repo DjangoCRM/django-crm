@@ -309,6 +309,16 @@ class LeadSerializer(ValidationMixin, serializers.ModelSerializer):
     )
     full_name = serializers.CharField(read_only=True)
 
+    @staticmethod
+    def _normalize_phone(value: str) -> str:
+        if not value:
+            return value
+        # keep leading + and digits
+        value = value.strip()
+        if value.startswith('+'):
+            return '+' + ''.join(ch for ch in value[1:] if ch.isdigit())
+        return ''.join(ch for ch in value if ch.isdigit())
+
     def validate(self, attrs):
         """Cross-field validation"""
         # At least first_name or company_name is required
@@ -321,11 +331,33 @@ class LeadSerializer(ValidationMixin, serializers.ModelSerializer):
         if 'email' in attrs and attrs['email']:
             validate_unique_email(attrs['email'], Lead, self.instance)
         
+        # Required fields by lead type (simple heuristic)
+        lead_type = attrs.get('type') or getattr(self.instance, 'type', None)
+        if lead_type and getattr(lead_type, 'name', None):
+            name_l = lead_type.name.lower()
+            if 'company' in name_l and not attrs.get('company_name') and not getattr(self.instance, 'company_name', None):
+                raise serializers.ValidationError({'company_name': 'Company name is required for this lead type'})
+        
         return attrs
+
+    def validate_email(self, value):
+        return value.lower() if value else value
+
+    def validate_secondary_email(self, value):
+        return value.lower() if value else value
 
     def validate_company_email(self, value):
         """Validate company email"""
-        return self.validate_email(value) if value else value
+        return value.lower() if value else value
+
+    def validate_phone(self, value):
+        return self._normalize_phone(value)
+
+    def validate_mobile(self, value):
+        return self._normalize_phone(value)
+
+    def validate_other_phone(self, value):
+        return self._normalize_phone(value)
 
     class Meta:
         model = Lead

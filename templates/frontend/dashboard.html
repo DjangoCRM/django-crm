@@ -1,0 +1,263 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block header_tabs %}
+<nav class="header-tabs">
+    <button class="header-tab active">Overview</button>
+    <button class="header-tab" hx-get="{% url 'dashboard_analytics' %}" hx-target="#dashboard-content">Analytics</button>
+    <button class="header-tab" hx-get="{% url 'dashboard_reports' %}" hx-target="#dashboard-content">Reports</button>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div id="dashboard-content">
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <!-- Revenue Card -->
+        <div class="stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Total Revenue</div>
+                    <div class="stat-value">${{ stats.total_revenue|floatformat:0 }}</div>
+                    <div class="stat-change {% if stats.revenue_change >= 0 %}positive{% else %}negative{% endif %}">
+                        <span>{% if stats.revenue_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                        {{ stats.revenue_change }}% from last month
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <span>💰</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Active Deals -->
+        <div class="stat-card success">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Active Deals</div>
+                    <div class="stat-value">{{ stats.active_deals_count }}</div>
+                    <div class="stat-change {% if stats.deals_change >= 0 %}positive{% else %}negative{% endif %}">
+                        <span>{% if stats.deals_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                        {{ stats.deals_change }}% from last month
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <span>🤝</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Leads -->
+        <div class="stat-card warning">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">New Leads</div>
+                    <div class="stat-value">{{ stats.new_leads_count }}</div>
+                    <div class="stat-change {% if stats.leads_change >= 0 %}positive{% else %}negative{% endif %}">
+                        <span>{% if stats.leads_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                        {{ stats.leads_change }}% from last month
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <span>👥</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conversion Rate -->
+        <div class="stat-card {% if stats.conversion_rate < 25 %}danger{% else %}success{% endif %}">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-label">Conversion Rate</div>
+                    <div class="stat-value">{{ stats.conversion_rate }}%</div>
+                    <div class="stat-change {% if stats.conversion_change >= 0 %}positive{% else %}negative{% endif %}">
+                        <span>{% if stats.conversion_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                        {{ stats.conversion_change }}% from last month
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <span>🔄</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content Grid -->
+    <div class="content-grid">
+        <!-- Recent Deals -->
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Recent Deals</h3>
+                    <p class="card-subtitle">Latest business opportunities</p>
+                </div>
+                <a href="{% url 'deals:list' %}" class="btn btn-ghost">View All</a>
+            </div>
+            
+            <div class="item-list">
+                {% for deal in recent_deals %}
+                <div class="list-item">
+                    <div class="item-icon" style="background: var(--color-primary);">
+                        <span>🏢</span>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-title">{{ deal.name }}</div>
+                        <div class="item-subtitle">
+                            {% if deal.company %}{{ deal.company.name }}{% else %}{{ deal.contact.full_name }}{% endif %} • 
+                            ${{ deal.amount|floatformat:0 }}
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <span class="status-badge {{ deal.stage.css_class|default:'new' }}">
+                            {{ deal.stage.name }}
+                        </span>
+                        <button class="btn btn-ghost" 
+                                hx-get="{% url 'deals:detail' deal.id %}" 
+                                hx-target="#modal-container">
+                            View
+                        </button>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="empty-state">
+                    <div class="empty-state-icon">📭</div>
+                    <div class="empty-state-title">No Recent Deals</div>
+                    <div class="empty-state-description">Start creating deals to see them here.</div>
+                    <button class="btn btn-primary" 
+                            hx-get="{% url 'deals:create' %}" 
+                            hx-target="#modal-container">
+                        Create Deal
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Activity Timeline -->
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Recent Activity</h3>
+                    <p class="card-subtitle">Latest business activity</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                {% for activity in recent_activities %}
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">{{ activity.title }}</div>
+                        <div class="timeline-time">{{ activity.created_at|timesince }} ago</div>
+                    </div>
+                    <div class="timeline-content">
+                        {{ activity.description }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="empty-state">
+                    <div class="empty-state-icon">📋</div>
+                    <div class="empty-state-title">No Recent Activity</div>
+                    <div class="empty-state-description">Activity will appear here as you work.</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="card" style="margin-top: var(--spacing-xl);">
+        <div class="card-header">
+            <h3 class="card-title">Quick Actions</h3>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); padding: var(--spacing-lg);">
+            <button class="btn btn-primary" 
+                    hx-get="{% url 'contacts:create' %}" 
+                    hx-target="#modal-container"
+                    style="height: 80px; flex-direction: column; gap: var(--spacing-sm);">
+                <span style="font-size: 24px;">👤</span>
+                <span>Add Contact</span>
+            </button>
+            
+            <button class="btn btn-secondary" 
+                    hx-get="{% url 'companies:create' %}" 
+                    hx-target="#modal-container"
+                    style="height: 80px; flex-direction: column; gap: var(--spacing-sm);">
+                <span style="font-size: 24px;">🏢</span>
+                <span>Add Company</span>
+            </button>
+            
+            <button class="btn" 
+                    hx-get="{% url 'deals:create' %}" 
+                    hx-target="#modal-container"
+                    style="background: var(--color-success); color: white; height: 80px; flex-direction: column; gap: var(--spacing-sm);">
+                <span style="font-size: 24px;">📈</span>
+                <span>Create Deal</span>
+            </button>
+            
+            <button class="btn" 
+                    hx-get="{% url 'tasks:create' %}" 
+                    hx-target="#modal-container"
+                    style="background: var(--color-warning); color: white; height: 80px; flex-direction: column; gap: var(--spacing-sm);">
+                <span style="font-size: 24px;">✓</span>
+                <span>Add Task</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Real-time updates -->
+<div hx-get="{% url 'dashboard_updates' %}" 
+     hx-trigger="every 30s" 
+     hx-target="#dashboard-content" 
+     hx-swap="none">
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dashboard
+    loadDashboardData();
+    
+    // Set up real-time updates
+    setInterval(updateCounters, 60000); // Update every minute
+});
+
+async function loadDashboardData() {
+    try {
+        const data = await window.apiClient.getDashboardData();
+        if (data && data.stats) {
+            updateDashboardCounters(data.stats);
+        }
+    } catch (error) {
+        console.error('Failed to load dashboard data:', error);
+    }
+}
+
+function updateDashboardCounters(stats) {
+    // Update navigation badges
+    document.querySelector('#contacts-count').textContent = stats.contactsCount;
+    document.querySelector('#companies-count').textContent = stats.companiesCount;
+    document.querySelector('#deals-count').textContent = stats.dealsCount;
+    document.querySelector('#leads-count').textContent = stats.leadsCount;
+    document.querySelector('#tasks-count').textContent = stats.tasksCount;
+}
+
+function updateCounters() {
+    // Fetch updated counts via API
+    fetch('{% url "api:dashboard-stats" %}', {
+        headers: {
+            'X-CSRFToken': window.DJANGO_CONFIG.CSRF_TOKEN,
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.json())
+    .then(data => updateDashboardCounters(data))
+    .catch(error => console.error('Failed to update counters:', error));
+}
+</script>
+{% endblock %}

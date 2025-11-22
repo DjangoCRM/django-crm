@@ -1,10 +1,17 @@
 // Project management functionality
 class ProjectManager {
+    selected = new Set();
+    async prompt(text, def='') {
+        const v = window.prompt(text, def);
+        if (v === null) throw new Error('cancelled');
+        return v.trim();
+    }
     constructor(app) {
         this.app = app;
     }
 
     async loadProjects() {
+        this.selected = new Set();
         const section = document.getElementById('projects-section');
         section.innerHTML = `
             <div class="bg-white rounded-lg shadow">
@@ -25,6 +32,19 @@ class ProjectManager {
                         </div>
                     </div>
                 </div>
+                <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+                   <div class="flex items-center space-x-3">
+                       <label class="inline-flex items-center space-x-2">
+                           <input id="projects-select-all" type="checkbox" class="rounded" />
+                           <span class="text-sm text-gray-600">Select all</span>
+                       </label>
+                       <div class="flex items-center space-x-2">
+                           <button onclick="app.projects.openBulkAssignDialog()" class="px-3 py-1.5 bg-blue-600 text-white rounded text-sm">Bulk Assign</button>
+                           <button onclick="app.projects.openBulkTagDialog()" class="px-3 py-1.5 bg-indigo-600 text-white rounded text-sm">Bulk Tag</button>
+                       </div>
+                   </div>
+                   <div class="text-sm text-gray-500">Selected: <span id="projects-selected-count">0</span></div>
+                </div>
                 <div id="projects-content" class="p-6">
                     <div class="htmx-indicator">Loading projects...</div>
                 </div>
@@ -39,6 +59,13 @@ class ProjectManager {
             this.filterByStatus(e.target.value);
         });
         
+        // Select all
+        document.getElementById('projects-select-all').addEventListener('change', (e) => {
+            const check = e.target.checked;
+            const boxes = document.querySelectorAll('#projects-content input[type="checkbox"]');
+            boxes.forEach(b => { b.checked = check; const id = Number((b.getAttribute('onchange')||'').match(/toggleSelected\((\d+)/)?.[1]); if (id) this.toggleSelected(id, check); });
+        });
+
         if (this.app.token) {
             this.loadProjectsList();
         }
@@ -73,6 +100,12 @@ class ProjectManager {
                     ${projects.results.map(project => `
                         <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
                              onclick="app.projects.viewProject(${project.id})">
+                            <div class=\"flex items-start justify-between\">
+                                <label onclick=\"event.stopPropagation();\" class=\"inline-flex items-center space-x-2\">
+                                    <input type=\"checkbox\" ${this.selected.has(project.id)?'checked':''} onchange=\"app.projects.toggleSelected(${project.id}, this.checked)\" class=\"rounded\" />
+                                </label>
+                                ${project.active ? '<span class=\\'px-2 py-0.5 text-xs rounded bg-emerald-100 text-emerald-700\\'>Active</span>' : '<span class=\\'px-2 py-0.5 text-xs rounded bg-gray-200 text-gray-700\\'>Done</span>'}
+                            </div>
                             <div class="flex items-start justify-between mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900 truncate">${project.name}</h3>
                                 <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${project.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
@@ -119,6 +152,12 @@ class ProjectManager {
                                 </div>
                                 
                                 <div class="flex space-x-1">
+                                    <button onclick="event.stopPropagation(); app.projects.completeProject(${project.id})" 
+                                            class="text-green-600 hover:text-green-900 text-sm">Complete</button>
+                                    <button onclick="event.stopPropagation(); app.projects.reopenProject(${project.id})" 
+                                            class="text-blue-600 hover:text-blue-900 text-sm">Reopen</button>
+                                    <button onclick="event.stopPropagation(); app.projects.assignProject(${project.id})" 
+                                            class="text-indigo-600 hover:text-indigo-900 text-sm">Assign</button>
                                     <button onclick="event.stopPropagation(); app.projects.editProject(${project.id})" 
                                             class="text-yellow-600 hover:text-yellow-900 text-sm">Edit</button>
                                     <button onclick="event.stopPropagation(); app.projects.deleteProject(${project.id})" 
@@ -371,7 +410,7 @@ class ProjectManager {
 
         try {
             const method = projectId ? 'PUT' : 'POST';
-            const url = projectId ? `/projects/${projectId}/` : '/projects/';
+            const url = projectId ? `/v1/projects/${projectId}/` : '/v1/projects/';
             
             await this.app.apiCall(url, {
                 method: method,
@@ -537,5 +576,96 @@ class ProjectManager {
         } catch (error) {
             this.app.showToast('Error loading project details', 'error');
         }
+    }
+
+    toggleSelected(id, checked) {
+        if (checked) this.selected.add(id); else this.selected.delete(id);
+        const el = document.getElementById('projects-selected-count');
+        if (el) el.textContent = this.selected.size;
+    }
+
+    openBulkAssignDialog = async () => {
+        if (!this.selected.size) return this.app.showToast('Nothing selected','warning');
+        const modal = this.makeModal(`
+            <h3 class=\"text-lg font-semibold mb-3\">Bulk Assign</h3>
+            <input id=\"proj-bulk-owner\" type=\"number\" placeholder=\"User ID\" class=\"w-full border rounded px-3 py-2 mb-4\"/>
+            <div class=\"flex justify-end space-x-2\">
+                <button class=\"px-3 py-1 bg-gray-200 rounded\" onclick=\"this.closest('.fixed').remove()\">Cancel</button>
+                <button class=\"px-3 py-1 bg-blue-600 text-white rounded\" onclick=\"app.projects.bulkAssign()\">Assign</button>
+            </div>`);
+        document.body.appendChild(modal);
+    }
+
+    async bulkAssign() {
+        const owner = Number(document.getElementById('proj-bulk-owner').value);
+        if (!owner) return this.app.showToast('Enter user id','error');
+        for (const id of this.selected) {
+            await this.app.apiCall(`/v1/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
+        }
+        document.querySelector('.fixed.inset-0')?.remove();
+        this.app.showToast('Assigned','success');
+        this.loadProjectsList();
+    }
+
+    openBulkTagDialog = async () => {
+        if (!this.selected.size) return this.app.showToast('Nothing selected','warning');
+        const modal = this.makeModal(`
+            <h3 class=\"text-lg font-semibold mb-3\">Bulk Tag</h3>
+            <input id=\"proj-bulk-tags\" type=\"text\" placeholder=\"Tag IDs comma-separated\" class=\"w-full border rounded px-3 py-2 mb-4\"/>
+            <div class=\"flex justify-end space-x-2\">
+                <button class=\"px-3 py-1 bg-gray-200 rounded\" onclick=\"this.closest('.fixed').remove()\">Cancel</button>
+                <button class=\"px-3 py-1 bg-indigo-600 text-white rounded\" onclick=\"app.projects.bulkTag()\">Apply</button>
+            </div>`);
+        document.body.appendChild(modal);
+    }
+
+    async bulkTag() {
+        const sel = document.getElementById('proj-bulk-tags');
+        const tags = Array.from(sel?.selectedOptions||[]).map(o=>Number(o.value));
+        for (const id of this.selected) {
+            await this.app.apiCall(`/v1/projects/${id}/`, { method:'PATCH', body: JSON.stringify({ tags }) });
+        }
+        document.querySelector('.fixed.inset-0')?.remove();
+        this.app.showToast('Tags added','success');
+        this.loadProjectsList();
+    }
+
+    makeModal(contentHTML) {
+        const wrap = document.createElement('div');
+        wrap.innerHTML = `
+        <div class=\"fixed inset-0 z-50 flex items-center justify-center\"> 
+            <div class=\"absolute inset-0 bg-black bg-opacity-40\" onclick=\"this.parentElement.remove()\"></div>
+            <div class=\"relative bg-white rounded-lg shadow-lg w-full max-w-md p-5\">${contentHTML}</div>
+        </div>`;
+        return wrap.firstElementChild;
+    }
+
+    // Actions
+    async completeProject(id) {
+        try {
+            await this.app.apiCall(`/v1/projects/${id}/complete/`, { method: 'POST' });
+            this.app.showToast('Project completed', 'success');
+            this.loadProjectsList();
+        } catch(e) { this.app.showToast('Complete failed', 'error'); }
+    }
+
+    async reopenProject(id) {
+        try {
+            await this.app.apiCall(`/v1/projects/${id}/reopen/`, { method: 'POST' });
+            this.app.showToast('Project reopened', 'success');
+            this.loadProjectsList();
+        } catch(e) { this.app.showToast('Reopen failed', 'error'); }
+    }
+
+    async assignProject(id) {
+        try {
+            const owner = await this.prompt('Assign to user id:');
+            await this.app.apiCall(`/v1/projects/${id}/assign/`, {
+                method: 'POST',
+                body: JSON.stringify({ owner: Number(owner) })
+            });
+            this.app.showToast('Project assigned', 'success');
+            this.loadProjectsList();
+        } catch(e) { if (e.message !== 'cancelled') this.app.showToast('Assign failed', 'error'); }
     }
 }

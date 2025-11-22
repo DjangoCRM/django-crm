@@ -1,10 +1,17 @@
 // Lead management functionality
 class LeadManager {
+    // Helpers for prompts
+    async prompt(text, def='') {
+        const v = window.prompt(text, def);
+        if (v === null) throw new Error('cancelled');
+        return v.trim();
+    }
     constructor(app) {
         this.app = app;
     }
 
     async loadLeads() {
+        this.selected = new Set();
         const section = document.getElementById('leads-section');
         section.innerHTML = `
             <div class="bg-white rounded-lg shadow">
@@ -12,18 +19,32 @@ class LeadManager {
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Leads</h2>
                         <div class="flex space-x-2">
-                            <select id="lead-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <select id="lead-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
                                 <option value="">All Leads</option>
                                 <option value="false">Active</option>
                                 <option value="true">Disqualified</option>
                             </select>
                             <input type="text" id="lead-search" placeholder="Search leads..." 
-                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-                            <button onclick="app.leads.showLeadForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
+                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button onclick="app.leads.showLeadForm()" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
                                 Add Lead
                             </button>
                         </div>
                     </div>
+                </div>
+                <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+                   <div class="flex items-center space-x-3">
+                       <label class="inline-flex items-center space-x-2">
+                           <input id="leads-select-all" type="checkbox" class="rounded" />
+                           <span class="text-sm text-gray-600">Select all</span>
+                       </label>
+                       <div class="flex items-center space-x-2">
+                           <button onclick="app.leads.openBulkAssignDialog()" class="px-3 py-1.5 bg-primary text-white rounded text-sm hover:bg-opacity-90">Bulk Assign</button>
+                           <button onclick="app.leads.openBulkTagDialog()" class="px-3 py-1.5 bg-indigo-600 text-white rounded text-sm hover:bg-opacity-90">Bulk Tag</button>
+                           <button onclick="app.leads.openBulkDisqualifyDialog()" class="px-3 py-1.5 bg-danger text-white rounded text-sm hover:bg-opacity-90">Bulk Disqualify</button>
+                       </div>
+                   </div>
+                   <div class="text-sm text-gray-500">Selected: <span id="leads-selected-count">0</span></div>
                 </div>
                 <div id="leads-content" class="p-6">
                     <div class="htmx-indicator">Loading leads...</div>
@@ -39,6 +60,13 @@ class LeadManager {
             this.filterByStatus(e.target.value);
         });
         
+        // Select all handler
+        document.getElementById('leads-select-all').addEventListener('change', (e) => {
+            const check = e.target.checked;
+            const boxes = document.querySelectorAll('#leads-content input[type="checkbox"]');
+            boxes.forEach(b => { b.checked = check; const id = Number((b.getAttribute('onchange')||'').match(/toggleSelected\((\d+)/)?.[1]); if (id) this.toggleSelected(id, check); });
+        });
+        
         if (this.app.token) {
             this.loadLeadsList();
         }
@@ -46,7 +74,7 @@ class LeadManager {
 
     async loadLeadsList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/leads/?';
+            let url = '/v1/leads/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (statusFilter) url += `disqualified=${statusFilter}&`;
             
@@ -85,7 +113,7 @@ class LeadManager {
                                         <p class="text-sm text-gray-500">${lead.company_name || 'No company'}</p>
                                     </div>
                                 </div>
-                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${lead.disqualified ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${lead.disqualified ? 'bg-danger bg-opacity-20 text-danger' : 'bg-success bg-opacity-20 text-success'}">
                                     ${lead.disqualified ? 'Disqualified' : 'Active'}
                                 </span>
                             </div>
@@ -118,8 +146,12 @@ class LeadManager {
                                 </div>
                                 
                                 <div class="flex space-x-1">
-                                    <button onclick="event.stopPropagation(); app.leads.convertToContact(${lead.id})" 
+                                    <button onclick="event.stopPropagation(); app.leads.convertLead(${lead.id})" 
                                             class="text-green-600 hover:text-green-900 text-xs">Convert</button>
+                                    <button onclick="event.stopPropagation(); app.leads.disqualifyLead(${lead.id})" 
+                                            class="text-rose-600 hover:text-rose-800 text-xs">Disqualify</button>
+                                    <button onclick="event.stopPropagation(); app.leads.assignLead(${lead.id})" 
+                                            class="text-blue-600 hover:text-blue-800 text-xs">Assign</button>
                                     <button onclick="event.stopPropagation(); app.leads.editLead(${lead.id})" 
                                             class="text-yellow-600 hover:text-yellow-900 text-xs">Edit</button>
                                     <button onclick="event.stopPropagation(); app.leads.deleteLead(${lead.id})" 
@@ -177,12 +209,12 @@ class LeadManager {
                         <div>
                             <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
                             <input type="text" id="first_name" name="first_name" required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                         <div>
                             <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                             <input type="text" id="last_name" name="last_name"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                     </div>
                     
@@ -190,12 +222,12 @@ class LeadManager {
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                             <input type="email" id="email" name="email"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                             <input type="tel" id="phone" name="phone"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                     </div>
                     
@@ -203,30 +235,30 @@ class LeadManager {
                         <div>
                             <label for="company_name" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
                             <input type="text" id="company_name" name="company_name"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                         <div>
                             <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website</label>
                             <input type="url" id="website" name="website"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                     </div>
                     
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
                         <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
                     </div>
                     
                     <div class="flex items-center space-x-6">
                         <div class="flex items-center">
                             <input type="checkbox" id="disqualified" name="disqualified"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="disqualified" class="ml-2 block text-sm text-gray-900">Disqualified</label>
                         </div>
                         <div class="flex items-center">
                             <input type="checkbox" id="was_in_touch" name="was_in_touch"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="was_in_touch" class="ml-2 block text-sm text-gray-900">Was in touch</label>
                         </div>
                     </div>
@@ -236,7 +268,7 @@ class LeadManager {
                                 class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
                             Cancel
                         </button>
-                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
+                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
                             ${isEdit ? 'Update' : 'Create'} Lead
                         </button>
                     </div>
@@ -258,7 +290,7 @@ class LeadManager {
 
     async loadLeadData(leadId) {
         try {
-            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
+            const lead = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/`);
             
             const fields = ['first_name', 'last_name', 'email', 'phone', 'company_name', 'website', 'description'];
             fields.forEach(field => {
@@ -285,9 +317,9 @@ class LeadManager {
 
         try {
             const method = leadId ? 'PUT' : 'POST';
-            const url = leadId ? `/leads/${leadId}/` : '/leads/';
+            const url = leadId ? `${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/` : window.CRM_CONFIG.ENDPOINTS.LEADS;
             
-            await this.app.apiCall(url, {
+            await window.apiClient.request(url, {
                 method: method,
                 body: JSON.stringify(leadData)
             });
@@ -310,7 +342,7 @@ class LeadManager {
         }
 
         try {
-            await this.app.apiCall(`/v1/leads/${leadId}/`, { method: 'DELETE' });
+            await window.apiClient.delete(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/`);
             this.loadLeadsList();
             this.app.showToast('Lead deleted successfully', 'success');
         } catch (error) {
@@ -324,7 +356,7 @@ class LeadManager {
         }
 
         try {
-            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
+            const lead = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/`);
             
             // Create contact from lead data
             const contactData = {
@@ -341,21 +373,16 @@ class LeadManager {
                 contactData.description = (contactData.description || '') + `\nCompany: ${lead.company_name}`;
             }
 
-            await this.app.apiCall('/v1/contacts/', {
-                method: 'POST',
-                body: JSON.stringify(contactData)
-            });
+            await window.apiClient.post(window.CRM_CONFIG.ENDPOINTS.CONTACTS, contactData);
 
             // Mark lead as converted (you might want to add a field for this)
-            await this.app.apiCall(`/v1/leads/${leadId}/`, {
-                method: 'PATCH',
-                body: JSON.stringify({ disqualified: true })
-            });
+            await window.apiClient.patch(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/`, { disqualified: true });
 
-            this.loadLeadsList();
             this.app.showToast('Lead converted to contact successfully', 'success');
-        } catch (error) {
-            this.app.showToast('Error converting lead', 'error');
+            this.loadLeadsList();
+            return res;
+        } catch (e) {
+            this.app.showToast('Convert failed', 'error');
         }
     }
 
@@ -467,6 +494,129 @@ class LeadManager {
             document.body.appendChild(modal);
         } catch (error) {
             this.app.showToast('Error loading lead details', 'error');
+        }
+    }
+
+    toggleSelected(id, checked) {
+        if (checked) this.selected.add(id); else this.selected.delete(id);
+        const el = document.getElementById('leads-selected-count');
+        if (el) el.textContent = this.selected.size;
+    }
+
+    // Dialogs
+    makeModal(contentHTML) {
+        const wrap = document.createElement('div');
+        wrap.innerHTML = `
+        <div class="fixed inset-0 z-50 flex items-center justify-center">
+            <div class="absolute inset-0 bg-black bg-opacity-40" onclick="this.parentElement.remove()"></div>
+            <div class="relative bg-white rounded-lg shadow-lg w-full max-w-md p-5">${contentHTML}</div>
+        </div>`;
+        return wrap.firstElementChild;
+    }
+
+    openBulkAssignDialog() {
+        if (!this.selected.size) return this.app.showToast('Nothing selected','warning');
+        const modal = this.makeModal(`
+            <h3 class="text-lg font-semibold mb-3">Bulk Assign</h3>
+            <input id="bulk-owner" type="number" placeholder="User ID" class="w-full border rounded px-3 py-2 mb-4"/>
+            <div class="flex justify-end space-x-2">
+                <button class="px-3 py-1 bg-gray-200 rounded" onclick="this.closest('.fixed').remove()">Cancel</button>
+                <button class="px-3 py-1 bg-blue-600 text-white rounded" onclick="app.leads.bulkAssign()">Assign</button>
+            </div>`);
+        document.body.appendChild(modal);
+    }
+
+    async bulkAssign() {
+        const owner = Number(document.getElementById('bulk-owner').value);
+        if (!owner) return this.app.showToast('Enter user id','error');
+        for (const id of this.selected) {
+            await this.app.apiCall(`/v1/leads/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
+        }
+        document.querySelector('.fixed.inset-0')?.remove();
+        this.app.showToast('Assigned','success');
+        this.loadLeadsList();
+    }
+
+    openBulkTagDialog() {
+        if (!this.selected.size) return this.app.showToast('Nothing selected','warning');
+        const modal = this.makeModal(`
+            <h3 class="text-lg font-semibold mb-3">Bulk Tag</h3>
+            <input id="bulk-tags" type="text" placeholder="Tag IDs comma-separated" class="w-full border rounded px-3 py-2 mb-4"/>
+            <div class="flex justify-end space-x-2">
+                <button class="px-3 py-1 bg-gray-200 rounded" onclick="this.closest('.fixed').remove()">Cancel</button>
+                <button class="px-3 py-1 bg-indigo-600 text-white rounded" onclick="app.leads.bulkTag()">Apply</button>
+            </div>`);
+        document.body.appendChild(modal);
+    }
+
+    async bulkTag() {
+        const raw = document.getElementById('bulk-tags').value;
+        const tags = raw.split(',').map(s=>Number(s.trim())).filter(Boolean);
+        await this.app.apiCall('/v1/leads/bulk-tag/', { method:'POST', body: JSON.stringify({ ids: Array.from(this.selected), tags }) });
+        document.querySelector('.fixed.inset-0')?.remove();
+        this.app.showToast('Tags added','success');
+        this.loadLeadsList();
+    }
+
+    openBulkDisqualifyDialog() {
+        if (!this.selected.size) return this.app.showToast('Nothing selected','warning');
+        const modal = this.makeModal(`
+            <h3 class="text-lg font-semibold mb-3">Bulk Disqualify</h3>
+            <textarea id="bulk-reason" class="w-full border rounded px-3 py-2 mb-4" placeholder="Reason"></textarea>
+            <div class="flex justify-end space-x-2">
+                <button class="px-3 py-1 bg-gray-200 rounded" onclick="this.closest('.fixed').remove()">Cancel</button>
+                <button class="px-3 py-1 bg-rose-600 text-white rounded" onclick="app.leads.bulkDisqualify()">Disqualify</button>
+            </div>`);
+        document.body.appendChild(modal);
+    }
+
+    async bulkDisqualify() {
+        const reason = document.getElementById('bulk-reason').value || '';
+        for (const id of this.selected) {
+            await this.app.apiCall(`/v1/leads/${id}/disqualify/`, { method:'POST', body: JSON.stringify({ reason }) });
+        }
+        document.querySelector('.fixed.inset-0')?.remove();
+        this.app.showToast('Leads disqualified','success');
+        this.loadLeadsList();
+    }
+
+    // Actions
+    async convertLead(leadId) {
+        try {
+            const withDeal = window.confirm('Create deal as well?');
+            const res = await this.app.apiCall(`/v1/leads/${leadId}/convert/`, {
+                method: 'POST',
+                body: JSON.stringify({ create_deal: withDeal })
+            });
+            this.app.showToast('Lead converted', 'success');
+            this.loadLeadsList();
+            return res;
+        } catch (e) {
+            this.app.showToast('Convert failed', 'error');
+        }
+    }
+
+    async disqualifyLead(leadId) {
+        try {
+            const reason = await this.prompt('Reason of disqualification:');
+            const res = await window.apiClient.post(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/disqualify/`, { reason });
+            this.app.showToast('Lead disqualified', 'success');
+            this.loadLeadsList();
+            return res;
+        } catch (e) {
+            if (e.message !== 'cancelled') this.app.showToast('Disqualify failed', 'error');
+        }
+    }
+
+    async assignLead(leadId) {
+        try {
+            const owner = await this.prompt('Assign to user id:');
+            const res = await window.apiClient.post(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/assign/`, { owner: Number(owner) });
+            this.app.showToast('Lead assigned', 'success');
+            this.loadLeadsList();
+            return res;
+        } catch (e) {
+            if (e.message !== 'cancelled') this.app.showToast('Assign failed', 'error');
         }
     }
 }

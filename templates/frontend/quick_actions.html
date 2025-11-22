@@ -1,0 +1,93 @@
+<!-- Quick Actions Modal -->
+<div class="modal-overlay active">
+    <div class="modal-container" style="width: 500px;">
+        <div class="modal-header">
+            <h3 class="modal-title">Quick Actions</h3>
+            <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">×</button>
+        </div>
+        
+        <div class="modal-body">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                <!-- Create Actions -->
+                <div>
+                    <h4 style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-neutral-700); margin-bottom: var(--spacing-md);">Create</h4>
+                    <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                        <button class="btn btn-ghost w-full" 
+                                hx-get="{% url 'admin:crm_contact_add' %}"
+                                style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">👤</span>
+                            New Contact
+                        </button>
+                        <button class="btn btn-ghost w-full"
+                                hx-get="{% url 'admin:crm_company_add' %}"
+                                style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">🏢</span>
+                            New Company
+                        </button>
+                        <button class="btn btn-ghost w-full"
+                                hx-get="{% url 'admin:crm_deal_add' %}"
+                                style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">📈</span>
+                            New Deal
+                        </button>
+                        <button class="btn btn-ghost w-full"
+                                hx-get="{% url 'admin:tasks_task_add' %}"
+                                style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">✓</span>
+                            New Task
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Import/Export Actions -->
+                <div>
+                    <h4 style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-neutral-700); margin-bottom: var(--spacing-md);">Import/Export</h4>
+                    <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                        <button class="btn btn-ghost w-full" style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">📥</span>
+                            Import Contacts
+                        </button>
+                        <button class="btn btn-ghost w-full" style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">📤</span>
+                            Export Data
+                        </button>
+                        <button class="btn btn-ghost w-full" style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">🔄</span>
+                            Sync Data
+                        </button>
+                        <button class="btn btn-ghost w-full" style="justify-content: flex-start;">
+                            <span style="margin-right: var(--spacing-md);">🗃️</span>
+                            Backup Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Actions -->
+            <div style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-neutral-200);">
+                <h4 style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-neutral-700); margin-bottom: var(--spacing-md);">Recent</h4>
+                <div style="display: flex; flex-direction: column; gap: var(--spacing-xs);">
+                    <a href="#" class="btn btn-ghost w-full" style="justify-content: flex-start; font-weight: normal;">
+                        <span style="margin-right: var(--spacing-md);">👤</span>
+                        John Doe - Contact
+                        <span style="margin-left: auto; font-size: var(--font-size-xs); color: var(--color-neutral-400);">2h ago</span>
+                    </a>
+                    <a href="#" class="btn btn-ghost w-full" style="justify-content: flex-start; font-weight: normal;">
+                        <span style="margin-right: var(--spacing-md);">🏢</span>
+                        Acme Corp - Company  
+                        <span style="margin-left: auto; font-size: var(--font-size-xs); color: var(--color-neutral-400);">1d ago</span>
+                    </a>
+                    <a href="#" class="btn btn-ghost w-full" style="justify-content: flex-start; font-weight: normal;">
+                        <span style="margin-right: var(--spacing-md);">📈</span>
+                        Enterprise Deal
+                        <span style="margin-left: auto; font-size: var(--font-size-xs); color: var(--color-neutral-400);">3d ago</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">Close</button>
+        </div>
+    </div>
+</div>

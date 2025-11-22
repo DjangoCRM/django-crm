@@ -32,7 +32,7 @@ function createBusinessModal(title, content, actions = [], options = {}) {
     modal.innerHTML = `
         <div class="bg-white rounded-2xl shadow-2xl ${sizeClasses[size]} w-full max-h-[90vh] overflow-hidden">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
                 <div class="flex items-center justify-between">
                     <h3 class="text-lg font-semibold text-gray-900">${title}</h3>
                     <button onclick="this.closest('.fixed').remove()" class="text-gray-400 hover:text-gray-600 transition-colors">
@@ -94,7 +94,7 @@ function createFormField(config) {
         case 'select':
             fieldHtml += `
                 <select id="${id}" name="${name}" ${required ? 'required' : ''} 
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
                     ${placeholder ? `<option value="">${placeholder}</option>` : ''}
                     ${options.map(opt => `<option value="${opt.value}" ${opt.selected ? 'selected' : ''}>${opt.text}</option>`).join('')}
                 </select>
@@ -105,7 +105,7 @@ function createFormField(config) {
             fieldHtml += `
                 <textarea id="${id}" name="${name}" rows="${rows}" ${required ? 'required' : ''} 
                           placeholder="${placeholder}"
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-vertical">${value}</textarea>
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-vertical">${value}</textarea>
             `;
             break;
             
@@ -113,7 +113,7 @@ function createFormField(config) {
             fieldHtml += `
                 <div class="flex items-center">
                     <input type="checkbox" id="${id}" name="${name}" ${value ? 'checked' : ''} 
-                           class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                           class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                     <label for="${id}" class="ml-3 text-sm text-gray-700">${label}</label>
                 </div>
             `;
@@ -123,7 +123,7 @@ function createFormField(config) {
             fieldHtml += `
                 <input type="${type}" id="${id}" name="${name}" ${required ? 'required' : ''} 
                        placeholder="${placeholder}" value="${value}"
-                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
             `;
     }
     
@@ -143,11 +143,11 @@ function createBusinessCard(config) {
     } = config;
     
     const colorClasses = {
-        primary: 'bg-primary-50 text-primary-600',
-        success: 'bg-success-50 text-success-600',
-        warning: 'bg-warning-50 text-warning-600',
-        danger: 'bg-danger-50 text-danger-600',
-        gray: 'bg-gray-50 text-gray-600'
+        primary: 'bg-primary bg-opacity-10 text-primary',
+        success: 'bg-success bg-opacity-10 text-success',
+        warning: 'bg-warning bg-opacity-10 text-warning',
+        danger: 'bg-danger bg-opacity-10 text-danger',
+        gray: 'bg-gray-100 text-gray-600'
     };
     
     return `
@@ -186,10 +186,10 @@ function createBusinessCard(config) {
 // Status badge component
 function createStatusBadge(text, type = 'default') {
     const typeClasses = {
-        success: 'bg-success-100 text-success-800',
-        warning: 'bg-warning-100 text-warning-800',
-        danger: 'bg-danger-100 text-danger-800',
-        info: 'bg-primary-100 text-primary-800',
+        success: 'bg-success bg-opacity-20 text-success',
+        warning: 'bg-warning bg-opacity-20 text-warning',
+        danger: 'bg-danger bg-opacity-20 text-danger',
+        info: 'bg-primary bg-opacity-20 text-primary',
         default: 'bg-gray-100 text-gray-800'
     };
     
@@ -225,7 +225,7 @@ function createDataTable(config) {
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <div class="flex items-center space-x-2">
                                         ${actions.map(action => `
-                                            <button class="text-${action.color || 'primary'}-600 hover:text-${action.color || 'primary'}-700 transition-colors"
+                                            <button class="text-${action.color || 'primary'} hover:opacity-80 transition-colors"
                                                     onclick="${action.onclick}(${row.id})"
                                                     title="${action.title}">
                                                 <i class="${action.icon}"></i>
@@ -247,7 +247,7 @@ function createLoadingState(text = 'Loading...') {
     return `
         <div class="flex items-center justify-center py-12">
             <div class="flex items-center space-x-3">
-                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary-600"></div>
+                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
                 <span class="text-gray-600 font-medium">${text}</span>
             </div>
         </div>
@@ -272,7 +272,7 @@ function createEmptyState(config) {
             <h3 class="text-lg font-medium text-gray-900 mb-2">${title}</h3>
             ${description ? `<p class="text-gray-500 mb-6">${description}</p>` : ''}
             ${actionText ? `
-                <button onclick="${actionClick}" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                <button onclick="${actionClick}" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg font-medium transition-colors">
                     ${actionText}
                 </button>
             ` : ''}

@@ -1,0 +1,22 @@
+<!-- Search Results Dropdown -->
+{% if results %}
+<div class="dropdown-menu active" style="position: absolute; top: 100%; left: 0; right: 0; max-height: 400px; overflow-y: auto;">
+    {% for result in results %}
+    <a href="{{ result.url }}" class="dropdown-item">
+        <span style="margin-right: var(--spacing-md);">{{ result.icon }}</span>
+        <div>
+            <div style="font-weight: 500;">{{ result.title }}</div>
+            <div style="font-size: var(--font-size-xs); color: var(--color-neutral-500);">{{ result.subtitle }}</div>
+        </div>
+        <span style="margin-left: auto; font-size: var(--font-size-xs); color: var(--color-neutral-400);">{{ result.type|title }}</span>
+    </a>
+    {% endfor %}
+    
+    {% if results|length == 15 %}
+    <div class="dropdown-divider"></div>
+    <div class="dropdown-item text-center" style="color: var(--color-neutral-500);">
+        More results available - try a more specific search
+    </div>
+    {% endif %}
+</div>
+{% endif %}

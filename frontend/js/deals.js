@@ -1,10 +1,15 @@
 // Deal management functionality
 class DealManager {
+    selected = new Set();
+    restoreSelection(){ try{ this.selected=new Set(JSON.parse(localStorage.getItem('deals_selected')||'[]')); }catch{ this.selected=new Set(); } }
+    saveSelection(){ localStorage.setItem('deals_selected', JSON.stringify(Array.from(this.selected))); }
+    toggleSelected(id, checked){ if(checked) this.selected.add(id); else this.selected.delete(id); this.saveSelection(); const el=document.getElementById('deals-selected-count'); if(el) el.textContent=this.selected.size; }
     constructor(app) {
         this.app = app;
     }
 
     async loadDeals() {
+        this.kanban = false;
         const section = document.getElementById('deals-section');
         section.innerHTML = `
             <div class="bg-white rounded-lg shadow">
@@ -23,7 +28,22 @@ class DealManager {
                         </div>
                     </div>
                 </div>
-                <div id="deals-content" class="p-6">
+                <div class="px-6 py-2 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+                   <div class="flex items-center space-x-2">
+                       <button id="deals-list-btn" class="px-3 py-1.5 rounded bg-primary-600 text-white text-sm">List</button>
+                       <button id="deals-kanban-btn" class="px-3 py-1.5 rounded bg-gray-200 text-sm">Kanban</button>
+                   </div>
+                   <div class="text-sm text-gray-500" id="deals-info"></div>
+                </div>
+                <div class=\"px-6 py-2 border-t border-gray-100 flex items-center justify-between\">
+                    <div class=\"flex items-center gap-3\">
+                      <label class=\"inline-flex items-center gap-2\"><input id=\"deals-select-all\" type=\"checkbox\" class=\"rounded\" /><span class=\"text-sm text-gray-600\">Select all</span></label>
+                      <button onclick=\"app.deals.openBulkAssignDialog()\" class=\"px-3 py-1.5 bg-blue-600 text-white rounded text-sm\">Bulk Assign</button>
+                      <button onclick=\"app.deals.openBulkTagDialog()\" class=\"px-3 py-1.5 bg-indigo-600 text-white rounded text-sm\">Bulk Tag</button>
+                    </div>
+                    <div class=\"text-sm text-gray-500\">Selected: <span id=\"deals-selected-count\">0</span></div>
+                 </div>
+                 <div id=\"deals-content\" class=\"p-6\">
                     <div class="htmx-indicator">Loading deals...</div>
                 </div>
             </div>
@@ -37,8 +57,15 @@ class DealManager {
             this.filterByStage(e.target.value);
         });
         
+        document.getElementById('deals-list-btn').addEventListener('click', ()=>{ this.kanban=false; this.loadDealsList(); });
+        document.getElementById('deals-kanban-btn').addEventListener('click', ()=>{ this.kanban=true; this.loadKanban(); });
+        document.getElementById('deals-select-all').addEventListener('change', (e)=>{
+          const check=e.target.checked; document.querySelectorAll('#deals-content input[type="checkbox"][data-deal]').forEach(b=>{ b.checked=check; const id=Number(b.dataset.deal); if(id) this.toggleSelected(id, check); });
+        });
+
         if (this.app.token) {
             this.loadStages();
+            this.restoreSelection();
             this.loadDealsList();
         }
     }
@@ -62,6 +89,13 @@ class DealManager {
     }
 
     async loadDealsList(searchTerm = '', stageFilter = '') {
+        // switch buttons state
+        const listBtn = document.getElementById('deals-list-btn');
+        const kbBtn = document.getElementById('deals-kanban-btn');
+        if (listBtn && kbBtn) {
+            listBtn.className = 'px-3 py-1.5 rounded ' + (this.kanban? 'bg-gray-200':'bg-primary-600 text-white');
+            kbBtn.className   = 'px-3 py-1.5 rounded ' + (this.kanban? 'bg-primary-600 text-white':'bg-gray-200');
+        }
         try {
             let url = '/deals/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
@@ -90,11 +124,12 @@ class DealManager {
                     ${deals.results.map(deal => `
                         <div class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
                              onclick="app.deals.viewDeal(${deal.id})">
-                            <div class="flex items-start justify-between mb-3">
+                            <div class=\"flex items-start justify-between mb-3\">
                                 <h3 class="text-lg font-medium text-gray-900 truncate">${deal.name}</h3>
-                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${this.getStageColor(deal.stage_name)}">
-                                    ${deal.stage_name || 'No stage'}
-                                </span>
+                                <div class=\"flex items-center gap-2\">
+                                    <span class=\"inline-flex px-2 py-1 text-xs font-semibold rounded-full ${this.getStageColor(deal.stage_name)}\">${deal.stage_name || 'No stage'}</span>
+                                    <input type=\"checkbox\" data-deal=\"${deal.id}\" ${this.selected.has(deal.id)?'checked':''} onclick=\"event.stopPropagation(); app.deals.toggleSelected(${deal.id}, this.checked)\" class=\"rounded\" />
+                                </div>
                             </div>
                             
                             <div class="space-y-2">
@@ -399,7 +434,7 @@ class DealManager {
 
         try {
             const method = dealId ? 'PUT' : 'POST';
-            const url = dealId ? `/deals/${dealId}/` : '/deals/';
+            const url = dealId ? `/v1/deals/${dealId}/` : '/v1/deals/';
             
             await this.app.apiCall(url, {
                 method: method,

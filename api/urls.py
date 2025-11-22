@@ -16,6 +16,8 @@ from .views import (
     TaskTagViewSet,
     TaskViewSet,
     UserViewSet,
+    dashboard_analytics,
+    dashboard_activity,
 )
 
 app_name = 'api'
@@ -42,5 +44,7 @@ urlpatterns = [
         name='docs',
     ),
     path('auth/token/', obtain_auth_token, name='api-token'),
+    path('dashboard/analytics/', dashboard_analytics, name='dashboard-analytics'),
+    path('dashboard/activity/', dashboard_activity, name='dashboard-activity'),
     path('', include(router.urls)),
 ]

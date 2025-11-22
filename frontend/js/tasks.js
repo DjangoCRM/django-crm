@@ -12,14 +12,14 @@ class TaskManager {
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Tasks</h2>
                         <div class="flex space-x-2">
-                            <select id="task-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <select id="task-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
                                 <option value="">All Tasks</option>
                                 <option value="true">Active</option>
                                 <option value="false">Completed</option>
                             </select>
                             <input type="text" id="task-search" placeholder="Search tasks..." 
-                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-                            <button onclick="app.tasks.showTaskForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
+                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button onclick="app.tasks.showTaskForm()" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
                                 Add Task
                             </button>
                         </div>
@@ -46,7 +46,7 @@ class TaskManager {
 
     async loadTasksList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/tasks/?';
+            let url = 'v1/tasks/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (statusFilter) url += `active=${statusFilter}&`;
             
@@ -60,7 +60,7 @@ class TaskManager {
                             ✓
                         </div>
                         <p class="text-gray-500 mb-4">${searchTerm || statusFilter ? 'No tasks found for your criteria' : 'No tasks found'}</p>
-                        <button onclick="app.tasks.showTaskForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
+                        <button onclick="app.tasks.showTaskForm()" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
                             Add Your First Task
                         </button>
                     </div>
@@ -76,7 +76,7 @@ class TaskManager {
                                 <div class="flex-1">
                                     <div class="flex items-center space-x-3">
                                         <h3 class="text-lg font-medium text-gray-900">${task.name}</h3>
-                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${task.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${task.active ? 'bg-success bg-opacity-20 text-success' : 'bg-gray-100 text-gray-800'}">
                                             ${task.active ? 'Active' : 'Completed'}
                                         </span>
                                         ${task.priority ? `
@@ -99,7 +99,7 @@ class TaskManager {
                                         </div>
                                         <div>
                                             <span class="text-gray-500">Due Date:</span>
-                                            <span class="ml-1 text-gray-900 ${this.isDueSoon(task.due_date) ? 'text-red-600 font-medium' : ''}">${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'}</span>
+                                            <span class="ml-1 text-gray-900 ${this.isDueSoon(task.due_date) ? 'text-danger font-medium' : ''}">${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'}</span>
                                         </div>
                                         <div>
                                             <span class="text-gray-500">Next Step:</span>
@@ -116,11 +116,11 @@ class TaskManager {
                                 </div>
                                 
                                 <div class="flex flex-col space-y-2 ml-4">
-                                    <button onclick="app.tasks.viewTask(${task.id})" class="text-primary-600 hover:text-primary-900 text-sm">View</button>
-                                    <button onclick="app.tasks.editTask(${task.id})" class="text-yellow-600 hover:text-yellow-900 text-sm">Edit</button>
-                                    <button onclick="app.tasks.deleteTask(${task.id})" class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                                    <button onclick="app.tasks.viewTask(${task.id})" class="text-primary hover:opacity-90 text-sm">View</button>
+                                    <button onclick="app.tasks.editTask(${task.id})" class="text-warning hover:opacity-90 text-sm">Edit</button>
+                                    <button onclick="app.tasks.deleteTask(${task.id})" class="text-danger hover:opacity-90 text-sm">Delete</button>
                                     ${task.active ? `
-                                        <button onclick="app.tasks.markCompleted(${task.id})" class="text-green-600 hover:text-green-900 text-sm">Complete</button>
+                                        <button onclick="app.tasks.markCompleted(${task.id})" class="text-success hover:opacity-90 text-sm">Complete</button>
                                     ` : ''}
                                 </div>
                             </div>
@@ -141,16 +141,16 @@ class TaskManager {
                 ` : ''}
             `;
         } catch (error) {
-            document.getElementById('tasks-content').innerHTML = '<div class="text-red-600 text-center py-4">Error loading tasks</div>';
+            document.getElementById('tasks-content').innerHTML = '<div class="text-danger text-center py-4">Error loading tasks</div>';
         }
     }
 
     getPriorityColor(priority) {
         const colors = {
-            1: 'bg-red-100 text-red-800',
-            2: 'bg-orange-100 text-orange-800',
-            3: 'bg-yellow-100 text-yellow-800',
-            4: 'bg-blue-100 text-blue-800',
+            1: 'bg-danger bg-opacity-20 text-danger',
+            2: 'bg-warning bg-opacity-20 text-warning',
+            3: 'bg-yellow-400 bg-opacity-20 text-yellow-400',
+            4: 'bg-primary bg-opacity-20 text-primary',
             5: 'bg-gray-100 text-gray-800'
         };
         return colors[priority] || 'bg-gray-100 text-gray-800';
@@ -202,20 +202,20 @@ class TaskManager {
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Task Name *</label>
                         <input type="text" id="name" name="name" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                     </div>
                     
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
                         <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="project" class="block text-sm font-medium text-gray-700 mb-1">Project</label>
                             <select id="project" name="project" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                                 <option value="">Select Project</option>
                             </select>
                         </div>
@@ -223,7 +223,7 @@ class TaskManager {
                         <div>
                             <label for="stage" class="block text-sm font-medium text-gray-700 mb-1">Stage</label>
                             <select id="stage" name="stage" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                                 <option value="">Select Stage</option>
                             </select>
                         </div>
@@ -233,7 +233,7 @@ class TaskManager {
                         <div>
                             <label for="priority" class="block text-sm font-medium text-gray-700 mb-1">Priority</label>
                             <select id="priority" name="priority" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                                 <option value="">Select Priority</option>
                                 <option value="1">High (1)</option>
                                 <option value="2">Medium-High (2)</option>
@@ -246,37 +246,37 @@ class TaskManager {
                         <div>
                             <label for="due_date" class="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
                             <input type="date" id="due_date" name="due_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                         
                         <div>
                             <label for="next_step_date" class="block text-sm font-medium text-gray-700 mb-1">Next Step Date</label>
                             <input type="date" id="next_step_date" name="next_step_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                         </div>
                     </div>
                     
                     <div>
                         <label for="next_step" class="block text-sm font-medium text-gray-700 mb-1">Next Step</label>
                         <input type="text" id="next_step" name="next_step"
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
                     </div>
                     
                     <div>
                         <label for="note" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
                         <textarea id="note" name="note" rows="2"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
                     </div>
                     
                     <div class="flex items-center space-x-6">
                         <div class="flex items-center">
                             <input type="checkbox" id="active" name="active" checked
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="active" class="ml-2 block text-sm text-gray-900">Active</label>
                         </div>
                         <div class="flex items-center">
                             <input type="checkbox" id="remind_me" name="remind_me"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="remind_me" class="ml-2 block text-sm text-gray-900">Remind me</label>
                         </div>
                     </div>
@@ -286,7 +286,7 @@ class TaskManager {
                                 class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
                             Cancel
                         </button>
-                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
+                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
                             ${isEdit ? 'Update' : 'Create'} Task
                         </button>
                     </div>
@@ -312,8 +312,8 @@ class TaskManager {
     async loadTaskFormDropdowns() {
         try {
             const [projects, stages] = await Promise.all([
-                this.app.apiCall('/v1/projects/'),
-                this.app.apiCall('/v1/task-stages/')
+                window.apiClient.get(window.CRM_CONFIG.ENDPOINTS.PROJECTS),
+                window.apiClient.get('v1/task-stages/')
             ]);
 
             // Load projects
@@ -344,7 +344,7 @@ class TaskManager {
 
     async loadTaskData(taskId) {
         try {
-            const task = await this.app.apiCall(`/v1/tasks/${taskId}/`);
+            const task = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.TASKS}${taskId}/`);
             
             const fields = ['name', 'description', 'next_step', 'note', 'due_date', 'next_step_date', 'priority'];
             fields.forEach(field => {
@@ -382,9 +382,9 @@ class TaskManager {
 
         try {
             const method = taskId ? 'PUT' : 'POST';
-            const url = taskId ? `/tasks/${taskId}/` : '/tasks/';
+            const url = taskId ? `${window.CRM_CONFIG.ENDPOINTS.TASKS}${taskId}/` : window.CRM_CONFIG.ENDPOINTS.TASKS;
             
-            await this.app.apiCall(url, {
+            await window.apiClient.request(url, {
                 method: method,
                 body: JSON.stringify(taskData)
             });
@@ -407,7 +407,7 @@ class TaskManager {
         }
 
         try {
-            await this.app.apiCall(`/v1/tasks/${taskId}/`, { method: 'DELETE' });
+            await window.apiClient.delete(`${window.CRM_CONFIG.ENDPOINTS.TASKS}${taskId}/`);
             this.loadTasksList();
             this.app.showToast('Task deleted successfully', 'success');
         } catch (error) {
@@ -418,7 +418,7 @@ class TaskManager {
     async markCompleted(taskId) {
         try {
             // Get completed stage
-            const stages = await this.app.apiCall('/v1/task-stages/');
+            const stages = await window.apiClient.get('v1/task-stages/');
             const completedStage = stages.results?.find(stage => stage.done === true);
             
             if (!completedStage) {
@@ -426,12 +426,9 @@ class TaskManager {
                 return;
             }
 
-            await this.app.apiCall(`/v1/tasks/${taskId}/`, {
-                method: 'PATCH',
-                body: JSON.stringify({
-                    stage: completedStage.id,
-                    active: false
-                })
+            await window.apiClient.patch(`${window.CRM_CONFIG.ENDPOINTS.TASKS}${taskId}/`, {
+                stage: completedStage.id,
+                active: false
             });
 
             this.loadTasksList();
@@ -468,7 +465,7 @@ class TaskManager {
                             <div class="flex items-center justify-between">
                                 <h4 class="text-2xl font-bold text-gray-900">${task.name}</h4>
                                 <div class="flex items-center space-x-2">
-                                    <span class="inline-flex px-3 py-1 text-sm font-semibold rounded-full ${task.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
+                                    <span class="inline-flex px-3 py-1 text-sm font-semibold rounded-full ${task.active ? 'bg-success bg-opacity-20 text-success' : 'bg-gray-100 text-gray-800'}">
                                         ${task.active ? 'Active' : 'Completed'}
                                     </span>
                                     ${task.priority ? `
@@ -494,7 +491,7 @@ class TaskManager {
                                     </div>
                                     <div>
                                         <dt class="text-sm font-medium text-gray-500">Due Date</dt>
-                                        <dd class="text-sm text-gray-900 ${this.isDueSoon(task.due_date) ? 'text-red-600 font-medium' : ''}">${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'}</dd>
+                                        <dd class="text-sm text-gray-900 ${this.isDueSoon(task.due_date) ? 'text-danger font-medium' : ''}">${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'}</dd>
                                     </div>
                                     <div>
                                         <dt class="text-sm font-medium text-gray-500">Next Step Date</dt>
@@ -552,12 +549,12 @@ class TaskManager {
                         <div class="mt-8 flex justify-end space-x-3">
                             ${task.active ? `
                                 <button onclick="app.tasks.markCompleted(${task.id}); document.getElementById('task-view-modal').remove();" 
-                                        class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                                        class="px-4 py-2 bg-success text-white rounded-md hover:bg-opacity-90">
                                     Mark Completed
                                 </button>
                             ` : ''}
                             <button onclick="app.tasks.editTask(${task.id}); document.getElementById('task-view-modal').remove();" 
-                                    class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
+                                    class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
                                 Edit Task
                             </button>
                         </div>

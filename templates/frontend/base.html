@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CRM System{% endblock %}</title>
+    
+    {% load static %}
+    
+    <!-- Clean Design System -->
+    <link href="{% static 'frontend/css/clean-design.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/css/components.css' %}" rel="stylesheet">
+    
+    <!-- HTMX for dynamic content -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    
+    {% block extra_css %}{% endblock %}
+    
+    <style>
+        /* Django CSRF token styling */
+        input[name="csrfmiddlewaretoken"] {
+            display: none;
+        }
+        
+        /* HTMX loading states */
+        .htmx-indicator {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .htmx-request .htmx-indicator {
+            opacity: 1;
+        }
+        
+        .htmx-request.htmx-indicator {
+            opacity: 1;
+        }
+        
+        /* Django messages */
+        .django-messages {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .django-message {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .django-message.success {
+            border-left: 4px solid var(--color-success);
+        }
+        
+        .django-message.warning {
+            border-left: 4px solid var(--color-warning);
+        }
+        
+        .django-message.error {
+            border-left: 4px solid var(--color-danger);
+        }
+        
+        .django-message.info {
+            border-left: 4px solid var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Django Messages -->
+    {% if messages %}
+        <div class="django-messages">
+            {% for message in messages %}
+                <div class="django-message {{ message.tags }}">
+                    <span class="message-icon">
+                        {% if message.tags == 'success' %}✅{% elif message.tags == 'error' %}❌{% elif message.tags == 'warning' %}⚠️{% else %}ℹ️{% endif %}
+                    </span>
+                    <span class="message-text">{{ message }}</span>
+                    <button onclick="this.parentElement.remove()" style="background: none; border: none; color: var(--color-neutral-400); cursor: pointer; margin-left: auto;">×</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="layout-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Brand -->
+            <div class="nav-brand">
+                <div class="brand-title">{% block brand_title %}Business Suite{% endblock %}</div>
+                <div class="brand-subtitle">{% block brand_subtitle %}Enterprise Platform{% endblock %}</div>
+            </div>
+            
+            <!-- Navigation -->
+            {% block navigation %}
+            <nav class="nav-section">
+                <h3 class="nav-section-title">Workspace</h3>
+                <ul class="nav-list">
+                    <li>
+                        <a href="{% url 'dashboard' %}" class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                            <span class="nav-icon">◳</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacts:list' %}" class="nav-item {% if 'contact' in request.resolver_match.url_name %}active{% endif %}">
+                            <span class="nav-icon">👤</span>
+                            <span class="nav-text">Contacts</span>
+                            <span class="nav-badge">{{ contacts_count|default:0 }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'companies:list' %}" class="nav-item {% if 'company' in request.resolver_match.url_name %}active{% endif %}">
+                            <span class="nav-icon">🏢</span>
+                            <span class="nav-text">Companies</span>
+                            <span class="nav-badge">{{ companies_count|default:0 }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'deals:list' %}" class="nav-item {% if 'deal' in request.resolver_match.url_name %}active{% endif %}">
+                            <span class="nav-icon">📈</span>
+                            <span class="nav-text">Deals</span>
+                            <span class="nav-badge">{{ deals_count|default:0 }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'leads:list' %}" class="nav-item {% if 'lead' in request.resolver_match.url_name %}active{% endif %}">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Leads</span>
+                            <span class="nav-badge">{{ leads_count|default:0 }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'tasks:list' %}" class="nav-item {% if 'task' in request.resolver_match.url_name %}active{% endif %}">
+                            <span class="nav-icon">✓</span>
+                            <span class="nav-text">Tasks</span>
+                            <span class="nav-badge">{{ tasks_count|default:0 }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Communication -->
+            <nav class="nav-section">
+                <h3 class="nav-section-title">Communication</h3>
+                <ul class="nav-list">
+                    <li>
+                        <button class="nav-item" onclick="window.app?.phone?.openDialer?.()">
+                            <span class="nav-icon">📞</span>
+                            <span class="nav-text">Phone</span>
+                            <span class="nav-status-indicator"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="{% url 'massmail:list' %}" class="nav-item">
+                            <span class="nav-icon">✉</span>
+                            <span class="nav-text">Email</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'chat:list' %}" class="nav-item">
+                            <span class="nav-icon">💬</span>
+                            <span class="nav-text">Messages</span>
+                            <span class="nav-badge">{{ messages_count|default:0 }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Analytics -->
+            <nav class="nav-section">
+                <h3 class="nav-section-title">Analytics</h3>
+                <ul class="nav-list">
+                    <li>
+                        <a href="{% url 'analytics:reports' %}" class="nav-item">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'analytics:funnel' %}" class="nav-item">
+                            <span class="nav-icon">⚗</span>
+                            <span class="nav-text">Sales Pipeline</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            {% endblock navigation %}
+            
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        {{ user.first_name.0|default:user.username.0|upper }}{{ user.last_name.0|upper|default:'' }}
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-name">{{ user.get_full_name|default:user.username }}</div>
+                        <div class="profile-role">{{ user.userprofile.department.name|default:'User' }}</div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-ghost dropdown-toggle">
+                            <span>⚙</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="{% url 'admin:common_userprofile_change' user.userprofile.id %}" class="dropdown-item">
+                                <span>👤</span> Profile
+                            </a>
+                            <a href="{% url 'admin:index' %}" class="dropdown-item">
+                                <span>⚙</span> Admin
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'admin:logout' %}" class="dropdown-item">
+                                <span>🚪</span> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 class="page-title">{% block page_title %}{% block title %}Dashboard{% endblock %}{% endblock %}</h1>
+                    {% block header_tabs %}{% endblock %}
+                </div>
+                
+                <div class="header-right">
+                    {% block header_search %}
+                    <input type="text" 
+                           class="search-input" 
+                           placeholder="Search..." 
+                           hx-get="{% url 'api:search' %}" 
+                           hx-trigger="keyup changed delay:300ms" 
+                           hx-target="#search-results">
+                    {% endblock %}
+                    
+                    {% block header_actions %}
+                    <button class="btn btn-primary" 
+                            hx-get="{% url 'deals:create' %}" 
+                            hx-target="#modal-container" 
+                            hx-swap="innerHTML">
+                        <span>+</span>
+                        New Deal
+                    </button>
+                    {% endblock %}
+                    
+                    <!-- Notifications -->
+                    <div class="dropdown">
+                        <button class="notification-btn dropdown-toggle">
+                            <span>🔔</span>
+                            {% if notifications_count %}
+                                <span class="notification-badge"></span>
+                            {% endif %}
+                        </button>
+                        <div class="dropdown-menu" style="width: 300px;">
+                            {% for notification in recent_notifications %}
+                                <div class="dropdown-item">
+                                    <div style="font-weight: 500;">{{ notification.title }}</div>
+                                    <div style="font-size: var(--font-size-xs); color: var(--color-neutral-500);">{{ notification.created_at|timesince }} ago</div>
+                                </div>
+                            {% empty %}
+                                <div class="dropdown-item text-center">
+                                    No new notifications
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Content -->
+            <main class="content-area">
+                {% block breadcrumb %}
+                <nav style="margin-bottom: var(--spacing-lg);">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--color-neutral-500);">
+                        <a href="{% url 'dashboard' %}" style="color: var(--color-neutral-500);">🏠</a>
+                        {% for crumb in breadcrumbs %}
+                            <span>→</span>
+                            {% if forloop.last %}
+                                <span style="color: var(--color-neutral-900); font-weight: 500;">{{ crumb.title }}</span>
+                            {% else %}
+                                <a href="{{ crumb.url }}" style="color: var(--color-neutral-500);">{{ crumb.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </nav>
+                {% endblock %}
+                
+                {% block content %}
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Welcome to CRM System</h2>
+                    </div>
+                    <p>Please extend this template in your views.</p>
+                </div>
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+    
+    <!-- Search Results -->
+    <div id="search-results"></div>
+    
+    <!-- Floating Action Button -->
+    {% block floating_action %}
+    <button class="floating-action" 
+            hx-get="{% url 'quick_actions' %}" 
+            hx-target="#modal-container">
+        <span>+</span>
+    </button>
+    {% endblock %}
+
+    <!-- Scripts -->
+    {% block scripts %}
+    <script>
+        // Django configuration
+        window.DJANGO_CONFIG = {
+            CSRF_TOKEN: '{{ csrf_token }}',
+            USER_ID: {{ user.id|default:'null' }},
+            USERNAME: '{{ user.username|escapejs }}',
+            API_BASE_URL: '{% url "api:api-root" %}',
+            STATIC_URL: '{{ STATIC_URL }}',
+            MEDIA_URL: '{{ MEDIA_URL }}'
+        };
+        
+        // Update CRM config with Django values
+        if (window.CRM_CONFIG) {
+            window.CRM_CONFIG.API_BASE_URL = window.DJANGO_CONFIG.API_BASE_URL;
+            window.CRM_CONFIG.CSRF_TOKEN = window.DJANGO_CONFIG.CSRF_TOKEN;
+        }
+    </script>
+    
+    <script src="{% static 'frontend/js/config.js' %}"></script>
+    <script src="{% static 'frontend/js/api.js' %}"></script>
+    <script src="{% static 'frontend/js/components.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    
+    <!-- Initialize dropdown functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                
+                if (toggle && menu) {
+                    toggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                    
+                    document.addEventListener('click', (e) => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                }
+            });
+            
+            // Initialize navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.tagName.toLowerCase() === 'button') {
+                    item.addEventListener('click', function() {
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                }
+            });
+            
+            // Auto-hide Django messages
+            setTimeout(() => {
+                const messages = document.querySelector('.django-messages');
+                if (messages) {
+                    messages.style.opacity = '0';
+                    setTimeout(() => messages.remove(), 300);
+                }
+            }, 5000);
+        });
+    </script>
+    {% endblock scripts %}
+</body>
+</html>
