@@ -75,6 +75,15 @@ class TelegramWebhookView(View):
             object_id=lead.id,
             content=text,
         )
+        # Also mirror into Chat hub on Request if it exists
+        from crm.models import Request
+        req = Request.objects.filter(lead=lead).order_by('-id').first()
+        if req:
+            ChatMessage.objects.create(
+                content_type=ContentType.objects.get_for_model(Request),
+                object_id=req.id,
+                content=f"[Telegram] {text}",
+            )
         return JsonResponse({'status': 'ok'})
 
 
@@ -130,4 +139,18 @@ class InstagramWebhookView(View):
             email='',
             company_name=None,
         )
+        # Mirror to Chat hub on Lead and, if available, Request
+        ChatMessage.objects.create(
+            content_type=ContentType.objects.get_for_model(Lead),
+            object_id=lead.id,
+            content='[Instagram] inbound event',
+        )
+        from crm.models import Request
+        req = Request.objects.filter(lead=lead).order_by('-id').first()
+        if req:
+            ChatMessage.objects.create(
+                content_type=ContentType.objects.get_for_model(Request),
+                object_id=req.id,
+                content='[Instagram] inbound event',
+            )
         return JsonResponse({'status': 'ok'})

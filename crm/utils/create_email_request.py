@@ -89,6 +89,18 @@ def create_email_request(email: CrmEmail, frm: str = '', ea: EmailAccount = None
             'lead'
         ])
         copy_files(email, r)
+
+        # Create chat message as a communication hub entry
+        try:
+            from chat.models import ChatMessage
+            ChatMessage.objects.create(
+                content_type=ContentType.objects.get_for_model(r),
+                object_id=r.id,
+                content=(email.subject or '').strip() + ("\n\n" + (email.content or '').strip() if email.content else ''),
+                owner=email.owner,
+            )
+        except Exception:
+            pass
     except Exception as e:
         mail_admins(
             'create_email_request exception',
