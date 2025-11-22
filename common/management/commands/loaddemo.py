@@ -82,6 +82,15 @@ class Command(BaseCommand):
             'next_step_date': timezone.now().date(),
         })
         created += int(was)
+        # set USD currency if exists
+        try:
+            from crm.models import Currency
+            usd = Currency.objects.filter(name__icontains='US').first() or Currency.objects.first()
+            if usd and was:
+                deal.currency = usd
+                deal.save(update_fields=['currency'])
+        except Exception:
+            pass
         # Request
         req, was = CrmRequest.objects.get_or_create(description='Need pricing', defaults={
             'owner': user,
@@ -103,15 +112,19 @@ class Command(BaseCommand):
 
     def _tasks(self, user):
         from tasks.models import Project, Task, Memo, Tag
+        from django.contrib.contenttypes.models import ContentType
         created = 0
         proj, was = Project.objects.get_or_create(name='Demo Project', defaults={'owner': user})
         created += int(was)
-        tag, was = Tag.objects.get_or_create(name='demo')
+        ct = ContentType.objects.get_for_model(Task)
+        tag, was = Tag.objects.get_or_create(name='demo', defaults={'for_content': ct})
+        if not was and getattr(tag, 'for_content_id', None) is None:
+            tag.for_content = ct
+            tag.save(update_fields=['for_content'])
         created += int(was)
         task, was = Task.objects.get_or_create(name='Call the client', defaults={'owner': user, 'project': proj})
         created += int(was)
-        if was:
-            task.tags.add(tag)
+        task.tags.add(tag)
         memo, was = Memo.objects.get_or_create(subject='Kickoff notes', defaults={'owner': user, 'project': proj, 'content': 'Initial plan.'})
         created += int(was)
         return created

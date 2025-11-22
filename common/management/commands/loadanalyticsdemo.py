@@ -56,33 +56,44 @@ class Command(BaseCommand):
         return created
 
     def _gen_deals(self, months, per_month):
-        from crm.models import Deal, Company, Contact
+        from django.contrib.auth import get_user_model
+        from crm.models import Deal, Company, Contact, Currency
+        from crm.models.others import LeadSource
         from common.models import Department
         created = 0
         dept = Department.objects.order_by('id').first()
         comp = Company.objects.order_by('id').first()
         cont = Contact.objects.order_by('id').first()
+        usd = Currency.objects.filter(name__icontains='US').first() or Currency.objects.first()
+        User = get_user_model()
+        managers = list(User.objects.filter(groups__name='managers').distinct())
+        sources = list(LeadSource.objects.all())
         for m in range(months):
             for i in range(per_month):
                 dt = self._rand_date(m)
                 amount = random.randint(200, 5000)
+                owner = random.choice(managers) if managers else None
+                ls = random.choice(sources) if sources else None
                 Deal.objects.create(
                     name=f'Demo deal {m}-{i}',
                     company=comp,
                     contact=cont,
                     amount=amount,
-                    currency='USD',
+                    currency=usd,
                     department=dept,
-                    created=dt,
-                    updated=dt,
+                    owner=owner,
+                    next_step='Initial contact',
+                    next_step_date=dt.date(),
+                    description=f'Source: {ls.name if ls else "n/a"}',
                 )
                 created += 1
         return created
 
     def _gen_payments(self, months, per_month):
-        from crm.models import Payment, Company
+        from crm.models import Payment, Company, Currency
         created = 0
         comp = Company.objects.order_by('id').first()
+        usd = Currency.objects.filter(name__icontains='US').first() or Currency.objects.first()
         for m in range(months):
             for i in range(per_month):
                 dt = self._rand_date(m)
@@ -90,7 +101,7 @@ class Command(BaseCommand):
                 Payment.objects.create(
                     company=comp,
                     amount=amount,
-                    currency='USD',
+                    currency=usd,
                     payment_date=dt.date(),
                 )
                 created += 1
