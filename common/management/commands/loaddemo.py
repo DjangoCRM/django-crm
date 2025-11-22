@@ -16,12 +16,33 @@ class Command(BaseCommand):
             return
         created_total = 0
         with transaction.atomic():
+            created_total += self._users()
             created_total += self._crm(user)
             created_total += self._tasks(user)
             created_total += self._chat(user)
             created_total += self._voip(user)
             created_total += self._integrations(user)
         self.stdout.write(self.style.SUCCESS(f'Demo data created/ensured, total created approx: {created_total}'))
+
+    def _users(self):
+        from django.contrib.auth.models import Group
+        from common.models import Department
+        User = get_user_model()
+        created = 0
+        dept_global = Department.objects.filter(name__icontains='Global').first() or Department.objects.first()
+        dept_local = Department.objects.exclude(pk=getattr(dept_global, 'pk', None)).first() or dept_global
+        mgr_group, _ = Group.objects.get_or_create(name='managers')
+        # Manager 1 (Global)
+        u1, was = User.objects.get_or_create(username='manager1', defaults={'email': 'manager1@example.com', 'is_active': True})
+        if was:
+            u1.set_password('demo1234'); u1.save(); created += 1
+        u1.groups.add(mgr_group, dept_global)
+        # Manager 2 (Local)
+        u2, was = User.objects.get_or_create(username='manager2', defaults={'email': 'manager2@example.com', 'is_active': True})
+        if was:
+            u2.set_password('demo1234'); u2.save(); created += 1
+        u2.groups.add(mgr_group, dept_local)
+        return created
 
     def _crm(self, user):
         from crm.models import Company, Contact, Lead, Deal, Request as CrmRequest, Product
@@ -82,20 +103,34 @@ class Command(BaseCommand):
 
     def _chat(self, user):
         from chat.models import ChatMessage
+        from django.contrib.contenttypes.models import ContentType
         from crm.models import Request as CrmRequest
         created = 0
-        req = CrmRequest.objects.order_by('-id').first()
-        if req:
-            cm, was = ChatMessage.objects.get_or_create(content_type=req.get_content_type(), object_id=req.id, content='Welcome to chat!', defaults={'owner': user})
-            created += int(was)
+        reqs = list(CrmRequest.objects.order_by('-id')[:2])
+        for idx, req in enumerate(reqs, start=1):
+            ct = ContentType.objects.get_for_model(req)
+            msgs = [
+                f'Welcome to chat! (thread {idx})',
+                'Client: Hello, I need details about your product.',
+                'Manager: Sure, sending spec sheet now.',
+            ]
+            for m in msgs:
+                cm, was = ChatMessage.objects.get_or_create(content_type=ct, object_id=req.id, content=m, defaults={'owner': user})
+                created += int(was)
         return created
 
     def _voip(self, user):
         created = 0
         try:
             from voip.models import IncomingCall
-            ic, was = IncomingCall.objects.get_or_create(user=user, caller_id='+998901112233', defaults={'client_name': 'Acme Caller'})
-            created += int(was)
+            from crm.models.others import CallLog
+            # Incoming calls for two demo numbers
+            numbers = ['+998901112233', '+998909998877']
+            for n in numbers:
+                ic, was = IncomingCall.objects.get_or_create(user=user, caller_id=n, defaults={'client_name': 'Demo Caller'})
+                created += int(was)
+                cl, was = CallLog.objects.get_or_create(user=user, number=n, direction='inbound', defaults={'duration': 60})
+                created += int(was)
         except Exception:
             pass
         return created
@@ -103,8 +138,11 @@ class Command(BaseCommand):
     def _integrations(self, user):
         from integrations.models import ChannelAccount, ExternalMessage
         created = 0
-        ch = ChannelAccount.objects.filter(is_active=True).first()
-        if ch:
-            em, was = ExternalMessage.objects.get_or_create(channel=ch, direction='out', external_id='demo-1', defaults={'text': 'Demo message', 'sender_id': 'demo', 'recipient_id': 'client'})
+        chs = list(ChannelAccount.objects.filter(is_active=True)[:2])
+        for i, ch in enumerate(chs, start=1):
+            em, was = ExternalMessage.objects.get_or_create(
+                channel=ch, direction='out', external_id=f'demo-{i}',
+                defaults={'text': f'Demo message {i}', 'sender_id': 'demo', 'recipient_id': 'client'}
+            )
             created += int(was)
         return created
