@@ -83,8 +83,14 @@ class Command(BaseCommand):
         })
         created += int(was)
         # Request
-        req, was = CrmRequest.objects.get_or_create(subject='Need pricing', defaults={
-            'owner': user, 'lead': lead, 'contact': cont, 'department': dept, 'message': 'Please send a quote',
+        req, was = CrmRequest.objects.get_or_create(description='Need pricing', defaults={
+            'owner': user,
+            'lead': lead,
+            'contact': cont,
+            'department': dept,
+            'company_name': 'Acme Corp',
+            'email': 'buyer@acme.test',
+            'phone': '+998901234567',
         })
         created += int(was)
         # Payment (if model exists fields)

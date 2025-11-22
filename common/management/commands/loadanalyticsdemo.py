@@ -45,13 +45,12 @@ class Command(BaseCommand):
             for i in range(per_month):
                 dt = self._rand_date(m)
                 ls = random.choice(sources) if sources else None
-                obj = Request.objects.create(
-                    subject=f'Demo request {m}-{i}',
-                    message='Generated for analytics',
+                Request.objects.create(
+                    description=f'Demo request {m}-{i} (Generated for analytics)',
                     department=dept,
                     lead_source=ls,
-                    created=dt,
-                    updated=dt,
+                    receipt_date=dt.date(),
+                    email=f'user{m}{i}@example.test',
                 )
                 created += 1
         return created
