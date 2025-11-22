@@ -66,7 +66,8 @@ class Command(BaseCommand):
         })
         created += int(was)
         # Product
-        prod, was = Product.objects.get_or_create(name='Demo Product', defaults={'price': 199.0, 'owner': user})
+        from decimal import Decimal
+        prod, was = Product.objects.get_or_create(name='Demo Product', defaults={'price': Decimal('199.00'), 'type': 'G'})
         created += int(was)
         # Deal
         deal, was = Deal.objects.get_or_create(name='Acme First Deal', defaults={
