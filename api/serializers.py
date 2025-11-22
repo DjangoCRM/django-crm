@@ -266,7 +266,7 @@ class DealSerializer(ValidationMixin, serializers.ModelSerializer):
             'next_step_date',
             'description',
             'workflow',
-            'stage',
+            'stage', 'stage_name',
             'stages_dates',
             'closing_date',
             'win_closing_date',

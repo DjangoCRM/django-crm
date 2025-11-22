@@ -635,14 +635,4 @@ class LeadManager {
         } catch(e) { /* modal handles close */ }
         return;
     }
-        try {
-            const owner = await this.prompt('Assign to user id:');
-            const res = await window.apiClient.post(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/assign/`, { owner: Number(owner) });
-            this.app.showToast('Lead assigned', 'success');
-            this.loadLeadsList();
-            return res;
-        } catch (e) {
-            if (e.message !== 'cancelled') this.app.showToast('Assign failed', 'error');
-        }
-    }
 }
