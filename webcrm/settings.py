@@ -244,6 +244,15 @@ SECRET_ADMIN_PREFIX = '456-admin/'
 
 # SLA: default hours for first response reminders on Requests
 REQUEST_SLA_HOURS = 4
+
+# Celery / Redis (configure via env in production)
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/1')
+CELERY_TASK_ALWAYS_EAGER = os.getenv('CELERY_TASK_ALWAYS_EAGER', 'False') == 'True'
+# SMS retry defaults (used also by tasks)
+SMS_SEND_MAX_RETRIES = int(os.getenv('SMS_SEND_MAX_RETRIES', '2'))
+SMS_SEND_BACKOFF_SEC = int(os.getenv('SMS_SEND_BACKOFF_SEC', '2'))
+SMS_ALERT_EMAILS = [e.strip() for e in os.getenv('SMS_ALERT_EMAILS', '').split(',') if e.strip()]
 SECRET_LOGIN_PREFIX = '789-login/'
 
 # Specify ip of host to avoid importing emails sent by CRM

@@ -29,6 +29,7 @@ class SendSMSView(View):
         channel_id = payload.get('channel_id')
         to = (payload.get('to') or '').strip()
         text = (payload.get('text') or '').strip()
+        use_async = payload.get('async', True)
         if not (channel_id and to and text):
             return JsonResponse({'status': 'error', 'detail': 'Missing fields'}, status=400)
         acc: Optional[ChannelAccount] = ChannelAccount.objects.filter(id=channel_id, is_active=True).first()
@@ -37,6 +38,11 @@ class SendSMSView(View):
 
         ok = False
         detail = ''
+
+        if use_async and not settings.CELERY_TASK_ALWAYS_EAGER:
+            # enqueue background task
+            res = send_sms_task.delay(channel_id, to, text)
+            return JsonResponse({'status': 'accepted', 'task_id': res.id}, status=202)
 
         # retry strategy
         max_retries = getattr(settings, 'SMS_SEND_MAX_RETRIES', 2)

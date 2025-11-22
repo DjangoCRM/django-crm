@@ -31,3 +31,5 @@
     yarl==1.22.0
 django-cors-headers==4.6.0
 eskiz-sms>=0.1.0
+celery>=5.4.0
+redis>=5.2.0
