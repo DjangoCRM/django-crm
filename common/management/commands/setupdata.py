@@ -27,11 +27,13 @@ class Command(BaseCommand):
             'closing_reason.json',
             'industry.json',
             'lead_source.json',
+            'leadsource_sla_demo.json',
             'publicemaildomain.json',
             'help_en.json',
             'sites.json',
             'reminders.json',
             'massmailsettings.json',
+            'channel_accounts.json',
             verbosity=1
         )
         if not settings.TESTING:

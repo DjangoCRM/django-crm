@@ -1,0 +1,31 @@
+[
+  {
+    "model": "integrations.channelaccount",
+    "pk": 1,
+    "fields": {
+      "type": "eskiz",
+      "name": "Eskiz Demo",
+      "is_active": true,
+      "eskiz_email": "demo@example.com",
+      "eskiz_password": "demo-password",
+      "eskiz_token": "",
+      "eskiz_from": "4546"
+    }
+  },
+  {
+    "model": "integrations.channelaccount",
+    "pk": 2,
+    "fields": {
+      "type": "playmobile",
+      "name": "PlayMobile Demo",
+      "is_active": true,
+      "playmobile_auth_type": "basic",
+      "playmobile_api_url": "https://send.smsxabar.uz/api/v1/send",
+      "playmobile_status_url": "",
+      "playmobile_token": "",
+      "playmobile_login": "demo_login",
+      "playmobile_password": "demo_password",
+      "playmobile_from": "MyBrand"
+    }
+  }
+]
