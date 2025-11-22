@@ -241,6 +241,9 @@ SPECTACULAR_SETTINGS = {
 # with your own unique value.
 SECRET_CRM_PREFIX = '123/'
 SECRET_ADMIN_PREFIX = '456-admin/'
+
+# SLA: default hours for first response reminders on Requests
+REQUEST_SLA_HOURS = 4
 SECRET_LOGIN_PREFIX = '789-login/'
 
 # Specify ip of host to avoid importing emails sent by CRM

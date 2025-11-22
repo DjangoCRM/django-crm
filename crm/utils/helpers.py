@@ -16,6 +16,7 @@ from django.db.models import CharField
 from django.db.models import F
 from django.db.models import Value
 from django.utils import timezone
+from django.conf import settings
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe, SafeString
 from django.utils.translation import gettext as _
@@ -119,14 +120,19 @@ def assign_request_owner_by_department(request_obj) -> None:
         dept = request_obj.department
     if not dept:
         return
-    # Pick the first active manager in this department
-    managers = get_active_users().filter(groups__in=[dept], groups__name='managers')
-    owner = managers.first()
-    if owner:
-        request_obj.owner = owner
+    # Round-robin: pick next manager by modulo of total requests assigned
+    managers = list(get_active_users().filter(groups__in=[dept], groups__name='managers').order_by('id'))
+    if not managers:
+        return
+    # Count existing open Requests per manager to balance
+    from crm.models import Request as RequestModel
+    counts = {m.id: RequestModel.objects.filter(owner=m, pending=True).count() for m in managers}
+    # Select manager with minimal count, then by lowest id (stable)
+    owner = sorted(managers, key=lambda m: (counts.get(m.id, 0), m.id))[0]
+    request_obj.owner = owner
 
 
-def ensure_request_sla_reminder(request_obj, hours: int = 4) -> None:
+def ensure_request_sla_reminder(request_obj, hours: int | None = None) -> None:
     """Create a Reminder as an SLA target for first response.
     Does nothing if the request already has any reminders.
     """
@@ -137,7 +143,16 @@ def ensure_request_sla_reminder(request_obj, hours: int = 4) -> None:
     ).exists():
         return
     from django.utils.timezone import now
-    reminder_date = now() + timedelta(hours=hours)
+    # Determine SLA hours: LeadSource override -> settings.REQUEST_SLA_HOURS -> default 4
+    if hours is None:
+        ls_hours = None
+        try:
+            if getattr(request_obj, 'lead_source', None) and hasattr(request_obj.lead_source, 'sla_hours'):
+                ls_hours = request_obj.lead_source.sla_hours or None
+        except Exception:
+            ls_hours = None
+        hours = ls_hours if ls_hours is not None else getattr(settings, 'REQUEST_SLA_HOURS', 4)
+    reminder_date = now() + timedelta(hours=int(hours))
     subject = _('First response due')
     description = _('Auto-created SLA for first response time')
     Reminder.objects.create(
