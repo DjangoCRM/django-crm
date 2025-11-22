@@ -1,0 +1,9 @@
+{% load static %}
+{% if incoming_call_poll_url %}
+  <script>
+    window.INCOMING_CALL_POLL_URL = "{{ incoming_call_poll_url }}";
+    window.INCOMING_CALL_POLL_INTERVAL_MS = {{ incoming_call_poll_interval|default:4000 }};
+    window.INCOMING_CALL_POPUP_TTL_MS = {{ incoming_call_popup_ttl|default:20000 }};
+  </script>
+  <script src="{% static 'common/js/incoming_call_popup.js' %}"></script>
+{% endif %}

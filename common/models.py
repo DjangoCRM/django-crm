@@ -319,6 +319,34 @@ class UserProfile(models.Model):
         max_length=7, default='',
         null=False, blank=True,
     )
+    jssip_ws_uri = models.CharField(
+        max_length=255,
+        blank=True,
+        default='',
+        verbose_name=_("JsSIP WebSocket URI"),
+        help_text=_("Example: wss://sip.example.com:7443")
+    )
+    jssip_sip_uri = models.CharField(
+        max_length=255,
+        blank=True,
+        default='',
+        verbose_name=_("JsSIP SIP URI"),
+        help_text=_("Example: sip:1001@sip.example.com")
+    )
+    jssip_sip_password = models.CharField(
+        max_length=255,
+        blank=True,
+        default='',
+        verbose_name=_("JsSIP password"),
+        help_text=_("Will be used by the web client")
+    )
+    jssip_display_name = models.CharField(
+        max_length=255,
+        blank=True,
+        default='',
+        verbose_name=_("JsSIP display name"),
+        help_text=_("Name shown to the callee")
+    )
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} ({self.user})"    # NOQA

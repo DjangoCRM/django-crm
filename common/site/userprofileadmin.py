@@ -25,12 +25,23 @@ view_chat_str = _("View chat messages")
 
 class UserProfileAdmin(admin.ModelAdmin):
     empty_value_display = LEADERS
-    fields = (
-        'contact_email',
-        'pbx_number',
-        'utc_timezone',
-        'activate_timezone',
-        'language',
+    fieldsets = (
+        (None, {
+            'fields': (
+                'contact_email',
+                ('utc_timezone', 'activate_timezone'),
+                'language',
+            )
+        }),
+        (_("Telephony"), {
+            'fields': (
+                'pbx_number',
+                'jssip_ws_uri',
+                'jssip_sip_uri',
+                'jssip_sip_password',
+                'jssip_display_name',
+            )
+        }),
     )
     list_display = [
         'username',
@@ -38,6 +49,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         'user_full_name',
         'contact_email',
         'contact_phone',
+        'jssip_ws_uri',
         'language',
     ]
     ordering = ('user__username',)

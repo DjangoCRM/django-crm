@@ -9,13 +9,8 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext as _
-from typing import Optional
-from typing import Tuple
 
-from common.utils.helpers import add_phone_q_params
-from crm.models import Contact
-from crm.models import Deal
-from crm.models import Lead
+from voip.utils import find_objects_by_phone
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -101,24 +96,3 @@ def is_authenticated(request: HttpRequest, data: str) -> bool:
     )     
     bts = bytes(hmac_h.hexdigest(), 'utf8')
     return True if b64decode(signature) == bts else False
-
-
-def find_objects_by_phone(phone: str) -> \
-        Tuple[Optional[Contact], Optional[Lead], Optional[Deal], str]:
-    """Search Contact, Lead and active Deal by phone number"""
-    params = contact = lead = deal = None
-    q_params = add_phone_q_params(phone)
-    try:
-        contact = Contact.objects.filter(q_params).first()
-    except Exception as e:
-        return contact, lead, deal, str(e)
-    if contact:
-        params = {'contact_id': contact.id, 'active': True}
-    else:
-        lead = Lead.objects.filter(q_params).first()
-        if lead:
-            params = {'lead_id': lead.id, 'active': True}
-    if any((contact, lead)):
-        deal = Deal.objects.filter(**params).order_by('-update_date').first()
-
-    return contact, lead, deal, ''

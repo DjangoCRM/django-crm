@@ -1,4 +1,4 @@
-{% extends "admin/base.html" %}{% load static %}
+{% extends "admin/base.html" %}{% load static i18n %}
 
 {% block title %}
     {% if subtitle %}{{ subtitle }} | {% endif %}
@@ -16,4 +16,73 @@
 {% endif %}
 {% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block nav-global %}
+  {% if user.is_authenticated %}
+    <style>
+      .sip-nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-right: 16px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: #fff !important;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+      }
+      .sip-nav-link:hover { transform: translateY(-1px); }
+      .sip-nav-link span { font-size: 13px; }
+      #sip-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+      }
+      #sip-modal .modal-body {
+        width: min(95vw, 1100px);
+        height: min(90vh, 780px);
+        background: #0f172a;
+        border-radius: 16px;
+        border: 1px solid #1f2937;
+        overflow: hidden;
+        box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+      }
+      #sip-modal iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+    <a class="sip-nav-link" href="#" id="sip-open">
+      <span>☎</span>
+      <span>{% translate "SIP client" %}</span>
+    </a>
+    <div id="sip-modal">
+      <div class="modal-body">
+        <iframe src="{% url 'voip:voip_jssip_client' %}" title="{% translate 'SIP client' %}"></iframe>
+      </div>
+    </div>
+    <script>
+      (function() {
+        const openBtn = document.getElementById('sip-open');
+        const modal = document.getElementById('sip-modal');
+        if (!openBtn || !modal) return;
+        openBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          modal.style.display = 'flex';
+        });
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') modal.style.display = 'none';
+        });
+      })();
+    </script>
+  {% endif %}
+{% endblock %}

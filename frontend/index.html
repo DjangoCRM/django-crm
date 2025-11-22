@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM System</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        gray: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        },
+                        warning: {
+                            50: '#fefce8',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        danger: {
+                            50: '#fef2f2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .htmx-indicator {
+            opacity: 0;
+            transition: opacity 500ms ease-in;
+        }
+        .htmx-request .htmx-indicator {
+            opacity: 1;
+        }
+        .htmx-request.htmx-indicator {
+            opacity: 1;
+        }
+        .sidebar-icon {
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-icon:hover {
+            transform: scale(1.1);
+        }
+        .phone-widget {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        .activity-indicator {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .business-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .content-area {
+            min-height: calc(100vh - 60px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200 h-16 fixed w-full top-0 z-30">
+        <div class="flex items-center justify-between h-full px-6">
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 business-gradient rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-xl font-semibold text-gray-900">Business CRM</h1>
+                </div>
+                
+                <!-- Global Search -->
+                <div class="hidden md:block relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400 text-sm"></i>
+                    </div>
+                    <input type="text" id="global-search" 
+                           placeholder="Search contacts, companies, deals..."
+                           class="w-80 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm">
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Phone Status -->
+                <div id="phone-status" class="hidden items-center space-x-2 text-sm text-gray-600">
+                    <div class="w-2 h-2 bg-success-500 rounded-full activity-indicator"></div>
+                    <span>Phone Ready</span>
+                </div>
+                
+                <!-- Notifications -->
+                <button class="relative p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-bell text-lg"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-danger-500 rounded-full"></span>
+                </button>
+                
+                <!-- User Menu -->
+                <div class="flex items-center space-x-3">
+                    <div id="auth-status" class="text-sm text-gray-600">
+                        <span class="htmx-indicator">Loading...</span>
+                    </div>
+                    <button id="login-btn" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-16 h-full w-64 bg-white border-r border-gray-200 shadow-sm z-20">
+        <nav class="p-4 space-y-1">
+            <!-- Main Navigation -->
+            <div class="space-y-1">
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-primary-50 text-primary-700 border border-primary-200" data-section="dashboard">
+                    <i class="fas fa-chart-pie sidebar-icon w-5 h-5 mr-3 text-primary-600"></i>
+                    Dashboard
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="contacts">
+                    <i class="fas fa-users sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Contacts
+                    <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full" id="contacts-count">0</span>
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="companies">
+                    <i class="fas fa-building sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Companies
+                    <span class="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full" id="companies-count">0</span>
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="leads">
+                    <i class="fas fa-user-plus sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Leads
+                    <span class="ml-auto bg-warning-100 text-warning-700 text-xs font-medium px-2 py-0.5 rounded-full" id="leads-count">0</span>
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="deals">
+                    <i class="fas fa-handshake sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Deals
+                    <span class="ml-auto bg-success-100 text-success-700 text-xs font-medium px-2 py-0.5 rounded-full" id="deals-count">0</span>
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="tasks">
+                    <i class="fas fa-tasks sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Tasks
+                    <span class="ml-auto bg-primary-100 text-primary-700 text-xs font-medium px-2 py-0.5 rounded-full" id="tasks-count">0</span>
+                </button>
+                
+                <button class="nav-btn w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" data-section="projects">
+                    <i class="fas fa-project-diagram sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                    Projects
+                </button>
+            </div>
+
+            <!-- Communication Section -->
+            <div class="pt-6">
+                <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Communication</h3>
+                <div class="space-y-1">
+                    <button class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" onclick="app.phone.openDialer()">
+                        <i class="fas fa-phone sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                        Phone
+                        <span class="ml-auto w-2 h-2 bg-success-500 rounded-full" id="phone-indicator"></span>
+                    </button>
+                    
+                    <button class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-envelope sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                        Email
+                    </button>
+                    
+                    <button class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-comments sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                        Chat
+                        <span class="ml-auto bg-danger-100 text-danger-700 text-xs font-medium px-2 py-0.5 rounded-full">3</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div class="pt-6">
+                <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Analytics</h3>
+                <div class="space-y-1">
+                    <button class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-chart-bar sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                        Reports
+                    </button>
+                    
+                    <button class="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-funnel-dollar sidebar-icon w-5 h-5 mr-3 text-gray-400"></i>
+                        Sales Funnel
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 pt-16 content-area">
+        <div class="p-6">
+            <!-- Breadcrumb -->
+            <div class="mb-6">
+                <nav class="flex" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2">
+                        <li>
+                            <div class="flex items-center">
+                                <i class="fas fa-home text-gray-400 text-sm"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <i class="fas fa-chevron-right text-gray-400 text-sm mx-2"></i>
+                                <span id="current-section" class="text-sm font-medium text-gray-900">Dashboard</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <!-- Content Area -->
+            <div id="content">
+                <!-- Dashboard will be loaded here -->
+                <div id="dashboard-section" class="section active">
+                    <div class="mb-6">
+                        <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+                        <p class="text-gray-600">Overview of your business activities</p>
+                    </div>
+                    <div id="dashboard-content">
+                        <div class="flex items-center justify-center py-12">
+                            <div class="flex items-center space-x-2">
+                                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary-600"></div>
+                                <span class="text-gray-600">Loading dashboard...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other sections will be loaded dynamically -->
+                <div id="contacts-section" class="section hidden"></div>
+                <div id="companies-section" class="section hidden"></div>
+                <div id="leads-section" class="section hidden"></div>
+                <div id="deals-section" class="section hidden"></div>
+                <div id="tasks-section" class="section hidden"></div>
+                <div id="projects-section" class="section hidden"></div>
+                <div id="memos-section" class="section hidden"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Phone Widget -->
+    <div id="phone-widget" class="fixed bottom-6 right-6 z-40 hidden">
+        <div class="bg-white rounded-lg shadow-xl phone-widget border border-gray-200 w-80">
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-t-lg p-4 text-white">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-phone text-lg"></i>
+                        <div>
+                            <h3 class="font-medium">Phone</h3>
+                            <p class="text-primary-100 text-sm" id="phone-status-text">Ready to call</p>
+                        </div>
+                    </div>
+                    <button onclick="app.phone.closeWidget()" class="text-primary-100 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-4">
+                <!-- Dialer -->
+                <div id="phone-dialer" class="space-y-4">
+                    <div>
+                        <input type="tel" id="phone-number" 
+                               placeholder="Enter phone number..."
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    
+                    <!-- Keypad -->
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="1">1</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="2">2 ABC</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="3">3 DEF</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="4">4 GHI</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="5">5 JKL</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="6">6 MNO</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="7">7 PQRS</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="8">8 TUV</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="9">9 WXYZ</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="*">*</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="0">0</button>
+                        <button class="keypad-btn p-3 rounded-lg bg-gray-50 hover:bg-gray-100 font-medium" data-digit="#">#</button>
+                    </div>
+                    
+                    <!-- Call Actions -->
+                    <div class="flex space-x-2">
+                        <button id="call-btn" class="flex-1 bg-success-600 hover:bg-success-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            <i class="fas fa-phone mr-2"></i>Call
+                        </button>
+                        <button id="clear-btn" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-colors">
+                            <i class="fas fa-backspace"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Active Call -->
+                <div id="active-call" class="hidden space-y-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-user text-primary-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-medium text-gray-900" id="caller-name">Unknown Contact</h4>
+                        <p class="text-gray-600" id="caller-number">+1 234 567 890</p>
+                        <p class="text-sm text-gray-500" id="call-duration">00:00</p>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-4">
+                        <button id="mute-btn" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                            <i class="fas fa-microphone-slash text-gray-600"></i>
+                        </button>
+                        <button id="hold-btn" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                            <i class="fas fa-pause text-gray-600"></i>
+                        </button>
+                        <button id="hangup-btn" class="p-3 bg-danger-600 hover:bg-danger-700 rounded-full transition-colors">
+                            <i class="fas fa-phone-slash text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Recent Calls -->
+                <div class="mt-4 border-t pt-4">
+                    <h4 class="text-sm font-medium text-gray-700 mb-2">Recent Calls</h4>
+                    <div id="recent-calls" class="space-y-2">
+                        <!-- Recent calls will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+                <!-- Modal Header -->
+                <div class="business-gradient p-6 text-white text-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Welcome to Business CRM</h3>
+                    <p class="text-primary-100 mt-2">Sign in to access your dashboard</p>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <form id="login-form" class="space-y-5">
+                        <div>
+                            <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2 text-gray-400"></i>Username
+                            </label>
+                            <input type="text" id="username" name="username" required
+                                   placeholder="Enter your username"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-lock mr-2 text-gray-400"></i>Password
+                            </label>
+                            <div class="relative">
+                                <input type="password" id="password" name="password" required
+                                       placeholder="Enter your password"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600" onclick="togglePasswordVisibility()">
+                                    <i class="fas fa-eye" id="password-toggle-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                            </label>
+                            <a href="#" class="text-sm text-primary-600 hover:text-primary-700">Forgot password?</a>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                            </button>
+                            <button type="button" id="cancel-login" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold transition-colors">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="bg-gray-50 px-6 py-4 text-center">
+                    <p class="text-xs text-gray-500">
+                        Secure business communication platform
+                        <span class="mx-2">•</span>
+                        <a href="#" class="text-primary-600 hover:text-primary-700">Help</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/ui-helpers.js"></script>
+    <script src="js/phone.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/companies.js"></script>
+    <script src="js/deals.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/leads.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/memos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

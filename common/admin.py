@@ -212,7 +212,23 @@ class FileInline(GenericStackedInline):
 
 
 class UserProfileAdmin(userprofileadmin.UserProfileAdmin):
-    fields = ('user', 'pbx_number', 'utc_timezone', 'activate_timezone')
+    fieldsets = (
+        (None, {
+            'fields': (
+                'user',
+                ('utc_timezone', 'activate_timezone'),
+            )
+        }),
+        (_("Telephony"), {
+            'fields': (
+                'pbx_number',
+                'jssip_ws_uri',
+                'jssip_sip_uri',
+                'jssip_sip_password',
+                'jssip_display_name',
+            )
+        }),
+    )
 
     # -- ModelAdmin methods -- #
 

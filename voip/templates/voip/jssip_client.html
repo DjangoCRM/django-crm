@@ -1,0 +1,158 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% translate "JsSIP Client" %}</title>
+    <link rel="stylesheet" href="/static/admin/css/base.css">
+    <style>
+        :root {
+            --bg: #0b0f16;
+            --panel: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.1);
+            --accent: #4f8bff;
+            --accent-strong: #82aaff;
+            --text: #f8fafc;
+            --text-dim: #9ea7b8;
+            --danger: #ff5c8a;
+            --success: #2dd4bf;
+        }
+        body {
+            padding: 18px;
+            margin: 0;
+            font-family: "SF Pro Display", "Inter", system-ui, -apple-system, sans-serif;
+            background: radial-gradient(140% 120% at 20% 20%, rgba(79,139,255,0.18), transparent),
+                        radial-gradient(120% 120% at 80% 0%, rgba(255,92,138,0.12), transparent),
+                        var(--bg);
+            color: var(--text);
+        }
+        h1 { margin: 0 0 4px 0; font-size: 20px; }
+        p { color: var(--text-dim); margin: 0 0 12px 0; }
+        .shell {
+            max-width: 540px;
+            margin: 0 auto;
+            background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            padding: 16px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            backdrop-filter: blur(18px);
+        }
+        .panel {
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            padding: 14px;
+            margin-top: 12px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .row input {
+            flex: 1;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: var(--text);
+            outline: none;
+            font-size: 15px;
+        }
+        .row input:focus { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(79,139,255,0.35); }
+        .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+        button {
+            border: none;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-weight: 700;
+            cursor: pointer;
+            background: var(--accent);
+            color: #0b0f16;
+            transition: transform 0.05s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 30px rgba(79,139,255,0.35);
+        }
+        button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+        button:hover:not(:disabled) { transform: translateY(-1px); }
+        #disconnect_btn { background: var(--danger); color: #fff; box-shadow: 0 12px 30px rgba(255,92,138,0.35); }
+        #hangup_btn { background: var(--danger); color: #fff; box-shadow: 0 12px 30px rgba(255,92,138,0.35); }
+        #mute_btn { background: rgba(255,255,255,0.1); color: var(--text); }
+        #dtmf_btn { background: rgba(255,255,255,0.08); color: var(--text); }
+        #status { font-weight: 800; color: var(--accent-strong); font-size: 15px; }
+        #log {
+            background: rgba(0,0,0,0.35);
+            color: #d7e2f2;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            height: 150px;
+            overflow-y: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 12px;
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(79,139,255,0.15);
+            color: var(--accent-strong);
+            font-weight: 700;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{% translate "JsSIP Web Client" %}</h1>
+    <p>{% translate "Provide SIP credentials (WebSocket, URI, password) and place/receive audio calls via WebRTC. Allow microphone access in the browser." %}</p>
+
+    <div class="shell">
+        <div style="display:flex; justify-content: space-between; align-items: center; gap: 8px;">
+            <div>
+                <h1>{% translate "SIP Call" %}</h1>
+                <p>{% translate "Ready to place or accept calls with your saved credentials." %}</p>
+            </div>
+            <span id="status" class="pill">{% translate "Disconnected" %}</span>
+        </div>
+
+        <div class="panel">
+            <div class="row">
+                <input id="target" type="text" placeholder="{% translate 'Number or SIP URI' %}">
+            </div>
+            <div class="actions">
+                <button id="connect_btn">{% translate "Connect" %}</button>
+                <button id="disconnect_btn" disabled>{% translate "Disconnect" %}</button>
+                <button id="call_btn" disabled>{% translate "Call" %}</button>
+                <button id="hangup_btn" disabled>{% translate "Hang up" %}</button>
+                <button id="mute_btn" disabled>{% translate "Mute" %}</button>
+                <div style="display:flex; gap:6px;">
+                    <input id="dtmf_digits" type="text" maxlength="8" placeholder="1234" style="max-width:110px;">
+                    <button id="dtmf_btn" disabled>{% translate "DTMF" %}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="pill" style="margin-bottom:8px;">
+                <span>&#128187;</span>
+                <span>{% translate "Log" %}</span>
+            </div>
+            <div id="log"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.0/dist/jssip.min.js"></script>
+    <script>
+      window.JSSIP_CONFIG = {
+        ws_uri: "{{ jssip.ws_uri|escapejs }}",
+        sip_uri: "{{ jssip.sip_uri|escapejs }}",
+        sip_password: "{{ jssip.sip_password|escapejs }}",
+        display_name: "{{ jssip.display_name|escapejs }}",
+      };
+    </script>
+    <script src="{% static 'voip/jssip-client.js' %}"></script>
+</body>
+</html>

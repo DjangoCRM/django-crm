@@ -14,6 +14,7 @@ from massmail.views.get_oauth2_tokens import get_refresh_token
 urlpatterns = [
     path('favicon.ico', FaviconRedirect.as_view()),
     path('voip/', include('voip.urls')),
+    path('api/v1/', include(('api.urls', 'api'), namespace='v1')),
     path(
         'OAuth-2/authorize/',
         staff_member_required(get_refresh_token), 
