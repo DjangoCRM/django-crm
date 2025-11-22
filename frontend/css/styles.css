@@ -1184,3 +1184,70 @@ kbd {
         display: table;
     }
 }
+/* --- Visual Improvements --- */
+
+/* 1. Smoother Transitions */
+.nav-btn,
+#theme-toggle,
+.phone-tab {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+/* 2. Enhanced Form Focus */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus {
+    box-shadow: 0 0 0 3px var(--primary-100), 0 1px 2px 0 rgba(0,0,0,0.05);
+    border-color: var(--primary-500);
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="password"]:focus,
+.dark input[type="email"]:focus,
+.dark input[type="tel"]:focus,
+.dark input[type="search"]:focus {
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2), 0 1px 2px 0 rgba(0,0,0,0.05);
+}
+
+
+/* 3. Active Nav Indicator */
+.nav-btn.bg-primary {
+    position: relative;
+    font-weight: 600; /* Make active text a bit bolder */
+}
+
+.nav-btn.bg-primary::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    bottom: 25%;
+    width: 3px;
+    background-color: var(--primary-600);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.dark .nav-btn.bg-primary::before {
+    background-color: var(--primary-400);
+}
+
+
+/* 4. Content Load Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section.active {
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

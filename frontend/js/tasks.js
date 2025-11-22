@@ -6,30 +6,52 @@ class TaskManager {
 
     async loadTasks() {
         const section = document.getElementById('tasks-section');
-        section.innerHTML = `
-            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-xl font-semibold text-gray-900">Tasks</h2>
-                        <div class="flex space-x-2">
-                            <select id="task-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
-                                <option value="">All Tasks</option>
-                                <option value="true">Active</option>
-                                <option value="false">Completed</option>
-                            </select>
-                            <input type="text" id="task-search" placeholder="Search tasks..." 
-                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
-                            <button onclick="app.tasks.showTaskForm()" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
-                                Add Task
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div id="tasks-content" class="p-6">
-                    <div class="htmx-indicator">Loading tasks...</div>
-                </div>
-            </div>
-        `;
+        section.innerHTML = ''; // Clear existing content
+
+        const createEl = (tag, classes = '', children = []) => {
+            const el = document.createElement(tag);
+            if (classes) el.className = classes;
+            children.forEach(child => {
+                if (typeof child === 'string') el.appendChild(document.createTextNode(child));
+                else if (child) el.appendChild(child);
+            });
+            return el;
+        };
+
+        const container = createEl('div', 'bg-white rounded-lg shadow dark:bg-slate-800');
+        
+        const headerDiv = createEl('div', 'px-6 py-4 border-b border-gray-200');
+        const headerFlex = createEl('div', 'flex items-center justify-between');
+        const h2 = createEl('h2', 'text-xl font-semibold text-gray-900', ['Tasks']);
+        
+        const controlsDiv = createEl('div', 'flex space-x-2');
+        const statusFilterSelect = createEl('select', 'px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary');
+        statusFilterSelect.id = 'task-status-filter';
+        statusFilterSelect.append(
+            createEl('option', '', ['All Tasks'], {value: ''}),
+            createEl('option', '', ['Active'], {value: 'true'}),
+            createEl('option', '', ['Completed'], {value: 'false'})
+        );
+
+        const searchInput = createEl('input', 'px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary');
+        searchInput.type = 'text';
+        searchInput.id = 'task-search';
+        searchInput.placeholder = 'Search tasks...';
+        
+        const addButton = createEl('button', 'bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg', ['Add Task']);
+        addButton.onclick = () => this.showTaskForm();
+
+        controlsDiv.append(statusFilterSelect, searchInput, addButton);
+        headerFlex.append(h2, controlsDiv);
+        headerDiv.appendChild(headerFlex);
+        container.appendChild(headerDiv);
+
+        const contentDiv = createEl('div', 'p-6');
+        contentDiv.id = 'tasks-content';
+        contentDiv.appendChild(createEl('div', 'htmx-indicator', ['Loading tasks...']));
+        container.appendChild(contentDiv);
+
+        section.appendChild(container);
 
         document.getElementById('task-search').addEventListener('input', (e) => {
             this.searchTasks(e.target.value);
@@ -321,127 +343,170 @@ class TaskManager {
 
     async viewTask(taskId) {
         try {
-            const task = await this.app.apiCall(`/tasks/${taskId}/`);
+            const task = await this.app.apiCall(`${window.CRM_CONFIG.ENDPOINTS.TASKS}${taskId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'task-view-modal';
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
-            modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800">
-                    <div class="px-6 py-4 border-b border-gray-200">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-medium text-gray-900">Task Details</h3>
-                            <button onclick="document.getElementById('task-view-modal').remove()" class="text-gray-400 hover:text-gray-600">
-                                <span class="sr-only">Close</span>
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <div class="mb-6">
-                            <div class="flex items-center justify-between">
-                                <h4 class="text-2xl font-bold text-gray-900">${task.name}</h4>
-                                <div class="flex items-center space-x-2">
-                                    <span class="inline-flex px-3 py-1 text-sm font-semibold rounded-full ${task.active ? 'bg-success bg-opacity-20 text-success' : 'bg-gray-100 text-gray-800'}">
-                                        ${task.active ? 'Active' : 'Completed'}
-                                    </span>
-                                    ${task.priority ? `
-                                        <span class="inline-flex px-3 py-1 text-sm font-semibold rounded-full ${this.getPriorityColor(task.priority)}">
-                                            Priority: ${task.priority}
-                                        </span>
-                                    ` : ''}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h5 class="text-lg font-medium text-gray-900 mb-4">Task Information</h5>
-                                <dl class="space-y-3">
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Project</dt>
-                                        <dd class="text-sm text-gray-900">${task.project_name || 'No project'}</dd>
-                                    </div>
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Stage</dt>
-                                        <dd class="text-sm text-gray-900">${task.stage_name || 'No stage'}</dd>
-                                    </div>
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Due Date</dt>
-                                        <dd class="text-sm text-gray-900 ${this.isDueSoon(task.due_date) ? 'text-danger font-medium' : ''}">${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'}</dd>
-                                    </div>
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Next Step Date</dt>
-                                        <dd class="text-sm text-gray-900">${task.next_step_date ? new Date(task.next_step_date).toLocaleDateString() : 'No next step date'}</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                            
-                            <div>
-                                <h5 class="text-lg font-medium text-gray-900 mb-4">Status & Dates</h5>
-                                <dl class="space-y-3">
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Created</dt>
-                                        <dd class="text-sm text-gray-900">${new Date(task.creation_date).toLocaleDateString()}</dd>
-                                    </div>
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Last Updated</dt>
-                                        <dd class="text-sm text-gray-900">${new Date(task.update_date).toLocaleDateString()}</dd>
-                                    </div>
-                                    ${task.closing_date ? `
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Closing Date</dt>
-                                            <dd class="text-sm text-gray-900">${new Date(task.closing_date).toLocaleDateString()}</dd>
-                                        </div>
-                                    ` : ''}
-                                    <div>
-                                        <dt class="text-sm font-medium text-gray-500">Reminders</dt>
-                                        <dd class="text-sm text-gray-900">${task.remind_me ? 'Enabled' : 'Disabled'}</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </div>
-                        
-                        ${task.description ? `
-                            <div class="mt-6">
-                                <h5 class="text-lg font-medium text-gray-900 mb-3">Description</h5>
-                                <p class="text-gray-700">${task.description}</p>
-                            </div>
-                        ` : ''}
-                        
-                        ${task.next_step ? `
-                            <div class="mt-6">
-                                <h5 class="text-lg font-medium text-gray-900 mb-3">Next Step</h5>
-                                <p class="text-gray-700">${task.next_step}</p>
-                            </div>
-                        ` : ''}
-                        
-                        ${task.note ? `
-                            <div class="mt-6">
-                                <h5 class="text-lg font-medium text-gray-900 mb-3">Notes</h5>
-                                <p class="text-gray-700">${task.note}</p>
-                            </div>
-                        ` : ''}
-                        
-                        <div class="mt-8 flex justify-end space-x-3">
-                            ${task.active ? `
-                                <button onclick="app.tasks.markCompleted(${task.id}); document.getElementById('task-view-modal').remove();" 
-                                        class="px-4 py-2 bg-success text-white rounded-md hover:bg-opacity-90">
-                                    Mark Completed
-                                </button>
-                            ` : ''}
-                            <button onclick="app.tasks.editTask(${task.id}); document.getElementById('task-view-modal').remove();" 
-                                    class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
-                                Edit Task
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const modalContent = document.createElement('div');
+            modalContent.className = 'bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800';
+
+            // Header
+            const header = document.createElement('div');
+            header.className = 'px-6 py-4 border-b border-gray-200 flex items-center justify-between';
+            const h3 = document.createElement('h3');
+            h3.className = 'text-lg font-medium text-gray-900';
+            h3.textContent = 'Task Details';
+            header.appendChild(h3);
+            const closeButton = document.createElement('button');
+            closeButton.onclick = () => document.getElementById('task-view-modal').remove();
+            closeButton.className = 'text-gray-400 hover:text-gray-600';
+            closeButton.innerHTML = `<span class="sr-only">Close</span><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
+            header.appendChild(closeButton);
+            modalContent.appendChild(header);
+
+            // Body
+            const body = document.createElement('div');
+            body.className = 'p-6';
+            
+            const mb6Div = document.createElement('div');
+            mb6Div.className = 'mb-6';
+            const flexBetweenDiv = document.createElement('div');
+            flexBetweenDiv.className = 'flex items-center justify-between';
+            const nameH4 = document.createElement('h4');
+            nameH4.className = 'text-2xl font-bold text-gray-900';
+            nameH4.textContent = task.name;
+            flexBetweenDiv.appendChild(nameH4);
+            
+            const flexSpaceX2Div = document.createElement('div');
+            flexSpaceX2Div.className = 'flex items-center space-x-2';
+            const statusSpan = document.createElement('span');
+            statusSpan.className = `inline-flex px-3 py-1 text-sm font-semibold rounded-full ${task.active ? 'bg-success bg-opacity-20 text-success' : 'bg-gray-100 text-gray-800'}`;
+            statusSpan.textContent = task.active ? 'Active' : 'Completed';
+            flexSpaceX2Div.appendChild(statusSpan);
+
+            if (task.priority) {
+                const prioritySpan = document.createElement('span');
+                prioritySpan.className = `inline-flex px-3 py-1 text-sm font-semibold rounded-full ${this.getPriorityColor(task.priority)}`;
+                prioritySpan.textContent = `Priority: ${task.priority}`;
+                flexSpaceX2Div.appendChild(prioritySpan);
+            }
+            flexBetweenDiv.appendChild(flexSpaceX2Div);
+            mb6Div.appendChild(flexBetweenDiv);
+            body.appendChild(mb6Div);
+
+            const gridDiv = document.createElement('div');
+            gridDiv.className = 'grid grid-cols-1 md:grid-cols-2 gap-6';
+
+            const createDlEntry = (label, value, valueClasses = '') => {
+                const div = document.createElement('div');
+                const dt = document.createElement('dt');
+                dt.className = 'text-sm font-medium text-gray-500';
+                dt.textContent = label;
+                div.appendChild(dt);
+                const dd = document.createElement('dd');
+                dd.className = `text-sm text-gray-900 ${valueClasses}`;
+                dd.textContent = value || 'N/A';
+                div.appendChild(dd);
+                return div;
+            };
+
+            // Task Information Column
+            const col1 = document.createElement('div');
+            const h5Info = document.createElement('h5');
+            h5Info.className = 'text-lg font-medium text-gray-900 mb-4';
+            h5Info.textContent = 'Task Information';
+            col1.appendChild(h5Info);
+            const dl1 = document.createElement('dl');
+            dl1.className = 'space-y-3';
+            dl1.appendChild(createDlEntry('Project', task.project_name));
+            dl1.appendChild(createDlEntry('Stage', task.stage_name));
+            dl1.appendChild(createDlEntry('Due Date', task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date', this.isDueSoon(task.due_date) ? 'text-danger font-medium' : ''));
+            dl1.appendChild(createDlEntry('Next Step Date', task.next_step_date ? new Date(task.next_step_date).toLocaleDateString() : 'No next step date'));
+            col1.appendChild(dl1);
+            gridDiv.appendChild(col1);
+
+            // Status & Dates Column
+            const col2 = document.createElement('div');
+            const h5Status = document.createElement('h5');
+            h5Status.className = 'text-lg font-medium text-gray-900 mb-4';
+            h5Status.textContent = 'Status & Dates';
+            col2.appendChild(h5Status);
+            const dl2 = document.createElement('dl');
+            dl2.className = 'space-y-3';
+            dl2.appendChild(createDlEntry('Created', new Date(task.creation_date).toLocaleDateString()));
+            dl2.appendChild(createDlEntry('Last Updated', new Date(task.update_date).toLocaleDateString()));
+            if (task.closing_date) dl2.appendChild(createDlEntry('Closing Date', new Date(task.closing_date).toLocaleDateString()));
+            dl2.appendChild(createDlEntry('Reminders', task.remind_me ? 'Enabled' : 'Disabled'));
+            col2.appendChild(dl2);
+            gridDiv.appendChild(col2);
+            body.appendChild(gridDiv);
+
+            if (task.description) {
+                const descDiv = document.createElement('div');
+                descDiv.className = 'mt-6';
+                const descH5 = document.createElement('h5');
+                descH5.className = 'text-lg font-medium text-gray-900 mb-3';
+                descH5.textContent = 'Description';
+                descDiv.appendChild(descH5);
+                const descP = document.createElement('p');
+                descP.className = 'text-gray-700';
+                descP.textContent = task.description;
+                descDiv.appendChild(descP);
+                body.appendChild(descDiv);
+            }
+            if (task.next_step) {
+                const nextStepDiv = document.createElement('div');
+                nextStepDiv.className = 'mt-6';
+                const nextStepH5 = document.createElement('h5');
+                nextStepH5.className = 'text-lg font-medium text-gray-900 mb-3';
+                nextStepH5.textContent = 'Next Step';
+                nextStepDiv.appendChild(nextStepH5);
+                const nextStepP = document.createElement('p');
+                nextStepP.className = 'text-gray-700';
+                nextStepP.textContent = task.next_step;
+                nextStepDiv.appendChild(nextStepP);
+                body.appendChild(nextStepDiv);
+            }
+            if (task.note) {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'mt-6';
+                const noteH5 = document.createElement('h5');
+                noteH5.className = 'text-lg font-medium text-gray-900 mb-3';
+                noteH5.textContent = 'Notes';
+                noteDiv.appendChild(noteH5);
+                const noteP = document.createElement('p');
+                noteP.className = 'text-gray-700';
+                noteP.textContent = task.note;
+                noteDiv.appendChild(noteP);
+                body.appendChild(noteDiv);
+            }
+            
+            const footer = document.createElement('div');
+            footer.className = 'mt-8 flex justify-end space-x-3';
+            if (task.active) {
+                const completeButton = document.createElement('button');
+                completeButton.onclick = () => {
+                    this.markCompleted(task.id);
+                    document.getElementById('task-view-modal').remove();
+                };
+                completeButton.className = 'px-4 py-2 bg-success text-white rounded-md hover:bg-opacity-90';
+                completeButton.textContent = 'Mark Completed';
+                footer.appendChild(completeButton);
+            }
+            const editButton = document.createElement('button');
+            editButton.onclick = () => {
+                this.editTask(task.id);
+                document.getElementById('task-view-modal').remove();
+            };
+            editButton.className = 'px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90';
+            editButton.textContent = 'Edit Task';
+            footer.appendChild(editButton);
+            body.appendChild(footer);
+
+            modalContent.appendChild(body);
+            modal.appendChild(modalContent);
 
             document.body.appendChild(modal);
         } catch (error) {
@@ -542,69 +607,73 @@ if (typeof TaskManager !== 'undefined' && window.uxEnhancements) {
 
     // Render task card
     TaskManager.prototype.renderTaskCard = function(task) {
+        const createEl = (tag, classes = '', children = []) => {
+            const el = document.createElement(tag);
+            if (classes) el.className = classes;
+            children.forEach(child => {
+                if (typeof child === 'string') el.appendChild(document.createTextNode(child));
+                else if (child) el.appendChild(child);
+            });
+            return el;
+        };
+
         const dueDate = task.due_date ? new Date(task.due_date) : null;
-        const isOverdue = dueDate && dueDate < new Date() && !task.completed;
+        const isOverdue = dueDate && dueDate < new Date() && !task.active;
         const dueDateClass = isOverdue ? 'text-error-600' : 'text-surface-600';
 
-        return `
-            <div class="card p-4 ${task.completed ? 'opacity-60' : ''}" data-id="${task.id}">
-                <div class="flex items-start gap-4">
-                    <input type="checkbox" 
-                           class="checkbox mt-1 task-checkbox" 
-                           ${task.completed ? 'checked' : ''}
-                           data-task-id="${task.id}">
-                    
-                    <div class="flex-1 min-w-0">
-                        <h4 class="font-semibold text-surface-900 ${task.completed ? 'line-through' : ''}">
-                            ${task.title}
-                        </h4>
-                        ${task.description ? `
-                            <p class="text-sm text-surface-600 mt-1">${task.description}</p>
-                        ` : ''}
-                        
-                        <div class="flex items-center gap-4 mt-3 text-sm">
-                            ${dueDate ? `
-                                <div class="flex items-center gap-1 ${dueDateClass}">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    ${this.formatDate(task.due_date)}
-                                    ${isOverdue ? '(Overdue)' : ''}
-                                </div>
-                            ` : ''}
-                            
-                            ${task.priority ? `
-                                <span class="badge ${this.getPriorityBadgeClass(task.priority)}">
-                                    ${task.priority}
-                                </span>
-                            ` : ''}
-                            
-                            ${task.assigned_to_name ? `
-                                <div class="flex items-center gap-1 text-surface-600">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    ${task.assigned_to_name}
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-2">
-                        <button data-action="tasks.editTask" data-id="${task.id}" class="btn btn-text btn-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                            </svg>
-                        </button>
-                        <button data-action="tasks.deleteTask" data-id="${task.id}" class="btn btn-text btn-sm text-error-600">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
+        const card = createEl('div', `card p-4 ${!task.active ? 'opacity-60' : ''}`);
+        card.dataset.id = task.id;
+
+        const flexContainer = createEl('div', 'flex items-start gap-4');
+        const checkbox = createEl('input', 'checkbox mt-1 task-checkbox');
+        checkbox.type = 'checkbox';
+        checkbox.checked = !task.active; // 'completed' is !active
+        checkbox.dataset.taskId = task.id;
+        flexContainer.appendChild(checkbox);
+
+        const contentDiv = createEl('div', 'flex-1 min-w-0');
+        const titleH4 = createEl('h4', `font-semibold text-surface-900 ${!task.active ? 'line-through' : ''}`, [task.name]); // Use task.name
+        contentDiv.appendChild(titleH4);
+
+        if (task.description) {
+            contentDiv.appendChild(createEl('p', 'text-sm text-surface-600 mt-1', [task.description]));
+        }
+
+        const detailsFlex = createEl('div', 'flex items-center gap-4 mt-3 text-sm');
+        if (dueDate) {
+            const dueDateDiv = createEl('div', `flex items-center gap-1 ${dueDateClass}`);
+            dueDateDiv.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
+            dueDateDiv.appendChild(document.createTextNode(`${this.formatDate(task.due_date)} ${isOverdue ? '(Overdue)' : ''}`));
+            detailsFlex.appendChild(dueDateDiv);
+        }
+
+        if (task.priority) {
+            detailsFlex.appendChild(createEl('span', `badge ${this.getPriorityBadgeClass(task.priority)}`, [`Priority: ${task.priority}`]));
+        }
+
+        if (task.assigned_to_name) {
+            const assignedToDiv = createEl('div', 'flex items-center gap-1 text-surface-600');
+            assignedToDiv.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>`;
+            assignedToDiv.appendChild(document.createTextNode(task.assigned_to_name));
+            detailsFlex.appendChild(assignedToDiv);
+        }
+        contentDiv.appendChild(detailsFlex);
+
+        const actionsDiv = createEl('div', 'flex gap-2');
+        const createActionButton = (action, id, iconPath, classes = '') => {
+            const btn = createEl('button', `btn btn-text btn-sm ${classes}`);
+            btn.dataset.action = action;
+            btn.dataset.id = id;
+            btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${iconPath}"></path></svg>`;
+            return btn;
+        };
+        actionsDiv.appendChild(createActionButton('tasks.editTask', task.id, 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'));
+        actionsDiv.appendChild(createActionButton('tasks.deleteTask', task.id, 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16', 'text-error-600'));
+        
+        flexContainer.append(contentDiv, actionsDiv);
+        card.appendChild(flexContainer);
+
+        return card;
     };
 
     // Format date

@@ -26,6 +26,7 @@ class CRMApp {
         this.memos = new MemoManager(this);
         this.chat = new ChatManager(this);
         this.phone = new PhoneManager(this);
+        this.analytics = new AnalyticsDashboard(this);
         this.components = new ComponentManager(this);
 
         this.defineActionHandlers();
@@ -57,6 +58,14 @@ class CRMApp {
             'companies.closeViewCompanyModal': () => document.getElementById('company-view-modal').remove(),
             'refreshDashboard': () => this.refreshDashboard(),
             'switchSection': (target) => this.switchSection(target.dataset.section),
+            'retry-load-dashboard': () => this.loadDashboard(),
+            'retry-load-contacts': () => this.loadContacts(),
+            'retry-load-companies': () => this.loadCompanies(),
+            'retry-load-leads': () => this.loadLeads(),
+            'retry-load-deals': () => this.loadDeals(),
+            'retry-load-tasks': () => this.loadTasks(),
+            'retry-load-projects': () => this.loadProjects(),
+            'retry-load-memos': () => this.loadMemos(),
         };
     }
 
@@ -71,6 +80,19 @@ class CRMApp {
             this.showLoginModal();
             document.querySelector('main').style.display = 'none';
             document.querySelector('aside').style.display = 'none';
+        }
+
+        // Restore focus after page load
+        const focusedElementId = sessionStorage.getItem('crm_focused_element');
+        if (focusedElementId) {
+            sessionStorage.removeItem('crm_focused_element');
+            // Use a timeout to ensure the element is visible and focusable after all rendering is done
+            setTimeout(() => {
+                const elementToFocus = document.getElementById(focusedElementId);
+                if (elementToFocus) {
+                    elementToFocus.focus();
+                }
+            }, 100);
         }
     }
 
@@ -155,6 +177,13 @@ class CRMApp {
             sidebarToggleButtonIcon.classList.remove('fa-chevron-left');
             sidebarToggleButtonIcon.classList.add('fa-chevron-right');
         }
+
+        // Preserve focus across reloads
+        window.addEventListener('beforeunload', () => {
+            if (document.activeElement && document.activeElement.id) {
+                sessionStorage.setItem('crm_focused_element', document.activeElement.id);
+            }
+        });
     }
 
     async checkAuthStatus() {
@@ -167,13 +196,23 @@ class CRMApp {
         try {
             const response = await window.apiClient.get(window.CRM_CONFIG.ENDPOINTS.USER_PROFILE);
             this.currentUser = response;
-            document.getElementById('auth-status').innerHTML =
-                `<div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-medium">
-                        ${(response.first_name || '').charAt(0)}${(response.last_name || '').charAt(0)}
-                    </div>
-                    <span class="text-gray-700 font-medium">${response.first_name} ${response.last_name}</span>
-                </div>`;
+            const authStatusElement = document.getElementById('auth-status');
+            authStatusElement.innerHTML = ''; // Clear existing content
+
+            const userDiv = document.createElement('div');
+            userDiv.className = 'flex items-center space-x-2';
+
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = 'w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-medium';
+            avatarDiv.textContent = `${(response.first_name || '').charAt(0)}${(response.last_name || '').charAt(0)}`;
+            userDiv.appendChild(avatarDiv);
+
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'text-gray-700 font-medium';
+            nameSpan.textContent = `${response.first_name} ${response.last_name}`;
+            userDiv.appendChild(nameSpan);
+
+            authStatusElement.appendChild(userDiv);
 
             const loginBtn = document.getElementById('login-btn');
             loginBtn.innerHTML = '<i class="fas fa-sign-out-alt mr-2"></i>Logout';
@@ -501,6 +540,7 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
             'leads': 'Leads',
             'deals': 'Deals',
             'tasks': 'Tasks',
+            'analytics': 'Analytics',
             'projects': 'Projects',
             'memos': 'Memos'
         };
@@ -563,6 +603,18 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
                     this.showSectionNotAvailable(section, 'Memos module not available in Django API');
                 }
                 break;
+            case 'analytics':
+                this.loadAnalytics();
+                break;
+        }
+    }
+
+    async loadAnalytics() {
+        try {
+            await this.analytics.render('analytics-content');
+        } catch (error) {
+            console.error('Error loading analytics:', error);
+            this.showSectionLoadError('analytics');
         }
     }
 
@@ -602,6 +654,25 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
         `;
     }
 
+    showSectionLoadError(section) {
+        const sectionElement = document.getElementById(`${section}-section`);
+        if (!sectionElement) return;
+
+        sectionElement.innerHTML = `
+            <div class="text-center py-16">
+                <div class="max-w-md mx-auto">
+                    <i class="fas fa-exclamation-triangle text-danger text-5xl mb-6"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Failed to Load Section</h3>
+                    <p class="text-gray-600 mb-6">There was an unexpected error while loading this data. Please try again.</p>
+                    <button data-action="retry-load-${section}" 
+                            class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-sync-alt mr-2"></i>Retry
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
     // Handle API validation errors
     handleValidationError(error) {
         const { status, data } = error;
@@ -628,11 +699,47 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
         const modal = document.createElement('div');
         modal.className = 'fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4';
 
+        const modalContent = document.createElement('div');
+        modalContent.className = 'bg-white rounded-lg shadow-xl max-w-md w-full overflow-hidden';
+
+        // Modal Header
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'bg-danger bg-opacity-10 px-6 py-4 border-b border-danger border-opacity-20';
+
+        const headerFlex = document.createElement('div');
+        headerFlex.className = 'flex items-center';
+
+        const headerShrink = document.createElement('div');
+        headerShrink.className = 'flex-shrink-0';
+        const headerIcon = document.createElement('i');
+        headerIcon.className = 'fas fa-exclamation-triangle text-danger text-xl';
+        headerShrink.appendChild(headerIcon);
+        headerFlex.appendChild(headerShrink);
+
+        const headerMl3 = document.createElement('div');
+        headerMl3.className = 'ml-3';
+        const headerH3 = document.createElement('h3');
+        headerH3.className = 'text-lg font-medium text-danger';
+        headerH3.textContent = 'Validation Error';
+        headerMl3.appendChild(headerH3);
+        const headerP = document.createElement('p');
+        headerP.className = 'text-danger text-sm mt-1';
+        headerP.textContent = errorData.error || 'Please correct the following errors:'; // Use textContent
+        headerMl3.appendChild(headerP);
+        headerFlex.appendChild(headerMl3);
+        headerDiv.appendChild(headerFlex);
+        modalContent.appendChild(headerDiv);
+
+        // Modal Body
+        const bodyDiv = document.createElement('div');
+        bodyDiv.className = 'px-6 py-4';
+
+        const errorListDiv = document.createElement('div');
+        errorListDiv.className = 'space-y-3';
+
         // Parse validation errors
         let errorMessages = [];
-
         if (errorData.details) {
-            // Handle Django REST Framework style errors
             Object.entries(errorData.details).forEach(([field, messages]) => {
                 if (Array.isArray(messages)) {
                     messages.forEach(message => {
@@ -649,70 +756,71 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
                 }
             });
         } else if (errorData.error) {
-            errorMessages.push({
-                field: 'General',
-                message: errorData.error
-            });
+            errorMessages.push({ field: 'General', message: errorData.error });
         } else if (errorData.message) {
-            errorMessages.push({
-                field: 'General',
-                message: errorData.message
-            });
+            errorMessages.push({ field: 'General', message: errorData.message });
         } else {
-            errorMessages.push({
-                field: 'General',
-                message: 'Validation failed. Please check your input and try again.'
-            });
+            errorMessages.push({ field: 'General', message: 'Validation failed. Please check your input and try again.' });
         }
 
-        modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-md w-full overflow-hidden">
-                <div class="bg-danger bg-opacity-10 px-6 py-4 border-b border-danger border-opacity-20">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-exclamation-triangle text-danger text-xl"></i>
-                        </div>
-                        <div class="ml-3">
-                            <h3 class="text-lg font-medium text-danger">Validation Error</h3>
-                            <p class="text-danger text-sm mt-1">${errorData.error || 'Please correct the following errors:'}</p>
-                        </div>
-                    </div>
-                </div>
+        errorMessages.forEach(error => {
+            const errorItemDiv = document.createElement('div');
+            errorItemDiv.className = 'flex items-start space-x-3 p-3 bg-danger bg-opacity-10 rounded-lg border border-danger border-opacity-20';
 
-                <div class="px-6 py-4">
-                    <div class="space-y-3">
-                        ${errorMessages.map(error => `
-                            <div class="flex items-start space-x-3 p-3 bg-danger bg-opacity-10 rounded-lg border border-danger border-opacity-20">
-                                <div class="flex-shrink-0 mt-0.5">
-                                    <i class="fas fa-times-circle text-danger text-sm"></i>
-                                </div>
-                                <div class="min-w-0 flex-1">
-                                    <p class="text-sm font-medium text-danger">${error.field}</p>
-                                    <p class="text-sm text-danger mt-1">${error.message}</p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
+            const itemShrink = document.createElement('div');
+            itemShrink.className = 'flex-shrink-0 mt-0.5';
+            const itemIcon = document.createElement('i');
+            itemIcon.className = 'fas fa-times-circle text-danger text-sm';
+            itemShrink.appendChild(itemIcon);
+            errorItemDiv.appendChild(itemShrink);
 
-                    ${errorData.help ? `
-                        <div class="mt-4 p-3 bg-primary bg-opacity-10 rounded-lg border border-primary border-opacity-20">
-                            <div class="flex">
-                                <i class="fas fa-info-circle text-primary text-sm mt-0.5 mr-2"></i>
-                                <p class="text-sm text-primary">${errorData.help}</p>
-                            </div>
-                        </div>
-                    ` : ''}
-                </div>
+            const itemMinW = document.createElement('div');
+            itemMinW.className = 'min-w-0 flex-1';
+            const itemFieldP = document.createElement('p');
+            itemFieldP.className = 'text-sm font-medium text-danger';
+            itemFieldP.textContent = error.field; // Use textContent
+            itemMinW.appendChild(itemFieldP);
+            const itemMessageP = document.createElement('p');
+            itemMessageP.className = 'text-sm text-danger mt-1';
+            itemMessageP.textContent = error.message; // Use textContent
+            itemMinW.appendChild(itemMessageP);
+            errorItemDiv.appendChild(itemMinW);
 
-                <div class="bg-gray-50 px-6 py-4 flex justify-end space-x-3">
-                    <button onclick="this.closest('.fixed').remove()"
-                            class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-                        Close
-                    </button>
-                </div>
-            </div>
-        `;
+            errorListDiv.appendChild(errorItemDiv);
+        });
+        bodyDiv.appendChild(errorListDiv);
 
+        // Optional Help Text
+        if (errorData.help) {
+            const helpDiv = document.createElement('div');
+            helpDiv.className = 'mt-4 p-3 bg-primary bg-opacity-10 rounded-lg border border-primary border-opacity-20';
+
+            const helpFlex = document.createElement('div');
+            helpFlex.className = 'flex';
+            const helpIcon = document.createElement('i');
+            helpIcon.className = 'fas fa-info-circle text-primary text-sm mt-0.5 mr-2';
+            helpFlex.appendChild(helpIcon);
+            const helpP = document.createElement('p');
+            helpP.className = 'text-sm text-primary';
+            helpP.textContent = errorData.help; // Use textContent
+            helpFlex.appendChild(helpP);
+            helpDiv.appendChild(helpFlex);
+            bodyDiv.appendChild(helpDiv);
+        }
+        modalContent.appendChild(bodyDiv);
+
+        // Modal Footer
+        const footerDiv = document.createElement('div');
+        footerDiv.className = 'bg-gray-50 px-6 py-4 flex justify-end space-x-3';
+
+        const closeButton = document.createElement('button');
+        closeButton.onclick = () => modal.remove();
+        closeButton.className = 'bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition-colors';
+        closeButton.textContent = 'Close';
+        footerDiv.appendChild(closeButton);
+        modalContent.appendChild(footerDiv);
+
+        modal.appendChild(modalContent);
         document.body.appendChild(modal);
 
         // Auto-remove after 15 seconds
@@ -742,24 +850,42 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
                 type === 'warning' ? 'fas fa-exclamation-triangle' :
                     'fas fa-info-circle';
 
-        toast.innerHTML = `
-            <div class="p-4 ${bgColor} border rounded-lg">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <i class="${icon} ${textColor} text-lg"></i>
-                    </div>
-                    <div class="ml-3 flex-1">
-                        <p class="text-sm ${textColor} font-medium">${message}</p>
-                    </div>
-                    <div class="ml-auto pl-3">
-                        <button class="inline-flex ${textColor} hover:opacity-75 text-lg" onclick="this.closest('.max-w-sm').remove()">
-                            <span class="sr-only">Close</span>
-                            ✕
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
+        const p4Div = document.createElement('div');
+        p4Div.className = `p-4 ${bgColor} border rounded-lg`;
+
+        const flexDiv1 = document.createElement('div');
+        flexDiv1.className = 'flex';
+
+        const flexShrinkDiv = document.createElement('div');
+        flexShrinkDiv.className = 'flex-shrink-0';
+        const iElement = document.createElement('i');
+        iElement.className = `${icon} ${textColor} text-lg`;
+        flexShrinkDiv.appendChild(iElement);
+        flexDiv1.appendChild(flexShrinkDiv);
+
+        const ml3Div = document.createElement('div');
+        ml3Div.className = 'ml-3 flex-1';
+        const pElement = document.createElement('p');
+        pElement.className = `text-sm ${textColor} font-medium`;
+        pElement.textContent = message; // Set message via textContent
+        ml3Div.appendChild(pElement);
+        flexDiv1.appendChild(ml3Div);
+
+        const mlAutoDiv = document.createElement('div');
+        mlAutoDiv.className = 'ml-auto pl-3';
+        const closeButton = document.createElement('button');
+        closeButton.className = `inline-flex ${textColor} hover:opacity-75 text-lg`;
+        closeButton.onclick = () => closeButton.closest('.max-w-sm').remove();
+        const srOnlySpan = document.createElement('span');
+        srOnlySpan.className = 'sr-only';
+        srOnlySpan.textContent = 'Close';
+        closeButton.appendChild(srOnlySpan);
+        closeButton.append('✕');
+        mlAutoDiv.appendChild(closeButton);
+        flexDiv1.appendChild(mlAutoDiv);
+
+        p4Div.appendChild(flexDiv1);
+        toast.appendChild(p4Div);
 
         document.getElementById('toast-container').appendChild(toast);
 
@@ -781,30 +907,47 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
 
     // Section loaders
     async loadDashboard() {
-        const content = document.getElementById('dashboard-content');
-
-        if (!this.token) {
-            content.innerHTML = `
-                <div class="text-center py-8">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">Welcome to Django CRM</h3>
-                    <p class="text-gray-600 mb-4">Please log in to access your CRM data.</p>
-                    <button onclick="app.showLoginModal()" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
-                        Log In
-                    </button>
-                </div>
-            `;
-            return;
-        }
-
-        // Show loading state
-        content.innerHTML = `
-            <div class="flex items-center justify-center py-8">
-                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                <span class="ml-3 text-gray-600">Loading dashboard...</span>
-            </div>
-        `;
-
         try {
+            const content = document.getElementById('dashboard-content');
+
+            if (!this.token) {
+                content.innerHTML = ''; // Clear existing content
+                const loginPromptDiv = document.createElement('div');
+                loginPromptDiv.className = 'text-center py-8';
+
+                const h3 = document.createElement('h3');
+                h3.className = 'text-lg font-medium text-gray-900 mb-2';
+                h3.textContent = 'Welcome to Django CRM';
+                loginPromptDiv.appendChild(h3);
+
+                const p = document.createElement('p');
+                p.className = 'text-gray-600 mb-4';
+                p.textContent = 'Please log in to access your CRM data.';
+                loginPromptDiv.appendChild(p);
+
+                const loginButton = document.createElement('button');
+                loginButton.onclick = () => app.showLoginModal();
+                loginButton.className = 'bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg';
+                loginButton.textContent = 'Log In';
+                loginPromptDiv.appendChild(loginButton);
+
+                content.appendChild(loginPromptDiv);
+                return;
+            }
+
+            // Show loading state
+            content.innerHTML = ''; // Clear existing content
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'flex items-center justify-center py-8';
+            const spinnerDiv = document.createElement('div');
+            spinnerDiv.className = 'animate-spin rounded-full h-8 w-8 border-b-2 border-primary';
+            loadingDiv.appendChild(spinnerDiv);
+            const loadingSpan = document.createElement('span');
+            loadingSpan.className = 'ml-3 text-gray-600';
+            loadingSpan.textContent = 'Loading dashboard...';
+            loadingDiv.appendChild(loadingSpan);
+            content.appendChild(loadingDiv);
+
             // Use the new comprehensive dashboard data method
             const dashboardData = await window.apiClient.getDashboardData();
             const activityFeed = await window.apiClient.getActivityFeed(6);
@@ -840,189 +983,259 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
             const dealsGrowth = analytics?.monthly_growth?.deals || 0;
             const overdueTasks = analytics?.tasks?.overdue || 0;
 
-            content.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"contacts\">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-users text-primary text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-gray-500">Total Contacts</dt>
-                                    <dd class="text-2xl font-bold text-gray-900">${stats.contactsCount}</dd>
-                                    <dd class="text-sm ${contactsGrowth > 0 ? 'text-success' : 'text-gray-500'}">
-                                        ${contactsGrowth > 0 ? `+${contactsGrowth} this month` : 'No new this month'}
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
+            content.innerHTML = ''; // Clear loading state
 
-                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"companies\">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-building text-success text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-gray-500">Total Companies</dt>
-                                    <dd class="text-2xl font-bold text-gray-900">${stats.companiesCount}</dd>
-                                    <dd class="text-sm ${companiesGrowth > 0 ? 'text-success' : 'text-gray-500'}">
-                                        ${companiesGrowth > 0 ? `+${companiesGrowth} this month` : 'No new this month'}
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
+            const mainGrid = document.createElement('div');
+            mainGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8';
 
-                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"deals\">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-handshake text-warning text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-gray-500">Active Deals</dt>
-                                    <dd class="text-2xl font-bold text-gray-900">${stats.dealsCount}</dd>
-                                    <dd class="text-sm text-success">
-                                        ${pipelineValue > 0 ? formatCurrency(pipelineValue) + ' pipeline' : 'No pipeline value'}
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
+            // Function to create a stat card
+            const createStatCard = (section, iconClass, bgColorClass, title, count, growthText, growthIsPositive) => {
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700`;
+                card.dataset.action = 'switchSection';
+                card.dataset.section = section;
 
-                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"tasks\">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-danger bg-opacity-10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-tasks text-danger text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-gray-500">Active Tasks</dt>
-                                    <dd class="text-2xl font-bold text-gray-900">${stats.tasksCount}</dd>
-                                    <dd class="text-sm ${overdueTasks > 0 ? 'text-danger' : 'text-success'}">
-                                        ${overdueTasks > 0 ? `${overdueTasks} overdue` : 'All up to date'}
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                const flexContainer = document.createElement('div');
+                flexContainer.className = 'flex items-center';
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-lg border border-gray-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Recent Deals</h3>
-                            <button data-action="switchSection" data-section="deals" class="text-primary hover:opacity-90 text-sm font-medium">
-                                View all <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                        <div class="space-y-4">
-                            ${deals && deals.length > 0 ? deals.slice(0, 4).map(deal => `
-                                <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <div class="w-2 h-2 bg-success rounded-full"></div>
-                                    <div class="flex-1 min-w-0">
-                                        <p class="font-medium text-gray-900 truncate">${deal.name || 'Unnamed Deal'}</p>
-                                        <p class="text-sm text-gray-500">${deal.company_name || deal.company?.name || 'No company'}</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="font-semibold text-gray-900">${deal.amount ? formatCurrency(parseFloat(deal.amount)) : '-'}</p>
-                                        <p class="text-xs text-gray-500">${deal.stage_name || deal.stage?.name || 'No stage'}</p>
-                                    </div>
-                                </div>
-                            `).join('') : '<div class="text-center py-8 text-gray-500">No deals found</div>'}
-                        </div>
-                    </div>
+                const iconShrink = document.createElement('div');
+                iconShrink.className = 'flex-shrink-0';
+                const iconDiv = document.createElement('div');
+                iconDiv.className = `w-12 h-12 ${bgColorClass} bg-opacity-10 rounded-lg flex items-center justify-center`;
+                const iconI = document.createElement('i');
+                iconI.className = `${iconClass} ${bgColorClass} text-xl`;
+                iconDiv.appendChild(iconI);
+                iconShrink.appendChild(iconDiv);
+                flexContainer.appendChild(iconShrink);
 
-                    <div class="bg-white rounded-lg border border-gray-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Recent Tasks</h3>
-                            <button data-action="switchSection" data-section="tasks" class="text-primary hover:opacity-90 text-sm font-medium">
-                                View all <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                        <div class="space-y-4">
-                            ${tasks && tasks.length > 0 ? tasks.slice(0, 4).map(task => `
-                                <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <div class="w-4 h-4 border-2 border-gray-300 rounded flex items-center justify-center ${!task.active ? 'bg-success border-success' : ''}">
-                                        ${!task.active ? '<i class="fas fa-check text-white text-xs"></i>' : ''}
-                                    </div>
-                                    <div class="flex-1 min-w-0">
-                                        <p class="font-medium text-gray-900 truncate ${!task.active ? 'line-through text-gray-500' : ''}">${task.name || 'Unnamed Task'}</p>
-                                        <p class="text-sm text-gray-500">${task.project_name || task.project?.name || 'No project'}</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full ${task.active ? 'bg-warning bg-opacity-20 text-warning' : 'bg-success bg-opacity-20 text-success'}">
-                                            ${task.active ? 'Active' : 'Done'}
-                                        </span>
-                                    </div>
-                                </div>
-                            `).join('') : '<div class="text-center py-8 text-gray-500">No tasks found</div>'}
-                        </div>
-                    </div>
+                const textMl4 = document.createElement('div');
+                textMl4.className = 'ml-4 flex-1';
+                const dl = document.createElement('dl');
+                const dt = document.createElement('dt');
+                dt.className = 'text-sm font-medium text-gray-500';
+                dt.textContent = title;
+                dl.appendChild(dt);
+                const ddCount = document.createElement('dd');
+                ddCount.className = 'text-2xl font-bold text-gray-900';
+                ddCount.textContent = count;
+                dl.appendChild(ddCount);
+                const ddGrowth = document.createElement('dd');
+                ddGrowth.className = `text-sm ${growthIsPositive ? 'text-success' : 'text-gray-500'}`;
+                ddGrowth.textContent = growthText;
+                dl.appendChild(ddGrowth);
+                textMl4.appendChild(dl);
+                flexContainer.appendChild(textMl4);
+                card.appendChild(flexContainer);
+                return card;
+            };
 
-                    <div class="bg-white rounded-lg border border-gray-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
-                            <button data-action="refreshDashboard" class="text-primary hover:opacity-90 text-sm font-medium">
-                                <i class="fas fa-sync-alt mr-1"></i>Refresh
-                            </button>
-                        </div>
-                        <div class="space-y-4">
-                            ${activityFeed && activityFeed.length > 0 ? activityFeed.map(activity => {
-                const timeAgo = this.formatTimeAgo(activity.timestamp);
-                const colorClass = activity.color || 'primary';
-                return `
-                                    <div class="flex items-start space-x-3">
-                                        <div class="w-8 h-8 bg-${colorClass} bg-opacity-10 rounded-full flex items-center justify-center">
-                                            <i class="${activity.icon} text-${colorClass} text-xs"></i>
-                                        </div>
-                                        <div class="flex-1 min-w-0">
-                                            <p class="text-sm text-gray-900">${activity.message}</p>
-                                            <p class="text-xs text-gray-500">${timeAgo}</p>
-                                        </div>
-                                    </div>
-                                `;
-            }).join('') : `
-                                <div class="text-center py-8 text-gray-500">
-                                    <i class="fas fa-history text-2xl mb-2 text-gray-400"></i>
-                                    <p>No recent activity</p>
-                                </div>
-                            `}
-                        </div>
-                    </div>
-                </div>
-            `;
+            mainGrid.appendChild(createStatCard('contacts', 'fas fa-users', 'text-primary', 'Total Contacts', stats.contactsCount,
+                contactsGrowth > 0 ? `+${contactsGrowth} this month` : 'No new this month', contactsGrowth > 0));
+            mainGrid.appendChild(createStatCard('companies', 'fas fa-building', 'text-success', 'Total Companies', stats.companiesCount,
+                companiesGrowth > 0 ? `+${companiesGrowth} this month` : 'No new this month', companiesGrowth > 0));
+            mainGrid.appendChild(createStatCard('deals', 'fas fa-handshake', 'text-warning', 'Active Deals', stats.dealsCount,
+                pipelineValue > 0 ? formatCurrency(pipelineValue) + ' pipeline' : 'No pipeline value', pipelineValue > 0));
+            mainGrid.appendChild(createStatCard('tasks', 'fas fa-tasks', 'text-danger', 'Active Tasks', stats.tasksCount,
+                overdueTasks > 0 ? `${overdueTasks} overdue` : 'All up to date', overdueTasks === 0));
+
+            content.appendChild(mainGrid);
+
+            const secondaryGrid = document.createElement('div');
+            secondaryGrid.className = 'grid grid-cols-1 lg:grid-cols-3 gap-6';
+
+            // Recent Deals card
+            const recentDealsCard = document.createElement('div');
+            recentDealsCard.className = 'bg-white rounded-lg border border-gray-200 p-6';
+            const dealsHeader = document.createElement('div');
+            dealsHeader.className = 'flex items-center justify-between mb-4';
+            const dealsH3 = document.createElement('h3');
+            dealsH3.className = 'text-lg font-semibold text-gray-900';
+            dealsH3.textContent = 'Recent Deals';
+            dealsHeader.appendChild(dealsH3);
+            const dealsButton = document.createElement('button');
+            dealsButton.dataset.action = 'switchSection';
+            dealsButton.dataset.section = 'deals';
+            dealsButton.className = 'text-primary hover:opacity-90 text-sm font-medium';
+            dealsButton.innerHTML = `View all <i class="fas fa-arrow-right ml-1"></i>`; // Static HTML for icon
+            dealsHeader.appendChild(dealsButton);
+            recentDealsCard.appendChild(dealsHeader);
+
+            const dealsSpaceY = document.createElement('div');
+            dealsSpaceY.className = 'space-y-4';
+            if (deals && deals.length > 0) {
+                deals.slice(0, 4).forEach(deal => {
+                    const dealItem = document.createElement('div');
+                    dealItem.className = 'flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer';
+
+                    const statusIndicator = document.createElement('div');
+                    statusIndicator.className = 'w-2 h-2 bg-success rounded-full';
+                    dealItem.appendChild(statusIndicator);
+
+                    const flex1 = document.createElement('div');
+                    flex1.className = 'flex-1 min-w-0';
+                    const dealNameP = document.createElement('p');
+                    dealNameP.className = 'font-medium text-gray-900 truncate';
+                    dealNameP.textContent = deal.name || 'Unnamed Deal';
+                    flex1.appendChild(dealNameP);
+                    const companyNameP = document.createElement('p');
+                    companyNameP.className = 'text-sm text-gray-500';
+                    companyNameP.textContent = deal.company_name || deal.company?.name || 'No company';
+                    flex1.appendChild(companyNameP);
+                    dealItem.appendChild(flex1);
+
+                    const textRight = document.createElement('div');
+                    textRight.className = 'text-right';
+                    const amountP = document.createElement('p');
+                    amountP.className = 'font-semibold text-gray-900';
+                    amountP.textContent = deal.amount ? formatCurrency(parseFloat(deal.amount)) : '-';
+                    textRight.appendChild(amountP);
+                    const stageP = document.createElement('p');
+                    stageP.className = 'text-xs text-gray-500';
+                    stageP.textContent = deal.stage_name || deal.stage?.name || 'No stage';
+                    textRight.appendChild(stageP);
+                    dealItem.appendChild(textRight);
+
+                    dealsSpaceY.appendChild(dealItem);
+                });
+            } else {
+                const noDealsDiv = document.createElement('div');
+                noDealsDiv.className = 'text-center py-8 text-gray-500';
+                noDealsDiv.textContent = 'No deals found';
+                dealsSpaceY.appendChild(noDealsDiv);
+            }
+            recentDealsCard.appendChild(dealsSpaceY);
+            secondaryGrid.appendChild(recentDealsCard);
+
+            // Recent Tasks card
+            const recentTasksCard = document.createElement('div');
+            recentTasksCard.className = 'bg-white rounded-lg border border-gray-200 p-6';
+            const tasksHeader = document.createElement('div');
+            tasksHeader.className = 'flex items-center justify-between mb-4';
+            const tasksH3 = document.createElement('h3');
+            tasksH3.className = 'text-lg font-semibold text-gray-900';
+            tasksH3.textContent = 'Recent Tasks';
+            tasksHeader.appendChild(tasksH3);
+            const tasksButton = document.createElement('button');
+            tasksButton.dataset.action = 'switchSection';
+            tasksButton.dataset.section = 'tasks';
+            tasksButton.className = 'text-primary hover:opacity-90 text-sm font-medium';
+            tasksButton.innerHTML = `View all <i class="fas fa-arrow-right ml-1"></i>`; // Static HTML for icon
+            tasksHeader.appendChild(tasksButton);
+            recentTasksCard.appendChild(tasksHeader);
+
+            const tasksSpaceY = document.createElement('div');
+            tasksSpaceY.className = 'space-y-4';
+            if (tasks && tasks.length > 0) {
+                tasks.slice(0, 4).forEach(task => {
+                    const taskItem = document.createElement('div');
+                    taskItem.className = 'flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer';
+
+                    const checkboxDiv = document.createElement('div');
+                    checkboxDiv.className = `w-4 h-4 border-2 border-gray-300 rounded flex items-center justify-center ${!task.active ? 'bg-success border-success' : ''}`;
+                    if (!task.active) {
+                        const checkIcon = document.createElement('i');
+                        checkIcon.className = 'fas fa-check text-white text-xs';
+                        checkboxDiv.appendChild(checkIcon);
+                    }
+                    taskItem.appendChild(checkboxDiv);
+
+                    const flex1 = document.createElement('div');
+                    flex1.className = 'flex-1 min-w-0';
+                    const taskNameP = document.createElement('p');
+                    taskNameP.className = `font-medium text-gray-900 truncate ${!task.active ? 'line-through text-gray-500' : ''}`;
+                    taskNameP.textContent = task.name || 'Unnamed Task';
+                    flex1.appendChild(taskNameP);
+                    const projectNameP = document.createElement('p');
+                    projectNameP.className = 'text-sm text-gray-500';
+                    projectNameP.textContent = task.project_name || task.project?.name || 'No project';
+                    flex1.appendChild(projectNameP);
+                    taskItem.appendChild(flex1);
+
+                    const textRight = document.createElement('div');
+                    textRight.className = 'text-right';
+                    const statusSpan = document.createElement('span');
+                    statusSpan.className = `inline-flex px-2 py-1 text-xs font-medium rounded-full ${task.active ? 'bg-warning bg-opacity-20 text-warning' : 'bg-success bg-opacity-20 text-success'}`;
+                    statusSpan.textContent = task.active ? 'Active' : 'Done';
+                    textRight.appendChild(statusSpan);
+                    taskItem.appendChild(textRight);
+
+                    tasksSpaceY.appendChild(taskItem);
+                });
+            } else {
+                const noTasksDiv = document.createElement('div');
+                noTasksDiv.className = 'text-center py-8 text-gray-500';
+                noTasksDiv.textContent = 'No tasks found';
+                tasksSpaceY.appendChild(noTasksDiv);
+            }
+            recentTasksCard.appendChild(tasksSpaceY);
+            secondaryGrid.appendChild(recentTasksCard);
+
+            // Recent Activity card
+            const recentActivityCard = document.createElement('div');
+            recentActivityCard.className = 'bg-white rounded-lg border border-gray-200 p-6';
+            const activityHeader = document.createElement('div');
+            activityHeader.className = 'flex items-center justify-between mb-4';
+            const activityH3 = document.createElement('h3');
+            activityH3.className = 'text-lg font-semibold text-gray-900';
+            activityH3.textContent = 'Recent Activity';
+            activityHeader.appendChild(activityH3);
+            const refreshButton = document.createElement('button');
+            refreshButton.dataset.action = 'refreshDashboard';
+            refreshButton.className = 'text-primary hover:opacity-90 text-sm font-medium';
+            refreshButton.innerHTML = `<i class="fas fa-sync-alt mr-1"></i>Refresh`; // Static HTML for icon
+            activityHeader.appendChild(refreshButton);
+            recentActivityCard.appendChild(activityHeader);
+
+            const activitySpaceY = document.createElement('div');
+            activitySpaceY.className = 'space-y-4';
+            if (activityFeed && activityFeed.length > 0) {
+                activityFeed.forEach(activity => {
+                    const timeAgo = this.formatTimeAgo(activity.timestamp);
+                    const colorClass = activity.color || 'primary';
+
+                    const activityItem = document.createElement('div');
+                    activityItem.className = 'flex items-start space-x-3';
+
+                    const iconDiv = document.createElement('div');
+                    iconDiv.className = `w-8 h-8 bg-${colorClass} bg-opacity-10 rounded-full flex items-center justify-center`;
+                    const iconI = document.createElement('i');
+                    iconI.className = `${activity.icon} text-${colorClass} text-xs`;
+                    iconDiv.appendChild(iconI);
+                    activityItem.appendChild(iconDiv);
+
+                    const textContentDiv = document.createElement('div');
+                    textContentDiv.className = 'flex-1 min-w-0';
+                    const messageP = document.createElement('p');
+                    messageP.className = 'text-sm text-gray-900';
+                    messageP.textContent = activity.message; // Use textContent
+                    textContentDiv.appendChild(messageP);
+                    const timeP = document.createElement('p');
+                    timeP.className = 'text-xs text-gray-500';
+                    timeP.textContent = timeAgo; // Use textContent
+                    textContentDiv.appendChild(timeP);
+                    activityItem.appendChild(textContentDiv);
+
+                    activitySpaceY.appendChild(activityItem);
+                });
+            } else {
+                const noActivityDiv = document.createElement('div');
+                noActivityDiv.className = 'text-center py-8 text-gray-500';
+                const historyIcon = document.createElement('i');
+                historyIcon.className = 'fas fa-history text-2xl mb-2 text-gray-400';
+                noActivityDiv.appendChild(historyIcon);
+                const noActivityP = document.createElement('p');
+                noActivityP.textContent = 'No recent activity';
+                noActivityDiv.appendChild(noActivityP);
+                activitySpaceY.appendChild(noActivityDiv);
+            }
+            recentActivityCard.appendChild(activitySpaceY);
+            secondaryGrid.appendChild(recentActivityCard);
+
+            content.appendChild(secondaryGrid);
+
         } catch (error) {
             console.error('Error loading dashboard:', error);
-            const errorMessage = error.message.includes('Network error')
-                ? 'Cannot connect to the Django API server. Please make sure it\'s running on 127.0.0.1:8000'
-                : 'Error loading dashboard data. Please try logging in again.';
-
-            content.innerHTML = `
-                <div class="bg-danger bg-opacity-10 border border-danger rounded-lg p-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-triangle text-danger text-xl mr-3"></i>
-                        <div>
-                            <h3 class="text-lg font-medium text-danger">${'Dashboard Load Error'}</h3>
-                            <p class="text-danger mt-1">${errorMessage}</p>
-                            <button onclick="app.loadDashboard()" class="mt-3 bg-danger hover:bg-opacity-90 text-white px-4 py-2 rounded-lg text-sm">
-                                Try Again
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            this.showSectionLoadError('dashboard');
         }
     }
 
@@ -1049,31 +1262,66 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
     }
 
     async loadContacts() {
-        this.contacts.loadContacts();
+        try {
+            await this.contacts.loadContacts();
+        } catch (error) {
+            console.error(`Error loading contacts section:`, error);
+            this.showSectionLoadError('contacts');
+        }
     }
 
     async loadCompanies() {
-        this.companies.loadCompanies();
+        try {
+            await this.companies.loadCompanies();
+        } catch (error) {
+            console.error(`Error loading companies section:`, error);
+            this.showSectionLoadError('companies');
+        }
     }
 
     async loadLeads() {
-        this.leads.loadLeads();
+        try {
+            await this.leads.loadLeads();
+        } catch (error) {
+            console.error(`Error loading leads section:`, error);
+            this.showSectionLoadError('leads');
+        }
     }
 
     async loadDeals() {
-        this.deals.loadDeals();
+        try {
+            await this.deals.loadDeals();
+        } catch (error) {
+            console.error(`Error loading deals section:`, error);
+            this.showSectionLoadError('deals');
+        }
     }
 
     async loadTasks() {
-        this.tasks.loadTasks();
+        try {
+            await this.tasks.loadTasks();
+        } catch (error) {
+            console.error(`Error loading tasks section:`, error);
+            this.showSectionLoadError('tasks');
+        }
     }
 
     async loadProjects() {
-        this.projects.loadProjects();
+        try {
+            await this.projects.loadProjects();
+        } catch (error) {
+            console.error(`Error loading projects section:`, error);
+            this.showSectionLoadError('projects');
+        }
     }
 
     async loadMemos() {
-        this.memos.loadMemos();
+        try {
+            await this.memos.loadMemos();
+        } catch (error) {
+            console.error(`Error loading memos section:`, error);
+            this.showSectionLoadError('memos');
+        }
     }
 }
 

@@ -356,89 +356,125 @@ class ContactManager {
             modal.id = 'contact-view-modal';
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
-            modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 dark:bg-slate-800">
-                    <div class="px-6 py-4 border-b border-gray-200">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-medium text-gray-900">Contact Details</h3>
-                            <button data-action="contact.closeViewContactModal" class="text-gray-400 hover:text-gray-600">
-                                <span class="sr-only">Close</span>
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <div class="flex items-start space-x-6">
-                            <div class="flex-shrink-0">
-                                <div class="h-20 w-20 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold">
-                                    ${this.getInitials(contact.first_name, contact.last_name)}
-                                </div>
-                            </div>
-                            
-                            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <h4 class="text-lg font-medium text-gray-900">${contact.full_name}</h4>
-                                    <p class="text-gray-600">${contact.title || 'No title'}</p>
-                                    
-                                    <dl class="mt-4 space-y-2">
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Email</dt>
-                                            <dd class="text-sm text-gray-900">${contact.email || 'No email'}</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Phone</dt>
-                                            <dd class="text-sm text-gray-900">${contact.phone || 'No phone'}</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Company</dt>
-                                            <dd class="text-sm text-gray-900">${contact.company_name || 'No company'}</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                                
-                                <div>
-                                    <dl class="space-y-2">
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Status</dt>
-                                            <dd class="text-sm">
-                                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${contact.disqualified ? 'bg-danger bg-opacity-20 text-danger' : 'bg-success bg-opacity-20 text-success'}">
-                                                    ${contact.disqualified ? 'Disqualified' : 'Active'}
-                                                </span>
-                                            </dd>
-                                        </div>
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Created</dt>
-                                            <dd class="text-sm text-gray-900">${new Date(contact.creation_date).toLocaleDateString()}</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="text-sm font-medium text-gray-500">Last Updated</dt>
-                                            <dd class="text-sm text-gray-900">${new Date(contact.update_date).toLocaleDateString()}</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        ${contact.description ? `
-                            <div class="mt-6">
-                                <h5 class="text-sm font-medium text-gray-500">Description</h5>
-                                <p class="mt-1 text-sm text-gray-900">${contact.description}</p>
-                            </div>
-                        ` : ''}
-                        
-                        <div class="mt-6 flex justify-end space-x-3">
-                            <button data-action="contacts.editContact" data-id="${contact.id}" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
-                                Edit Contact
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const modalContent = document.createElement('div');
+            modalContent.className = 'bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 dark:bg-slate-800';
 
+            // Header
+            const header = document.createElement('div');
+            header.className = 'px-6 py-4 border-b border-gray-200 flex items-center justify-between';
+            const h3 = document.createElement('h3');
+            h3.className = 'text-lg font-medium text-gray-900';
+            h3.textContent = 'Contact Details';
+            header.appendChild(h3);
+            const closeButton = document.createElement('button');
+            closeButton.dataset.action = 'contact.closeViewContactModal';
+            closeButton.className = 'text-gray-400 hover:text-gray-600';
+            closeButton.innerHTML = `<span class="sr-only">Close</span><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>`;
+            header.appendChild(closeButton);
+            modalContent.appendChild(header);
+
+            // Body
+            const body = document.createElement('div');
+            body.className = 'p-6';
+            
+            const bodyFlex = document.createElement('div');
+            bodyFlex.className = 'flex items-start space-x-6';
+
+            const avatarContainer = document.createElement('div');
+            avatarContainer.className = 'flex-shrink-0';
+            const avatar = document.createElement('div');
+            avatar.className = 'h-20 w-20 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold';
+            avatar.textContent = this.getInitials(contact.first_name, contact.last_name);
+            avatarContainer.appendChild(avatar);
+            bodyFlex.appendChild(avatarContainer);
+
+            const grid = document.createElement('div');
+            grid.className = 'flex-1 grid grid-cols-1 md:grid-cols-2 gap-4';
+            
+            // Column 1
+            const col1 = document.createElement('div');
+            const nameH4 = document.createElement('h4');
+            nameH4.className = 'text-lg font-medium text-gray-900';
+            nameH4.textContent = contact.full_name;
+            col1.appendChild(nameH4);
+            const titleP = document.createElement('p');
+            titleP.className = 'text-gray-600';
+            titleP.textContent = contact.title || 'No title';
+            col1.appendChild(titleP);
+
+            const dl1 = document.createElement('dl');
+            dl1.className = 'mt-4 space-y-2';
+            const createDlEntry = (label, value) => {
+                const div = document.createElement('div');
+                const dt = document.createElement('dt');
+                dt.className = 'text-sm font-medium text-gray-500';
+                dt.textContent = label;
+                div.appendChild(dt);
+                const dd = document.createElement('dd');
+                dd.className = 'text-sm text-gray-900';
+                dd.textContent = value || `No ${label.toLowerCase()}`;
+                div.appendChild(dd);
+                return div;
+            };
+            dl1.appendChild(createDlEntry('Email', contact.email));
+            dl1.appendChild(createDlEntry('Phone', contact.phone));
+            dl1.appendChild(createDlEntry('Company', contact.company_name));
+            col1.appendChild(dl1);
+            grid.appendChild(col1);
+
+            // Column 2
+            const col2 = document.createElement('div');
+            const dl2 = document.createElement('dl');
+            dl2.className = 'space-y-2';
+            const statusDiv = document.createElement('div');
+            const statusDt = document.createElement('dt');
+            statusDt.className = 'text-sm font-medium text-gray-500';
+            statusDt.textContent = 'Status';
+            statusDiv.appendChild(statusDt);
+            const statusDd = document.createElement('dd');
+            statusDd.className = 'text-sm';
+            const statusSpan = document.createElement('span');
+            statusSpan.className = `inline-flex px-2 py-1 text-xs font-semibold rounded-full ${contact.disqualified ? 'bg-danger bg-opacity-20 text-danger' : 'bg-success bg-opacity-20 text-success'}`;
+            statusSpan.textContent = contact.disqualified ? 'Disqualified' : 'Active';
+            statusDd.appendChild(statusSpan);
+            statusDiv.appendChild(statusDd);
+            dl2.appendChild(statusDiv);
+            dl2.appendChild(createDlEntry('Created', new Date(contact.creation_date).toLocaleDateString()));
+            dl2.appendChild(createDlEntry('Last Updated', new Date(contact.update_date).toLocaleDateString()));
+            col2.appendChild(dl2);
+            grid.appendChild(col2);
+
+            bodyFlex.appendChild(grid);
+            body.appendChild(bodyFlex);
+
+            if (contact.description) {
+                const descDiv = document.createElement('div');
+                descDiv.className = 'mt-6';
+                const descH5 = document.createElement('h5');
+                descH5.className = 'text-sm font-medium text-gray-500';
+                descH5.textContent = 'Description';
+                descDiv.appendChild(descH5);
+                const descP = document.createElement('p');
+                descP.className = 'mt-1 text-sm text-gray-900';
+                descP.textContent = contact.description;
+                descDiv.appendChild(descP);
+                body.appendChild(descDiv);
+            }
+
+            const footer = document.createElement('div');
+            footer.className = 'mt-6 flex justify-end space-x-3';
+            const editButton = document.createElement('button');
+            editButton.dataset.action = 'contacts.editContact';
+            editButton.dataset.id = contact.id;
+            editButton.className = 'px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90';
+            editButton.textContent = 'Edit Contact';
+            footer.appendChild(editButton);
+            body.appendChild(footer);
+            
+            modalContent.appendChild(body);
+            modal.appendChild(modalContent);
             document.body.appendChild(modal);
+
         } catch (error) {
             this.app.showToast('Error loading contact details', 'error');
         }
@@ -616,120 +652,144 @@ if (typeof ContactManager !== 'undefined' && window.uxEnhancements) {
         }
     };
 
-    // 2. Enhance showContactForm with smart defaults
     ContactManager.prototype.showContactForm = function(contactId = null) {
         const isEdit = contactId !== null;
         const title = isEdit ? 'Edit Contact' : 'Add New Contact';
 
-        const modal = document.createElement('div');
-        modal.id = 'contact-modal';
-        modal.className = 'modal-overlay fade-in';
+        // --- Helper functions to create form elements safely ---
+        const createEl = (tag, classes = '', children = []) => {
+            const el = document.createElement(tag);
+            if (classes) el.className = classes;
+            children.forEach(child => {
+                if (typeof child === 'string') {
+                    el.appendChild(document.createTextNode(child));
+                } else if (child) {
+                    el.appendChild(child);
+                }
+            });
+            return el;
+        };
+
+        const createInputGroup = (id, label, input, hint = null) => {
+            const labelEl = createEl('label', 'input-label', [label + (input.required ? ' *' : '')]);
+            labelEl.htmlFor = id;
+            const children = [labelEl, input];
+            if (hint) {
+                children.push(createEl('p', 'input-hint', [hint]));
+            }
+            return createEl('div', 'input-group', children);
+        };
+
+        const createInput = (type, id, name, placeholder = '', required = false) => {
+            const input = createEl('input', 'input');
+            input.type = type;
+            input.id = id;
+            input.name = name;
+            if (placeholder) input.placeholder = placeholder;
+            if (required) input.required = true;
+            return input;
+        };
         
-        modal.innerHTML = `
-            <div class="modal w-full max-w-2xl scale-in">
-                <div class="modal-header">
-                    <h3 class="modal-title">${title}</h3>
-                    <button class="btn-icon btn-text" onclick="document.getElementById('contact-modal').remove()">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
+        // --- Build Modal ---
+        const modal = createEl('div', 'modal-overlay fade-in');
+        modal.id = 'contact-modal';
+
+        const modalContent = createEl('div', 'modal w-full max-w-2xl scale-in', [
+            // Header
+            createEl('div', 'modal-header', [
+                createEl('h3', 'modal-title', [title]),
+                (() => {
+                    const btn = createEl('button', 'btn-icon btn-text');
+                    btn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+                    btn.onclick = () => modal.remove();
+                    return btn;
+                })()
+            ]),
+            // Form
+            (() => {
+                const form = createEl('form', 'modal-body space-y-4');
+                form.id = 'contact-form';
                 
-                <form id="contact-form" class="modal-body space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="input-group">
-                            <label for="first_name" class="input-label">First Name *</label>
-                            <input type="text" id="first_name" name="first_name" required class="input">
-                        </div>
-                        <div class="input-group">
-                            <label for="last_name" class="input-label">Last Name *</label>
-                            <input type="text" id="last_name" name="last_name" required class="input">
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="title" class="input-label">Title</label>
-                        <input type="text" id="title" name="title" class="input" placeholder="e.g., Sales Manager">
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="input-group">
-                            <label for="email" class="input-label">Email</label>
-                            <input type="email" id="email" name="email" class="input" placeholder="email@example.com">
-                            <p class="input-hint">Will be converted to lowercase</p>
-                        </div>
-                        <div class="input-group">
-                            <label for="phone" class="input-label">Phone</label>
-                            <input type="tel" id="phone" name="phone" class="input" placeholder="+1234567890">
-                            <p class="input-hint">Will be cleaned to +digits format</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="company" class="input-label">Company</label>
-                        <select id="company" name="company" class="input select">
-                            <option value="">Select Company</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="description" class="input-label">Description</label>
-                        <textarea id="description" name="description" rows="3" class="input"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" id="disqualified" name="disqualified" class="checkbox">
-                        <label for="disqualified" class="text-sm">Mark as disqualified</label>
-                    </div>
-                </form>
+                form.appendChild(createEl('div', 'grid grid-cols-1 md:grid-cols-2 gap-4', [
+                    createInputGroup('first_name', 'First Name', createInput('text', 'first_name', 'first_name', '', true)),
+                    createInputGroup('last_name', 'Last Name', createInput('text', 'last_name', 'last_name', '', true))
+                ]));
+                form.appendChild(createInputGroup('title', 'Title', createInput('text', 'title', 'title', 'e.g., Sales Manager')));
+                form.appendChild(createEl('div', 'grid grid-cols-1 md:grid-cols-2 gap-4', [
+                    createInputGroup('email', 'Email', createInput('email', 'email', 'email', 'email@example.com'), 'Will be converted to lowercase'),
+                    createInputGroup('phone', 'Phone', createInput('tel', 'phone', 'phone', '+1234567890'), 'Will be cleaned to +digits format')
+                ]));
                 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('contact-modal').remove()">
-                        Cancel
-                    </button>
-                    <button type="submit" form="contact-form" class="btn btn-primary">
+                const companySelect = createEl('select', 'input select');
+                companySelect.id = 'company';
+                companySelect.name = 'company';
+                companySelect.appendChild(createEl('option', '', ['Select Company'])).value = '';
+                form.appendChild(createInputGroup('company', 'Company', companySelect));
+                
+                const textarea = createEl('textarea', 'input');
+                textarea.id = 'description';
+                textarea.name = 'description';
+                textarea.rows = 3;
+                form.appendChild(createInputGroup('description', 'Description', textarea));
+                
+                const checkbox = createInput('checkbox', 'disqualified', 'disqualified');
+                checkbox.className = 'checkbox';
+                const disqLabel = createEl('label', 'text-sm', ['Mark as disqualified']);
+                disqLabel.htmlFor = 'disqualified';
+                form.appendChild(createEl('div', 'flex items-center gap-2', [checkbox, disqLabel]));
+                
+                return form;
+            })(),
+            // Footer
+            createEl('div', 'modal-footer', [
+                (() => {
+                    const btn = createEl('button', 'btn btn-secondary', ['Cancel']);
+                    btn.type = 'button';
+                    btn.onclick = () => modal.remove();
+                    return btn;
+                })(),
+                (() => {
+                    const btn = createEl('button', 'btn btn-primary');
+                    btn.type = 'submit';
+                    btn.setAttribute('form', 'contact-form');
+                    const btnContent = `
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        ${isEdit ? 'Update' : 'Create'} Contact
+                        <span>${isEdit ? 'Update' : 'Create'} Contact</span>
                         ${!isEdit ? '<kbd class="ml-2">⌘S</kbd>' : ''}
-                    </button>
-                </div>
-            </div>
-        `;
-
+                    `;
+                    btn.innerHTML = btnContent;
+                    return btn;
+                })()
+            ])
+        ]);
+        modal.appendChild(modalContent);
         document.body.appendChild(modal);
         
-        // Load companies for dropdown
         this.loadCompaniesDropdown();
 
         const contactForm = document.getElementById('contact-form');
 
-        // Apply smart defaults for new contacts
         if (!isEdit) {
             const defaults = window.uxEnhancements.getSmartDefaults('contact', this.app.user?.id);
             window.uxEnhancements.applySmartDefaults(contactForm, defaults);
         }
 
-        // If editing, load contact data
         if (isEdit) {
             this.loadContactData(contactId);
         }
 
-        // Setup form submission
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             this.saveContact(contactId);
         });
 
-        // Setup form normalization and validation
         if (window.FormValidators) {
             window.FormValidators.setupFormNormalization(contactForm);
             window.FormValidators.setupFormValidation(contactForm);
         }
 
-        // Focus first input
         setTimeout(() => document.getElementById('first_name').focus(), 100);
     };
 

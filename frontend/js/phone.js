@@ -14,6 +14,33 @@ class PhoneManager {
         this.setupCallActions();
         this.loadRecentCalls();
         this.checkPhoneStatus();
+        this.setupTabs();
+    }
+
+    setupTabs() {
+        const tabs = document.querySelectorAll('.phone-tab');
+        const panels = document.querySelectorAll('.phone-tab-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'border-primary', 'text-primary');
+                    t.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                });
+                tab.classList.add('active', 'border-primary', 'text-primary');
+                tab.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+                panels.forEach(panel => {
+                    if (panel.id === `phone-panel-${tabId}`) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                });
+            });
+        });
     }
 
     setupKeypad() {
@@ -81,6 +108,14 @@ class PhoneManager {
             // Show calling state
             this.showCallingState(phoneNumber);
             
+            // --- MOCK FOR DEVELOPMENT ---
+            // The '/voip/call/' endpoint is not yet implemented.
+            // This simulates a successful call initiation.
+            console.log(`MOCK: Initiating call to ${phoneNumber}`);
+            const response = { id: `mock_call_${Date.now()}` };
+            
+            /*
+            // ORIGINAL CODE - Restore when backend is ready
             // Simulate API call to initiate call
             const response = await this.app.apiCall('/voip/call/', {
                 method: 'POST',
@@ -89,11 +124,16 @@ class PhoneManager {
                     action: 'dial'
                 })
             });
+            */
 
-            this.startCall(phoneNumber, response);
-            this.addToRecentCalls(phoneNumber, 'outbound');
+            // Simulate a short delay for call connection
+            setTimeout(() => {
+                this.startCall(phoneNumber, response);
+                this.addToRecentCalls(phoneNumber, 'outbound');
+            }, 1500); // 1.5 second delay to simulate connection time
 
         } catch (error) {
+            // This catch block will now only handle errors from the mocked process
             console.error('Call failed:', error);
             this.app.showToast('Call failed: ' + error.message, 'error');
             this.resetDialer();
@@ -106,11 +146,12 @@ class PhoneManager {
             startTime: new Date(),
             isMuted: false,
             isOnHold: false,
+            direction: callData.direction || 'outbound',
             ...callData
         };
 
         // Show active call interface
-        document.getElementById('phone-dialer').classList.add('hidden');
+        document.getElementById('phone-main-content').classList.add('hidden');
         document.getElementById('active-call').classList.remove('hidden');
 
         // Update call info
@@ -120,6 +161,8 @@ class PhoneManager {
         this.findContactByNumber(number).then(contact => {
             if (contact) {
                 document.getElementById('caller-name').textContent = contact.full_name;
+            } else {
+                document.getElementById('caller-name').textContent = 'Unknown Contact';
             }
         });
 
@@ -133,6 +176,8 @@ class PhoneManager {
     endCall() {
         if (!this.currentCall) return;
 
+        console.log("MOCK: Ending call", this.currentCall.id);
+        /*
         try {
             // API call to end call
             this.app.apiCall('/voip/call/', {
@@ -146,12 +191,16 @@ class PhoneManager {
         } catch (error) {
             console.error('Error ending call:', error);
         }
+        */
 
         // Stop timer
         if (this.callTimer) {
             clearInterval(this.callTimer);
             this.callTimer = null;
         }
+
+        // Log the call before clearing it
+        this.addToRecentCalls(this.currentCall.number, this.currentCall.direction || 'outbound');
 
         // Reset interface
         this.resetDialer();
@@ -182,6 +231,9 @@ class PhoneManager {
             this.app.showToast('Microphone unmuted', 'info');
         }
 
+        // MOCK: Simulate API call to toggle mute
+        console.log(`MOCK: Toggling mute to ${this.currentCall.isMuted}`);
+        /*
         // API call to toggle mute
         this.app.apiCall('/voip/call/', {
             method: 'POST',
@@ -191,6 +243,7 @@ class PhoneManager {
                 muted: this.currentCall.isMuted
             })
         }).catch(console.error);
+        */
     }
 
     toggleHold() {
@@ -213,6 +266,9 @@ class PhoneManager {
             this.app.showToast('Call resumed', 'info');
         }
 
+        // MOCK: Simulate API call to toggle hold
+        console.log(`MOCK: Toggling hold to ${this.currentCall.isOnHold}`);
+        /*
         // API call to toggle hold
         this.app.apiCall('/voip/call/', {
             method: 'POST',
@@ -222,6 +278,7 @@ class PhoneManager {
                 on_hold: this.currentCall.isOnHold
             })
         }).catch(console.error);
+        */
     }
 
     startCallTimer() {
@@ -236,7 +293,7 @@ class PhoneManager {
     }
 
     showCallingState(number) {
-        document.getElementById('phone-dialer').classList.add('hidden');
+        document.getElementById('phone-main-content').classList.add('hidden');
         document.getElementById('active-call').classList.remove('hidden');
         
         document.getElementById('caller-number').textContent = number;
@@ -248,7 +305,7 @@ class PhoneManager {
 
     resetDialer() {
         document.getElementById('active-call').classList.add('hidden');
-        document.getElementById('phone-dialer').classList.remove('hidden');
+        document.getElementById('phone-main-content').classList.remove('hidden');
         document.getElementById('phone-number').value = '';
     }
 
@@ -299,6 +356,24 @@ class PhoneManager {
     }
 
     async checkPhoneStatus() {
+        // --- MOCK FOR DEVELOPMENT ---
+        // This is mocked because the backend API endpoint /voip/status/ is not yet implemented.
+        // This ensures the phone widget is accessible for UI development.
+        this.isConnected = true;
+        if (this.isConnected) {
+            this.updatePhoneStatus('Ready to call');
+            const phoneStatusElement = document.getElementById('phone-status');
+            if (phoneStatusElement) {
+                phoneStatusElement.classList.remove('hidden');
+                phoneStatusElement.classList.add('flex');
+            }
+        } else {
+            this.updatePhoneStatus('Disconnected', 'text-danger-600');
+        }
+        // --- END MOCK ---
+
+        /*
+        // ORIGINAL CODE - Restore when backend is ready
         try {
             const status = await this.app.apiCall('/voip/status/');
             this.isConnected = status.connected;
@@ -314,6 +389,7 @@ class PhoneManager {
             this.isConnected = false;
             this.updatePhoneStatus('Error', 'text-danger-600');
         }
+        */
     }
 
     async findContactByNumber(number) {
@@ -325,40 +401,128 @@ class PhoneManager {
         }
     }
 
-    addToRecentCalls(number, direction = 'outbound') {
-        const call = {
+    async addToRecentCalls(number, direction = 'outbound') {
+        let contact = null;
+        try {
+            contact = await this.findContactByNumber(number);
+        } catch (e) {
+            console.warn("Could not find contact for number:", number, e);
+        }
+
+        const callData = {
             number: number,
             direction: direction,
-            timestamp: new Date(),
-            duration: this.currentCall ? Math.floor((new Date() - this.currentCall.startTime) / 1000) : 0
+            duration: this.currentCall ? Math.floor((new Date() - this.currentCall.startTime) / 1000) : 0,
+            contact: contact ? contact.id : null,
+            voip_call_id: this.currentCall ? this.currentCall.id : null, // Assuming this.currentCall.id holds the voip_call_id
         };
 
-        this.recentCalls.unshift(call);
-        this.recentCalls = this.recentCalls.slice(0, 10); // Keep only last 10 calls
-        
-        this.updateRecentCallsDisplay();
-        this.saveRecentCalls();
+        try {
+            // Send call log to backend
+            const response = await this.app.apiCall(window.CRM_CONFIG.ENDPOINTS.CALL_LOGS, {
+                method: 'POST',
+                body: JSON.stringify(callData)
+            });
+            // Add backend-persisted call to local recentCalls for immediate UI update
+            this.recentCalls.unshift({
+                ...response, // Use response from backend which includes timestamp and id
+                timestamp: new Date(response.timestamp) // Convert timestamp string to Date object
+            });
+            this.recentCalls = this.recentCalls.slice(0, 10); // Keep only last 10 calls
+            this.updateRecentCallsDisplay();
+        } catch (error) {
+            console.error('Error saving call log to backend, falling back to local storage:', error);
+            // Fallback to local storage if backend save fails
+            const call = {
+                number: number,
+                direction: direction,
+                timestamp: new Date(),
+                duration: callData.duration,
+                contact: contact ? contact.id : null,
+                voip_call_id: callData.voip_call_id,
+            };
+            this.recentCalls.unshift(call);
+            this.recentCalls = this.recentCalls.slice(0, 10); // Keep only last 10 calls
+            this.updateRecentCallsDisplay();
+            this._saveRecentCallsLocally(); // Use a private helper for local storage
+        }
+    }
+
+    _renderCallItem(call) {
+        const callItem = document.createElement('div');
+        callItem.className = 'flex items-center justify-between py-2 px-3 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg cursor-pointer';
+        callItem.addEventListener('click', () => {
+            this.dialNumber(call.number);
+        });
+
+        const flexDiv1 = document.createElement('div');
+        flexDiv1.className = 'flex items-center space-x-3';
+
+        const iconI = document.createElement('i');
+        // TODO: Update icon for missed calls when backend supports it (e.g. call.status === 'missed')
+        iconI.className = `fas fa-phone-${call.direction === 'inbound' ? 'volume' : 'alt'} text-xs text-gray-400`;
+        flexDiv1.appendChild(iconI);
+
+        const div2 = document.createElement('div');
+        const pNumber = document.createElement('p');
+        pNumber.className = 'text-sm font-medium text-gray-900';
+        pNumber.textContent = call.number;
+        div2.appendChild(pNumber);
+
+        const pTime = document.createElement('p');
+        pTime.className = 'text-xs text-gray-500';
+        pTime.textContent = this.formatCallTime(new Date(call.timestamp));
+        div2.appendChild(pTime);
+        flexDiv1.appendChild(div2);
+        callItem.appendChild(flexDiv1);
+
+        const button = document.createElement('button');
+        button.className = 'text-primary-600 hover:text-primary-700';
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.dialNumber(call.number);
+        });
+        const buttonIcon = document.createElement('i');
+        buttonIcon.className = 'fas fa-phone text-xs';
+        button.appendChild(buttonIcon);
+        callItem.appendChild(button);
+
+        return callItem;
     }
 
     updateRecentCallsDisplay() {
-        const container = document.getElementById('recent-calls');
-        if (!container) return;
+        const allContainer = document.getElementById('phone-panel-all');
+        const missedContainer = document.getElementById('phone-panel-missed');
+        if (!allContainer || !missedContainer) return;
 
-        container.innerHTML = this.recentCalls.slice(0, 5).map(call => `
-            <div class="flex items-center justify-between py-2 px-3 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg cursor-pointer" onclick="app.phone.dialNumber('${call.number}')">
-                <div class="flex items-center space-x-3">
-                    <i class="fas fa-phone-${call.direction === 'inbound' ? 'volume' : 'alt'} text-xs text-gray-400"></i>
-                    <div>
-                        <p class="text-sm font-medium text-gray-900">${call.number}</p>
-                        <p class="text-xs text-gray-500">${this.formatCallTime(call.timestamp)}</p>
-                    </div>
-                </div>
-                <button onclick="event.stopPropagation(); app.phone.dialNumber('${call.number}')" 
-                        class="text-primary-600 hover:text-primary-700">
-                    <i class="fas fa-phone text-xs"></i>
-                </button>
-            </div>
-        `).join('');
+        allContainer.innerHTML = '';
+        missedContainer.innerHTML = '';
+        // Resetting classes in case "No calls" message was shown
+        allContainer.className = 'space-y-2';
+        missedContainer.className = 'space-y-2';
+
+        const allCalls = this.recentCalls.slice(0, 10); // Show more calls now
+        // TODO: Replace this with a proper filter once the backend can identify missed calls.
+        // Currently, it just shows all inbound calls as a placeholder.
+        const missedCalls = this.recentCalls.filter(call => call.direction === 'inbound').slice(0, 10);
+
+        if (allCalls.length > 0) {
+            allCalls.forEach(call => {
+                allContainer.appendChild(this._renderCallItem(call));
+            });
+        } else {
+            allContainer.textContent = 'No recent calls.';
+            allContainer.className = 'text-center text-gray-500 text-sm py-4';
+        }
+
+        if (missedCalls.length > 0) {
+            missedCalls.forEach(call => {
+                missedContainer.appendChild(this._renderCallItem(call));
+            });
+        } else {
+            missedContainer.textContent = 'No missed calls.';
+            missedContainer.className = 'text-center text-gray-500 text-sm py-4';
+        }
     }
 
     dialNumber(number) {
@@ -380,7 +544,30 @@ class PhoneManager {
         return timestamp.toLocaleDateString();
     }
 
-    loadRecentCalls() {
+    async loadRecentCalls() {
+        try {
+            const response = await this.app.apiCall(window.CRM_CONFIG.ENDPOINTS.CALL_LOGS);
+            // Assuming backend returns a list of call logs
+            this.recentCalls = response.results.map(call => ({
+                ...call,
+                timestamp: new Date(call.timestamp)
+            }));
+            this.updateRecentCallsDisplay();
+        } catch (error) {
+            console.error('Error loading recent calls from backend, falling back to local storage:', error);
+            this._loadRecentCallsLocally();
+        }
+    }
+
+    _saveRecentCallsLocally() {
+        try {
+            localStorage.setItem('crm_recent_calls', JSON.stringify(this.recentCalls));
+        } catch (error) {
+            console.error('Error saving recent calls locally:', error);
+        }
+    }
+
+    _loadRecentCallsLocally() {
         const stored = localStorage.getItem('crm_recent_calls');
         if (stored) {
             try {
@@ -390,16 +577,8 @@ class PhoneManager {
                 }));
                 this.updateRecentCallsDisplay();
             } catch (error) {
-                console.error('Error loading recent calls:', error);
+                console.error('Error loading recent calls from local storage:', error);
             }
-        }
-    }
-
-    saveRecentCalls() {
-        try {
-            localStorage.setItem('crm_recent_calls', JSON.stringify(this.recentCalls));
-        } catch (error) {
-            console.error('Error saving recent calls:', error);
         }
     }
 
@@ -450,35 +629,77 @@ class PhoneManager {
         const modal = document.createElement('div');
         modal.id = 'incoming-call-modal';
         modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
-        
-        modal.innerHTML = `
-            <div class=\"bg-white rounded-lg shadow-xl p-6 max-w-sm w-full mx-4 dark:bg-slate-800\">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-phone text-primary-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">Incoming Call</h3>
-                    <p class="text-gray-600 mb-1">${callData.caller_name || 'Unknown Contact'}</p>
-                    <p class="text-sm text-gray-500 mb-6">${callData.number}</p>
-                    
-                    <div class="flex space-x-3">
-                        <button onclick="app.phone.declineCall('${callData.call_id}'); this.closest('#incoming-call-modal').remove();" 
-                                class="flex-1 bg-danger-600 hover:bg-danger-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                            <i class="fas fa-phone-slash mr-2"></i>Decline
-                        </button>
-                        <button onclick="app.phone.acceptCall('${callData.call_id}'); this.closest('#incoming-call-modal').remove();" 
-                                class="flex-1 bg-success-600 hover:bg-success-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                            <i class="fas fa-phone mr-2"></i>Accept
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
 
+        const modalContent = document.createElement('div');
+        modalContent.className = 'bg-white rounded-lg shadow-xl p-6 max-w-sm w-full mx-4 dark:bg-slate-800';
+
+        const textCenterDiv = document.createElement('div');
+        textCenterDiv.className = 'text-center';
+
+        const iconContainer = document.createElement('div');
+        iconContainer.className = 'w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4';
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-phone text-primary-600 text-2xl';
+        iconContainer.appendChild(icon);
+        textCenterDiv.appendChild(iconContainer);
+
+        const h3 = document.createElement('h3');
+        h3.className = 'text-lg font-medium text-gray-900 mb-2';
+        h3.textContent = 'Incoming Call';
+        textCenterDiv.appendChild(h3);
+
+        const pCallerName = document.createElement('p');
+        pCallerName.className = 'text-gray-600 mb-1';
+        pCallerName.textContent = callData.caller_name || 'Unknown Contact'; // XSS-safe
+        textCenterDiv.appendChild(pCallerName);
+
+        const pNumber = document.createElement('p');
+        pNumber.className = 'text-sm text-gray-500 mb-6';
+        pNumber.textContent = callData.number; // XSS-safe
+        textCenterDiv.appendChild(pNumber);
+
+        const flexSpaceXDiv = document.createElement('div');
+        flexSpaceXDiv.className = 'flex space-x-3';
+
+        const declineButton = document.createElement('button');
+        declineButton.className = 'flex-1 bg-danger-600 hover:bg-danger-700 text-white py-2 px-4 rounded-lg font-medium transition-colors';
+        declineButton.addEventListener('click', () => {
+            this.declineCall(callData.call_id);
+            modal.remove();
+        });
+        const declineIcon = document.createElement('i');
+        declineIcon.className = 'fas fa-phone-slash mr-2';
+        declineButton.appendChild(declineIcon);
+        declineButton.append('Decline');
+        flexSpaceXDiv.appendChild(declineButton);
+
+        const acceptButton = document.createElement('button');
+        acceptButton.className = 'flex-1 bg-success-600 hover:bg-success-700 text-white py-2 px-4 rounded-lg font-medium transition-colors';
+        acceptButton.addEventListener('click', () => {
+            this.acceptCall(callData);
+            modal.remove();
+        });
+        const acceptIcon = document.createElement('i');
+        acceptIcon.className = 'fas fa-phone mr-2';
+        acceptButton.appendChild(acceptIcon);
+        acceptButton.append('Accept');
+        flexSpaceXDiv.appendChild(acceptButton);
+
+        textCenterDiv.appendChild(flexSpaceXDiv);
+        modalContent.appendChild(textCenterDiv);
+        modal.appendChild(modalContent);
         document.body.appendChild(modal);
     }
 
-    acceptCall(callId) {
+    acceptCall(callData) {
+        console.log("MOCK: Accepting call", callData);
+        // MOCK: Simulate API call to accept call
+        const mockResponse = { number: callData.number, ...callData };
+        this.startCall(mockResponse.number, { id: callData.call_id, ...mockResponse });
+        // this.addToRecentCalls(mockResponse.number, 'inbound'); // This is now called in endCall
+
+        /*
+        // ORIGINAL CODE
         // API call to accept call
         this.app.apiCall('/voip/call/', {
             method: 'POST',
@@ -492,9 +713,13 @@ class PhoneManager {
         }).catch(error => {
             this.app.showToast('Error accepting call: ' + error.message, 'error');
         });
+        */
     }
 
     declineCall(callId) {
+        console.log("MOCK: Declining call", callId);
+        // MOCK: Simulate API call to decline call
+        /*
         // API call to decline call
         this.app.apiCall('/voip/call/', {
             method: 'POST',
@@ -505,6 +730,7 @@ class PhoneManager {
         }).catch(error => {
             console.error('Error declining call:', error);
         });
+        */
         
         this.updatePhoneStatus('Ready to call');
         this.app.showToast('Call declined', 'info');

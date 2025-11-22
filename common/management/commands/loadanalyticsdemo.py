@@ -74,6 +74,7 @@ class Command(BaseCommand):
                 amount = random.randint(200, 5000)
                 owner = random.choice(managers) if managers else None
                 ls = random.choice(sources) if sources else None
+                from uuid import uuid4
                 Deal.objects.create(
                     name=f'Demo deal {m}-{i}',
                     company=comp,
@@ -85,21 +86,28 @@ class Command(BaseCommand):
                     next_step='Initial contact',
                     next_step_date=dt.date(),
                     description=f'Source: {ls.name if ls else "n/a"}',
+                    ticket=f'AD-{uuid4().hex[:10]}',
                 )
                 created += 1
         return created
 
     def _gen_payments(self, months, per_month):
-        from crm.models import Payment, Company, Currency
+        from crm.models import Payment, Company, Currency, Deal
         created = 0
         comp = Company.objects.order_by('id').first()
         usd = Currency.objects.filter(name__icontains='US').first() or Currency.objects.first()
+        # choose a deal to attach payments to; create one if missing
+        base_deal = Deal.objects.order_by('id').first()
+        if base_deal is None and comp is not None:
+            base_deal = Deal.objects.create(name='Analytics Demo Deal', company=comp, amount=1000, currency=usd, next_step='Init', next_step_date=timezone.now().date())
         for m in range(months):
             for i in range(per_month):
                 dt = self._rand_date(m)
                 amount = random.randint(100, 3000)
+                if base_deal is None:
+                    continue
                 Payment.objects.create(
-                    company=comp,
+                    deal=base_deal,
                     amount=amount,
                     currency=usd,
                     payment_date=dt.date(),

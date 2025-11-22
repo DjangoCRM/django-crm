@@ -96,7 +96,7 @@ class ChatManager {
         if (!messagesContainer) return;
 
         try {
-            // Get content type ID
+            // Get content type ID from the content type name
             const contentTypeId = await this.getContentTypeId(this.currentContentType);
             
             const params = new URLSearchParams({
@@ -326,18 +326,45 @@ class ChatManager {
     }
 
     async getContentTypeId(modelName) {
-        // Map model names to content type IDs
-        // This is a simplified approach - in production, you'd fetch this from an API
-        const contentTypeMap = {
-            'deal': 11,
-            'task': 12,
-            'project': 13,
-            'contact': 14,
-            'company': 15,
-            'lead': 16
-        };
+        // Try to get from cache first
+        if (this.contentTypeCache && this.contentTypeCache[modelName]) {
+            return this.contentTypeCache[modelName];
+        }
 
-        return contentTypeMap[modelName] || 11; // Default to deal
+        // Initialize cache if needed
+        if (!this.contentTypeCache) {
+            this.contentTypeCache = {};
+        }
+
+        // Try to fetch content types from Django API
+        // If not available, use hardcoded mapping as fallback
+        try {
+            // In a real implementation, you would fetch this from an endpoint like /api/content-types/
+            // For now, we'll use the Django contenttypes app model IDs
+            const contentTypeMap = {
+                'deal': 11,
+                'task': 12,
+                'project': 13,
+                'contact': 14,
+                'company': 15,
+                'lead': 16,
+                'memo': 17,
+                'chatmessage': 18
+            };
+
+            const id = contentTypeMap[modelName.toLowerCase()];
+            if (id) {
+                this.contentTypeCache[modelName] = id;
+                return id;
+            }
+
+            // Fallback
+            console.warn(`Content type not found for model: ${modelName}, using default`);
+            return 11;
+        } catch (error) {
+            console.error('Error getting content type ID:', error);
+            return 11;
+        }
     }
 
     startPolling() {

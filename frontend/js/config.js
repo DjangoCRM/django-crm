@@ -12,6 +12,7 @@ window.CRM_CONFIG = {
     ENDPOINTS: {
         AUTH: 'auth/token/',
         USER_PROFILE: 'users/me/',
+        USERS: 'users/',
         CONTACTS: 'contacts/',
         COMPANIES: 'companies/',
         DEALS: 'deals/',
@@ -20,9 +21,15 @@ window.CRM_CONFIG = {
         PROJECTS: 'projects/',
         MEMOS: 'memos/',
         CHAT_MESSAGES: 'chat-messages/',
+        STAGES: 'stages/',
+        TASK_STAGES: 'task-stages/',
+        PROJECT_STAGES: 'project-stages/',
+        CRM_TAGS: 'crm-tags/',
+        TASK_TAGS: 'task-tags/',
         DASHBOARD_ANALYTICS: 'dashboard/analytics/',
         DASHBOARD_ACTIVITY: 'dashboard/activity/',
-        DASHBOARD_STATS: 'dashboard/stats/'
+        DASHBOARD_STATS: 'dashboard/stats/',
+        CALL_LOGS: 'call-logs/'
     },
 
     // List of available API endpoints in the Django backend
@@ -38,6 +45,7 @@ window.CRM_CONFIG = {
         'dashboard/analytics/',
         'dashboard/activity/',
         'dashboard/stats/',
+        'call-logs/',
     ],
     
     // Dashboard settings

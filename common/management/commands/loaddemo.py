@@ -106,7 +106,9 @@ class Command(BaseCommand):
         created += int(was)
         # Payment (if model exists fields)
         try:
-            pay, was = Payment.objects.get_or_create(company=comp, amount=500, defaults={'currency': 'USD'})
+            from crm.models import Currency
+            usd = Currency.objects.filter(name__icontains='US').first() or Currency.objects.first()
+            pay, was = Payment.objects.get_or_create(deal=deal, amount=500, defaults={'currency': usd})
             created += int(was)
         except Exception:
             pass

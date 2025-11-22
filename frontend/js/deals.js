@@ -11,43 +11,83 @@ class DealManager {
     async loadDeals() {
         this.kanban = false;
         const section = document.getElementById('deals-section');
-        section.innerHTML = `
-            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-xl font-semibold text-gray-900">Deals</h2>
-                        <div class="flex space-x-2">
-                            <select id="deal-stage-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-                                <option value="">All Stages</option>
-                            </select>
-                            <input type="text" id="deal-search" placeholder="Search deals..." 
-                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-                            <button onclick="app.deals.showDealForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
-                                Add Deal
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-2 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-                   <div class="flex items-center space-x-2">
-                       <button id="deals-list-btn" class="px-3 py-1.5 rounded bg-primary-600 text-white text-sm">List</button>
-                       <button id="deals-kanban-btn" class="px-3 py-1.5 rounded bg-gray-200 text-sm">Kanban</button>
-                   </div>
-                   <div class="text-sm text-gray-500" id="deals-info"></div>
-                </div>
-                <div class=\"px-6 py-2 border-t border-gray-100 flex items-center justify-between\">
-                    <div class=\"flex items-center gap-3\">
-                      <label class=\"inline-flex items-center gap-2\"><input id=\"deals-select-all\" type=\"checkbox\" class=\"rounded\" /><span class=\"text-sm text-gray-600\">Select all</span></label>
-                      <button onclick=\"app.deals.openBulkAssignDialog()\" class=\"px-3 py-1.5 bg-blue-600 text-white rounded text-sm\">Bulk Assign</button>
-                      <button onclick=\"app.deals.openBulkTagDialog()\" class=\"px-3 py-1.5 bg-indigo-600 text-white rounded text-sm\">Bulk Tag</button>
-                    </div>
-                    <div class=\"text-sm text-gray-500\">Selected: <span id=\"deals-selected-count\">0</span></div>
-                 </div>
-                 <div id=\"deals-content\" class=\"p-6\">
-                    <div class="htmx-indicator">Loading deals...</div>
-                </div>
-            </div>
-        `;
+        section.innerHTML = ''; // Clear existing content
+
+        const createEl = (tag, classes = '', children = []) => {
+            const el = document.createElement(tag);
+            if (classes) el.className = classes;
+            children.forEach(child => {
+                if (typeof child === 'string') el.appendChild(document.createTextNode(child));
+                else if (child) el.appendChild(child);
+            });
+            return el;
+        };
+
+        const container = createEl('div', 'bg-white rounded-lg shadow dark:bg-slate-800');
+        
+        const headerDiv = createEl('div', 'px-6 py-4 border-b border-gray-200');
+        const headerFlex = createEl('div', 'flex items-center justify-between');
+        const h2 = createEl('h2', 'text-xl font-semibold text-gray-900', ['Deals']);
+        
+        const controlsDiv = createEl('div', 'flex space-x-2');
+        const stageFilterSelect = createEl('select', 'px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500');
+        stageFilterSelect.id = 'deal-stage-filter';
+        const defaultOption = createEl('option', '', ['All Stages']);
+        defaultOption.value = '';
+        stageFilterSelect.appendChild(defaultOption);
+
+        const searchInput = createEl('input', 'px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500');
+        searchInput.type = 'text';
+        searchInput.id = 'deal-search';
+        searchInput.placeholder = 'Search deals...';
+        
+        const addButton = createEl('button', 'bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg', ['Add Deal']);
+        addButton.onclick = () => this.showDealForm();
+
+        controlsDiv.append(stageFilterSelect, searchInput, addButton);
+        headerFlex.append(h2, controlsDiv);
+        headerDiv.appendChild(headerFlex);
+        container.appendChild(headerDiv);
+
+        const viewToggleDiv = createEl('div', 'px-6 py-2 border-t border-gray-100 bg-gray-50 flex items-center justify-between');
+        const viewToggleLeft = createEl('div', 'flex items-center space-x-2');
+        const listBtn = createEl('button', 'px-3 py-1.5 rounded bg-primary-600 text-white text-sm', ['List']);
+        listBtn.id = 'deals-list-btn';
+        const kanbanBtn = createEl('button', 'px-3 py-1.5 rounded bg-gray-200 text-sm', ['Kanban']);
+        kanbanBtn.id = 'deals-kanban-btn';
+        viewToggleLeft.append(listBtn, kanbanBtn);
+        const dealsInfoDiv = createEl('div', 'text-sm text-gray-500');
+        dealsInfoDiv.id = 'deals-info';
+        viewToggleDiv.append(viewToggleLeft, dealsInfoDiv);
+        container.appendChild(viewToggleDiv);
+
+        const bulkActionsDiv = createEl('div', 'px-6 py-2 border-t border-gray-100 flex items-center justify-between');
+        const bulkLeft = createEl('div', 'flex items-center gap-3');
+        const selectAllLabel = createEl('label', 'inline-flex items-center gap-2');
+        const selectAllCheckbox = createEl('input', 'rounded');
+        selectAllCheckbox.id = 'deals-select-all';
+        selectAllCheckbox.type = 'checkbox';
+        selectAllLabel.append(selectAllCheckbox, createEl('span', 'text-sm text-gray-600', ['Select all']));
+        
+        const bulkAssignBtn = createEl('button', 'px-3 py-1.5 bg-blue-600 text-white rounded text-sm', ['Bulk Assign']);
+        bulkAssignBtn.onclick = () => this.openBulkAssignDialog();
+        const bulkTagBtn = createEl('button', 'px-3 py-1.5 bg-indigo-600 text-white rounded text-sm', ['Bulk Tag']);
+        bulkTagBtn.onclick = () => this.openBulkTagDialog();
+        bulkLeft.append(selectAllLabel, bulkAssignBtn, bulkTagBtn);
+        
+        const selectedCountDiv = createEl('div', 'text-sm text-gray-500', ['Selected: ']);
+        const selectedCountSpan = createEl('span', '', ['0']);
+        selectedCountSpan.id = 'deals-selected-count';
+        selectedCountDiv.appendChild(selectedCountSpan);
+        bulkActionsDiv.append(bulkLeft, selectedCountDiv);
+        container.appendChild(bulkActionsDiv);
+
+        const contentDiv = createEl('div', 'p-6');
+        contentDiv.id = 'deals-content';
+        contentDiv.appendChild(createEl('div', 'htmx-indicator', ['Loading deals...']));
+        container.appendChild(contentDiv);
+
+        section.appendChild(container);
 
         document.getElementById('deal-search').addEventListener('input', (e) => {
             this.searchDeals(e.target.value);
