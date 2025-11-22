@@ -43,20 +43,27 @@ class SendSMSView(View):
         backoff_sec = getattr(settings, 'SMS_SEND_BACKOFF_SEC', 2)
 
         def send_once():
+            provider_id = None
+            raw = None
             if acc.type == 'eskiz':
                 token = acc.eskiz_token or eskiz_auth(acc.eskiz_email, acc.eskiz_password)
                 if token:
-                    return eskiz_send_sms(token, acc.eskiz_from, to, text), 'sent' if ok else 'failed'
-                return False, 'auth failed'
+                    ok, provider_id, raw = eskiz_send_sms(token, acc.eskiz_from, to, text)
+                    return ok, ('sent' if ok else 'failed'), provider_id, raw
+                return False, 'auth failed', None, None
             elif acc.type == 'playmobile':
                 if acc.playmobile_auth_type == 'token' and acc.playmobile_token:
-                    return playmobile_send_sms_token(acc.playmobile_api_url, acc.playmobile_token, acc.playmobile_from, to, text), ''
-                return playmobile_send_sms_basic(acc.playmobile_api_url, acc.playmobile_login, acc.playmobile_password, acc.playmobile_from, to, text), ''
-            return False, 'unsupported'
+                    ok, provider_id, raw = playmobile_send_sms_token(acc.playmobile_api_url, acc.playmobile_token, acc.playmobile_from, to, text)
+                else:
+                    ok, provider_id, raw = playmobile_send_sms_basic(acc.playmobile_api_url, acc.playmobile_login, acc.playmobile_password, acc.playmobile_from, to, text)
+                return ok, ('sent' if ok else 'failed'), provider_id, raw
+            return False, 'unsupported', None, None
 
         attempt = 0
+        provider_id = None
+        raw = None
         while attempt <= max_retries and not ok:
-            ok, detail = send_once()
+            ok, detail, provider_id, raw = send_once()
             if ok:
                 break
             time.sleep(backoff_sec * (attempt + 1))
@@ -66,11 +73,11 @@ class SendSMSView(View):
             ExternalMessage.objects.create(
                 channel=acc,
                 direction='out',
-                external_id='',
+                external_id=provider_id or '',
                 sender_id=acc.playmobile_from if acc.type == 'playmobile' else acc.eskiz_from,
                 recipient_id=to,
                 text=text,
-                raw={'attempts': attempt, 'provider': acc.type},
+                raw=(raw or {}) | {'attempts': attempt, 'provider': acc.type},
                 status='SENT' if ok else 'FAILED'
             )
         except Exception:
