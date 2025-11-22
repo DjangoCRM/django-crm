@@ -10,6 +10,8 @@ class ChannelAccount(models.Model):
     TYPE_CHOICES = (
         ('telegram', 'Telegram'),
         ('instagram', 'Instagram'),
+        ('eskiz', 'Eskiz SMS'),
+        ('playmobile', 'PlayMobile'),
     )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, db_index=True)
     name = models.CharField(max_length=150, default='', blank=True)
@@ -25,6 +27,17 @@ class ChannelAccount(models.Model):
     ig_page_id = models.CharField(max_length=255, default='', blank=True)
     ig_page_access_token = models.CharField(max_length=500, default='', blank=True)
     ig_verify_token = models.CharField(max_length=255, default='', blank=True)
+
+    # Eskiz SMS
+    eskiz_email = models.CharField(max_length=255, default='', blank=True)
+    eskiz_password = models.CharField(max_length=255, default='', blank=True)
+    eskiz_token = models.CharField(max_length=500, default='', blank=True)
+    eskiz_from = models.CharField(max_length=20, default='', blank=True)
+
+    # PlayMobile
+    playmobile_login = models.CharField(max_length=255, default='', blank=True)
+    playmobile_password = models.CharField(max_length=255, default='', blank=True)
+    playmobile_from = models.CharField(max_length=20, default='', blank=True)
     
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)

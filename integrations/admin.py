@@ -28,6 +28,12 @@ class ChannelAccountAdmin(admin.ModelAdmin):
         (_('Instagram'), {'fields': (
             'ig_app_id', 'ig_app_secret', 'ig_page_id', 'ig_page_access_token', 'ig_verify_token'
         )}),
+        (_('Eskiz SMS'), {'fields': (
+            'eskiz_email', 'eskiz_password', 'eskiz_token', 'eskiz_from'
+        )}),
+        (_('PlayMobile'), {'fields': (
+            'playmobile_login', 'playmobile_password', 'playmobile_from'
+        )}),
     )
 
     def get_form(self, request, obj=None, **kwargs):
@@ -52,6 +58,21 @@ class ChannelAccountAdmin(admin.ModelAdmin):
             ht['name'].help_text = _('Friendly name to distinguish multiple accounts.')
         if 'type' in ht:
             ht['type'].help_text = _('Select the integration channel type.')
+        # Eskiz/PlayMobile
+        if 'eskiz_email' in ht:
+            ht['eskiz_email'].help_text = _('Eskiz account email.')
+        if 'eskiz_password' in ht:
+            ht['eskiz_password'].help_text = _('Eskiz account password. Not stored if token is set.')
+        if 'eskiz_token' in ht:
+            ht['eskiz_token'].help_text = _('Eskiz API token (optional if email/password provided).')
+        if 'eskiz_from' in ht:
+            ht['eskiz_from'].help_text = _('Sender name (from).')
+        if 'playmobile_login' in ht:
+            ht['playmobile_login'].help_text = _('PlayMobile API login.')
+        if 'playmobile_password' in ht:
+            ht['playmobile_password'].help_text = _('PlayMobile API password.')
+        if 'playmobile_from' in ht:
+            ht['playmobile_from'].help_text = _('Sender name (from).')
         return form
 
     def telegram_webhook_url(self, obj):
