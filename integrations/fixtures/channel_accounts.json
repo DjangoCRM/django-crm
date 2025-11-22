@@ -9,7 +9,9 @@
       "eskiz_email": "demo@example.com",
       "eskiz_password": "demo-password",
       "eskiz_token": "",
-      "eskiz_from": "4546"
+      "eskiz_from": "4546",
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -25,7 +27,9 @@
       "playmobile_token": "",
       "playmobile_login": "demo_login",
       "playmobile_password": "demo_password",
-      "playmobile_from": "MyBrand"
+      "playmobile_from": "MyBrand",
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
     }
   }
 ]
