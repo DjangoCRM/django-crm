@@ -143,6 +143,33 @@ class OnlinePBXWebHook(View):
             )
             created += 1
 
+        # Mirror event into Chat hub (Lead and, if available, Request)
+        try:
+            from chat.models import ChatMessage
+            from django.contrib.contenttypes.models import ContentType
+            if lead or contact:
+                obj = contact or lead
+                ChatMessage.objects.create(
+                    content_type=ContentType.objects.get_for_model(obj.__class__),
+                    object_id=obj.id,
+                    content=f"[OnlinePBX] Incoming call from {caller_norm or caller}",
+                )
+                # Link to most relevant Request if exists
+                from crm.models import Request as Req
+                req = None
+                if hasattr(obj, 'request_set'):
+                    req = obj.request_set.order_by('-id').first()
+                if not req and deal and getattr(deal, 'request_id', None):
+                    req = deal.request
+                if req:
+                    ChatMessage.objects.create(
+                        content_type=ContentType.objects.get_for_model(Req),
+                        object_id=req.id,
+                        content=f"[OnlinePBX] Incoming call from {caller_norm or caller}",
+                    )
+        except Exception:
+            pass
+
         return JsonResponse({
             'status': 'ok',
             'created': created,
