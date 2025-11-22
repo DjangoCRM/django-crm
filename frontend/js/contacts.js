@@ -39,7 +39,7 @@ class ContactManager {
     async loadContactsList(searchTerm = '') {
         try {
             const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
-            const contacts = await this.app.apiCall(`/contacts/?${searchParam}`);
+            const contacts = await this.app.apiCall(`/v1/contacts/?${searchParam}`);
             const content = document.getElementById('contacts-content');
             
             if (!contacts.results || contacts.results.length === 0) {
@@ -252,7 +252,7 @@ class ContactManager {
 
     async loadCompaniesDropdown() {
         try {
-            const companies = await this.app.apiCall('/companies/');
+            const companies = await this.app.apiCall('/v1/companies/');
             const companySelect = document.getElementById('company');
             
             if (companies.results) {
@@ -270,7 +270,7 @@ class ContactManager {
 
     async loadContactData(contactId) {
         try {
-            const contact = await this.app.apiCall(`/contacts/${contactId}/`);
+            const contact = await this.app.apiCall(`/v1/contacts/${contactId}/`);
             
             // Fill form fields
             const fields = ['first_name', 'last_name', 'title', 'email', 'phone', 'description'];
@@ -308,7 +308,7 @@ class ContactManager {
 
         try {
             const method = contactId ? 'PUT' : 'POST';
-            const url = contactId ? `/contacts/${contactId}/` : '/contacts/';
+            const url = contactId ? `/v1/contacts/${contactId}/` : '/v1/contacts/';
             
             await this.app.apiCall(url, {
                 method: method,
@@ -333,7 +333,7 @@ class ContactManager {
         }
 
         try {
-            await this.app.apiCall(`/contacts/${contactId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/contacts/${contactId}/`, { method: 'DELETE' });
             this.loadContactsList();
             this.app.showToast('Contact deleted successfully', 'success');
         } catch (error) {
@@ -343,7 +343,7 @@ class ContactManager {
 
     async viewContact(contactId) {
         try {
-            const contact = await this.app.apiCall(`/contacts/${contactId}/`);
+            const contact = await this.app.apiCall(`/v1/contacts/${contactId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'contact-view-modal';

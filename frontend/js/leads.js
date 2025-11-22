@@ -258,7 +258,7 @@ class LeadManager {
 
     async loadLeadData(leadId) {
         try {
-            const lead = await this.app.apiCall(`/leads/${leadId}/`);
+            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
             
             const fields = ['first_name', 'last_name', 'email', 'phone', 'company_name', 'website', 'description'];
             fields.forEach(field => {
@@ -310,7 +310,7 @@ class LeadManager {
         }
 
         try {
-            await this.app.apiCall(`/leads/${leadId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/leads/${leadId}/`, { method: 'DELETE' });
             this.loadLeadsList();
             this.app.showToast('Lead deleted successfully', 'success');
         } catch (error) {
@@ -324,7 +324,7 @@ class LeadManager {
         }
 
         try {
-            const lead = await this.app.apiCall(`/leads/${leadId}/`);
+            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
             
             // Create contact from lead data
             const contactData = {
@@ -341,13 +341,13 @@ class LeadManager {
                 contactData.description = (contactData.description || '') + `\nCompany: ${lead.company_name}`;
             }
 
-            await this.app.apiCall('/contacts/', {
+            await this.app.apiCall('/v1/contacts/', {
                 method: 'POST',
                 body: JSON.stringify(contactData)
             });
 
             // Mark lead as converted (you might want to add a field for this)
-            await this.app.apiCall(`/leads/${leadId}/`, {
+            await this.app.apiCall(`/v1/leads/${leadId}/`, {
                 method: 'PATCH',
                 body: JSON.stringify({ disqualified: true })
             });
@@ -361,7 +361,7 @@ class LeadManager {
 
     async viewLead(leadId) {
         try {
-            const lead = await this.app.apiCall(`/leads/${leadId}/`);
+            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'lead-view-modal';

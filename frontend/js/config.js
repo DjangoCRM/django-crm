@@ -32,14 +32,14 @@ const CRM_CONFIG = {
     
     // Endpoints
     ENDPOINTS: {
-        AUTH: '/auth/token/',
-        USER_PROFILE: '/users/me/',
-        CONTACTS: '/contacts/',
-        COMPANIES: '/companies/',
-        LEADS: '/leads/',
-        DEALS: '/deals/',
-        TASKS: '/tasks/',
-        PROJECTS: '/projects/',
+        AUTH: '/v1/auth/token/',
+        USER_PROFILE: '/v1/users/me/',
+        CONTACTS: '/v1/contacts/',
+        COMPANIES: '/v1/companies/',
+        LEADS: '/v1/leads/',
+        DEALS: '/v1/deals/',
+        TASKS: '/v1/tasks/',
+        PROJECTS: '/v1/projects/',
         VOIP_STATUS: '/voip/status/',
         VOIP_CALL: '/voip/call/'
     }

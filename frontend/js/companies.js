@@ -38,7 +38,7 @@ class CompanyManager {
     async loadCompaniesList(searchTerm = '') {
         try {
             const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
-            const companies = await this.app.apiCall(`/companies/?${searchParam}`);
+            const companies = await this.app.apiCall(`/v1/companies/?${searchParam}`);
             const content = document.getElementById('companies-content');
             
             if (!companies.results || companies.results.length === 0) {
@@ -242,7 +242,7 @@ class CompanyManager {
 
     async loadCompanyData(companyId) {
         try {
-            const company = await this.app.apiCall(`/companies/${companyId}/`);
+            const company = await this.app.apiCall(`/v1/companies/${companyId}/`);
             
             const fields = ['full_name', 'website', 'phone', 'email', 'city_name', 'address', 'description'];
             fields.forEach(field => {
@@ -277,7 +277,7 @@ class CompanyManager {
 
         try {
             const method = companyId ? 'PUT' : 'POST';
-            const url = companyId ? `/companies/${companyId}/` : '/companies/';
+            const url = companyId ? `/v1/companies/${companyId}/` : '/v1/companies/';
             
             await this.app.apiCall(url, {
                 method: method,
@@ -302,7 +302,7 @@ class CompanyManager {
         }
 
         try {
-            await this.app.apiCall(`/companies/${companyId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/companies/${companyId}/`, { method: 'DELETE' });
             this.loadCompaniesList();
             this.app.showToast('Company deleted successfully', 'success');
         } catch (error) {
@@ -312,7 +312,7 @@ class CompanyManager {
 
     async viewCompany(companyId) {
         try {
-            const company = await this.app.apiCall(`/companies/${companyId}/`);
+            const company = await this.app.apiCall(`/v1/companies/${companyId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'company-view-modal';

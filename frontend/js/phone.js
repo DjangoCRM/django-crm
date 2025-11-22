@@ -318,7 +318,7 @@ class PhoneManager {
 
     async findContactByNumber(number) {
         try {
-            const response = await this.app.apiCall(`/contacts/?phone=${encodeURIComponent(number)}`);
+            const response = await this.app.apiCall(`/v1/contacts/?phone=${encodeURIComponent(number)}`);
             return response.results && response.results.length > 0 ? response.results[0] : null;
         } catch (error) {
             return null;

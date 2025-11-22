@@ -315,7 +315,7 @@ class ProjectManager {
 
     async loadProjectFormDropdowns() {
         try {
-            const stages = await this.app.apiCall('/project-stages/');
+            const stages = await this.app.apiCall('/v1/project-stages/');
 
             // Load stages
             const stageSelect = document.getElementById('stage');
@@ -334,7 +334,7 @@ class ProjectManager {
 
     async loadProjectData(projectId) {
         try {
-            const project = await this.app.apiCall(`/projects/${projectId}/`);
+            const project = await this.app.apiCall(`/v1/projects/${projectId}/`);
             
             const fields = ['name', 'description', 'next_step', 'note', 'start_date', 'due_date', 'next_step_date', 'priority'];
             fields.forEach(field => {
@@ -396,7 +396,7 @@ class ProjectManager {
         }
 
         try {
-            await this.app.apiCall(`/projects/${projectId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/projects/${projectId}/`, { method: 'DELETE' });
             this.loadProjectsList();
             this.app.showToast('Project deleted successfully', 'success');
         } catch (error) {
@@ -406,7 +406,7 @@ class ProjectManager {
 
     async viewProject(projectId) {
         try {
-            const project = await this.app.apiCall(`/projects/${projectId}/`);
+            const project = await this.app.apiCall(`/v1/projects/${projectId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'project-view-modal';

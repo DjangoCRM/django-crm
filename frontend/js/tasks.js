@@ -312,8 +312,8 @@ class TaskManager {
     async loadTaskFormDropdowns() {
         try {
             const [projects, stages] = await Promise.all([
-                this.app.apiCall('/projects/'),
-                this.app.apiCall('/task-stages/')
+                this.app.apiCall('/v1/projects/'),
+                this.app.apiCall('/v1/task-stages/')
             ]);
 
             // Load projects
@@ -344,7 +344,7 @@ class TaskManager {
 
     async loadTaskData(taskId) {
         try {
-            const task = await this.app.apiCall(`/tasks/${taskId}/`);
+            const task = await this.app.apiCall(`/v1/tasks/${taskId}/`);
             
             const fields = ['name', 'description', 'next_step', 'note', 'due_date', 'next_step_date', 'priority'];
             fields.forEach(field => {
@@ -407,7 +407,7 @@ class TaskManager {
         }
 
         try {
-            await this.app.apiCall(`/tasks/${taskId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/tasks/${taskId}/`, { method: 'DELETE' });
             this.loadTasksList();
             this.app.showToast('Task deleted successfully', 'success');
         } catch (error) {
@@ -418,7 +418,7 @@ class TaskManager {
     async markCompleted(taskId) {
         try {
             // Get completed stage
-            const stages = await this.app.apiCall('/task-stages/');
+            const stages = await this.app.apiCall('/v1/task-stages/');
             const completedStage = stages.results?.find(stage => stage.done === true);
             
             if (!completedStage) {
@@ -426,7 +426,7 @@ class TaskManager {
                 return;
             }
 
-            await this.app.apiCall(`/tasks/${taskId}/`, {
+            await this.app.apiCall(`/v1/tasks/${taskId}/`, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     stage: completedStage.id,
@@ -443,7 +443,7 @@ class TaskManager {
 
     async viewTask(taskId) {
         try {
-            const task = await this.app.apiCall(`/tasks/${taskId}/`);
+            const task = await this.app.apiCall(`/v1/tasks/${taskId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'task-view-modal';

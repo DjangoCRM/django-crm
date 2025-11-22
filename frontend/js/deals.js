@@ -45,7 +45,7 @@ class DealManager {
 
     async loadStages() {
         try {
-            const stages = await this.app.apiCall('/stages/');
+            const stages = await this.app.apiCall('/v1/stages/');
             const stageFilter = document.getElementById('deal-stage-filter');
             
             if (stages.results) {
@@ -314,9 +314,9 @@ class DealManager {
     async loadDealFormDropdowns() {
         try {
             const [stages, companies, contacts] = await Promise.all([
-                this.app.apiCall('/stages/'),
-                this.app.apiCall('/companies/'),
-                this.app.apiCall('/contacts/')
+                this.app.apiCall('/v1/stages/'),
+                this.app.apiCall('/v1/companies/'),
+                this.app.apiCall('/v1/contacts/')
             ]);
 
             // Load stages
@@ -358,7 +358,7 @@ class DealManager {
 
     async loadDealData(dealId) {
         try {
-            const deal = await this.app.apiCall(`/deals/${dealId}/`);
+            const deal = await this.app.apiCall(`/v1/deals/${dealId}/`);
             
             const fields = ['name', 'amount', 'probability', 'next_step', 'description', 'next_step_date'];
             fields.forEach(field => {
@@ -424,7 +424,7 @@ class DealManager {
         }
 
         try {
-            await this.app.apiCall(`/deals/${dealId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/v1/deals/${dealId}/`, { method: 'DELETE' });
             this.loadDealsList();
             this.app.showToast('Deal deleted successfully', 'success');
         } catch (error) {
@@ -434,7 +434,7 @@ class DealManager {
 
     async viewDeal(dealId) {
         try {
-            const deal = await this.app.apiCall(`/deals/${dealId}/`);
+            const deal = await this.app.apiCall(`/v1/deals/${dealId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'deal-view-modal';

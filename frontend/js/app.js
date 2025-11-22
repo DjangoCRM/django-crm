@@ -80,7 +80,7 @@ class CRMApp {
         }
 
         try {
-            const response = await this.apiCall('/users/me/');
+            const response = await this.apiCall('/v1/users/me/');
             this.currentUser = response;
             document.getElementById('auth-status').innerHTML = 
                 `<div class="flex items-center space-x-2">
@@ -104,11 +104,11 @@ class CRMApp {
     async updateSidebarCounts() {
         try {
             const [contacts, companies, leads, deals, tasks] = await Promise.all([
-                this.apiCall('/contacts/?limit=1'),
-                this.apiCall('/companies/?limit=1'),
-                this.apiCall('/leads/?limit=1'),
-                this.apiCall('/deals/?limit=1'),
-                this.apiCall('/tasks/?limit=1')
+                this.apiCall('/v1/contacts/?limit=1'),
+                this.apiCall('/v1/companies/?limit=1'),
+                this.apiCall('/v1/leads/?limit=1'),
+                this.apiCall('/v1/deals/?limit=1'),
+                this.apiCall('/v1/tasks/?limit=1')
             ]);
 
             document.getElementById('contacts-count').textContent = contacts.count || 0;
@@ -126,7 +126,7 @@ class CRMApp {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetch(`${this.apiBase}/auth/token/`, {
+            const response = await fetch(`${this.apiBase}/v1/auth/token/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -394,10 +394,10 @@ class CRMApp {
 
         try {
             const [contacts, companies, deals, tasks] = await Promise.all([
-                this.apiCall('/contacts/?limit=5'),
-                this.apiCall('/companies/?limit=5'),
-                this.apiCall('/deals/?limit=5'),
-                this.apiCall('/tasks/?limit=5')
+                this.apiCall('/v1/contacts/?limit=5'),
+                this.apiCall('/v1/companies/?limit=5'),
+                this.apiCall('/v1/deals/?limit=5'),
+                this.apiCall('/v1/tasks/?limit=5')
             ]);
 
             content.innerHTML = `
