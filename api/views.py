@@ -44,9 +44,29 @@ class CallLogViewSet(viewsets.ModelViewSet):
     """API endpoint to view and create call logs."""
     serializer_class = CallLogSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['number']
+    ordering_fields = ['timestamp', 'duration']
 
     def get_queryset(self):
-        return self.request.user.call_logs.all().order_by('-timestamp')
+        qs = self.request.user.call_logs.all().order_by('-timestamp')
+        params = self.request.query_params
+        # Filter by direction
+        direction = params.get('direction')
+        if direction in ('inbound', 'outbound'):
+            qs = qs.filter(direction=direction)
+        # Filter by number (contains)
+        number = params.get('number')
+        if number:
+            qs = qs.filter(number__icontains=number)
+        # Date range
+        date_from = _norm_date(params.get('date_from'))
+        date_to = _norm_date(params.get('date_to'))
+        if date_from:
+            qs = qs.filter(timestamp__date__gte=date_from)
+        if date_to:
+            qs = qs.filter(timestamp__date__lte=date_to)
+        return qs
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
