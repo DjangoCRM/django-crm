@@ -124,6 +124,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'settings',
     'api',
+    'integrations',
 ]
 
 MIDDLEWARE = [
