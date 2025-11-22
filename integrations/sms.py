@@ -1,10 +1,22 @@
 from __future__ import annotations
 
 import requests
+try:
+    from eskiz_sms.client import EskizSMS
+except Exception:
+    EskizSMS = None
 from typing import Optional
 
 
 def eskiz_auth(email: str, password: str) -> Optional[str]:
+    if EskizSMS:
+        try:
+            client = EskizSMS(email=email, password=password)
+            token = client.login()
+            return token
+        except Exception:
+            return None
+    # Fallback to raw HTTP
     try:
         resp = requests.post('https://notify.eskiz.uz/api/auth/login', json={'email': email, 'password': password}, timeout=10)
         if resp.status_code == 200:
@@ -15,6 +27,14 @@ def eskiz_auth(email: str, password: str) -> Optional[str]:
 
 
 def eskiz_send_sms(token: str, from_name: str, phone: str, text: str) -> bool:
+    if EskizSMS and token:
+        try:
+            client = EskizSMS(token=token)
+            resp = client.send_message(phone, text, from_name or '4546')
+            return bool(resp)
+        except Exception:
+            return False
+    # Fallback to raw HTTP
     try:
         headers = {'Authorization': f'Bearer {token}'}
         payload = {

@@ -30,3 +30,4 @@
     XlsxWriter==3.2.9
     yarl==1.22.0
 django-cors-headers==4.6.0
+eskiz-sms>=0.1.0
