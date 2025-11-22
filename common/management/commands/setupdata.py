@@ -37,14 +37,19 @@ class Command(BaseCommand):
             verbosity=1
         )
         if not settings.TESTING:
-            pas = token_urlsafe(6)
-            os.environ.setdefault('DJANGO_SUPERUSER_PASSWORD', pas)
-            os.environ.setdefault('DJANGO_SUPERUSER_USERNAME', 'IamSUPER')
-            os.environ.setdefault('DJANGO_SUPERUSER_EMAIL', 'super@example.com')
-            call_command('createsuperuser', '--noinput', verbosity=1)
-            print(
-                "SUPERUSER Credentials:\n",
-                " USERNAME: IamSUPER\n",
-                f" PASSWORD: {pas}\n",
-                " EMAIL: super@example.com\n"
-            )
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            if not User.objects.filter(username='IamSUPER').exists():
+                pas = token_urlsafe(6)
+                os.environ.setdefault('DJANGO_SUPERUSER_PASSWORD', pas)
+                os.environ.setdefault('DJANGO_SUPERUSER_USERNAME', 'IamSUPER')
+                os.environ.setdefault('DJANGO_SUPERUSER_EMAIL', 'super@example.com')
+                call_command('createsuperuser', '--noinput', verbosity=1)
+                print(
+                    "SUPERUSER Credentials:\n",
+                    " USERNAME: IamSUPER\n",
+                    f" PASSWORD: {pas}\n",
+                    " EMAIL: super@example.com\n"
+                )
+            else:
+                print("SUPERUSER 'IamSUPER' already exists; skipping creation.")
