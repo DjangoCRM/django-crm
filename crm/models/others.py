@@ -81,6 +81,11 @@ class LeadSource(Base):
         verbose_name=_("success page template name"),
         help_text=_("The name of the html template file if needed.")
     )
+    sla_hours = models.PositiveSmallIntegerField(
+        blank=True, null=True,
+        verbose_name=_("SLA hours"),
+        help_text=_("Override default first-response SLA hours for this source.")
+    )
 
 
 class ClosingReason(Base):

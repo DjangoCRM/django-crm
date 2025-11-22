@@ -420,6 +420,15 @@ class LeadSourceAdmin(TranslateNameModelAdmin):
                     'department', 'id')
     raw_id_fields = ('department',)
     readonly_fields = ('website_email', 'form_url', 'iframe_snippet')
+    fieldsets = (
+        (None, {
+            'fields': (
+                'name', 'department', 'email', 'uuid',
+                'form_template', 'success_template', 'sla_hours',
+                'website_email', 'form_url', 'iframe_snippet',
+            )
+        }),
+    )
     search_fields = ('name', 'email', 'uuid')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
