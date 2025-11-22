@@ -127,7 +127,7 @@ class Command(BaseCommand):
         task, was = Task.objects.get_or_create(name='Call the client', defaults={'owner': user, 'project': proj, 'stage': default_stage})
         created += int(was)
         task.tags.add(tag)
-        memo, was = Memo.objects.get_or_create(subject='Kickoff notes', defaults={'owner': user, 'project': proj, 'content': 'Initial plan.'})
+        memo, was = Memo.objects.get_or_create(name='Kickoff notes', defaults={'owner': user, 'project': proj, 'note': 'Initial plan.'})
         created += int(was)
         return created
 
