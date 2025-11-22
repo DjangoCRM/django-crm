@@ -419,7 +419,7 @@ class LeadSourceAdmin(TranslateNameModelAdmin):
     list_display = ('name', 'website_email',
                     'department', 'id')
     raw_id_fields = ('department',)
-    readonly_fields = ('website_email',)
+    readonly_fields = ('website_email', 'form_url', 'iframe_snippet')
     search_fields = ('name', 'email', 'uuid')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -435,6 +435,26 @@ class LeadSourceAdmin(TranslateNameModelAdmin):
     )
     def website_email(self, obj):
         return obj.email
+
+    @admin.display(description=_('Public form URL'))
+    def form_url(self, obj):
+        try:
+            path = reverse('contact_form', args=(obj.uuid,))
+        except Exception:
+            return '-'
+        btn = f"<button type='button' class='button' data-copy='{path}' onclick=\"navigator.clipboard.writeText(this.dataset.copy);this.innerText='" + str(_('Copied')) + "';setTimeout(()=>this.innerText='" + str(_('Copy')) + "',1500);\">" + str(_('Copy')) + "</button>"
+        return mark_safe(f"<code>{path}</code> {btn}")
+
+    @admin.display(description=_('IFrame embed snippet'))
+    def iframe_snippet(self, obj):
+        try:
+            path = reverse('contact_form', args=(obj.uuid,))
+        except Exception:
+            return '-'
+        snippet = f"<iframe src='{path}' width='100%' height='600' frameborder='0'></iframe>"
+        btn = f"<button type='button' class='button' data-copy=\"{snippet}\" onclick=\"navigator.clipboard.writeText(this.dataset.copy);this.innerText='" + str(_('Copied')) + "';setTimeout(()=>this.innerText='" + str(_('Copy')) + "',1500);\">" + str(_('Copy')) + "</button>"
+        safe_snippet = snippet.replace('<', '&lt;').replace('>', '&gt;')
+        return mark_safe(f"<code>{safe_snippet}</code> {btn}")
 
 
 class RateAdmin(admin.ModelAdmin):

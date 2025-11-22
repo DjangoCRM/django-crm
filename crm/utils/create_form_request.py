@@ -13,7 +13,7 @@ from crm.models import CrmEmail
 from crm.models import Request
 from crm.site.requestadmin import notify_request_owners
 from crm.utils.check_city import check_city
-from crm.utils.helpers import is_text_relevant
+from crm.utils.helpers import is_text_relevant, assign_request_owner_by_department, ensure_request_sla_reminder
 from crm.utils.ticketproc import new_ticket
 
 
@@ -43,7 +43,11 @@ def create_form_request(lead_source: LeadSource, form: ContactForm) -> None:
 
         request.find_contact_or_lead()
         request.update_request_data()
+        # Routing: auto-assign owner from department managers if not set
+        assign_request_owner_by_department(request)
         request.save()
+        # SLA: ensure a default first-response reminder
+        ensure_request_sla_reminder(request)
         request_email.request = request
         request_email.owner = request.owner
         if request.owner:

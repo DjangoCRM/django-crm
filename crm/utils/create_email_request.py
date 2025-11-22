@@ -10,6 +10,7 @@ from crm.models import LeadSource
 from crm.models import CrmEmail
 from crm.models import Request
 from crm.site.requestadmin import notify_request_owners
+from crm.utils.helpers import resolve_lead_source_by_email_to, assign_request_owner_by_department, ensure_request_sla_reminder
 from massmail.models import EmailAccount
 
 
@@ -42,8 +43,8 @@ def create_email_request(email: CrmEmail, frm: str = '', ea: EmailAccount = None
     try:
         realname, email_addr = parseaddr(frm if frm else email.from_field)
         first_name, middle_name, last_name = parse_full_name(realname)
-        _, email_to_addr = parseaddr(email.to)
-        lead_source = LeadSource.objects.filter(email=email_to_addr).first()
+        # Resolve lead source by recipient address (improved parsing)
+        lead_source = resolve_lead_source_by_email_to(email.to)
         r = Request(
             first_name=first_name,
             middle_name=middle_name,
@@ -64,7 +65,11 @@ def create_email_request(email: CrmEmail, frm: str = '', ea: EmailAccount = None
         # set default country
         if email.department:
             r.country = email.department.department.default_country    # NOQA
+        # Routing: auto-assign owner from department managers if not set
+        assign_request_owner_by_department(r)
         r.save()
+        # SLA: ensure a default first-response reminder
+        ensure_request_sla_reminder(r)
         
         if r.owner:
             groups = r.owner.groups.values_list('name', flat=True)

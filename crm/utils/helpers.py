@@ -1,12 +1,13 @@
 import re
 from datetime import datetime
 from datetime import timezone as tz
+from datetime import timedelta
 from email.header import decode_header
 from email.header import make_header
 from email.message import Message
 from email.utils import parsedate_to_datetime
 from email.utils import parseaddr
-from typing import Optional
+from typing import Optional, Tuple
 from django import forms
 from django.apps import apps
 from django.core.exceptions import ObjectDoesNotExist
@@ -20,7 +21,7 @@ from django.utils.safestring import mark_safe, SafeString
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 
-from common.utils.helpers import USER_MODEL
+from common.utils.helpers import USER_MODEL, get_active_users
 from crm.utils.crm_imap import CrmIMAP
 from massmail.models import EmailAccount
 from settings.models import BannedCompanyName
@@ -93,6 +94,60 @@ def get_email_domain(email: str) -> str:
     if PublicEmailDomain.objects.filter(domain=domain).exists():
         return ''
     return domain
+
+
+def resolve_lead_source_by_email_to(to_addr: str):
+    """Try to resolve LeadSource by recipient email address."""
+    LeadSource = apps.get_model('crm', 'LeadSource')
+    _, email_to_addr = parseaddr(to_addr or '')
+    if not email_to_addr:
+        return None
+    return LeadSource.objects.filter(email__iexact=email_to_addr).first()
+
+
+def assign_request_owner_by_department(request_obj) -> None:
+    """Assign an owner to a Request based on department managers.
+    If the lead_source has a department, prefer its managers; otherwise
+    fallback to the request department. Leaves owner unchanged if already set.
+    """
+    if getattr(request_obj, 'owner', None):
+        return
+    dept = None
+    if getattr(request_obj, 'lead_source', None) and request_obj.lead_source:
+        dept = request_obj.lead_source.department
+    if not dept and getattr(request_obj, 'department', None):
+        dept = request_obj.department
+    if not dept:
+        return
+    # Pick the first active manager in this department
+    managers = get_active_users().filter(groups__in=[dept], groups__name='managers')
+    owner = managers.first()
+    if owner:
+        request_obj.owner = owner
+
+
+def ensure_request_sla_reminder(request_obj, hours: int = 4) -> None:
+    """Create a Reminder as an SLA target for first response.
+    Does nothing if the request already has any reminders.
+    """
+    Reminder = apps.get_model('common', 'Reminder')
+    if Reminder.objects.filter(
+        content_type__model=request_obj._meta.model_name,
+        object_id=request_obj.pk
+    ).exists():
+        return
+    from django.utils.timezone import now
+    reminder_date = now() + timedelta(hours=hours)
+    subject = _('First response due')
+    description = _('Auto-created SLA for first response time')
+    Reminder.objects.create(
+        content_object=request_obj,
+        subject=subject,
+        description=description,
+        reminder_date=reminder_date,
+        owner=getattr(request_obj, 'owner', None),
+        send_notification_email=True,
+    )
 
 
 def get_products_header() -> SafeString:
