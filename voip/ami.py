@@ -161,6 +161,20 @@ class AmiListener:
             return
 
         targets = resolve_targets(extension, matched_obj)
+        # Save CallLog for the first target
+        try:
+            if targets:
+                from crm.models.others import CallLog
+                CallLog.objects.create(
+                    user=targets[0],
+                    contact=matched_obj if hasattr(matched_obj, 'id') and matched_obj.__class__.__name__ == 'Contact' else None,
+                    direction='inbound',
+                    number=caller_id,
+                    duration=int(event.get('Duration') or event.get('BillableSeconds') or 0),
+                    voip_call_id=str(event.get('Uniqueid') or event.get('Linkedid') or ''),
+                )
+        except Exception:
+            pass
         if not targets:
             return
 

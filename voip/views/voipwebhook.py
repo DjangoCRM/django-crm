@@ -52,7 +52,8 @@ class VoIPWebHook(View):
             data = phone + called_did + call_start            
             
         if is_authenticated(request, data):
-            duration = round(int(request.POST.get('duration'))/60, 1)
+            duration_sec = int(request.POST.get('duration') or 0)
+            duration = round(duration_sec/60, 1)
             # if phone:
             contact, lead, deal, e = find_objects_by_phone(phone)
             if not e:
@@ -63,6 +64,25 @@ class VoIPWebHook(View):
         
                 if deal:
                     duration_str = _(f'(duration: {duration} minutes)')
+                # Save CallLog
+                try:
+                    from crm.models.others import CallLog
+                    from django.contrib.auth import get_user_model
+                    User = get_user_model()
+                    # Try to pick first target user by extension/called_did
+                    target_users = resolve_targets(request.POST.get('called_did') or request.POST.get('internal') or '', contact or lead or deal)
+                    call_user = target_users[0] if target_users else None
+                    if call_user:
+                        CallLog.objects.create(
+                            user=call_user,
+                            contact=contact,
+                            direction='inbound' if event == 'NOTIFY_END' else 'outbound',
+                            number=phone,
+                            duration=duration_sec,
+                            voip_call_id=request.POST.get('call_id') or request.POST.get('pbx_call_id') or '',
+                        )
+                except Exception:
+                    pass
                     entry = f'{init_str} {full_name} {duration_str}.'
                     deal.add_to_workflow(entry)
                     deal.save()

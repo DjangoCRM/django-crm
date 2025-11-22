@@ -142,6 +142,20 @@ class OnlinePBXWebHook(View):
                 raw_payload=payload,
             )
             created += 1
+        # Save CallLog for the first target (if any)
+        try:
+            if targets:
+                from crm.models.others import CallLog
+                CallLog.objects.create(
+                    user=targets[0],
+                    contact=contact,
+                    direction='inbound',
+                    number=caller_norm or caller,
+                    duration=int(payload.get('duration') or 0),
+                    voip_call_id=str(payload.get('call_id') or payload.get('uuid') or ''),
+                )
+        except Exception:
+            pass
 
         # Mirror event into Chat hub (Lead and, if available, Request)
         try:
