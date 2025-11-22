@@ -582,18 +582,34 @@ class LeadManager {
 
     // Actions
     async convertLead(leadId) {
+        // Step 1: select owner via typeahead
         try {
-            const withDeal = window.confirm('Create deal as well?');
-            const res = await this.app.apiCall(`/v1/leads/${leadId}/convert/`, {
-                method: 'POST',
-                body: JSON.stringify({ create_deal: withDeal })
+            await Typeahead.open({
+                title:'Convert Lead', placeholder:'Search owner...', multiple:false,
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                onApply: async(ids)=>{
+                    const owner = ids[0];
+                    // Step 2: small modal to choose create_deal
+                    const modal = this.makeModal(`
+                        <h3 class='text-lg font-semibold mb-3'>Create Deal?</h3>
+                        <label class='inline-flex items-center gap-2 mb-4'><input id='cv-create-deal' type='checkbox' class='rounded'/><span>Create deal along with conversion</span></label>
+                        <div class='flex justify-end gap-2'>
+                          <button class='px-3 py-1 bg-gray-200 rounded' onclick='this.closest(".fixed").remove()'>Cancel</button>
+                          <button id='cv-apply' class='px-3 py-1 bg-green-600 text-white rounded'>Convert</button>
+                        </div>`);
+                    document.body.appendChild(modal);
+                    modal.querySelector('#cv-apply').addEventListener('click', async ()=>{
+                        const create_deal = !!modal.querySelector('#cv-create-deal').checked;
+                        try {
+                            const res = await this.app.apiCall(`/v1/leads/${leadId}/convert/`, { method:'POST', body: JSON.stringify({ owner, create_deal }) });
+                            this.app.showToast('Lead converted', 'success');
+                            this.loadLeadsList();
+                        } catch(e){ this.app.showToast('Convert failed', 'error'); }
+                        modal.remove();
+                    });
+                }
             });
-            this.app.showToast('Lead converted', 'success');
-            this.loadLeadsList();
-            return res;
-        } catch (e) {
-            this.app.showToast('Convert failed', 'error');
-        }
+        } catch (e) { /* closed */ }
     }
 
     async disqualifyLead(leadId) {

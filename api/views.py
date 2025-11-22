@@ -441,6 +441,11 @@ class LeadViewSet(OwnedModelViewSet):
     def convert(self, request, pk=None):
         lead = self.get_object()
         create_deal = _parse_bool(request.data.get('create_deal'))
+        owner_id = request.data.get('owner')
+        try:
+            selected_owner = User.objects.get(pk=owner_id) if owner_id else request.user
+        except User.DoesNotExist:
+            selected_owner = request.user
         # Ensure company
         company = lead.company
         if not company and (lead.company_name or lead.company_email or lead.company_phone):
@@ -449,8 +454,8 @@ class LeadViewSet(OwnedModelViewSet):
                 phone=lead.company_phone or '',
                 address=lead.company_address or '',
                 email=lead.company_email or '',
-                owner=request.user,
-                department=_get_default_department(request.user),
+                owner=selected_owner,
+                department=_get_default_department(selected_owner),
             )
         # Ensure contact
         contact = lead.contact
@@ -463,8 +468,8 @@ class LeadViewSet(OwnedModelViewSet):
                 phone=lead.phone or '',
                 mobile=lead.mobile or '',
                 company=company,
-                owner=request.user,
-                department=_get_default_department(request.user),
+                owner=selected_owner,
+                department=_get_default_department(selected_owner),
             )
         deal = None
         if create_deal:
@@ -473,7 +478,7 @@ class LeadViewSet(OwnedModelViewSet):
                 company=company,
                 contact=contact,
                 lead=lead,
-                owner=request.user,
+                owner=selected_owner,
                 stage=Stage.objects.filter(default=True).first(),
                 next_step_date=get_today(),
             )

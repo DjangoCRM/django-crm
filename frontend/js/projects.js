@@ -104,7 +104,7 @@ class ProjectManager {
                                 <label onclick=\"event.stopPropagation();\" class=\"inline-flex items-center space-x-2\">
                                     <input type=\"checkbox\" ${this.selected.has(project.id)?'checked':''} onchange=\"app.projects.toggleSelected(${project.id}, this.checked)\" class=\"rounded\" />
                                 </label>
-                                ${project.active ? '<span class=\\'px-2 py-0.5 text-xs rounded bg-emerald-100 text-emerald-700\\'>Active</span>' : '<span class=\\'px-2 py-0.5 text-xs rounded bg-gray-200 text-gray-700\\'>Done</span>'}
+                                ${project.active ? `<span class="px-2 py-0.5 text-xs rounded bg-emerald-100 text-emerald-700">Active</span>` : `<span class="px-2 py-0.5 text-xs rounded bg-gray-200 text-gray-700">Done</span>`}
                             </div>
                             <div class="flex items-start justify-between mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900 truncate">${project.name}</h3>
@@ -666,15 +666,5 @@ class ProjectManager {
             });
         } catch(e) {}
         return;
-    }
-        try {
-            const owner = await this.prompt('Assign to user id:');
-            await this.app.apiCall(`/v1/projects/${id}/assign/`, {
-                method: 'POST',
-                body: JSON.stringify({ owner: Number(owner) })
-            });
-            this.app.showToast('Project assigned', 'success');
-            this.loadProjectsList();
-        } catch(e) { if (e.message !== 'cancelled') this.app.showToast('Assign failed', 'error'); }
     }
 }

@@ -165,6 +165,8 @@ class DealManager {
                                 </div>
                                 
                                 <div class="flex space-x-1">
+                                    <button onclick=\"event.stopPropagation(); app.deals.assignDeal(${deal.id})\" class=\"text-blue-600 hover:text-blue-900 text-xs\">Assign</button>
+                                    <button onclick=\"event.stopPropagation(); app.deals.tagDeal(${deal.id})\" class=\"text-indigo-600 hover:text-indigo-900 text-xs\">Tag</button>
                                     <button onclick="event.stopPropagation(); app.deals.editDeal(${deal.id})" 
                                             class="text-yellow-600 hover:text-yellow-900 text-xs">Edit</button>
                                     <button onclick="event.stopPropagation(); app.deals.deleteDeal(${deal.id})" 
