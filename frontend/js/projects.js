@@ -659,6 +659,15 @@ class ProjectManager {
 
     async assignProject(id) {
         try {
+            await Typeahead.open({
+                title:'Assign Project', placeholder:'Search users...', multiple:false,
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/v1/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Project assigned','success'); this.loadProjectsList(); }
+            });
+        } catch(e) {}
+        return;
+    }
+        try {
             const owner = await this.prompt('Assign to user id:');
             await this.app.apiCall(`/v1/projects/${id}/assign/`, {
                 method: 'POST',

@@ -609,6 +609,16 @@ class LeadManager {
     }
 
     async assignLead(leadId) {
+        // typeahead select user
+        try {
+            await Typeahead.open({
+                title:'Assign Lead', placeholder:'Search users...', multiple:false,
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/v1/leads/${leadId}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Lead assigned','success'); this.loadLeadsList(); }
+            });
+        } catch(e) { /* modal handles close */ }
+        return;
+    }
         try {
             const owner = await this.prompt('Assign to user id:');
             const res = await window.apiClient.post(`${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/assign/`, { owner: Number(owner) });

@@ -226,6 +226,7 @@ class ProjectSerializer(ValidationMixin, serializers.ModelSerializer):
 
 
 class DealSerializer(ValidationMixin, serializers.ModelSerializer):
+    stage_name = serializers.CharField(source='stage.name', read_only=True)
     tags = serializers.PrimaryKeyRelatedField(
         many=True,
         queryset=CrmTag.objects.all(),
