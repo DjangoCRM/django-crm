@@ -114,13 +114,20 @@ class OnlinePBXWebHook(View):
 
         if caller_norm:
             contact, lead, deal, err = find_objects_by_phone(caller_norm)
-            if not err:
-                obj = contact or lead
-                if obj and hasattr(obj, 'full_name'):
-                    client_name = obj.full_name
-                    client_type = obj.__class__.__name__.lower()
-                    client_id = getattr(obj, 'id', None)
-                    # Could be enhanced with reverse URL later
+            if not err and not (contact or lead):
+                # Auto-create lead and contact
+                from integrations.utils import ensure_lead_and_contact
+                lead, contact = ensure_lead_and_contact(
+                    source_name='onlinepbx',
+                    display_name=payload.get('caller_id_name') or caller_norm,
+                    phone=caller_norm,
+                )
+            obj = contact or lead
+            if obj and hasattr(obj, 'full_name'):
+                client_name = obj.full_name
+                client_type = obj.__class__.__name__.lower()
+                client_id = getattr(obj, 'id', None)
+                # Could be enhanced with reverse URL later
 
         targets = resolve_targets(target_ext, contact or lead or deal)
         created = 0

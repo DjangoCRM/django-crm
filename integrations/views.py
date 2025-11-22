@@ -58,14 +58,16 @@ class TelegramWebhookView(View):
             raw=update,
             created_at=timezone.now(),
         )
-        # Auto-create lead on first message if not exists (simple heuristic by tg id)
-        lead = Lead.objects.filter(source='telegram', others__icontains=sender_id).first()
-        if not lead:
-            lead = Lead.objects.create(
-                name=f"tg:{sender.get('username') or sender_id}",
-                source='telegram',
-                others=sender_id,
-            )
+        # Auto-create lead and contact using unified helper
+        from integrations.utils import ensure_lead_and_contact
+        display = sender.get('username') or f"tg:{sender_id}"
+        lead, contact = ensure_lead_and_contact(
+            source_name='telegram',
+            display_name=str(display),
+            phone='',
+            email='',
+            company_name=None,
+        )
         # Create ChatMessage bound to Lead
         ct = ContentType.objects.get_for_model(Lead)
         ChatMessage.objects.create(
@@ -118,5 +120,14 @@ class InstagramWebhookView(View):
             recipient_id=account.ig_page_id or '',
             text='',
             raw=payload,
+        )
+        # Auto-create lead and contact
+        from integrations.utils import ensure_lead_and_contact
+        lead, contact = ensure_lead_and_contact(
+            source_name='instagram',
+            display_name='instagram',
+            phone='',
+            email='',
+            company_name=None,
         )
         return JsonResponse({'status': 'ok'})
