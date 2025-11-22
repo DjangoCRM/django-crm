@@ -14,11 +14,20 @@ class ProjectManager {
         this.selected = new Set();
         const section = document.getElementById('projects-section');
         section.innerHTML = `
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Projects</h2>
                         <div class="flex space-x-2">
+                           <select id="project-sort" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+                               <option value="-creation_date">Newest</option>
+                               <option value="creation_date">Oldest</option>
+                               <option value="due_date">Due date ↑</option>
+                               <option value="-due_date">Due date ↓</option>
+                               <option value="name">Name A→Z</option>
+                               <option value="-name">Name Z→A</option>
+                           </select>
+                           <button id="project-export" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-2 rounded-lg">Export CSV</button>
                             <select id="project-status-filter" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
                                 <option value="">All Projects</option>
                                 <option value="true">Active</option>
@@ -59,6 +68,8 @@ class ProjectManager {
             this.filterByStatus(e.target.value);
         });
         
+        document.getElementById('project-sort').addEventListener('change', (e)=>{ this.loadProjectsList(document.getElementById('project-search').value, document.getElementById('project-status-filter').value); });
+        document.getElementById('project-export').addEventListener('click', ()=> this.exportProjects());
         // Select all
         document.getElementById('projects-select-all').addEventListener('change', (e) => {
             const check = e.target.checked;
@@ -73,8 +84,10 @@ class ProjectManager {
 
     async loadProjectsList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/projects/?';
+            let url = '/v1/projects/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
+            const ordering = document.getElementById('project-sort')?.value;
+            if (ordering) url += `ordering=${encodeURIComponent(ordering)}&`;
             if (statusFilter) url += `active=${statusFilter}&`;
             
             const projects = await this.app.apiCall(url);
@@ -98,7 +111,7 @@ class ProjectManager {
             content.innerHTML = `
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${projects.results.map(project => `
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
+                        <div class=\"bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\"
                              onclick="app.projects.viewProject(${project.id})">
                             <div class=\"flex items-start justify-between\">
                                 <label onclick=\"event.stopPropagation();\" class=\"inline-flex items-center space-x-2\">
@@ -221,136 +234,7 @@ class ProjectManager {
         this.loadProjectsList(document.getElementById('project-search').value, status);
     }
 
-    showProjectForm(projectId = null) {
-        const isEdit = projectId !== null;
-        const title = isEdit ? 'Edit Project' : 'Add New Project';
 
-        const modal = document.createElement('div');
-        modal.id = 'project-modal';
-        modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
-        
-        modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-medium text-gray-900">${title}</h3>
-                        <button onclick="document.getElementById('project-modal').remove()" class="text-gray-400 hover:text-gray-600">
-                            <span class="sr-only">Close</span>
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <form id="project-form" class="p-6 space-y-4">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Project Name *</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    </div>
-                    
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                        <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="stage" class="block text-sm font-medium text-gray-700 mb-1">Stage</label>
-                            <select id="stage" name="stage" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Stage</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="priority" class="block text-sm font-medium text-gray-700 mb-1">Priority</label>
-                            <select id="priority" name="priority" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Priority</option>
-                                <option value="1">High (1)</option>
-                                <option value="2">Medium-High (2)</option>
-                                <option value="3">Medium (3)</option>
-                                <option value="4">Medium-Low (4)</option>
-                                <option value="5">Low (5)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label for="start_date" class="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
-                            <input type="date" id="start_date" name="start_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        
-                        <div>
-                            <label for="due_date" class="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
-                            <input type="date" id="due_date" name="due_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        
-                        <div>
-                            <label for="next_step_date" class="block text-sm font-medium text-gray-700 mb-1">Next Step Date</label>
-                            <input type="date" id="next_step_date" name="next_step_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="next_step" class="block text-sm font-medium text-gray-700 mb-1">Next Step</label>
-                        <input type="text" id="next_step" name="next_step"
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    </div>
-                    
-                    <div>
-                        <label for="note" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
-                        <textarea id="note" name="note" rows="2"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center space-x-6">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="active" name="active" checked
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="active" class="ml-2 block text-sm text-gray-900">Active</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="remind_me" name="remind_me"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="remind_me" class="ml-2 block text-sm text-gray-900">Remind me</label>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-end space-x-3 pt-4">
-                        <button type="button" onclick="document.getElementById('project-modal').remove()" 
-                                class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
-                            Cancel
-                        </button>
-                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
-                            ${isEdit ? 'Update' : 'Create'} Project
-                        </button>
-                    </div>
-                </form>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-        
-        // Load dropdowns
-        this.loadProjectFormDropdowns();
-
-        if (isEdit) {
-            this.loadProjectData(projectId);
-        }
-
-        document.getElementById('project-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.saveProject(projectId);
-        });
-    }
 
     async loadProjectFormDropdowns() {
         try {
@@ -452,7 +336,7 @@ class ProjectManager {
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
             modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-screen overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800">
                     <div class="px-6 py-4 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg font-medium text-gray-900">Project Details</h3>
@@ -635,9 +519,26 @@ class ProjectManager {
         wrap.innerHTML = `
         <div class=\"fixed inset-0 z-50 flex items-center justify-center\"> 
             <div class=\"absolute inset-0 bg-black bg-opacity-40\" onclick=\"this.parentElement.remove()\"></div>
-            <div class=\"relative bg-white rounded-lg shadow-lg w-full max-w-md p-5\">${contentHTML}</div>
+            <div class=\"relative bg-white rounded-lg shadow-lg w-full max-w-md p-5 dark:bg-slate-800\">${contentHTML}</div>
         </div>`;
         return wrap.firstElementChild;
+    }
+
+    exportProjects(){
+        // build URL with filters
+        let url = '/v1/projects/export/?';
+        const searchTerm = document.getElementById('project-search').value;
+        const statusFilter = document.getElementById('project-status-filter').value;
+        const ordering = document.getElementById('project-sort')?.value;
+        if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
+        if (statusFilter) url += `active=${statusFilter}&`;
+        if (ordering) url += `ordering=${encodeURIComponent(ordering)}&`;
+        // Auth header download
+        const full = (window.CRM_CONFIG.API_BASE_URL || '').replace(/\/+$/,'') + url;
+        fetch(full, { headers: { 'Authorization': `Token ${localStorage.getItem(window.CRM_CONFIG.AUTH_TOKEN_KEY) || ''}` } })
+          .then(r=> r.blob())
+          .then(blob => { const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='projects_export.csv'; a.click(); URL.revokeObjectURL(a.href); })
+          .catch(()=> this.app.showToast('Export failed','error'));
     }
 
     // Actions
@@ -667,4 +568,289 @@ class ProjectManager {
         } catch(e) {}
         return;
     }
+}
+
+/* ===== Merged UX patches from projects-ux.js ===== */
+
+/**
+ * UX Enhancements for Projects Module
+ */
+
+if (typeof ProjectManager !== 'undefined' && window.uxEnhancements) {
+    
+    // Enhanced loadProjectsList
+    const originalLoadProjectsList = ProjectManager.prototype.loadProjectsList;
+    ProjectManager.prototype.loadProjectsList = async function(searchTerm = '') {
+        const content = document.getElementById('projects-content');
+        
+        // Show skeleton
+        window.uxEnhancements.showSkeleton(content, 'cards', 6);
+
+        try {
+            const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+            const projects = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.PROJECTS}?${searchParam}`);
+            
+            if (!projects.results || projects.results.length === 0) {
+                window.uxEnhancements.showEmptyState(content, {
+                    icon: '📊',
+                    title: searchTerm ? 'No projects found' : 'No projects yet',
+                    description: searchTerm 
+                        ? `No projects match "${searchTerm}"`
+                        : 'Organize your work by creating your first project',
+                    actionLabel: 'Create Project',
+                    actionHandler: 'app.projects.showProjectForm()',
+                    secondaryAction: searchTerm ? {
+                        label: 'Clear Search',
+                        handler: 'document.getElementById("project-search").value=""; app.projects.loadProjectsList()'
+                    } : null
+                });
+                return;
+            }
+
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${projects.results.map(project => this.renderProjectCard(project)).join('')}
+                </div>
+            `;
+
+        } catch (error) {
+            window.uxEnhancements.showErrorModal({
+                title: 'Failed to load projects',
+                message: 'Unable to fetch projects from the server.',
+                error: error,
+                actions: [
+                    { label: 'Try Again', handler: 'app.projects.loadProjectsList()', primary: true },
+                    { label: 'Cancel', handler: '', primary: false }
+                ]
+            });
+        }
+    };
+
+    // Render project card
+    ProjectManager.prototype.renderProjectCard = function(project) {
+        const progress = project.progress || 0;
+        const statusConfig = {
+            'planning': { color: 'bg-secondary-500', label: 'Planning' },
+            'active': { color: 'bg-primary-500', label: 'Active' },
+            'on_hold': { color: 'bg-warning-500', label: 'On Hold' },
+            'completed': { color: 'bg-success-500', label: 'Completed' },
+            'cancelled': { color: 'bg-error-500', label: 'Cancelled' }
+        };
+        const status = statusConfig[project.status] || statusConfig.planning;
+
+        return `
+            <div class="card p-6 hover:shadow-medium transition-shadow" data-id="${project.id}">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-surface-900 flex-1">${project.name}</h3>
+                    <span class="badge ${this.getStatusBadgeClass(project.status)}">${status.label}</span>
+                </div>
+                
+                ${project.description ? `
+                    <p class="text-sm text-surface-600 mb-4 line-clamp-2">${project.description}</p>
+                ` : ''}
+                
+                <!-- Progress bar -->
+                <div class="mb-4">
+                    <div class="flex items-center justify-between text-sm mb-2">
+                        <span class="text-surface-600">Progress</span>
+                        <span class="font-semibold text-surface-900">${progress}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill ${status.color}" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between text-sm text-surface-600">
+                    ${project.start_date ? `
+                        <div class="flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            ${new Date(project.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </div>
+                    ` : '<div></div>'}
+                    
+                    ${project.team_size ? `
+                        <div class="flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            ${project.team_size} members
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="flex gap-2 mt-4 pt-4 border-t border-surface-200">
+                    <button data-action="projects.viewProject" data-id="${project.id}" class="btn btn-secondary btn-sm flex-1">
+                        View
+                    </button>
+                    <button data-action="projects.editProject" data-id="${project.id}" class="btn btn-text btn-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
+    };
+
+    // Enhanced showProjectForm with unified modal
+    const originalShowProjectForm = ProjectManager.prototype.showProjectForm;
+    ProjectManager.prototype.showProjectForm = function(projectId = null) {
+        const isEdit = projectId !== null;
+        const title = isEdit ? 'Edit Project' : 'Create New Project';
+
+        const modal = document.createElement('div');
+        modal.id = 'project-modal';
+        modal.className = 'modal-overlay fade-in';
+        
+        modal.innerHTML = `
+            <div class="modal w-full max-w-2xl scale-in dark:bg-slate-800 dark:text-slate-100">
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="btn-icon btn-text" onclick="document.getElementById('project-modal').remove(); document.body.style.overflow='';">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="project-form" class="modal-body space-y-4">
+                    <div class="input-group">
+                        <label for="name" class="input-label">Project Name *</label>
+                        <input type="text" id="name" name="name" required class="input" placeholder="Q4 Revamp">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="description" class="input-label">Description</label>
+                        <textarea id="description" name="description" rows="3" class="input"></textarea>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="start_date" class="input-label">Start Date</label>
+                            <input type="date" id="start_date" name="start_date" class="input">
+                        </div>
+                        <div class="input-group">
+                            <label for="status" class="input-label">Status</label>
+                            <select id="status" name="status" class="input select">
+                                <option value="planning">Planning</option>
+                                <option value="active">Active</option>
+                                <option value="on_hold">On Hold</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-advanced="true">
+                        <div class="input-group">
+                            <label for="progress" class="input-label">Progress (%)</label>
+                            <input type="number" id="progress" name="progress" class="input" min="0" max="100" placeholder="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="team_size" class="input-label">Team Size</label>
+                            <input type="number" id="team_size" name="team_size" class="input" min="1" placeholder="1">
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('project-modal').remove(); document.body.style.overflow='';">
+                        Cancel
+                    </button>
+                    <button type="submit" form="project-form" class="btn btn-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        ${isEdit ? 'Update' : 'Create'} Project
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        
+        // Disable background scroll and setup close handlers
+        document.body.style.overflow = 'hidden';
+        const overlayEl = modal; // .modal-overlay
+        const dialogEl = modal.querySelector('.modal');
+        const closeModal = () => {
+            overlayEl.remove();
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onKeyDown);
+        };
+        const onKeyDown = (e) => { if (e.key === 'Escape') closeModal(); };
+        document.addEventListener('keydown', onKeyDown);
+        overlayEl.addEventListener('click', (e) => { if (!dialogEl.contains(e.target)) closeModal(); });
+        
+        const projectForm = document.getElementById('project-form');
+        
+        // Progressive disclosure
+        if (window.advancedUX) {
+            window.advancedUX.setupProgressiveDisclosure(projectForm);
+        }
+        
+        if (isEdit && this.loadProjectData) {
+            this.loadProjectData(projectId);
+        }
+
+        projectForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try {
+                const formData = new FormData(projectForm);
+                const projectData = Object.fromEntries(formData.entries());
+                const method = projectId ? 'PUT' : 'POST';
+                const url = projectId 
+                    ? `${window.CRM_CONFIG.ENDPOINTS.PROJECTS}${projectId}/` 
+                    : window.CRM_CONFIG.ENDPOINTS.PROJECTS;
+                await window.apiClient.request(url, { method, body: JSON.stringify(projectData) });
+                closeModal();
+                if (this.loadProjectsList) this.loadProjectsList();
+                this.app?.showToast(`Project ${projectId ? 'updated' : 'created'} successfully`, 'success');
+            } catch (error) {
+                // backend validation mapping
+                try { window.uxEnhancements?.showFormErrors(document.getElementById('project-form'), error); } catch(_){}
+
+                window.uxEnhancements?.showErrorModal({
+                    title: `Failed to ${projectId ? 'update' : 'create'} project`,
+                    message: error.message || 'Please try again',
+                    error,
+                    actions: [
+                        { label: 'Try Again', handler: `app.projects.saveProject(${projectId})`, primary: true },
+                        { label: 'Cancel', handler: '', primary: false }
+                    ]
+                });
+            }
+        });
+
+        setTimeout(() => document.getElementById('name').focus(), 100);
+    };
+
+    // Status badge class
+    ProjectManager.prototype.getStatusBadgeClass = function(status) {
+        const classes = {
+            'planning': 'badge-secondary',
+            'active': 'badge-primary',
+            'on_hold': 'badge-warning',
+            'completed': 'badge-success',
+            'cancelled': 'badge-error'
+        };
+        return classes[status] || 'badge-secondary';
+    };
+
+    // Setup search progress
+    const originalLoadProjects = ProjectManager.prototype.loadProjects;
+    ProjectManager.prototype.loadProjects = function() {
+        originalLoadProjects.call(this);
+        
+        setTimeout(() => {
+            const searchInput = document.getElementById('project-search');
+            if (searchInput && window.uxEnhancements) {
+                window.uxEnhancements.setupSearchProgress(searchInput, (term) => {
+                    this.loadProjectsList(term);
+                });
+            }
+        }, 100);
+    };
 }

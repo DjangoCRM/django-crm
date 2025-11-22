@@ -48,8 +48,8 @@ class CRMApp {
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const section = e.target.dataset.section;
-                this.switchSection(section);
+                const section = e.currentTarget?.dataset?.section || btn.dataset.section;
+                if (section) this.switchSection(section);
             });
         });
 
@@ -82,20 +82,95 @@ class CRMApp {
             }
         });
 
+        // Universal handler for data-action attributes
+        document.body.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-action]');
+            if (!target) return;
+
+            const action = target.dataset.action;
+            const id = target.dataset.id; // Get data-id if available
+
+            if (action.startsWith('phone.')) {
+                // Handle phone actions
+                if (action === 'phone.closeWidget') {
+                    this.phone.closeWidget();
+                } else if (action === 'phone.dialer.digit') {
+                    this.phone.dialer.addDigit(target.dataset.digit);
+                } else if (action === 'phone.call') {
+                    this.phone.startCall();
+                } else if (action === 'phone.dialer.clear') {
+                    this.phone.dialer.clearNumber();
+                } else if (action === 'phone.mute') {
+                    this.phone.muteCall();
+                } else if (action === 'phone.hold') {
+                    this.phone.holdCall();
+                } else if (action === 'phone.hangup') {
+                    this.phone.endCall();
+                } else if (action === 'phone.openDialer') {
+                    this.phone.openDialer();
+                }
+            } else if (action === 'togglePasswordVisibility') {
+                togglePasswordVisibility();
+            } else if (action.startsWith('contacts.')) {
+                if (action === 'contacts.showContactForm') {
+                    this.contacts.showContactForm(id);
+                } else if (action === 'contacts.viewContact') {
+                    this.contacts.viewContact(id);
+                } else if (action === 'contacts.editContact') {
+                    this.contacts.editContact(id);
+                } else if (action === 'contacts.deleteContact') {
+                    this.contacts.deleteContact(id);
+                } else if (action === 'contact.closeContactForm') {
+                    document.getElementById('contact-modal').remove();
+                } else if (action === 'contact.closeViewContactModal') {
+                    document.getElementById('contact-view-modal').remove();
+                }
+            } else if (action.startsWith('companies.')) {
+                if (action === 'companies.showCompanyForm') {
+                    this.companies.showCompanyForm(id);
+                } else if (action === 'companies.viewCompany') {
+                    this.companies.viewCompany(id);
+                } else if (action === 'companies.editCompany') {
+                    this.companies.editCompany(id);
+                } else if (action === 'companies.deleteCompany') {
+                    this.companies.deleteCompany(id);
+                } else if (action === 'companies.closeCompanyForm') {
+                    document.getElementById('company-modal').remove();
+                } else if (action === 'companies.closeViewCompanyModal') {
+                    document.getElementById('company-view-modal').remove();
+                }
+            } else if (action === 'refreshDashboard') {
+                this.refreshDashboard();
+            }
+            // Add other data-action handlers here if needed
+        });
+
+
         // Sidebar toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.querySelector('aside');
         const mainContent = document.querySelector('main');
+        const sidebarToggleButtonIcon = sidebarToggle.querySelector('i');
 
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
             mainContent.classList.toggle('body-content-collapsed');
             localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggleButtonIcon.classList.remove('fa-chevron-left');
+                sidebarToggleButtonIcon.classList.add('fa-chevron-right');
+            } else {
+                sidebarToggleButtonIcon.classList.remove('fa-chevron-right');
+                sidebarToggleButtonIcon.classList.add('fa-chevron-left');
+            }
         });
 
         if (localStorage.getItem('sidebar-collapsed') === 'true') {
             sidebar.classList.add('collapsed');
             mainContent.classList.add('body-content-collapsed');
+            sidebarToggleButtonIcon.classList.remove('fa-chevron-left');
+            sidebarToggleButtonIcon.classList.add('fa-chevron-right');
         }
     }
 
@@ -282,7 +357,8 @@ class CRMApp {
         }
 
         // Update breadcrumb
-        document.getElementById('current-section').textContent = this.getSectionTitle(section);
+        const safeSection = section || this.currentSection || 'dashboard';
+document.getElementById('current-section').textContent = this.getSectionTitle(safeSection);
 
         // Show/hide sections
         document.querySelectorAll('.section').forEach(sec => {
@@ -291,6 +367,10 @@ class CRMApp {
         });
 
         const targetSection = document.getElementById(`${section}-section`);
+        if (!targetSection) {
+            console.warn('Section container not found:', section);
+            return;
+        }
         targetSection.classList.remove('hidden');
         targetSection.classList.add('active');
 
@@ -418,6 +498,18 @@ class CRMApp {
         }
     }
 
+    // Proxy API call to window.apiClient for backward compatibility
+    apiCall(url, options = {}) {
+        const method = (options.method || 'GET').toUpperCase();
+        const parseBody = (b) => typeof b === 'string' ? JSON.parse(b) : (b || {});
+        if (method === 'GET') return window.apiClient.get(url);
+        if (method === 'POST') return window.apiClient.post(url, parseBody(options.body));
+        if (method === 'PUT') return window.apiClient.put(url, parseBody(options.body));
+        if (method === 'PATCH') return window.apiClient.patch(url, parseBody(options.body));
+        if (method === 'DELETE') return window.apiClient.delete(url);
+        return window.apiClient.request(url, options);
+    }
+
     getSectionTitle(section) {
         const titles = {
             'dashboard': 'Home',
@@ -475,8 +567,11 @@ class CRMApp {
                 }
                 break;
             case 'projects':
-                // Projects endpoint not available in current Django setup
-                this.showSectionNotAvailable(section, 'Projects module not available. Coming soon!');
+                if (this.isEndpointAvailable('/v1/projects/')) {
+                    this.loadProjects();
+                } else {
+                    this.showSectionNotAvailable(section, 'Projects module not available in Django API');
+                }
                 break;
             case 'memos':
                 // Memos endpoint not available in current Django setup
@@ -512,7 +607,7 @@ class CRMApp {
                         </div>
                     </div>
 
-                    <button onclick="app.switchSection('dashboard')"
+                    <button data-action="switchSection" data-section="dashboard" 
                             class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-colors">
                         <i class="fas fa-chart-line mr-2"></i>Go to Dashboard
                     </button>
@@ -761,7 +856,7 @@ class CRMApp {
 
             content.innerHTML = `
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer" onclick="app.switchSection('contacts')">
+                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"contacts\">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
                                 <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
@@ -780,7 +875,7 @@ class CRMApp {
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer" onclick="app.switchSection('companies')">
+                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"companies\">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
                                 <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
@@ -799,7 +894,7 @@ class CRMApp {
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer" onclick="app.switchSection('deals')">
+                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"deals\">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
                                 <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
@@ -818,7 +913,7 @@ class CRMApp {
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer" onclick="app.switchSection('tasks')">
+                    <div class=\"bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\" data-action=\"switchSection\" data-section=\"tasks\">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
                                 <div class="w-12 h-12 bg-danger bg-opacity-10 rounded-lg flex items-center justify-center">
@@ -842,7 +937,7 @@ class CRMApp {
                     <div class="bg-white rounded-lg border border-gray-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold text-gray-900">Recent Deals</h3>
-                            <button onclick="app.switchSection('deals')" class="text-primary hover:opacity-90 text-sm font-medium">
+                            <button data-action="switchSection" data-section="deals" class="text-primary hover:opacity-90 text-sm font-medium">
                                 View all <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
@@ -866,7 +961,7 @@ class CRMApp {
                     <div class="bg-white rounded-lg border border-gray-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold text-gray-900">Recent Tasks</h3>
-                            <button onclick="app.switchSection('tasks')" class="text-primary hover:opacity-90 text-sm font-medium">
+                            <button data-action="switchSection" data-section="tasks" class="text-primary hover:opacity-90 text-sm font-medium">
                                 View all <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
@@ -893,7 +988,7 @@ class CRMApp {
                     <div class="bg-white rounded-lg border border-gray-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
-                            <button onclick="app.refreshDashboard()" class="text-primary hover:opacity-90 text-sm font-medium">
+                            <button data-action="refreshDashboard" class="text-primary hover:opacity-90 text-sm font-medium">
                                 <i class="fas fa-sync-alt mr-1"></i>Refresh
                             </button>
                         </div>

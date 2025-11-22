@@ -345,7 +345,7 @@ class PhoneManager {
         if (!container) return;
 
         container.innerHTML = this.recentCalls.slice(0, 5).map(call => `
-            <div class="flex items-center justify-between py-2 px-3 hover:bg-gray-50 rounded-lg cursor-pointer" onclick="app.phone.dialNumber('${call.number}')">
+            <div class="flex items-center justify-between py-2 px-3 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg cursor-pointer" onclick="app.phone.dialNumber('${call.number}')">
                 <div class="flex items-center space-x-3">
                     <i class="fas fa-phone-${call.direction === 'inbound' ? 'volume' : 'alt'} text-xs text-gray-400"></i>
                     <div>
@@ -452,7 +452,7 @@ class PhoneManager {
         modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
         
         modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full mx-4">
+            <div class=\"bg-white rounded-lg shadow-xl p-6 max-w-sm w-full mx-4 dark:bg-slate-800\">
                 <div class="text-center">
                     <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-phone text-primary-600 text-2xl"></i>

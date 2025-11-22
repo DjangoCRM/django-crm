@@ -7,14 +7,14 @@ class CompanyManager {
     async loadCompanies() {
         const section = document.getElementById('companies-section');
         section.innerHTML = `
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Companies</h2>
                         <div class="flex space-x-2">
                             <input type="text" id="company-search" placeholder="Search companies..." 
-                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-                            <button onclick="app.companies.showCompanyForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
+                                   class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button data-action="companies.showCompanyForm" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
                                 Add Company
                             </button>
                         </div>
@@ -38,7 +38,7 @@ class CompanyManager {
     async loadCompaniesList(searchTerm = '') {
         try {
             const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
-            const companies = await this.app.apiCall(`/v1/companies/?${searchParam}`);
+            const companies = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.COMPANIES}?${searchParam}`);
             const content = document.getElementById('companies-content');
             
             if (!companies.results || companies.results.length === 0) {
@@ -48,7 +48,7 @@ class CompanyManager {
                             🏢
                         </div>
                         <p class="text-gray-500 mb-4">${searchTerm ? 'No companies found for your search' : 'No companies found'}</p>
-                        <button onclick="app.companies.showCompanyForm()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg">
+                        <button data-action="companies.showCompanyForm" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg">
                             Add Your First Company
                         </button>
                     </div>
@@ -69,13 +69,13 @@ class CompanyManager {
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class=\"bg-white divide-y divide-gray-200 dark:bg-slate-800 dark:divide-slate-700\">
                             ${companies.results.map(company => `
-                                <tr class="hover:bg-gray-50">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <div class="h-10 w-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold">
+                                                <div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center text-white font-medium">
                                                     ${company.full_name.charAt(0).toUpperCase()}
                                                 </div>
                                             </div>
@@ -98,15 +98,15 @@ class CompanyManager {
                                         <div class="text-sm text-gray-500">${company.phone || 'No phone'}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${company.disqualified ? 'bg-red-100 text-red-800' : company.active ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${company.disqualified ? 'bg-danger bg-opacity-20 text-danger' : company.active ? 'bg-success bg-opacity-20 text-success' : 'bg-warning bg-opacity-20 text-warning'}">
                                             ${company.disqualified ? 'Disqualified' : company.active ? 'Active' : 'Inactive'}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <div class="flex space-x-2">
-                                            <button onclick="app.companies.viewCompany(${company.id})" class="text-primary-600 hover:text-primary-900">View</button>
-                                            <button onclick="app.companies.editCompany(${company.id})" class="text-yellow-600 hover:text-yellow-900">Edit</button>
-                                            <button onclick="app.companies.deleteCompany(${company.id})" class="text-red-600 hover:text-red-900">Delete</button>
+                                            <button data-action="companies.viewCompany" data-id="${company.id}" class="text-primary hover:text-primary-900">View</button>
+                                            <button data-action="companies.editCompany" data-id="${company.id}" class="text-warning hover:text-yellow-900">Edit</button>
+                                            <button data-action="companies.deleteCompany" data-id="${company.id}" class="text-danger hover:text-red-900">Delete</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -116,7 +116,7 @@ class CompanyManager {
                 </div>
             `;
         } catch (error) {
-            document.getElementById('companies-content').innerHTML = '<div class="text-red-600 text-center py-4">Error loading companies</div>';
+            document.getElementById('companies-content').innerHTML = '<div class="text-danger text-center py-4">Error loading companies</div>';
         }
     }
 
@@ -127,122 +127,11 @@ class CompanyManager {
         }, 300);
     }
 
-    showCompanyForm(companyId = null) {
-        const isEdit = companyId !== null;
-        const title = isEdit ? 'Edit Company' : 'Add New Company';
 
-        const modal = document.createElement('div');
-        modal.id = 'company-modal';
-        modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
-        
-        modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-medium text-gray-900">${title}</h3>
-                        <button onclick="document.getElementById('company-modal').remove()" class="text-gray-400 hover:text-gray-600">
-                            <span class="sr-only">Close</span>
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <form id="company-form" class="p-6 space-y-4">
-                    <div>
-                        <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Company Name *</label>
-                        <input type="text" id="full_name" name="full_name" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                            <input type="url" id="website" name="website"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                            <input type="tel" id="phone" name="phone"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email" name="email"
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="city_name" class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                            <input type="text" id="city_name" name="city_name"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        <div>
-                            <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country</label>
-                            <select id="country" name="country" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Country</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                        <textarea id="address" name="address" rows="2"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
-                    </div>
-                    
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                        <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center space-x-6">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="active" name="active" checked
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="active" class="ml-2 block text-sm text-gray-900">Active</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="disqualified" name="disqualified"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="disqualified" class="ml-2 block text-sm text-gray-900">Disqualified</label>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-end space-x-3 pt-4">
-                        <button type="button" onclick="document.getElementById('company-modal').remove()" 
-                                class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
-                            Cancel
-                        </button>
-                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
-                            ${isEdit ? 'Update' : 'Create'} Company
-                        </button>
-                    </div>
-                </form>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-
-        if (isEdit) {
-            this.loadCompanyData(companyId);
-        }
-
-        document.getElementById('company-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.saveCompany(companyId);
-        });
-    }
 
     async loadCompanyData(companyId) {
         try {
-            const company = await this.app.apiCall(`/v1/companies/${companyId}/`);
+            const company = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.COMPANIES}${companyId}/`);
             
             const fields = ['full_name', 'website', 'phone', 'email', 'city_name', 'address', 'description'];
             fields.forEach(field => {
@@ -277,9 +166,9 @@ class CompanyManager {
 
         try {
             const method = companyId ? 'PUT' : 'POST';
-            const url = companyId ? `/v1/companies/${companyId}/` : '/v1/companies/';
+            const url = companyId ? `${window.CRM_CONFIG.ENDPOINTS.COMPANIES}${companyId}/` : window.CRM_CONFIG.ENDPOINTS.COMPANIES;
             
-            await this.app.apiCall(url, {
+            await window.apiClient.request(url, {
                 method: method,
                 body: JSON.stringify(companyData)
             });
@@ -302,7 +191,7 @@ class CompanyManager {
         }
 
         try {
-            await this.app.apiCall(`/v1/companies/${companyId}/`, { method: 'DELETE' });
+            await window.apiClient.delete(`${window.CRM_CONFIG.ENDPOINTS.COMPANIES}${companyId}/`);
             this.loadCompaniesList();
             this.app.showToast('Company deleted successfully', 'success');
         } catch (error) {
@@ -312,18 +201,18 @@ class CompanyManager {
 
     async viewCompany(companyId) {
         try {
-            const company = await this.app.apiCall(`/v1/companies/${companyId}/`);
+            const company = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.COMPANIES}${companyId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'company-view-modal';
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
             modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800">
                     <div class="px-6 py-4 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg font-medium text-gray-900">Company Details</h3>
-                            <button onclick="document.getElementById('company-view-modal').remove()" class="text-gray-400 hover:text-gray-600">
+                            <button data-action="companies.closeViewCompanyModal" class="text-gray-400 hover:text-gray-600">
                                 <span class="sr-only">Close</span>
                                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -335,14 +224,14 @@ class CompanyManager {
                     <div class="p-6">
                         <div class="flex items-start space-x-6">
                             <div class="flex-shrink-0">
-                                <div class="h-20 w-20 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl font-bold">
+                                <div class="h-20 w-20 rounded-lg bg-primary flex items-center justify-center text-white text-2xl font-bold">
                                     ${company.full_name.charAt(0).toUpperCase()}
                                 </div>
                             </div>
                             
                             <div class="flex-1">
                                 <h4 class="text-xl font-bold text-gray-900">${company.full_name}</h4>
-                                ${company.website ? `<a href="${company.website}" target="_blank" class="text-primary-600 hover:text-primary-800">${company.website}</a>` : ''}
+                                ${company.website ? `<a href="${company.website}" target="_blank" class="text-primary hover:text-primary-800">${company.website}</a>` : ''}
                                 
                                 <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
@@ -367,7 +256,7 @@ class CompanyManager {
                                             <div>
                                                 <dt class="text-sm font-medium text-gray-500">Status</dt>
                                                 <dd class="text-sm">
-                                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${company.disqualified ? 'bg-red-100 text-red-800' : company.active ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">
+                                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${company.disqualified ? 'bg-danger bg-opacity-20 text-danger' : company.active ? 'bg-success bg-opacity-20 text-success' : 'bg-warning bg-opacity-20 text-warning'}">
                                                         ${company.disqualified ? 'Disqualified' : company.active ? 'Active' : 'Inactive'}
                                                     </span>
                                                 </dd>
@@ -399,8 +288,7 @@ class CompanyManager {
                                 ` : ''}
                                 
                                 <div class="mt-6 flex justify-end space-x-3">
-                                    <button onclick="app.companies.editCompany(${company.id}); document.getElementById('company-view-modal').remove();" 
-                                            class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
+                                    <button data-action="companies.editCompany" data-id="${company.id}" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
                                         Edit Company
                                     </button>
                                 </div>
@@ -415,4 +303,324 @@ class CompanyManager {
             this.app.showToast('Error loading company details', 'error');
         }
     }
+}
+/* ===== Merged UX patches from companies-ux.js ===== */
+
+/**
+ * UX Enhancements for Companies Module
+ */
+
+if (typeof CompanyManager !== 'undefined' && window.uxEnhancements) {
+    
+    // Enhanced loadCompaniesList with skeleton and empty states
+    const originalLoadCompaniesList = CompanyManager.prototype.loadCompaniesList;
+    CompanyManager.prototype.loadCompaniesList = async function(searchTerm = '') {
+        const content = document.getElementById('companies-content');
+        
+        // Show skeleton
+        window.uxEnhancements.showSkeleton(content, 'cards', 6);
+
+        try {
+            const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+            const companies = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.COMPANIES}?${searchParam}`);
+            
+            if (!companies.results || companies.results.length === 0) {
+                window.uxEnhancements.showEmptyState(content, {
+                    icon: '🏢',
+                    title: searchTerm ? 'No companies found' : 'No companies yet',
+                    description: searchTerm 
+                        ? `No companies match "${searchTerm}"`
+                        : 'Start by adding your first company',
+                    actionLabel: 'Add Company',
+                    actionHandler: 'app.companies.showCompanyForm()',
+                    secondaryAction: searchTerm ? {
+                        label: 'Clear Search',
+                        handler: 'document.getElementById("company-search").value=""; app.companies.loadCompaniesList()'
+                    } : null
+                });
+                return;
+            }
+
+            // Render with mobile support
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${companies.results.map(company => this.renderCompanyCard(company)).join('')}
+                </div>
+                
+                ${companies.count > companies.results.length ? `
+                    <div class="mt-6 flex items-center justify-between">
+                        <div class="text-sm text-surface-600">
+                            Showing ${companies.results.length} of ${companies.count} companies
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn btn-secondary btn-sm">Previous</button>
+                            <button class="btn btn-secondary btn-sm">Next</button>
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+        } catch (error) {
+            window.uxEnhancements.showErrorModal({
+                title: 'Failed to load companies',
+                message: 'Unable to fetch companies from the server.',
+                error: error,
+                actions: [
+                    { label: 'Try Again', handler: 'app.companies.loadCompaniesList()', primary: true },
+                    { label: 'Cancel', handler: '', primary: false }
+                ]
+            });
+        }
+    };
+
+    // Render company card with better styling
+    CompanyManager.prototype.renderCompanyCard = function(company) {
+        return `
+            <div class="card p-6 hover:shadow-medium transition-shadow" data-id="${company.id}">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="avatar avatar-lg bg-primary-100">
+                            <span class="text-primary-600 text-xl font-bold">
+                                ${(company.full_name || '?').charAt(0).toUpperCase()}
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-surface-900">${company.full_name}</h3>
+                            ${company.website ? `<a href="${company.website}" target="_blank" class="text-sm text-primary-600 hover:underline">${company.website}</a>` : ''}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-2 mb-4">
+                    ${company.email ? `
+                        <div class="flex items-center gap-2 text-sm text-surface-700">
+                            <svg class="w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            ${company.email}
+                        </div>
+                    ` : ''}
+                    ${company.phone ? `
+                        <div class="flex items-center gap-2 text-sm text-surface-700">
+                            <svg class="w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            ${company.phone}
+                        </div>
+                    ` : ''}
+                    ${company.city_name ? `
+                        <div class="flex items-center gap-2 text-sm text-surface-700">
+                            <svg class="w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            ${company.city_name}
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="flex gap-2 pt-4 border-t border-surface-200">
+                    <button data-action="companies.viewCompany" data-id="${company.id}" class="btn btn-secondary btn-sm flex-1">
+                        View
+                    </button>
+                    <button data-action="companies.editCompany" data-id="${company.id}" class="btn btn-text btn-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </button>
+                    <button data-action="companies.deleteCompany" data-id="${company.id}" class="btn btn-text btn-sm text-error-600">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
+    };
+
+    // Enhanced showCompanyForm with smart defaults
+    const originalShowCompanyForm = CompanyManager.prototype.showCompanyForm;
+    CompanyManager.prototype.showCompanyForm = function(companyId = null) {
+        const isEdit = companyId !== null;
+        const title = isEdit ? 'Edit Company' : 'Add New Company';
+
+        const modal = document.createElement('div');
+        modal.id = 'company-modal';
+        modal.className = 'modal-overlay fade-in';
+        
+        modal.innerHTML = `
+            <div class="modal w-full max-w-2xl scale-in dark:bg-slate-800 dark:text-slate-100">
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="btn-icon btn-text" onclick="document.getElementById('company-modal').remove()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="company-form" class="modal-body space-y-4">
+                    <div class="input-group">
+                        <label for="full_name" class="input-label">Company Name *</label>
+                        <input type="text" id="full_name" name="full_name" required class="input" placeholder="Acme Corporation">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email</label>
+                            <input type="email" id="email" name="email" class="input" placeholder="info@company.com">
+                            <p class="input-hint">Will be converted to lowercase</p>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone" class="input-label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="input" placeholder="+1234567890">
+                            <p class="input-hint">Will be cleaned to +digits format</p>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="website" class="input-label">Website</label>
+                        <input type="url" id="website" name="website" class="input" placeholder="https://company.com">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="description" class="input-label">Description</label>
+                        <textarea id="description" name="description" rows="3" class="input"></textarea>
+                    </div>
+                    
+                    <!-- Advanced fields -->
+                    <div class="input-group" data-advanced="true">
+                        <label for="industry" class="input-label">Industry</label>
+                        <input type="text" id="industry" name="industry" class="input">
+                    </div>
+                    
+                    <div class="input-group" data-advanced="true">
+                        <label for="employees" class="input-label">Number of Employees</label>
+                        <input type="number" id="employees" name="employees" class="input">
+                    </div>
+                </form>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('company-modal').remove()">
+                        Cancel
+                    </button>
+                    <button type="submit" form="company-form" class="btn btn-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        ${isEdit ? 'Update' : 'Create'} Company
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        
+        // Disable background scroll and setup close handlers
+        document.body.style.overflow = 'hidden';
+        const overlayEl = modal; // .modal-overlay
+        const dialogEl = modal.querySelector('.modal');
+        const closeModal = () => {
+            overlayEl.remove();
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onKeyDown);
+        };
+        const onKeyDown = (e) => { if (e.key === 'Escape') closeModal(); };
+        document.addEventListener('keydown', onKeyDown);
+        overlayEl.addEventListener('click', (e) => { if (!dialogEl.contains(e.target)) closeModal(); });
+        // a11y focus trap
+        window.uxEnhancements?.applyFocusTrap(overlayEl);
+        dialogEl.setAttribute('aria-label', title);
+        
+        const companyForm = document.getElementById('company-form');
+
+        // Progressive disclosure
+        if (window.advancedUX) {
+            window.advancedUX.setupProgressiveDisclosure(companyForm);
+        }
+
+        // Smart defaults for new companies
+        if (!isEdit && window.uxEnhancements) {
+            const defaults = window.uxEnhancements.getSmartDefaults('company', this.app.user?.id);
+            window.uxEnhancements.applySmartDefaults(companyForm, defaults);
+        }
+
+        if (isEdit) {
+            this.loadCompanyData(companyId);
+        }
+
+        // Setup form submission
+        companyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.saveCompany(companyId);
+        });
+
+        // Setup normalization and validation
+        if (window.FormValidators) {
+            window.FormValidators.setupFormNormalization(companyForm);
+            window.FormValidators.setupFormValidation(companyForm);
+        }
+
+        // Focus first input
+        setTimeout(() => document.getElementById('full_name').focus(), 100);
+    };
+
+    // Enhanced saveCompany with optimistic updates
+    const originalSaveCompany = CompanyManager.prototype.saveCompany;
+    CompanyManager.prototype.saveCompany = async function(companyId = null) {
+        const formData = new FormData(document.getElementById('company-form'));
+        const companyData = Object.fromEntries(formData.entries());
+        
+        // Remember values
+        if (window.uxEnhancements && companyData.industry) {
+            window.uxEnhancements.rememberValue('industry', companyData.industry);
+        }
+
+        try {
+            const method = companyId ? 'PUT' : 'POST';
+            const url = companyId 
+                ? `${window.CRM_CONFIG.ENDPOINTS.COMPANIES}${companyId}/` 
+                : window.CRM_CONFIG.ENDPOINTS.COMPANIES;
+            
+            await window.apiClient.request(url, {
+                method: method,
+                body: JSON.stringify(companyData)
+            });
+
+            document.getElementById('company-modal').remove();
+            this.loadCompaniesList();
+            this.app.showToast(
+                `Company ${companyId ? 'updated' : 'created'} successfully`, 
+                'success'
+            );
+        } catch (error) {
+            if (window.uxEnhancements) {
+                window.uxEnhancements.showErrorModal({
+                    title: `Failed to ${companyId ? 'update' : 'create'} company`,
+                    message: error.message || 'Please check your input and try again.',
+                    error: error,
+                    actions: [
+                        { label: 'Try Again', handler: `app.companies.saveCompany(${companyId})`, primary: true },
+                        { label: 'Cancel', handler: '', primary: false }
+                    ]
+                });
+            } else {
+                this.app.showToast(`Error ${companyId ? 'updating' : 'creating'} company`, 'error');
+            }
+        }
+    };
+
+    // Setup search progress
+    const originalLoadCompanies = CompanyManager.prototype.loadCompanies;
+    CompanyManager.prototype.loadCompanies = function() {
+        originalLoadCompanies.call(this);
+        
+        setTimeout(() => {
+            const searchInput = document.getElementById('company-search');
+            if (searchInput && window.uxEnhancements) {
+                window.uxEnhancements.setupSearchProgress(searchInput, (term) => {
+                    this.loadCompaniesList(term);
+                });
+            }
+        }, 100);
+    };
 }

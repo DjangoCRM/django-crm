@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Q, Count
 from django.utils import timezone
-from datetime import timedelta
+from datetime import timedelta, datetime
+from django.http import HttpResponse
+import csv
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
@@ -45,6 +47,25 @@ def _parse_bool(value):
         if value_lower in ('0', 'false', 'no', 'n'):
             return False
     return value
+
+
+def _norm_date(value):
+    """Normalize incoming date string to YYYY-MM-DD or return None if invalid."""
+    if not value:
+        return None
+    v = str(value).strip()
+    # already YYYY-MM-DD
+    try:
+        datetime.strptime(v, '%Y-%m-%d')
+        return v
+    except ValueError:
+        pass
+    # ISO with time
+    try:
+        return datetime.fromisoformat(v.replace('Z', '+00:00')).date().isoformat()
+    except ValueError:
+        pass
+    return None
 
 
 def _filter_by_query_params(queryset, request, allowed_fields):
@@ -196,14 +217,14 @@ class ProjectViewSet(OwnedModelViewSet):
             qs = qs.filter(responsible__id=responsible_id)
         # extra date filters
         params = self.request.query_params
-        date_from = params.get('date_from')
-        date_to = params.get('date_to')
+        date_from = _norm_date(params.get('date_from'))
+        date_to = _norm_date(params.get('date_to'))
         if date_from:
             qs = qs.filter(creation_date__date__gte=date_from)
         if date_to:
             qs = qs.filter(creation_date__date__lte=date_to)
-        due_from = params.get('due_from')
-        due_to = params.get('due_to')
+        due_from = _norm_date(params.get('due_from'))
+        due_to = _norm_date(params.get('due_to'))
         if due_from:
             qs = qs.filter(due_date__gte=due_from)
         if due_to:
@@ -288,6 +309,26 @@ class ProjectViewSet(OwnedModelViewSet):
             updated += 1
         return Response({'status': 'ok', 'updated': updated})
 
+    @action(detail=False, methods=['get'])
+    def export(self, request):
+        qs = self.filter_queryset(self.get_queryset())
+        fields = ['id','name','active','due_date','next_step','next_step_date','creation_date']
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="projects_export.csv"'
+        writer = csv.writer(response)
+        writer.writerow(fields)
+        for o in qs.iterator():
+            writer.writerow([
+                o.id,
+                o.name,
+                o.active,
+                o.due_date,
+                o.next_step,
+                o.next_step_date,
+                o.creation_date,
+            ])
+        return response
+
 
 class DealViewSet(OwnedModelViewSet):
     serializer_class = DealSerializer
@@ -371,8 +412,8 @@ class LeadViewSet(OwnedModelViewSet):
         )
         # date_from/date_to filters by creation_date
         params = self.request.query_params
-        date_from = params.get('date_from')
-        date_to = params.get('date_to')
+        date_from = _norm_date(params.get('date_from'))
+        date_to = _norm_date(params.get('date_to'))
         if date_from:
             qs = qs.filter(creation_date__date__gte=date_from)
         if date_to:

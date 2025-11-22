@@ -215,6 +215,94 @@ class APIClient {
     async delete(endpoint) {
         return await this.request(endpoint, { method: 'DELETE' });
     }
+
+    // Dashboard data (composite)
+    async getDashboardData() {
+        try {
+            const dataPromises = [];
+            const availableEndpoints = window.CRM_CONFIG.AVAILABLE_ENDPOINTS || [];
+            const endpointMap = {
+                contacts: window.CRM_CONFIG.ENDPOINTS.CONTACTS,
+                companies: window.CRM_CONFIG.ENDPOINTS.COMPANIES,
+                deals: window.CRM_CONFIG.ENDPOINTS.DEALS,
+                leads: window.CRM_CONFIG.ENDPOINTS.LEADS,
+                tasks: window.CRM_CONFIG.ENDPOINTS.TASKS
+            };
+            const availableData = {};
+            for (const [key, endpoint] of Object.entries(endpointMap)) {
+                if (availableEndpoints.includes(endpoint)) {
+                    dataPromises.push(
+                        this.get(endpoint, { limit: 10 })
+                            .then(response => ({ key, data: response }))
+                            .catch(() => ({ key, data: { results: [], count: 0 } }))
+                    );
+                } else {
+                    availableData[key] = { results: [], count: 0 };
+                }
+            }
+            dataPromises.push(
+                this.getDashboardAnalytics()
+                    .then(analytics => ({ key: 'analytics', data: analytics }))
+                    .catch(() => ({ key: 'analytics', data: null }))
+            );
+            const results = await Promise.all(dataPromises);
+            results.forEach(({ key, data }) => {
+                if (key === 'analytics') {
+                    availableData.analytics = data;
+                } else {
+                    availableData[key] = data.results || data;
+                    availableData[`${key}Count`] = data.count || (data.results ? data.results.length : 0);
+                }
+            });
+            return {
+                contacts: availableData.contacts || [],
+                companies: availableData.companies || [],
+                deals: availableData.deals || [],
+                leads: availableData.leads || [],
+                tasks: availableData.tasks || [],
+                analytics: availableData.analytics,
+                stats: {
+                    contactsCount: availableData.contactsCount || 0,
+                    companiesCount: availableData.companiesCount || 0,
+                    dealsCount: availableData.dealsCount || 0,
+                    leadsCount: availableData.leadsCount || 0,
+                    tasksCount: availableData.tasksCount || 0
+                }
+            };
+        } catch (e) {
+            console.warn('Failed to load dashboard data', e);
+            return {
+                contacts: [], companies: [], deals: [], leads: [], tasks: [], analytics: null,
+                stats: { contactsCount: 0, companiesCount: 0, dealsCount: 0, leadsCount: 0, tasksCount: 0 }
+            };
+        }
+    }
+
+    // Dashboard analytics
+    async getDashboardAnalytics() {
+        try {
+            return await this.get(window.CRM_CONFIG.ENDPOINTS.DASHBOARD_ANALYTICS);
+        } catch (error) {
+            if (error.status !== 404 && window.CRM_CONFIG?.DEBUG_MODE) {
+                console.warn('Dashboard analytics endpoint not available, using fallback');
+            }
+            // Basic fallback
+            return { monthly_growth: { contacts: 0, companies: 0, deals: 0 }, tasks: { active: 0, overdue: 0 } };
+        }
+    }
+
+    // Activity feed
+    async getActivityFeed(limit = 10) {
+        try {
+            return await this.get(window.CRM_CONFIG.ENDPOINTS.DASHBOARD_ACTIVITY, { limit });
+        } catch (error) {
+            if (error.status !== 404 && window.CRM_CONFIG?.DEBUG_MODE) {
+                console.warn('Dashboard activity endpoint not available, fallback generation');
+            }
+            // Fallback: empty
+            return [];
+        }
+    }
 }
 
 // Export singleton instance

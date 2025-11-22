@@ -30,7 +30,7 @@
         const ctrl = multiple
           ? `<input type="checkbox" data-id="${id}" class="rounded"/>`
           : `<input type="radio" name="ta-opt" data-id="${id}" class="rounded"/>`;
-        return `<label class="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+        return `<label class="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 dark:hover:bg-slate-700 cursor-pointer">
           ${ctrl}
           <span class="truncate">${label}</span>
         </label>`;

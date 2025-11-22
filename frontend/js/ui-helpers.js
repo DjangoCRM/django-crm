@@ -151,7 +151,7 @@ function createBusinessCard(config) {
     };
     
     return `
-        <div class="bg-white rounded-lg border border-gray-200 p-6 ${clickable ? 'hover:shadow-md cursor-pointer' : ''} transition-shadow">
+        <div class=\"bg-white rounded-lg border border-gray-200 p-6 ${clickable ? 'hover:shadow-md cursor-pointer' : ''} transition-shadow dark:bg-slate-800 dark:border-slate-700\">
             ${title ? `
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
@@ -162,7 +162,7 @@ function createBusinessCard(config) {
                         ` : ''}
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">${title}</h3>
-                            ${subtitle ? `<p class="text-sm text-gray-500">${subtitle}</p>` : ''}
+                            ${subtitle ? `<p class="text-sm text-gray-500 dark:text-slate-300">${subtitle}</p>` : ''}
                         </div>
                     </div>
                     ${actions.length > 0 ? `
@@ -213,11 +213,11 @@ function createDataTable(config) {
                         ${actions.length > 0 ? '<th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>' : ''}
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody class=\"bg-white divide-y divide-gray-200 dark:divide-slate-700 dark:bg-slate-800 dark:divide-slate-700\">
                     ${data.map(row => `
-                        <tr class="hover:bg-gray-50 transition-colors">
+                        <tr class="hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
                             ${columns.map(col => `
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                text-gray-900 dark:text-slate-100'>
                                     ${col.render ? col.render(row[col.field], row) : row[col.field] || '-'}
                                 </td>
                             `).join('')}

@@ -14,7 +14,7 @@ class LeadManager {
         this.selected = new Set();
         const section = document.getElementById('leads-section');
         section.innerHTML = `
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Leads</h2>
@@ -74,7 +74,7 @@ class LeadManager {
 
     async loadLeadsList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/v1/leads/?';
+            let url = '/v1/leads/?'; // OK
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (statusFilter) url += `disqualified=${statusFilter}&`;
             
@@ -99,7 +99,7 @@ class LeadManager {
             content.innerHTML = `
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     ${leads.results.map(lead => `
-                        <div class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+                        <div class=\"bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\"
                              onclick="app.leads.viewLead(${lead.id})">
                             <div class="flex items-start justify-between mb-3">
                                 <div class="flex items-center space-x-3">
@@ -182,111 +182,7 @@ class LeadManager {
         this.loadLeadsList(document.getElementById('lead-search').value, status);
     }
 
-    showLeadForm(leadId = null) {
-        const isEdit = leadId !== null;
-        const title = isEdit ? 'Edit Lead' : 'Add New Lead';
 
-        const modal = document.createElement('div');
-        modal.id = 'lead-modal';
-        modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
-        
-        modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-medium text-gray-900">${title}</h3>
-                        <button onclick="document.getElementById('lead-modal').remove()" class="text-gray-400 hover:text-gray-600">
-                            <span class="sr-only">Close</span>
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <form id="lead-form" class="p-6 space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                            <input type="text" id="first_name" name="first_name" required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                        <div>
-                            <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                            <input type="text" id="last_name" name="last_name"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" name="email"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                            <input type="tel" id="phone" name="phone"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="company_name" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
-                            <input type="text" id="company_name" name="company_name"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                        <div>
-                            <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                            <input type="url" id="website" name="website"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                        <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center space-x-6">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="disqualified" name="disqualified"
-                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-                            <label for="disqualified" class="ml-2 block text-sm text-gray-900">Disqualified</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="was_in_touch" name="was_in_touch"
-                                   class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
-                            <label for="was_in_touch" class="ml-2 block text-sm text-gray-900">Was in touch</label>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-end space-x-3 pt-4">
-                        <button type="button" onclick="document.getElementById('lead-modal').remove()" 
-                                class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
-                            Cancel
-                        </button>
-                        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-90">
-                            ${isEdit ? 'Update' : 'Create'} Lead
-                        </button>
-                    </div>
-                </form>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-
-        if (isEdit) {
-            this.loadLeadData(leadId);
-        }
-
-        document.getElementById('lead-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.saveLead(leadId);
-        });
-    }
 
     async loadLeadData(leadId) {
         try {
@@ -309,26 +205,34 @@ class LeadManager {
     }
 
     async saveLead(leadId = null) {
-        const formData = new FormData(document.getElementById('lead-form'));
-        const leadData = Object.fromEntries(formData.entries());
-        
-        leadData.disqualified = document.getElementById('disqualified').checked;
-        leadData.was_in_touch = document.getElementById('was_in_touch').checked;
+        const form = document.getElementById('lead-form');
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Normalize booleans
+        data.disqualified = document.getElementById('disqualified').checked;
+        data.was_in_touch = document.getElementById('was_in_touch').checked;
+
+        // Trim strings and clean empty values
+        Object.keys(data).forEach(k => { if (typeof data[k] === 'string') data[k] = data[k].trim(); });
+        if (!data.first_name && !data.company_name) {
+            this.app.showToast('Enter at least First name or Company name', 'error');
+            return;
+        }
+        Object.keys(data).forEach(k => { if (data[k] === '' || data[k] == null) delete data[k]; });
 
         try {
             const method = leadId ? 'PUT' : 'POST';
             const url = leadId ? `${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/` : window.CRM_CONFIG.ENDPOINTS.LEADS;
-            
-            await window.apiClient.request(url, {
-                method: method,
-                body: JSON.stringify(leadData)
-            });
-
-            document.getElementById('lead-modal').remove();
+            await window.apiClient.request(url, { method, body: JSON.stringify(data) });
+            document.getElementById('lead-modal')?.remove();
             this.loadLeadsList();
             this.app.showToast(`Lead ${leadId ? 'updated' : 'created'} successfully`, 'success');
         } catch (error) {
-            this.app.showToast(`Error ${leadId ? 'updating' : 'creating'} lead`, 'error');
+            const msg = (error?.data && typeof error.data === 'object')
+              ? Object.entries(error.data).map(([f, v]) => `${f}: ${Array.isArray(v)? v.join(', '): v}`).join('\n')
+              : (error?.message || 'Bad Request');
+            this.app.showToast(msg, 'error');
         }
     }
 
@@ -395,7 +299,7 @@ class LeadManager {
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
             modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800">
                     <div class="px-6 py-4 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg font-medium text-gray-900">Lead Details</h3>
@@ -509,7 +413,7 @@ class LeadManager {
         wrap.innerHTML = `
         <div class="fixed inset-0 z-50 flex items-center justify-center">
             <div class="absolute inset-0 bg-black bg-opacity-40" onclick="this.parentElement.remove()"></div>
-            <div class="relative bg-white rounded-lg shadow-lg w-full max-w-md p-5">${contentHTML}</div>
+            <div class="relative bg-white rounded-lg shadow-lg w-full max-w-md p-5 dark:bg-slate-800">${contentHTML}</div>
         </div>`;
         return wrap.firstElementChild;
     }
@@ -635,4 +539,419 @@ class LeadManager {
         } catch(e) { /* modal handles close */ }
         return;
     }
+}
+
+/* ===== Merged UX patches from leads-ux.js ===== */
+
+/**
+ * UX Enhancements for Leads Module
+ */
+
+if (typeof LeadManager !== 'undefined' && window.uxEnhancements) {
+    
+    // Enhanced loadLeadsList with skeleton and empty states
+    const originalLoadLeadsList = LeadManager.prototype.loadLeadsList;
+    LeadManager.prototype.loadLeadsList = async function(searchTerm = '') {
+        const content = document.getElementById('leads-content');
+        
+        // Show skeleton
+        window.uxEnhancements.showSkeleton(content, 'list', 8);
+
+        try {
+            const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+            const leads = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.LEADS}?${searchParam}`);
+            
+            if (!leads.results || leads.results.length === 0) {
+                window.uxEnhancements.showEmptyState(content, {
+                    icon: '🎯',
+                    title: searchTerm ? 'No leads found' : 'No leads yet',
+                    description: searchTerm 
+                        ? `No leads match "${searchTerm}"`
+                        : 'Start capturing leads to grow your business',
+                    actionLabel: 'Add Lead',
+                    actionHandler: 'app.leads.showLeadForm()',
+                    secondaryAction: searchTerm ? {
+                        label: 'Clear Search',
+                        handler: 'document.getElementById("lead-search").value=""; app.leads.loadLeadsList()'
+                    } : null
+                });
+                return;
+            }
+
+            // Render leads with status colors
+            content.innerHTML = `
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 table-responsive">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <input type="checkbox" id="select-all-leads" class="checkbox">
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lead</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class=\"bg-white divide-y divide-gray-200 dark:bg-slate-800 dark:divide-slate-700\">
+                            ${leads.results.map(lead => `
+                                <tr class="hover:bg-gray-50 dark:hover:bg-slate-700" data-id="${lead.id}">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="bulk-checkbox">
+                                            <input type="checkbox" class="checkbox" value="${lead.id}">
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <div class="h-10 w-10 rounded-full bg-warning-100 flex items-center justify-center text-warning-600 font-medium">
+                                                    ${(lead.full_name || '?').charAt(0).toUpperCase()}
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">${lead.full_name}</div>
+                                                <div class="text-sm text-gray-500">${lead.title || ''}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">${lead.company_name || 'No company'}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">${lead.email || 'No email'}</div>
+                                        <div class="text-sm text-gray-500">${lead.phone || ''}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        ${this.renderLeadStatus(lead.status)}
+                                    </td>
+                                    text-gray-500 dark:text-slate-300'>
+                                        ${lead.lead_source || 'Unknown'}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <div class="flex space-x-2">
+                                            <button data-action="leads.viewLead" data-id="${lead.id}" class="btn btn-text btn-sm">View</button>
+                                            <button data-action="leads.editLead" data-id="${lead.id}" class="btn btn-text btn-sm">Edit</button>
+                                            <button data-action="leads.convertLead" data-id="${lead.id}" class="btn btn-text btn-sm text-success-600">Convert</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Mobile Card View -->
+                <div class="card-view">
+                    ${leads.results.map(lead => `
+                        <div class="card-view-item" data-id="${lead.id}">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bulk-checkbox">
+                                    <input type="checkbox" class="checkbox" value="${lead.id}">
+                                </div>
+                                <div class="avatar avatar-md bg-warning-100">
+                                    <span class="text-warning-600">${(lead.full_name || '?').charAt(0).toUpperCase()}</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold">${lead.full_name}</h4>
+                                    <p class="text-sm text-surface-600">${lead.company_name || ''}</p>
+                                </div>
+                                ${this.renderLeadStatus(lead.status)}
+                            </div>
+                            <div class="space-y-2">
+                                ${lead.email ? `
+                                    <div class="card-view-row">
+                                        <span class="card-view-label">Email</span>
+                                        <span class="card-view-value">${lead.email}</span>
+                                    </div>
+                                ` : ''}
+                                ${lead.phone ? `
+                                    <div class="card-view-row">
+                                        <span class="card-view-label">Phone</span>
+                                        <span class="card-view-value">${lead.phone}</span>
+                                    </div>
+                                ` : ''}
+                                ${lead.lead_source ? `
+                                    <div class="card-view-row">
+                                        <span class="card-view-label">Source</span>
+                                        <span class="card-view-value">${lead.lead_source}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <div class="flex gap-2 mt-4 pt-4 border-t border-surface-200">
+                                <button data-action="leads.viewLead" data-id="${lead.id}" class="btn btn-secondary btn-sm flex-1">View</button>
+                                <button data-action="leads.editLead" data-id="${lead.id}" class="btn btn-secondary btn-sm flex-1">Edit</button>
+                                <button data-action="leads.convertLead" data-id="${lead.id}" class="btn btn-primary btn-sm flex-1">Convert</button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                ${leads.count > leads.results.length ? `
+                    <div class="mt-6 flex items-center justify-between">
+                        <div class="text-sm text-surface-600">
+                            Showing ${leads.results.length} of ${leads.count} leads
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn btn-secondary btn-sm">Previous</button>
+                            <button class="btn btn-secondary btn-sm">Next</button>
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+
+            // Enable bulk selection
+            if (window.advancedUX) {
+                window.advancedUX.enableBulkSelection('#leads-content', '.bulk-checkbox');
+            }
+
+        } catch (error) {
+            window.uxEnhancements.showErrorModal({
+                title: 'Failed to load leads',
+                message: 'Unable to fetch leads from the server.',
+                error: error,
+                actions: [
+                    { label: 'Try Again', handler: 'app.leads.loadLeadsList()', primary: true },
+                    { label: 'Cancel', handler: '', primary: false }
+                ]
+            });
+        }
+    };
+
+    // Render lead status badge
+    LeadManager.prototype.renderLeadStatus = function(status) {
+        const statusConfig = {
+            'new': { class: 'badge-primary', label: 'New' },
+            'contacted': { class: 'badge-secondary', label: 'Contacted' },
+            'qualified': { class: 'badge-success', label: 'Qualified' },
+            'unqualified': { class: 'badge-error', label: 'Unqualified' },
+            'converted': { class: 'badge-success', label: 'Converted' }
+        };
+        
+        const config = statusConfig[status] || { class: 'badge-secondary', label: status || 'Unknown' };
+        return `<span class="badge ${config.class}">${config.label}</span>`;
+    };
+
+    // Enhanced showLeadForm with smart defaults
+    const originalShowLeadForm = LeadManager.prototype.showLeadForm;
+    LeadManager.prototype.showLeadForm = function(leadId = null) {
+        const isEdit = leadId !== null;
+        const title = isEdit ? 'Edit Lead' : 'Add New Lead';
+
+        const modal = document.createElement('div');
+        modal.id = 'lead-modal';
+        modal.className = 'modal-overlay fade-in';
+        
+        modal.innerHTML = `
+            <div class="modal w-full max-w-2xl scale-in dark:bg-slate-800 dark:text-slate-100">
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="btn-icon btn-text" onclick="document.getElementById('lead-modal').remove()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="lead-form" class="modal-body space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="first_name" class="input-label">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" required class="input">
+                        </div>
+                        <div class="input-group">
+                            <label for="last_name" class="input-label">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" required class="input">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="company_name" class="input-label">Company Name</label>
+                        <input type="text" id="company_name" name="company_name" class="input">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email *</label>
+                            <input type="email" id="email" name="email" required class="input">
+                            <p class="input-hint">Will be converted to lowercase</p>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone" class="input-label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="input">
+                            <p class="input-hint">Will be cleaned to +digits format</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="status" class="input-label">Status</label>
+                            <select id="status" name="status" class="input select">
+                                <option value="new">New</option>
+                                <option value="contacted">Contacted</option>
+                                <option value="qualified">Qualified</option>
+                                <option value="unqualified">Unqualified</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="lead_source" class="input-label">Lead Source</label>
+                            <select id="lead_source" name="lead_source" class="input select">
+                                <option value="">Select source...</option>
+                                <option value="website">Website</option>
+                                <option value="referral">Referral</option>
+                                <option value="social_media">Social Media</option>
+                                <option value="email_campaign">Email Campaign</option>
+                                <option value="trade_show">Trade Show</option>
+                                <option value="cold_call">Cold Call</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="description" class="input-label">Description</label>
+                        <textarea id="description" name="description" rows="3" class="input"></textarea>
+                    </div>
+                    
+                    <!-- Advanced fields -->
+                    <div class="input-group" data-advanced="true">
+                        <label for="title" class="input-label">Title</label>
+                        <input type="text" id="title" name="title" class="input">
+                    </div>
+                    
+                    <div class="input-group" data-advanced="true">
+                        <label for="mobile" class="input-label">Mobile</label>
+                        <input type="tel" id="mobile" name="mobile" class="input">
+                    </div>
+                    
+                    <div class="input-group" data-advanced="true">
+                        <label for="website" class="input-label">Website</label>
+                        <input type="url" id="website" name="website" class="input">
+                    </div>
+                </form>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('lead-modal').remove()">
+                        Cancel
+                    </button>
+                    <button type="submit" form="lead-form" class="btn btn-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        ${isEdit ? 'Update' : 'Create'} Lead
+                        ${!isEdit ? '<kbd class="ml-2">⌘S</kbd>' : ''}
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        
+        // Disable background scroll and setup close handlers
+        document.body.style.overflow = 'hidden';
+        const overlayEl = modal; // .modal-overlay
+        const dialogEl = modal.querySelector('.modal');
+        const closeModal = () => {
+            overlayEl.remove();
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onKeyDown);
+        };
+        const onKeyDown = (e) => { if (e.key === 'Escape') closeModal(); };
+        document.addEventListener('keydown', onKeyDown);
+        overlayEl.addEventListener('click', (e) => { if (!dialogEl.contains(e.target)) closeModal(); });
+        // a11y focus trap
+        window.uxEnhancements?.applyFocusTrap(overlayEl);
+        dialogEl.setAttribute('aria-label', title);
+        
+        const leadForm = document.getElementById('lead-form');
+
+        // Progressive disclosure
+        if (window.advancedUX) {
+            window.advancedUX.setupProgressiveDisclosure(leadForm);
+        }
+
+        // Smart defaults
+        if (!isEdit && window.uxEnhancements) {
+            const defaults = window.uxEnhancements.getSmartDefaults('lead', this.app.user?.id);
+            window.uxEnhancements.applySmartDefaults(leadForm, defaults);
+        }
+
+        if (isEdit) {
+            this.loadLeadData(leadId);
+        }
+
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.saveLead(leadId);
+        });
+
+        // Setup normalization and validation
+        if (window.FormValidators) {
+            window.FormValidators.setupFormNormalization(leadForm);
+            window.FormValidators.setupFormValidation(leadForm);
+        }
+
+        setTimeout(() => document.getElementById('first_name').focus(), 100);
+    };
+
+    // Enhanced saveLead
+    const originalSaveLead = LeadManager.prototype.saveLead;
+    LeadManager.prototype.saveLead = async function(leadId = null) {
+        const formData = new FormData(document.getElementById('lead-form'));
+        const leadData = Object.fromEntries(formData.entries());
+        
+        // Remember values
+        if (window.uxEnhancements && leadData.lead_source) {
+            window.uxEnhancements.rememberValue('lead_source', leadData.lead_source);
+        }
+
+        try {
+            const method = leadId ? 'PUT' : 'POST';
+            const url = leadId 
+                ? `${window.CRM_CONFIG.ENDPOINTS.LEADS}${leadId}/` 
+                : window.CRM_CONFIG.ENDPOINTS.LEADS;
+            
+            await window.apiClient.request(url, {
+                method: method,
+                body: JSON.stringify(leadData)
+            });
+
+            document.getElementById('lead-modal').remove();
+            this.loadLeadsList();
+            this.app.showToast(
+                `Lead ${leadId ? 'updated' : 'created'} successfully`, 
+                'success'
+            );
+        } catch (error) {
+            if (window.uxEnhancements) {
+                window.uxEnhancements.showErrorModal({
+                    title: `Failed to ${leadId ? 'update' : 'create'} lead`,
+                    message: error.message || 'Please check your input and try again.',
+                    error: error,
+                    actions: [
+                        { label: 'Try Again', handler: `app.leads.saveLead(${leadId})`, primary: true },
+                        { label: 'Cancel', handler: '', primary: false }
+                    ]
+                });
+            } else {
+                this.app.showToast(`Error ${leadId ? 'updating' : 'creating'} lead`, 'error');
+            }
+        }
+    };
+
+    // Setup search progress
+    const originalLoadLeads = LeadManager.prototype.loadLeads;
+    LeadManager.prototype.loadLeads = function() {
+        originalLoadLeads.call(this);
+        
+        setTimeout(() => {
+            const searchInput = document.getElementById('lead-search');
+            if (searchInput && window.uxEnhancements) {
+                window.uxEnhancements.setupSearchProgress(searchInput, (term) => {
+                    this.loadLeadsList(term);
+                });
+            }
+        }, 100);
+    };
 }

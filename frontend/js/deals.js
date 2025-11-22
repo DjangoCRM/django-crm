@@ -12,7 +12,7 @@ class DealManager {
         this.kanban = false;
         const section = document.getElementById('deals-section');
         section.innerHTML = `
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow dark:bg-slate-800">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-900">Deals</h2>
@@ -97,7 +97,7 @@ class DealManager {
             kbBtn.className   = 'px-3 py-1.5 rounded ' + (this.kanban? 'bg-primary-600 text-white':'bg-gray-200');
         }
         try {
-            let url = '/deals/?';
+            let url = '/v1/deals/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (stageFilter) url += `stage=${stageFilter}&`;
             
@@ -122,7 +122,7 @@ class DealManager {
             content.innerHTML = `
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     ${deals.results.map(deal => `
-                        <div class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+                        <div class=\"bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer dark:bg-slate-800 dark:border-slate-700\"
                              onclick="app.deals.viewDeal(${deal.id})">
                             <div class=\"flex items-start justify-between mb-3\">
                                 <h3 class="text-lg font-medium text-gray-900 truncate">${deal.name}</h3>
@@ -217,143 +217,14 @@ class DealManager {
         this.loadDealsList(document.getElementById('deal-search').value, stageId);
     }
 
-    showDealForm(dealId = null) {
-        const isEdit = dealId !== null;
-        const title = isEdit ? 'Edit Deal' : 'Add New Deal';
 
-        const modal = document.createElement('div');
-        modal.id = 'deal-modal';
-        modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
-        
-        modal.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-screen overflow-y-auto">
-                <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-medium text-gray-900">${title}</h3>
-                        <button onclick="document.getElementById('deal-modal').remove()" class="text-gray-400 hover:text-gray-600">
-                            <span class="sr-only">Close</span>
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <form id="deal-form" class="p-6 space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="md:col-span-2">
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Deal Name *</label>
-                            <input type="text" id="name" name="name" required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        
-                        <div>
-                            <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
-                            <input type="number" id="amount" name="amount" step="0.01"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        
-                        <div>
-                            <label for="probability" class="block text-sm font-medium text-gray-700 mb-1">Probability (%)</label>
-                            <input type="number" id="probability" name="probability" min="0" max="100"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                        
-                        <div>
-                            <label for="stage" class="block text-sm font-medium text-gray-700 mb-1">Stage</label>
-                            <select id="stage" name="stage" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Stage</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
-                            <select id="company" name="company" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Company</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Contact</label>
-                            <select id="contact" name="contact" 
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                <option value="">Select Contact</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="next_step_date" class="block text-sm font-medium text-gray-700 mb-1">Next Step Date</label>
-                            <input type="date" id="next_step_date" name="next_step_date"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="next_step" class="block text-sm font-medium text-gray-700 mb-1">Next Step</label>
-                        <input type="text" id="next_step" name="next_step"
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    </div>
-                    
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                        <textarea id="description" name="description" rows="3"
-                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center space-x-6">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="active" name="active" checked
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="active" class="ml-2 block text-sm text-gray-900">Active</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="important" name="important"
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="important" class="ml-2 block text-sm text-gray-900">Important</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="relevant" name="relevant" checked
-                                   class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
-                            <label for="relevant" class="ml-2 block text-sm text-gray-900">Relevant</label>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-end space-x-3 pt-4">
-                        <button type="button" onclick="document.getElementById('deal-modal').remove()" 
-                                class="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50">
-                            Cancel
-                        </button>
-                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600">
-                            ${isEdit ? 'Update' : 'Create'} Deal
-                        </button>
-                    </div>
-                </form>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-        
-        // Load dropdowns
-        this.loadDealFormDropdowns();
-
-        if (isEdit) {
-            this.loadDealData(dealId);
-        }
-
-        document.getElementById('deal-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.saveDeal(dealId);
-        });
-    }
 
     async loadDealFormDropdowns() {
         try {
             const [stages, companies, contacts] = await Promise.all([
                 this.app.apiCall('/v1/stages/'),
-                this.app.apiCall('/v1/companies/'),
-                this.app.apiCall('/v1/contacts/')
+                window.apiClient.get('/v1/companies/'),
+                window.apiClient.get('/v1/contacts/')
             ]);
 
             // Load stages
@@ -478,7 +349,7 @@ class DealManager {
             modal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center';
             
             modal.innerHTML = `
-                <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-screen overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-screen overflow-y-auto dark:bg-slate-800">
                     <div class="px-6 py-4 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg font-medium text-gray-900">Deal Details</h3>
@@ -590,4 +461,360 @@ class DealManager {
             this.app.showToast('Error loading deal details', 'error');
         }
     }
+}
+/* ===== Merged UX patches from deals-ux.js ===== */
+
+/**
+ * UX Enhancements for Deals Module
+ */
+
+if (typeof DealManager !== 'undefined' && window.uxEnhancements) {
+    
+    // Enhanced loadDealsList with skeleton and empty states
+    const originalLoadDealsList = DealManager.prototype.loadDealsList;
+    DealManager.prototype.loadDealsList = async function(searchTerm = '') {
+        const content = document.getElementById('deals-content');
+        
+        // Show skeleton
+        window.uxEnhancements.showSkeleton(content, 'cards', 6);
+
+        try {
+            const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+            const deals = await window.apiClient.get(`${window.CRM_CONFIG.ENDPOINTS.DEALS}?${searchParam}`);
+            
+            if (!deals.results || deals.results.length === 0) {
+                window.uxEnhancements.showEmptyState(content, {
+                    icon: '💰',
+                    title: searchTerm ? 'No deals found' : 'No deals yet',
+                    description: searchTerm 
+                        ? `No deals match "${searchTerm}"`
+                        : 'Start tracking deals to manage your pipeline',
+                    actionLabel: 'Create Deal',
+                    actionHandler: 'app.deals.showDealForm()',
+                    secondaryAction: searchTerm ? {
+                        label: 'Clear Search',
+                        handler: 'document.getElementById("deal-search").value=""; app.deals.loadDealsList()'
+                    } : null
+                });
+                return;
+            }
+
+            // Group deals by stage for kanban view
+            const dealsByStage = this.groupDealsByStage(deals.results);
+            
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    ${Object.entries(dealsByStage).map(([stage, stageDeals]) => `
+                        <div class="bg-surface-100 rounded-xl p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold text-surface-900">${this.formatStageName(stage)}</h3>
+                                <span class="badge badge-secondary">${stageDeals.length}</span>
+                            </div>
+                            <div class="space-y-3">
+                                ${stageDeals.map(deal => this.renderDealCard(deal)).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                ${deals.count > deals.results.length ? `
+                    <div class="mt-6 flex items-center justify-between">
+                        <div class="text-sm text-surface-600">
+                            Showing ${deals.results.length} of ${deals.count} deals
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn btn-secondary btn-sm">Previous</button>
+                            <button class="btn btn-secondary btn-sm">Next</button>
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+
+        } catch (error) {
+            window.uxEnhancements.showErrorModal({
+                title: 'Failed to load deals',
+                message: 'Unable to fetch deals from the server.',
+                error: error,
+                actions: [
+                    { label: 'Try Again', handler: 'app.deals.loadDealsList()', primary: true },
+                    { label: 'Cancel', handler: '', primary: false }
+                ]
+            });
+        }
+    };
+
+    // Group deals by stage
+    DealManager.prototype.groupDealsByStage = function(deals) {
+        const stages = ['prospecting', 'qualification', 'proposal', 'negotiation', 'closed_won', 'closed_lost'];
+        const grouped = {};
+        
+        stages.forEach(stage => {
+            grouped[stage] = deals.filter(deal => deal.stage === stage);
+        });
+        
+        return grouped;
+    };
+
+    // Format stage name
+    DealManager.prototype.formatStageName = function(stage) {
+        const names = {
+            'prospecting': '🔍 Prospecting',
+            'qualification': '✅ Qualification',
+            'proposal': '📄 Proposal',
+            'negotiation': '🤝 Negotiation',
+            'closed_won': '🎉 Closed Won',
+            'closed_lost': '❌ Closed Lost'
+        };
+        return names[stage] || stage;
+    };
+
+    // Render deal card for kanban
+    DealManager.prototype.renderDealCard = function(deal) {
+        return `
+            <div class="card p-4 cursor-pointer hover:shadow-medium transition-shadow" data-id="${deal.id}">
+                <h4 class="font-semibold text-surface-900 mb-2">${deal.name}</h4>
+                ${deal.company_name ? `<p class="text-sm text-surface-600 mb-2">${deal.company_name}</p>` : ''}
+                <div class="flex items-center justify-between">
+                    <span class="text-lg font-bold text-success-600">$${this.formatCurrency(deal.amount)}</span>
+                    ${deal.close_date ? `<span class="text-xs text-surface-500">${this.formatDate(deal.close_date)}</span>` : ''}
+                </div>
+                <div class="flex gap-2 mt-3 pt-3 border-t border-surface-200">
+                    <button data-action="deals.viewDeal" data-id="${deal.id}" class="btn btn-text btn-sm flex-1">View</button>
+                    <button data-action="deals.editDeal" data-id="${deal.id}" class="btn btn-text btn-sm flex-1">Edit</button>
+                </div>
+            </div>
+        `;
+    };
+
+    // Format currency
+    DealManager.prototype.formatCurrency = function(amount) {
+        return new Intl.NumberFormat('en-US', { 
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0 
+        }).format(amount || 0);
+    };
+
+    // Format date
+    DealManager.prototype.formatDate = function(dateString) {
+        return new Date(dateString).toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric' 
+        });
+    };
+
+    // Enhanced showDealForm
+    const originalShowDealForm = DealManager.prototype.showDealForm;
+    DealManager.prototype.showDealForm = function(dealId = null) {
+        const isEdit = dealId !== null;
+        const title = isEdit ? 'Edit Deal' : 'Create New Deal';
+
+        const modal = document.createElement('div');
+        modal.id = 'deal-modal';
+        modal.className = 'modal-overlay fade-in';
+        
+        modal.innerHTML = `
+            <div class="modal w-full max-w-2xl scale-in dark:bg-slate-800 dark:text-slate-100">
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="btn-icon btn-text" onclick="document.getElementById('deal-modal').remove()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="deal-form" class="modal-body space-y-4">
+                    <div class="input-group">
+                        <label for="name" class="input-label">Deal Name *</label>
+                        <input type="text" id="name" name="name" required class="input" placeholder="Q4 Software License">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="amount" class="input-label">Amount *</label>
+                            <input type="number" id="amount" name="amount" required class="input" placeholder="50000" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="close_date" class="input-label">Expected Close Date</label>
+                            <input type="date" id="close_date" name="close_date" class="input">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label for="stage" class="input-label">Stage *</label>
+                            <select id="stage" name="stage" required class="input select">
+                                <option value="prospecting">Prospecting</option>
+                                <option value="qualification">Qualification</option>
+                                <option value="proposal">Proposal</option>
+                                <option value="negotiation">Negotiation</option>
+                                <option value="closed_won">Closed Won</option>
+                                <option value="closed_lost">Closed Lost</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="probability" class="input-label">Probability (%)</label>
+                            <input type="number" id="probability" name="probability" class="input" min="0" max="100" placeholder="50">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="company" class="input-label">Company</label>
+                        <select id="company" name="company" class="input select">
+                            <option value="">Select company...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="contact" class="input-label">Contact</label>
+                        <select id="contact" name="contact" class="input select">
+                            <option value="">Select contact...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="description" class="input-label">Description</label>
+                        <textarea id="description" name="description" rows="3" class="input"></textarea>
+                    </div>
+                    
+                    <!-- Advanced fields -->
+                    <div class="input-group" data-advanced="true">
+                        <label for="lead_source" class="input-label">Lead Source</label>
+                        <select id="lead_source" name="lead_source" class="input select">
+                            <option value="">Select source...</option>
+                            <option value="website">Website</option>
+                            <option value="referral">Referral</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="trade_show">Trade Show</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group" data-advanced="true">
+                        <label for="next_step" class="input-label">Next Step</label>
+                        <input type="text" id="next_step" name="next_step" class="input">
+                    </div>
+                </form>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('deal-modal').remove()">
+                        Cancel
+                    </button>
+                    <button type="submit" form="deal-form" class="btn btn-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        ${isEdit ? 'Update' : 'Create'} Deal
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        
+        // Disable background scroll and setup close handlers
+        document.body.style.overflow = 'hidden';
+        const overlayEl = modal; // .modal-overlay
+        const dialogEl = modal.querySelector('.modal');
+        const closeModal = () => {
+            overlayEl.remove();
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onKeyDown);
+        };
+        const onKeyDown = (e) => { if (e.key === 'Escape') closeModal(); };
+        document.addEventListener('keydown', onKeyDown);
+        overlayEl.addEventListener('click', (e) => { if (!dialogEl.contains(e.target)) closeModal(); });
+        // a11y focus trap
+        window.uxEnhancements?.applyFocusTrap(overlayEl);
+        dialogEl.setAttribute('aria-label', title);
+        
+        const dealForm = document.getElementById('deal-form');
+
+        // Progressive disclosure
+        if (window.advancedUX) {
+            window.advancedUX.setupProgressiveDisclosure(dealForm);
+        }
+
+        // Smart defaults
+        if (!isEdit && window.uxEnhancements) {
+            const defaults = window.uxEnhancements.getSmartDefaults('deal', this.app.user?.id);
+            // Set default close date to 30 days from now
+            const closeDate = document.getElementById('close_date');
+            if (closeDate && !closeDate.value) {
+                const futureDate = new Date();
+                futureDate.setDate(futureDate.getDate() + 30);
+                closeDate.value = futureDate.toISOString().split('T')[0];
+            }
+            window.uxEnhancements.applySmartDefaults(dealForm, defaults);
+        }
+
+        // Load dropdowns
+        this.loadCompaniesDropdown();
+        this.loadContactsDropdown();
+
+        if (isEdit) {
+            this.loadDealData(dealId);
+        }
+
+        dealForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.saveDeal(dealId);
+        });
+
+        setTimeout(() => document.getElementById('name').focus(), 100);
+    };
+
+    // Enhanced saveDeal
+    const originalSaveDeal = DealManager.prototype.saveDeal;
+    DealManager.prototype.saveDeal = async function(dealId = null) {
+        const formData = new FormData(document.getElementById('deal-form'));
+        const dealData = Object.fromEntries(formData.entries());
+
+        try {
+            const method = dealId ? 'PUT' : 'POST';
+            const url = dealId 
+                ? `${window.CRM_CONFIG.ENDPOINTS.DEALS}${dealId}/` 
+                : window.CRM_CONFIG.ENDPOINTS.DEALS;
+            
+            await window.apiClient.request(url, {
+                method: method,
+                body: JSON.stringify(dealData)
+            });
+
+            document.getElementById('deal-modal').remove();
+            this.loadDealsList();
+            this.app.showToast(
+                `Deal ${dealId ? 'updated' : 'created'} successfully`, 
+                'success'
+            );
+        } catch (error) {
+            if (window.uxEnhancements) {
+                window.uxEnhancements.showErrorModal({
+                    title: `Failed to ${dealId ? 'update' : 'create'} deal`,
+                    message: error.message || 'Please check your input and try again.',
+                    error: error,
+                    actions: [
+                        { label: 'Try Again', handler: `app.deals.saveDeal(${dealId})`, primary: true },
+                        { label: 'Cancel', handler: '', primary: false }
+                    ]
+                });
+            } else {
+                this.app.showToast(`Error ${dealId ? 'updating' : 'creating'} deal`, 'error');
+            }
+        }
+    };
+
+    // Setup search progress
+    const originalLoadDeals = DealManager.prototype.loadDeals;
+    DealManager.prototype.loadDeals = function() {
+        originalLoadDeals.call(this);
+        
+        setTimeout(() => {
+            const searchInput = document.getElementById('deal-search');
+            if (searchInput && window.uxEnhancements) {
+                window.uxEnhancements.setupSearchProgress(searchInput, (term) => {
+                    this.loadDealsList(term);
+                });
+            }
+        }, 100);
+    };
 }

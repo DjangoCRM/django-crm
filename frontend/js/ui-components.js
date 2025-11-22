@@ -781,7 +781,7 @@ class CRMUIComponents {
 
         pageData.forEach((row, index) => {
             const tr = document.createElement('tr');
-            tr.className = 'hover:bg-gray-50 cursor-pointer';
+            tr.className = 'hover:bg-gray-50 dark:hover:bg-slate-700 cursor-pointer';
             tr.dataset.index = startIndex + index;
 
             // Add row click handler
