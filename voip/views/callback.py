@@ -79,16 +79,23 @@ def get_callback(connection: Connection, to_number: str)->str:
         if backend["PROVIDER"] == connection.provider
     )
     backend_cls = import_string(backend['BACKEND'])
-    voip = backend_cls(
-        key=backend['OPTIONS']['key'], 
-        secret=backend['OPTIONS']['secret']
-    )
+    # Initialize backend with provided OPTIONS to support multiple providers
+    voip = backend_cls(**backend['OPTIONS'])
     response = voip.make_query(connection.number, to_number)
-    data = json.loads(response)
+    # Support both string (JSON text) and dict responses
+    if isinstance(response, str):
+        data = json.loads(response)
+    else:
+        data = response
     message = _('That something is wrong ((. Notify the administrator.')
-    if data['status'] == 'success':
-        message = _('Expect a call to your smartphone') 
-    elif data['status'] == 'error':
-        message = f'Error! {data["message"]}'    
-    
+    status = data.get('status')
+    # Treat both Zadarma ('success') and OnlinePBX ('1') as success
+    if status in ('success', '1', 1, True):
+        message = _('Expect a call to your smartphone')
+    elif status in ('error', 0, '0', False):
+        # Zadarma: message in data['message']
+        # OnlinePBX: may include comment/errorCode
+        err = data.get('message') or data.get('comment') or data.get('errorCode') or ''
+        message = f'Error! {err}'
+
     return message

@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="default" type="submit">{% trans "Send" %}</button>
+  </form>
+  {% if error %}
+    <p style="color: red">{{ error }}</p>
+  {% endif %}
+  {% if result %}
+    <h2>{% trans "Result" %}</h2>
+    <pre style="white-space: pre-wrap">{{ result|safe }}</pre>
+  {% endif %}
+{% endblock %}

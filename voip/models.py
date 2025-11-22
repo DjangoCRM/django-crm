@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 
+
 def _ami_default(key, fallback):
     return settings.ASTERISK_AMI.get(key, fallback) if hasattr(settings, 'ASTERISK_AMI') else fallback
 
@@ -178,6 +179,32 @@ class VoipSettings(models.Model):
             'poll_interval_ms': self.incoming_poll_interval_ms,
             'popup_ttl_ms': self.incoming_popup_ttl_ms,
         }
+
+
+class OnlinePBXSettings(models.Model):
+    class Meta:
+        verbose_name = _('OnlinePBX settings')
+        verbose_name_plural = _('OnlinePBX settings')
+
+    domain = models.CharField(max_length=255, verbose_name=_('OnlinePBX domain'))
+    key_id = models.CharField(max_length=128, default='', blank=True, verbose_name=_('Key ID'))
+    key = models.CharField(max_length=255, default='', blank=True, verbose_name=_('Secret key'))
+    api_key = models.CharField(max_length=255, default='', blank=True, verbose_name=_('API key (for auth)'))
+    base_url = models.CharField(max_length=255, default='https://api2.onlinepbx.ru', verbose_name=_('Base URL'))
+    use_md5_base64 = models.BooleanField(default=False, verbose_name=_('Content-MD5 as base64'))
+    allowed_ip = models.CharField(max_length=64, default='*', blank=True, verbose_name=_('Allowed IP for webhooks'))
+    webhook_token = models.CharField(max_length=255, default='', blank=True, verbose_name=_('Webhook token'))
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.domain
+
+    @classmethod
+    def get_solo(cls):
+        obj = cls.objects.first()
+        if obj:
+            return obj
+        return cls.objects.create(domain='example.onpbx.ru')
 
 
 class IncomingCall(models.Model):

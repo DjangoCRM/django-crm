@@ -1,0 +1,24 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+  {{ block.super }}
+  <li><a href="{% url 'admin:onlinepbx_user_add' %}">{% trans "User add" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_user_edit' %}">{% trans "User edit" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_user_get' %}">{% trans "User get" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_user_flush_sip' %}">{% trans "User flush SIP" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_group_add' %}">{% trans "Group add" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_group_edit' %}">{% trans "Group edit" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_group_get' %}">{% trans "Group get" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_group_remove' %}">{% trans "Group remove" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_fifo_add' %}">{% trans "FIFO add" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_fifo_edit' %}">{% trans "FIFO edit" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_fifo_get' %}">{% trans "FIFO get" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_ivr_get' %}">{% trans "IVR get" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_ivr_create' %}">{% trans "IVR create" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_ivr_update' %}">{% trans "IVR update" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_ivr_delete' %}">{% trans "IVR delete" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_blocklist_get' %}">{% trans "Blocklist get" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_blocklist_add' %}">{% trans "Blocklist add" %}</a></li>
+  <li><a href="{% url 'admin:onlinepbx_blocklist_remove' %}">{% trans "Blocklist remove" %}</a></li>
+{% endblock %}

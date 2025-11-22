@@ -1,0 +1,3550 @@
+openapi: 3.0.0
+externalDocs:
+  url: "https://onlinepbx.evateam.ru/docs/docs/CmfProject:e6966c84-48a9-11ee-848f-00161e050156#baza-znanij-online-pbx"
+  description: "База знаний onlinePBX"
+info:
+  title: onlinePBX HTTP API
+  #  description: |
+  #    # Описание
+  #    Данное руководство поможет вам получать информацию о звонках, совершать звонки и управлять настройками пользователей.
+  #
+  #    ⚠️ Библиотека на **PHP**: [api.onlinepbx.ru/lib/onpbx_http_api.php_v1.1.zip](http://api.onlinepbx.ru/lib/onpbx_http_api.php_v1.1.zip). [Пример запроса на PHP](https://kb.onlinepbx.ru/confluence/display/supportonlinepbx/HTTP+API+1.0#HTTPAPI1.0-%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%BD%D0%B0PHP).
+  #
+  #    ⚠️ Библиотека на **Javascript**: [api.onlinepbx.ru/lib/onpbx_http_api.js](http://api.onlinepbx.ru/lib/onpbx_http_api.js). [Пример запроса на Javascript](https://kb.onlinepbx.ru/confluence/display/supportonlinepbx/HTTP+API+1.0#HTTPAPI1.0-%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%BD%D0%B0Javascript).
+  #
+  #    ⚠️ Ваши вопросы по работе с API вы можете задать, написав на почту [support@onlinepbx.ru](mailto:support@onlinepbx.ru).
+  #
+  #    # Общие принципы
+  #    HTTP API onlinePBX по принципу авторизации похож на [Amazon REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html). API ключ полученный вами в панели управления используется для получения закрытого ключа и его идентификатора, все дальнейшие запросы не связанные с авторизацией должны осуществляться при помощи них. Перед отправкой запроса вам необходимо подсчитать хеш сумму (подпись) отправляемого вами запроса при помощи закрытого ключа и передать сообщение с этой подписью и идентификатором закрытого ключа. Также необходимо добавить специальные HTTP заголовки в запрос. В свою очередь, на нашем сервере, мы также подсчитываем хеш сумму принятого сообщения и сравниваем с переданной вами. Таким способом гарантируется целостность данных и защита от подделки запроса в процессе передачи.Подробнее рассмотреть механизм работы API вы можете в одной из наших библиотек, указанных ниже. Тело запроса должно быть в формате "application/x-www-form-urlencoded".
+
+  description: |
+    Это руководство поможет вам получать информацию о звонках, совершать звонки и управлять настройками пользователей.
+
+    ⚠️ Сервер для отправки запросов: `https://api2.onlinepbx.ru`
+
+    ⚠️ Ваши вопросы по работе с API вы можете задать, написав на почту [support@onlinepbx.ru](mailto:support@onlinepbx.ru).
+  version: 2.10.1
+#servers:
+#  - description: Test server
+#    url: https://api.test.onlinepbx.ru
+#  - description: OnlinePBX API endpoint
+#    url: https://api.onlinepbx.ru
+tags:
+  - name: Авторизация
+  - name: Инициализация звонков
+  - name: История звонков
+  - name: ICM (Интеллектуальный менеджер контактов)
+  - name: Пользователи
+  - name: Баланс
+  - name: Биллинг
+  - name: Статус номеров
+  - name: Группы
+  - name: Очереди
+  - name: Приветствия
+  - name: Список блокировки
+  - name: Интеграция с amoCRM
+  - name: Интеграция с МойСклад
+paths:
+  /{domain}/auth.json:
+    post:
+      tags:
+        - Авторизация
+      summary: Получение ключа
+      operationId: auth
+      description: |
+        ⚠️ Запрашивайте ключ, только если в ответ получили `{ isNotAuth: true }` или это первый запрос.
+
+        ⚠️ Здесь и далее example.onpbx.ru — это пример домена в нашем сервисе. У каждого клиента уникальный домен.
+
+        ⚠️ При частых запросах авторизации (четыре-пять запросов в секунду), некоторые сессии будут обрабатываться некорректно, так как каждая новая авторизация даёт новый ключ.
+
+        ⚠️ Время жизни секретного ключа три дня с момента последнего обращения.
+
+        Используйте полученные `key_id`, `key` для аутентификации последующих запросов, для этого при отправке запроса добавьте заголовок `x-pbx-authentication` со значением
+        `key_id:key`
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        $ref: "#/components/requestBodies/auth"
+      responses:
+        "200":
+          $ref: "#/components/responses/auth"
+
+  /{domain}/call/now.json:
+    post:
+      tags:
+        - Инициализация звонков
+      summary: Мгновенные звонки
+      description: |
+        Инициализирует звонок согласно переданным параметрам.
+
+        ⚠️ Не более пяти запросов в секунду.
+      operationId: callNow
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        $ref: "#/components/requestBodies/callNow"
+      responses:
+        "200":
+          $ref: "#/components/responses/callNow"
+        "429":
+          $ref: "#/components/responses/429"
+
+  /{domain}/call/instantly.json:
+    post:
+      tags:
+        - Инициализация звонков
+      summary: Инициация звонка с автоматическим созданием uuid.
+      operationId: callInstantly
+      description: |
+        ⚠️ Если в течение 0,5 сек. после запроса нет ошибки, то вернётся uuid. В противном случае ещё поступит информация об ошибке (например:USER_NOT_REGISTERED или USER_BUSY).
+
+        ⚠️ Не более пяти запросов в секунду.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        $ref: "#/components/requestBodies/callInstantly"
+      responses:
+        "200":
+          $ref: "#/components/responses/callInstantly"
+        "429":
+          $ref: "#/components/responses/429"
+
+  /{domain}/amousers/get.json:
+    post:
+      deprecated: true
+      tags:
+        - Интеграция с amoCRM
+      summary: Пользователи amoCRM
+      description: |
+        Соответствия пользователей между onlinePBX и amoCRM
+      operationId: amousersGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      #      requestBody:
+      #        $ref: '#/components/requestBodies/amouserGet'
+      responses:
+        "200":
+          $ref: "#/components/responses/amouserGet"
+
+  /{domain}/amocrm/get.json:
+    post:
+      tags:
+        - Интеграция с amoCRM
+      summary: Настройки amoCRM
+      description: |
+        Получение настроек интеграции amoCRM в onlinePBX
+      operationId: amocrmGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      responses:
+        "200":
+          $ref: "#/components/responses/amocrmGet"
+
+  /{domain}/amocrm/contact:
+    get:
+      tags:
+        - Интеграция с amoCRM
+      summary: Получение контакта из интеграции amoCRM
+      operationId: amocrmGetContact
+      security:
+        - apiKeyAuth: []
+      description: |
+        Получение контакта из интеграции amoCRM
+      responses:
+        "200":
+          $ref: "#/components/responses/amocrmGetContact"
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - name: id
+          in: query
+          required: true
+          description: id контакта
+          schema:
+            type: string
+  /{domain}/amocrm/contact/by-phone:
+    get:
+      tags:
+        - Интеграция с amoCRM
+      summary: Получение контактов из интеграции amoCRM по телефону
+      operationId: amocrmGetContactsByPhone
+      security:
+        - apiKeyAuth: []
+      description: |
+        Получение контактов из интеграции amoCRM по телефону
+      responses:
+        "200":
+          $ref: "#/components/responses/amocrmGetContactsByPhone"
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - name: phone
+          in: query
+          required: true
+          description: телефон
+          schema:
+            type: string
+  /{domain}/amocrm/lead:
+    get:
+      tags:
+        - Интеграция с amoCRM
+      summary: Получение сделки из интеграции amoCRM
+      operationId: amocrmGetLead
+      security:
+        - apiKeyAuth: []
+      description: |
+        Получение сделки из интеграции amoCRM
+      responses:
+        "200":
+          $ref: "#/components/responses/amocrmGetLead"
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - name: id
+          in: query
+          required: true
+          description: id сделки
+          schema:
+            type: string
+  /{domain}/amocrm/lead/by-phone:
+    get:
+      tags:
+        - Интеграция с amoCRM
+      summary: Получение сделок из интеграции amoCRM по телефону
+      operationId: amocrmGetLeadsByPhone
+      security:
+        - apiKeyAuth: []
+      description: |
+        Получение сделок из интеграции amoCRM по телефону
+      responses:
+        "200":
+          $ref: "#/components/responses/amocrmGetLeadsByPhone"
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - name: phone
+          in: query
+          required: true
+          description: теелефон
+          schema:
+            type: string
+
+  /{domain}/moysklad/init-call:
+    post:
+      tags:
+        - Интеграция с МойСклад
+      summary: Совершение звонка из МойСклад
+      description: |
+        Инициализация звонка из интеграции МойСклад
+      operationId: moyskladInitCall
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - $ref: "#/components/parameters/lognexContentMd5"
+      requestBody:
+        $ref: "#/components/requestBodies/moyskladInitCall"
+      responses:
+        "200":
+          $ref: "#/components/responses/moyskladInitCall"
+
+  /{domain}/mongo_history/search.json:
+    post:
+      tags:
+        - История звонков
+      summary: Новая база данных
+      operationId: mongoHistorySearch
+      description: |
+        Список звонков, доступных по API, находится по адресу:
+        [https://panel.onlinepbx.ru/calls/all](https://panel.onlinepbx.ru/calls/all).
+
+        ⚠️ Возможна задержка до 1 минуты между завершением звонка и его доступностью при использовании API.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        $ref: "#/components/requestBodies/callsHistoryNew"
+      responses:
+        "200":
+          $ref: "#/components/responses/callsHistoryNew"
+
+  /{domain}/history/search.json:
+    post:
+      deprecated: true
+      tags:
+        - История звонков
+      summary: Старая база данных
+      operationId: historySearch
+      description: |
+        ⚠️ Для хранения звонков используется отдельная база данных. Это предназначено для того, чтобы справляться с большим количеством запросов. Мы иначе собираем данные в эту базу, поэтому список будет более полным и может отличаться от [истории из панели управления](https://panel.onlinepbx.ru/calls/all). Список звонков, доступных по API, находится по адресу: [https://panel.onlinepbx.ru/calls/all](https://panel.onlinepbx.ru/calls/all).
+
+        ⚠️ Возможна задержка до 1 минуты между завершением звонка и его доступностью при использовании API.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        $ref: "#/components/requestBodies/callsHistoryOld"
+      responses:
+        "200":
+          $ref: "#/components/responses/callsHistoryOld"
+
+  /{domain}/icm/search.json:
+    post:
+      tags:
+        - ICM (Интеллектуальный менеджер контактов)
+      summary: Поиск контакта
+      operationId: icmSearch
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/icmSearch" }
+      responses:
+        200: { $ref: "#/components/responses/icmSearch" }
+
+  /{domain}/icm/add.json:
+    post:
+      tags:
+        - ICM (Интеллектуальный менеджер контактов)
+      summary: Добавление контакта
+      operationId: icmAdd
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/icmAdd" }
+      responses:
+        200: { $ref: "#/components/responses/icmAdd" }
+
+  /{domain}/icm/edit.json:
+    post:
+      tags:
+        - ICM (Интеллектуальный менеджер контактов)
+      summary: Редактирование контакта
+      operationId: icmEdit
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/icmEdit" }
+      responses:
+        200: { $ref: "#/components/responses/icmEdit" }
+
+  /{domain}/user/add.json:
+    post:
+      tags:
+        - Пользователи
+      summary: Добавление пользователя
+      operationId: userAdd
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/userAdd" }
+      responses:
+        200: { $ref: "#/components/responses/userAdd" }
+
+  /{domain}/user/edit.json:
+    post:
+      tags:
+        - Пользователи
+      summary: Редактирование пользователя
+      operationId: userEdit
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/userEdit" }
+      responses:
+        200: { $ref: "#/components/responses/userEdit" }
+
+  /{domain}/user/get.json:
+    post:
+      tags:
+        - Пользователи
+      summary: Получение пользователя
+      description: Если не указывать параметры, то придёт информация обо всех пользователях.
+      operationId: userGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/userGet" }
+      responses:
+        200: { $ref: "#/components/responses/userGet" }
+  /{domain}/user/flush-sip:
+    post:
+      tags:
+        - Пользователи
+      summary: Сброс sip-регистрации пользователя
+      description: Сброс sip-регистрации пользователя.
+      operationId: userFlushSip
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/userFlushSip" }
+      responses:
+        200: { $ref: "#/components/responses/userFlushSip" }
+
+  /{domain}/balance/get.json:
+    post:
+      deprecated: true
+      tags:
+        - Баланс
+      summary: Информация о балансе
+      operationId: balanceGet
+      description: |
+        Получение количества дней до окончания последней активной лицензии.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      #      requestBody: { $ref: '#/components/requestBodies/balanceGet' }
+      responses:
+        200: { $ref: "#/components/responses/balanceGet" }
+
+  /{domain}/billing/licenses/get.json:
+    post:
+      tags:
+        - Биллинг
+      summary: Список активных и ожидающих активации лицензий
+      operationId: billingLicensesGet
+      description: |
+        Получение списка активных и ожидающих активации лицензий
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      # requestBody: { $ref: '#/components/requestBodies/billingLicensesGet' }
+      responses:
+        200: { $ref: "#/components/responses/billingLicensesGet" }
+
+  /{domain}/trunks/get.json:
+    post:
+      tags:
+        - Статус номеров
+      summary: Информация о статусе номеров
+      operationId: trunksGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      #      requestBody: { $ref: '#/components/requestBodies/trunkGet' }
+      responses:
+        200: { $ref: "#/components/responses/trunkGet" }
+
+  /{domain}/group/add.json:
+    post:
+      tags:
+        - Группы
+      summary: Добавление группы
+      operationId: groupAdd
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/groupAdd" }
+      responses:
+        200: { $ref: "#/components/responses/groupAdd" }
+
+  /{domain}/group/edit.json:
+    post:
+      tags:
+        - Группы
+      summary: Редактирование группы
+      operationId: groupEdit
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/groupEdit" }
+      responses:
+        200: { $ref: "#/components/responses/groupEdit" }
+
+  /{domain}/group/get.json:
+    post:
+      tags:
+        - Группы
+      summary: Получение группы
+      operationId: groupGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/groupGet" }
+      responses:
+        200: { $ref: "#/components/responses/groupGet" }
+
+  /{domain}/group/remove.json:
+    post:
+      tags:
+        - Группы
+      summary: Удаление группы
+      operationId: groupRemove
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/groupRemove" }
+      responses:
+        200: { $ref: "#/components/responses/groupRemove" }
+
+  /{domain}/fifo/add.json:
+    post:
+      tags:
+        - Очереди
+      summary: Добавление очереди
+      operationId: fifoAdd
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/fifoAdd" }
+      responses:
+        200: { $ref: "#/components/responses/fifoAdd" }
+
+  /{domain}/fifo/edit.json:
+    post:
+      tags:
+        - Очереди
+      summary: Редактирование очереди
+      operationId: fifoEdit
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/fifoEdit" }
+      responses:
+        200: { $ref: "#/components/responses/fifoEdit" }
+
+  /{domain}/fifo/get.json:
+    post:
+      tags:
+        - Очереди
+      summary: Получение очередей
+      operationId: fifoGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/fifoGet" }
+      responses:
+        200: { $ref: "#/components/responses/fifoGet" }
+
+  /{domain}/ivr:
+    get:
+      tags:
+        - Приветствия
+      summary: Получение приветствий
+      operationId: ivrGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+        - name: num
+          in: query
+          required: false
+          description: Внутренний номер приветствия
+          schema: { $ref: "#/components/schemas/ivrExtensionParam" }
+      responses:
+        200: { $ref: "#/components/responses/ivrGet" }
+    post:
+      tags:
+        - Приветствия
+      summary: Создание приветствия
+      operationId: ivrPost
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/ivrPost" }
+      responses:
+        200: { $ref: "#/components/responses/ivrPost" }
+    patch:
+      tags:
+        - Приветствия
+      summary: Редактирование приветствия
+      operationId: ivrPatch
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/ivrPatch" }
+      responses:
+        200: { $ref: "#/components/responses/ivrPatch" }
+    delete:
+      tags:
+        - Приветствия
+      summary: Удаление приветствия
+      operationId: ivrDelete
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/ivrDelete" }
+      responses:
+        200: { $ref: "#/components/responses/ivrDelete" }
+
+  /{domain}/blocklist:
+    get:
+      tags:
+        - Список блокировки
+      summary: Получение списка блокировки
+      operationId: blockListGet
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      responses:
+        200: { $ref: "#/components/responses/blockListGet" }
+  /{domain}/blocklist/contact:
+    post:
+      tags:
+        - Список блокировки
+      summary: Добавление контактов в список блокировки
+      operationId: blockListAddContacts
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody: { $ref: "#/components/requestBodies/blockListAddContacts" }
+      responses:
+        200: { $ref: "#/components/responses/blockListAddContacts" }
+    delete:
+      tags:
+        - Список блокировки
+      summary: Удаление контактов из списка блокировки
+      operationId: blockListRemoveContacts
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/domain"
+      requestBody:
+        { $ref: "#/components/requestBodies/blockListRemoveContacts" }
+      responses:
+        200: { $ref: "#/components/responses/blockListRemoveContacts" }
+
+components:
+  parameters:
+    domain:
+      name: domain
+      in: path
+      required: true
+      description: Ваш домен onlinePBX
+      example: example.onpbx.ru
+      schema:
+        $ref: "#/components/schemas/domainParam"
+    uid:
+      name: uid
+      in: path
+      required: true
+      description: Добавочный пользователя onlinePBX
+      example: 100
+      schema:
+        $ref: "#/components/schemas/uidParam"
+    xPbxAuthentication:
+      name: x-pbx-authentication
+      in: header
+      required: true
+      description: Строка формата `key_id:key`, необходима для аутентификации, где `key_id`, `key` - параметры, полученные после авторизации
+      example: 9acd73e82cbd9af4efbcf444fe04b9ff:Bs5gGDsr1nOhVKB5baadoHm741NF6SYUWlKu0pXL52CyhvEz2pERiokysvrbunMY8JJjWg
+      schema:
+        type: string
+    contentMd5:
+      name: Content-MD5
+      in: header
+      required: true
+      description: MD-5 хэш тела запроса для гарантии целостности данных
+      example: 9acd73e82cbd9af4efbcf444fe04b9ff
+      schema:
+        type: string
+    xPbxDate:
+      name: x-pbx-date
+      in: header
+      required: true
+      description: timestamp в миллисекундах когда был отправлен запрос
+      example: 1573648998804
+      schema:
+        anyOf:
+          - type: string
+          - type: integer
+
+    contentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: Тип отправляемых данных
+      example: application/x-www-form-urlencoded
+      schema:
+        type: string
+        enum:
+          - application/x-www-form-urlencoded
+
+    code:
+      name: code
+      in: query
+      required: true
+      description: Авторизационный код
+      schema:
+        type: string
+
+    state:
+      name: state
+      in: query
+      description: Проверочная строка (домен)
+      schema:
+        type: string
+
+    from_exchange:
+      name: from_exchange
+      in: query
+      description: Флаг, указывающий на то, что произошел обмен api ключа на авторизационный код
+      schema:
+        type: string
+
+    lognexContentMd5:
+      name: Lognex-Content-MD5
+      in: header
+      required: true
+      description: Подпись, которая генерируется на основе алгоритма md5, на вход которого подается конкатенация ключа доступа пользователя и значений параметров запроса
+      schema:
+        type: string
+
+  headers:
+    xPbxAuthentication:
+      description: Строка формата `key_id:key`, необходимая для авторизации
+      schema:
+        type: string
+    contentMd5:
+      description: MD-5 хэш тела запроса для гарантии целостности данных
+      schema:
+        type: string
+    xPbxDate:
+      description: timestamp в миллисекундах когда был отправлен запрос
+      schema:
+        type: string
+    xRateLimitLimit:
+      description: Максимальное количество запросов за период времени
+      schema:
+        type: integer
+    xRateLimitRemaining:
+      description: Оставшееся количество запросов за период времени
+      schema:
+        type: integer
+    xRateLimitReset:
+      description: Количество секунд оставшихся в текущем периоде времени
+      schema:
+        type: integer
+    contentLength:
+      #      description: Размер тела ответа
+      schema:
+        type: number
+        format: int32
+    cacheControl:
+      #      description: Механизм кэширования
+      schema:
+        type: string
+    contentType:
+      #      description: Тип тела ответа
+      schema:
+        type: string
+    contentDisposition:
+      #      description: Размер тела ответа
+      schema:
+        type: string
+
+  responses:
+    auth:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      key: Bs5gGDsr1nOhVKB5baadoHm741NF6SYUWlKu0pXL52CyhvEz2pERiokysvrbunMY8JJjWg,
+                      key_id: 9acd73e82cbd9af4efbcf444fe04b9ff,
+                      new: 0,
+                    },
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              data: { $ref: "#/components/schemas/authData" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - { $ref: "#/components/schemas/authorizationErrorCodeParam" }
+    callNow:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data: { uuid: 8090e90f-5b17-4454-a724-30ee245b2af3 },
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              data: { $ref: "#/components/schemas/callNowData" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+                  - { $ref: "#/components/schemas/callErrorCodeParam" }
+    callInstantly:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data: { uuid: 8090e90f-5b17-4454-a724-30ee245b2af3 },
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              data: { $ref: "#/components/schemas/callInstantlyData" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+                  - { $ref: "#/components/schemas/callErrorCodeParam" }
+
+    amouserGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        uid: "101",
+                        name: "onlinePBX user name",
+                        amo_id: "1234567",
+                        amo_name: "amoCRM user name",
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    uid: { $ref: "#/components/schemas/uuidParam" }
+                    name: { $ref: "#/components/schemas/nameParam" }
+                    amo_id: { $ref: "#/components/schemas/amoIdParam" }
+                    amo_name: { $ref: "#/components/schemas/nameParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+
+    amocrmGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      pipelines: [{ amoId: 0, responsibleUserId: 123456 }],
+                      usersMapping:
+                        [
+                          {
+                            uid: "101",
+                            name: "onlinePBX user name",
+                            amo_id: "1234567",
+                            amo_name: "amoCRM user name",
+                          },
+                        ],
+                    },
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/amocrmErrorCodeParam" }
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: object
+                properties:
+                  pipelines:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amoId: { $ref: "#/components/schemas/amoIdParam" }
+                        responsibleUserId:
+                          { $ref: "#/components/schemas/amoIdParam" }
+                  usersMapping:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid: { $ref: "#/components/schemas/uuidParam" }
+                        name: { $ref: "#/components/schemas/nameParam" }
+                        amo_id: { $ref: "#/components/schemas/amoIdParam" }
+                        amo_name: { $ref: "#/components/schemas/nameParam" }
+
+    amocrmGetContact:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1", data: {} }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/amocrmErrorCodeParam" }
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: object
+                additionalProperties: true
+    amocrmGetContactsByPhone:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1", data: {} }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/amocrmErrorCodeParam" }
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+
+    amocrmGetLead:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1", data: {} }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/amocrmErrorCodeParam" }
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: object
+                additionalProperties: true
+
+    amocrmGetLeadsByPhone:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1", data: {} }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/amocrmErrorCodeParam" }
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+
+    callsHistoryNew:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Поиск звонков
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        uuid: 04d0d625-1d79-4c71-aca8-8ec0e0deaa3b,
+                        caller_id_name: "400",
+                        caller_id_number: 400,
+                        destination_number: 100,
+                        from_host: example.onpbx.ru,
+                        to_host: example.onpbx.ru,
+                        start_stamp: 1557901661,
+                        end_stamp: 1557901661,
+                        duration: 0,
+                        user_talk_time: 0,
+                        hangup_cause: NORMAL_CLEARING,
+                        accountcode: inbound,
+                        gateway: "",
+                        quality_score: 0,
+                        contacted: false,
+                        events:
+                          [
+                            {
+                              type: "user|transfer|dtmf|hold|unhold",
+                              timestamp: 1557901661,
+                              digit: "1",
+                              number: "100",
+                              answered_stamp: 1557901661,
+                              end_stamp: 1557901661,
+                              uuid: "04d0d625-1d79-4c71-aca8-8ec0e0deaa3b",
+                              to_uuid: "04d0d625-1d79-4c71-aca8-8ec0e0deaa3b",
+                            },
+                          ],
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+            download:
+              summary: Скачивание записи звонка
+              value:
+                {
+                  status: "1",
+                  data: "https://api2.onlinepbx.ru/calls-records/download/xZ7i85zBBNIbyyPWwo6e54Gpfg07ESxrQLuu3cuT9XaDSLRw/rec.mp3",
+                }
+            downloadSeveral:
+              summary: Скачивание записей звонков архивом
+              value:
+                {
+                  status: "1",
+                  data: "https://api2.onlinepbx.ru/calls-records/download/HWq7ZkOoro8BZLjYTFQokVS1vv9Xe9RTg1HJQnMxEfD1lrBF8Q/calls.tar",
+                }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              #                  - { $ref: '#/components/schemas/callsHistoryErrorCodeParam' }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        uuid: { $ref: "#/components/schemas/uuidParam" }
+                        caller_id_name:
+                          { $ref: "#/components/schemas/stringParam" }
+                        caller_id_number:
+                          { $ref: "#/components/schemas/stringParam" }
+                        destination_number:
+                          { $ref: "#/components/schemas/stringParam" }
+                        from_host: { $ref: "#/components/schemas/domainParam" }
+                        to_host: { $ref: "#/components/schemas/domainParam" }
+                        start_stamp:
+                          anyOf:
+                            - { $ref: "#/components/schemas/emptyStringParam" }
+                            - { $ref: "#/components/schemas/secStampParam" }
+                        end_stamp:
+                          anyOf:
+                            - { $ref: "#/components/schemas/emptyStringParam" }
+                            - { $ref: "#/components/schemas/secStampParam" }
+                        duration:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        user_talk_time:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        hangup_cause:
+                          { $ref: "#/components/schemas/hangupCauseParam" }
+                        accountcode:
+                          anyOf:
+                            - { $ref: "#/components/schemas/emptyStringParam" }
+                            - { $ref: "#/components/schemas/accountcodeParam" }
+                        gateway: { $ref: "#/components/schemas/stringParam" }
+                        contacted:
+                          type: boolean
+                        quality_score:
+                          type: number
+                        events:
+                          type: array
+                          items:
+                            type: object
+                            additionalProperties: true
+                  - type: string
+                  - type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+    callsHistoryOld:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Поиск звонков
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        uuid: 54bcc345-6617-4d3f-8d45-ff7aa0a03b2f,
+                        caller: 100,
+                        caller_name: "100",
+                        from_domain: example.onpbx.ru,
+                        to: 9197,
+                        to_domain: example.onpbx.ru,
+                        gateway: "",
+                        date: 1461741061,
+                        duration: 2,
+                        billsec: 2,
+                        hangup_cause: NORMAL_CLEARING,
+                        type: local,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+            download:
+              summary: Скачивание записи звонка
+              value:
+                {
+                  status: "1",
+                  data: "https://api2.onlinepbx.ru/calls-records/download/xZ7i85zBBNIbyyPWwo6e54Gpfg07ESxrQLuu3cuT9XaDSLRw/rec.mp3",
+                }
+            downloadSeveral:
+              summary: Скачивание записей звонков архивом
+              value:
+                {
+                  status: "1",
+                  data: "https://api2.onlinepbx.ru/calls-records/download/?key=HWq7ZkOoro8BZLjYTFQokVS1vv9Xe9RTg1HJQnMxEfD1lrBF8Q/calls.tar",
+                }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        uuid: { $ref: "#/components/schemas/uuidParam" }
+                        caller: { $ref: "#/components/schemas/stringParam" }
+                        from_domain:
+                          { $ref: "#/components/schemas/domainParam" }
+                        to: { $ref: "#/components/schemas/stringParam" }
+                        to_domain: { $ref: "#/components/schemas/domainParam" }
+                        gateway: { $ref: "#/components/schemas/stringParam" }
+                        date: { $ref: "#/components/schemas/dateParam" }
+                        duration:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        billsec:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        hangup_cause:
+                          { $ref: "#/components/schemas/hangupCauseParam" }
+                        type:
+                          anyOf:
+                            - { $ref: "#/components/schemas/emptyStringParam" }
+                            - { $ref: "#/components/schemas/callTypeParam" }
+                  - type: string
+    icmSearch:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        out_num: 0123456789,
+                        out_name: "",
+                        num: 100,
+                        block: "",
+                        note: "",
+                        date: 1461835032,
+                        creation_date: 1461832032,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    out_num: { $ref: "#/components/schemas/numberParam" }
+                    out_name: { $ref: "#/components/schemas/nameParam" }
+                    num: { $ref: "#/components/schemas/numberParam" }
+                    block: { $ref: "#/components/schemas/blockParam" }
+                    note: { $ref: "#/components/schemas/textParam" }
+                    date: { $ref: "#/components/schemas/secStampParam" }
+                    creation_date:
+                      { $ref: "#/components/schemas/secStampParam" }
+    icmAdd:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+    icmEdit:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    userAdd:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    userEdit:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    userGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            user:
+              summary: Пользователь
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      num: 100,
+                      name: Example User,
+                      tr1: 5000,
+                      tr2: "",
+                      tr3: "",
+                      delay1: 10,
+                      delay2: 0,
+                      delay3: 0,
+                      enabled: false,
+                    },
+                }
+            numList:
+              summary: Список внутренних номеров
+              value: { status: "1", data: [100, 101, 102] }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        num: { $ref: "#/components/schemas/stringParam" }
+                        name: { $ref: "#/components/schemas/stringParam" }
+                        delay1:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        tr1: { $ref: "#/components/schemas/stringParam" }
+                        delay2:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        tr2: { $ref: "#/components/schemas/stringParam" }
+                        delay3:
+                          { $ref: "#/components/schemas/positiveCountParam" }
+                        tr3: { $ref: "#/components/schemas/stringParam" }
+                        enabled: { $ref: "#/components/schemas/booleanParam" }
+                        device:
+                          type: object
+                          properties:
+                            agent:
+                              type: string
+                            exp:
+                              type: number
+                            ip:
+                              type: string
+                            port:
+                              type: string
+                        webrtc:
+                          type: object
+                          properties:
+                            host:
+                              type: string
+                            user:
+                              type: string
+                            password:
+                              type: string
+                  - type: array
+                    items: { $ref: "#/components/schemas/stringParam" }
+                  - type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+    userFlushSip:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    balanceGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Баланс
+              value: { status: "1", data: 100 }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: string
+    billingLicensesGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodReponse:
+              summary: Список Лицензий
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        start_stamp: 1640984400000,
+                        end_stamp: 1643662799000,
+                        service_type: "USER",
+                        service_count: 1,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    start_stamp:
+                      type: integer
+                      description: Начало действия лицензии в секундах
+                    end_stamp:
+                      type: integer
+                      description: Завершение действия лицензии в секундах
+                    service_type:
+                      type: string
+                      enum:
+                        - USER
+                        - RECORDS
+                        - STEREO_RECORDS
+                        - QUALITY_SCORE
+                      description: |
+                        - `USER` - Лицензия на пользователей
+                        - `RECORDS` - Лицензия на запись разговоров
+                        - `STEREO_RECORDS` - Лицензия на стерео запись
+                        - `QUALITY_SCORE` - Лицензия на оценку качества
+                    service_count:
+                      type: integer
+                      description: Количество предоставляемых услуг по данной лицензии
+    trunkGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        number: 1101,
+                        name: 88001006729,
+                        description: 88001006729,
+                        destination: 6100,
+                        use_for_call_forwarding: 0,
+                        gateway: 0b2ffb284748173c2134174c03b35843,
+                        status: REGED,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    number: { $ref: "#/components/schemas/numberParam" }
+                    name: { $ref: "#/components/schemas/nameParam" }
+                    description: { $ref: "#/components/schemas/textParam" }
+                    destination: { $ref: "#/components/schemas/numberParam" }
+                    use_for_call_forwarding:
+                      { $ref: "#/components/schemas/forwardingParam" }
+                    gateway: { $ref: "#/components/schemas/uuidParam" }
+                    status: { $ref: "#/components/schemas/regStatusParam" }
+
+    groupAdd:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    groupEdit:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    groupGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            group:
+              summary: Группа
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      id: 1234,
+                      name: Группа1,
+                      num: 10,
+                      users: 101;102,
+                      delay: 10,
+                      default: 5120,
+                    },
+                }
+            groupList:
+              summary: Список групп
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        id: 1234,
+                        name: Группа1,
+                        num: 10,
+                        users: 101;102,
+                        delay: 10,
+                        default: 5120,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/groupResponse"
+                  - $ref: "#/components/schemas/groupResponse"
+
+    groupRemove:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+
+    fifoAdd:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    fifoEdit:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    fifoGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            fifo:
+              summary: Очередь
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      name: Очередь1,
+                      num: 5202,
+                      users: 101;102,
+                      delay: 10,
+                      default: 103,
+                      max_wait: 10,
+                      icm: 0,
+                      instant_fifo: 1,
+                      ivr: 5000,
+                      ivr_freq: 5,
+                      say_position: 1,
+                      weight_type: average_duration,
+                    },
+                }
+            fifoList:
+              summary: Список очередей
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        name: Очередь1,
+                        num: 5202,
+                        users: 101;102,
+                        delay: 10,
+                        default: 103,
+                        max_wait: 10,
+                        icm: 0,
+                        instant_fifo: 1,
+                        ivr: 5000,
+                        ivr_freq: 5,
+                        say_position: 1,
+                        weight_type: average_duration,
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/fifoResponse"
+                  - $ref: "#/components/schemas/fifoResponse"
+
+    ivrGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            ivr:
+              summary: Приветствие
+              value:
+                {
+                  status: "1",
+                  data:
+                    {
+                      name: Приветствие1,
+                      num: 5000,
+                      manual_dialing: true,
+                      audio: { type: WORKING_HOURS },
+                      default: 103,
+                      delay: 0,
+                      dialpad:
+                        {
+                          "1": "",
+                          "2": "",
+                          "3": "",
+                          "4": "",
+                          "5": "",
+                          "6": "",
+                          "7": "",
+                          "8": "",
+                          "9": "",
+                          "0": "",
+                          astr: "",
+                          sharp: "",
+                        },
+                    },
+                }
+            ivrList:
+              summary: Список приветствий
+              value:
+                {
+                  status: "1",
+                  data:
+                    [
+                      {
+                        name: Приветствие1,
+                        num: 5000,
+                        manual_dialing: true,
+                        audio: { type: WORKING_HOURS },
+                        default: 103,
+                        delay: 0,
+                        dialpad:
+                          {
+                            "1": "",
+                            "2": "",
+                            "3": "",
+                            "4": "",
+                            "5": "",
+                            "6": "",
+                            "7": "",
+                            "8": "",
+                            "9": "",
+                            "0": "",
+                            astr: "",
+                            sharp: "",
+                          },
+                      },
+                      {
+                        name: Приветствие2,
+                        num: 5000,
+                        manual_dialing: true,
+                        audio:
+                          { type: CUSTOM, filename: Приветствие-аудиофайл },
+                        default: 103,
+                        delay: 0,
+                        dialpad:
+                          {
+                            "1": "",
+                            "2": "",
+                            "3": "",
+                            "4": "",
+                            "5": "",
+                            "6": "",
+                            "7": "",
+                            "8": "",
+                            "9": "",
+                            "0": "",
+                            astr: "",
+                            sharp: "",
+                          },
+                      },
+                    ],
+                }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                anyOf:
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/ivrResponse"
+                  - $ref: "#/components/schemas/ivrResponse"
+    ivrPost:
+      description: Ответ
+      content:
+        application/json:
+          example:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    ivrPatch:
+      description: Ответ
+      content:
+        application/json:
+          example:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    ivrDelete:
+      description: Ответ
+      content:
+        application/json:
+          example:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+
+    429:
+      description: Превышено количество запросов
+      headers:
+        "X-Rate-Limit-Limit": { $ref: "#/components/headers/xRateLimitLimit" }
+        "X-Rate-Limit-Remaining":
+          { $ref: "#/components/headers/xRateLimitRemaining" }
+        "X-Rate-Limit-Reset": { $ref: "#/components/headers/xRateLimitReset" }
+      content:
+        application/json:
+          examples:
+            responce:
+              summary: Ответ
+              value:
+                {
+                  status: "0",
+                  comment: "Too many requests! Only 5 requests per 1 second are allowed. Try again soon.",
+                }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+
+    moyskladInitCall:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            goodResponse:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/moyskladErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+
+    blockListGet:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            success:
+              summary: Успешный ответ
+              value:
+                { status: "1", data: [{ phone: "123456789", reason: "спам" }] }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    phone: { $ref: "#/components/schemas/stringParam" }
+                    reason: { $ref: "#/components/schemas/stringParam" }
+    blockListAddContacts:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            success:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+    blockListRemoveContacts:
+      description: Ответ
+      content:
+        application/json:
+          examples:
+            success:
+              summary: Успешный ответ
+              value: { status: "1" }
+            badResponse: { $ref: "#/components/examples/badResponse" }
+          schema:
+            type: object
+            required:
+              - status
+            properties:
+              status: { $ref: "#/components/schemas/statusParam" }
+              comment: { $ref: "#/components/schemas/commentParam" }
+              isNotAuth: { $ref: "#/components/schemas/isNotAuthParam" }
+              errorCode:
+                anyOf:
+                  - { $ref: "#/components/schemas/commonErrorCodeParam" }
+                  - {
+                      $ref: "#/components/schemas/authenticationErrorCodeParam",
+                    }
+
+  requestBodies:
+    auth:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            required:
+              - auth_key
+            properties:
+              auth_key:
+                allOf:
+                  - description: API ключ
+                  - $ref: "#/components/schemas/authKeyParam"
+              new:
+                allOf:
+                  - $ref: "#/components/schemas/newKeyParam"
+                  - description: 'Параметр указывающий на необходимость обновления ключа, обязательное значение "true"'
+                    default: "true"
+              key:
+                allOf:
+                  - $ref: "#/components/schemas/keyParam"
+                  - description: Ключ для дальнейшей работы с API
+              key_id:
+                allOf:
+                  - $ref: "#/components/schemas/keyIdParam"
+                  - description: Идентификатор ключа
+    callNow:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { from: 100, to: 101 }
+          schema:
+            type: object
+            required:
+              - from
+              - to
+            properties:
+              from:
+                allOf:
+                  - description: Кто, первый вызываемый номер (номер абонента или внешний номер)
+                  - $ref: "#/components/schemas/numberParam"
+              to:
+                allOf:
+                  - description: Кому, второй вызываемый номер (любой)
+                  - $ref: "#/components/schemas/numberParam"
+              gate_from:
+                allOf:
+                  - description: Номер транка для первого номера
+                  - $ref: "#/components/schemas/numberParam"
+              gate_to:
+                allOf:
+                  - description: Номер транка для второго номера
+                  - $ref: "#/components/schemas/numberParam"
+              to_domain:
+                allOf:
+                  - description: Указываете домен на который должен быть совершен звонок (для прямых звонков)
+                  - $ref: "#/components/schemas/domainParam"
+              from_orig_number:
+                allOf:
+                  - description: Телефонный номер который увидит первый вызываемый номер
+                  - $ref: "#/components/schemas/numberParam"
+              from_orig_name:
+                allOf:
+                  - description: Имя пользователя которое увидит первый вызываемый номер
+                  - $ref: "#/components/schemas/nameParam"
+    callInstantly:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { from: 100, to: 101 }
+          schema:
+            type: object
+            required:
+              - from
+              - to
+            properties:
+              from:
+                allOf:
+                  - description: Кто, первый вызываемый номер (номер абонента или внешний номер)
+                  - $ref: "#/components/schemas/numberParam"
+              to:
+                allOf:
+                  - description: Кому, второй вызываемый номер (любой)
+                  - $ref: "#/components/schemas/numberParam"
+              gate_from:
+                allOf:
+                  - description: Номер транка для первого номера
+                  - $ref: "#/components/schemas/numberParam"
+              gate_to:
+                allOf:
+                  - description: Номер транка для второго номера
+                  - $ref: "#/components/schemas/numberParam"
+              to_domain:
+                allOf:
+                  - description: Указываете домен на который должен быть совершен звонок (для прямых звонков)
+                  - $ref: "#/components/schemas/domainParam"
+              from_orig_number:
+                allOf:
+                  - description: Телефонный номер который увидит первый вызываемый номер
+                  - $ref: "#/components/schemas/numberParam"
+              from_orig_name:
+                allOf:
+                  - description: Имя пользователя которое увидит первый вызываемый номер
+                  - $ref: "#/components/schemas/nameParam"
+
+    amouserGet:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+
+    amocrmGet:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+
+    callsHistoryNew:
+      required: true
+      description: |
+        ⚠️ Для запроса необходим хотя бы один параметр.
+
+        ⚠️ При запросе звонков accountcode=missed вернутся звонки с accountcode=inbound. Связано с тем, что пропущенные звонки — это входящий звонок без разговора. Пропущенные хранятся в базе как входящие.
+
+        ⚠️ Максимальный интервал, за который можно получить звонки в одном запросе (кроме запросов с uuid) - 1 неделя.
+        То есть, разница между параметром `start_stamp_to` и `start_stamp_from` или `end_stamp_to` и `end_stamp_from` не должна превышать максимальный интервал в секундах.
+        Если интервал превышает максимальный, то будут возвращены звонки за последний максимальный интервал из этого интервала.
+        Если не указан ни один из этих параметров: `start_stamp_to`, `start_stamp_from`, `end_stamp_to`, `end_stamp_from`, то будут возвращены звонки за текущие сутки (GMT-0).
+
+      content:
+        application/x-www-form-urlencoded:
+          examples:
+            search:
+              summary: Поиск звонков
+              value: { start_stamp_from: 1557901661 }
+            download:
+              summary: Скачивание записи звонка
+              value: { uuid: 59274018-cb5c-4faa-bada-310cf022b7f1, download: 1 }
+            downloadSeveral:
+              summary: Скачивание записей звонков архивом
+              value: { uuid: 59274018-cb5c-4faa-bada-310cf022b7f1, download: 1 }
+          schema:
+            type: object
+            properties:
+              uuid:
+                allOf:
+                  - description: Выдача конкретного звонка по уникальному ID. Можно указывать вместе с параметром `uuid_array`.
+                  - { $ref: "#/components/schemas/uuidParam" }
+              uuid_array:
+                allOf:
+                  - description: Массив uuid или строка, в которой uuid разделены запятой. Можно указывать вместе с параметром `uuid`.
+                  - { $ref: "#/components/schemas/uuidArrayParam" }
+              phone_numbers:
+                allOf:
+                  - description: |
+                      Массив телефонов или строка, в которой телефоны разделены запятой.
+                      Будут выбраны звонки, в которых есть полное совпадение телефонов, с/на которые осуществлялся вызов.
+                  - { $ref: "#/components/schemas/phoneNumbersParam" }
+              sub_phone_numbers:
+                allOf:
+                  - description: |
+                      Массив телефонов или строка, в которой телефоны разделены запятой.
+                      Будут выбраны звонки, в которых есть частичное совпадение телефонов, с/на которые осуществлялся вызов.
+                  - { $ref: "#/components/schemas/phoneNumbersParam" }
+              from_host:
+                allOf:
+                  - description: Домен звонящего.
+                  - { $ref: "#/components/schemas/domainParam" }
+              caller_id_number:
+                allOf:
+                  - description: Номер звонящего.
+                  - { $ref: "#/components/schemas/numberParam" }
+              caller_id_name:
+                allOf:
+                  - description: Имя звонящего.
+                  - { $ref: "#/components/schemas/nameParam" }
+              to_host:
+                allOf:
+                  - description: Домен вызываемого.
+                  - { $ref: "#/components/schemas/domainParam" }
+              destination_number:
+                allOf:
+                  - description: Номер назначения.
+                  - { $ref: "#/components/schemas/numberParam" }
+              start_stamp_from:
+                allOf:
+                  - description: Метка начала звонка ОТ.
+                  - { $ref: "#/components/schemas/secStampParam" }
+              start_stamp_to:
+                allOf:
+                  - description: Метка начала звонка ДО.
+                  - { $ref: "#/components/schemas/secStampParam" }
+              end_stamp_from:
+                allOf:
+                  - description: Метка окончания звонка ОТ.
+                  - { $ref: "#/components/schemas/secStampParam" }
+              end_stamp_to:
+                allOf:
+                  - description: Метка окончания звонка ДО.
+                  - { $ref: "#/components/schemas/secStampParam" }
+              duration_from:
+                allOf:
+                  - description: Длительность всего звонка ОТ.
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              duration_to:
+                allOf:
+                  - description: Длительность всего звонка ДО.
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              user_talk_time_from:
+                allOf:
+                  - description: Длительность разговора ОТ.
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              user_talk_time_to:
+                allOf:
+                  - description: Длительность разговора ДО.
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              accountcode:
+                allOf:
+                  - description: |
+                      По типу:
+
+                      `inbound` - входящие звонки;
+
+                      `outbound` - исходящие звонки;
+
+                      `local` - локальные звонки (в пределах АТС);
+
+                      `missed` - пропущенные звонки: неотвеченные входящие звонки;
+
+                      `contacted` - пропущенные звонки, на которые перезвонили;
+
+                      `not_contacted` - пропущенные звонки, на которые не перезвонили;
+
+                      `not_answered` - неотвеченные исходящие звонки.
+                  - { $ref: "#/components/schemas/accountcodeParam" }
+              download:
+                allOf:
+                  - description: "Если параметр указан, то вместо массива данных будет возвращен URL для скачивания файла записей звонков. Если найден 1 звонок, то время жизни ссылки: 200 секунд, иначе — 1 час."
+                  - { $ref: "#/components/schemas/downloadParam" }
+    callsHistoryOld:
+      required: true
+      description: |
+        ⚠️ Для запроса необходим хотя бы один параметр.
+      content:
+        application/x-www-form-urlencoded:
+          examples:
+            search:
+              summary: Поиск звонков
+              value: { start_stamp_from: 1557901661 }
+            download:
+              summary: Скачивание записи звонка
+              value: { uuid: 59274018-cb5c-4faa-bada-310cf022b7f1, download: 1 }
+            downloadSeveral:
+              summary: Скачивание записей звонков архивом
+              value: { uuid: 59274018-cb5c-4faa-bada-310cf022b7f1, download: 1 }
+          schema:
+            type: object
+            properties:
+              duration_from:
+                allOf:
+                  - description: Длительность (всего звонка) от (сек.)
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              duration_to:
+                allOf:
+                  - description: Длительность (всего звонка) до (сек.)
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              billsec_from:
+                allOf:
+                  - description: Продолжительность разговора от (сек.)
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              billsec_to:
+                allOf:
+                  - description: Продолжительность разговора до (сек.)
+                  - { $ref: "#/components/schemas/positiveCountParam" }
+              date_from:
+                allOf:
+                  - description: Звонок начался (дата) от (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              date_to:
+                allOf:
+                  - description: Звонок кончился (дата) до (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              start_date_from:
+                allOf:
+                  - description: Звонок начался (дата) от (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              start_date_to:
+                allOf:
+                  - description: Звонок начался (дата) до (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              end_date_from:
+                allOf:
+                  - description: Звонок кончился (дата) от (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              end_date_to:
+                allOf:
+                  - description: Звонок кончился (дата) до (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              number:
+                allOf:
+                  - description: По точному номеру
+                  - { $ref: "#/components/schemas/numberParam" }
+              out_number:
+                allOf:
+                  - description: По части номера (выдается любой номер содержащий в себе эти цифры)
+                  - { $ref: "#/components/schemas/numberParam" }
+              type:
+                allOf:
+                  - description: По типу - inbound/outbound/local
+                  - { $ref: "#/components/schemas/callTypeParam" }
+              uuid:
+                allOf:
+                  - description: Выдача конкретного звонка по уникальному ID
+                  - { $ref: "#/components/schemas/uuidParam" }
+              uuid_array:
+                allOf:
+                  - description: Выдача нескольких звонков по списку ID. Массив ID или строка, в которой ID разделены запятой.
+                  - { $ref: "#/components/schemas/uuidArrayParam" }
+              download:
+                allOf:
+                  - description: Если параметр указан, то вместо массива данных будет возвращен URL для скачивания файла записей звонков. Если найден 1 звонок, то время жизни ссылки 200 секунд, иначе 1 час.
+                  - { $ref: "#/components/schemas/downloadParam" }
+    icmSearch:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { out_num: 0123456789 }
+          schema:
+            type: object
+            properties:
+              out_num:
+                allOf:
+                  - description: Внешний номер (поиск осуществляется без префикса +7, 7, 8)
+                  - { $ref: "#/components/schemas/numberParam" }
+              int_num:
+                allOf:
+                  - description: Внутренний номер сотрудника
+                  - { $ref: "#/components/schemas/numberParam" }
+              date_from:
+                allOf:
+                  - description: Дата последнего изменения от (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              date_to:
+                allOf:
+                  - description: Дата последнего изменения до (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              creation_date_from:
+                allOf:
+                  - description: Дата создания от (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+              creation_date_to:
+                allOf:
+                  - description: Дата создания до (RFC-2822)
+                  - { $ref: "#/components/schemas/dateParam" }
+    icmAdd:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example:
+            {
+              out_num: 9876543210,
+              out_name: client,
+              int_num: 200,
+              note: icm api example,
+            }
+          schema:
+            type: object
+            required:
+              - out_num
+              - int_num
+            properties:
+              out_num:
+                allOf:
+                  - description: Внешний номер - максимум 10 символов
+                  - { $ref: "#/components/schemas/numberParam" }
+              int_num:
+                allOf:
+                  - description: Внутренний номер сотрудника
+                    pattern: ^[1-9]\d{2}$|^[1-4]\d{3}$
+                  - { $ref: "#/components/schemas/numberParam" }
+              out_name:
+                allOf:
+                  - description: Имя контакта
+                  - { $ref: "#/components/schemas/nameParam" }
+              block:
+                allOf:
+                  - description: Защита от изменений 1/0 (включена/выключена)
+                  - { $ref: "#/components/schemas/blockParam" }
+              note:
+                allOf:
+                  - description: Примечание
+                  - { $ref: "#/components/schemas/textParam" }
+    icmEdit:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example:
+            {
+              out_num: 9876543210,
+              out_name: client,
+              int_num: 200,
+              note: icm api example,
+            }
+          schema:
+            type: object
+            required:
+              - out_num
+            properties:
+              out_num:
+                allOf:
+                  - description: Внешний номер - максимум 10 символов
+                  - { $ref: "#/components/schemas/numberParam" }
+              int_num:
+                allOf:
+                  - description: Внутренний номер сотрудника
+                    pattern: ^[1-9]\d{2}$|^[1-4]\d{3}$
+                  - { $ref: "#/components/schemas/numberParam" }
+              out_name:
+                allOf:
+                  - description: Имя контакта
+                  - { $ref: "#/components/schemas/nameParam" }
+              block:
+                allOf:
+                  - description: Защита от изменений 1/0 (включена/выключена)
+                  - { $ref: "#/components/schemas/blockParam" }
+              note:
+                allOf:
+                  - description: Примечание
+                  - { $ref: "#/components/schemas/textParam" }
+    userAdd:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 300, pass: uOnNcdx8YrR8H, name: Example User }
+          schema:
+            type: object
+            required:
+              - num
+              - pass
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер пользователя в диапазоне от 100 до 4999
+                  - { $ref: "#/components/schemas/userExtensionParam" }
+              pass:
+                allOf:
+                  - description: Пароль
+                    pattern: \w+
+                  - { $ref: "#/components/schemas/passParam" }
+              name:
+                allOf:
+                  - description: Имя (латинскими буквами)
+                  - { $ref: "#/components/schemas/nameParam" }
+              delay1:
+                allOf:
+                  - description: Задержка 1
+                  - $ref: "#/components/schemas/delayParam"
+              tr1:
+                allOf:
+                  - description: Номер при недоступности 1
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay2:
+                allOf:
+                  - description: Задержка 2
+                  - { $ref: "#/components/schemas/delayParam" }
+              tr2:
+                allOf:
+                  - description: Номер при недоступности 2
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay3:
+                allOf:
+                  - description: Задержка 3
+                  - { $ref: "#/components/schemas/delayParam" }
+              tr3:
+                allOf:
+                  - description: Номер при недоступности 3
+                  - { $ref: "#/components/schemas/numberParam" }
+    userEdit:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 300, pass: uOnNcdx8YrR8H, name: Example User }
+          schema:
+            type: object
+            required:
+              - num
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер пользователя
+                  - { $ref: "#/components/schemas/userExtensionParam" }
+              pass:
+                allOf:
+                  - description: Пароль
+                    pattern: \w+
+                  - { $ref: "#/components/schemas/passParam" }
+              name:
+                allOf:
+                  - description: Имя (латинскими буквами)
+                  - { $ref: "#/components/schemas/nameParam" }
+              delay1:
+                allOf:
+                  - description: Задержка 1
+                  - { $ref: "#/components/schemas/delayParam" }
+              tr1:
+                allOf:
+                  - description: Номер при недоступности 1
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay2:
+                allOf:
+                  - description: Задержка 2
+                  - { $ref: "#/components/schemas/delayParam" }
+              tr2:
+                allOf:
+                  - description: Номер при недоступности 2
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay3:
+                allOf:
+                  - description: Задержка 3
+                  - { $ref: "#/components/schemas/delayParam" }
+              tr3:
+                allOf:
+                  - description: Номер при недоступности 3
+                  - { $ref: "#/components/schemas/numberParam" }
+    userGet:
+      required: false
+      content:
+        application/x-www-form-urlencoded:
+          examples:
+            user:
+              summary: Пользователь
+              value: { num: 300 }
+            numList:
+              summary: Список внутренних номеров
+              value: {}
+          schema:
+            type: object
+            nullable: true
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер пользователя
+                  - anyOf:
+                      - { $ref: "#/components/schemas/userExtensionParam" }
+                      - nullable: true
+                        type: string
+              name:
+                allOf:
+                  - description: Имя (латинскими буквами)
+                  - { $ref: "#/components/schemas/nameParam" }
+              delay1:
+                allOf:
+                  - description: Задержка 1
+                  - anyOf:
+                      - { $ref: "#/components/schemas/delayParam" }
+                      - nullable: true
+                        type: number
+              tr1:
+                allOf:
+                  - description: Номер при недоступности 1
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay2:
+                allOf:
+                  - description: Задержка 2
+                  - anyOf:
+                      - { $ref: "#/components/schemas/delayParam" }
+                      - nullable: true
+                        type: number
+              tr2:
+                allOf:
+                  - description: Номер при недоступности 2
+                  - { $ref: "#/components/schemas/numberParam" }
+              delay3:
+                allOf:
+                  - description: Задержка 3
+                  - anyOf:
+                      - { $ref: "#/components/schemas/delayParam" }
+                      - nullable: true
+                        type: number
+              tr3:
+                allOf:
+                  - description: Номер при недоступности 3
+                  - { $ref: "#/components/schemas/numberParam" }
+              fields:
+                allOf:
+                  - description: "Массив списка полей или строка, в котором поля разделены запятой. По-умолчанию возвращаются следующие поля: `num`, `name`, `tr1`, `tr2`, `tr3`, `delay1`, `delay2`, `delay3`, `enabled`"
+                  - { $ref: "#/components/schemas/fieldsArrayParam" }
+
+    userFlushSip:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер пользователя
+                  - { $ref: "#/components/schemas/userExtensionParam" }
+    balanceGet:
+      required: false
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+    trunkGet:
+      required: false
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+
+    groupAdd:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 10, users: 100;101, name: Example group }
+          schema:
+            allOf:
+              - { $ref: "#/components/schemas/groupRequest" }
+              - required:
+                  - users
+                properties:
+                  delay:
+                    default: 15
+    groupEdit:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 10, users: 100;101, name: Example group }
+          schema: { $ref: "#/components/schemas/groupRequest" }
+
+    groupGet:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          examples:
+            group:
+              summary: Группа
+              value: { num: 300 }
+            groupList:
+              summary: Список групп
+              value: {}
+          schema:
+            type: object
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер группы
+                  - { $ref: "#/components/schemas/groupExtensionParam" }
+    groupRemove:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 10, name: Example group }
+          schema: { $ref: "#/components/schemas/groupRemoveRequest" }
+
+    fifoAdd:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 5200, users: 100:1;101:2, name: Example queue }
+          schema:
+            allOf:
+              - { $ref: "#/components/schemas/fifoRequest" }
+              - required:
+                  - users
+                  - icm
+                  - instant_fifo
+                  - weight_type
+                  - say_position
+                properties:
+                  max_wait:
+                    default: 180
+                  delay:
+                    default: 15
+    fifoEdit:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          example: { num: 5200, users: 100:1;101:2, name: Example queue }
+          schema: { $ref: "#/components/schemas/fifoRequest" }
+    fifoGet:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          examples:
+            group:
+              summary: Очередь
+              value: { num: 5200 }
+            groupList:
+              summary: Список очередей
+              value: {}
+          schema:
+            type: object
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер очереди
+                  - { $ref: "#/components/schemas/fifoExtensionParam" }
+
+    ivrPost:
+      required: true
+      content:
+        multipart/form-data:
+          example: { num: 5000 }
+          schema: { $ref: "#/components/schemas/ivrRequest" }
+
+    ivrPatch:
+      required: true
+      content:
+        multipart/form-data:
+          example: { num: 5000 }
+          schema: { $ref: "#/components/schemas/ivrRequest" }
+
+    ivrDelete:
+      required: true
+      content:
+        application/json:
+          example: { num: 5000 }
+          schema:
+            type: object
+            properties:
+              num:
+                allOf:
+                  - description: Внутренний номер приветствия
+                  - { $ref: "#/components/schemas/ivrExtensionParam" }
+
+    moyskladInitCall:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - srcNumber
+              - destNumber
+            properties:
+              srcNumber:
+                description: Номер, с которого производится исходящий вызов
+                type: string
+              destNumber:
+                description: Номер телефона, на который происходит звонок
+                type: string
+              uid:
+                description: Логин сотрудника, совершающего вызов
+                type: string
+
+    blockListAddContacts:
+      required: true
+      content:
+        application/json:
+          example: [{ phone: "87654321", reason: "спам" }]
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - phone
+              properties:
+                phone:
+                  allOf:
+                    - description: Номер телефона
+                    - { $ref: "#/components/schemas/numberParam" }
+                reason:
+                  allOf:
+                    - description: Причина добавления в список
+                    - { $ref: "#/components/schemas/stringParam" }
+
+    blockListRemoveContacts:
+      required: true
+      content:
+        application/json:
+          example: ["87654321"]
+          schema:
+            type: array
+            items:
+              allOf:
+                - description: Номер телефона
+                - { $ref: "#/components/schemas/stringParam" }
+
+  examples:
+    badResponse:
+      summary: Неуспешный ответ
+      value: { status: "0", comment: Something wrong }
+
+  schemas:
+    authData:
+      type: object
+      required:
+        - key
+        - key_id
+        - new
+      properties:
+        key:
+          $ref: "#/components/schemas/keyParam"
+        key_id:
+          $ref: "#/components/schemas/keyIdParam"
+        new:
+          type: number
+          enum:
+            - 0
+            - 1
+
+    callNowData:
+      type: object
+      required:
+        - uuid
+      properties:
+        uuid:
+          $ref: "#/components/schemas/uuidParam"
+
+    callInstantlyData:
+      type: object
+      required:
+        - uuid
+      properties:
+        uuid:
+          $ref: "#/components/schemas/uuidParam"
+
+    commentParam:
+      type: string
+
+    statusParam:
+      type: string
+      enum:
+        - 0
+        - 1
+
+    domainParam: { type: string }
+
+    uidParam: { type: string }
+
+    authKeyParam: { type: string }
+
+    code: { type: string }
+
+    domain: { type: string }
+
+    callerNumber: { type: string }
+
+    userId: { type: number }
+
+    callId: { type: string }
+
+    phoneNumber: { type: string }
+
+    groupUsersStringParam:
+      type: string
+      pattern: ^[\w.@\-;|+]+$
+
+    fifoUsersStringParam:
+      type: string
+      pattern: ^[\d;:]+$
+
+    stringParam: { type: string }
+
+    booleanParam: { type: boolean }
+
+    newKeyParam:
+      type: string
+      enum:
+        - "true"
+        - "false"
+
+    keyParam: { type: string }
+    keyIdParam: { type: string }
+    uuidParam: { type: string }
+    dateParam: { type: string }
+    amoIdParam: { type: string }
+
+    nameParam:
+      type: string
+      pattern: ^[а-яА-Я\w\s\.\-]*$
+
+    countParam: { type: integer }
+
+    positiveCountParam:
+      type: integer
+      minimum: 0
+
+    delayParam:
+      type: integer
+      minimum: 0
+      maximum: 7200
+
+    ivrDelayParam:
+      type: integer
+      minimum: 0
+      maximum: 3600
+
+    maxWaitParam:
+      type: integer
+      minimum: 0
+      maximum: 3600
+
+    ivrParam:
+      type: integer
+      minimum: 5000
+      maximum: 5099
+
+    hangupCauseParam: { type: string }
+
+    accountcodeParam:
+      type: string
+      enum:
+        - inbound
+        - outbound
+        - local
+        - missed
+        - not_answered
+        - contacted
+        - not_contacted
+
+    callTypeParam:
+      type: string
+      enum:
+        - inbound
+        - outbound
+        - local
+
+    downloadParam: { type: string }
+
+    numberParam:
+      type: string
+      pattern: ^\+{0,1}\d*$
+
+    emptyStringParam:
+      type: string
+      minLength: 0
+      maxLength: 0
+
+    userExtensionParam:
+      type: integer
+      minimum: 100
+      maximum: 4999
+    #      type: string
+    #      pattern: ^[1-9]\d{2}$|^[1-4]\d{3}$
+
+    groupExtensionParam:
+      anyOf:
+        - type: integer
+          minimum: 10
+          maximum: 99
+        - type: integer
+          minimum: 7000
+          maximum: 7099
+
+    fifoExtensionParam:
+      type: integer
+      minimum: 5200
+      maximum: 5299
+
+    ivrExtensionParam:
+      type: integer
+      minimum: 5000
+      maximum: 5099
+
+    secStampParam:
+      anyOf:
+        - type: string
+          minLength: 10
+          maxLength: 10
+        - type: integer
+
+    uuidArrayParam:
+      anyOf:
+        - type: array
+          items:
+            type: string
+        - type: string
+
+    fieldsArrayParam:
+      anyOf:
+        - type: array
+          items:
+            type: string
+        - type: string
+
+    phoneNumbersParam:
+      anyOf:
+        - type: array
+          items:
+            type: string
+        - type: string
+
+    blockParam:
+      type: string
+      enum:
+        - "0"
+        - "1"
+
+    forwardingParam:
+      type: string
+      enum:
+        - "0"
+        - "1"
+        -
+    binParam:
+      type: string
+      enum:
+        - "0"
+        - "1"
+
+    weightTypeParam:
+      type: string
+      enum:
+        - "average_duration"
+        - "duration"
+        - "calls"
+
+    ivrAudioType:
+      type: string
+      enum:
+        - "WORKING_HOURS"
+        - "NON_WORKING_HOURS"
+        - "CUSTOM"
+
+    extensionParam:
+      type: string
+
+    passwordParam:
+      type: string
+
+    commonErrorCodeParam:
+      title: Коды общих ошибки
+      description: |
+        * `WRONG_DOMAIN` - указан несуществующий домен, проверьте корректность ввода домена
+        * `DISABLED_DOMAIN` - указан неактивный домен, проверьте баланс
+        * `TOO_MANY_REQUESTS` - слишком много запросов, проверьте ограничения для конкретного метода
+        * `VALIDATION_FAILED` - отправлены невалидные данные, подробнее в поле "comment"
+        * `INTERNAL` - внутренняя ошибка, попробуйте позже или обратитесь в службу поддержки
+      type: string
+
+    authorizationErrorCodeParam:
+      title: Коды ошибок авторизации
+      description: |
+        * `WRONG_AUTH_DATA` - неверно записаны данные в заголовке x-pbx-authentication
+        * `API_KEY_NOT_SPECIFIED` - не указан API ключ
+        * `FORBIDDEN_IP` - запрещенный IP, проверьте список IP-адресов, которым разрешен доступ по API
+        * `WRONG_API_KEY` - неверный API ключ
+      type: string
+
+    authenticationErrorCodeParam:
+      title: Коды ошибок аутентификации
+      description: |
+        * `FORBIDDEN_IP` - запрещенный IP, проверьте список IP-адресов, которым разрешен доступ по API
+        * `WRONG_AUTH_DATA` - неверно записаны данные в заголовке x-pbx-authentication
+        * `API_KEY_CHECK_FAILED` - не совпадают авторизационные данные, проверьте правильность ввода API ключа при авторизации
+      type: string
+
+    callErrorCodeParam:
+      title: Коды ошибок инициализации звонков
+      description: |
+        * `WRONG_GATEWAY` - указан несуществующий внешний номер
+      type: string
+
+    amocrmErrorCodeParam:
+      title: Коды ошибок интеграции amoCRM
+      description: |
+        * `AMOCRM_IS_DISABLED` - интеграция МойСклад отключена
+      type: string
+
+    moyskladErrorCodeParam:
+      title: Коды ошибок интеграции МойСклад
+      description: |
+        * `MOYSKLAD_IS_DISABLED` - интеграция МойСклад отключена
+      type: string
+
+    callsHistoryErrorCodeParam:
+      title: Коды ошибок истории звонков
+      description: |
+        * `TOO_LONG_TIME_INTERVAL` - слишком большой временной интервал для получения звонков, максимум 1 неделя
+      type: string
+
+    textParam: { type: string }
+    passParam: { type: string }
+    regStatusParam: { type: string }
+    isNotAuthParam: { type: boolean }
+    groupResponse:
+      type: object
+      properties:
+        id: { $ref: "#/components/schemas/positiveCountParam" }
+        name: { $ref: "#/components/schemas/stringParam" }
+        num: { $ref: "#/components/schemas/stringParam" }
+        users: { $ref: "#/components/schemas/stringParam" }
+        delay: { $ref: "#/components/schemas/stringParam" }
+        default: { $ref: "#/components/schemas/stringParam" }
+
+    groupRequest:
+      type: object
+      required:
+        - num
+      properties:
+        num:
+          allOf:
+            - description: Номер группы в диапазоне от 10 до 99 или от 7000 до 7099
+            - { $ref: "#/components/schemas/groupExtensionParam" }
+        users:
+          allOf:
+            - description: Пользователи, перечисляются через ";"
+            - { $ref: "#/components/schemas/groupUsersStringParam" }
+        name:
+          allOf:
+            - description: Название группы
+            - { $ref: "#/components/schemas/stringParam" }
+        delay:
+          allOf:
+            - description: Максимальное время дозвона до группы, от 1 до 7200
+            - { $ref: "#/components/schemas/delayParam" }
+        default:
+          allOf:
+            - description: Куда направить звонок по истечению времени дозвона до группы
+            - { $ref: "#/components/schemas/stringParam" }
+
+    groupRemoveRequest:
+      type: object
+      required:
+        - num
+      properties:
+        num:
+          allOf:
+            - description: Номер группы в диапазоне от 10 до 99 или от 7000 до 7099
+            - { $ref: "#/components/schemas/groupExtensionParam" }
+
+    fifoResponse:
+      type: object
+      properties:
+        name: { $ref: "#/components/schemas/stringParam" }
+        num: { $ref: "#/components/schemas/stringParam" }
+        users: { $ref: "#/components/schemas/stringParam" }
+        delay: { $ref: "#/components/schemas/delayParam" }
+        default: { $ref: "#/components/schemas/stringParam" }
+        max_wait: { $ref: "#/components/schemas/countParam" }
+        icm: { $ref: "#/components/schemas/countParam" }
+        instant_fifo: { $ref: "#/components/schemas/stringParam" }
+        ivr: { $ref: "#/components/schemas/stringParam" }
+        ivr_freq: { $ref: "#/components/schemas/countParam" }
+        say_position: { $ref: "#/components/schemas/stringParam" }
+        weight_type: { $ref: "#/components/schemas/stringParam" }
+
+    fifoRequest:
+      type: object
+      required:
+        - num
+      properties:
+        num:
+          allOf:
+            - description: Номер очереди в диапазоне от 5200 до 5299
+            - { $ref: "#/components/schemas/fifoExtensionParam" }
+        users:
+          allOf:
+            - description: "Перечислите добавочные через « ; » и укажите вес каждого добавочного через « : ». Вес — это число от 1 до 10, определяющее нагрузку между операторами. Если указать «100:1;101:2;102:1», то нагрузка у добавочного 101 будет в два раза выше."
+            - { $ref: "#/components/schemas/fifoUsersStringParam" }
+        name:
+          allOf:
+            - description: Название очереди
+            - { $ref: "#/components/schemas/stringParam" }
+        delay:
+          allOf:
+            - description: Максимальное время дозвона до очереди, от 1 до 7200 секунд
+            - { $ref: "#/components/schemas/delayParam" }
+        default:
+          allOf:
+            - description: Куда направить звонок по истечению времени дозвона до группы
+            - { $ref: "#/components/schemas/stringParam" }
+        max_wait:
+          allOf:
+            - description: Максимальное время нахождения в очереди в секундах, от 0 до 3600 секунд
+            - { $ref: "#/components/schemas/maxWaitParam" }
+        icm:
+          allOf:
+            - description: Интеграция с icm модулем, 0 или 1
+            - { $ref: "#/components/schemas/binParam" }
+        instant_fifo:
+          allOf:
+            - description: Пропускать очередь если все пользователи заняты, 0 или 1
+            - { $ref: "#/components/schemas/binParam" }
+        ivr:
+          allOf:
+            - description: Номер приветствия, от 5000 до 5099
+            - anyOf:
+                - { $ref: "#/components/schemas/ivrParam" }
+                - nullable: true
+                  type: number
+        ivr_freq:
+          allOf:
+            - description: Промежуток в секундах между повторами
+            - anyOf:
+                - { $ref: "#/components/schemas/positiveCountParam" }
+                - nullable: true
+                  type: number
+        say_position:
+          allOf:
+            - description: Произносить порядковый номер в очереди, 0 или 1
+            - { $ref: "#/components/schemas/binParam" }
+        weight_type:
+          allOf:
+            - description: Распределение нагрузки, "average_duration", "duration" или "calls"
+            - { $ref: "#/components/schemas/weightTypeParam" }
+
+    ivrRequest:
+      type: object
+      required:
+        - num
+      properties:
+        num:
+          allOf:
+            - description: Номер приветствия в диапазоне от 5000 до 5099
+            - { $ref: "#/components/schemas/ivrExtensionParam" }
+        name:
+          allOf:
+            - description: Название приветствия
+            - { $ref: "#/components/schemas/stringParam" }
+        delay:
+          allOf:
+            - description: Максимальное время нахождения в приветствии, от 1 до 3600 секунд
+            - { $ref: "#/components/schemas/ivrDelayParam" }
+        manual_dialing:
+          default: true
+          description: Разрешен ли ввод добавочных
+          type: boolean
+        default:
+          allOf:
+            - description: Куда направить звонок по истечению времени
+            - { $ref: "#/components/schemas/stringParam" }
+        audio_type:
+          allOf:
+            - default: WORKING_HOURS
+            - description: Тип мелодии.
+
+                - `WORKING_HOURS` - стандартное рабочее
+
+                - `NON_WORKING_HOURS` - стандартное нерабочее
+
+                - `CUSTOM` - собственный аудиофайл. обязательный параметр - `audio_file`
+            - { $ref: "#/components/schemas/ivrAudioType" }
+        audio_file:
+          type: string
+          format: binary
+          description: "Загрузка своего собственного аудиофайла. Формат: wav, mp3. Максимальный размер аудиофайла: 8Мб. Внимание при загрузке аудиофайла поле `audio_type` автоматически назначится `CUSTOM`."
+        dialpad_1:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '1'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_2:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '2'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_3:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '3'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_4:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '4'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_5:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '5'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_6:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '6'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_7:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '7'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_8:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '8'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_9:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '9'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_0:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '0'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_astr:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '*'
+            - { $ref: "#/components/schemas/stringParam" }
+        dialpad_sharp:
+          allOf:
+            - description: Настройка, на какой номер в дальнейшем пойдет звонок, после нажатия на клавишу '#'
+            - { $ref: "#/components/schemas/stringParam" }
+
+    ivrResponse:
+      type: object
+      properties:
+        name: { $ref: "#/components/schemas/stringParam" }
+        num: { $ref: "#/components/schemas/stringParam" }
+        manual_dialing: { type: boolean }
+        audio:
+          {
+            type: object,
+            properties:
+              {
+                type: { $ref: "#/components/schemas/ivrAudioType" },
+                filename: { $ref: "#/components/schemas/stringParam" },
+              },
+          }
+        delay: { $ref: "#/components/schemas/delayParam" }
+        default: { $ref: "#/components/schemas/stringParam" }
+        dialpad:
+          {
+            type: object,
+            properties:
+              {
+                "1": { $ref: "#/components/schemas/stringParam" },
+                "2": { $ref: "#/components/schemas/stringParam" },
+                "3": { $ref: "#/components/schemas/stringParam" },
+                "4": { $ref: "#/components/schemas/stringParam" },
+                "5": { $ref: "#/components/schemas/stringParam" },
+                "6": { $ref: "#/components/schemas/stringParam" },
+                "7": { $ref: "#/components/schemas/stringParam" },
+                "8": { $ref: "#/components/schemas/stringParam" },
+                "9": { $ref: "#/components/schemas/stringParam" },
+                "0": { $ref: "#/components/schemas/stringParam" },
+                "astr": { $ref: "#/components/schemas/stringParam" },
+                "sharp": { $ref: "#/components/schemas/stringParam" },
+              },
+          }
+
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-pbx-authentication
+      description: Строка формата `key_id:key`, необходима для аутентификации, где `key_id`, `key` - параметры, полученные после авторизации `{domain}/auth.json`

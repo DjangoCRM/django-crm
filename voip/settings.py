@@ -29,6 +29,7 @@ ASTERISK_AMI = {
     'RECONNECT_DELAY': env_int('ASTERISK_AMI_RECONNECT_DELAY', 5),
 }
 VOIP = [
+    # Existing Zadarma backend
     {
         'BACKEND': 'voip.backends.zadarmabackend.ZadarmaAPI',
         'PROVIDER': 'Zadarma',
@@ -36,6 +37,22 @@ VOIP = [
         'OPTIONS': {
             'key': SECRET_ZADARMA_KEY,
             'secret': SECRET_ZADARMA
+        }
+    },
+    # New OnlinePBX backend (scaffold)
+    {
+        'BACKEND': 'voip.backends.onlinepbxbackend.OnlinePBXAPI',
+        'PROVIDER': 'OnlinePBX',
+        'IP': '*',  # OnlinePBX may push events differently; adjust if you secure by IP
+        'OPTIONS': {
+            # Minimal required to initiate calls: domain and either (key_id+key) or api_key to obtain them
+            'domain': os.getenv('ONLINEPBX_DOMAIN', 'example.onpbx.ru'),
+            'key_id': os.getenv('ONLINEPBX_KEY_ID', ''),
+            'key': os.getenv('ONLINEPBX_KEY', ''),
+            'api_key': os.getenv('ONLINEPBX_API_KEY', ''),
+            'base_url': os.getenv('ONLINEPBX_BASE_URL', 'https://api2.onlinepbx.ru'),
+            # If server expects base64(md5(body)) for Content-MD5, set to True
+            'use_base64_md5': os.getenv('ONLINEPBX_MD5_BASE64', 'false').lower() in ('1','true','yes','on'),
         }
     }
 ]
