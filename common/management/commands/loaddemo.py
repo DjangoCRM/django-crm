@@ -70,9 +70,16 @@ class Command(BaseCommand):
         prod, was = Product.objects.get_or_create(name='Demo Product', defaults={'price': Decimal('199.00'), 'type': 'G'})
         created += int(was)
         # Deal
+        from django.utils import timezone
         deal, was = Deal.objects.get_or_create(name='Acme First Deal', defaults={
-            'company': comp, 'contact': cont, 'owner': user, 'amount': 1000, 'currency': None,  # use default/null; currency is FK
- 'department': dept,
+            'company': comp,
+            'contact': cont,
+            'owner': user,
+            'amount': 1000,
+            'currency': None,  # FK
+            'department': dept,
+            'next_step': 'Initial contact',
+            'next_step_date': timezone.now().date(),
         })
         created += int(was)
         # Request
