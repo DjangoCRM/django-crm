@@ -35,6 +35,14 @@ class ChannelAccount(models.Model):
     eskiz_from = models.CharField(max_length=20, default='', blank=True)
 
     # PlayMobile
+    PLAYMOBILE_AUTH_CHOICES = (
+        ('basic', 'Login/Password'),
+        ('token', 'Bearer Token'),
+    )
+    playmobile_auth_type = models.CharField(max_length=10, choices=PLAYMOBILE_AUTH_CHOICES, default='basic')
+    playmobile_api_url = models.CharField(max_length=500, default='', blank=True)
+    playmobile_status_url = models.CharField(max_length=500, default='', blank=True)
+    playmobile_token = models.CharField(max_length=500, default='', blank=True)
     playmobile_login = models.CharField(max_length=255, default='', blank=True)
     playmobile_password = models.CharField(max_length=255, default='', blank=True)
     playmobile_from = models.CharField(max_length=20, default='', blank=True)

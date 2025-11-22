@@ -28,10 +28,9 @@ def eskiz_send_sms(token: str, from_name: str, phone: str, text: str) -> bool:
         return False
 
 
-def playmobile_send_sms(login: str, password: str, from_name: str, phone: str, text: str) -> bool:
+def playmobile_send_sms_basic(api_url: str, login: str, password: str, from_name: str, phone: str, text: str) -> bool:
     try:
-        # Example endpoint; adjust to your PlayMobile provider
-        url = 'https://send.smsxabar.uz/api/v1/send'
+        url = api_url or 'https://send.smsxabar.uz/api/v1/send'
         payload = {
             'login': login,
             'password': password,
@@ -40,6 +39,21 @@ def playmobile_send_sms(login: str, password: str, from_name: str, phone: str, t
             'text': text,
         }
         resp = requests.post(url, json=payload, timeout=10)
+        return resp.status_code in (200, 202)
+    except Exception:
+        return False
+
+
+def playmobile_send_sms_token(api_url: str, token: str, from_name: str, phone: str, text: str) -> bool:
+    try:
+        url = api_url or 'https://api.playmobile.uz/v1/messages'
+        headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+        payload = {
+            'from': from_name,
+            'to': phone,
+            'text': text,
+        }
+        resp = requests.post(url, headers=headers, json=payload, timeout=10)
         return resp.status_code in (200, 202)
     except Exception:
         return False

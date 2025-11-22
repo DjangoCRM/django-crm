@@ -32,6 +32,7 @@ class ChannelAccountAdmin(admin.ModelAdmin):
             'eskiz_email', 'eskiz_password', 'eskiz_token', 'eskiz_from'
         )}),
         (_('PlayMobile'), {'fields': (
+            'playmobile_auth_type', 'playmobile_api_url', 'playmobile_status_url', 'playmobile_token',
             'playmobile_login', 'playmobile_password', 'playmobile_from'
         )}),
     )
@@ -67,10 +68,18 @@ class ChannelAccountAdmin(admin.ModelAdmin):
             ht['eskiz_token'].help_text = _('Eskiz API token (optional if email/password provided).')
         if 'eskiz_from' in ht:
             ht['eskiz_from'].help_text = _('Sender name (from).')
+        if 'playmobile_auth_type' in ht:
+            ht['playmobile_auth_type'].help_text = _('Select auth type: Login/Password or Bearer Token.')
+        if 'playmobile_api_url' in ht:
+            ht['playmobile_api_url'].help_text = _('PlayMobile send API URL (from HTTP.pdf).')
+        if 'playmobile_status_url' in ht:
+            ht['playmobile_status_url'].help_text = _('PlayMobile status API URL (optional).')
+        if 'playmobile_token' in ht:
+            ht['playmobile_token'].help_text = _('PlayMobile Bearer token (if token auth).')
         if 'playmobile_login' in ht:
-            ht['playmobile_login'].help_text = _('PlayMobile API login.')
+            ht['playmobile_login'].help_text = _('PlayMobile API login (if basic auth).')
         if 'playmobile_password' in ht:
-            ht['playmobile_password'].help_text = _('PlayMobile API password.')
+            ht['playmobile_password'].help_text = _('PlayMobile API password (if basic auth).')
         if 'playmobile_from' in ht:
             ht['playmobile_from'].help_text = _('Sender name (from).')
         return form

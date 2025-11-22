@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
 from .models import ChannelAccount
-from .sms import eskiz_auth, eskiz_send_sms, playmobile_send_sms
+from .sms import eskiz_auth, eskiz_send_sms, playmobile_send_sms_basic, playmobile_send_sms_token
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -42,7 +42,10 @@ class SendSMSView(View):
             else:
                 detail = 'auth failed'
         elif acc.type == 'playmobile':
-            ok = playmobile_send_sms(acc.playmobile_login, acc.playmobile_password, acc.playmobile_from, to, text)
+            if acc.playmobile_auth_type == 'token' and acc.playmobile_token:
+                ok = playmobile_send_sms_token(acc.playmobile_api_url, acc.playmobile_token, acc.playmobile_from, to, text)
+            else:
+                ok = playmobile_send_sms_basic(acc.playmobile_api_url, acc.playmobile_login, acc.playmobile_password, acc.playmobile_from, to, text)
             detail = 'sent' if ok else 'failed'
         else:
             return JsonResponse({'status': 'error', 'detail': 'Unsupported channel type'}, status=400)
