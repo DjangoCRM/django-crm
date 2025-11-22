@@ -71,7 +71,8 @@ class Command(BaseCommand):
         created += int(was)
         # Deal
         deal, was = Deal.objects.get_or_create(name='Acme First Deal', defaults={
-            'company': comp, 'contact': cont, 'owner': user, 'amount': 1000, 'currency': 'USD', 'department': dept,
+            'company': comp, 'contact': cont, 'owner': user, 'amount': 1000, 'currency': None,  # use default/null; currency is FK
+ 'department': dept,
         })
         created += int(was)
         # Request
