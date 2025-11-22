@@ -122,7 +122,9 @@ class Command(BaseCommand):
             tag.for_content = ct
             tag.save(update_fields=['for_content'])
         created += int(was)
-        task, was = Task.objects.get_or_create(name='Call the client', defaults={'owner': user, 'project': proj})
+        from tasks.models import TaskStage
+        default_stage = TaskStage.objects.filter(default=True).first() or TaskStage.objects.first()
+        task, was = Task.objects.get_or_create(name='Call the client', defaults={'owner': user, 'project': proj, 'stage': default_stage})
         created += int(was)
         task.tags.add(tag)
         memo, was = Memo.objects.get_or_create(subject='Kickoff notes', defaults={'owner': user, 'project': proj, 'content': 'Initial plan.'})
