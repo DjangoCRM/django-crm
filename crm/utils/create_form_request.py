@@ -53,6 +53,18 @@ def create_form_request(lead_source: LeadSource, form: ContactForm) -> None:
         if request.owner:
             notify_request_owners(request)
         request_email.save()
+        # Mirror website form submission into Chat hub
+        try:
+            from chat.models import ChatMessage
+            from django.contrib.contenttypes.models import ContentType
+            ChatMessage.objects.create(
+                content_type=ContentType.objects.get_for_model(request),
+                object_id=request.id,
+                content=(data['subject'] or '') + ("\n\n" + (data['message'] or '') if data.get('message') else ''),
+                owner=request.owner,
+            )
+        except Exception:
+            pass
 
 
 def _create_email(data: dict, lead_source: LeadSource,

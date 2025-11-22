@@ -66,6 +66,31 @@ class VoIPWebHook(View):
                     entry = f'{init_str} {full_name} {duration_str}.'
                     deal.add_to_workflow(entry)
                     deal.save()
+                # Mirror into Chat hub on Lead/Request
+                try:
+                    from chat.models import ChatMessage
+                    from django.contrib.contenttypes.models import ContentType
+                    from crm.models import Request as Req
+                    obj = contact or lead
+                    if obj:
+                        ChatMessage.objects.create(
+                            content_type=ContentType.objects.get_for_model(obj.__class__),
+                            object_id=obj.id,
+                            content=f"[VoIP] {entry}",
+                        )
+                        req = None
+                        if hasattr(obj, 'request_set'):
+                            req = obj.request_set.order_by('-id').first()
+                        elif deal and deal.request_id:
+                            req = deal.request
+                        if req:
+                            ChatMessage.objects.create(
+                                content_type=ContentType.objects.get_for_model(Req),
+                                object_id=req.id,
+                                content=f"[VoIP] {entry}",
+                            )
+                except Exception:
+                    pass
                     
                 if not any((contact, lead, deal)) and settings.VOIP_FORWARD_DATA:
                     url = settings.VOIP_FORWARD_URL
