@@ -14,15 +14,18 @@ from rest_framework.response import Response
 from common.utils.helpers import get_today
 from crm.models import Company, Contact, Deal, Lead, Stage, Tag as CrmTag
 from crm.utils.ticketproc import new_ticket
-from tasks.models import Project, ProjectStage, Task, TaskStage, Tag as TaskTag
+from tasks.models import Memo, Project, ProjectStage, Task, TaskStage, Tag as TaskTag
+from chat.models import ChatMessage
 
 from api.permissions import OwnedObjectPermission
 from .serializers import (
+    ChatMessageSerializer,
     CompanySerializer,
     ContactSerializer,
     CrmTagSerializer,
     DealSerializer,
     LeadSerializer,
+    MemoSerializer,
     ProjectSerializer,
     ProjectStageSerializer,
     StageSerializer,
@@ -659,6 +662,137 @@ class TaskTagViewSet(viewsets.ReadOnlyModelViewSet):
         if model_filter:
             qs = qs.filter(for_content__model=model_filter)
         return qs
+
+
+class MemoViewSet(OwnedModelViewSet):
+    """
+    ViewSet for managing memos (office memos/notes).
+    Supports filtering by stage, recipient, and draft status.
+    """
+    serializer_class = MemoSerializer
+    queryset = Memo.objects.select_related(
+        'owner', 'to', 'task', 'project', 'deal', 'resolution'
+    ).prefetch_related('tags', 'subscribers').all()
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name', 'description', 'note']
+    ordering_fields = ['creation_date', 'update_date', 'review_date', 'name']
+    ordering = ['-creation_date']
+    filterset_fields = ['stage', 'draft', 'to', 'task', 'project', 'deal']
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        user = self.request.user
+        
+        # Filter out drafts that don't belong to the current user
+        qs = qs.filter(Q(draft=False) | Q(owner=user))
+        
+        # Additional filters from query params
+        stage = self.request.query_params.get('stage')
+        if stage:
+            qs = qs.filter(stage=stage)
+        
+        # Filter by recipient
+        to_user = self.request.query_params.get('to_user')
+        if to_user:
+            qs = qs.filter(to__id=to_user)
+        
+        # Filter by review date range
+        review_date_from = self.request.query_params.get('review_date_from')
+        review_date_to = self.request.query_params.get('review_date_to')
+        if review_date_from:
+            qs = qs.filter(review_date__gte=_norm_date(review_date_from))
+        if review_date_to:
+            qs = qs.filter(review_date__lte=_norm_date(review_date_to))
+        
+        return qs
+
+    def perform_create(self, serializer):
+        """Set the owner to the current user on create."""
+        serializer.save(owner=self.request.user)
+
+    @action(detail=True, methods=['post'])
+    def mark_reviewed(self, request, pk=None):
+        """Mark a memo as reviewed."""
+        memo = self.get_object()
+        memo.stage = Memo.REVIEWED
+        memo.save()
+        return Response({'status': 'memo marked as reviewed'})
+
+    @action(detail=True, methods=['post'])
+    def mark_postponed(self, request, pk=None):
+        """Mark a memo as postponed."""
+        memo = self.get_object()
+        memo.stage = Memo.POSTPONED
+        memo.save()
+        return Response({'status': 'memo marked as postponed'})
+
+
+class ChatMessageViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing chat messages.
+    Supports filtering by content_object and threading (replies/topics).
+    """
+    serializer_class = ChatMessageSerializer
+    queryset = ChatMessage.objects.select_related(
+        'owner', 'content_type', 'answer_to', 'topic'
+    ).prefetch_related('recipients', 'to').all()
+    permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['content']
+    ordering_fields = ['creation_date']
+    ordering = ['creation_date']
+    filterset_fields = ['content_type', 'object_id', 'owner']
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        user = self.request.user
+        
+        # Filter messages where user is owner, recipient, or mentioned in 'to'
+        qs = qs.filter(
+            Q(owner=user) | Q(recipients=user) | Q(to=user)
+        ).distinct()
+        
+        # Additional filters from query params
+        content_type_id = self.request.query_params.get('content_type')
+        object_id = self.request.query_params.get('object_id')
+        
+        if content_type_id and object_id:
+            qs = qs.filter(content_type_id=content_type_id, object_id=object_id)
+        
+        # Filter by topic (thread)
+        topic_id = self.request.query_params.get('topic')
+        if topic_id:
+            qs = qs.filter(Q(topic_id=topic_id) | Q(id=topic_id))
+        
+        # Filter root messages only (no replies)
+        root_only = self.request.query_params.get('root_only')
+        if root_only and _parse_bool(root_only):
+            qs = qs.filter(answer_to__isnull=True)
+        
+        return qs
+
+    def perform_create(self, serializer):
+        """Set the owner to the current user on create."""
+        serializer.save(owner=self.request.user)
+
+    @action(detail=True, methods=['get'])
+    def replies(self, request, pk=None):
+        """Get all replies to a specific message."""
+        message = self.get_object()
+        replies = ChatMessage.objects.filter(answer_to=message).order_by('creation_date')
+        serializer = self.get_serializer(replies, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'])
+    def thread(self, request, pk=None):
+        """Get all messages in a thread (topic)."""
+        message = self.get_object()
+        topic = message.topic if message.topic else message
+        thread_messages = ChatMessage.objects.filter(
+            Q(topic=topic) | Q(id=topic.id)
+        ).order_by('creation_date')
+        serializer = self.get_serializer(thread_messages, many=True)
+        return Response(serializer.data)
 
 
 # Dashboard Analytics Endpoint

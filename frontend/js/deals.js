@@ -72,7 +72,7 @@ class DealManager {
 
     async loadStages() {
         try {
-            const stages = await this.app.apiCall('/v1/stages/');
+            const stages = await this.app.apiCall('/stages/');
             const stageFilter = document.getElementById('deal-stage-filter');
             
             if (stages.results) {
@@ -97,7 +97,7 @@ class DealManager {
             kbBtn.className   = 'px-3 py-1.5 rounded ' + (this.kanban? 'bg-primary-600 text-white':'bg-gray-200');
         }
         try {
-            let url = '/v1/deals/?';
+            let url = '/deals/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (stageFilter) url += `stage=${stageFilter}&`;
             
@@ -222,9 +222,9 @@ class DealManager {
     async loadDealFormDropdowns() {
         try {
             const [stages, companies, contacts] = await Promise.all([
-                this.app.apiCall('/v1/stages/'),
-                window.apiClient.get('/v1/companies/'),
-                window.apiClient.get('/v1/contacts/')
+                this.app.apiCall('/stages/'),
+                window.apiClient.get('/companies/'),
+                window.apiClient.get('/contacts/')
             ]);
 
             // Load stages
@@ -266,7 +266,7 @@ class DealManager {
 
     async loadDealData(dealId) {
         try {
-            const deal = await this.app.apiCall(`/v1/deals/${dealId}/`);
+            const deal = await this.app.apiCall(`/deals/${dealId}/`);
             
             const fields = ['name', 'amount', 'probability', 'next_step', 'description', 'next_step_date'];
             fields.forEach(field => {
@@ -307,7 +307,7 @@ class DealManager {
 
         try {
             const method = dealId ? 'PUT' : 'POST';
-            const url = dealId ? `/v1/deals/${dealId}/` : '/v1/deals/';
+            const url = dealId ? `/deals/${dealId}/` : '/deals/';
             
             await this.app.apiCall(url, {
                 method: method,
@@ -332,7 +332,7 @@ class DealManager {
         }
 
         try {
-            await this.app.apiCall(`/v1/deals/${dealId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/deals/${dealId}/`, { method: 'DELETE' });
             this.loadDealsList();
             this.app.showToast('Deal deleted successfully', 'success');
         } catch (error) {
@@ -342,7 +342,7 @@ class DealManager {
 
     async viewDeal(dealId) {
         try {
-            const deal = await this.app.apiCall(`/v1/deals/${dealId}/`);
+            const deal = await this.app.apiCall(`/deals/${dealId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'deal-view-modal';

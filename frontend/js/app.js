@@ -24,10 +24,40 @@ class CRMApp {
         this.leads = new LeadManager(this);
         this.projects = new ProjectManager(this);
         this.memos = new MemoManager(this);
+        this.chat = new ChatManager(this);
         this.phone = new PhoneManager(this);
         this.components = new ComponentManager(this);
 
+        this.defineActionHandlers();
         this.init();
+    }
+
+    defineActionHandlers() {
+        this.actionHandlers = {
+            'phone.closeWidget': () => this.phone.closeWidget(),
+            'phone.dialer.digit': (target) => this.phone.dialer.addDigit(target.dataset.digit),
+            'phone.call': () => this.phone.startCall(),
+            'phone.dialer.clear': () => this.phone.dialer.clearNumber(),
+            'phone.mute': () => this.phone.muteCall(),
+            'phone.hold': () => this.phone.holdCall(),
+            'phone.hangup': () => this.phone.endCall(),
+            'phone.openDialer': () => this.phone.openDialer(),
+            'togglePasswordVisibility': () => togglePasswordVisibility(),
+            'contacts.showContactForm': (target) => this.contacts.showContactForm(target.dataset.id),
+            'contacts.viewContact': (target) => this.contacts.viewContact(target.dataset.id),
+            'contacts.editContact': (target) => this.contacts.editContact(target.dataset.id),
+            'contacts.deleteContact': (target) => this.contacts.deleteContact(target.dataset.id),
+            'contact.closeContactForm': () => document.getElementById('contact-modal').remove(),
+            'contact.closeViewContactModal': () => document.getElementById('contact-view-modal').remove(),
+            'companies.showCompanyForm': (target) => this.companies.showCompanyForm(target.dataset.id),
+            'companies.viewCompany': (target) => this.companies.viewCompany(target.dataset.id),
+            'companies.editCompany': (target) => this.companies.editCompany(target.dataset.id),
+            'companies.deleteCompany': (target) => this.companies.deleteCompany(target.dataset.id),
+            'companies.closeCompanyForm': () => document.getElementById('company-modal').remove(),
+            'companies.closeViewCompanyModal': () => document.getElementById('company-view-modal').remove(),
+            'refreshDashboard': () => this.refreshDashboard(),
+            'switchSection': (target) => this.switchSection(target.dataset.section),
+        };
     }
 
     init() {
@@ -88,61 +118,14 @@ class CRMApp {
             if (!target) return;
 
             const action = target.dataset.action;
-            const id = target.dataset.id; // Get data-id if available
+            const handler = this.actionHandlers[action];
 
-            if (action.startsWith('phone.')) {
-                // Handle phone actions
-                if (action === 'phone.closeWidget') {
-                    this.phone.closeWidget();
-                } else if (action === 'phone.dialer.digit') {
-                    this.phone.dialer.addDigit(target.dataset.digit);
-                } else if (action === 'phone.call') {
-                    this.phone.startCall();
-                } else if (action === 'phone.dialer.clear') {
-                    this.phone.dialer.clearNumber();
-                } else if (action === 'phone.mute') {
-                    this.phone.muteCall();
-                } else if (action === 'phone.hold') {
-                    this.phone.holdCall();
-                } else if (action === 'phone.hangup') {
-                    this.phone.endCall();
-                } else if (action === 'phone.openDialer') {
-                    this.phone.openDialer();
-                }
-            } else if (action === 'togglePasswordVisibility') {
-                togglePasswordVisibility();
-            } else if (action.startsWith('contacts.')) {
-                if (action === 'contacts.showContactForm') {
-                    this.contacts.showContactForm(id);
-                } else if (action === 'contacts.viewContact') {
-                    this.contacts.viewContact(id);
-                } else if (action === 'contacts.editContact') {
-                    this.contacts.editContact(id);
-                } else if (action === 'contacts.deleteContact') {
-                    this.contacts.deleteContact(id);
-                } else if (action === 'contact.closeContactForm') {
-                    document.getElementById('contact-modal').remove();
-                } else if (action === 'contact.closeViewContactModal') {
-                    document.getElementById('contact-view-modal').remove();
-                }
-            } else if (action.startsWith('companies.')) {
-                if (action === 'companies.showCompanyForm') {
-                    this.companies.showCompanyForm(id);
-                } else if (action === 'companies.viewCompany') {
-                    this.companies.viewCompany(id);
-                } else if (action === 'companies.editCompany') {
-                    this.companies.editCompany(id);
-                } else if (action === 'companies.deleteCompany') {
-                    this.companies.deleteCompany(id);
-                } else if (action === 'companies.closeCompanyForm') {
-                    document.getElementById('company-modal').remove();
-                } else if (action === 'companies.closeViewCompanyModal') {
-                    document.getElementById('company-view-modal').remove();
-                }
-            } else if (action === 'refreshDashboard') {
-                this.refreshDashboard();
+            if (handler) {
+                // Pass the target element to the handler, which can then extract data-id or other attributes
+                handler(target);
+            } else if (window.CRM_CONFIG.DEBUG_MODE) {
+                console.warn(`No handler found for action: ${action}`);
             }
-            // Add other data-action handlers here if needed
         });
 
 
@@ -532,50 +515,53 @@ document.getElementById('current-section').textContent = this.getSectionTitle(sa
                 this.loadDashboard();
                 break;
             case 'contacts':
-                if (this.isEndpointAvailable('/v1/contacts/')) {
+                if (this.isEndpointAvailable('contacts/')) {
                     this.loadContacts();
                 } else {
                     this.showSectionNotAvailable(section, 'Contacts module not available in Django API');
                 }
                 break;
             case 'companies':
-                if (this.isEndpointAvailable('/v1/companies/')) {
+                if (this.isEndpointAvailable('companies/')) {
                     this.loadCompanies();
                 } else {
                     this.showSectionNotAvailable(section, 'Companies module not available in Django API');
                 }
                 break;
             case 'leads':
-                if (this.isEndpointAvailable('/v1/leads/')) {
+                if (this.isEndpointAvailable('leads/')) {
                     this.loadLeads();
                 } else {
                     this.showSectionNotAvailable(section, 'Leads module not available in Django API');
                 }
                 break;
             case 'deals':
-                if (this.isEndpointAvailable('/v1/deals/')) {
+                if (this.isEndpointAvailable('deals/')) {
                     this.loadDeals();
                 } else {
                     this.showSectionNotAvailable(section, 'Deals module not available in Django API');
                 }
                 break;
             case 'tasks':
-                if (this.isEndpointAvailable('/v1/tasks/')) {
+                if (this.isEndpointAvailable('tasks/')) {
                     this.loadTasks();
                 } else {
                     this.showSectionNotAvailable(section, 'Tasks module not available in Django API');
                 }
                 break;
             case 'projects':
-                if (this.isEndpointAvailable('/v1/projects/')) {
+                if (this.isEndpointAvailable('projects/')) {
                     this.loadProjects();
                 } else {
                     this.showSectionNotAvailable(section, 'Projects module not available in Django API');
                 }
                 break;
             case 'memos':
-                // Memos endpoint not available in current Django setup
-                this.showSectionNotAvailable(section, 'Memos module not available. Coming soon!');
+                if (this.isEndpointAvailable('memos/')) {
+                    this.loadMemos();
+                } else {
+                    this.showSectionNotAvailable(section, 'Memos module not available in Django API');
+                }
                 break;
         }
     }

@@ -15,13 +15,13 @@ urlpatterns = [
     path('favicon.ico', FaviconRedirect.as_view()),
     path('voip/', include('voip.urls')),
     path('api/voip/', include('voip.api_urls')),
-    path('api/v1/', include(('api.urls', 'api'), namespace='v1')),
+    path('api/', include(('api.urls', 'api'), namespace='api')),
     path('integrations/', include('integrations.urls')),
     path(
         'OAuth-2/authorize/',
-        staff_member_required(get_refresh_token), 
+        staff_member_required(get_refresh_token),
         name='get_refresh_token'
-    ),   
+    ),
 ]
 
 urlpatterns += static(

@@ -10,30 +10,34 @@ window.CRM_CONFIG = {
 
     // Endpoints
     ENDPOINTS: {
-        AUTH: 'v1/auth/token/',
-        USER_PROFILE: 'v1/users/me/',
-        CONTACTS: 'v1/contacts/',
-        COMPANIES: 'v1/companies/',
-        DEALS: 'v1/deals/',
-        LEADS: 'v1/leads/',
-        TASKS: 'v1/tasks/',
-        PROJECTS: 'v1/projects/',
-        DASHBOARD_ANALYTICS: 'v1/dashboard/analytics/',
-        DASHBOARD_ACTIVITY: 'v1/dashboard/activity/',
-        DASHBOARD_STATS: 'v1/dashboard/stats/'
+        AUTH: 'auth/token/',
+        USER_PROFILE: 'users/me/',
+        CONTACTS: 'contacts/',
+        COMPANIES: 'companies/',
+        DEALS: 'deals/',
+        LEADS: 'leads/',
+        TASKS: 'tasks/',
+        PROJECTS: 'projects/',
+        MEMOS: 'memos/',
+        CHAT_MESSAGES: 'chat-messages/',
+        DASHBOARD_ANALYTICS: 'dashboard/analytics/',
+        DASHBOARD_ACTIVITY: 'dashboard/activity/',
+        DASHBOARD_STATS: 'dashboard/stats/'
     },
 
     // List of available API endpoints in the Django backend
     AVAILABLE_ENDPOINTS: [
-        '/v1/contacts/',
-        '/v1/companies/',
-        '/v1/deals/',
-        '/v1/leads/',
-        '/v1/projects/',
-        '/v1/tasks/',
-        '/v1/dashboard/analytics/',
-        '/v1/dashboard/activity/',
-        '/v1/dashboard/stats/',
+        'contacts/',
+        'companies/',
+        'deals/',
+        'leads/',
+        'projects/',
+        'tasks/',
+        'memos/',
+        'chat-messages/',
+        'dashboard/analytics/',
+        'dashboard/activity/',
+        'dashboard/stats/',
     ],
     
     // Dashboard settings

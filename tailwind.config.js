@@ -37,5 +37,8 @@ module.exports = {
     'bg-danger', 'text-danger',
     'bg-warning', 'text-warning',
     'animate-pulse', 'hidden', 'block', 'flex', 'grid',
+    {
+      pattern: /dark:(bg|text|border|divide|hover)-.*/,
+    },
   ],
 };

@@ -739,12 +739,31 @@ body {
     outline-offset: 2px;
 }
 
-/* Dark mode text color overrides for Tailwind utility classes used in templates */
-/* Dashboard Recent cards override */
-.dark .bg-white.rounded-lg.border.border-gray-200.p-6 { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .text-gray-900 { color: #e5e7eb !important; }
-.dark .text-gray-600 { color: #94a3b8 !important; }
-.dark .text-gray-500 { color: #cbd5e1 !important; }
+/* Dark mode overrides - ensure bg-white elements get dark background if no dark: class specified */
+.dark .bg-white:not([class*="dark:bg-"]) { 
+    background-color: #1e293b; 
+}
+.dark .border-gray-200:not([class*="dark:border-"]) { 
+    border-color: #334155; 
+}
+.dark .text-gray-900:not([class*="dark:text-"]) { 
+    color: #e5e7eb; 
+}
+.dark .text-gray-800:not([class*="dark:text-"]) { 
+    color: #e2e8f0; 
+}
+.dark .text-gray-700:not([class*="dark:text-"]) { 
+    color: #cbd5e1; 
+}
+.dark .text-gray-600:not([class*="dark:text-"]) { 
+    color: #94a3b8; 
+}
+.dark .text-gray-500:not([class*="dark:text-"]) { 
+    color: #cbd5e1; 
+}
+.dark .divide-gray-200:not([class*="dark:divide-"]) > :not([hidden]) ~ :not([hidden]) { 
+    border-color: #334155; 
+}
 
 /* UX Enhancements Styles */
 

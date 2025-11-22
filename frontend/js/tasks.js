@@ -321,7 +321,7 @@ class TaskManager {
 
     async viewTask(taskId) {
         try {
-            const task = await this.app.apiCall(`/v1/tasks/${taskId}/`);
+            const task = await this.app.apiCall(`/tasks/${taskId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'task-view-modal';

@@ -84,7 +84,7 @@ class ProjectManager {
 
     async loadProjectsList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/v1/projects/?';
+            let url = '/projects/?';
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             const ordering = document.getElementById('project-sort')?.value;
             if (ordering) url += `ordering=${encodeURIComponent(ordering)}&`;
@@ -238,7 +238,7 @@ class ProjectManager {
 
     async loadProjectFormDropdowns() {
         try {
-            const stages = await this.app.apiCall('/v1/project-stages/');
+            const stages = await this.app.apiCall('/project-stages/');
 
             // Load stages
             const stageSelect = document.getElementById('stage');
@@ -257,7 +257,7 @@ class ProjectManager {
 
     async loadProjectData(projectId) {
         try {
-            const project = await this.app.apiCall(`/v1/projects/${projectId}/`);
+            const project = await this.app.apiCall(`/projects/${projectId}/`);
             
             const fields = ['name', 'description', 'next_step', 'note', 'start_date', 'due_date', 'next_step_date', 'priority'];
             fields.forEach(field => {
@@ -294,7 +294,7 @@ class ProjectManager {
 
         try {
             const method = projectId ? 'PUT' : 'POST';
-            const url = projectId ? `/v1/projects/${projectId}/` : '/v1/projects/';
+            const url = projectId ? `/projects/${projectId}/` : '/projects/';
             
             await this.app.apiCall(url, {
                 method: method,
@@ -319,7 +319,7 @@ class ProjectManager {
         }
 
         try {
-            await this.app.apiCall(`/v1/projects/${projectId}/`, { method: 'DELETE' });
+            await this.app.apiCall(`/projects/${projectId}/`, { method: 'DELETE' });
             this.loadProjectsList();
             this.app.showToast('Project deleted successfully', 'success');
         } catch (error) {
@@ -329,7 +329,7 @@ class ProjectManager {
 
     async viewProject(projectId) {
         try {
-            const project = await this.app.apiCall(`/v1/projects/${projectId}/`);
+            const project = await this.app.apiCall(`/projects/${projectId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'project-view-modal';
@@ -484,7 +484,7 @@ class ProjectManager {
         const owner = Number(document.getElementById('proj-bulk-owner').value);
         if (!owner) return this.app.showToast('Enter user id','error');
         for (const id of this.selected) {
-            await this.app.apiCall(`/v1/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
+            await this.app.apiCall(`/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
         }
         document.querySelector('.fixed.inset-0')?.remove();
         this.app.showToast('Assigned','success');
@@ -507,7 +507,7 @@ class ProjectManager {
         const sel = document.getElementById('proj-bulk-tags');
         const tags = Array.from(sel?.selectedOptions||[]).map(o=>Number(o.value));
         for (const id of this.selected) {
-            await this.app.apiCall(`/v1/projects/${id}/`, { method:'PATCH', body: JSON.stringify({ tags }) });
+            await this.app.apiCall(`/projects/${id}/`, { method:'PATCH', body: JSON.stringify({ tags }) });
         }
         document.querySelector('.fixed.inset-0')?.remove();
         this.app.showToast('Tags added','success');
@@ -526,7 +526,7 @@ class ProjectManager {
 
     exportProjects(){
         // build URL with filters
-        let url = '/v1/projects/export/?';
+        let url = '/projects/export/?';
         const searchTerm = document.getElementById('project-search').value;
         const statusFilter = document.getElementById('project-status-filter').value;
         const ordering = document.getElementById('project-sort')?.value;
@@ -544,7 +544,7 @@ class ProjectManager {
     // Actions
     async completeProject(id) {
         try {
-            await this.app.apiCall(`/v1/projects/${id}/complete/`, { method: 'POST' });
+            await this.app.apiCall(`/projects/${id}/complete/`, { method: 'POST' });
             this.app.showToast('Project completed', 'success');
             this.loadProjectsList();
         } catch(e) { this.app.showToast('Complete failed', 'error'); }
@@ -552,7 +552,7 @@ class ProjectManager {
 
     async reopenProject(id) {
         try {
-            await this.app.apiCall(`/v1/projects/${id}/reopen/`, { method: 'POST' });
+            await this.app.apiCall(`/projects/${id}/reopen/`, { method: 'POST' });
             this.app.showToast('Project reopened', 'success');
             this.loadProjectsList();
         } catch(e) { this.app.showToast('Reopen failed', 'error'); }
@@ -562,8 +562,8 @@ class ProjectManager {
         try {
             await Typeahead.open({
                 title:'Assign Project', placeholder:'Search users...', multiple:false,
-                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
-                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/v1/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Project assigned','success'); this.loadProjectsList(); }
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/projects/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Project assigned','success'); this.loadProjectsList(); }
             });
         } catch(e) {}
         return;

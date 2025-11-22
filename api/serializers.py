@@ -11,12 +11,14 @@ from crm.models import (
     Tag as CrmTag,
 )
 from tasks.models import (
+    Memo,
     Project,
     ProjectStage,
     Task,
     TaskStage,
     Tag as TaskTag,
 )
+from chat.models import ChatMessage
 from .validators import (
     ValidationMixin,
     validate_currency_amount,
@@ -567,3 +569,47 @@ class ContactSerializer(ValidationMixin, serializers.ModelSerializer):
             'update_date',
         ]
         read_only_fields = ['creation_date', 'update_date']
+
+
+class MemoSerializer(ValidationMixin, serializers.ModelSerializer):
+    owner_name = serializers.CharField(source='owner.get_full_name', read_only=True)
+    to_name = serializers.CharField(source='to.get_full_name', read_only=True)
+    task_name = serializers.CharField(source='task.name', read_only=True)
+    project_name = serializers.CharField(source='project.name', read_only=True)
+    deal_name = serializers.CharField(source='deal.name', read_only=True)
+    resolution_name = serializers.CharField(source='resolution.name', read_only=True)
+    tag_names = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Memo
+        fields = [
+            'id', 'name', 'description', 'note', 'draft', 'notified', 
+            'review_date', 'stage', 'to', 'to_name', 
+            'task', 'task_name', 'project', 'project_name', 
+            'deal', 'deal_name', 'resolution', 'resolution_name',
+            'owner', 'owner_name', 'tags', 'tag_names',
+            'creation_date', 'update_date'
+        ]
+        read_only_fields = ['creation_date', 'update_date', 'owner']
+    
+    def get_tag_names(self, obj):
+        return [tag.name for tag in obj.tags.all()]
+
+
+class ChatMessageSerializer(serializers.ModelSerializer):
+    owner_name = serializers.CharField(source='owner.get_full_name', read_only=True)
+    recipient_names = serializers.SerializerMethodField()
+    content_type_name = serializers.CharField(source='content_type.model', read_only=True)
+    
+    class Meta:
+        model = ChatMessage
+        fields = [
+            'id', 'content', 'owner', 'owner_name', 
+            'answer_to', 'topic', 'recipients', 'recipient_names',
+            'to', 'content_type', 'content_type_name', 'object_id',
+            'creation_date'
+        ]
+        read_only_fields = ['creation_date', 'owner']
+    
+    def get_recipient_names(self, obj):
+        return [user.get_full_name() for user in obj.recipients.all()]

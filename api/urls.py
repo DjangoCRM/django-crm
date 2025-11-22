@@ -4,11 +4,13 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from .views import (
+    ChatMessageViewSet,
     CompanyViewSet,
     ContactViewSet,
     CrmTagViewSet,
     DealViewSet,
     LeadViewSet,
+    MemoViewSet,
     ProjectStageViewSet,
     ProjectViewSet,
     StageViewSet,
@@ -30,6 +32,8 @@ router.register('deals', DealViewSet, basename='deal')
 router.register('leads', LeadViewSet, basename='lead')
 router.register('companies', CompanyViewSet, basename='company')
 router.register('contacts', ContactViewSet, basename='contact')
+router.register('memos', MemoViewSet, basename='memo')
+router.register('chat-messages', ChatMessageViewSet, basename='chat-message')
 router.register('stages', StageViewSet, basename='stage')
 router.register('task-stages', TaskStageViewSet, basename='task-stage')
 router.register('project-stages', ProjectStageViewSet, basename='project-stage')

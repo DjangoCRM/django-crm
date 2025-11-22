@@ -74,7 +74,7 @@ class LeadManager {
 
     async loadLeadsList(searchTerm = '', statusFilter = '') {
         try {
-            let url = '/v1/leads/?'; // OK
+            let url = '/leads/?'; // OK
             if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
             if (statusFilter) url += `disqualified=${statusFilter}&`;
             
@@ -219,6 +219,15 @@ class LeadManager {
             this.app.showToast('Enter at least First name or Company name', 'error');
             return;
         }
+        
+        // Convert lead_source to number if present, or remove if empty
+        if (data.lead_source) {
+            data.lead_source = parseInt(data.lead_source);
+            if (isNaN(data.lead_source)) {
+                delete data.lead_source;
+            }
+        }
+        
         Object.keys(data).forEach(k => { if (data[k] === '' || data[k] == null) delete data[k]; });
 
         try {
@@ -292,7 +301,7 @@ class LeadManager {
 
     async viewLead(leadId) {
         try {
-            const lead = await this.app.apiCall(`/v1/leads/${leadId}/`);
+            const lead = await this.app.apiCall(`/leads/${leadId}/`);
             
             const modal = document.createElement('div');
             modal.id = 'lead-view-modal';
@@ -434,7 +443,7 @@ class LeadManager {
         const owner = Number(document.getElementById('bulk-owner').value);
         if (!owner) return this.app.showToast('Enter user id','error');
         for (const id of this.selected) {
-            await this.app.apiCall(`/v1/leads/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
+            await this.app.apiCall(`/leads/${id}/assign/`, { method:'POST', body: JSON.stringify({ owner }) });
         }
         document.querySelector('.fixed.inset-0')?.remove();
         this.app.showToast('Assigned','success');
@@ -456,7 +465,7 @@ class LeadManager {
     async bulkTag() {
         const raw = document.getElementById('bulk-tags').value;
         const tags = raw.split(',').map(s=>Number(s.trim())).filter(Boolean);
-        await this.app.apiCall('/v1/leads/bulk-tag/', { method:'POST', body: JSON.stringify({ ids: Array.from(this.selected), tags }) });
+        await this.app.apiCall('/leads/bulk-tag/', { method:'POST', body: JSON.stringify({ ids: Array.from(this.selected), tags }) });
         document.querySelector('.fixed.inset-0')?.remove();
         this.app.showToast('Tags added','success');
         this.loadLeadsList();
@@ -477,7 +486,7 @@ class LeadManager {
     async bulkDisqualify() {
         const reason = document.getElementById('bulk-reason').value || '';
         for (const id of this.selected) {
-            await this.app.apiCall(`/v1/leads/${id}/disqualify/`, { method:'POST', body: JSON.stringify({ reason }) });
+            await this.app.apiCall(`/leads/${id}/disqualify/`, { method:'POST', body: JSON.stringify({ reason }) });
         }
         document.querySelector('.fixed.inset-0')?.remove();
         this.app.showToast('Leads disqualified','success');
@@ -490,7 +499,7 @@ class LeadManager {
         try {
             await Typeahead.open({
                 title:'Convert Lead', placeholder:'Search owner...', multiple:false,
-                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
                 onApply: async(ids)=>{
                     const owner = ids[0];
                     // Step 2: small modal to choose create_deal
@@ -505,7 +514,7 @@ class LeadManager {
                     modal.querySelector('#cv-apply').addEventListener('click', async ()=>{
                         const create_deal = !!modal.querySelector('#cv-create-deal').checked;
                         try {
-                            const res = await this.app.apiCall(`/v1/leads/${leadId}/convert/`, { method:'POST', body: JSON.stringify({ owner, create_deal }) });
+                            const res = await this.app.apiCall(`/leads/${leadId}/convert/`, { method:'POST', body: JSON.stringify({ owner, create_deal }) });
                             this.app.showToast('Lead converted', 'success');
                             this.loadLeadsList();
                         } catch(e){ this.app.showToast('Convert failed', 'error'); }
@@ -533,8 +542,8 @@ class LeadManager {
         try {
             await Typeahead.open({
                 title:'Assign Lead', placeholder:'Search users...', multiple:false,
-                fetcher: async(q)=>{ const res=await this.app.apiCall(`/v1/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
-                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/v1/leads/${leadId}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Lead assigned','success'); this.loadLeadsList(); }
+                fetcher: async(q)=>{ const res=await this.app.apiCall(`/users/?search=${encodeURIComponent(q||'')}`); return (res.results||res).map(u=>({id:u.id,name:u.first_name||u.username})) },
+                onApply: async(ids)=>{ const owner=ids[0]; if(!owner) return; await this.app.apiCall(`/leads/${leadId}/assign/`, { method:'POST', body: JSON.stringify({ owner }) }); this.app.showToast('Lead assigned','success'); this.loadLeadsList(); }
             });
         } catch(e) { /* modal handles close */ }
         return;
@@ -798,11 +807,12 @@ if (typeof LeadManager !== 'undefined' && window.uxEnhancements) {
                             <label for="lead_source" class="input-label">Lead Source</label>
                             <select id="lead_source" name="lead_source" class="input select">
                                 <option value="">Select source...</option>
-                                <option value="website">Website</option>
-                                <option value="referral">Referral</option>
-                                <option value="social_media">Social Media</option>
-                                <option value="email_campaign">Email Campaign</option>
-                                <option value="trade_show">Trade Show</option>
+                                <!-- Will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="city_name" class="input-label">City</label>
+                            <input type="text" id="city_name" name="city_name" class="input">
                                 <option value="cold_call">Cold Call</option>
                                 <option value="other">Other</option>
                             </select>
