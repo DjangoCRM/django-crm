@@ -1,0 +1,9 @@
+<span [ngClass]="baseStyles + ' ' + sizeClass + ' ' + colorStyles">
+  @if (startIcon) {
+  <span class="mr-1" [innerHTML]="startIcon | safeHtml"></span>
+  }
+  <ng-content></ng-content>
+  @if (endIcon) {
+  <span class="ml-1" [innerHTML]="endIcon"></span>
+  }
+</span>

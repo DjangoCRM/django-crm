@@ -1,0 +1,49 @@
+{% extends "layouts/base_dash.html" %}
+{% load dash_tags %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <!-- Left Column (4/12) -->
+    <div class="col-lg-4">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "left-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "left-2" %}
+        </div>
+    </div>
+    
+    <!-- Center Column (4/12) -->
+    <div class="col-lg-4">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "center-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "center-2" %}
+        </div>
+    </div>
+    
+    <!-- Right Column (4/12) -->
+    <div class="col-lg-4">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "right-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "right-2" %}
+        </div>
+    </div>
+</div>
+
+<!-- Full Width Row -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "full-width" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

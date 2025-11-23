@@ -1,0 +1,20 @@
+<button
+  type="button"
+  [ngClass]="
+    'inline-flex items-center justify-center gap-2 rounded-lg transition ' +
+    className + ' ' +
+    sizeClasses + ' ' +
+    variantClasses + ' ' +
+    disabledClasses
+  "
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
+  @if (startIcon) {
+  <span class="flex items-center" [innerHTML]="startIcon | safeHtml"></span>
+  }
+  <ng-content></ng-content>
+  @if (endIcon) {
+  <span class="flex items-center" [innerHTML]="endIcon | safeHtml"></span>
+  }
+</button>

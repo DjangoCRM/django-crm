@@ -1,0 +1,33 @@
+{% extends "layouts/base_dash.html" %}
+{% load dash_tags %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-2" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-3" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-4" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-5" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-6" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

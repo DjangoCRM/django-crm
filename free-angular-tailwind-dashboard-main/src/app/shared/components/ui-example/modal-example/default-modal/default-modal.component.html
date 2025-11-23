@@ -1,0 +1,32 @@
+<div>
+  <app-component-card title="Default Modal">
+    <app-button size="sm" (btnClick)="openModal()">
+      Open Modal
+    </app-button>
+
+    <app-modal [isOpen]="isOpen" (close)="closeModal()" className="max-w-[600px] p-5 lg:p-10">
+      <h4 class="font-semibold text-gray-800 mb-7 text-title-sm dark:text-white/90">
+        Modal Heading
+      </h4>
+      <p class="text-sm leading-6 text-gray-500 dark:text-gray-400">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Pellentesque euismod est quis mauris lacinia pharetra. Sed a ligula
+        ac odio condimentum aliquet a nec nulla. Aliquam bibendum ex sit
+        amet ipsum rutrum feugiat ultrices enim quam.
+      </p>
+      <p class="mt-5 text-sm leading-6 text-gray-500 dark:text-gray-400">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Pellentesque euismod est quis mauris lacinia pharetra. Sed a ligula
+        ac odio.
+      </p>
+      <div class="flex items-center justify-end w-full gap-3 mt-8">
+        <app-button size="sm" variant="outline" (btnClick)="closeModal()">
+          Close
+        </app-button>
+        <app-button size="sm" (btnClick)="handleSave()">
+          Save Changes
+        </app-button>
+      </div>
+    </app-modal>
+  </app-component-card>
+</div>

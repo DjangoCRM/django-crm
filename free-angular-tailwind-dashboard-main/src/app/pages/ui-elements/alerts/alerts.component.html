@@ -1,0 +1,94 @@
+<app-page-breadcrumb pageTitle="Alerts" />
+<div class="space-y-5 sm:space-y-6">
+  <div>
+    <app-component-card title="Success Alert">
+      <div>
+        <app-alert
+          variant="success"
+          title="Success Message"
+          message="Be cautious when performing this action."
+          [showLink]="true"
+          linkHref="/"
+          linkText="Learn more"
+        />
+      </div>
+      <div>
+        <app-alert
+          variant="success"
+          title="Success Message"
+          message="Be cautious when performing this action."
+          [showLink]="false"
+        />
+      </div>
+    </app-component-card>
+  </div>
+
+  <div>
+    <app-component-card title="Warning Alert">
+      <div>
+        <app-alert
+          variant="warning"
+          title="Warning Message"
+          message="Be cautious when performing this action."
+          [showLink]="true"
+          linkHref="/"
+          linkText="Learn more"
+        />
+      </div>
+      <div>
+        <app-alert
+          variant="warning"
+          title="Warning Message"
+          message="Be cautious when performing this action."
+          [showLink]="false"
+        />
+      </div>
+    </app-component-card>
+  </div>
+
+  <div>
+    <app-component-card title="Error Alert">
+      <div>
+        <app-alert
+          variant="error"
+          title="Error Message"
+          message="Be cautious when performing this action."
+          [showLink]="true"
+          linkHref="/"
+          linkText="Learn more"
+        />
+      </div>
+      <div>
+        <app-alert
+          variant="error"
+          title="Error Message"
+          message="Be cautious when performing this action."
+          [showLink]="false"
+        />
+      </div>
+    </app-component-card>
+  </div>
+
+  <div>
+    <app-component-card title="Info Alert">
+      <div>
+        <app-alert
+          variant="info"
+          title="Info Message"
+          message="Be cautious when performing this action."
+          [showLink]="true"
+          linkHref="/"
+          linkText="Learn more"
+        />
+      </div>
+      <div>
+        <app-alert
+          variant="info"
+          title="Info Message"
+          message="Be cautious when performing this action."
+          [showLink]="false"
+        />
+      </div>
+    </app-component-card>
+  </div>
+</div>

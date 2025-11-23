@@ -1,0 +1,51 @@
+<app-component-card title="Form In Modal">
+  <app-button size="sm" (btnClick)="openModal()"> Open Modal </app-button>
+  <app-modal
+    [isOpen]="isOpen"
+    (close)="closeModal()"
+    className="max-w-[584px] p-5 lg:p-10"
+  >
+    <form class="">
+      <h4 class="mb-6 text-lg font-medium text-gray-800 dark:text-white/90">
+        Personal Information
+      </h4>
+
+      <div class="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
+        <div class="col-span-1">
+          <app-label>First Name</app-label>
+          <app-input-field type="text" placeholder="Emirhan" />
+        </div>
+
+        <div class="col-span-1">
+          <app-label>Last Name</app-label>
+          <app-input-field type="text" placeholder="Boruch" />
+        </div>
+
+        <div class="col-span-1">
+          <app-label>Last Name</app-label>
+          <app-input-field
+            type="email"
+            placeholder="emirhanboruch55@gmail.com"
+          />
+        </div>
+
+        <div class="col-span-1">
+          <app-label>Phone</app-label>
+          <app-input-field type="text" placeholder="+09 363 398 46" />
+        </div>
+
+        <div class="col-span-1 sm:col-span-2">
+          <app-label>Bio</app-label>
+          <app-input-field type="text" placeholder="Team Manager" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end w-full gap-3 mt-6">
+        <app-button size="sm" variant="outline" (btnClick)="closeModal()">
+          Close
+        </app-button>
+        <app-button size="sm" (btnClick)="handleSave()"> Save Changes </app-button>
+      </div>
+    </form>
+  </app-modal>
+</app-component-card>

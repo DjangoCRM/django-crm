@@ -1,0 +1,457 @@
+<aside
+  class="fixed flex flex-col top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200"
+  [ngClass]="{
+    'w-[290px]':
+      (isExpanded$ | async) || (isMobileOpen$ | async) || (isHovered$ | async),
+    'w-[90px]': !(
+      (isExpanded$ | async) ||
+      (isMobileOpen$ | async) ||
+      (isHovered$ | async)
+    ),
+    'translate-x-0': isMobileOpen$ | async,
+    '-translate-x-full': !(isMobileOpen$ | async),
+    'xl:translate-x-0': true
+  }"
+  (mouseenter)="onSidebarMouseEnter()"
+  (mouseleave)="sidebarService.setHovered(false)"
+>
+  <div
+    class="py-8 flex"
+    [ngClass]="{
+      'xl:justify-center': !((isExpanded$ | async) || (isHovered$ | async)),
+      'justify-start': (isExpanded$ | async) || (isHovered$ | async)
+    }"
+  >
+    <a routerLink="/">
+      @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async)) {
+      <img
+        class="dark:hidden"
+        src="/images/logo/logo.svg"
+        alt="Logo"
+        width="150"
+        height="40"
+      />
+      <img
+        class="hidden dark:block"
+        src="/images/logo/logo-dark.svg"
+        alt="Logo"
+        width="150"
+        height="40"
+      />
+      } @else {
+      <img src="/images/logo/logo-icon.svg" alt="Logo" width="32" height="32" />
+      }
+    </a>
+  </div>
+
+  <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+    <nav class="mb-6">
+      <div class="flex flex-col gap-4">
+        <!-- Menu Section -->
+        <div>
+          <h2
+            class="mb-4 text-xs uppercase flex leading-[20px] text-gray-400"
+            [ngClass]="{
+              'xl:justify-center': !(
+                (isExpanded$ | async) || (isHovered$ | async)
+              ),
+              'justify-start': (isExpanded$ | async) || (isHovered$ | async)
+            }"
+          >
+            @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async)) 
+            { Menu } 
+           @else {
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-6"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            }
+          </h2>
+          <ul class="flex flex-col gap-1">
+            @for (nav of navItems; track $index;let i = $index) {
+            <li>
+              @if (nav.subItems) {
+                <button
+                  (click)="toggleSubmenu('main',i)"
+                  class="menu-item group cursor-pointer"
+                  [class.menu-item-active]="openSubmenu === 'main-' + i"
+                  [class.menu-item-inactive]="openSubmenu !== 'main-' + i"
+                  [ngClass]="{
+                    'xl:justify-center': !(
+                      (isExpanded$ | async) || (isHovered$ | async)
+                    ),
+                    'xl:justify-start':
+                      (isExpanded$ | async) || (isHovered$ | async)
+                  }"
+                >
+                  <span
+                    class="menu-item-icon-size"
+                    [class.menu-item-icon-active]="openSubmenu === 'main-' + i"
+                    [class.menu-item-icon-inactive]="openSubmenu !== 'main-' + i"
+                    [innerHTML]="nav.icon | safeHtml"
+                  >
+                  </span>
+                  @if ((isExpanded$ | async) || (isHovered$ | async) ||
+                  (isMobileOpen$ | async)) {
+
+                  <span class="menu-item-text">
+                    {{ nav.name }}
+                  </span>
+                  } 
+                  @if (nav.new && ((isExpanded$ | async) || (isHovered$ |
+                  async) || (isMobileOpen$ | async))) {
+                  <span
+                    class="ml-auto absolute right-10 menu-dropdown-badge"
+                    [ngClass]="{
+                      'menu-dropdown-badge-active': openSubmenu === 'main-' + i,
+                      'menu-dropdown-badge-inactive': openSubmenu !== 'main-' + i
+                    }"
+                  >
+                    new
+                  </span>
+                  } 
+                  @if ((isExpanded$ | async) || (isHovered$ | async) ||
+                  (isMobileOpen$ | async)) {
+                  <svg
+                    [ngClass]="{
+                      'rotate-180 text-brand-500': openSubmenu === 'main-' + i
+                    }"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-auto w-5 h-5 transition-transform duration-200"
+                  >
+                    <path
+                      d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  }
+                </button>
+                <div
+                  class="overflow-hidden transition-all duration-300"
+                  [id]="'main-' + i"
+                  [style.display]="
+                    (isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async) 
+                      ? 'block' 
+                      : 'none'
+                  "
+                  [ngStyle]="{
+                    height:
+                      openSubmenu === 'main-' + i
+                        ? (subMenuHeights['main-' + i] || 0) + 'px'
+                        : '0px'
+                  }"
+                >
+                  <ul class="mt-2 space-y-1 ml-9">
+                    @for (subItem of nav.subItems; track $index) {
+                    <li>
+                      <a
+                        [routerLink]="subItem.path"
+                        routerLinkActive=""
+                        (click)="onSubmenuClick()"
+                        class="menu-dropdown-item"
+                        [ngClass]="{
+                              'menu-dropdown-item-inactive': !isActive(subItem.path),
+                              'menu-dropdown-item-active': isActive(subItem.path),
+                            }"
+                      >
+                        {{ subItem.name }}
+                        <span class="flex items-center gap-1 ml-auto">
+                          @if (subItem.new) {
+                          <span
+                            class="menu-dropdown-badge"
+                            [ngClass]="{
+                              'menu-dropdown-badge-active': isActive(
+                                subItem.path
+                              ),
+                              'menu-dropdown-badge-inactive': !isActive(
+                                subItem.path
+                              )
+                            }"
+                          >
+                            new
+                          </span>
+                          }
+                          @if (subItem.pro) {
+                          <span
+                            class="ml-auto menu-dropdown-badge-pro"
+                            [ngClass]="{
+                              'menu-dropdown-badge-pro-active': isActive(
+                                subItem.path
+                              ),
+                              'menu-dropdown-badge-pro-inactive': !isActive(
+                                subItem.path
+                              )
+                            }"
+                          >
+                            pro
+                          </span>
+                          }
+                        </span>
+                      </a>
+                    </li>
+                    }
+                  </ul>
+                </div>
+              } @else {
+                @if (nav.path) {
+                <a
+                  [routerLink]="nav.path"
+                  routerLinkActive="menu-item-active"
+                  class="menu-item group"
+                  [ngClass]="{ 'menu-item-inactive': !isActive(nav.path) }"
+                >
+                  <span
+                    class="menu-item-icon-size"
+                    [ngClass]="{
+                      'menu-item-icon-active': isActive(nav.path),
+                      'menu-item-icon-inactive': !isActive(nav.path)
+                    }"
+                    [innerHTML]="nav.icon | safeHtml"
+                  >
+                  </span>
+                  <span
+                    class="menu-item-text"
+                  >
+                    @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async)) {
+                    {{ nav.name }}
+                    }
+                  </span>
+                </a>
+                }
+              }
+            </li>
+            }
+          </ul>
+        </div>
+        <!-- end main menu -->
+
+        <!-- Support Section -->
+        <!-- end support section -->
+
+        <!-- Others Section -->
+        <div>
+          <h2
+            class="mb-4 text-xs uppercase flex leading-[20px] text-gray-400"
+            [ngClass]="{
+              'xl:justify-center': !(
+                (isExpanded$ | async) || (isHovered$ | async)
+              ),
+              'justify-start': (isExpanded$ | async) || (isHovered$ | async)
+            }"
+          >
+            @if (
+              (isExpanded$ | async) ||
+                (isHovered$ | async) ||
+                (isMobileOpen$ | async)
+            ) {
+              Others
+            } @else {
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            }
+          </h2>
+
+          <ul class="flex flex-col gap-1">
+            @for (nav of othersItems; track $index;let i = $index) {
+            <li>
+              @if (nav.subItems) {
+                <button
+                  (click)="toggleSubmenu('others',i)"
+                  class="menu-item group cursor-pointer"
+                  [ngClass]="{
+                     'menu-item-active': openSubmenu === 'others-' + i,
+                     'menu-item-inactive': openSubmenu !== 'others-' + i,
+                    'xl:justify-center': !(
+                      (isExpanded$ | async) || (isHovered$ | async)
+                    ),
+                    'xl:justify-start':
+                      (isExpanded$ | async) || (isHovered$ | async)
+                  }"
+                >
+                  <span
+                    class="menu-item-icon-size"
+                    [ngClass]="{
+                      'menu-item-icon-active': openSubmenu === 'others-' + i,
+                      'menu-item-icon-inactive': openSubmenu !== 'others-' + i,
+                    }"
+                    [innerHTML]="nav.icon | safeHtml"
+                  >
+                  </span>
+                  @if ((isExpanded$ | async) || (isHovered$ | async) ||
+                  (isMobileOpen$ | async)) {
+
+                  <span class="menu-item-text">
+                    {{ nav.name }}
+                  </span>
+                  } 
+                  @if (nav.new && ((isExpanded$ | async) || (isHovered$ |
+                  async) || (isMobileOpen$ | async))) {
+                  <span
+                    class="ml-auto absolute right-10 menu-dropdown-badge"
+                    [ngClass]="{
+                      'menu-dropdown-badge-active': openSubmenu === 'others-' + i,
+                      'menu-dropdown-badge-inactive': openSubmenu !== 'others-' + i
+                    }"
+                  >
+                    new
+                  </span>
+                  } 
+                  @if ((isExpanded$ | async) || (isHovered$ | async) ||
+                  (isMobileOpen$ | async)) {
+                  <svg
+                    [ngClass]="{
+                      'rotate-180 text-brand-500': openSubmenu === 'others-' + i
+                    }"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-auto w-5 h-5 transition-transform duration-200"
+                  >
+                    <path
+                      d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  }
+                </button>
+                <div
+                  class="overflow-hidden transition-all duration-300"
+                  [id]="'others-' + i"
+                  [style.display]="
+                    (isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async) 
+                      ? 'block' 
+                      : 'none'
+                  "
+                  [ngStyle]="{
+                    height:
+                      openSubmenu === 'others-' + i
+                        ? (subMenuHeights['others-' + i] || 0) + 'px'
+                        : '0px'
+                  }"
+                >
+                  <ul class="mt-2 space-y-1 ml-9">
+                    @for (subItem of nav.subItems; track $index) {
+                    <li>
+                      <a
+                        [routerLink]="subItem.path"
+                        routerLinkActive=""
+                        (click)="onSubmenuClick()"
+                        class="menu-dropdown-item"
+                        [ngClass]="{
+                              'menu-dropdown-item-inactive': !isActive(subItem.path),
+                              'menu-dropdown-item-active': isActive(subItem.path),
+                            }"
+                      >
+                        {{ subItem.name }}
+                        <span class="flex items-center gap-1 ml-auto">
+                          @if (subItem.new) {
+                          <span
+                            class="menu-dropdown-badge"
+                            [ngClass]="{
+                              'menu-dropdown-badge-active': isActive(
+                                subItem.path
+                              ),
+                              'menu-dropdown-badge-inactive': !isActive(
+                                subItem.path
+                              )
+                            }"
+                          >
+                            new
+                          </span>
+                          }
+                          @if (subItem.pro) {
+                          <span
+                            class="ml-auto menu-dropdown-badge-pro"
+                            [ngClass]="{
+                              'menu-dropdown-badge-pro-active': isActive(
+                                subItem.path
+                              ),
+                              'menu-dropdown-badge-pro-inactive': !isActive(
+                                subItem.path
+                              )
+                            }"
+                          >
+                            pro
+                          </span>
+                          }
+                        </span>
+                      </a>
+                    </li>
+                    }
+                  </ul>
+                </div>
+              } @else {
+                @if (nav.path) {
+                <a
+                  [routerLink]="nav.path"
+                  routerLinkActive="menu-item-active"
+                  class="menu-item group"
+                  [ngClass]="{ 'menu-item-inactive': !isActive(nav.path) }"
+                >
+                  <span
+                    class="menu-item-icon-size"
+                    [ngClass]="{
+                      'menu-item-icon-active': isActive(nav.path),
+                      'menu-item-icon-inactive': !isActive(nav.path)
+                    }"
+                    [innerHTML]="nav.icon | safeHtml"
+                  >
+                  </span>
+                  <span
+                    class="menu-item-text"
+                  >
+                    @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async)) {
+                    {{ nav.name }}
+                    }
+                  </span>
+                </a>
+                }
+              }
+            </li>
+            }
+          </ul>
+        </div>
+        <!-- end other section -->
+      </div>
+    </nav>
+    @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async)) {
+    <app-sidebar-widget />
+    }
+  </div>
+</aside>

@@ -1,0 +1,10 @@
+<app-component-card title="Radio Buttons">
+  <div class="flex flex-wrap items-center gap-8">
+    <app-radio [id]="'option1'" [name]="'group1'" [value]="'option1'" [checked]="selectedValue === 'option1'"
+      [label]="'Default'" [disabled]="false" (valueChange)="selectedValue = $event"/>
+    <app-radio [id]="'option2'" [name]="'group1'" [value]="'option2'" [checked]="selectedValue === 'option2'"
+      [label]="'Selected'" [disabled]="false" (valueChange)="selectedValue = $event"/>
+    <app-radio [id]="'option3'" [name]="'group1'" [value]="'option3'" [checked]="selectedValue === 'option3'"
+      [label]="'Disabled'" [disabled]="true" (valueChange)="selectedValue = $event"/>
+  </div>
+</app-component-card>

@@ -1,0 +1,61 @@
+{% extends "layouts/base_dash.html" %}
+{% load dash_tags %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <!-- Left Column (8/12) -->
+    <div class="col-lg-8">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-2" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "main-3" %}
+        </div>
+    </div>
+    
+    <!-- Right Column (4/12) -->
+    <div class="col-lg-4">
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "sidebar-1" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "sidebar-2" %}
+        </div>
+        
+        <div class="plugin-container">
+            {% dash_plugin_placeholder "sidebar-3" %}
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions Row -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <a href="/admin/crm/deal/add/" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>
+                {% trans "Add Deal" %}
+            </a>
+            <a href="/admin/crm/lead/add/" class="btn btn-success">
+                <i class="fas fa-user-plus me-2"></i>
+                {% trans "Add Lead" %}
+            </a>
+            <a href="/admin/crm/contact/add/" class="btn btn-info">
+                <i class="fas fa-address-card me-2"></i>
+                {% trans "Add Contact" %}
+            </a>
+            <a href="/admin/analytics/" class="btn btn-secondary">
+                <i class="fas fa-chart-bar me-2"></i>
+                {% trans "View Reports" %}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

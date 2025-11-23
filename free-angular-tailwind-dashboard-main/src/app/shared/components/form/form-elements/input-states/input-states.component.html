@@ -1,0 +1,46 @@
+<app-component-card
+  title="Input States"
+  desc="Validation styles for error, success and disabled states on form controls."
+>
+  <div class="space-y-5 sm:space-y-6">
+    <!-- Error Input -->
+    <div>
+      <app-label>Email</app-label>
+      <app-input-field
+        id="email"
+        type="email"
+        [value]="email"
+        [error]="error"
+        (valueChange)="handleEmailChange($event)"
+        placeholder="Enter your email"
+        [hint]="error ? 'This is an invalid email address.' : ''"
+      />
+    </div>
+
+    <!-- Success Input -->
+    <div>
+      <app-label>Email</app-label>
+      <app-input-field
+        id="email-two"
+        type="email"
+        [value]="emailTwo"
+        [success]="!error && emailTwo !== ''"
+        (valueChange)="handleEmailTwoChange($event)"
+        placeholder="Enter your email"
+        [hint]="!error && emailTwo !== '' ? 'This is an success message.' : ''"
+      />
+    </div>
+
+    <!-- Disabled Input -->
+    <div>
+      <app-label>Email</app-label>
+      <app-input-field
+        id="email-three"
+        type="text"
+        value="disabled@example.com"
+        [disabled]="true"
+        placeholder="Disabled email"
+      />
+    </div>
+  </div>
+</app-component-card>

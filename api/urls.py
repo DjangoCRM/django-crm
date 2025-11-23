@@ -1,4 +1,4 @@
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
@@ -21,6 +21,7 @@ from .views import (
     UserViewSet,
     dashboard_analytics,
     dashboard_activity,
+    dashboard_funnel,
 )
 
 app_name = 'api'
@@ -49,8 +50,14 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name='api:schema'),
         name='docs',
     ),
+    path(
+        'redoc/',
+        SpectacularRedocView.as_view(url_name='api:schema'),
+        name='redoc',
+    ),
     path('auth/token/', obtain_auth_token, name='api-token'),
     path('dashboard/analytics/', dashboard_analytics, name='dashboard-analytics'),
     path('dashboard/activity/', dashboard_activity, name='dashboard-activity'),
+    path('dashboard/funnel/', dashboard_funnel, name='dashboard-funnel'),
     path('', include(router.urls)),
 ]

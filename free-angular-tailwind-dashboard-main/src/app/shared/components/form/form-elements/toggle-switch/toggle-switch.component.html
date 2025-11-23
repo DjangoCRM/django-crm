@@ -1,0 +1,37 @@
+<app-component-card title="Toggle switch input">
+  <div class="flex gap-4">
+    <app-switch
+      label="Default"
+      [defaultChecked]="true"
+      (valueChange)="handleSwitchChange($event)"
+    ></app-switch>
+    <app-switch
+      label="Checked"
+      [defaultChecked]="true"
+      (valueChange)="handleSwitchChange($event)"
+    ></app-switch>
+    <app-switch
+      label="Disabled"
+      [disabled]="true"
+    ></app-switch>
+  </div>
+  <div class="flex gap-4 mt-4">
+    <app-switch
+      label="Default"
+      [defaultChecked]="true"
+      color="gray"
+      (valueChange)="handleSwitchChange($event)"
+    ></app-switch>
+    <app-switch
+      label="Checked"
+      [defaultChecked]="true"
+      color="gray"
+      (valueChange)="handleSwitchChange($event)"
+    ></app-switch>
+    <app-switch
+      label="Disabled"
+      [disabled]="true"
+      color="gray"
+    ></app-switch>
+  </div>
+</app-component-card>

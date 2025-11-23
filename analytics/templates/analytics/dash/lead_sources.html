@@ -1,0 +1,183 @@
+{% load i18n %}
+<div class="lead-sources-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Lead Sources" %}</h3>
+        <div class="summary-stats">
+            <span class="stat">{{ total_leads }} {% trans "leads" %}</span>
+            <span class="stat success">{{ conversion_rate }}% {% trans "conversion" %}</span>
+        </div>
+    </div>
+    
+    <div class="chart-and-list">
+        <div class="chart-section">
+            <canvas id="{{ chart_id }}" width="300" height="200"></canvas>
+        </div>
+        
+        <div class="sources-list">
+            {% for source in sources_data %}
+            <div class="source-item">
+                <div class="source-name">{{ source.lead_source__name|default:"Unknown" }}</div>
+                <div class="source-stats">
+                    <span class="leads-count">{{ source.count }} {% trans "leads" %}</span>
+                    <span class="conversion-rate">{{ source.converted }} {% trans "converted" %}</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {% widthratio source.converted source.count 100 %}%"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('{{ chart_id }}').getContext('2d');
+    const chartData = {{ chart_data|safe }};
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleColor: 'white',
+                    bodyColor: 'white'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+<style>
+.lead-sources-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.summary-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat {
+    padding: 5px 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.chart-and-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.chart-section {
+    position: relative;
+    height: 300px;
+}
+
+.sources-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.source-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.source-item:last-child {
+    border-bottom: none;
+}
+
+.source-name {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.source-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .chart-and-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .widget-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .summary-stats {
+        justify-content: center;
+    }
+}
+</style>

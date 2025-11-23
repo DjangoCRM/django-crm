@@ -1,0 +1,237 @@
+{% load i18n %}
+<div class="sales-funnel-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Sales Funnel" %}</h3>
+        <div class="funnel-summary">
+            <span class="total-deals">{{ total_deals }} {% trans "deals" %}</span>
+            <span class="total-value">${{ total_value|floatformat:0 }}</span>
+        </div>
+    </div>
+    
+    <div class="funnel-visualization">
+        {% for stage in funnel_stages %}
+        <div class="funnel-stage" data-stage="{{ forloop.counter }}">
+            <div class="stage-header">
+                <span class="stage-name">{{ stage.name }}</span>
+                <span class="stage-count">{{ stage.count }} deals</span>
+            </div>
+            
+            <div class="funnel-bar">
+                <div class="funnel-fill" 
+                     style="width: {{ stage.count_percentage }}%; background: hsl({{ forloop.counter0|add:200 }}, 60%, 50%)">
+                    <span class="percentage">{{ stage.count_percentage }}%</span>
+                </div>
+            </div>
+            
+            <div class="stage-details">
+                <span class="value">${{ stage.value|floatformat:0 }}</span>
+                <span class="value-percent">({{ stage.value_percentage }}% of total)</span>
+            </div>
+            
+            {% if not forloop.last %}
+            <div class="funnel-arrow">↓</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="funnel-insights">
+        <h4>{% trans "Key Insights" %}</h4>
+        <ul class="insights-list">
+            {% if funnel_stages|length > 1 %}
+            <li>
+                {% with first_stage=funnel_stages.0 last_stage=funnel_stages|last %}
+                {% trans "Conversion rate from first to last stage:" %} 
+                <strong>{% widthratio last_stage.count first_stage.count 100 %}%</strong>
+                {% endwith %}
+            </li>
+            {% endif %}
+            
+            {% for stage in funnel_stages %}
+                {% if stage.count_percentage < 10 and stage.count > 0 %}
+                <li class="warning">
+                    {% blocktrans with stage_name=stage.name %}{{ stage_name }} has low volume ({{ stage.count_percentage }}%){% endblocktrans %}
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<style>
+.sales-funnel-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.funnel-summary {
+    display: flex;
+    gap: 15px;
+}
+
+.total-deals, .total-value {
+    padding: 5px 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.funnel-visualization {
+    margin-bottom: 25px;
+}
+
+.funnel-stage {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.stage-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.stage-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.stage-count {
+    font-size: 14px;
+    color: #666;
+}
+
+.funnel-bar {
+    height: 40px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #e9ecef;
+}
+
+.funnel-fill {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+.funnel-fill:hover {
+    transform: scaleX(1.02);
+}
+
+.stage-details {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.value {
+    font-weight: 500;
+    color: #333;
+}
+
+.value-percent {
+    color: #666;
+}
+
+.funnel-arrow {
+    text-align: center;
+    font-size: 20px;
+    color: #007bff;
+    margin: 10px 0;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+.funnel-insights {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.funnel-insights h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.insights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.insights-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.insights-list li:last-child {
+    border-bottom: none;
+}
+
+.insights-list li.warning {
+    color: #856404;
+    background: #fff3cd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ffeaa7;
+}
+
+@media (max-width: 768px) {
+    .widget-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .stage-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .stage-details {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+</style>

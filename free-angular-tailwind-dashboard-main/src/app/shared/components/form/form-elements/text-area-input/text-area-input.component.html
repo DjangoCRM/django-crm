@@ -1,0 +1,31 @@
+<app-component-card title="Textarea input field">
+  <div class="space-y-6">
+    <!-- Default TextArea -->
+    <div>
+      <app-label>Description</app-label>
+      <app-text-area
+        [value]="message"
+        (valueChange)="message = $event"
+        [rows]="6"
+      ></app-text-area>
+    </div>
+
+    <!-- Disabled TextArea -->
+    <div>
+      <app-label>Description</app-label>
+      <app-text-area [rows]="6" [disabled]="true"></app-text-area>
+    </div>
+
+    <!-- Error TextArea -->
+    <div>
+      <app-label>Description</app-label>
+      <app-text-area
+        [rows]="6"
+        [value]="messageTwo"
+        [error]="true"
+        (valueChange)="messageTwo = $event"
+        hint="Please enter a valid message."
+      ></app-text-area>
+    </div>
+  </div>
+</app-component-card>

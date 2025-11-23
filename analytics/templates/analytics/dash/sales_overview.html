@@ -1,0 +1,143 @@
+{% load i18n %}
+<div class="sales-overview-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Sales Overview" %}</h3>
+        <span class="widget-period">{{ period_start|date:"M d" }} - {{ period_end|date:"M d, Y" }}</span>
+    </div>
+    
+    <div class="metrics-grid">
+        <div class="metric-card revenue">
+            <div class="metric-icon">💰</div>
+            <div class="metric-content">
+                <div class="metric-value">${{ total_revenue|floatformat:0 }}</div>
+                <div class="metric-label">{% trans "Total Revenue" %}</div>
+            </div>
+        </div>
+        
+        <div class="metric-card deals">
+            <div class="metric-icon">🤝</div>
+            <div class="metric-content">
+                <div class="metric-value">{{ total_deals }}</div>
+                <div class="metric-label">{% trans "Total Deals" %}</div>
+                <div class="metric-sub">{{ won_deals }} {% trans "won" %}, {{ lost_deals }} {% trans "lost" %}</div>
+            </div>
+        </div>
+        
+        <div class="metric-card win-rate">
+            <div class="metric-icon">📈</div>
+            <div class="metric-content">
+                <div class="metric-value">{{ win_rate }}%</div>
+                <div class="metric-label">{% trans "Win Rate" %}</div>
+            </div>
+        </div>
+        
+        <div class="metric-card leads">
+            <div class="metric-icon">🎯</div>
+            <div class="metric-content">
+                <div class="metric-value">{{ leads_count }}</div>
+                <div class="metric-label">{% trans "New Leads" %}</div>
+                <div class="metric-sub">{{ lead_conversion_rate }}% {% trans "converted" %}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.sales-overview-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.widget-period {
+    color: #666;
+    font-size: 14px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.metric-card.revenue { border-left: 4px solid #28a745; }
+.metric-card.deals { border-left: 4px solid #007bff; }
+.metric-card.win-rate { border-left: 4px solid #17a2b8; }
+.metric-card.leads { border-left: 4px solid #ffc107; }
+
+.metric-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.metric-content {
+    flex: 1;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.metric-sub {
+    font-size: 12px;
+    color: #888;
+    margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .widget-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .widget-period {
+        margin-top: 10px;
+    }
+}
+</style>

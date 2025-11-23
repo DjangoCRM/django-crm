@@ -1,0 +1,12 @@
+<div class="space-y-4">
+  @for (faq of faqs; track $index; let i = $index) {
+  <div>
+    <app-faq-item-one
+      [title]="faq.title"
+      [content]="faq.content"
+      [isOpen]="openIndex === i"
+      [toggleAccordion]="toggleAccordion.bind(this, i)"
+    />
+  </div>
+  }
+</div>

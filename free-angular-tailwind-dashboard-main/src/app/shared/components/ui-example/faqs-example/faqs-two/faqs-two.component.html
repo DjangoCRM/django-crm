@@ -1,0 +1,26 @@
+<div class="grid grid-cols-1 gap-x-8 gap-y-5 xl:grid-cols-2">
+  <div class="space-y-3">
+    @for (item of firstGroup; track $index; let i = $index) {
+    <div>
+      <app-faq-item-two
+        [title]="item.title"
+        [content]="item.content"
+        [isOpen]="openIndexFirstGroup === i"
+        (toggle)="toggleFirstGroup(i)"
+      />
+    </div>
+    }
+  </div>
+  <div class="space-y-3">
+    @for (item of firstGroup; track $index; let i = $index) {
+    <div>
+      <app-faq-item-two
+        [title]="item.title"
+        [content]="item.content"
+        [isOpen]="openIndexSecondGroup === i"
+        (toggle)="toggleSecondGroup(i)"
+      />
+    </div>
+    }
+  </div>
+</div>

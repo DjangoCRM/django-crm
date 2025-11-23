@@ -1,0 +1,5291 @@
+openapi: 3.0.3
+info:
+  title: Django-CRM API
+  version: 1.0.0 (api)
+  description: Versioned API for frontend consumption
+  contact:
+    name: CRM API Team
+    url: https://djangocrm.github.io/info/
+    email: support@example.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /api/auth/token/:
+    post:
+      operationId: auth_token_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+  /api/call-logs/:
+    get:
+      operationId: call_logs_list
+      description: Create and list telephony call logs.
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Call Logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCallLogList'
+          description: ''
+    post:
+      operationId: call_logs_create
+      description: Create and list telephony call logs.
+      tags:
+      - Call Logs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallLog'
+          description: ''
+  /api/call-logs/{id}/:
+    get:
+      operationId: call_logs_retrieve
+      description: Create and list telephony call logs.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this call log.
+        required: true
+      tags:
+      - Call Logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallLog'
+          description: ''
+    put:
+      operationId: call_logs_update
+      description: Create and list telephony call logs.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this call log.
+        required: true
+      tags:
+      - Call Logs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CallLog'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallLog'
+          description: ''
+    patch:
+      operationId: call_logs_partial_update
+      description: Create and list telephony call logs.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this call log.
+        required: true
+      tags:
+      - Call Logs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCallLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCallLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCallLog'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallLog'
+          description: ''
+    delete:
+      operationId: call_logs_destroy
+      description: Create and list telephony call logs.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this call log.
+        required: true
+      tags:
+      - Call Logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/chat-messages/:
+    get:
+      operationId: chat_messages_list
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: query
+        name: content_type
+        schema:
+          type: integer
+      - in: query
+        name: object_id
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Chat Messages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedChatMessageList'
+          description: ''
+    post:
+      operationId: chat_messages_create
+      description: Create, list, and manage internal chat messages.
+      tags:
+      - Chat Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/chat-messages/{id}/:
+    get:
+      operationId: chat_messages_retrieve
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+    put:
+      operationId: chat_messages_update
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+    patch:
+      operationId: chat_messages_partial_update
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedChatMessage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedChatMessage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedChatMessage'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+    delete:
+      operationId: chat_messages_destroy
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/chat-messages/{id}/replies/:
+    get:
+      operationId: chat_messages_replies_retrieve
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/chat-messages/{id}/thread/:
+    get:
+      operationId: chat_messages_thread_retrieve
+      description: Create, list, and manage internal chat messages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this сообщение.
+        required: true
+      tags:
+      - Chat Messages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+          description: ''
+  /api/companies/:
+    get:
+      operationId: companies_list
+      description: CRUD for companies with search and filters.
+      parameters:
+      - in: query
+        name: country
+        schema:
+          type: integer
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - in: query
+        name: disqualified
+        schema:
+          type: boolean
+      - in: query
+        name: lead_source
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: type
+        schema:
+          type: integer
+      tags:
+      - Companies
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCompanyList'
+          description: ''
+    post:
+      operationId: companies_create
+      description: CRUD for companies with search and filters.
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Company'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Company'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+  /api/companies/{id}/:
+    get:
+      operationId: companies_retrieve
+      description: CRUD for companies with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Компания.
+        required: true
+      tags:
+      - Companies
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+    put:
+      operationId: companies_update
+      description: CRUD for companies with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Компания.
+        required: true
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Company'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Company'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+    patch:
+      operationId: companies_partial_update
+      description: CRUD for companies with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Компания.
+        required: true
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCompany'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCompany'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCompany'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+    delete:
+      operationId: companies_destroy
+      description: CRUD for companies with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Компания.
+        required: true
+      tags:
+      - Companies
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/contacts/:
+    get:
+      operationId: contacts_list
+      description: CRUD for contacts with search and filters.
+      parameters:
+      - in: query
+        name: company
+        schema:
+          type: integer
+      - in: query
+        name: country
+        schema:
+          type: integer
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - in: query
+        name: disqualified
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Contacts
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedContactList'
+          description: ''
+    post:
+      operationId: contacts_create
+      description: CRUD for contacts with search and filters.
+      tags:
+      - Contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contact'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+  /api/contacts/{id}/:
+    get:
+      operationId: contacts_retrieve
+      description: CRUD for contacts with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Контактное лицо.
+        required: true
+      tags:
+      - Contacts
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    put:
+      operationId: contacts_update
+      description: CRUD for contacts with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Контактное лицо.
+        required: true
+      tags:
+      - Contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contact'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    patch:
+      operationId: contacts_partial_update
+      description: CRUD for contacts with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Контактное лицо.
+        required: true
+      tags:
+      - Contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    delete:
+      operationId: contacts_destroy
+      description: CRUD for contacts with search and filters.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Контактное лицо.
+        required: true
+      tags:
+      - Contacts
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/crm-tags/:
+    get:
+      operationId: crm_tags_list
+      description: Reference list of CRM tags.
+      parameters:
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - CRM Tags
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCrmTagList'
+          description: ''
+  /api/crm-tags/{id}/:
+    get:
+      operationId: crm_tags_retrieve
+      description: Reference list of CRM tags.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Ярлык.
+        required: true
+      tags:
+      - CRM Tags
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CrmTag'
+          description: ''
+  /api/dashboard/activity/:
+    get:
+      operationId: dashboard_activity_retrieve
+      description: |-
+        Provides a real-time activity feed showing recent changes across the CRM.
+        Returns a list of activities sorted by timestamp.
+      tags:
+      - dashboard
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/analytics/:
+    get:
+      operationId: dashboard_analytics_retrieve
+      description: |-
+        Provides analytics data for the dashboard including monthly growth stats
+        and task metrics.
+        Supports filters: period(7d|30d|90d), owner, department.
+      tags:
+      - dashboard
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/dashboard/funnel/:
+    get:
+      operationId: dashboard_funnel_retrieve
+      description: |-
+        Returns sales funnel data as a list of {label, value} by deal stage.
+        Supports filters: period(7d|30d|90d), owner, department.
+        RBAC: non-staff users see only owned/co-owned deals.
+      tags:
+      - dashboard
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/deals/:
+    get:
+      operationId: deals_list
+      description: CRUD for CRM deals with ownership rules.
+      parameters:
+      - in: query
+        name: active
+        schema:
+          type: boolean
+      - in: query
+        name: co_owner
+        schema:
+          type: integer
+      - in: query
+        name: company
+        schema:
+          type: integer
+      - in: query
+        name: contact
+        schema:
+          type: integer
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - in: query
+        name: lead
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: relevant
+        schema:
+          type: boolean
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: stage
+        schema:
+          type: integer
+      tags:
+      - Deals
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDealList'
+          description: ''
+    post:
+      operationId: deals_create
+      description: CRUD for CRM deals with ownership rules.
+      tags:
+      - Deals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deal'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Deal'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Deal'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deal'
+          description: ''
+  /api/deals/{id}/:
+    get:
+      operationId: deals_retrieve
+      description: CRUD for CRM deals with ownership rules.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Сделка.
+        required: true
+      tags:
+      - Deals
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deal'
+          description: ''
+    put:
+      operationId: deals_update
+      description: CRUD for CRM deals with ownership rules.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Сделка.
+        required: true
+      tags:
+      - Deals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deal'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Deal'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Deal'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deal'
+          description: ''
+    patch:
+      operationId: deals_partial_update
+      description: CRUD for CRM deals with ownership rules.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Сделка.
+        required: true
+      tags:
+      - Deals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDeal'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDeal'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDeal'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deal'
+          description: ''
+    delete:
+      operationId: deals_destroy
+      description: CRUD for CRM deals with ownership rules.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Сделка.
+        required: true
+      tags:
+      - Deals
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/leads/:
+    get:
+      operationId: leads_list
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: query
+        name: company
+        schema:
+          type: integer
+      - in: query
+        name: country
+        schema:
+          type: integer
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - in: query
+        name: disqualified
+        schema:
+          type: boolean
+      - in: query
+        name: lead_source
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: was_in_touch
+        schema:
+          type: string
+          format: date
+      tags:
+      - Leads
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLeadList'
+          description: ''
+    post:
+      operationId: leads_create
+      description: CRUD for CRM leads with filtering and conversion actions.
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/leads/{id}/:
+    get:
+      operationId: leads_retrieve
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    put:
+      operationId: leads_update
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    patch:
+      operationId: leads_partial_update
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLead'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+    delete:
+      operationId: leads_destroy
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/leads/{id}/assign/:
+    post:
+      operationId: leads_assign_create
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/leads/{id}/convert/:
+    post:
+      operationId: leads_convert_create
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/leads/{id}/disqualify/:
+    post:
+      operationId: leads_disqualify_create
+      description: CRUD for CRM leads with filtering and conversion actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Лид.
+        required: true
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/leads/bulk_tag/:
+    post:
+      operationId: leads_bulk_tag_create
+      description: CRUD for CRM leads with filtering and conversion actions.
+      tags:
+      - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lead'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lead'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lead'
+          description: ''
+  /api/memos/:
+    get:
+      operationId: memos_list
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: query
+        name: deal
+        schema:
+          type: integer
+      - in: query
+        name: draft
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: project
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: stage
+        schema:
+          type: string
+          title: Этап
+          enum:
+          - pen
+          - pos
+          - rev
+        description: |-
+          * `pen` - в ожидании
+          * `pos` - отложено
+          * `rev` - рассмотрено
+      - in: query
+        name: task
+        schema:
+          type: integer
+      - in: query
+        name: to
+        schema:
+          type: integer
+      tags:
+      - Memos
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMemoList'
+          description: ''
+    post:
+      operationId: memos_create
+      description: CRUD for memos; includes archive and postpone actions.
+      tags:
+      - Memos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Memo'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+  /api/memos/{id}/:
+    get:
+      operationId: memos_retrieve
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+    put:
+      operationId: memos_update
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Memo'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+    patch:
+      operationId: memos_partial_update
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMemo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMemo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMemo'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+    delete:
+      operationId: memos_destroy
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/memos/{id}/mark_postponed/:
+    post:
+      operationId: memos_mark_postponed_create
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Memo'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+  /api/memos/{id}/mark_reviewed/:
+    post:
+      operationId: memos_mark_reviewed_create
+      description: CRUD for memos; includes archive and postpone actions.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Записка.
+        required: true
+      tags:
+      - Memos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Memo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Memo'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo'
+          description: ''
+  /api/project-stages/:
+    get:
+      operationId: project_stages_list
+      description: Reference list of project stages.
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Project Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectStageList'
+          description: ''
+  /api/project-stages/{id}/:
+    get:
+      operationId: project_stages_retrieve
+      description: Reference list of project stages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Этап проекта.
+        required: true
+      tags:
+      - Project Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectStage'
+          description: ''
+  /api/projects/:
+    get:
+      operationId: projects_list
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: query
+        name: active
+        schema:
+          type: boolean
+      - in: query
+        name: co_owner
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: stage
+        schema:
+          type: integer
+      tags:
+      - Projects
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectList'
+          description: ''
+    post:
+      operationId: projects_create
+      description: CRUD for projects and related filtering.
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/{id}/:
+    get:
+      operationId: projects_retrieve
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    put:
+      operationId: projects_update
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    patch:
+      operationId: projects_partial_update
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    delete:
+      operationId: projects_destroy
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/projects/{id}/assign/:
+    post:
+      operationId: projects_assign_create
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/{id}/complete/:
+    post:
+      operationId: projects_complete_create
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/{id}/reopen/:
+    post:
+      operationId: projects_reopen_create
+      description: CRUD for projects and related filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Проект.
+        required: true
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/bulk_tag/:
+    post:
+      operationId: projects_bulk_tag_create
+      description: CRUD for projects and related filtering.
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/export/:
+    get:
+      operationId: projects_export_retrieve
+      description: CRUD for projects and related filtering.
+      tags:
+      - Projects
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/stages/:
+    get:
+      operationId: stages_list
+      description: Reference list of CRM deal stages.
+      parameters:
+      - in: query
+        name: conditional_success_stage
+        schema:
+          type: boolean
+      - in: query
+        name: default
+        schema:
+          type: boolean
+      - in: query
+        name: department
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: second_default
+        schema:
+          type: boolean
+      - in: query
+        name: success_stage
+        schema:
+          type: boolean
+      tags:
+      - Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStageList'
+          description: ''
+  /api/stages/{id}/:
+    get:
+      operationId: stages_retrieve
+      description: Reference list of CRM deal stages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Этап.
+        required: true
+      tags:
+      - Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+          description: ''
+  /api/task-stages/:
+    get:
+      operationId: task_stages_list
+      description: Reference list of task stages.
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Task Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaskStageList'
+          description: ''
+  /api/task-stages/{id}/:
+    get:
+      operationId: task_stages_retrieve
+      description: Reference list of task stages.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Этап задачи.
+        required: true
+      tags:
+      - Task Stages
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskStage'
+          description: ''
+  /api/task-tags/:
+    get:
+      operationId: task_tags_list
+      description: Reference list of task tags.
+      parameters:
+      - in: query
+        name: for_content
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Task Tags
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaskTagList'
+          description: ''
+  /api/task-tags/{id}/:
+    get:
+      operationId: task_tags_retrieve
+      description: Reference list of task tags.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Ярлык.
+        required: true
+      tags:
+      - Task Tags
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskTag'
+          description: ''
+  /api/tasks/:
+    get:
+      operationId: tasks_list
+      description: CRUD for tasks with filtering and ordering.
+      parameters:
+      - in: query
+        name: active
+        schema:
+          type: boolean
+      - in: query
+        name: co_owner
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: project
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: stage
+        schema:
+          type: integer
+      tags:
+      - Tasks
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaskList'
+          description: ''
+    post:
+      operationId: tasks_create
+      description: CRUD for tasks with filtering and ordering.
+      tags:
+      - Tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+  /api/tasks/{id}/:
+    get:
+      operationId: tasks_retrieve
+      description: CRUD for tasks with filtering and ordering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Задача.
+        required: true
+      tags:
+      - Tasks
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    put:
+      operationId: tasks_update
+      description: CRUD for tasks with filtering and ordering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Задача.
+        required: true
+      tags:
+      - Tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    patch:
+      operationId: tasks_partial_update
+      description: CRUD for tasks with filtering and ordering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Задача.
+        required: true
+      tags:
+      - Tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    delete:
+      operationId: tasks_destroy
+      description: CRUD for tasks with filtering and ordering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Задача.
+        required: true
+      tags:
+      - Tasks
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/:
+    get:
+      operationId: users_list
+      description: Read-only user directory.
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Users
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserList'
+          description: ''
+  /api/users/{id}/:
+    get:
+      operationId: users_retrieve
+      description: Read-only user directory.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this пользователь.
+        required: true
+      tags:
+      - Users
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/me/:
+    get:
+      operationId: users_me_retrieve
+      description: Read-only user directory.
+      tags:
+      - Users
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+          title: Имя пользователя
+        password:
+          type: string
+          writeOnly: true
+          title: Пароль
+        token:
+          type: string
+          readOnly: true
+          title: Токен
+      required:
+      - password
+      - token
+      - username
+    BlankEnum:
+      enum:
+      - ''
+    CallLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        direction:
+          $ref: '#/components/schemas/DirectionEnum'
+        number:
+          type: string
+          maxLength: 50
+        duration:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Duration in seconds
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        voip_call_id:
+          type: string
+          nullable: true
+          description: ID from VoIP provider
+          maxLength: 255
+        user:
+          type: integer
+          readOnly: true
+        contact:
+          type: integer
+          nullable: true
+      required:
+      - direction
+      - id
+      - number
+      - timestamp
+      - user
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        content:
+          type: string
+          title: Сообщение
+        owner:
+          type: integer
+          readOnly: true
+          nullable: true
+          title: Владелец
+        owner_name:
+          type: string
+          readOnly: true
+        answer_to:
+          type: integer
+          nullable: true
+          title: Ответ для
+        topic:
+          type: integer
+          nullable: true
+        recipients:
+          type: array
+          items:
+            type: integer
+            title: Получатели
+          title: Получатели
+        recipient_names:
+          type: string
+          readOnly: true
+        to:
+          type: array
+          items:
+            type: integer
+            title: Кому
+          title: Кому
+        content_type:
+          type: integer
+        content_type_name:
+          type: string
+          readOnly: true
+        object_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+      required:
+      - content_type
+      - content_type_name
+      - creation_date
+      - id
+      - object_id
+      - owner
+      - owner_name
+      - recipient_names
+    Company:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          title: Название Компании
+          maxLength: 200
+        alternative_names:
+          type: string
+          title: Альтернативные имена
+          description: Разделите их запятыми.
+          maxLength: 100
+        website:
+          type: string
+          title: Веб-сайт
+          maxLength: 200
+        active:
+          type: boolean
+          title: Активно
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Название города
+          maxLength: 100
+        city:
+          type: integer
+          nullable: true
+          title: Город
+        registration_number:
+          type: string
+          title: Регистрационный код
+          description: Регистрационный код компании
+          maxLength: 30
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+          description: Страна компании
+        type:
+          type: integer
+          nullable: true
+          title: Тип компании
+        industry:
+          type: array
+          items:
+            type: integer
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - country
+      - creation_date
+      - email
+      - full_name
+      - id
+      - update_date
+    Contact:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          title: Имя
+          description: Имя контактного лица (одно слово).
+          maxLength: 100
+        middle_name:
+          type: string
+          title: Отчество
+          description: Отчество контактного лица.
+          maxLength: 100
+        last_name:
+          type: string
+          title: Фамилия
+          description: Фамилия контактного лица (одно слово).
+          maxLength: 100
+        full_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          nullable: true
+          title: Должность
+          description: Должность контактного лица.
+          maxLength: 100
+        sex:
+          nullable: true
+          title: Пол
+          oneOf:
+          - $ref: '#/components/schemas/SexEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата рождения
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        secondary_email:
+          type: string
+          format: email
+          title: Дополнительный email
+          maxLength: 254
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        other_phone:
+          type: string
+          maxLength: 100
+        mobile:
+          type: string
+          title: Мобильный телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Город
+          maxLength: 50
+        city:
+          type: integer
+          nullable: true
+          title: Город компании
+          description: Объект города в базе данных
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        company:
+          type: integer
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - creation_date
+      - email
+      - first_name
+      - full_name
+      - id
+      - update_date
+    CrmTag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название ярлыка
+          maxLength: 70
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - creation_date
+      - id
+      - update_date
+    Deal:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Название сделки
+          maxLength: 250
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        description:
+          type: string
+          title: Описание
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        stage:
+          type: integer
+          nullable: true
+          title: Этап
+        stage_name:
+          type: string
+          readOnly: true
+        stages_dates:
+          type: string
+          readOnly: true
+          title: Даты этапов
+          description: Даты прохождения этапов
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия сделки
+        win_closing_date:
+          type: string
+          format: date-time
+          nullable: true
+          title: Дата закрытия выигранной сделки
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+          title: Сумма
+          description: Общая сумма сделки без НДС
+        currency:
+          type: integer
+          nullable: true
+          title: Валюта
+        closing_reason:
+          type: integer
+          nullable: true
+          title: Причина закрытия
+        probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          title: Вероятность (%)
+        ticket:
+          type: string
+          readOnly: true
+        city:
+          type: integer
+          nullable: true
+          title: Город
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+          description: Страна
+        lead:
+          type: integer
+          nullable: true
+          title: Лид
+        contact:
+          type: integer
+          nullable: true
+          title: Контактное лицо
+        request:
+          type: integer
+          nullable: true
+          title: Запрос
+        company:
+          type: integer
+          nullable: true
+          title: Компания контактного лица
+        partner_contact:
+          type: integer
+          nullable: true
+          title: Партнер
+          description: Контактное лицо дилерской или дистрибьюторской компании
+        relevant:
+          type: boolean
+          title: Релевантная
+        active:
+          type: boolean
+          title: Активно
+        important:
+          type: boolean
+          title: Важная
+        tags:
+          type: array
+          items:
+            type: integer
+        is_new:
+          type: boolean
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - creation_date
+      - id
+      - name
+      - next_step
+      - next_step_date
+      - stage_name
+      - stages_dates
+      - ticket
+      - update_date
+      - workflow
+    DirectionEnum:
+      enum:
+      - inbound
+      - outbound
+      type: string
+      description: |-
+        * `inbound` - Inbound
+        * `outbound` - Outbound
+    Lead:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          title: Имя
+          description: Имя контактного лица (одно слово).
+          maxLength: 100
+        middle_name:
+          type: string
+          title: Отчество
+          description: Отчество контактного лица.
+          maxLength: 100
+        last_name:
+          type: string
+          title: Фамилия
+          description: Фамилия контактного лица (одно слово).
+          maxLength: 100
+        full_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          nullable: true
+          title: Должность
+          description: Должность контактного лица.
+          maxLength: 100
+        sex:
+          nullable: true
+          title: Пол
+          oneOf:
+          - $ref: '#/components/schemas/SexEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата рождения
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        secondary_email:
+          type: string
+          format: email
+          title: Дополнительный email
+          maxLength: 254
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        other_phone:
+          type: string
+          maxLength: 100
+        mobile:
+          type: string
+          title: Мобильный телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Город
+          maxLength: 50
+        city:
+          type: integer
+          nullable: true
+          title: Город компании
+          description: Объект города в базе данных
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        company_name:
+          type: string
+          title: Название Компании
+          maxLength: 200
+        website:
+          type: string
+          format: uri
+          maxLength: 200
+        company_phone:
+          type: string
+          title: Телефон компании
+          maxLength: 20
+        company_address:
+          type: string
+          title: Адрес компании
+        company_email:
+          type: string
+          format: email
+          title: Email компании
+          maxLength: 254
+        type:
+          type: integer
+          nullable: true
+          title: Тип компании
+        industry:
+          type: array
+          items:
+            type: integer
+        contact:
+          type: integer
+          nullable: true
+          title: Контактное лицо
+        company:
+          type: integer
+          nullable: true
+          title: Компания контактного лица
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - creation_date
+      - email
+      - first_name
+      - full_name
+      - id
+      - update_date
+    Memo:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Заключение
+        draft:
+          type: boolean
+          title: Черновик
+          description: Доступно только владельцу.
+        notified:
+          type: boolean
+          title: Уведомлены
+          description: Получатель и подписчики уведомлены.
+        review_date:
+          type: string
+          format: date
+          nullable: true
+          title: 'Дата рассмотрения '
+        stage:
+          allOf:
+          - $ref: '#/components/schemas/StageEnum'
+          title: Этап
+        to:
+          type: integer
+          title: Кому
+        to_name:
+          type: string
+          readOnly: true
+        task:
+          type: integer
+          nullable: true
+          title: Задача
+        task_name:
+          type: string
+          readOnly: true
+        project:
+          type: integer
+          nullable: true
+          title: Проект
+        project_name:
+          type: string
+          readOnly: true
+        deal:
+          type: integer
+          nullable: true
+          title: Сделка
+        deal_name:
+          type: string
+          readOnly: true
+        resolution:
+          type: integer
+          nullable: true
+          title: Для чего
+        resolution_name:
+          type: string
+          readOnly: true
+        owner:
+          type: integer
+          readOnly: true
+          nullable: true
+          title: Владелец
+        owner_name:
+          type: string
+          readOnly: true
+        tags:
+          type: array
+          items:
+            type: integer
+            title: Ярлыки
+          title: Ярлыки
+        tag_names:
+          type: string
+          readOnly: true
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+      required:
+      - creation_date
+      - deal_name
+      - id
+      - owner
+      - owner_name
+      - project_name
+      - resolution_name
+      - tag_names
+      - task_name
+      - to
+      - to_name
+      - update_date
+    NullEnum:
+      enum:
+      - null
+    PaginatedCallLogList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallLog'
+    PaginatedChatMessageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    PaginatedCompanyList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    PaginatedContactList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+    PaginatedCrmTagList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CrmTag'
+    PaginatedDealList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deal'
+    PaginatedLeadList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lead'
+    PaginatedMemoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Memo'
+    PaginatedProjectList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    PaginatedProjectStageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectStage'
+    PaginatedStageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+    PaginatedTaskList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+    PaginatedTaskStageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskStage'
+    PaginatedTaskTagList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskTag'
+    PaginatedUserList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PatchedCallLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        direction:
+          $ref: '#/components/schemas/DirectionEnum'
+        number:
+          type: string
+          maxLength: 50
+        duration:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Duration in seconds
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        voip_call_id:
+          type: string
+          nullable: true
+          description: ID from VoIP provider
+          maxLength: 255
+        user:
+          type: integer
+          readOnly: true
+        contact:
+          type: integer
+          nullable: true
+    PatchedChatMessage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        content:
+          type: string
+          title: Сообщение
+        owner:
+          type: integer
+          readOnly: true
+          nullable: true
+          title: Владелец
+        owner_name:
+          type: string
+          readOnly: true
+        answer_to:
+          type: integer
+          nullable: true
+          title: Ответ для
+        topic:
+          type: integer
+          nullable: true
+        recipients:
+          type: array
+          items:
+            type: integer
+            title: Получатели
+          title: Получатели
+        recipient_names:
+          type: string
+          readOnly: true
+        to:
+          type: array
+          items:
+            type: integer
+            title: Кому
+          title: Кому
+        content_type:
+          type: integer
+        content_type_name:
+          type: string
+          readOnly: true
+        object_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+    PatchedCompany:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          title: Название Компании
+          maxLength: 200
+        alternative_names:
+          type: string
+          title: Альтернативные имена
+          description: Разделите их запятыми.
+          maxLength: 100
+        website:
+          type: string
+          title: Веб-сайт
+          maxLength: 200
+        active:
+          type: boolean
+          title: Активно
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Название города
+          maxLength: 100
+        city:
+          type: integer
+          nullable: true
+          title: Город
+        registration_number:
+          type: string
+          title: Регистрационный код
+          description: Регистрационный код компании
+          maxLength: 30
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+          description: Страна компании
+        type:
+          type: integer
+          nullable: true
+          title: Тип компании
+        industry:
+          type: array
+          items:
+            type: integer
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+    PatchedContact:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          title: Имя
+          description: Имя контактного лица (одно слово).
+          maxLength: 100
+        middle_name:
+          type: string
+          title: Отчество
+          description: Отчество контактного лица.
+          maxLength: 100
+        last_name:
+          type: string
+          title: Фамилия
+          description: Фамилия контактного лица (одно слово).
+          maxLength: 100
+        full_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          nullable: true
+          title: Должность
+          description: Должность контактного лица.
+          maxLength: 100
+        sex:
+          nullable: true
+          title: Пол
+          oneOf:
+          - $ref: '#/components/schemas/SexEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата рождения
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        secondary_email:
+          type: string
+          format: email
+          title: Дополнительный email
+          maxLength: 254
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        other_phone:
+          type: string
+          maxLength: 100
+        mobile:
+          type: string
+          title: Мобильный телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Город
+          maxLength: 50
+        city:
+          type: integer
+          nullable: true
+          title: Город компании
+          description: Объект города в базе данных
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        company:
+          type: integer
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+    PatchedDeal:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Название сделки
+          maxLength: 250
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        description:
+          type: string
+          title: Описание
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        stage:
+          type: integer
+          nullable: true
+          title: Этап
+        stage_name:
+          type: string
+          readOnly: true
+        stages_dates:
+          type: string
+          readOnly: true
+          title: Даты этапов
+          description: Даты прохождения этапов
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия сделки
+        win_closing_date:
+          type: string
+          format: date-time
+          nullable: true
+          title: Дата закрытия выигранной сделки
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+          title: Сумма
+          description: Общая сумма сделки без НДС
+        currency:
+          type: integer
+          nullable: true
+          title: Валюта
+        closing_reason:
+          type: integer
+          nullable: true
+          title: Причина закрытия
+        probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          title: Вероятность (%)
+        ticket:
+          type: string
+          readOnly: true
+        city:
+          type: integer
+          nullable: true
+          title: Город
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+          description: Страна
+        lead:
+          type: integer
+          nullable: true
+          title: Лид
+        contact:
+          type: integer
+          nullable: true
+          title: Контактное лицо
+        request:
+          type: integer
+          nullable: true
+          title: Запрос
+        company:
+          type: integer
+          nullable: true
+          title: Компания контактного лица
+        partner_contact:
+          type: integer
+          nullable: true
+          title: Партнер
+          description: Контактное лицо дилерской или дистрибьюторской компании
+        relevant:
+          type: boolean
+          title: Релевантная
+        active:
+          type: boolean
+          title: Активно
+        important:
+          type: boolean
+          title: Важная
+        tags:
+          type: array
+          items:
+            type: integer
+        is_new:
+          type: boolean
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+    PatchedLead:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          title: Имя
+          description: Имя контактного лица (одно слово).
+          maxLength: 100
+        middle_name:
+          type: string
+          title: Отчество
+          description: Отчество контактного лица.
+          maxLength: 100
+        last_name:
+          type: string
+          title: Фамилия
+          description: Фамилия контактного лица (одно слово).
+          maxLength: 100
+        full_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          nullable: true
+          title: Должность
+          description: Должность контактного лица.
+          maxLength: 100
+        sex:
+          nullable: true
+          title: Пол
+          oneOf:
+          - $ref: '#/components/schemas/SexEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата рождения
+        email:
+          type: string
+          description: Используйте запятую для разделения адресов.
+          maxLength: 200
+        secondary_email:
+          type: string
+          format: email
+          title: Дополнительный email
+          maxLength: 254
+        phone:
+          type: string
+          title: Телефон
+          maxLength: 100
+        other_phone:
+          type: string
+          maxLength: 100
+        mobile:
+          type: string
+          title: Мобильный телефон
+          maxLength: 100
+        city_name:
+          type: string
+          title: Город
+          maxLength: 50
+        city:
+          type: integer
+          nullable: true
+          title: Город компании
+          description: Объект города в базе данных
+        country:
+          type: integer
+          nullable: true
+          title: Страна
+        address:
+          type: string
+          title: Адрес
+        region:
+          type: string
+          title: Регион/Штат
+          maxLength: 100
+        district:
+          type: string
+          title: Район/Округ
+          maxLength: 100
+        description:
+          type: string
+          title: Описание
+        disqualified:
+          type: boolean
+          title: Дисквалифицирован
+        lead_source:
+          type: integer
+          nullable: true
+          title: Источник Лида
+        massmail:
+          type: boolean
+          title: Почтовая рассылка
+          description: Получатель рассылки.
+        tags:
+          type: array
+          items:
+            type: integer
+        token:
+          type: string
+          maxLength: 11
+        was_in_touch:
+          type: string
+          format: date
+          nullable: true
+          title: Дата последнего контакта
+        owner:
+          type: integer
+          nullable: true
+          title: Назначено
+        department:
+          type: integer
+          nullable: true
+          title: Отдел
+        company_name:
+          type: string
+          title: Название Компании
+          maxLength: 200
+        website:
+          type: string
+          format: uri
+          maxLength: 200
+        company_phone:
+          type: string
+          title: Телефон компании
+          maxLength: 20
+        company_address:
+          type: string
+          title: Адрес компании
+        company_email:
+          type: string
+          format: email
+          title: Email компании
+          maxLength: 254
+        type:
+          type: integer
+          nullable: true
+          title: Тип компании
+        industry:
+          type: array
+          items:
+            type: integer
+        contact:
+          type: integer
+          nullable: true
+          title: Контактное лицо
+        company:
+          type: integer
+          nullable: true
+          title: Компания контактного лица
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+    PatchedMemo:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Заключение
+        draft:
+          type: boolean
+          title: Черновик
+          description: Доступно только владельцу.
+        notified:
+          type: boolean
+          title: Уведомлены
+          description: Получатель и подписчики уведомлены.
+        review_date:
+          type: string
+          format: date
+          nullable: true
+          title: 'Дата рассмотрения '
+        stage:
+          allOf:
+          - $ref: '#/components/schemas/StageEnum'
+          title: Этап
+        to:
+          type: integer
+          title: Кому
+        to_name:
+          type: string
+          readOnly: true
+        task:
+          type: integer
+          nullable: true
+          title: Задача
+        task_name:
+          type: string
+          readOnly: true
+        project:
+          type: integer
+          nullable: true
+          title: Проект
+        project_name:
+          type: string
+          readOnly: true
+        deal:
+          type: integer
+          nullable: true
+          title: Сделка
+        deal_name:
+          type: string
+          readOnly: true
+        resolution:
+          type: integer
+          nullable: true
+          title: Для чего
+        resolution_name:
+          type: string
+          readOnly: true
+        owner:
+          type: integer
+          readOnly: true
+          nullable: true
+          title: Владелец
+        owner_name:
+          type: string
+          readOnly: true
+        tags:
+          type: array
+          items:
+            type: integer
+            title: Ярлыки
+          title: Ярлыки
+        tag_names:
+          type: string
+          readOnly: true
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+    PatchedProject:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Краткое название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Примечание
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityEnum'
+          title: Приоритет
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        start_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата начала
+        due_date:
+          type: string
+          format: date
+          nullable: true
+          title: Срок выполнения
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия задачи
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        active:
+          type: boolean
+          title: Активно
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        stage:
+          type: integer
+          nullable: true
+          title: Этап
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        responsible:
+          type: array
+          items:
+            type: integer
+        subscribers:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+        token:
+          type: string
+          readOnly: true
+    PatchedTask:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Краткое название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Примечание
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityEnum'
+          title: Приоритет
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        start_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата начала
+        due_date:
+          type: string
+          format: date
+          nullable: true
+          title: Срок выполнения
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия задачи
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        lead_time:
+          type: string
+          title: Затраченное время
+          description: Время выполнения задачи в формате - ДД ЧЧ:ММ:СС
+        active:
+          type: boolean
+          title: Активно
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        project:
+          type: integer
+          nullable: true
+          title: Проект
+        task:
+          type: integer
+          nullable: true
+          title: Задача
+        stage:
+          type: integer
+          title: Этап
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        responsible:
+          type: array
+          items:
+            type: integer
+        subscribers:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+        token:
+          type: string
+          readOnly: true
+    PriorityEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      type: integer
+      description: |-
+        * `1` - Низкий
+        * `2` - Средний
+        * `3` - Высокий
+    Project:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Краткое название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Примечание
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityEnum'
+          title: Приоритет
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        start_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата начала
+        due_date:
+          type: string
+          format: date
+          nullable: true
+          title: Срок выполнения
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия задачи
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        active:
+          type: boolean
+          title: Активно
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        stage:
+          type: integer
+          nullable: true
+          title: Этап
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        responsible:
+          type: array
+          items:
+            type: integer
+        subscribers:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+        token:
+          type: string
+          readOnly: true
+      required:
+      - creation_date
+      - id
+      - next_step
+      - next_step_date
+      - token
+      - update_date
+      - workflow
+    ProjectStage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 70
+        default:
+          type: boolean
+          title: По умолчанию
+          description: Будет выбран по умолчанию при создании новой задачи
+        done:
+          type: boolean
+          title: Выполнено
+          description: Отметьте, если этот этап "Выполнено"
+        in_progress:
+          type: boolean
+          title: В работе
+          description: Отметьте, если этот этап «в работе»
+        active:
+          type: boolean
+          title: Активно
+          description: Активен ли проект на данном этапе?
+        index_number:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          description: Порядковый номер этапа. Индексы других экземпляров будут отсортированы
+            автоматически.
+      required:
+      - id
+      - name
+    SexEnum:
+      enum:
+      - M
+      - F
+      - O
+      type: string
+      description: |-
+        * `M` - Male
+        * `F` - Female
+        * `O` - Other
+    Stage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 70
+        default:
+          type: boolean
+          title: По умолчанию
+          description: Будет выбран по умолчанию при создании новой задачи
+        index_number:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          description: Порядковый номер этапа. Индексы других экземпляров будут отсортированы
+            автоматически.
+        second_default:
+          type: boolean
+          title: Второй по умолчанию
+          description: Будет выбран следующим после этапа по умолчанию.
+        success_stage:
+          type: boolean
+          title: Этап успеха
+        conditional_success_stage:
+          type: boolean
+          title: Этап условного успеха
+          description: Например, получение первого платежа
+        goods_shipped:
+          type: boolean
+          title: Товары отправлены
+          description: Товар уже отправлен на этом этапе?
+        department:
+          type: integer
+      required:
+      - department
+      - id
+      - name
+    StageEnum:
+      enum:
+      - pen
+      - pos
+      - rev
+      type: string
+      description: |-
+        * `pen` - в ожидании
+        * `pos` - отложено
+        * `rev` - рассмотрено
+    Task:
+      type: object
+      description: Mixin to add validation helpers to serializers
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          description: Краткое название
+          maxLength: 250
+        description:
+          type: string
+          title: Описание
+        note:
+          type: string
+          title: Примечание
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityEnum'
+          title: Приоритет
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        start_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата начала
+        due_date:
+          type: string
+          format: date
+          nullable: true
+          title: Срок выполнения
+        closing_date:
+          type: string
+          format: date
+          nullable: true
+          title: Дата закрытия задачи
+        next_step:
+          type: string
+          title: Следующий шаг
+          description: Кратко опишите, что необходимо сделать на следующем шаге.
+          maxLength: 250
+        next_step_date:
+          type: string
+          format: date
+          title: Дата шага
+          description: Дата, к которой должен быть сделан следующий шаг
+        lead_time:
+          type: string
+          title: Затраченное время
+          description: Время выполнения задачи в формате - ДД ЧЧ:ММ:СС
+        active:
+          type: boolean
+          title: Активно
+        remind_me:
+          type: boolean
+          title: Напомнить мне.
+        project:
+          type: integer
+          nullable: true
+          title: Проект
+        task:
+          type: integer
+          nullable: true
+          title: Задача
+        stage:
+          type: integer
+          title: Этап
+        owner:
+          type: integer
+          nullable: true
+          title: Владелец
+        co_owner:
+          type: integer
+          nullable: true
+          title: Совладелец
+        responsible:
+          type: array
+          items:
+            type: integer
+        subscribers:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        workflow:
+          type: string
+          readOnly: true
+          title: Рабочий процесс
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата создания
+        update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Дата обновления
+        token:
+          type: string
+          readOnly: true
+      required:
+      - creation_date
+      - id
+      - next_step
+      - next_step_date
+      - stage
+      - token
+      - update_date
+      - workflow
+    TaskStage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 70
+        default:
+          type: boolean
+          title: По умолчанию
+          description: Будет выбран по умолчанию при создании новой задачи
+        done:
+          type: boolean
+          title: Выполнено
+          description: Отметьте, если этот этап "Выполнено"
+        in_progress:
+          type: boolean
+          title: В работе
+          description: Отметьте, если этот этап «в работе»
+        active:
+          type: boolean
+          title: Активно
+          description: Задача активна на этом этапе?
+        index_number:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          description: Порядковый номер этапа. Индексы других экземпляров будут отсортированы
+            автоматически.
+      required:
+      - id
+      - name
+    TaskTag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+          title: Название ярлыка
+        for_content:
+          type: integer
+          readOnly: true
+          title: Ярлык для
+      required:
+      - for_content
+      - id
+      - name
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры
+            и символы @/./+/-/_.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        first_name:
+          type: string
+          title: Имя
+          maxLength: 150
+        last_name:
+          type: string
+          title: Фамилия
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Адрес электронной почты
+          maxLength: 254
+      required:
+      - id
+      - username
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
+servers:
+- url: http://localhost:8000
+  description: Local
+tags:
+- name: Users
+  description: User directory (read-only).
+- name: Tasks
+  description: Task management endpoints.
+- name: Projects
+  description: Project and stages management.
+- name: Deals
+  description: Sales deals operations.
+- name: Leads
+  description: Lead management operations.
+- name: Companies
+  description: Company directory CRUD.
+- name: Contacts
+  description: Contact directory CRUD.
+- name: Task Stages
+  description: Reference list of task stages.
+- name: Project Stages
+  description: Reference list of project stages.
+- name: Stages
+  description: CRM deal stages reference.
+- name: CRM Tags
+  description: CRM object tags.
+- name: Task Tags
+  description: Task tags reference.
+- name: Memos
+  description: Internal memos/notes.
+- name: Chat Messages
+  description: Internal chat messages.
+- name: Call Logs
+  description: Telephony call logs.
+- name: Dashboard
+  description: Aggregated analytics for dashboards.
+- name: Shared
+  description: Common behaviors and mixins.

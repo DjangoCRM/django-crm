@@ -1,0 +1,117 @@
+<div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+  <div class="custom-calendar">
+    <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+  <app-modal
+    [isOpen]="isOpen"
+    (close)="closeModal()"
+    className="max-w-[700px] p-6 lg:p-10"
+  >
+    <div class="flex flex-col px-2 overflow-y-auto custom-scrollbar">
+      <div>
+        <h5 class="mb-2 font-semibold text-gray-800 modal-title text-theme-xl dark:text-white/90 lg:text-2xl">
+          {{ selectedEvent ? 'Edit Event' : 'Add Event' }}
+        </h5>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          Plan your next big moment: schedule or edit an event to stay on track
+        </p>
+      </div>
+      <div class="mt-8">
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+            Event Title
+          </label>
+          <input
+            id="event-title"
+            type="text"
+            [(ngModel)]="eventTitle"
+            class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+          />
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <label class="block mb-4 text-sm font-medium text-gray-700 dark:text-gray-400">
+          Event Color
+        </label>
+        <div class="flex flex-wrap items-center gap-4 sm:gap-5">
+          @for (entry of (calendarsEvents | keyvalue); track $index) {
+            <div
+              class="n-chk"
+            >
+              <div class="form-check form-check-inline" [class]="'form-check-' + entry.value">
+                <label
+                  class="flex items-center text-sm text-gray-700 form-check-label dark:text-gray-400"
+                  [for]="'modal' + entry.key"
+                >
+                  <span class="relative">
+                    <input
+                      class="sr-only form-check-input"
+                      type="radio"
+                      name="event-level"
+                      [value]="entry.key"
+                      [id]="'modal' + entry.key"
+                      [(ngModel)]="eventLevel"
+                    />
+                    <span
+                      class="rounded-full flex items-center justify-center w-5 h-5 mr-2 border border-gray-300 box dark:border-gray-700"
+                    >
+                      <span
+                        class="h-2 w-2 rounded-full bg-white"
+                        [class.block]="eventLevel === entry.key"
+                        [class.hidden]="eventLevel !== entry.key"
+                      ></span>
+                    </span>
+                  </span>
+                  {{ entry.key }}
+                </label>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+          Enter Start Date
+        </label>
+        <input
+          id="event-start-date"
+          type="date"
+          [(ngModel)]="eventStartDate"
+          class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"
+        />
+      </div>
+
+      <div class="mt-6">
+        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+          Enter End Date
+        </label>
+        <input
+          id="event-end-date"
+          type="date"
+          [(ngModel)]="eventEndDate"
+          class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90"
+        />
+      </div>
+
+      <div class="flex items-center gap-3 mt-6 modal-footer sm:justify-end">
+        <button
+          (click)="closeModal()"
+          type="button"
+          class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 sm:w-auto"
+        >
+          Close
+        </button>
+        <button
+          (click)="handleAddOrUpdateEvent()"
+          type="button"
+          class="btn btn-success btn-update-event flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto"
+        >
+          {{ selectedEvent ? 'Update Changes' : 'Add Event' }}
+        </button>
+      </div>
+    </div>
+  </app-modal>
+</div>

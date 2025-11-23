@@ -1,4 +1,0 @@
-prompts:
-  - name: crm
-    description: нужно работать с джанго и фронтенд фреймворками
-    content_file: crm.md

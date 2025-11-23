@@ -1,0 +1,25 @@
+<div class="flex items-center gap-0.5 rounded-lg bg-gray-100 p-0.5 dark:bg-gray-900">
+  <button
+    (click)="setSelected('optionOne')"
+    class="px-3 py-2 font-medium w-full rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white"
+    [ngClass]="getButtonClass('optionOne')"
+  >
+    Monthly
+  </button>
+
+  <button
+    (click)="setSelected('optionTwo')"
+    class="px-3 py-2 font-medium w-full rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white"
+    [ngClass]="getButtonClass('optionTwo')"
+  >
+    Quarterly
+  </button>
+
+  <button
+    (click)="setSelected('optionThree')"
+    class="px-3 py-2 font-medium w-full rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white"
+    [ngClass]="getButtonClass('optionThree')"
+  >
+    Annually
+  </button>
+</div>

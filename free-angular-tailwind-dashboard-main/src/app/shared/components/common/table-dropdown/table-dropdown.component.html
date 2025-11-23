@@ -1,0 +1,18 @@
+<div>
+  <div #buttonRef (click)="toggle()">
+    <ng-content select="[dropdown-button]"></ng-content>
+  </div>
+  <div class="z-10" #contentRef>
+    <div 
+      [ngStyle]="{ display: isOpen ? 'block' : 'none' }" 
+      class="p-2 bg-white border border-gray-200 rounded-2xl shadow-lg dark:border-gray-800 dark:bg-gray-900 w-40"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      <div class="space-y-1">
+        <ng-content select="[dropdown-content]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

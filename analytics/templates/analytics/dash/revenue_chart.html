@@ -1,0 +1,143 @@
+{% load i18n %}
+<div class="revenue-chart-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Revenue Trend" %}</h3>
+        <div class="chart-controls">
+            <button class="chart-btn active" data-period="12">12M</button>
+            <button class="chart-btn" data-period="6">6M</button>
+            <button class="chart-btn" data-period="3">3M</button>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <canvas id="{{ chart_id }}" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('{{ chart_id }}').getContext('2d');
+    const chartData = {{ chart_data|safe }};
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleColor: 'white',
+                    bodyColor: 'white',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    callbacks: {
+                        label: function(context) {
+                            return 'Revenue: $' + context.parsed.y.toLocaleString();
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value.toLocaleString();
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(0,0,0,0.1)'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            elements: {
+                point: {
+                    radius: 4,
+                    hoverRadius: 6
+                },
+                line: {
+                    tension: 0.4
+                }
+            }
+        }
+    });
+});
+</script>
+
+<style>
+.revenue-chart-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    height: 350px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.chart-btn {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.chart-btn:hover {
+    background: #f0f0f0;
+}
+
+.chart-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.chart-container {
+    position: relative;
+    height: 280px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .widget-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .revenue-chart-widget {
+        height: 400px;
+    }
+}
+</style>

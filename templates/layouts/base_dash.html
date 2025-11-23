@@ -1,0 +1,234 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "CRM Analytics Dashboard" %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Dashboard Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 0;
+        }
+        
+        .dashboard-subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .plugin-container {
+            margin-bottom: 2rem;
+        }
+        
+        .plugin-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .plugin-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: white;
+        }
+        
+        .dashboard-nav {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white !important;
+        }
+        
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 2rem;
+            }
+            
+            .dashboard-nav {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="dashboard-title">
+                        <i class="fas fa-chart-line me-3"></i>
+                        {% trans "CRM Analytics Dashboard" %}
+                    </h1>
+                    <p class="dashboard-subtitle">
+                        {% trans "Real-time insights into your sales performance" %}
+                    </p>
+                    
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{% url 'admin:index' %}">
+                                    <i class="fas fa-home me-1"></i>
+                                    {% trans "Admin" %}
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {% trans "Analytics Dashboard" %}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                
+                <div class="col-lg-4">
+                    <!-- Dashboard Navigation -->
+                    <nav class="dashboard-nav">
+                        <ul class="nav nav-pills justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#overview">
+                                    <i class="fas fa-tachometer-alt me-1"></i>
+                                    {% trans "Overview" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#reports">
+                                    <i class="fas fa-chart-bar me-1"></i>
+                                    {% trans "Reports" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin:index' %}">
+                                    <i class="fas fa-cog me-1"></i>
+                                    {% trans "Settings" %}
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Dashboard Content -->
+    <div class="container">
+        {% block content %}
+        <!-- Dashboard plugins will be rendered here -->
+        {% endblock %}
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                &copy; {% now "Y" %} {% trans "CRM Analytics Dashboard" %} - 
+                {% trans "Powered by Django Dash" %}
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Dashboard JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Auto-refresh dashboard every 5 minutes
+            setInterval(function() {
+                if (document.hidden) return;
+                
+                // Only refresh if user is still active
+                const lastActivity = localStorage.getItem('lastActivity');
+                const now = Date.now();
+                if (lastActivity && (now - lastActivity) < 300000) { // 5 minutes
+                    window.location.reload();
+                }
+            }, 300000);
+            
+            // Track user activity
+            ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(function(name) {
+                document.addEventListener(name, function() {
+                    localStorage.setItem('lastActivity', Date.now());
+                }, true);
+            });
+        });
+    </script>
+</body>
+</html>

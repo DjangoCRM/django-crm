@@ -1,0 +1,365 @@
+{% load i18n %}
+<div class="recent-activity-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Recent Activity" %}</h3>
+        <div class="activity-tabs">
+            <button class="tab-btn active" data-tab="deals">{% trans "Deals" %}</button>
+            <button class="tab-btn" data-tab="leads">{% trans "Leads" %}</button>
+            <button class="tab-btn" data-tab="requests">{% trans "Requests" %}</button>
+        </div>
+    </div>
+    
+    <div class="activity-content">
+        <!-- Deals Tab -->
+        <div class="activity-tab active" id="deals-tab">
+            <div class="activity-list">
+                {% for deal in recent_deals %}
+                <div class="activity-item">
+                    <div class="activity-icon deals-icon">🤝</div>
+                    <div class="activity-info">
+                        <div class="activity-title">
+                            <a href="/admin/crm/deal/{{ deal.id }}/" target="_blank">
+                                {{ deal.name|default:"Deal" }} #{{ deal.id }}
+                            </a>
+                        </div>
+                        <div class="activity-meta">
+                            <span class="amount">${{ deal.amount|floatformat:0 }}</span>
+                            {% if deal.contact %}
+                            <span class="contact">{{ deal.contact.full_name }}</span>
+                            {% endif %}
+                            <span class="owner">{% trans "by" %} {{ deal.owner.first_name }} {{ deal.owner.last_name }}</span>
+                        </div>
+                        <div class="activity-time">{{ deal.creation_date|timesince }} {% trans "ago" %}</div>
+                    </div>
+                    <div class="activity-status deal-status">
+                        {{ deal.stage.title|default:"New" }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-activity">{% trans "No recent deals" %}</div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Leads Tab -->
+        <div class="activity-tab" id="leads-tab">
+            <div class="activity-list">
+                {% for lead in recent_leads %}
+                <div class="activity-item">
+                    <div class="activity-icon leads-icon">🎯</div>
+                    <div class="activity-info">
+                        <div class="activity-title">
+                            <a href="/admin/crm/lead/{{ lead.id }}/" target="_blank">
+                                {{ lead.full_name|default:"Lead" }} #{{ lead.id }}
+                            </a>
+                        </div>
+                        <div class="activity-meta">
+                            {% if lead.company_name %}
+                            <span class="company">{{ lead.company_name }}</span>
+                            {% endif %}
+                            {% if lead.lead_source %}
+                            <span class="source">{% trans "from" %} {{ lead.lead_source.name }}</span>
+                            {% endif %}
+                            <span class="owner">{% trans "by" %} {{ lead.owner.first_name }} {{ lead.owner.last_name }}</span>
+                        </div>
+                        <div class="activity-time">{{ lead.creation_date|timesince }} {% trans "ago" %}</div>
+                    </div>
+                    <div class="activity-status lead-status {% if lead.disqualified %}disqualified{% elif lead.was_in_touch %}contacted{% else %}new{% endif %}">
+                        {% if lead.disqualified %}{% trans "Disqualified" %}
+                        {% elif lead.was_in_touch %}{% trans "Contacted" %}
+                        {% else %}{% trans "New" %}{% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-activity">{% trans "No recent leads" %}</div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Requests Tab -->
+        <div class="activity-tab" id="requests-tab">
+            <div class="activity-list">
+                {% for request in recent_requests %}
+                <div class="activity-item">
+                    <div class="activity-icon requests-icon">📋</div>
+                    <div class="activity-info">
+                        <div class="activity-title">
+                            <a href="/admin/crm/request/{{ request.id }}/" target="_blank">
+                                {{ request.subject|default:"Request" }} #{{ request.id }}
+                            </a>
+                        </div>
+                        <div class="activity-meta">
+                            {% if request.contact %}
+                            <span class="contact">{{ request.contact.full_name }}</span>
+                            {% endif %}
+                            <span class="owner">{% trans "by" %} {{ request.owner.first_name }} {{ request.owner.last_name }}</span>
+                        </div>
+                        <div class="activity-time">{{ request.creation_date|timesince }} {% trans "ago" %}</div>
+                    </div>
+                    <div class="activity-status request-status">
+                        {{ request.stage.title|default:"Open" }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-activity">{% trans "No recent requests" %}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.activity-tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabName = this.dataset.tab;
+            
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(tc => tc.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            this.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        });
+    });
+});
+</script>
+
+<style>
+.recent-activity-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.activity-tabs {
+    display: flex;
+    gap: 5px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: #f8f9fa;
+}
+
+.tab-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.activity-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.activity-tab {
+    display: none;
+    height: 100%;
+}
+
+.activity-tab.active {
+    display: block;
+}
+
+.activity-list {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.activity-item:hover {
+    background: #f8f9fa;
+    margin: 0 -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    font-size: 20px;
+    margin-right: 15px;
+    margin-top: 2px;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-title {
+    margin-bottom: 5px;
+}
+
+.activity-title a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.activity-title a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.activity-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.activity-meta span {
+    padding: 2px 6px;
+    background: #e9ecef;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.amount {
+    background: #d4edda !important;
+    color: #155724 !important;
+    font-weight: 500;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.activity-status {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.deal-status {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.lead-status.new {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.lead-status.contacted {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.lead-status.disqualified {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.request-status {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.no-activity {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+    margin-top: 20px;
+}
+
+/* Scrollbar styling */
+.activity-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activity-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.activity-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+@media (max-width: 768px) {
+    .widget-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .activity-tabs {
+        justify-content: center;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .activity-status {
+        align-self: flex-start;
+    }
+    
+    .recent-activity-widget {
+        height: auto;
+        max-height: 400px;
+    }
+}
+</style>

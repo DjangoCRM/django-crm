@@ -1,0 +1,28 @@
+<app-component-card title="Checkbox">
+  <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
+      <app-checkbox
+        [checked]="isChecked"
+        (checkedChange)="isChecked = $event"
+      ></app-checkbox>
+      <span class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+        Default
+      </span>
+    </div>
+    <div class="flex items-center gap-3">
+      <app-checkbox
+        [checked]="isCheckedTwo"
+        (checkedChange)="isCheckedTwo = $event"
+        label="Checked"
+      ></app-checkbox>
+    </div>
+    <div class="flex items-center gap-3">
+      <app-checkbox
+        [checked]="isCheckedDisabled"
+        (checkedChange)="isCheckedDisabled = $event"
+        [disabled]="true"
+        label="Disabled"
+      ></app-checkbox>
+    </div>
+  </div>
+</app-component-card>

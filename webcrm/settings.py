@@ -114,6 +114,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
+
+    # CRM Apps
     'crm.apps.CrmConfig',
     'massmail.apps.MassmailConfig',
     'analytics.apps.AnalyticsConfig',
@@ -233,6 +235,50 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'Versioned API for frontend consumption',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
+    'CONTACT': {
+        'name': 'CRM API Team',
+        'url': 'https://djangocrm.github.io/info/',
+        'email': 'support@example.com',
+    },
+    'LICENSE': {
+        'name': 'MIT License',
+        'url': 'https://opensource.org/licenses/MIT',
+    },
+    'SERVERS': [
+        {'url': 'http://localhost:8000', 'description': 'Local'},
+    ],
+    'SECURITY': [
+        {
+            'tokenAuth': []
+        }
+    ],
+    'TAGS': [
+        {'name': 'Users', 'description': 'User directory (read-only).'},
+        {'name': 'Tasks', 'description': 'Task management endpoints.'},
+        {'name': 'Projects', 'description': 'Project and stages management.'},
+        {'name': 'Deals', 'description': 'Sales deals operations.'},
+        {'name': 'Leads', 'description': 'Lead management operations.'},
+        {'name': 'Companies', 'description': 'Company directory CRUD.'},
+        {'name': 'Contacts', 'description': 'Contact directory CRUD.'},
+        {'name': 'Task Stages', 'description': 'Reference list of task stages.'},
+        {'name': 'Project Stages', 'description': 'Reference list of project stages.'},
+        {'name': 'Stages', 'description': 'CRM deal stages reference.'},
+        {'name': 'CRM Tags', 'description': 'CRM object tags.'},
+        {'name': 'Task Tags', 'description': 'Task tags reference.'},
+        {'name': 'Memos', 'description': 'Internal memos/notes.'},
+        {'name': 'Chat Messages', 'description': 'Internal chat messages.'},
+        {'name': 'Call Logs', 'description': 'Telephony call logs.'},
+        {'name': 'Dashboard', 'description': 'Aggregated analytics for dashboards.'},
+        {'name': 'Shared', 'description': 'Common behaviors and mixins.'},
+    ],
+    'SECURITY_SCHEMES': {
+        'tokenAuth': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization',
+            'description': 'Use header: Authorization: Token <your_token>'
+        }
+    },
 }
 
 # ---- CRM settings ---- #
@@ -382,3 +428,8 @@ CORS_ALLOWED_HEADERS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins in development
+
+#     ('bootstrap_admin', 'Bootstrap Admin'),
+#     ('minimal', 'Minimal'),
+# )
+

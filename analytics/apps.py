@@ -18,3 +18,4 @@ class AnalyticsConfig(AppConfig):
                 self.mss.start()
             except SingleInstanceException:
                 pass
+        

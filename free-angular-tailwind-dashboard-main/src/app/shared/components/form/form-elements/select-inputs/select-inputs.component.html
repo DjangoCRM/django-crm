@@ -1,0 +1,25 @@
+<app-component-card title="Select Inputs">
+  <div class="space-y-6">
+    <div>
+      <app-label>Select Input</app-label>
+      <app-select
+        [options]="options"
+        placeholder="Select Option"
+        [value]="selectedValue"
+        (valueChange)="handleSelectChange($event)"
+        className="dark:bg-dark-900"
+      ></app-select>
+    </div>
+    <div>
+      <app-multi-select
+        label="Multiple Select Options"
+        [options]="multiOptions"
+        [defaultSelected]="selectedValues"
+        (selectionChange)="handleMultiSelectChange($event)"
+      ></app-multi-select>
+      <p class="sr-only">
+        Selected Values: {{ selectedValues.join(', ') }}
+      </p>
+    </div>
+  </div>
+</app-component-card>

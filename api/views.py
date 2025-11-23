@@ -6,6 +6,7 @@ from django.http import HttpResponse
 import csv
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets
+from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiParameter
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -40,6 +41,11 @@ from .serializers import (
 User = get_user_model()
 
 
+@extend_schema(tags=['Call Logs'])
+@extend_schema(
+    tags=['Call Logs'],
+    description='Create and list telephony call logs.'
+)
 class CallLogViewSet(viewsets.ModelViewSet):
     """API endpoint to view and create call logs."""
     serializer_class = CallLogSerializer
@@ -119,6 +125,11 @@ def _get_default_department(user):
     return user.groups.first() if user and user.is_authenticated else None
 
 
+@extend_schema(tags=['Shared'])
+@extend_schema(
+    tags=['Shared'],
+    description='Common owner/co-owner behavior for CRUD viewsets.'
+)
 class OwnedModelViewSet(viewsets.ModelViewSet):
     """Provides common owner/co-owner filtering and default owner assignment."""
 
@@ -174,6 +185,11 @@ class OwnedModelViewSet(viewsets.ModelViewSet):
         serializer.save(**save_kwargs)
 
 
+@extend_schema(tags=['Users'])
+@extend_schema(
+    tags=['Users'],
+    description='Read-only user directory.'
+)
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all().order_by('id')
@@ -192,6 +208,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
         return Response(serializer.data)
 
 
+@extend_schema(tags=['Tasks'])
+@extend_schema(
+    tags=['Tasks'],
+    description='CRUD for tasks with filtering and ordering.'
+)
 class TaskViewSet(OwnedModelViewSet):
     serializer_class = TaskSerializer
     queryset = Task.objects.select_related(
@@ -228,6 +249,11 @@ class TaskViewSet(OwnedModelViewSet):
             task.responsible.add(self.request.user)
 
 
+@extend_schema(tags=['Projects'])
+@extend_schema(
+    tags=['Projects'],
+    description='CRUD for projects and related filtering.'
+)
 class ProjectViewSet(OwnedModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.select_related(
@@ -367,6 +393,11 @@ class ProjectViewSet(OwnedModelViewSet):
         return response
 
 
+@extend_schema(tags=['Deals'])
+@extend_schema(
+    tags=['Deals'],
+    description='CRUD for CRM deals with ownership rules.'
+)
 class DealViewSet(OwnedModelViewSet):
     serializer_class = DealSerializer
     queryset = Deal.objects.select_related(
@@ -384,7 +415,7 @@ class DealViewSet(OwnedModelViewSet):
         'department',
     ).prefetch_related('tags').order_by('-update_date')
     co_owner_field = 'co_owner'
-    filterset_fields = ['company', 'stage', 'active', 'relevant', 'owner', 'co_owner', 'lead', 'contact']
+    filterset_fields = ['company', 'stage', 'active', 'relevant', 'owner', 'co_owner', 'lead', 'contact', 'department']
     search_fields = [
         'name',
         'next_step',
@@ -426,6 +457,11 @@ class DealViewSet(OwnedModelViewSet):
         serializer.save(**save_kwargs)
 
 
+@extend_schema(tags=['Leads'])
+@extend_schema(
+    tags=['Leads'],
+    description='CRUD for CRM leads with filtering and conversion actions.'
+)
 class LeadViewSet(OwnedModelViewSet):
     serializer_class = LeadSerializer
     queryset = Lead.objects.select_related(
@@ -576,6 +612,11 @@ class LeadViewSet(OwnedModelViewSet):
         })
 
 
+@extend_schema(tags=['Companies'])
+@extend_schema(
+    tags=['Companies'],
+    description='CRUD for companies with search and filters.'
+)
 class CompanyViewSet(OwnedModelViewSet):
     serializer_class = CompanySerializer
     queryset = Company.objects.select_related(
@@ -604,6 +645,11 @@ class CompanyViewSet(OwnedModelViewSet):
         serializer.save(**save_kwargs)
 
 
+@extend_schema(tags=['Contacts'])
+@extend_schema(
+    tags=['Contacts'],
+    description='CRUD for contacts with search and filters.'
+)
 class ContactViewSet(OwnedModelViewSet):
     serializer_class = ContactSerializer
     queryset = Contact.objects.select_related(
@@ -632,6 +678,11 @@ class ContactViewSet(OwnedModelViewSet):
         serializer.save(**save_kwargs)
 
 
+@extend_schema(tags=['Task Stages'])
+@extend_schema(
+    tags=['Task Stages'],
+    description='Reference list of task stages.'
+)
 class TaskStageViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TaskStageSerializer
     queryset = TaskStage.objects.all().order_by('index_number')
@@ -640,6 +691,11 @@ class TaskStageViewSet(viewsets.ReadOnlyModelViewSet):
     ordering_fields = ['index_number', 'name']
 
 
+@extend_schema(tags=['Project Stages'])
+@extend_schema(
+    tags=['Project Stages'],
+    description='Reference list of project stages.'
+)
 class ProjectStageViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ProjectStageSerializer
     queryset = ProjectStage.objects.all().order_by('index_number')
@@ -648,6 +704,11 @@ class ProjectStageViewSet(viewsets.ReadOnlyModelViewSet):
     ordering_fields = ['index_number', 'name']
 
 
+@extend_schema(tags=['Stages'])
+@extend_schema(
+    tags=['Stages'],
+    description='Reference list of CRM deal stages.'
+)
 class StageViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = StageSerializer
     queryset = Stage.objects.all().order_by('index_number')
@@ -665,6 +726,11 @@ class StageViewSet(viewsets.ReadOnlyModelViewSet):
         return qs.filter(department__in=departments)
 
 
+@extend_schema(tags=['CRM Tags'])
+@extend_schema(
+    tags=['CRM Tags'],
+    description='Reference list of CRM tags.'
+)
 class CrmTagViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CrmTagSerializer
     queryset = CrmTag.objects.select_related('owner', 'department').all().order_by('name')
@@ -682,6 +748,11 @@ class CrmTagViewSet(viewsets.ReadOnlyModelViewSet):
         return qs.filter(Q(department__in=departments) | Q(owner=user))
 
 
+@extend_schema(tags=['Task Tags'])
+@extend_schema(
+    tags=['Task Tags'],
+    description='Reference list of task tags.'
+)
 class TaskTagViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TaskTagSerializer
     queryset = TaskTag.objects.select_related('for_content').all().order_by('name')
@@ -698,6 +769,11 @@ class TaskTagViewSet(viewsets.ReadOnlyModelViewSet):
         return qs
 
 
+@extend_schema(tags=['Memos'])
+@extend_schema(
+    tags=['Memos'],
+    description='CRUD for memos; includes archive and postpone actions.'
+)
 class MemoViewSet(OwnedModelViewSet):
     """
     ViewSet for managing memos (office memos/notes).
@@ -761,6 +837,11 @@ class MemoViewSet(OwnedModelViewSet):
         return Response({'status': 'memo marked as postponed'})
 
 
+@extend_schema(tags=['Chat Messages'])
+@extend_schema(
+    tags=['Chat Messages'],
+    description='Create, list, and manage internal chat messages.'
+)
 class ChatMessageViewSet(viewsets.ModelViewSet):
     """
     ViewSet for managing chat messages.
@@ -829,26 +910,63 @@ class ChatMessageViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
+# Common helpers for Dashboard filters (period/owner/department)
+
+def _parse_period(params):
+    """Return date_from based on period param (7d,30d,90d) else None."""
+    period = params.get('period', '').lower()
+    now = timezone.now()
+    if period == '7d':
+        return now - timedelta(days=7)
+    if period == '30d':
+        return now - timedelta(days=30)
+    if period == '90d':
+        return now - timedelta(days=90)
+    return None
+
+
+def _apply_owner_department_filters(qs, request):
+    owner = request.query_params.get('owner')
+    department = request.query_params.get('department')
+    if owner:
+        qs = qs.filter(owner_id=owner)
+    if department:
+        qs = qs.filter(department_id=department)
+    return qs
+
+
 # Dashboard Analytics Endpoint
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
+@extend_schema(
+    tags=['Dashboard'],
+    description='Returns KPI metrics for dashboard. Filters: period(7d|30d|90d), owner, department.',
+    parameters=[
+        OpenApiParameter(name='period', description='Time window', required=False, type=str, examples=[
+            OpenApiExample('7d', value='7d'),
+            OpenApiExample('30d', value='30d'),
+            OpenApiExample('90d', value='90d'),
+        ]),
+        OpenApiParameter(name='owner', description='Filter by owner id', required=False, type=int),
+        OpenApiParameter(name='department', description='Filter by department id', required=False, type=int),
+    ],
+)
 def dashboard_analytics(request):
     """
     Provides analytics data for the dashboard including monthly growth stats
     and task metrics.
+    Supports filters: period(7d|30d|90d), owner, department.
     """
     user = request.user
-    now = timezone.now()
-    thirty_days_ago = now - timedelta(days=30)
-    
-    # Filter data based on user permissions
+    date_from = _parse_period(request.query_params)
+
+    # Base QuerySets with RBAC scope
     if user.is_superuser or user.is_staff:
         contacts_qs = Contact.objects.all()
         companies_qs = Company.objects.all()
         deals_qs = Deal.objects.all()
         tasks_qs = Task.objects.all()
     else:
-        # Filter by user's department or ownership
         departments = user.groups.all()
         contacts_qs = Contact.objects.filter(Q(owner=user) | Q(department__in=departments))
         companies_qs = Company.objects.filter(Q(owner=user) | Q(department__in=departments))
@@ -856,29 +974,40 @@ def dashboard_analytics(request):
         tasks_qs = Task.objects.filter(
             Q(owner=user) | Q(co_owner=user) | Q(responsible=user) | Q(subscribers=user)
         )
-    
-    # Calculate monthly growth (items created in the last 30 days)
-    contacts_growth = contacts_qs.filter(creation_date__gte=thirty_days_ago).count()
-    companies_growth = companies_qs.filter(creation_date__gte=thirty_days_ago).count()
-    deals_growth = deals_qs.filter(creation_date__gte=thirty_days_ago).count()
-    
+
+    # Apply owner/department filters from query
+    contacts_qs = _apply_owner_department_filters(contacts_qs, request)
+    companies_qs = _apply_owner_department_filters(companies_qs, request)
+    deals_qs = _apply_owner_department_filters(deals_qs, request)
+    tasks_qs = _apply_owner_department_filters(tasks_qs, request)
+
+    # Apply period filter
+    if date_from:
+        contacts_qs = contacts_qs.filter(creation_date__gte=date_from)
+        companies_qs = companies_qs.filter(creation_date__gte=date_from)
+        deals_qs = deals_qs.filter(creation_date__gte=date_from)
+        tasks_qs = tasks_qs.filter(creation_date__gte=date_from)
+
+    contacts_growth = contacts_qs.count()
+    companies_growth = companies_qs.count()
+    deals_growth = deals_qs.count()
+
     # Task metrics
-    active_tasks = tasks_qs.filter(active=True).count()
     today = timezone.now().date()
-    overdue_tasks = tasks_qs.filter(
-        active=True,
-        due_date__lt=today
-    ).count()
-    
+    active_tasks = tasks_qs.filter(active=True).count()
+    overdue_tasks = tasks_qs.filter(active=True, due_date__lt=today).count()
+
+    # Compose simple series for revenue/deals/leads if needed (placeholder)
+    # The frontend tolerates absence; we return minimal structure.
     return Response({
         'monthly_growth': {
             'contacts': contacts_growth,
             'companies': companies_growth,
-            'deals': deals_growth
+            'deals': deals_growth,
         },
         'tasks': {
             'active': active_tasks,
-            'overdue': overdue_tasks
+            'overdue': overdue_tasks,
         }
     })
 
@@ -886,6 +1015,17 @@ def dashboard_analytics(request):
 # Dashboard Activity Feed Endpoint
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
+@extend_schema(
+    tags=['Dashboard'],
+    description='Returns recent activity feed. Supports filters: owner, department, limit.',
+    parameters=[
+        OpenApiParameter(name='owner', description='Filter by owner id', required=False, type=int),
+        OpenApiParameter(name='department', description='Filter by department id', required=False, type=int),
+        OpenApiParameter(name='limit', description='Max items to return', required=False, type=int, examples=[
+            OpenApiExample('20', value=20),
+        ]),
+    ],
+)
 def dashboard_activity(request):
     """
     Provides a real-time activity feed showing recent changes across the CRM.
@@ -961,3 +1101,60 @@ def dashboard_activity(request):
     activities.sort(key=lambda x: x['timestamp'], reverse=True)
     
     return Response(activities[:limit])
+
+
+# Dashboard Funnel Endpoint
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@extend_schema(
+    tags=['Dashboard'],
+    description='Returns sales funnel data grouped by stage. Filters: period(7d|30d|90d), owner, department.',
+    parameters=[
+        OpenApiParameter(name='period', description='Time window', required=False, type=str, examples=[
+            OpenApiExample('7d', value='7d'),
+            OpenApiExample('30d', value='30d'),
+            OpenApiExample('90d', value='90d'),
+        ]),
+        OpenApiParameter(name='owner', description='Filter by owner id', required=False, type=int),
+        OpenApiParameter(name='department', description='Filter by department id', required=False, type=int),
+    ],
+    examples=[
+        OpenApiExample(
+            'FunnelExample',
+            summary='Funnel by stage',
+            value=[
+                {'label': 'New', 'value': 12},
+                {'label': 'Qualified', 'value': 7},
+                {'label': 'Won', 'value': 3},
+            ],
+        )
+    ],
+)
+def dashboard_funnel(request):
+    """
+    Returns sales funnel data as a list of {label, value} by deal stage.
+    Supports filters: period(7d|30d|90d), owner, department.
+    RBAC: non-staff users see only owned/co-owned deals.
+    """
+    user = request.user
+    date_from = _parse_period(request.query_params)
+
+    # Base queryset with RBAC scope
+    if user.is_superuser or user.is_staff:
+        qs = Deal.objects.all()
+    else:
+        qs = Deal.objects.filter(Q(owner=user) | Q(co_owner=user))
+
+    qs = _apply_owner_department_filters(qs, request)
+    if date_from:
+        qs = qs.filter(creation_date__gte=date_from)
+
+    # Group by stage and count
+    stages = Stage.objects.all().order_by('index_number')
+    data = []
+    stage_counts = qs.values('stage').annotate(cnt=Count('id'))
+    count_map = {row['stage']: row['cnt'] for row in stage_counts}
+    for st in stages:
+        data.append({'label': st.name, 'value': count_map.get(st.id, 0)})
+
+    return Response(data)

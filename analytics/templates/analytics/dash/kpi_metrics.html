@@ -1,0 +1,206 @@
+{% load i18n %}
+<div class="kpi-metrics-widget">
+    <div class="widget-header">
+        <h3 class="widget-title">{% trans "Key Performance Indicators" %}</h3>
+        <div class="period-info">
+            <span class="current-period">{{ current_month }}</span>
+            <span class="vs">vs</span>
+            <span class="previous-period">{{ previous_month }}</span>
+        </div>
+    </div>
+    
+    <div class="kpi-grid">
+        <div class="kpi-card revenue">
+            <div class="kpi-header">
+                <span class="kpi-icon">💰</span>
+                <span class="kpi-title">{% trans "Revenue" %}</span>
+            </div>
+            <div class="kpi-value">${{ current_revenue|floatformat:0 }}</div>
+            <div class="kpi-change {% if revenue_change >= 0 %}positive{% else %}negative{% endif %}">
+                <span class="change-icon">{% if revenue_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                <span class="change-value">{{ revenue_change|floatformat:1 }}%</span>
+                <span class="change-label">{% trans "from last month" %}</span>
+            </div>
+        </div>
+        
+        <div class="kpi-card deals">
+            <div class="kpi-header">
+                <span class="kpi-icon">🤝</span>
+                <span class="kpi-title">{% trans "Deals Won" %}</span>
+            </div>
+            <div class="kpi-value">{{ current_deals }}</div>
+            <div class="kpi-change {% if deals_change >= 0 %}positive{% else %}negative{% endif %}">
+                <span class="change-icon">{% if deals_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                <span class="change-value">{{ deals_change|floatformat:1 }}%</span>
+                <span class="change-label">{% trans "from last month" %}</span>
+            </div>
+        </div>
+        
+        <div class="kpi-card leads">
+            <div class="kpi-header">
+                <span class="kpi-icon">🎯</span>
+                <span class="kpi-title">{% trans "New Leads" %}</span>
+            </div>
+            <div class="kpi-value">{{ current_leads }}</div>
+            <div class="kpi-change {% if leads_change >= 0 %}positive{% else %}negative{% endif %}">
+                <span class="change-icon">{% if leads_change >= 0 %}↗{% else %}↘{% endif %}</span>
+                <span class="change-value">{{ leads_change|floatformat:1 }}%</span>
+                <span class="change-label">{% trans "from last month" %}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.kpi-metrics-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.widget-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.period-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.current-period {
+    font-weight: 500;
+    color: #333;
+}
+
+.vs {
+    color: #666;
+    font-style: italic;
+}
+
+.previous-period {
+    color: #666;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.kpi-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #007bff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.kpi-card.revenue { border-left-color: #28a745; }
+.kpi-card.deals { border-left-color: #007bff; }
+.kpi-card.leads { border-left-color: #ffc107; }
+
+.kpi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.kpi-icon {
+    font-size: 24px;
+}
+
+.kpi-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.kpi-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.kpi-change {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.kpi-change.positive {
+    color: #28a745;
+}
+
+.kpi-change.negative {
+    color: #dc3545;
+}
+
+.change-icon {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.change-value {
+    font-weight: 600;
+}
+
+.change-label {
+    color: #666;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .widget-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .kpi-value {
+        font-size: 28px;
+    }
+}
+</style>

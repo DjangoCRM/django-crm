@@ -1,0 +1,28 @@
+<div>
+  <app-component-card title="Vertically Centered Modal">
+    <app-button size="sm" (btnClick)="openModal()">
+      Open Modal
+    </app-button>
+
+    <app-modal [isOpen]="isOpen" (close)="closeModal()" className="max-w-[507px] p-6 lg:p-10" [showCloseButton]="false">
+      <div class="text-center">
+        <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
+          All Done! Success Confirmed
+        </h4>
+        <p class="text-sm leading-6 text-gray-500 dark:text-gray-400">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Pellentesque euismod est quis mauris lacinia pharetra.
+        </p>
+
+        <div class="flex items-center justify-center w-full gap-3 mt-8">
+          <app-button size="sm" variant="outline" (btnClick)="closeModal()">
+            Close
+          </app-button>
+          <app-button size="sm" (btnClick)="closeModal()">
+            Save Changes
+          </app-button>
+        </div>
+      </div>
+    </app-modal>
+  </app-component-card>
+</div>
