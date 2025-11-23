@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Handling for recipients who did not receive mailings in newsletters subscriptions.
 - VIP status filter to enhance recipient filtering options (Company, Contact, Lead).
+- Remove VIP status action to Company, Contact, and Lead.
 
 ### Improved
 
 - Hide the unused "+ Add" button for User profile on the CRM home pages.
+- The task reminder test
 
 ## [1.6.1] - 2025-10-31
 
