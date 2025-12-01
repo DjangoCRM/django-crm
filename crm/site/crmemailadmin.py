@@ -2,7 +2,8 @@ import threading
 from django.contrib import admin
 from django.contrib import messages
 from django.db.models import IntegerField
-from django.db.models import OuterRef, Subquery
+from django.db.models import OuterRef
+from django.db.models import Subquery
 from django.http import HttpResponseRedirect
 from django.template.defaultfilters import linebreaks
 from django.urls import reverse
@@ -197,6 +198,8 @@ class CrmEmailAdmin(CrmModelAdmin):
                     fields.remove('bcc')
                 fields.append('readonly_content')
             else:
+                if obj.deal and obj.deal.partner_contact and not obj.sent:
+                    fields.insert(1, 'attention')
                 fields.append('read_receipt')
                 
                 if obj.owner and request.user != obj.owner:
@@ -244,7 +247,7 @@ class CrmEmailAdmin(CrmModelAdmin):
             'modified_by', 'uid', 'creation_date',
             'readonly_content', 'readonly_prev_corr',
             'attachment', 'person', 'the_creation_date',
-            'the_subject', 'signature_preview',
+            'the_subject', 'signature_preview', 'attention'
         ]
         if obj:
             readonly_fields.extend(('owner', 'ticket',))
@@ -347,6 +350,15 @@ class CrmEmailAdmin(CrmModelAdmin):
 
     # -- ModelAdmin callables -- #
 
+    @admin.display(
+        description=mark_safe(
+            '<i class="material-icons" style="color: var(--orange-fg)">info_outline</i>'
+        ))
+    def attention(self, obj):
+        msg = _('Attention! This deal involves a partner. Please ensure the recipient is correct.')
+        html_msg = f'<span style="color: var(--orange-fg)">{msg}</span>'
+        return mark_safe(html_msg)
+    
     @admin.display(description=_('Box'))
     def box(self, obj):
         parameter_name = MailboxFilter.parameter_name
