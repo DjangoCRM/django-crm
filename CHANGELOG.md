@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Handling for recipients who did not receive mailings in newsletters subscriptions.
 - VIP status filter to enhance recipient filtering options (Company, Contact, Lead).
 - Remove VIP status action to Company, Contact, and Lead.
+- Warning when creating an email about a deal involving a partner.
 
 ### Improved
 
