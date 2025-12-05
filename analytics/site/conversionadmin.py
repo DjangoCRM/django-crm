@@ -54,7 +54,10 @@ class ConversionStatAdmin(BaseRequestStatAdmin):
             total_won_deals,
             'receipt_date'
         )
-        title = mark_safe(_('Conversion') + f' ({conversion} %)<br><br>' + _('Total requests') + f' = {total_requests_count}')
+        title = mark_safe(
+            f"{_('Conversion')} ({conversion} %)<br><br>"
+            f"{_('Total requests')} = {total_requests_count}"
+        )
         conversion_over_time = list(map(
             lambda x, y:
             {
