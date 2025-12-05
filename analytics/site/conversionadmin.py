@@ -97,7 +97,10 @@ class ConversionStatAdmin(BaseRequestStatAdmin):
         )
         self.add_chart_data(
             response,
-            mark_safe(f"{conversion_of_primary_requests_str} ({primary_conversion} %)<br><br>" + _('Total primary requests') + f" = {primary_requests_count}"),
+            mark_safe(
+                f"{conversion_of_primary_requests_str} ({primary_conversion} %)<br><br>"
+                f"{_('Total primary requests')} = {primary_requests_count}"
+            ),
             primary_conversion_over_time,
             max_value2
         )
