@@ -2,6 +2,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models.query import QuerySet
 from django.template.response import TemplateResponse
 from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import mark_safe
 
 from analytics.site.requeststatadmin import BaseRequestStatAdmin
 from analytics.utils.helpers import get_values_over_time
@@ -53,7 +54,10 @@ class ConversionStatAdmin(BaseRequestStatAdmin):
             total_won_deals,
             'receipt_date'
         )
-        title = _('Conversion') + f' ({conversion} %)'
+        title = mark_safe(
+            f"{_('Conversion')} ({conversion} %)<br><br>"
+            f"{_('Total requests')} = {total_requests_count}"
+        )
         conversion_over_time = list(map(
             lambda x, y:
             {
@@ -93,7 +97,10 @@ class ConversionStatAdmin(BaseRequestStatAdmin):
         )
         self.add_chart_data(
             response,
-            f"{conversion_of_primary_requests_str} ({primary_conversion} %)",
+            mark_safe(
+                f"{conversion_of_primary_requests_str} ({primary_conversion} %)<br><br>"
+                f"{_('Total primary requests')} = {primary_requests_count}"
+            ),
             primary_conversion_over_time,
             max_value2
         )
