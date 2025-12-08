@@ -82,7 +82,7 @@ The CRM software suite consists of the following **main applications** and their
   - Project (*tasks collection*):
   - ... (+ *4 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/tasks/models" target="_blank">models</a>*)
 - **CRM app**:
-  - Requests (*commercial inquiries*)
+  - Requests (*commercial inquiries or cases/incidents*)
   - Leads (*potential customers*)
   - Companies
   - Contact persons (*associated with their companies*)
