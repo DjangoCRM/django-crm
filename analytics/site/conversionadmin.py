@@ -9,6 +9,7 @@ from analytics.utils.helpers import get_values_over_time
 
 
 class ConversionStatAdmin(BaseRequestStatAdmin):
+    change_list_template = 'analytics/conversion_summary_change_list.html'
     page_title = _("Conversion of requests into successful deals (for the last 365 days)")
 
     # -- custom methods -- #
