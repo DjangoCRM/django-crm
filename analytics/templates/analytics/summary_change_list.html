@@ -6,8 +6,8 @@
 {% block result_list %}
 <div>
 	{% for n, v in summary.items %}
-	<p>{{ n }} = {{ v }}</p>
-	{% endfor %}
+    <p>{{ n }} = {{ v }}</p>
+    {% endfor %}
 	{% include "analytics/data_table.html" %}
 	{% include "analytics/bar_chart.html" %}
 </div>  
