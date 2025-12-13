@@ -19,7 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Improved
 
-- Hide the unused "+ Add" button for User profile on the CRM home pages.
+- Hide the unused "+ Add" button for User profile on the CRM home pages by @Daksh2000.
+- Hide the unused "+ Add" button for Mailing Outs on the CRM home pages by @jroneel.
 - The task reminder test
 
 ## [1.6.1] - 2025-10-31
