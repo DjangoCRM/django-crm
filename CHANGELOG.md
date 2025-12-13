@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [1.7.0] - 2025-12-13
 
 ### Added
 
@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hide the unused "+ Add" button for User profile on the CRM home pages by @Daksh2000.
 - Hide the unused "+ Add" button for Mailing Outs on the CRM home pages by @jroneel.
 - The task reminder test
+
+### Full Changelog: [v1.6.1...v1.7.0](https://github.com/DjangoCRM/django-crm/compare/v1.6.1...v1.7.0)
 
 ## [1.6.1] - 2025-10-31
 
