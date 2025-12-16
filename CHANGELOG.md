@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+<!-- ## Unreleased -->
+
+## Improved
+
+- Conversion results report revised by @tibisabau 
+
 ## [1.7.0] - 2025-12-13
 
 ### Added
