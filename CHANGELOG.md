@@ -12,7 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Improved
 
-- Conversion results report revised by @tibisabau 
+- Conversion results report revised by @tibisabau
+
+### Added
+
+- Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 
 ## [1.7.0] - 2025-12-13
 
