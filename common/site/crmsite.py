@@ -7,7 +7,8 @@ from django.db.models import Q
 from django.template.response import TemplateResponse
 from django.urls import NoReverseMatch
 from django.urls import reverse
-from django.utils.timezone import localtime, now
+from django.utils.timezone import localtime
+from django.utils.timezone import now
 from django.utils.translation import get_language
 from django.utils.safestring import mark_safe
 
@@ -286,7 +287,7 @@ def get_help_url(request) -> str:
     """
     Return the URL of the help page for the current language or English.
     """
-    help_url = app_label = model = page = ''  # index/home page
+    help_url = app_label = model = page_type = ''  # index/home page
     index_url = reverse('site:index')
     path = request.path_info.replace(index_url, '').split('?')
     if path[0]:
@@ -297,20 +298,17 @@ def get_help_url(request) -> str:
                 model = params[1]  # page of model
                 if model:
                     model = model.title()
-                    page = 'l'
+                    page_type = 'l' # list page
                     if params[2] or app_label == 'analytics':
-                        page = 'i'
+                        page_type = 'i' # instance page
             except IndexError:
                 pass  # page of app
-    pages = Page.objects.filter(
+    page = Page.objects.filter(
         app_label=app_label,
         model=model,
-        page=page,
+        page=page_type,
         main=True  # always true
-    )
-    current_lang = pages.filter(language_code=get_language()).first()
-    en_lang = pages.filter(language_code='en').first()
-    page = current_lang or en_lang
+    ).filter(language_code__in=[get_language(), 'en']).first()
     if page:
         help_url = page.get_url(request.user)
     return help_url
