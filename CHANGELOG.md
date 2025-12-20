@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Improved
 
 - Conversion results report revised by @tibisabau
+- The `get_help_url` function for obtaining the help url with a single database query.
 
 ### Added
 
