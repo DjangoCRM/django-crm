@@ -291,6 +291,13 @@ INDEX_TITLE = _('Main Menu')
 # Allow mailing
 MAILING = True
 
+# Name prefixes to be processed in full names. Rewrite or supplement if necessary.
+NAME_PREFIXES = [
+    "Mr.", "Mrs.", "Ms.", "Miss", "Mx.", "Dr.", "Prof.", "Eng.", "Md.",
+    "PhD", "Ph.D.", "Rev.", "Fr.", "Sr.", "Sra.", "Sir", "Lady", "Hon.",
+    "Capt.", "Col.", "Lt.", "Maj.", "Gen.", "Judge", "Mister", "Mme.", "Mlle."
+]
+
 # This is copyright information. Please don't change it!
 COPYRIGHT_STRING = f"Django-CRM. Copyright (c) {dt.now().year}"
 PROJECT_NAME = "Django-CRM"
