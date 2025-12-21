@@ -2,12 +2,11 @@
 
 All notable changes to the [Django CRM project](https://github.com/DjangoCRM/django-crm) will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+_The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)._
 
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
-
 <!-- ## Unreleased -->
 
 ## Improved
@@ -18,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Name prefix setting for parsing full names.
 - Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 
 ## [1.7.0] - 2025-12-13
