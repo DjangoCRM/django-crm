@@ -6,7 +6,6 @@ from crm.models import Contact
 from crm.models import Lead
 from crm.models import Request
 
-
 # manage.py test tests.common.utils.test_parse_full_name
 
 
@@ -23,20 +22,18 @@ class TestParseFullName(SimpleTestCase):
     def test_first_name_and_last_name(self):
         full_name = "Mark Twain"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Mark")
-        self.assertEqual(last_name, "Twain")
-        self.assertEqual(middle_name, "")
+        self.assertEqual("Mark", first_name)
+        self.assertEqual("Twain", last_name)
+        self.assertEqual("", middle_name)
 
     def test_full_name(self):
         full_name = """Pablo Diego José Francisco 
         de Paula Juan Nepomuceno Ruiz Picasso"""
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(
-            middle_name,
-            "Diego José Francisco de Paula Juan Nepomuceno Ruiz"
-        )
+        self.assertEqual("Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("Diego José Francisco de Paula Juan Nepomuceno Ruiz",
+            middle_name)
 
     def test_obj_contacts_name(self):
         for model in (Contact, Lead, Request):
@@ -45,70 +42,74 @@ class TestParseFullName(SimpleTestCase):
                 last_name="de Paula Juan Nepomuceno Ruiz Picasso"
             )
             parse_contacts_name(obj)
-            self.assertEqual(obj.first_name, "Pablo")
-            self.assertEqual(obj.last_name, "Picasso")
-            self.assertEqual(
-                obj.middle_name,
-                "Diego José Francisco de Paula Juan Nepomuceno Ruiz"
-            )
+            self.assertEqual("Pablo", obj.first_name)
+            self.assertEqual("Picasso", obj.last_name)
+            self.assertEqual("Diego José Francisco de Paula Juan Nepomuceno Ruiz",
+                obj.middle_name)
 
     def test_name_prefix(self):
         full_name = "Mr. Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Mr. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
+        self.assertEqual("Mr. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
 
         full_name = "Mr Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Mr Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")        
-        
+        self.assertEqual("Mr Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "mr.Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Mr. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-        
+        self.assertEqual("Mr. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Ms.Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Ms. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")   
-        
+        self.assertEqual("Ms. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Mrs.Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Mrs. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-        
+        self.assertEqual("Mrs. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Miss Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Miss Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-        
+        self.assertEqual("Miss Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Md. Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Md. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-         
+        self.assertEqual("Md. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Dr. Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Dr. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-         
+        self.assertEqual("Dr. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "PhD. Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "PhD. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
-         
+        self.assertEqual("PhD. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
+        full_name = "Ph.D. Pablo Picasso"
+        first_name, middle_name, last_name = parse_full_name(full_name)
+        self.assertEqual("Ph.D. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
+
         full_name = "Eng. Pablo Picasso"
         first_name, middle_name, last_name = parse_full_name(full_name)
-        self.assertEqual(first_name, "Eng. Pablo")
-        self.assertEqual(last_name, "Picasso")
-        self.assertEqual(middle_name, "")
+        self.assertEqual("Eng. Pablo", first_name)
+        self.assertEqual("Picasso", last_name)
+        self.assertEqual("", middle_name)
