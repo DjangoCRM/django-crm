@@ -18,6 +18,7 @@ from common.utils.helpers import LEADERS
 from crm.models import CrmEmail
 from crm.models import Request
 from help.models import Page
+from common.site.help_url_data import HELP_URLS
 from tasks.models import Memo
 from tasks.models import Task
 
@@ -290,25 +291,53 @@ def get_help_url(request) -> str:
     help_url = app_label = model = page_type = ''  # index/home page
     index_url = reverse('site:index')
     path = request.path_info.replace(index_url, '').split('?')
-    if path[0]:
-        params = path[0].split('/')
-        app_label = params[0]
-        if app_label:
-            try:
-                model = params[1]  # page of model
-                if model:
-                    model = model.title()
-                    page_type = 'l' # list page
-                    if params[2] or app_label == 'analytics':
-                        page_type = 'i' # instance page
-            except IndexError:
-                pass  # page of app
-    page = Page.objects.filter(
-        app_label=app_label,
-        model=model,
-        page=page_type,
-        main=True  # always true
-    ).filter(language_code__in=[get_language(), 'en']).first()
-    if page:
-        help_url = page.get_url(request.user)
+    if getattr(settings, 'WEB_HELP', False):
+        if path[0]:
+            params = path[0].split('/')
+            app_label = params[0]
+            if app_label:
+                try:
+                    model = params[1]  # page of model
+                    if model:
+                        page_type = 'l'  # list page
+                        if params[2]:
+                            if 'add' in params:
+                                page_type = 'a'  # add page
+                            elif 'delete' in params:
+                                page_type = 'd'  # delete page
+                            else:
+                                page_type = 'i'  # instance page
+                except IndexError:
+                    pass  # page of app
+        params = f"/{app_label}/{model}/{page_type}/"
+        # Current language help url
+        key = f"{get_language()}{params}"
+        # Default language help url
+        key_default = f"{settings.LANGUAGE_CODE}{params}"
+        # Fallback to English help url
+        key_en = f"en{params}"
+        help_url = HELP_URLS.get(key) or HELP_URLS.get(key_default) or HELP_URLS.get(key_en, '')
+    else:
+        if path[0]:
+            params = path[0].split('/')
+            app_label = params[0]
+            if app_label:
+                try:
+                    model = params[1]  # page of model
+                    if model:
+                        model = model.title()
+                        page_type = 'l' # list page
+                        if params[2] or app_label == 'analytics':
+                            page_type = 'i' # instance page
+                except IndexError:
+                    pass  # page of app
+        page = Page.objects.filter(
+            app_label=app_label,
+            model=model,
+            page=page_type,
+            main=True  # always true
+        ).filter(language_code__in=[get_language(), 'en']).first()
+        if page:
+            help_url = page.get_url(request.user)
+    
     return help_url
