@@ -7,17 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
-<!-- ## Unreleased -->
 
-## Improved
+## Unreleased
 
-- Conversion results report revised by @tibisabau
+### Improved
+
+- Conversion results report revised by @tibisabau.
 - Enhance full name parsing with configurable name prefixes.
 - The `get_help_url` function for obtaining the help url with a single database query.
 
 ### Added
 
 - Name prefix setting for parsing full names.
+- Configure the choice between using external help pages and built-in help (deprecated).
+- Mapping external help URLs to CRM Pages.
 - Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 
 ## [1.7.0] - 2025-12-13
