@@ -298,6 +298,9 @@ NAME_PREFIXES = [
     "Capt.", "Col.", "Lt.", "Maj.", "Gen.", "Judge", "Mister", "Mme.", "Mlle."
 ]
 
+# Using external help pages or built-in help (deprecated).
+WEB_HELP = True
+
 # This is copyright information. Please don't change it!
 COPYRIGHT_STRING = f"Django-CRM. Copyright (c) {dt.now().year}"
 PROJECT_NAME = "Django-CRM"
