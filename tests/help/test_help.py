@@ -62,7 +62,7 @@ class TestHelp(BaseTestCase):
         paragraph.groups.set((cls.managers_group,))
 
     def setUp(self):
-        print("Run Test Method:", self._testMethodName)
+        print(" Run Test Method:", self._testMethodName)
 
     def test_add_help_page(self):
         # add help page through form
@@ -93,14 +93,16 @@ class TestHelp(BaseTestCase):
 
     def test_availability_for_managers(self):
         self.client.force_login(self.manager)
-        response = self.client.get(self.deal_changelist_url, follow=True)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
-        url = reverse("site:help_page_change", args=(self.page.id,))
-        self.assertContains(response, url, status_code=200)
+        with self.settings(WEB_HELP=False):
+            response = self.client.get(self.deal_changelist_url, follow=True)
+            self.assertEqual(response.status_code, 200, response.reason_phrase)
+            url = reverse("site:help_page_change", args=(self.page.id,))
+            self.assertContains(response, url, status_code=200)
 
     def test_inaccessibility_for_chiefs(self):
         self.client.force_login(self.chief)
-        response = self.client.get(self.deal_changelist_url, follow=True)
-        self.assertEqual(response.status_code, 200, response.reason_phrase)
-        url = reverse("site:help_page_change", args=(self.page.id,))
-        self.assertNotContains(response, url, status_code=200)
+        with self.settings(WEB_HELP=False):
+            response = self.client.get(self.deal_changelist_url, follow=True)
+            self.assertEqual(response.status_code, 200, response.reason_phrase)
+            url = reverse("site:help_page_change", args=(self.page.id,))
+            self.assertNotContains(response, url, status_code=200)
