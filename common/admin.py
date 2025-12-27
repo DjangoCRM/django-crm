@@ -32,7 +32,7 @@ class DepartmentAdmin(admin.ModelAdmin):
     )
 
 
-class LogEntrytAdmin(admin.ModelAdmin):
+class LogEntryAdmin(admin.ModelAdmin):
     list_display = ("__str__", "user", "content_type",
                     "action_time", 'object_id')
     list_display_links = ("__str__",)
@@ -240,7 +240,7 @@ crm_site.register(Reminder, reminderadmin.ReminderAdmin)
 crm_site.register(UserProfile, userprofileadmin.UserProfileAdmin)
 
 admin.site.register(Department, DepartmentAdmin)
-admin.site.register(admin.models.LogEntry, LogEntrytAdmin)
+admin.site.register(admin.models.LogEntry, LogEntryAdmin)
 admin.site.register(Reminder, ReminderAdmin)
 admin.site.register(TheFile, TheFileAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
