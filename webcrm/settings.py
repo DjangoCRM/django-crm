@@ -79,7 +79,7 @@ LANGUAGES = [
     ('ko', 'Korean'),
     ('nl', 'Nederlands'),
     ('pl', 'Polish'),
-    ('pt-br', 'Portuguese'),
+    ('pt-br', 'Portuguese'),    # pt_BR
     ('ro', 'Romanian'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
