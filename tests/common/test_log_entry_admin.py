@@ -9,7 +9,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.test import RequestFactory
 from django.test import tag
 
-from common.admin import LogEntrytAdmin
+from common.admin import LogEntryAdmin
 from common.utils.helpers import USER_MODEL
 from tests.base_test_classes import BaseTestCase
 
@@ -17,8 +17,8 @@ from tests.base_test_classes import BaseTestCase
 
 
 @tag('TestCase')
-class TestLogEntrytAdmin(BaseTestCase):
-    """Test LogEntrytAdmin.get_search_results method"""
+class TestLogEntryAdmin(BaseTestCase):
+    """Test LogEntryAdmin.get_search_results method"""
 
     @classmethod
     def setUpTestData(cls):
@@ -28,7 +28,7 @@ class TestLogEntrytAdmin(BaseTestCase):
 
     def setUp(self):
         print("Run Test Method:", self._testMethodName)
-        self.model_admin = LogEntrytAdmin(admin.models.LogEntry, AdminSite())
+        self.model_admin = LogEntryAdmin(admin.models.LogEntry, AdminSite())
         self.factory = RequestFactory()
 
     def test_get_search_results_with_id_prefix_uppercase(self):
