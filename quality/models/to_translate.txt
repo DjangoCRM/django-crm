@@ -1,0 +1,6 @@
+{% translate "Missed delivery deadline" %}
+{% translate "Early delivery" %}
+{% translate "Incorrect product quality" %}
+{% translate "Incompleteness" %}
+{% translate "Non‑functional product" %}
+{% translate "Reputational losses in front of a partner" %}
