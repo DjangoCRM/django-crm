@@ -1271,6 +1271,30 @@ ADMIN_DATA = [
         ]
     },
     {
+        'name': 'Transaction quality',
+        'app_label': 'quality',
+        'app_url': '/en/q7sSln_Wd10Or-admin/quality/',
+        'has_module_perms': True,
+        'models': [
+            {
+                'name': 'Transaction-Quality Events',
+                'object_name': 'TransactionQualityEvent',
+                'perms': {'add': True, 'change': True, 'delete': True, 'view': True},
+                'add_url': '/en/q7sSln_Wd10Or-admin/quality/transactionqualityevent/add/',
+                'admin_url': '/en/q7sSln_Wd10Or-admin/quality/transactionqualityevent/',
+                'view_only': False
+            },
+            {
+                'name': 'Transaction-Quality Signals',
+                'object_name': 'TransactionQualitySignal',
+                'perms': {'add': True, 'change': True, 'delete': True, 'view': True},
+                'add_url': '/en/q7sSln_Wd10Or-admin/quality/transactionqualitysignal/add/',
+                'admin_url': '/en/q7sSln_Wd10Or-admin/quality/transactionqualitysignal/',
+                'view_only': False
+            }
+        ],
+    },
+    {
         'name': 'Voip',
         'app_label': 'voip',
         'app_url': f'/en/{ADMIN_PREFIX}voip/',
