@@ -77,7 +77,16 @@
                 ["add_signature", "massmail","signature"],
                 ["change_signature", "massmail", "signature"],
                 ["delete_signature", "massmail", "signature"],
-                ["view_signature", "massmail", "signature"]
+                ["view_signature", "massmail", "signature"],
+
+                ["add_transactionqualityevent", "quality", "transactionqualityevent"],
+                ["change_transactionqualityevent", "quality", "transactionqualityevent"],
+                ["delete_transactionqualityevent", "quality", "transactionqualityevent"],
+                ["view_transactionqualityevent", "quality", "transactionqualityevent"],
+                ["add_transactionqualitysignal", "quality", "transactionqualitysignal"],
+                ["change_transactionqualitysignal", "quality", "transactionqualitysignal"],
+                ["delete_transactionqualitysignal", "quality", "transactionqualitysignal"],
+                ["view_transactionqualitysignal", "quality", "transactionqualitysignal"]
             ]
         }
     },
