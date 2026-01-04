@@ -1,0 +1,122 @@
+[
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 1,
+    "fields": {
+        "name": "Missed delivery deadline",
+        "weight": -5,
+        "notes": "The promised ship/fulfillment date was not met.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 2,
+    "fields": {
+        "name": "Missed delivery deadline",
+        "weight": -5,
+        "notes": "The promised ship/fulfillment date was not met.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 3,
+    "fields": {
+        "name": "Early delivery",
+        "weight": 5,
+        "notes": "Shipment/delivery completed ahead of schedule.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 4,
+    "fields": {
+        "name": "Early delivery",
+        "weight": 5,
+        "notes": "Shipment/delivery completed ahead of schedule.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 5,
+    "fields": {
+        "name": "Incorrect product quality",
+        "weight": -10,
+        "notes": "Product arrived damaged, wrong SKU, or failed functional tests.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 6,
+    "fields": {
+        "name": "Incorrect product quality",
+        "weight": -10,
+        "notes": "Product arrived damaged, wrong SKU, or failed functional tests.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 7,
+    "fields": {
+        "name": "Incompleteness",
+        "weight": -10,
+        "notes": "Required items or documentation were not supplied.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 8,
+    "fields": {
+        "name": "Incompleteness",
+        "weight": -10,
+        "notes": "Required items or documentation were not supplied.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 9,
+    "fields": {
+        "name": "Non‑functional product",
+        "weight": -15,
+        "notes": "Product could not be used as intended after delivery.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 10,
+    "fields": {
+        "name": "Non‑functional product",
+        "weight": -15,
+        "notes": "Product could not be used as intended after delivery.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 9,
+    "fields": {
+        "name": "Reputational losses in front of a partner",
+        "weight": -15,
+        "notes": "The problematic transaction involving a partner.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 10,
+    "fields": {
+        "name": "Reputational losses in front of a partner",
+        "weight": -15,
+        "notes": "The problematic transaction involving a partner.",
+        "department": 10
+    }
+}
+]
