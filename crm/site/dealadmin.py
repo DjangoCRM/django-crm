@@ -48,6 +48,7 @@ from crm.utils.admfilters import IsActiveFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from crm.utils.clarify_permission import clarify_permission
 from crm.utils.helpers import get_counterparty_header
+from quality.site.transactionqualityeventinline import TransactionQualityEventInline
 from tasks.models import Memo
 
 closing_date_str = _("Closing date")
@@ -59,6 +60,7 @@ icon_str = '<i class="material-icons" style="color: var(--body-quiet-color)">{}<
 contact_tip = _("View Contact in new tab")
 company_tip = _("View Company in new tab")
 company_safe_icon = mark_safe(icon_str.format('domain'))
+ctqs_str = _("Composite Transaction‑Quality Score")
 deal_counter_icon = '<span title="{}">({})</span>'
 deal_counter_title = _("Deal counter")
 lead_tip = _("View Lead in new tab")
@@ -83,9 +85,9 @@ expired_local_shipping_icon = f'<i class="material-icons" title="{expired_shipme
                               f'style="font-size:small;color: var(--error-fg)">local_shipping</i>'
 perm_phone_msg_safe_icon = mark_safe(icon_str.format('perm_phone_msg'))
 person_outline_safe_icon = mark_safe(icon_str.format('person_outline'))
-textarea_tag = '<textarea name="description" cols="80" rows="5" class="vLargeTextField">{}</textarea>'
-subject_icon = '<i title="{}" class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
 relevant_deal_str = _('Relevant deal')
+subject_icon = '<i title="{}" class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
+textarea_tag = '<textarea name="description" cols="80" rows="5" class="vLargeTextField">{}</textarea>'
 
 _thread_local = threading.local()
 
@@ -94,7 +96,7 @@ class DealAdmin(CrmModelAdmin):
     actions = ['export_selected']
     empty_value_display = ''
     form = DealForm
-    inlines = [OutputInline, PaymentInline, FileInline]
+    inlines = [OutputInline, PaymentInline, TransactionQualityEventInline, FileInline]
     list_filter = (
         ImportantFilter,
         IsActiveFilter, ByOwnerFilter,
@@ -343,7 +345,7 @@ class DealAdmin(CrmModelAdmin):
             list_display.append('deal_counter')
         if not (request.user.is_manager and 'owner' not in request.GET):
             list_display.append('person')
-        list_display.extend(['act', 'rel', 'created', 'id'])
+        list_display.extend(['stqs', 'act', 'created', 'id'])
         return list_display
 
     def get_ordering(self, request):
@@ -358,7 +360,7 @@ class DealAdmin(CrmModelAdmin):
             'created', 'inquiry', 'workflow',
             'ticket', 'modified_by', 'stages_dates',
             'closing_date', 'translation',
-            'coloured_next_step_date', 'rel',
+            'coloured_next_step_date', 'stqs',
             'act', 'person', 'contact_person',
             'deal_messengers', 'view_website_button',
             'view_company', 'tag_list', 'dynamic_name',
@@ -565,6 +567,35 @@ class DealAdmin(CrmModelAdmin):
                         ' </a></li></ul>'
                     )
         return LEADERS
+
+    @staticmethod
+    @admin.display(description=mark_safe(
+            f'<div title="{ctqs_str}">CTQS</div>'
+        ))
+    def stqs(obj):
+        url = reverse("site:quality_transactionqualityevent_changelist")
+        amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))["s"]
+        if amount:
+            total = 100 + amount
+        elif not obj.active:
+            if (obj.stage.success_stage == True and
+                    obj.stage.department_id == obj.department_id):
+                total = 100
+        else:
+            return ''
+
+        if total >= 95:
+            color = 'var(--link-fg)'
+        elif 85 <= total < 95:
+            color = 'var(--green-fg)'
+        elif 70 <= total < 85:
+            color = 'var(--orange-fg)'
+        else:
+            color = 'var(--error-fg)'
+        return mark_safe(
+            f'<a href="{url}?deal__id__exact={obj.id}" style="color: {color}"'
+            f'title="{ctqs_str}" target="_blank">{total}%&nearr;</a>'
+        )
 
     @staticmethod
     @admin.display(description='')
