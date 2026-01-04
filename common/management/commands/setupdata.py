@@ -32,6 +32,7 @@ class Command(BaseCommand):
             'sites.json',
             'reminders.json',
             'massmailsettings.json',
+            'transaction_quality_signal.json',
             verbosity=1
         )
         if not settings.TESTING:
