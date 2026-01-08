@@ -7,7 +7,7 @@ from quality.models import TransactionQualityEvent
 
 
 class TransactionQualitySignalAdmin(TranslateNameModelAdmin):
-    list_display = ('name', 'weight', 'notes')
+    list_display = ('name', 'weight', 'notes', 'department')
 
 
 class TransactionQualityEventAdmin(TranslateNameModelAdmin):
