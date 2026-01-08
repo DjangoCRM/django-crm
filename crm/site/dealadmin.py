@@ -626,6 +626,15 @@ class DealAdmin(CrmModelAdmin):
                 title=gettext("Important deal"),
                 name=obj.name)
             )
+        if not obj.relevant:
+            return mark_safe(
+                '<span title="{title}" style="color: var(--body-quiet-color)">'
+                '({irrelevant}) {name}</span>'.format(
+                    title=gettext("Irrelevant deal"),
+                    irrelevant=gettext("Irrelevant"),
+                    name=obj.name
+                )
+            )
         return obj.name
 
     @staticmethod
