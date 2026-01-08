@@ -575,13 +575,14 @@ class DealAdmin(CrmModelAdmin):
     def stqs(obj):
         url = reverse("site:quality_transactionqualityevent_changelist")
         amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))["s"]
+        total = None
         if amount:
             total = 100 + amount
         elif not obj.active:
             if (obj.stage.success_stage == True and
                     obj.stage.department_id == obj.department_id):
                 total = 100
-        if amount is None:
+        if not any((total, amount)):
             return ''
 
         if total >= 95:
