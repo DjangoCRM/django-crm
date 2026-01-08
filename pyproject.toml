@@ -1,6 +1,96 @@
 [build-system]
-requires = ['setuptools>=40.9.0']
-build-backend = 'setuptools.build_meta'
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-crm-admin"
+version = "1.7.0"
+description = "CRM and task management software, Email marketing and many more. Built for businesses of any size and freelancers, designed for easy customization and quick development."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+
+authors = [
+    { name = "Vadym Kharchenko", email = "VadKhar@outlook.com" }
+]
+
+keywords = [
+    "CRM",
+    "Django CRM",
+    "Python CRM",
+    "CRM software",
+    "Email marketing",
+    "Task management",
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 6.0",
+    "Intended Audience :: Customer Service",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Office/Business",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Natural Language :: English",
+]
+
+dependencies = [
+    "Django==6.0.1",
+    "asgiref==3.11.0",
+    "sqlparse==0.5.5",
+    "tzdata==2025.3",
+
+    "aiohttp==3.13.3",
+    "aiosignal==1.4.0",
+    "attrs==25.4.0",
+    "charset-normalizer==3.4.4",
+    "frozenlist==1.8.0",
+    "multidict==6.7.0",
+    "yarl==1.22.0",
+
+    "requests==2.32.5",
+    "urllib3==2.6.2",
+    "certifi==2026.1.4",
+    "idna==3.11",
+
+    "mysqlclient==2.2.7",
+    "geoip2==5.2.0",
+    "maxminddb==3.0.0",
+
+    "numpy==2.4.0",
+    "pandas==2.3.3",
+    "python-dateutil==2.9.0.post0",
+    "pytz==2025.2",
+    "six==1.17.0",
+
+    "openpyxl==3.1.5",
+    "XlsxWriter==3.2.9",
+    "et-xmlfile==2.0.0",
+
+    "polib==1.2.0",
+    "tendo==0.3.0",
+]
+
+[project.urls]
+Homepage = "https://DjangoCRM.github.io/info/"
+Source = "https://github.com/DjangoCRM/django-crm"
+Documentation = "https://django-crm-admin.readthedocs.io"
+Tracker = "https://github.com/DjangoCRM/django-crm/issues"
+Changelog = "https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md"
+Download = "https://sourceforge.net/projects/django-crm/files/latest/download"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+namespaces = true
 
 [tool.ruff]
 lint.select = ["E", "F", "B", "DJ"]

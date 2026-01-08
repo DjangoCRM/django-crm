@@ -1,28 +1,32 @@
 include LICENSE
 include README.md
-include requirements.txt
-graft locale
-graft static
-graft templates
-recursive-include **/fixtures *
-recursive-include **/static *
-recursive-include **/templates *
-recursive-include locale/**/django.mo
-recursive-exclude static/admin/rosetta *
-global-exclude .gitignore
-exclude webcrm/local*.py
-prune **/__pycache__
-prune media
-include media/docs/empty_file.txt
-include media/exported/empty_file.txt
-include media/geodb/empty_file.txt
-include media/pics/empty_file.txt
+include CHANGELOG.md
+
 include manage.py
+include requirements.txt
+
+recursive-include locale *.mo
+recursive-include **/fixtures *
+recursive-include **/templates *
+recursive-include **/static *
+
 include crm/forms/iso_currency_codes.json
 include crm/models/to_translate.txt
 include massmail/models/to_translate.txt
 include tasks/models/to_translate.txt
-prune docs
+
 include docs/installation_and_configuration_guide.md
 include docs/django-crm_user_guide.md
-include CHANGELOG.md
+
+include media/docs/empty_file.txt
+include media/exported/empty_file.txt
+include media/geodb/empty_file.txt
+include media/pics/empty_file.txt
+
+exclude webcrm/local*.py
+prune docs
+prune media
+prune **/__pycache__
+
+global-exclude *.py[cod]
+global-exclude .gitignore
