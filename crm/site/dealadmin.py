@@ -582,7 +582,7 @@ class DealAdmin(CrmModelAdmin):
             if (obj.stage.success_stage == True and
                     obj.stage.department_id == obj.department_id):
                 total = 100
-        if not any((total, amount)):
+        if not all((total, amount)):
             return ''
 
         if total >= 95:
