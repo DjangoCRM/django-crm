@@ -194,7 +194,9 @@
                 ["view_shipment", "crm", "shipment"],
 
                 ["view_emlmessage", "massmail", "emlmessage"],
-                ["view_mailingout", "massmail", "mailingout"]
+                ["view_mailingout", "massmail", "mailingout"],
+
+                ["view_transactionqualityevent", "quality", "transactionqualityevent"]
             ]
         }
     },
