@@ -148,6 +148,11 @@ class DealAdmin(CrmModelAdmin):
             d['order_number'].initial = p.order_number
             if settings.MARK_PAYMENTS_THROUGH_REP:
                 d['through_representation'].initial = p.through_representation
+        signal_queryset = formsets[2].empty_form.base_fields['signal'].queryset
+        weights = signal_queryset.values_list('id', 'weight')
+        weight_str = ",".join([f'"{w[0]}":"{w[1]}"' for w in weights])
+        formsets[2].empty_form.base_fields[
+            'signal'].widget.attrs['initial_weights'] = f'{{{weight_str}}}'
         return formsets, inline_instances
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
