@@ -16,6 +16,11 @@ class QualityEventForm(forms.ModelForm):
             )
         }
 
+    class Media:
+        js = (
+            '/static/quality/js/update_initial_weight.js',
+        )
+
 
 class TransactionQualityEventInline(CrmStackedInline):
     fieldsets = (
