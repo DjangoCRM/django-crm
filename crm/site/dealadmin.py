@@ -600,7 +600,7 @@ class DealAdmin(CrmModelAdmin):
             color = 'var(--error-fg)'
         return mark_safe(
             f'<a href="{url}?deal__id__exact={obj.id}" style="color: {color}"'
-            f'title="{ctqs_str}" target="_blank">{total}%&nearr;</a>'
+            f'title="{ctqs_str}" target="_blank"><u>{total}%</u></a>'
         )
 
     @staticmethod
