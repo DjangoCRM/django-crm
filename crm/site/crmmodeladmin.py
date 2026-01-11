@@ -90,6 +90,25 @@ class CrmModelAdmin(BaseModelAdmin):
             content_type_id = ContentType.objects.get_for_model(self.model).id
             extra_context['content_type_id'] = content_type_id
 
+        elif self.model == Deal:
+            # If the user selected a reason for closing deals in the filter,
+            # check the deals activity filter to eliminate any discrepancies.
+            query_dict = request.GET
+            if "closing_reason__id__exact" in query_dict:
+                active = query_dict.get('active')
+                prev_query_dict = getattr(_thread_local, 'query_dict', {})
+                qd = query_dict.copy()
+                if active in (None, 'all'):
+                    # Has the user selected an activity filter value?
+                    prev_active = prev_query_dict.get('active')
+                    if prev_active != active:
+                        del qd['closing_reason__id__exact']
+                    elif active is None:
+                        qd['active'] = 'no'
+                    return HttpResponseRedirect(
+                        f"{reverse('site:crm_deal_changelist')}?{qd.urlencode()}"
+                    )
+
         _thread_local.query_dict = request.GET
         _thread_local.query_path = request.path
         return super().changelist_view(
