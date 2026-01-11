@@ -574,9 +574,7 @@ class DealAdmin(CrmModelAdmin):
         return LEADERS
 
     @staticmethod
-    @admin.display(description=mark_safe(
-            f'<div title="{ctqs_str}">CTQS</div>'
-        ))
+    @admin.display(description='')
     def stqs(obj):
         url = reverse("site:quality_transactionqualityevent_changelist")
         amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))["s"]
