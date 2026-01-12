@@ -54,7 +54,13 @@ class City(BaseModel):
         if self.country:
             self.validate_name(self.name, 'name')
             if self.alternative_names:
-                alternative_names = self.alternative_names.split(",")
+                alternative_names = [n.strip() for n in self.alternative_names.split(",") if n.strip()]
+                 
+                if len(alternative_names) != len(set(alternative_names)):
+                    raise ValidationError({
+                        'alternative_names': _("Duplicate names found in alternative names.")
+                    })
+
                 for name in alternative_names:
                     if name:
                         self.validate_name(name.strip(), 'alternative_names')
@@ -72,3 +78,5 @@ class City(BaseModel):
             raise ValidationError({
                 field: f'"{name}" - {warning_str} "{city.name}" ID:{city.id}'
             })
+        
+    
