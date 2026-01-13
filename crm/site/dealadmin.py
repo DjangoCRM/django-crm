@@ -200,7 +200,19 @@ class DealAdmin(CrmModelAdmin):
         extra_context['request_add_url'] = url
         has_add_permission = request.user.has_perm('crm.add_request')
         extra_context['has_add_request_permission'] = has_add_permission
-
+        success_deals_url = ''
+        if request.user.department_id:
+            deals_url = reverse("site:crm_deal_changelist")
+            success_reason_id = ClosingReason.objects.get(
+                success_reason=True,
+                department=request.user.department_id
+            ).id
+            query_dict = request.GET.copy()
+            query_dict['active'] = 'no'
+            query_dict['closing_reason__id__exact'] = success_reason_id
+            success_deals_url = f"{deals_url}?{query_dict.urlencode()}"
+        extra_context['success_deals_url'] = success_deals_url
+        
         func = getattr(self.__class__, 'dynamic_name')
         title = gettext(
             self.model._meta.get_field("name").help_text._args[0]  # NOQA
