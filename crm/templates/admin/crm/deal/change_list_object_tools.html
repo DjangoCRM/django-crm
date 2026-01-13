@@ -15,4 +15,9 @@
     </a>
   </li> 
   {% endif %}
+  {% if success_deals_url %}
+    <li>
+      <a href="{{ success_deals_url }}">{% translate 'Successful deals' %}</a>
+    </li>   
+  {% endif %}
 {% endblock %}
