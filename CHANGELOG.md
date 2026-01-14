@@ -10,18 +10,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Monitoring functionality of the Composite Transaction‑Quality Score (CTQS)
+- Integration with the web help center:
+  - Configure the choice between using external help pages and built-in help (deprecated).
+  - Mapping external help URLs to CRM Pages.
+- Name prefix setting for parsing full names.
+- Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
+
 ### Improved
 
 - Conversion results report revised by @tibisabau.
 - Enhance full name parsing with configurable name prefixes.
 - The `get_help_url` function for obtaining the help url with a single database query.
 
-### Added
+# Changed
 
-- Name prefix setting for parsing full names.
-- Configure the choice between using external help pages and built-in help (deprecated).
-- Mapping external help URLs to CRM Pages.
-- Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
+- In the list of deals, the marking of irrelevant transactions has been changed.
 
 ## [1.7.0] - 2025-12-13
 
