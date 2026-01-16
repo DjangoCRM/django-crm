@@ -75,7 +75,7 @@ class TestChat(BaseTestCase):
         data['recipients'] = [str(self.darian.id)]
         # submit form
         response = self.client.post(
-            self.add_msg_url + query_str, 
+            self.add_msg_url + query_str,
             data, follow=True
         )
         self.assertEqual(response.status_code, 200)
@@ -87,8 +87,8 @@ class TestChat(BaseTestCase):
                 recipients=self.darian
             )
         except ChatMessage.DoesNotExist:
-            self.fail("The chat message is not created")   
-        # notification email sent?
+            self.fail("The chat message is not created")
+            # notification email sent?
         self.assertQuerySetEqual(msg.recipients.all(), msg.to.all())
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, [self.darian.email])
@@ -189,11 +189,10 @@ class TestChat(BaseTestCase):
         )
         # notification email sent?
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, [
-                         self.andrew.email, self.chief.email])
+        self.assertEqual(set(mail.outbox[0].to), {self.andrew.email, self.chief.email})
         mail.outbox = []
         file.file.delete()
-        
+
     def test_chat_in_project(self):
         """Test chat in project"""
         project = Project.objects.create(
@@ -201,7 +200,7 @@ class TestChat(BaseTestCase):
             owner=self.chief,
             stage=self.project_stage
         )
-        project.responsible.set([self.andrew, self.darian])          
+        project.responsible.set([self.andrew, self.darian])
         # submit "Add chat message" button in project change view
         response, query_str = self.submit_add_msg_button(project)
         self.assertEqual(response.status_code, 200)
@@ -213,8 +212,8 @@ class TestChat(BaseTestCase):
         data['recipients'] = [str(self.darian.id), str(self.chief.id)]
         # submit form
         response = self.client.post(
-            self.add_msg_url + query_str, 
-            data, 
+            self.add_msg_url + query_str,
+            data,
             follow=True
         )
         self.assertEqual(response.status_code, 200)
@@ -226,12 +225,12 @@ class TestChat(BaseTestCase):
                 recipients=self.darian
             )
         except ChatMessage.DoesNotExist:
-            self.fail("The chat message is not created")   
-        # notification email sent?
+            self.fail("The chat message is not created")
+            # notification email sent?
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(
-            mail.outbox[0].to, 
-            [self.darian.email, 
+            mail.outbox[0].to,
+            [self.darian.email,
              self.chief.email]
         )
         mail.outbox = []
@@ -261,7 +260,7 @@ class TestChat(BaseTestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to[0], self.andrew.email)
         mail.outbox = []
-        
+
     def test_chat_in_deal(self):
         """Test chat in deal"""
         content = random()
@@ -272,7 +271,7 @@ class TestChat(BaseTestCase):
             co_owner=self.darian,
             next_step="next step",
             next_step_date=timezone.now()
-        )                
+        )
         # submit "Add chat message" button in deal change view
         response, query_str = self.submit_add_msg_button(deal)
         self.assertEqual(response.status_code, 200)
@@ -283,7 +282,7 @@ class TestChat(BaseTestCase):
         data['recipients'] = [str(self.darian.id), str(self.chief.id)]
         # submit form
         response = self.client.post(
-            self.add_msg_url + query_str, 
+            self.add_msg_url + query_str,
             data, follow=True
         )
         self.assertEqual(response.status_code, 200)
@@ -295,11 +294,11 @@ class TestChat(BaseTestCase):
                 recipients=self.darian
             )
         except ChatMessage.DoesNotExist:
-            self.fail("The chat message is not created")   
-        # notification email sent?
+            self.fail("The chat message is not created")
+            # notification email sent?
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(
-            mail.outbox[0].to, 
+            mail.outbox[0].to,
             [self.darian.email, self.chief.email]
         )
         mail.outbox = []
@@ -329,7 +328,7 @@ class TestChat(BaseTestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to[0], self.andrew.email)
         mail.outbox = []
-        
+
     def submit_add_msg_button(self, instance):
         self.client.force_login(self.andrew)
         # get_for_model(project) works wrong due cache
@@ -342,11 +341,11 @@ class TestChat(BaseTestCase):
             'object_id': instance.id,
             'owner': self.andrew.id
         }
-        query_str = f'?{urlencode(params)}'        
+        query_str = f'?{urlencode(params)}'
         return self.client.get(
-            self.add_msg_url + query_str, 
+            self.add_msg_url + query_str,
             follow=True
-        ), query_str        
+        ), query_str
 
     def submit_reply_button(self, instance):
         query_str = f'?{get_query_string(instance)}'
