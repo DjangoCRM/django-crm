@@ -20,6 +20,7 @@ from django.contrib.sites.models import Site
 from django.core.mail import mail_admins
 from django.core.mail.message import BadHeaderError
 from django.db import connection
+from django.db.utils import ProgrammingError
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.formats import date_format
@@ -61,7 +62,8 @@ class SendMassmail(threading.Thread, SingleInstance):
                 break
             except (OperationalError, MassmailSettings.DoesNotExist):
                 time.sleep(1)
-
+            except ProgrammingError:
+                return
         if not settings.MAILING or settings.TESTING:
             return
 
