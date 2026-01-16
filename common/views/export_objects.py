@@ -28,7 +28,7 @@ def get_file_path(username: str, queryset: QuerySet = None, model=None) -> Path:
         if not model:
             raise Exception("either queryset or model must be specified")
         file_name = f"{model.__name__}_db_{username}_{today}.xlsx"
-    
+
     return file_path / escape_uri_path(file_name)
 
 
@@ -71,15 +71,18 @@ def save_to_excel(datadict: dict, file_path: Path) -> None:
     df = df.replace('nan', '')
     df = df.replace('None', '')
     writer = pd.ExcelWriter(file_path, engine='xlsxwriter')
-    df.to_excel(writer, 'Sheet1', index=False, na_rep=' ')
+    df.to_excel(excel_writer=writer, sheet_name='Sheet1',
+                index=False, na_rep=' ')
     writer.close()
 
 
 def get_export_response(file_path: Path) -> Union[HttpResponse, HttpResponseNotFound]:
     if file_path.exists():
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-            response['Content-Disposition'] = 'inline; filename=' + file_path.name
+            response = HttpResponse(
+                fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + \
+                                              file_path.name
             return response
 
     return HttpResponseNotFound()
@@ -91,7 +94,7 @@ def get_datadict(request: WSGIRequest, columns,
     model = _get_model(obj, queryset)
     for attr in columns:
         objects = _get_object_iterator(request, obj, queryset)
-    
+
         value_list = []
         for o in objects:
             if attr == 'industry':
@@ -106,7 +109,7 @@ def get_datadict(request: WSGIRequest, columns,
                     if rel_o:
                         value = getattr(rel_o, attrs[1])
                     else:
-                        value =''
+                        value = ''
                 else:
                     value = getattr(o, attr)
 
@@ -123,7 +126,7 @@ def get_datadict(request: WSGIRequest, columns,
                     value = str(o.creation_date.date()) if value else ''
 
             value_list.append(value)
-        
+
         if model == Task:
             attr = get_verbose_name(model, attr)
         datadict[attr] = value_list
@@ -140,7 +143,8 @@ def _get_object_iterator(request: WSGIRequest, obj,
     elif queryset:
         objects = queryset.iterator()
     else:
-        raise RuntimeError('Error: either object or queryset does not received')
+        raise RuntimeError(
+            'Error: either object or queryset does not received')
     return objects
 
 
@@ -149,4 +153,4 @@ def _get_model(obj, queryset: QuerySet):
         model = obj.__class__
     elif queryset:
         model = queryset.model
-    return model    # NOQA
+    return model  # NOQA
