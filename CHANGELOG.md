@@ -17,7 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configure the choice between using external help pages and built-in help (deprecated).
   - Mapping external help URLs to CRM Pages.
 - Name prefix setting for parsing full names.
-- Unit test for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
+- Unit tests for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
+- Unit tests for the ByVIPStatus filter by @mariami57
 
 ### Improved
 
@@ -25,9 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhance full name parsing with configurable name prefixes.
 - The `get_help_url` function for obtaining the help url with a single database query.
 
+### Fixed
+
+- Fixed for PostgreSQL:
+  - add exception handling for ProgrammingError in SendMassmail
+  - test of chat
+
 # Changed
 
 - In the list of deals, the marking of irrelevant transactions has been changed.
+- Refactor save_to_excel function to use keyword arguments for avoid Panda's FutureWarning
 
 ## [1.7.0] - 2025-12-13
 
