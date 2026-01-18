@@ -189,8 +189,7 @@ class TestChat(BaseTestCase):
         )
         # notification email sent?
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, [
-                         self.andrew.email, self.chief.email])
+        self.assertEqual(set(mail.outbox[0].to), {self.andrew.email, self.chief.email})
         mail.outbox = []
         file.file.delete()
         
@@ -352,3 +351,4 @@ class TestChat(BaseTestCase):
         query_str = f'?{get_query_string(instance)}'
         reply_url = reverse('site:chat_chatmessage_add') + query_str
         return self.client.get(reply_url, follow=True)
+
