@@ -48,15 +48,7 @@ class City(BaseModel):
         on_delete=models.CASCADE,
         verbose_name=_("Country")
     )
-
-    def get_alt_list(self, attr_value):
-
-        """Helper to turn comma string into a clean list of lowercase strings."""
-
-        if attr_value:
-            return [n.strip() for n in attr_value.split(",") if n.strip()]
-        return []
-
+    
     def clean(self):
         super().clean()
 
@@ -65,26 +57,11 @@ class City(BaseModel):
 
         name_norm = self.name.strip().lower()
 
-        # Normalize and split alternative names
         alt_list = [
             alt.strip().lower()
             for alt in self.alternative_names.split(",")
             if alt.strip()
         ]
-
-        # Check duplicate alternative names
-        if len(alt_list) != len(set(alt_list)):
-            raise ValidationError({
-                "alternative_names": _("Duplicate names found in alternative names.")
-            })
-
-        # Remove primary name and duplicates, preserve order
-        cleaned_alt_list = []
-        for alt in alt_list:
-            if alt != name_norm and alt not in cleaned_alt_list:
-                cleaned_alt_list.append(alt)
-
-        self.alternative_names = ", ".join(cleaned_alt_list)
 
         qs = City.objects.filter(country=self.country)
         if self.pk:
@@ -109,11 +86,11 @@ class City(BaseModel):
                 raise ValidationError({
                     "name": f'"{self.name}" - {warning_str} "{city.name}" ID:{city.id}'
                 })
-
             # Alternative name conflicts
-            for alt in cleaned_alt_list:
+            for alt in alt_list:
                 if alt == city_name_norm or alt in city_alt_list:
                     raise ValidationError({
                         "alternative_names":
                             f'"{alt}" - {warning_str} "{city.name}" ID:{city.id}'
                     })
+
