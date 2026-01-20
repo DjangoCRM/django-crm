@@ -1,0 +1,19 @@
+{{ block.super }}
+{# CRM colors for 'auto' mode #}
+<style>
+    :root {
+        --primary: #23949f;
+        --secondary: #233d4d;
+        --breadcrumbs-bg: var(--primary);
+        --button-bg: var(--primary);
+        --green-fg: #379634;
+        --orange-fg: #e4572e;
+        --deal-bg: #79aec82e;
+        --memo-bg: #d0ffb730;
+        --task-bg: #fcd4c030;
+        --button-hover-bg: #205067;
+    }
+    .module h2, .module caption, .inline-group h2 {
+        background: var(--primary);
+    }
+</style>
