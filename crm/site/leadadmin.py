@@ -96,7 +96,7 @@ class LeadAdmin(CrmModelAdmin):
         extra_context['emails'] = self.get_latest_emails('lead_id', object_id)
         extra_context['deal_num'] = Deal.objects.filter(
             lead_id=object_id).count()
-        extra_context['del_dup_url'] = self.del_dup_url(object_id)
+        extra_context['del_dup_url'] = self.del_dup_url(request, object_id)
         self.add_remainder_context(
             request, extra_context, object_id,
             ContentType.objects.get_for_model(Lead)

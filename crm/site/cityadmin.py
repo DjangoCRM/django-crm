@@ -17,6 +17,9 @@ class CityAdmin(admin.ModelAdmin):
         extra_context = extra_context or {}
         content_type_id = ContentType.objects.get_for_model(self.model).id
         url = reverse("delete_duplicate", args=(content_type_id, object_id))
+        query_string = request.META.get('QUERY_STRING', '')
+        if query_string:
+            url = f"{url}?{query_string}"
         extra_context['del_dup_url'] = url
         return super().change_view(
             request, object_id, form_url, extra_context=extra_context,
