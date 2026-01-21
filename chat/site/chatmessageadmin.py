@@ -8,7 +8,6 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Case
-from django.db.models import BooleanField
 from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.db.models import When
@@ -101,9 +100,8 @@ class ChatMessageAdmin(admin.ModelAdmin):
                 'creation_date'
             ),
             is_unread=Case(
-                When(id__in=id_list, then=Value(True)),
-                default=Value(False),
-                output_field=BooleanField()
+                When(id__in=id_list, then=Value(1)),
+                default=Value(0),
             ),
         ).order_by('-date', 'top_id', 'id')
         return cl
@@ -420,3 +418,4 @@ class MyModelMultipleChoiceField(forms.ModelMultipleChoiceField):
         if obj.groups.filter(name='task_operators').exists():
             return f"{obj.username} ({task_operator_str})"
         return obj.username
+
