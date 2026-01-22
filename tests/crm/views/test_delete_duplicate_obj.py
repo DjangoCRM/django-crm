@@ -1,5 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
 from django.test import tag
+from django.test import RequestFactory
 from django.urls import reverse
 from common.models import TheFile
 
@@ -78,7 +79,9 @@ class TestDeleteDuplicateObj(BaseTestCase):
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         model_admin = CrmModelAdmin(model=Company, admin_site=crm_site)
-        del_dup_url = model_admin.del_dup_url(duplicate_company.id)
+        factory = RequestFactory()
+        test_request = factory.get(url)
+        del_dup_url = model_admin.del_dup_url(test_request, duplicate_company.id)
         self.assertIn(del_dup_url, response.rendered_content)
 
         response = self.client.get(del_dup_url, follow=True)
@@ -147,7 +150,9 @@ class TestDeleteDuplicateObj(BaseTestCase):
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         model_admin = CrmModelAdmin(model=Contact, admin_site=crm_site)
-        del_dup_url = model_admin.del_dup_url(duplicate_contact.id)
+        factory = RequestFactory()
+        test_request = factory.get(url)
+        del_dup_url = model_admin.del_dup_url(test_request, duplicate_contact.id)
         self.assertIn(del_dup_url, response.rendered_content)
 
         response = self.client.get(del_dup_url, follow=True)
@@ -201,7 +206,9 @@ class TestDeleteDuplicateObj(BaseTestCase):
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         model_admin = CrmModelAdmin(model=Lead, admin_site=crm_site)
-        del_dup_url = model_admin.del_dup_url(duplicate_lead.id)
+        factory = RequestFactory()
+        test_request = factory.get(url)
+        del_dup_url = model_admin.del_dup_url(test_request, duplicate_lead.id)
         self.assertIn(del_dup_url, response.rendered_content)
 
         response = self.client.get(del_dup_url, follow=True)

@@ -544,10 +544,13 @@ class CrmModelAdmin(BaseModelAdmin):
             '''
         )
 
-    def del_dup_url(self, object_id: int) -> str:
+    def del_dup_url(self, request: WSGIRequest, object_id: int) -> str:
         """Returns url of delete duplicate view"""
         content_type_id = ContentType.objects.get_for_model(self.model).id
         url = reverse("delete_duplicate", args=(content_type_id, object_id))
+        query_string = request.META.get('QUERY_STRING', '')
+        if query_string:
+            url = f"{url}?{query_string}"
         return url
 
     def get_country_filter_needed(self, request: WSGIRequest) -> bool:

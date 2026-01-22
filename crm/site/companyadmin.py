@@ -101,7 +101,7 @@ class CompanyAdmin(CrmModelAdmin):
             company_id=object_id).count()
         extra_context['emails'] = self.get_latest_emails(
             'company_id', object_id)
-        extra_context['del_dup_url'] = self.del_dup_url(object_id)
+        extra_context['del_dup_url'] = self.del_dup_url(request, object_id)
         self.add_remainder_context(
             request, extra_context, object_id,
             ContentType.objects.get_for_model(Company)
