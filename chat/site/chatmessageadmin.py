@@ -100,8 +100,7 @@ class ChatMessageAdmin(admin.ModelAdmin):
                 'creation_date'
             ),
             is_unread=Case(
-                When(id__in=id_list, then=Value(1)),
-                default=Value(0),
+                When(id__in=id_list, then=Value(1))
             ),
         ).order_by('-date', 'top_id', 'id')
         return cl
@@ -418,4 +417,5 @@ class MyModelMultipleChoiceField(forms.ModelMultipleChoiceField):
         if obj.groups.filter(name='task_operators').exists():
             return f"{obj.username} ({task_operator_str})"
         return obj.username
+
 
