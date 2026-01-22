@@ -21,8 +21,8 @@ class TestCity(BaseTestCase):
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
-        cls.add_url = reverse("admin:crm_city_add")
-        cls.changelist_url = reverse("admin:crm_city_changelist")
+        cls.add_url = reverse("site:crm_city_add")
+        cls.changelist_url = reverse("site:crm_city_changelist")
         cls.user = USER_MODEL.objects.get(username="Adam.Admin")
         cls.country = Country.objects.create(
             name='France',
@@ -271,7 +271,7 @@ class TestCity(BaseTestCase):
             country=self.country
         )
         
-        change_url = reverse("admin:crm_city_change", args=(city.id,))
+        change_url = reverse("site:crm_city_change", args=(city.id,))
         response = self.client.get(change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertEqual(response.redirect_chain, [])
