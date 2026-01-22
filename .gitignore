@@ -67,6 +67,7 @@ db.sqlite3
 local_settings.py
 media/
 static/admin/
+crm_db
 
 # Flask stuff:
 instance/
