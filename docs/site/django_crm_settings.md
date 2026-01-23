@@ -47,7 +47,10 @@ And also if an aggregation or annotation error occurs when running the tests, yo
 
 <img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration:
 
-- Install the [psycopg](https://www.psycopg.org/psycopg3/){target="_blank"} or [psycopg2](https://www.psycopg.org/){target="_blank"} package
+- Install the [psycopg](https://www.psycopg.org/install/){target="_blank"} package  
+    ```cmd
+    pip install psycopg[binary]
+    ```
 - Set the timezone to 'UTC' (when USE_TZ is True)
 - `default_transaction_isolation`: 'read committed'
 

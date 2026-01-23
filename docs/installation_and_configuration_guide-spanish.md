@@ -216,7 +216,10 @@ Y también si ocurre un error de agregación o anotación al ejecutar las prueba
 
 #### Optimización de la configuración de PostgreSQL
 
-Necesitarás el paquete [psycopg](https://www.psycopg.org/psycopg3/) o [psycopg2](https://www.psycopg.org/).
+Necesitarás el paquete [psycopg](https://www.psycopg.org/install/)
+```cmd
+pip install psycopg[binary]
+```
 Configura la zona horaria a 'UTC' (cuando USE_TZ es True),
 default_transaction_isolation: 'read committed'.  
 Puedes configurarlos directamente en postgresql.conf `(/etc/postgresql/<versión>/main/)`

@@ -209,7 +209,10 @@ And also if an aggregation or annotation error occurs when running the tests, yo
 
 #### Optimizing PostgreSQL's configuration
 
-You'll need the [psycopg](https://www.psycopg.org/psycopg3/) or [psycopg2](https://www.psycopg.org/) package.
+You'll need the [psycopg](https://www.psycopg.org/install/) package
+```cmd
+pip install psycopg[binary]
+```
 Set the timezone to 'UTC' (when USE_TZ is True),
 default_transaction_isolation: 'read committed'.  
 You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`
