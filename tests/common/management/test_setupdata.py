@@ -1,4 +1,5 @@
 from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.test import TransactionTestCase
@@ -40,3 +41,6 @@ class TestSetupData(TransactionTestCase):
         self.assertTrue(LeadSource.objects.filter(name="website form").exists())
         self.assertTrue(Site.objects.filter(domain="localhost:8000").exists())
         self.assertTrue(Reminders.objects.filter(check_interval=300).exists())
+        usernames = User.objects.values_list('username', flat=True)
+        self.assertIn("IamSUPER", usernames)
+        self.assertIn("IamSALES", usernames)
