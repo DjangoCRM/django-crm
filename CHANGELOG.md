@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Query string to delete duplicates URL by @tibisabau
 - Unit tests for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 - Unit tests for the ByVIPStatus filter by @mariami57
+- Unit tests for the City model and CityAdmin functionality @tibisabau
 
 ### Improved
 
