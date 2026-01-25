@@ -1,15 +1,16 @@
 from django.contrib.admin.sites import AdminSite
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.test import RequestFactory
 from django.test import tag
 from django.urls import reverse
 
-from common.utils.helpers import USER_MODEL
 from crm.models import City
 from crm.models import Country
 from crm.site.cityadmin import CityAdmin
 from tests.base_test_classes import BaseTestCase
 from tests.utils.helpers import get_adminform_initials
+
 
 # python manage.py test tests.crm.test_city --keepdb
 
@@ -23,7 +24,7 @@ class TestCity(BaseTestCase):
         super().setUpTestData()
         cls.add_url = reverse("site:crm_city_add")
         cls.changelist_url = reverse("site:crm_city_changelist")
-        cls.user = USER_MODEL.objects.get(username="Adam.Admin")
+        cls.user = User.objects.get(username="Darian.Manager.Co-worker.Head.Global")
         cls.country = Country.objects.create(
             name='France',
             url_name='france'
@@ -233,9 +234,9 @@ class TestCity(BaseTestCase):
         factory = RequestFactory()
         request = factory.get('/')
         request.user = self.user
-        
+
         response = model_admin.change_view(request, str(city.id))
-        
+
         # Check that del_dup_url is in extra_context
         self.assertIn('del_dup_url', response.context_data)
         self.assertIn('delete-duplicate', response.context_data['del_dup_url'])
@@ -246,17 +247,17 @@ class TestCity(BaseTestCase):
         """Test adding a city through admin interface."""
         response = self.client.get(self.add_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-        
+
         data = get_adminform_initials(response)
         data['name'] = 'Cannes'
         data['alternative_names'] = 'Canas'
         data['country'] = self.country.id
-        
+
         response = self.client.post(self.add_url, data, follow=True)
         self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertEqual(response.redirect_chain[0][0], self.changelist_url)
-        
+
         # Verify city was created
         self.assertTrue(City.objects.filter(name='Cannes').exists())
         city = City.objects.get(name='Cannes')
@@ -270,20 +271,20 @@ class TestCity(BaseTestCase):
             alternative_names='Roazhon',
             country=self.country
         )
-        
+
         change_url = reverse("site:crm_city_change", args=(city.id,))
         response = self.client.get(change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertEqual(response.redirect_chain, [])
-        
+
         data = get_adminform_initials(response)
         data['alternative_names'] = 'Roazhon, Resnn'
-        
+
         response = self.client.post(change_url, data, follow=True)
         self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertEqual(response.redirect_chain[0][0], self.changelist_url)
-        
+
         # Verify changes were saved
         city.refresh_from_db()
         self.assertEqual(city.alternative_names, 'Roazhon, Resnn')
@@ -294,14 +295,14 @@ class TestCity(BaseTestCase):
             name='Grenoble',
             country=self.country
         )
-        
+
         response = self.client.get(self.add_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-        
+
         data = get_adminform_initials(response)
         data['name'] = 'grenoble'  # Different case
         data['country'] = self.country.id
-        
+
         response = self.client.post(self.add_url, data, follow=True)
         # Should have form errors due to duplicate
         self.assertEqual(response.status_code, 200, response.reason_phrase)
@@ -312,10 +313,10 @@ class TestCity(BaseTestCase):
         """Test accessing city changelist."""
         City.objects.create(name='Avignon', country=self.country)
         City.objects.create(name='Dijon', country=self.country)
-        
+
         response = self.client.get(self.changelist_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-        
+
         # Check that cities appear in the list
         content = response.content.decode()
         self.assertIn('Avignon', content)
@@ -326,14 +327,14 @@ class TestCity(BaseTestCase):
         City.objects.create(name='Annecy', country=self.country)
         City.objects.create(name='Aix-en-Provence', country=self.country)
         City.objects.create(name='Brest', country=self.country)
-        
+
         response = self.client.get(
             self.changelist_url,
             {'q': 'Annecy'},
             follow=True
         )
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-        
+
         content = response.content.decode()
         self.assertIn('Annecy', content)
         self.assertNotIn('Brest', content)
@@ -346,14 +347,14 @@ class TestCity(BaseTestCase):
             country=self.country
         )
         City.objects.create(name='Calais', country=self.country)
-        
+
         response = self.client.get(
             self.changelist_url,
             {'q': 'Dunkerque'},
             follow=True
         )
         self.assertEqual(response.status_code, 200, response.reason_phrase)
-        
+
         content = response.content.decode()
         self.assertIn('Dunkirk', content)
         self.assertNotIn('Calais', content)
