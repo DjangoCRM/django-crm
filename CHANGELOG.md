@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fix the exclusion of the task executor from its subscribers.
 - Fixed for PostgreSQL:
   - add exception handling for ProgrammingError in SendMassmail
   - test of chat
