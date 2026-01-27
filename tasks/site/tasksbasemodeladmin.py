@@ -47,7 +47,8 @@ TASK_NEXT_STEP = gettext("Acquainted with the task")
 task_was_created_str = gettext("The task was created")
 TASK_IS_CLOSED_str = _("The task is closed")
 subtask_is_closed_str = _("The subtask is closed")
-NEXT_STEP_DATE_WARNING = _("The next step date should not be later than due date.")
+NEXT_STEP_DATE_WARNING = _(
+    "The next step date should not be later than due date.")
 priority_icon = '<i class="material-icons">flash_on</i>'
 priority_style_icon = '<i class="material-icons" style="font-size: 17px;color:{}">{}</i>'
 project_was_created_str = gettext("The Project was created")
@@ -146,7 +147,8 @@ class TasksBaseModelAdmin(BaseModelAdmin):
                 else:
                     fields.append("stage")
                 if len(responsible) == 1 or request.user in (obj.owner, obj.co_owner):
-                    fields.extend(["next_step", ("next_step_date", "remind_me")])
+                    fields.extend(
+                        ["next_step", ("next_step_date", "remind_me")])
                 fields.extend([
                     "workflow_area",
                     ("creation_date", "closing_date"),
@@ -160,7 +162,8 @@ class TasksBaseModelAdmin(BaseModelAdmin):
                 if request.user in (obj.owner, obj.co_owner) or any(
                         (request.user.is_task_operator, request.user.is_superuser)
                 ):
-                    fieldset = (_("Change responsible"), {"fields": ("responsible",)})
+                    fieldset = (_("Change responsible"), {
+                                "fields": ("responsible",)})
                     if responsible:
                         fieldset[1]["classes"] = ("collapse",)
                     fieldsets.append(fieldset)
@@ -405,9 +408,6 @@ class TasksBaseModelAdmin(BaseModelAdmin):
                 save_message(request.user, html_msg, "INFO")
 
         super().save_model(request, obj, form, change)
-        
-        if not change and getattr(obj, 'task', None):
-            obj.subscribers.remove(obj.responsible.first())        
 
         if hasattr(obj, "attach_files"):
             for f in obj.attach_files:
@@ -433,11 +433,14 @@ class TasksBaseModelAdmin(BaseModelAdmin):
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         obj = form.instance
+        if not change and getattr(obj, 'task', None):
+            obj.subscribers.remove(obj.responsible.first())
         obj_modified = False
         if "responsible" in form.changed_data:
             obj_modified = notify_participants(obj, "responsible")
         if "subscribers" in form.changed_data:
-            obj_modified = notify_participants(obj, "subscribers") or obj_modified
+            obj_modified = notify_participants(
+                obj, "subscribers") or obj_modified
         if obj_modified:
             obj.save()
         if not change and obj.co_owner:
@@ -496,7 +499,8 @@ class TasksBaseModelAdmin(BaseModelAdmin):
             3: (_("High"), 'flash_on', 'var(--error-fg)')
         }
         title = f"{_('Priority')}: {data[obj.priority][0]}"
-        star = priority_style_icon.format(data[obj.priority][2], data[obj.priority][1])
+        star = priority_style_icon.format(
+            data[obj.priority][2], data[obj.priority][1])
         return mark_safe(f'<div title="{title}">{star}</div>')
 
     @admin.display(description=_("responsible"))
@@ -625,7 +629,8 @@ def notify_participants(obj: Union[Task, Project], field: str) -> bool:
                 else:
                     notify_admins_no_email(user)
         if recipient_list and not field == "responsible":
-            email_to_participants(obj, globals()[field + '_subject'], recipient_list)
+            email_to_participants(
+                obj, globals()[field + '_subject'], recipient_list)
         if notified:
             notified_field.add(*notified)
             obj_modified = True
@@ -662,4 +667,5 @@ def notify_task_or_project_closed(request: WSGIRequest, obj: Union[Task, Project
         else:
             notify_admins_no_email(u)
     if recipient_list:
-        email_to_participants(obj, task_is_closed, recipient_list, responsible=responsible)
+        email_to_participants(obj, task_is_closed,
+                              recipient_list, responsible=responsible)
