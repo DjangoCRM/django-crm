@@ -1,10 +1,11 @@
 {% load crm_list %}
 {% load i18n %}
-<p class="paginator">
-
-{% for i in page_range %}
-    {% paginator_number page i %}
-{% endfor %}
-
-{{ page.result_count }}
-</p>
+<nav class="paginator" aria-labelledby="pagination">
+    <h2 id="pagination" class="visually-hidden">{% blocktranslate with name=cl.opts.verbose_name_plural %}Pagination {{ name }}{% endblocktranslate %}</h2>
+    <ul>
+    {% for i in page_range %}
+        <li>{% paginator_number page i %}</li>
+    {% endfor %}
+    </ul>
+    {{ page.result_count }}
+</nav>
