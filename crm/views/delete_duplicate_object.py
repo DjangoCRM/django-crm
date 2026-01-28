@@ -64,7 +64,7 @@ class DeleteDuplicateObject(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            self. original_id = request.POST.get(self.field)
+            self.original_id = request.POST.get(self.field)
             self.original = self.model.objects.get(id=self.original_id)
             self.duplicate = self.model.objects.get(id=self.duplicate_id)
             self.relate_to()
