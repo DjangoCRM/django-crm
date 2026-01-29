@@ -1,9 +1,12 @@
+from turtle import up
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from common.forms.userprofileform import UserProfileForm
 from common.models import UserProfile
 from common.utils.chat_link import get_chat_link
 from common.utils.helpers import add_chat_context
@@ -25,13 +28,14 @@ view_chat_str = _("View chat messages")
 
 class UserProfileAdmin(admin.ModelAdmin):
     empty_value_display = LEADERS
-    fields = (
+    fields = [
         'contact_email',
         'pbx_number',
         'utc_timezone',
         'activate_timezone',
         'language',
-    )
+    ]
+    form = UserProfileForm
     list_display = [
         'username',
         'chat_link',
@@ -60,6 +64,21 @@ class UserProfileAdmin(admin.ModelAdmin):
             request, object_id, form_url,
             extra_context=extra_context,
         )
+
+    def get_fields(self, request, obj=None):
+        if request.user.is_superuser:
+            fields = [*self.fields, 'is_active']
+        return fields
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.request = request
+        is_active_field = User._meta.get_field('is_active')
+        if request.user.is_superuser:
+            form.base_fields['is_active'].initial = obj.user.is_active
+            form.base_fields['is_active'].label = is_active_field.verbose_name
+            form.base_fields['is_active'].help_text = is_active_field.help_text
+        return form
 
     def get_list_display(self, request):
         list_display = self.list_display
@@ -93,6 +112,13 @@ class UserProfileAdmin(admin.ModelAdmin):
     
     def has_view_permission(self, request, obj=None):
         return True
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        if 'is_active' in form.changed_data:
+            user = form.instance.user
+            user.is_active = form.cleaned_data.get('is_active')
+            user.save(update_fields=['is_active'])
 
     # -- ModelAdmin Callables -- #
     
