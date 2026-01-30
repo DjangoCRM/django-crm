@@ -83,6 +83,11 @@ class DeleteDuplicateObject(View):
                 url = reverse(f"site:crm_{self.model._meta.model_name}_changelist")  # NOQA
             except NoReverseMatch:
                 url = reverse(f"admin:crm_{self.model._meta.model_name}_changelist")  # NOQA
+            
+            current_query_string = request.GET.urlencode()
+            if current_query_string:
+                url = f"{url}?{current_query_string}"
+            
             return HttpResponseRedirect(url)
 
     def relate_to(self) -> None:
