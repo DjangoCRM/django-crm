@@ -1,6 +1,4 @@
 import sys
-import pymysql
-pymysql.install_as_MySQLdb()
 from pathlib import Path
 from datetime import datetime as dt
 from django.utils.translation import gettext_lazy as _
@@ -28,12 +26,21 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'crm_db',      # Make sure you created this in MySQL
-        'USER': 'root',        # Use your MySQL username
-        'PASSWORD': 'sonu64', 
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        # for SQLite3
+        'ENGINE': 'django.db.backends.sqlite3',
+
+        # for MySQl
+        #'ENGINE': 'django.db.backends.mysql',
+        #'PORT': '3306',
+
+        # for PostgreSQL
+        # "ENGINE": "django.db.backends.postgresql",
+        # 'PORT': '5432',
+
+        'NAME': 'crm_db',
+        'USER': 'crm_user',
+        'PASSWORD': 'crmpass',
+        'HOST': 'localhost',
     }
 }
 
