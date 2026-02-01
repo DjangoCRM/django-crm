@@ -26,8 +26,3 @@
     urllib3==2.6.3
     XlsxWriter==3.2.9
     yarl==1.22.0
-    # Note: Kept mysqlclient-v2.2.7 above for Linux/Mac users, but added PyMySQL and cryptography to ensure the project remains functional on Windows environments where C-extensions often fail to compile. # CHECK BELOW !!
-    # Added for Windows compatibility and MySQL support
-    PyMySQL==1.1.2
-    # Security functions
-    cryptography==46.0.4
