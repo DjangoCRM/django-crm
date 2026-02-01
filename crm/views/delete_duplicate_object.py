@@ -228,6 +228,19 @@ class DeleteDuplicateObject(View):
         for f in data[self.model]['fields']:
             if not getattr(self.original, f) and getattr(self.duplicate, f):
                 setattr(self.original, f, getattr(self.duplicate, f))
+
+        # Handle City specific logic: Add duplicate city name to alternative_names
+        if self.model._meta.model_name == 'city' and self.duplicate.name:
+            # Get existing alternative names, handling None or empty string
+            alt_names_str = self.original.alternative_names or ""
+            current_names = [n.strip() for n in alt_names_str.split(',') if n.strip()]
+
+            # Check if duplicate name already exists (case-insensitive)
+            duplicate_name = self.duplicate.name.strip()
+            if not any(n.lower() == duplicate_name.lower() for n in current_names):
+                current_names.append(duplicate_name)
+                self.original.alternative_names = ", ".join(current_names)
+
         self.original.save()
         for f in data[self.model]['m2m_fields']:
             objects = getattr(self.duplicate, f).all()
