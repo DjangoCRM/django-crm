@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configure the choice between using external help pages and built-in help (deprecated).
   - Mapping external help URLs to CRM Pages.
 - Name prefix setting for parsing full names.
+- Control over the user's `is_active` field in UserProfileAdmin for superusers.
 - SALES MANAGER user creation to setupdata command
 - Query string to delete duplicates URL by @tibisabau
 - Unit tests for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
