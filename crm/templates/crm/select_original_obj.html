@@ -32,7 +32,7 @@
     <h1>{% translate "Select the original to which the linked objects will be reconnected." %}</h1>
 	<div id="content-main">
 		<br>
-		<form action="{{ request.path }}?{{ request.GET.urlencode }}" method="post" id="login-form">
+		<form action="" method="post" id="login-form">
             {% csrf_token %}
             {{ form }}
 
