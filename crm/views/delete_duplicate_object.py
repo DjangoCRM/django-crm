@@ -235,9 +235,9 @@ class DeleteDuplicateObject(View):
                 setattr(self.original, f, getattr(self.duplicate, f))
 
         # Handle City specific logic: Add duplicate city name to alternative_names
-        if self.model._meta.model_name == 'city' and self.duplicate.name:
-            # Get existing alternative names, handling None or empty string
-            alt_names_str = self.original.alternative_names or ""
+        if self.model == City:
+            # Get existing alternative names
+            alt_names_str = self.original.alternative_names
             current_names = [n.strip() for n in alt_names_str.split(',') if n.strip()]
 
             # Check if duplicate name already exists (case-insensitive)
