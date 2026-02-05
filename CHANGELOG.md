@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Compatibility with Django 6
 - Monitoring functionality of the Composite Transaction‑Quality Score (CTQS)
 - Integration with the web help center:
   - Configure the choice between using external help pages and built-in help (deprecated).
@@ -20,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Control over the user's `is_active` field in UserProfileAdmin for superusers.
 - SALES MANAGER user creation to setupdata command
 - Query string to delete duplicates URL by @tibisabau
+- Automatically adds the name of the deleted duplicate city to the list of alternative names of the original city instance by @DARK-1926.
 - Unit tests for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 - Unit tests for the ByVIPStatus filter by @mariami57
 - Unit tests for the City model and CityAdmin functionality @tibisabau
@@ -29,11 +31,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Conversion results report revised by @tibisabau.
 - Enhance full name parsing with configurable name prefixes.
 - The `get_help_url` function for obtaining the help url with a single database query.
+- Fixed loss of query string when redirecting after deleting a duplicate object by @Sonu64.
 - The change_list template for payments to be compatible with Django 6.
 
 ### Fixed
 
-- Fix the exclusion of the task executor from its subscribers.
+- Fixed loss of query string when redirecting after deleting a duplicate object by @Sonu64.
+- Fixed the exclusion of the task executor from its subscribers.
 - Fixed for PostgreSQL:
   - add exception handling for ProgrammingError in SendMassmail
   - test of chat
