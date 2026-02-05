@@ -72,7 +72,8 @@ Making it more convenient and understandable for a wide audience of users.
 But now we are also ready to add new features.
 
 - It's easier to start by working with issues marked with a <a href="https://github.com/DjangoCRM/django-crm/labels/good%20first%20issue" target="_blank">“good first issue”</a> label. They are supplied with instructions.
-- Create a draft PR when starting work on bigger changes for discussion and assistance.
+- Create a draft **PR** when starting work on bigger changes for discussion and assistance.  
+  (*Please avoid changing the formatting unnecessarily, especially throughout the entire document. This makes it difficult or impossible to review the changes.*)
 - A **Task-board** and **Roadmap** are available for **contributors** to obtain additional information.
 
 ### Updating Test Permissions
