@@ -1,4 +1,3 @@
-from django import forms
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -28,9 +27,9 @@ def select_email_account(request: WSGIRequest):
         form = RadioSelectForm(eas)
         extra_context = dict(
             crm_site.each_context(request),
-            opts=Request._meta,     # NOQA
+            opts=Request._meta,  # NOQA
             title=_("Please select an Email account"),
             form=form
-        )            
-       
+        )
+
     return render(request, 'common/select_object.html', extra_context)
