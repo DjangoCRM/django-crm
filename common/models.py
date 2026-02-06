@@ -1,4 +1,5 @@
 import os
+
 from django.conf import settings
 from django.contrib.auth.models import Group
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -7,10 +8,10 @@ from django.core.exceptions import NON_FIELD_ERRORS
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
-from django.utils.safestring import mark_safe
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import get_formatted_short_date
 
@@ -77,22 +78,21 @@ class Base1(Base):
     )
 
     def clean(self):
-        if hasattr(self, 'owner') and hasattr(self, 'department'):
-            if self.department and self.owner:
-                owner_departments = self.owner.groups.filter(       # NOQA
-                    department__isnull=False
-                )
-                if self.department not in owner_departments:
-                    try:
-                        raise ValidationError({
-                            NON_FIELD_ERRORS: _("Department and Owner do not match"),
-                            'department': _("Department and Owner do not match"),
-                            'owner': ""
-                        })
-                    except Exception:
-                        raise ValidationError({
-                            NON_FIELD_ERRORS: _("Department and Owner do not match"),
-                        })
+        if getattr(self, 'owner', None) and getattr(self, 'department', None):
+            owner_departments = self.owner.groups.filter(       # NOQA
+                department__isnull=False
+            )
+            if self.department not in owner_departments:
+                try:
+                    raise ValidationError({
+                        NON_FIELD_ERRORS: _("Department and Owner do not match"),
+                        'department': _("Department and Owner do not match"),
+                        'owner': ""
+                    })
+                except Exception:
+                    raise ValidationError({
+                        NON_FIELD_ERRORS: _("Department and Owner do not match"),
+                    })
         super().clean()
 
 
