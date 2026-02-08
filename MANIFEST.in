@@ -11,6 +11,7 @@ recursive-include locale/**/django.mo
 recursive-exclude static/admin/rosetta *
 global-exclude .gitignore
 exclude webcrm/local*.py
+exclude crm_db
 prune **/__pycache__
 prune media
 include media/docs/empty_file.txt
