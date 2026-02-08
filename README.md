@@ -32,6 +32,9 @@ CRM also takes full advantage of the Django Admin site, with documentation all c
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
+**Development Status:** Production/Stable  
+The **project is mature and stable**, and has been successfully used in real applications for many years.
+
 ⭐️ Star if you like it! It will help others discover this project too.
 
 ---
@@ -66,8 +69,6 @@ The software package provides two websites:
 
 1. CRM site for all users
 2. Site for administrators
-
-The **project is mature and stable**, and has been successfully used in real applications for many years.
 
 ## Main Applications
 
@@ -179,15 +180,15 @@ For first-time exploration of the CRM (not for regular use), no database install
 
 - [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
-- or visit <a href="https://django-crm-admin.readthedocs.io" target="_blank">Read The Docs</a>
+- Visit the <a href="https://django-crm-admin.readthedocs.io" target="_blank">CRM documentation</a> website (*Read The Docs*)
 - For unreleased changes, see [CHANGELOG](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
 
 If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
 
 ### Compatibility
 
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.13, 5.2.7+ (LTS - long-term support release)
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 6.0+ (5.2.11 LTS - <a href="https://github.com/DjangoCRM/django-crm/tree/v1.7.x-LTS" target="_blank">long-term support release</a>)
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.12+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+  
 
@@ -203,6 +204,7 @@ Django-CRM is released under the AGPL-3.0 license - see the [LICENSE](https://gi
 
 ## Credits
 
+- All participants who contributed to the improvement of this project.
 - Google material <a href="https://fonts.google.com/icons" target="_blank">icons</a>.
 - <a href="https://nicedit.com" target="_blank">NicEdit</a> - WYSIWYG Content Editor.
 - All resources used under other licenses.
