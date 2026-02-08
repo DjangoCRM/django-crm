@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.0.0] - 2026-01-08
 
 ### Added
 
@@ -46,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - In the list of deals, the marking of irrelevant transactions has been changed.
 - Refactor save_to_excel function to use keyword arguments for avoid Panda's FutureWarning
+
+### Full Changelog: [v1.7.0...v2.0.0](https://github.com/DjangoCRM/django-crm/compare/v1.7.0...v2.0.0)
 
 ## [1.7.0] - 2025-12-13
 
