@@ -16,195 +16,221 @@
 
 # Django-CRM
 
-*(Collaborative and Analytical Customer Relationship Management Software)*
+## Free Open-Source Python CRM with Task Management, Email Marketing, and Analytics
 
-**Django-CRM** is an open-source CRM solution designed with **two primary goals**:
-
-- **For end users**: Deliver enterprise-level open-source CRM software with a comprehensive suite of business solutions.  
-- **For maintainers and developers**: Significantly simplify the:
-
-  - Customization of the application
-  - Set up and maintain a production environment
-  - Development of new features and integrations
-
-**No need to learn a proprietary framework**: everything is built using the popular Django framework.  
-CRM also takes full advantage of the Django Admin site, with documentation all contained on a single web page!
+**Django CRM** is a free customer relationship management software built with [Python](https://www.python.org) and [Django](https://www.djangoproject.com), designed for teams that need a self-hosted CRM, CRM task manager, mailing CRM, and CRM analytics software in one extensible platform.
 
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/deals_screenshot.png" alt="Screenshot Django-CRM" align="center" style="float: center"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/deals_screenshot.png)
 
-**Development Status:** Production/Stable  
-The **project is mature and stable**, and has been successfully used in real applications for many years.
+**Project status:** Production / Stable
+Used in real business environments for many years.
 
-⭐️ Star if you like it! It will help others discover this project too.
+⭐️ If you find this project useful, **please star this repository** — it helps others discover this free and open-source Python CRM.
 
 ---
 
-## Customer Relationship Management Features
+## Why Django-CRM?
 
-|                              |                                          |                                  |
-|------------------------------|------------------------------------------|----------------------------------|
-| ☑️ **Team Tasks & Projects** | ☑️ **Lead Management**                   | ☑️ **Email Marketing**           |
-| ☑️ **Contact Management**    | ☑️ **Deal Tracking & Sales Forecasting** | ☑️ **Role-Based Access Control** |
-| ☑️ **Sales Analytics**       | ☑️ **Internal Chat Integration**         | ☑️ **Mobile-Friendly Design**    |
-| ☑️ **Customizable Reports**  | ☑️ **Automated Email Sync**              | ☑️ **Multi-Currency Support**    |
+Django CRM combines CRM and task management software, CRM with email integration, and CRM and email marketing software—without proprietary frameworks, vendor lock-in, or SaaS limitations..
 
-Learn more about [the software's capabilities](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+### For businesses and end users
 
-Django CRM is an open-source client relationship management software.  
-This CRM is written in <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: bottom" alt="python logo" width="25" height="25"> Python</a>.  
-Frontend and backend are entirely based on the <a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/" target="_blank">Django Admin site</a>.  
-CRM app uses adaptive Admin HTML templates out-of-the-box.  
-Django is an excellently documented framework with lots of examples.  
-The documentation on the Admin site takes up only one web page.
+* Manage **leads, deals, contacts, tasks, projects, and email campaigns** in one system
+* Replace multiple tools with a **single collaborative CRM**
+* Gain insights using built-in **CRM analytics software**
 
-💡 The **original idea** is that since Django Admin is already a professional object management interface with a flexible permissions system for users (view, change, add, and delete objects), all you need to do is create models for the objects (such as Leads, Requests, Deals, Companies, etc.) and add business logic.  
-A **table view of CRM objects** with sorting and filtering by multiple fields enables users to quickly locate relevant information, prioritize tasks, and manage large volumes of data with greater efficiency.
+### For developers and system integrators
 
-**All this ensures**:
+* 100% Python CRM based on the Django framework
+* No proprietary UI layer—everything runs on [Django Admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/)
+* Fast customization, predictable upgrades, and simple deployments
+* Ideal for **self-hosted CRM** and on-premise installations
 
-- **significantly easier project customization and development**
-- **simpler project deployment and production server support**
+---
 
-The software package provides two websites:
+## Core CRM Features
 
-1. CRM site for all users
-2. Site for administrators
+| CRM & Sales                  | Tasks & Collaboration | Email & Marketing                |
+| ---------------------------- | --------------------- | -------------------------------- |
+| Lead management              | CRM task manager      | Mailing CRM                      |
+| Deal tracking & forecasting  | Projects & subtasks   | CRM and email marketing software |
+| Company & contact management | Internal chat         | CRM with email integration       |
+| Role-based access control    | Reminders & files     | SMTP / IMAP support              |
+| CRM analytics software       | Office memos          | Email campaign automation        |
+
+🔎 Learn more in the [CRM system overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+
+---
+
+## Python CRM Built on Django Admin
+
+Django-CRM is a Python CRM that fully leverages the **Django Admin interface**:
+
+* Adaptive admin templates (desktop & mobile)
+* Advanced filtering, sorting, and search
+* Object-level permissions (view, add, change, delete)
+* Single-page admin documentation
+
+Instead of reinventing a UI framework, Django-CRM focuses on **business logic**, **data integrity**, and **extensibility**—making it ideal **for small and mid-size businesses** looking for a free customer relationship management software they can host and control.
+
+---
 
 ## Main Applications
 
-The CRM software suite consists of the following **main applications** and their models:
+### CRM Application
 
-- **TASKS Management app**:
-  (*available to all users by default, regardless of their role*)
-  - Task (*with related: files, chat, reminders, tags - see [task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)*)
-    - subtasks
-  - Memo (*office memo*) - see [memo features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
-    - tasks / project
-  - Project (*tasks collection*):
-  - ... (+ *4 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/tasks/models" target="_blank">models</a>*)
-- **CRM app**:
-  - Requests (*commercial inquiries or cases/incidents*)
-  - Leads (*potential customers*)
-  - Companies
-  - Contact persons (*associated with their companies*)
-  - Deals (*like "Opportunities"*)
-  - Email messages (*sync with user email accounts*)
-  - Products (*goods and services*)
-  - Payments (*received, guaranteed, high and low probability*)
-  - ... (*+ 12 more <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">models</a>*)
+* Requests (inquiries, incidents)
+* Leads and opportunities
+* Companies and contact persons
+* Deals (sales pipeline)
+* Products and payments
+* Email messages linked to CRM objects
+
+➡️ Over 20 interconnected CRM models for complex sales workflows.
+
+---
+
+### Tasks & Project Management (CRM Task Manager)
+
+A full **CRM and task management software** module:
+
+* Tasks and subtasks
+* Projects as task collections
+* Office memos converted into tasks or projects
+* Chat, files, reminders, tags
+* Individual and team task assignment
+
+🔗 [Task features](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)
+
+---
+
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytical crm report" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **ANALYTICS app**: ([detailed software overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
-  - Income Summary report (*see [screenshot](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
-  - Sales funnel report
-  - Lead source Summary report
-  - ... (+ *5 more analytical reports*)
-- **MASS MAIL app** ([Email Marketing Software](https://github.com/DjangoCRM/django-crm/blob/main/massmail/README.md)):
-  - Email Accounts (*any providers with access via SMTP*)
-  - Email Messages (*newsletters*)
-  - Email Signatures (*user signatures*)
-  - Mailings (*email campaigns using dynamic templates*)
 
-## Supporting Applications
+### Analytics Application (Analytical CRM)
 
-The CRM package also contains **supporting applications** such as:
+Built-in **CRM analytics software** for actionable insights:
 
-- Chat app (chat is available in every instance of a task, project, office memo and deal)
-- VoIP app (contact clients from deals)
-- Help app (dynamic help pages depending on user role)
-- Common app:
-  - 🪪 User profiles
-  - ⏰ Reminders (for tasks, projects, office memos and deals)
-  - 📝 Tags (for tasks, projects, office memos and deals)
-  - 📂 Files (for tasks, projects, office memos and deals)
+* Sales funnel analysis
+* Income summary reports
+* Lead source analytics
+* Requests Summary
+
+🔗 [Analytics app overview](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md)
+
+---
+
+### Mailing CRM & Email Marketing
+
+Mailing CRM includes a complete CRM and email marketing software module:
+
+* Email accounts (SMTP / IMAP)
+* Email campaigns and newsletters
+* Dynamic templates
+* Email signatures
+* Contact segmentation
+
+This makes Django-CRM suitable as a CRM with email integration and internal email client.
+
+---
+
+## Email Client & Integration
+
+The **built-in email client** supports:
+
+* SMTP and IMAP
+* Gmail and other providers
+* OAuth 2.0 (two-step authentication)
+* Automatic email synchronization
+
+All correspondence is:
+
+* Stored in the CRM database
+* Linked to requests, leads, and deals
+* Organized using a ticket-style mechanism
+
+---
 
 ## Additional Functionality
 
-- Web form integration: CRM contact form has built-in:
-  - reCAPTCHA v3 protection
-  - automatic geolocation
-- User's email account integration and synchronization. Email messages are automatic:
-  - saved in the CRM database
-  - linked to the appropriate CRM objects (like: requests, leads, deals, etc.)
-- VoIP callback to smartphone
-- Sending messages via messengers (like: Viber, WhatsApp, ...)
-- Excel Support: Import/export contact details with ease.
+* Web form integration with reCAPTCHA v3
+* Automatic geolocation
+* VoIP callback support
+* Messenger integration (WhatsApp, Viber, etc.)
+* Excel import/export
+* Context-aware help pages
+* Tooltips and inline documentation
 
-## Email Client
+---
 
-Python CRM with email integration includes a built-in **email client** that works via **SMTP** and **IMAP** protocols with any email service provider (e.g. Gmail). It also supports two-step authentication using the **OAuth 2.0** protocol for third-party applications if required. This enables Django-CRM to automatically store copies of all correspondence related to each request and deal within its database. The functionality ensures that even if communications occur through the user's external email account (outside the CRM).  
-They are captured and organized within the system using a **ticketing mechanism**.
+## Multilingual & Localization Ready
 
-## Mailing CRM
-
-The CRM system includes a **bulk mailing** feature that allows users to send personalized newsletters to their contacts.  
-Customer segmentation features allow you to create targeted email marketing campaigns, and these can be managed directly within the CRM interface.
-
-## User Assistance  
-
-- Each CRM page includes a link <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/question-mark.svg" alt="question-mark icon" style="vertical-align: bottom" width="25" height="25"> to a context-aware help page, with content dynamically tailored to the user's role for more relevant guidance.  
-- Tooltips are available throughout the interface, providing instant information when hovering over elements like icons, buttons, links, or table headers.  
-- A comprehensive [user guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md) file is also included for in-depth reference and support.  
-
-## Elevate Your Team's Productivity with Collaborative CRM Solutions
-
-The [CRM Task management](https://djangocrm.github.io/info/features/tasks-app-features/) is designed to enhance collaboration within teams and streamline project management processes.  
-As a collaborative CRM, it allows users to create and manage memos, tasks, and projects with ease.  
-[Office memos](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md) can be directed to department heads or company executives, who can then transform these memos into tasks or projects, assigning responsible persons or executors.  
-[Tasks](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md) can be individual or team.  
-Tasks provide features such as chat discussions, reminders, file sharing, creating subtasks, and sharing results.  
-Users receive notifications directly in the CRM and via email, ensuring they stay informed.  
-Each user has a clear view of their task stack, including priorities, statuses, and next steps, thereby enhancing productivity and accountability in collaborative customer relationship management.
-
-## Project Localization
-
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: bottom"> Customer service software is now available in **many languages:**  
+<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/languages.svg" alt="django logo" width="30" height="30" style="vertical-align: bottom"> Available interface languages:
 
 `ar, cs, de, el, en, es, fr, he, hi, id, it, ja, ko, nl, pl, pt-br, ro, ru, tr, uk, vi, zh-hans`
 
-Django CRM has full support for translation of interface, formatting of dates, times, and time zones.  
+Full support for:
 
-## Why Choose Django-CRM?
+* Translations
+* Time zones
+* Locale-specific date and time formats
 
-- **Self-Hosting**: The CRM application software is designed to be self-hosted, allowing you to have full control over your CRM data and environment. By self-hosting, you can customize the CRM to fit your specific business needs and ensure that your data remains private and secure.
-- **Collaborative CRM**: Boost team productivity with tools for task management, project collaboration, and internal communication.
-- **Automated email system**: Email marketing CRM integration and automatically saving copies of all correspondence associated with each request and deal in its database.
-- **Analytical CRM**: Gain actionable insights with built-in reports like sales funnel, income summary, and lead source analysis.
-- **Python and Django-Based**: No learning of a proprietary framework is required - all built on Django with an intuitive admin interface. The frontend and backend, based on Django Admin, make it much easier customization and development projects, as well as deploy and maintain a production server.
+---
+
+## Why Choose This Free CRM?
+
+* ✅ Free customer relationship management software
+* ✅ Fully self-hosted
+* ✅ Python & Django-based
+* ✅ CRM, tasks, email, and analytics in one system
+* ✅ Ideal for SMBs, agencies, and internal enterprise tools
+* ✅ No SaaS fees or vendor lock-in
+
+---
 
 ## Getting Started
 
-Django-CRM can be easily deployed as a regular Django project with fixtures loaded to initially populate the database.  
-For first-time exploration of the CRM (not for regular use), no database installation is required—simply use Python's built-in SQLite3 with default settings.
+Django-CRM runs like a standard Django project.
 
-📚 Please refer to:
+For testing and evaluation:
 
-- [Installation and Configuration Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
-- [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
-- Visit the <a href="https://django-crm-admin.readthedocs.io" target="_blank">CRM documentation</a> website (*Read The Docs*)
-- For unreleased changes, see [CHANGELOG](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
+* No external database required
+* SQLite works out of the box
 
-If you find Django-CRM helpful, please ⭐️ **star** this repo on GitHub to support its growth!
+📘 Documentation:
 
-### Compatibility
+* [Installation & Configuration](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
+* [User Guide](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+* [Online Documentation](https://django-crm-admin.readthedocs.io)
+* [Changelog](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
 
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 6.0+ (5.2.11 LTS - <a href="https://github.com/DjangoCRM/django-crm/tree/v1.7.x-LTS" target="_blank">long-term support release</a>)
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.12+
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+  
+---
+
+## Compatibility
+
+* <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 6.0+
+* <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.12+
+* <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
+* <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+
+
+The CRM version compatible with Django 5.2.11 LTS is available here.
+
+---
 
 ## Contributing
 
-Contributions are welcome! There is room for improvements and new features.  
-Check out our [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md) to learn how to get started.  
-Every contribution, big or small, makes a difference.
+Contributions are welcome—features, fixes, and documentation improvements.
+
+📄 See the [Contributing Guide](https://github.com/DjangoCRM/django-crm/blob/main/CONTRIBUTING.md).
+
+---
 
 ## License
 
-Django-CRM is released under the AGPL-3.0 license - see the [LICENSE](https://github.com/DjangoCRM/django-crm/blob/main/LICENSE) file for details.
+Released under the **AGPL-3.0** license.
+See the [LICENSE](https://github.com/DjangoCRM/django-crm/blob/main/LICENSE) file.
 
-## Credits
+---
 
-- All participants who contributed to the improvement of this project.
-- Google material <a href="https://fonts.google.com/icons" target="_blank">icons</a>.
-- <a href="https://nicedit.com" target="_blank">NicEdit</a> - WYSIWYG Content Editor.
-- All resources used under other licenses.
+## Support Open Source ❤️
+
+If you found this project useful, please please **⭐ star this repository** on GitHub — it helps others find this free Python CRM.
