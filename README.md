@@ -212,7 +212,7 @@ For testing and evaluation:
 * <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
 * <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+
 
-The CRM version compatible with Django 5.2.11 LTS is available here.
+The CRM version compatible with Django 5.2.11 LTS is available [here](https://github.com/DjangoCRM/django-crm/tree/v1.7.x-LTS).
 
 ---
 
