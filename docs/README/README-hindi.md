@@ -9,8 +9,6 @@
 <a href="https://github.com/DjangoCRM/django-crm/blob/main/docs/README/README-italian.md">Italiano</a>
 </p>
 
-Below is the complete Hindi translation of the provided `README.md` file.
-
 ---
 
 # Django-CRM
