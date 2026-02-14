@@ -66,8 +66,8 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     def get_fields(self, request, obj=None):
         if request.user.is_superuser:
-            fields = [*self.fields, 'is_active']
-        return fields
+            return [*self.fields, 'is_active']
+        return self.fields
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
