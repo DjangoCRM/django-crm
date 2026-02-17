@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Fixed
+
+- Fixed a bug that occurred in the get_fields method when attempting to open a user profile.
+
+### Added
+
+- Added unit tests for the reload_field view by @omorros
+
 ## [2.0.0] - 2026-01-08
 
 ### Added
