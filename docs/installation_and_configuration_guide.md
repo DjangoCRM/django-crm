@@ -246,12 +246,7 @@ To fill CRM with initial data, you need to execute the command "setupdata" in th
 python manage.py setupdata
 ```
 
-This command will execute `migrate`, `loaddata` and `createsuperuser`.
-As a result, the database will be populated with objects such as  
-countries, currencies, departments, industries, etc.  
-Also, the superuser will be created.
-You will be able to modify them or add your own.  
-Use the superuser credentials from the output to log into the CRM site.
+Running this command triggers database migrations, loads initial data (countries, currencies, departments, industries, etc), and creates two user accounts. You will receive credentials for a **superuser** and a **sales manager** (introduced in v2.0). Please save these details, as the superuser login is for the admin site and the sales manager login is for the CRM. You can customize these accounts later.
 
 ## Run CRM on the built-in server
 
@@ -291,13 +286,15 @@ Use the superuser credentials to log in.
 
 ### CRM site for all users
 
+(*use the sales manager credentials to log in*)
 `http://127.0.0.1:8000/en/123/`  
-It's according to the template  
+The URL matches the pattern:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
 ### Admin site for administrators (superusers)
 
-`http://127.0.0.1:8000/en/456-admin`  
+`http://127.0.0.1:8000/en/456-admin` 
+The pattern of URL is as follows:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
