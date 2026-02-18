@@ -99,10 +99,9 @@ python manage.py setupdata
 This command will execute `migrate`, `loaddata` and `createsuperuser`.  
 As a result, the database will be populated with objects such as  
 countries, [currencies](currencies.md), [departments](adding_crm_users.md#departments), industries, etc.  
-Also the superuser will be created.
-You will be able to modify them or add your own.  
+Two users with roles will also be created: **superuser** and **sales manager** (*new in v2.0*). You will be able to modify these accounts and add new ones.  
 
 !!! Note
-    Use the superuser credentials from the output to log into the CRM site.
+    Save the credentials of these users from the output data. They will be needed to log in to the CRM website and the website for administrators, respectively.
 
 If you have any difficulties, get [support](https://djangocrm.github.io/info/support/){target="_blank"}.
