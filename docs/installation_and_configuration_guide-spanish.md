@@ -253,12 +253,7 @@ Para llenar el CRM con datos iniciales, necesitas ejecutar el comando "setupdata
 python manage.py setupdata
 ```
 
-Este comando ejecutará `migrate`, `loaddata` y `createsuperuser`.
-Como resultado, la base de datos se poblará con objetos como  
-países, monedas, departamentos, industrias, etc.  
-También se creará el superusuario.
-Podrás modificarlos o agregar los tuyos propios.  
-Usa las credenciales del superusuario del resultado para iniciar sesión en el sitio del CRM.
+Al ejecutar este comando, se activan las migraciones de la base de datos, se cargan los datos iniciales (países, monedas, departamentos, industrias, etc.) y se crean dos cuentas de usuario. Recibirá las credenciales de un **superusuario** y un **gerente de ventas** (introducido en la versión 2.0). Guarde estos datos, ya que el inicio de sesión del superusuario es para el sitio de administración y el del gerente de ventas es para el CRM. Puede personalizar estas cuentas más adelante.
 
 ## Ejecutar CRM en el servidor integrado
 
@@ -297,13 +292,15 @@ Usa las credenciales del superusuario para iniciar sesión.
 
 ### Sitio de CRM para todos los usuarios
 
+(*utilice las credenciales del gerente de ventas para iniciar sesión*)
 `http://127.0.0.1:8000/en/123/`  
-Está de acuerdo con la plantilla  
+La URL coincide con el patrón:  
 `<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
 ### El sitio de administración para administradores (superusuarios)
 
 `http://127.0.0.1:8000/en/456-admin`  
+El patrón de URL es el siguiente:  
 `<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` y `SECRET_ADMIN_PREFIX`
