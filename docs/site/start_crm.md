@@ -37,15 +37,15 @@ python manage.py runserver 1.2.3.4:8000
 ## Access to CRM and admin sites
 
 Now you have two websites.  
-Use the superuser credentials to log in.  
 
-CRM site for all users:  
+CRM site for all users (*use the sales manager credentials to log in*):  
 `http://127.0.0.1:8000/en/123/`  
-It's according to the template  
+The URL matches the pattern:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_CRM_PREFIX>`
 
-and Admin site for administrators (superusers):  
+and Admin site for administrators (*use the superuser credentials to log in*):  
 `http://127.0.0.1:8000/en/456-admin`  
+The pattern of URL is as follows:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
