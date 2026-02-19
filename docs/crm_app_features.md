@@ -20,6 +20,7 @@ These reports empower businesses to refine strategies and achieve better outcome
   - **Handling Invalid Requests**: Requests that do not match the company's offerings and cannot be fulfilled are marked as irrelevant and should be deleted.
   - **Commercial request Filtering:** Public email domains are filtered out to avoid misidentification of contacts from common email service providers like Gmail.
   - **Request Counter**: The CRM displays the number of pending requests in the list, with a distinction between those received today and earlier.
+  - **Cases/incidents**: The CRM interface also allows you to effectively manage support requests (no deal is created).
 - **Geolocation of Counterparty**: The CRM can determine the country and city of the counterparty based on their IP address, which helps sales teams tailor communication and manage territory-specific requests.
 - **Banned Company Names and Stop Phrases**: To prevent spam-based Requests, users can add repetitive spam company names to a banned list and define stop phrases to filter out unwanted emails and contact form data.
 
