@@ -14,6 +14,7 @@ La **aplicación CRM** en Django-CRM es el centro neurálgico para gestionar int
   - **Manejo de Solicitudes Inválidas**: Las solicitudes que no coinciden con las ofertas de la empresa y no pueden ser cumplidas se marcan como irrelevantes y deben eliminarse.
   - **Filtrado de Solicitudes Comerciales**: Se filtran los dominios de correo electrónico públicos para evitar la identificación errónea de contactos de proveedores de servicios de correo comunes como Gmail.
   - **Contador de Solicitudes**: El CRM muestra el número de solicitudes pendientes en la lista, con una distinción entre las recibidas hoy y las anteriores.
+  - **Casos/incidentes**: La interfaz CRM también permite gestionar de forma eficaz las solicitudes de soporte (no se crea ningún acuerdo).
 - **Geolocalización del Contraparte**: El CRM puede determinar el país y la ciudad de la contraparte según su dirección IP, lo que ayuda a los equipos de ventas a personalizar la comunicación y gestionar solicitudes específicas de territorios.
 - **Nombres de Empresas Prohibidos y Frases de Parada**: Para evitar solicitudes basadas en spam, los usuarios pueden agregar nombres de empresas repetitivos de spam a una lista prohibida y definir frases de parada para filtrar correos electrónicos no deseados y datos de formularios de contacto.
 
