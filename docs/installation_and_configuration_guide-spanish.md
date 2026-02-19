@@ -303,8 +303,8 @@ La URL coincide con el patrón:
 El patrón de URL es el siguiente:  
 `<tu host de CRM>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
-`LANGUAGE_CODE`, `SECRET_CRM_PREFIX` y `SECRET_ADMIN_PREFIX`
-pueden ser cambiados en el archivo `webcrm/settings.py`
+Los usuarios sin el rol de superusuario son redirigidos automáticamente al sitio web de CRM cuando intentan acceder al sitio del administrador.
+Los valores de los parámetros `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` y `SECRET_ADMIN_PREFIX` se pueden cambiar en el archivo `webcrm/settings.py`.
 
 > [!NOTE]
 > No intentes acceder a la dirección `<tu host de CRM>` sin más (`http://127.0.0.1:8000/`).  
