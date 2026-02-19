@@ -297,8 +297,8 @@ The URL matches the pattern:
 The pattern of URL is as follows:  
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
-`LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX`
-can be changed in the file `webcrm/settings.py`
+Users without the superuser role are automatically redirected to the CRM website when attempting to access the administrator site.
+The values ​​of the `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX` parameters can be changed in the `webcrm/settings.py` file.
 
 > [!NOTE]
 > Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
