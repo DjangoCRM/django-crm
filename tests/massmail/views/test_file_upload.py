@@ -4,7 +4,7 @@ from django.test import TestCase, override_settings, Client
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 from django.conf import settings
-from .forms import UploadFileForm  # Adjust import based on your app name
+from massmail.views.file_upload import UploadFileForm
 
 # Create a temporary directory for media files during tests
 TEMP_MEDIA_ROOT = tempfile.mkdtemp()
