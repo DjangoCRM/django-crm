@@ -10,8 +10,9 @@ class SignatureAdmin(CrmModelAdmin):
     list_display = (
         'name',
         'person',
-        'type',
-        'update_date'
+        'default',
+        'update_date',
+        'type'
     )
     list_filter = (ByOwnerFilter,)
     readonly_fields = (
@@ -23,9 +24,9 @@ class SignatureAdmin(CrmModelAdmin):
         'preview'
     )
     save_on_top = False
-    
+
     # -- ModelAdmin methods -- #
-    
+
     def get_fieldsets(self, request, obj=None):
         fieldsets = [
             (_('Change'), {
@@ -37,7 +38,7 @@ class SignatureAdmin(CrmModelAdmin):
             (_('Additional information'), {
                 'classes': ('collapse',),
                 'fields': (
-                    'department', 
+                    'department',
                     ('owner', 'modified_by'),
                     ('creation_date', 'update_date')
                 )
@@ -50,9 +51,9 @@ class SignatureAdmin(CrmModelAdmin):
                 })
             )
         return fieldsets
-    
+
     # -- ModelAdmin callables -- #
-    
+
     @admin.display(description='')
     def preview(self, obj):
         return get_signature_preview(obj)
