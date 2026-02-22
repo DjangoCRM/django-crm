@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.0.1] - 2026-02-22
 
 ### Fixed
 
@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added unit tests for the reload_field view by @omorros
+- Added a "default" column to the signature selection page
+
+### Full Changelog: [v2.0.0...v2.0.1](https://github.com/DjangoCRM/django-crm/compare/v2.0.0...v2.0.1)
 
 ## [2.0.0] - 2026-01-08
 
