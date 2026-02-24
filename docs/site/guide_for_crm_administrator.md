@@ -19,6 +19,19 @@ if necessary, specify the department and set up additional permissions.
 The administrator must also ensure that the sales manager user has access to the email account from which he will send messages to clients.
 See instructions for [adding CRM users](adding_crm_users.md).
 
+### Deleting user accounts in a CRM
+
+Deleting user accounts in a Customer Relationship Management system is generally not recommended because it permanently removes the user's entire history, including emails, tasks, and deal records. This practice is discouraged for the following reasons:
+
+- **Loss of Audit Trail:** The CRM serves as a record of who did what and when. Deleting a user erases this accountability, making it difficult to track the history of specific accounts or deals.
+- **Data Integrity:** Deleting a user often deletes the "owner" of the data, which can break relationships between records and lead to orphaned data.
+- **Reinstatement Difficulties:** If a user returns to the company, you cannot simply reactivate a deleted account. You would have to recreate the profile and manually re-enter all their historical data.
+- **Compliance and Legal Requirements:** Many industries are subject to data retention laws (such as GDPR or HIPAA) that require keeping records of user activity, even after an employee leaves.
+
+#### The Recommended Alternative
+Instead of deleting a user account, administrators should simply deactivate it. This keeps the user's profile and history intact in the system while preventing them from logging in or creating new records.  
+Administrators can do it via the admin website, or they can turn the account off directly from the individual user’s profile page inside the CRM interface.
+
 ### Deleted object history
 
 In some cases, users may need to see the history of deleted objects.  
