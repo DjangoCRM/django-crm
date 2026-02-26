@@ -1,16 +1,35 @@
+from django.contrib import admin
 from django.template.defaultfilters import linebreaks
+from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
+
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.models import EmlAccountsQueue
 
 
+EMAILS_SENT = _("Emails Sent That Day")
+EMAILS_SENT_TITLE = _("Number of emails sent on that mailing date.")
+IMPORT = _("import")
+IMPORT_TITLE = _(
+    "Shows whether automatic import of emails from the account is enabled.")
+LAST_IMPORT_DATE = _("last import date")
+LAST_IMPORT_TITLE = _(
+    "The date when an email was last imported from this account.")
+LAST_MAILING_DATE = _("last mailing date")
+LAST_MAILING_TITLE = _(
+    "The most recent date when the mass-email campaign was sent.")
+MASS_MAILING = _("mass mailing")
+MASS_MAILING_TITLE = _("Email account availability for mass mailing.")
+
+
 class EmailAccountAdmin(CrmModelAdmin):
     list_display = (
-        'name', 'id', 'last_import_dt', 'today_count', 'today_date',
-        'massmail', 'br_report', 'main', 'do_import', 'owner'
+        'name', 'main', 'perform_import', 'mass_mailing', 'last_import_date',
+        'last_mailing_date', 'emails_sent', 'notifications',  'owner'
     )
-    
+
     readonly_fields = ('creation_date', 'update_date',)
     fieldsets = (
         (None, {
@@ -41,7 +60,7 @@ class EmailAccountAdmin(CrmModelAdmin):
         if request.user.is_superuser:
             return queryset
         return queryset.filter(owner=request.user)
-    
+
     def get_list_filter(self, request):
         list_filter = super().get_list_filter(request)
         if request.user.is_superuser:
@@ -73,7 +92,61 @@ class EmailAccountAdmin(CrmModelAdmin):
                 for qobj in queue_objs:
                     qobj.remove_id(obj.pk)
 
-    # -- ModelAdmin actions -- #
+    # -- ModelAdmin Callables -- #
 
-    def br_report(self, instance):
+    @admin.display(description=mark_safe(
+        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
+    ))
+    def account(self, obj):
+        return obj.name
+
+    @admin.display(description=mark_safe(
+        f'<div title="{EMAILS_SENT_TITLE}">{EMAILS_SENT}</div>'
+    ))
+    def emails_sent(self, obj):
+        return mark_safe(
+            f'<div title="{EMAILS_SENT_TITLE}">{obj.today_count}</div>')
+
+    @admin.display(description=mark_safe(
+        f'<div title="{LAST_IMPORT_TITLE}">{LAST_IMPORT_DATE}</div>'
+    ))
+    def last_import_date(self, obj):
+        if obj.last_import_dt:
+            date = date_format(
+                obj.last_import_dt,
+                format="DATETIME_FORMAT",
+                use_l10n=True
+            )
+            return mark_safe(
+                f'<div title="{LAST_IMPORT_TITLE}">{date}</div>')
+
+    @admin.display(description=mark_safe(
+        f'<div title="{LAST_MAILING_TITLE}">{LAST_MAILING_DATE}</div>')
+    )
+    def last_mailing_date(self, obj):
+        if obj.today_date:
+            date = date_format(
+                obj.today_date,
+                format="SHORT_DATE_FORMAT",
+                use_l10n=True
+            )
+            return mark_safe(
+                f'<div title="{LAST_MAILING_TITLE}">{date}</div>')
+
+    @admin.display(description=mark_safe(
+        f'<div title="{MASS_MAILING_TITLE}">{MASS_MAILING}</div>'),
+        boolean=True,
+    )
+    def mass_mailing(self, obj):
+        return obj.massmail
+
+    @admin.display(description=_('notifications'))
+    def notifications(self, instance):
         return mark_safe(linebreaks(instance.report))
+
+    @admin.display(description=mark_safe(
+        f'<div title="{IMPORT_TITLE}">{IMPORT}</div>'),
+        boolean=True,
+    )
+    def perform_import(self, obj):
+        return obj.do_import
