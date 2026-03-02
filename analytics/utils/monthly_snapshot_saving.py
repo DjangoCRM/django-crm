@@ -4,6 +4,7 @@ import threading
 from tendo.singleton import SingleInstance
 from unittest import skip
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.mail import mail_admins
 from django.db import connection
 from django.test import Client
@@ -12,10 +13,8 @@ from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
 
-from analytics.models import IncomeStat
 from analytics.models import IncomeStatSnapshot
 from common.utils.helpers import get_manager_departments
-from common.utils.helpers import USER_MODEL
 
 
 class MonthlySnapshotSaving(threading.Thread, SingleInstance):
@@ -25,7 +24,8 @@ class MonthlySnapshotSaving(threading.Thread, SingleInstance):
         threading.Thread.__init__(self, *args, **kwargs)
         self.daemon = True
         if settings.TESTING:
-            SingleInstance.__init__(self, flavor_id='MonthlySnapshotSaving_test')
+            SingleInstance.__init__(
+                self, flavor_id='MonthlySnapshotSaving_test')
         else:
             SingleInstance.__init__(self, flavor_id='MonthlySnapshotSaving')
 
@@ -33,30 +33,37 @@ class MonthlySnapshotSaving(threading.Thread, SingleInstance):
         ss = SaveSnapshot()
         while True:
             now = timezone.localtime(timezone.now())
-            last_day = calendar.monthrange(now.year, now.month)[1]
-            save_dt = now.replace(
-                day=last_day,
-                hour=23,
-                minute=0,
-                second=0,
-                microsecond=0
-            )
-            secs = (save_dt - now).total_seconds()
-            if secs > 0:
+            secs = get_time_to_next_monthly_snapshot_saving(now)
+            if not settings.TESTING and secs > 0:
                 connection.close()
                 time.sleep(secs)
-                try:
-                    ss.save_snapshots()
-                except Exception as e:
-                    mail_admins(
-                        "Exception: MonthlySnapshotSaving",
-                        f'''
-                        \nException time: {now}
-                        \nException: {e}''',
-                        fail_silently=False,
-                    )
+            try:
+                ss.save_snapshots()
+            except Exception as e:
+                mail_admins(
+                    "Exception: MonthlySnapshotSaving",
+                    f'''
+                    \nException time: {now}
+                    \nException: {e}''',
+                    fail_silently=False,
+                )
             connection.close()
+            if settings.TESTING:
+                break
             time.sleep(3600)    # one hour
+
+
+def get_time_to_next_monthly_snapshot_saving(now: timezone.datetime) -> int:
+    last_day = calendar.monthrange(now.year, now.month)[1]
+    save_dt = now.replace(
+        day=last_day,
+        hour=23,
+        minute=0,
+        second=0,
+        microsecond=0
+    )
+    secs = (save_dt - now).total_seconds()
+    return secs
 
 
 @skip("This is not a test")
@@ -70,7 +77,7 @@ class SaveSnapshot(TestCase):
     )
     def save_snapshots(self) -> None:
         self.client = Client(SERVER_NAME='localhost')
-        user = USER_MODEL.objects.filter(is_superuser=True).first()
+        user = User.objects.filter(is_superuser=True).first()
         self.client.force_login(user)
         departments = get_manager_departments()
         for dep in departments:
