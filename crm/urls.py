@@ -1,8 +1,8 @@
 from django.apps import apps
-from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from crm.site.crmadminsite import crm_site
-from django.urls import path, include
+from django.urls import include
+from django.urls import path
 from django.views.generic.detail import DetailView
 
 from common.views.export_objects import export_objects_view
@@ -23,11 +23,12 @@ urlpatterns = [
 
     path(
         'delete-duplicate/<int:content_type_id>/<int:object_id>/',
-        login_required(DeleteDuplicateObject.as_view()),
+        staff_member_required(DeleteDuplicateObject.as_view()),
         name='delete_duplicate'
     ),
 
-    path('change-owner-companies/', login_required(change_owner_companies), name='change_owner_companies'),
+    path('change-owner-companies/', staff_member_required(change_owner_companies),
+         name='change_owner_companies'),
 
     path(
         'export-objects/', staff_member_required(export_objects_view),
@@ -39,7 +40,8 @@ urlpatterns = [
         staff_member_required(create_email),
         name='create_email'
     ),
-    path('reply_email/<int:object_id>/', staff_member_required(reply_email), name='reply_email'),
+    path('reply_email/<int:object_id>/',
+         staff_member_required(reply_email), name='reply_email'),
 
     path(
         'print-email/<int:object_id>',
