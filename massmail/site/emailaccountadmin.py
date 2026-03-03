@@ -10,23 +10,25 @@ from massmail.models import EmlAccountsQueue
 
 
 EMAILS_SENT = _("Emails Sent That Day")
-EMAILS_SENT_TITLE = _("Number of emails sent on that mailing date.")
+EMAILS_SENT_TITLE = _("Number of emails sent on that mailing date")
 IMPORT = _("import")
 IMPORT_TITLE = _(
-    "Shows whether automatic import of emails from the account is enabled.")
+    "Shows whether automatic import of emails from the account is enabled")
 LAST_IMPORT_DATE = _("last import date")
 LAST_IMPORT_TITLE = _(
-    "The date when an email was last imported from this account.")
+    "The date when an email was last imported from this account")
 LAST_MAILING_DATE = _("last mailing date")
 LAST_MAILING_TITLE = _(
-    "The most recent date when the mass-email campaign was sent.")
+    "The most recent date when the mass-email campaign was sent")
+MAIN = _("main")
+MAIN_TITLE = _("Default email account for all customer correspondence")
 MASS_MAILING = _("mass mailing")
-MASS_MAILING_TITLE = _("Email account availability for mass mailing.")
+MASS_MAILING_TITLE = _("Email account availability for mass mailing")
 
 
 class EmailAccountAdmin(CrmModelAdmin):
     list_display = (
-        'name', 'main', 'perform_import', 'mass_mailing', 'last_import_date',
+        'account', 'main_account', 'perform_import', 'mass_mailing', 'last_import_date',
         'last_mailing_date', 'emails_sent', 'notifications',  'owner'
     )
 
@@ -132,6 +134,13 @@ class EmailAccountAdmin(CrmModelAdmin):
             )
             return mark_safe(
                 f'<div title="{LAST_MAILING_TITLE}">{date}</div>')
+
+    @admin.display(description=mark_safe(
+        f'<div title="{MAIN_TITLE}">{MAIN}</div>'),
+        boolean=True,
+    )
+    def main_account(self, obj):
+        return obj.main
 
     @admin.display(description=mark_safe(
         f'<div title="{MASS_MAILING_TITLE}">{MASS_MAILING}</div>'),
