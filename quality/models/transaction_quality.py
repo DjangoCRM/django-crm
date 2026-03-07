@@ -1,7 +1,9 @@
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from common.models import Base2
 
@@ -53,6 +55,10 @@ class TransactionQualityEvent(models.Model):
         default='',
         verbose_name=_("Details")
     )
+    files = GenericRelation('common.TheFile')
+
+    def get_absolute_url(self):
+        return reverse(f'admin:quality_{self._meta.model_name}_change', args=[str(self.id)])
 
     def __str__(self):
         return f"{self.signal}"
