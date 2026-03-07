@@ -27,6 +27,7 @@ from django.urls import reverse
 from chat.forms.chatmessageform import ChatMessageForm
 from chat.models import ChatMessage
 from common.models import UserProfile
+from common.utils.get_file_links import get_file_links
 from crm.models import Deal
 from common.admin import FileInline
 from common.utils.helpers import CRM_NOTICE
@@ -239,13 +240,7 @@ class ChatMessageAdmin(admin.ModelAdmin):
     def files(obj):
         files = FileInline.model.objects.filter(chat_message=obj)
         if files:
-            for f in files:
-                file = getattr(f, 'file', None)
-                if file:
-                    file_links = f'{download_icon} <a href="{file.url}">{f}</a><br>'
-                else:
-                    file_links = f'{red_download_icon}{error_outline_icon} {file_error}'
-            return mark_safe(file_links)  # NOQA
+            return get_file_links(files)
         return ''
 
     @staticmethod
