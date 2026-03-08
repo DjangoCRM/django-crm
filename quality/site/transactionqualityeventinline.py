@@ -35,6 +35,7 @@ class TransactionQualityEventInline(CrmStackedInline):
     icon = '<a id="TransactionQualityEvents"></a><i class="material-icons" style="color: var(--primary-fg)">event</i>'
     model = TransactionQualityEvent
     name_plural = model._meta.verbose_name_plural
+    show_change_link = True
     verbose_name_plural = f'{icon} {name_plural}'
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
