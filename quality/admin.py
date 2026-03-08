@@ -4,6 +4,7 @@ from crm.admin import crm_site
 from crm.admin import TranslateNameModelAdmin
 from quality.models import TransactionQualitySignal
 from quality.models import TransactionQualityEvent
+from quality.site import transactionqualityeventadmin
 
 
 class TransactionQualitySignalAdmin(TranslateNameModelAdmin):
@@ -14,19 +15,19 @@ class TransactionQualityEventAdmin(TranslateNameModelAdmin):
     list_display = ('signal', 'weight', 'details', )
 
 
-
-admin.site.register(TransactionQualitySignal,
+admin.site.register(
+    TransactionQualitySignal,
     TransactionQualitySignalAdmin
 )
-admin.site.register(TransactionQualityEvent,
+admin.site.register(
+    TransactionQualityEvent,
     TransactionQualityEventAdmin
 )
-
 crm_site.register(
     TransactionQualitySignal,
     TransactionQualitySignalAdmin
 )
 crm_site.register(
     TransactionQualityEvent,
-    TransactionQualityEventAdmin
+    transactionqualityeventadmin.TransactionQualityEventAdmin
 )
