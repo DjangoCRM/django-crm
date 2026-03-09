@@ -63,6 +63,10 @@ HELP_URLS = {
 
     # Mass mail Module
 
+    # EmailAccount model
+    # list page
+    "en/massmail/emailaccount/l/": "https://djangocrm.github.io/info/help/email-accounts-management/",
+
     # Mailingout model
     # list page
     "en/massmail/mailingout/l/": "https://djangocrm.github.io/info/help/managing-mass-mailings/",
