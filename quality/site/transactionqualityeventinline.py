@@ -1,8 +1,8 @@
 from django import forms
-from django.contrib.contenttypes.models import ContentType
+from django.contrib import admin
 
-from common.models import TheFile
 from common.utils.get_file_links import get_file_links
+from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from crm.site.crmstackedinline import CrmStackedInline
 from quality.models import TransactionQualityEvent
 from quality.models import TransactionQualitySignal
@@ -43,16 +43,19 @@ class TransactionQualityEventInline(CrmStackedInline):
     show_change_link = True
     verbose_name_plural = f'{icon} {name_plural}'
 
+    # -- ModelAdmin methods -- #
+
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "signal":
             kwargs["queryset"] = TransactionQualitySignal.objects.filter(
                 department_id=request.user.department_id)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+    # -- ModelAdmin callables -- #
+
+    @admin.display(description=SAFE_ATTACH_FILE_ICON)
     def file_links(self, obj):
-        ct = ContentType.objects.get_for_model(obj)
-        files = TheFile.objects.filter(content_type=ct, object_id=obj.id)
+        files = obj.files.all()
         if files:
             return get_file_links(files)
         return ''
-    file_links.short_description = ''
