@@ -29,11 +29,15 @@ CONTENT_COPY_ICON = '<i class="material-icons"style="font-size: 17px;vertical-al
 CONTENT_COPY_LINK = '<a href="{}" title="{}">{}</a>'
 CRM_NOTICE = '<i class ="material-icons" style="color: var(--body-quiet-color);\
     font-size: 17px;vertical-align: middle;">message</i>:'
-FRIDAY_SATURDAY_SUNDAY_MSG = _("Attention! Mass mailings are not carried out on: Fridays, Saturdays and Sundays.")
+FRIDAY_SATURDAY_SUNDAY_MSG = _(
+    "Attention! Mass mailings are not carried out on: Fridays, Saturdays and Sundays.")
 LEADERS = '- - - - -'
 OBJ_DOESNT_EXIT_STR = gettext_lazy("{} with ID '{}' doesn’t exist. "
                                    "Perhaps it was deleted?")
 ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
+SAFE_ATTACH_FILE_ICON = mark_safe(
+    '<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>'
+)
 USE_HTML = _("""
 Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
 You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.
@@ -93,7 +97,7 @@ def get_active_users() -> QuerySet:
 def get_manager_departments():
     """Returns department groups that have
     users with the group 'managers'."""
-    
+
     return apps.get_model('auth', 'Group').objects.filter(
         department__isnull=False,
         user__groups__name='managers'
@@ -186,7 +190,7 @@ def compose_message(obj, message: str) -> SafeString:
     return msg
 
 
-def compose_subject(obj, message: str, user: User =None) -> str:
+def compose_subject(obj, message: str, user: User = None) -> str:
     """Compose a subject for CRM emails.
     This function creates a subject line that includes the object name,
     a message, and optionally the username of the responsible user.
