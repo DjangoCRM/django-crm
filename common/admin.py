@@ -13,6 +13,7 @@ from common.models import TheFile
 from common.models import UserProfile
 from common.site import reminderadmin
 from common.site import userprofileadmin
+from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from crm.site.crmadminsite import crm_site
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 
@@ -158,7 +159,7 @@ class TheFileAdmin(admin.ModelAdmin):
 class FileInline(GenericStackedInline):
     form = InlineFileForm
     model = TheFile
-    icon = '<i class="material-icons" style="color: var(--primary-fg)">attach_file</i>'
+    icon = SAFE_ATTACH_FILE_ICON
     name_plural = model._meta.verbose_name_plural
     verbose_name_plural = mark_safe(f'{icon} {name_plural}')
     fields = ('file',)
