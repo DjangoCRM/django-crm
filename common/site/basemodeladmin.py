@@ -14,7 +14,6 @@ from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from common.utils.helpers import get_verbose_name
 from common.utils.helpers import get_today
-from common.utils.helpers import LEADERS
 from crm.utils.helpers import add_id_to_raw_id_field_label
 
 TAGS_STR = _('Tags')
@@ -37,7 +36,7 @@ safe_creation_date_icon = mark_safe(TODAY_ICON.format(creation_date_str))
 
 
 class BaseModelAdmin(admin.ModelAdmin):
-    empty_value_display = LEADERS
+    empty_value_display = ''
     show_facets = admin.ShowFacets.NEVER
     save_on_top = True
 
