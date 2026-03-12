@@ -10,6 +10,7 @@ from django.urls import reverse
 from common.models import Reminder
 from common.views.export_objects import export_selected_objects
 from common.utils.helpers import get_department_id
+from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from common.utils.helpers import get_verbose_name
 from common.utils.helpers import get_today
@@ -22,18 +23,15 @@ creation_date_str = _("Creation date")
 export_selected_str = _("Export selected objects")
 next_step_deadline_str = _("Next step deadline")
 safe_next_step_deadline_icon = mark_safe(
-        f'<i class="material-icons" title="{next_step_deadline_str}" '
-        f'style="color: var(--body-quiet-color)">event_busy</i>'
+    f'<i class="material-icons" title="{next_step_deadline_str}" '
+    f'style="color: var(--body-quiet-color)">event_busy</i>'
 )
 TODAY_ICON = '<i class="material-icons" title="{}" style="color: var(--body-quiet-color)">today</i>'
 white_tag_icon = '<i class="material-icons" style="color: var(--primary-fg)">local_offer</i>'
 grey_tag_icon = '<i class="material-icons" style="color: var(--body-quiet-color)">local_offer</i>'
 blue_tag_icon = '<i class="material-icons" style="color: var(--primary)">local_offer</i>'
-safe_attach_file_icon = mark_safe(
-                '<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>'
-)
 safe_person_icon = mark_safe(
-            '<i class="material-icons" title="Owner" style="color: var(--body-quiet-color)">person</i>'
+    '<i class="material-icons" title="Owner" style="color: var(--body-quiet-color)">person</i>'
 )
 safe_creation_date_icon = mark_safe(TODAY_ICON.format(creation_date_str))
 
@@ -109,7 +107,7 @@ class BaseModelAdmin(admin.ModelAdmin):
     @admin.display(description='')
     def attachment(self, obj):
         if obj.files.exists():
-            return safe_attach_file_icon
+            return SAFE_ATTACH_FILE_ICON
         return ''
 
     @admin.display(description=safe_next_step_deadline_icon)
@@ -149,8 +147,8 @@ class BaseModelAdmin(admin.ModelAdmin):
         )
 
     @admin.display(description=mark_safe(
-            '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-        ), ordering='name')
+        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
+    ), ordering='name')
     def name_icon(self, obj):
         return obj.name
 
@@ -200,7 +198,7 @@ class BaseModelAdmin(admin.ModelAdmin):
                     {
                         'classes': ('collapse',),
                         'fields': ('tags',)
-                    })
+                })
             )
         return tag_fieldsets
 
@@ -222,7 +220,7 @@ class BaseModelAdmin(admin.ModelAdmin):
             )
         return ''
 
-    def set_callable_description(self, callable_name: str, field: str, icon_name: str ='') -> None:
+    def set_callable_description(self, callable_name: str, field: str, icon_name: str = '') -> None:
         """
         To bring up the name and tooltip (title) translated into a current session language
         """
