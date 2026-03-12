@@ -588,30 +588,24 @@ class DealAdmin(CrmModelAdmin):
     @staticmethod
     @admin.display(description='')
     def stqs(obj):
-        url = reverse("site:quality_transactionqualityevent_changelist")
         amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))["s"]
-        total = None
-        if amount:
+        if amount is not None:
             total = 100 + amount
-        elif not obj.active:
-            if (obj.stage.success_stage == True and
-                    obj.stage.department_id == obj.department_id):
-                total = 100
-        if not all((total, amount)):
-            return ''
+            if total >= 95:
+                color = 'var(--link-fg)'
+            elif 85 <= total < 95:
+                color = 'var(--green-fg)'
+            elif 70 <= total < 85:
+                color = 'var(--orange-fg)'
+            else:
+                color = 'var(--error-fg)'
+            url = reverse("site:quality_transactionqualityevent_changelist")
 
-        if total >= 95:
-            color = 'var(--link-fg)'
-        elif 85 <= total < 95:
-            color = 'var(--green-fg)'
-        elif 70 <= total < 85:
-            color = 'var(--orange-fg)'
-        else:
-            color = 'var(--error-fg)'
-        return mark_safe(
-            f'<a href="{url}?deal__id__exact={obj.id}" style="color: {color}"'
-            f'title="{ctqs_str}" target="_blank"><u>{total}%</u></a>'
-        )
+            return mark_safe(
+                f'<a href="{url}?deal__id__exact={obj.id}" style="color: {color}"'
+                f'title="{ctqs_str}" target="_blank"><u>{total}%</u></a>'
+            )
+        return ''
 
     @staticmethod
     @admin.display(description='')
