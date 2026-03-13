@@ -26,7 +26,7 @@ view_chat_str = _("View chat messages")
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    empty_value_display = LEADERS
+    empty_value_display = ''
     fields = [
         'contact_email',
         'pbx_number',
@@ -108,7 +108,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return True
         return False
-    
+
     def has_view_permission(self, request, obj=None):
         return True
 
@@ -120,7 +120,7 @@ class UserProfileAdmin(admin.ModelAdmin):
             user.save(update_fields=['is_active'])
 
     # -- ModelAdmin Callables -- #
-    
+
     @admin.display(description=_("Act"),
                    ordering='user__is_active',
                    boolean=True,)
@@ -138,7 +138,9 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     @admin.display(description=contact_phone_icon)
     def contact_phone(self, obj):
-        return obj.pbx_number
+        if obj.pbx_number:
+            return obj.pbx_number
+        return LEADERS
 
     @admin.display(description=_('Language'))
     def language(self, obj):
