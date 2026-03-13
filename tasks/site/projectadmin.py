@@ -25,7 +25,7 @@ class ProjectAdmin(TasksBaseModelAdmin):
         'name',
         'next_step',
         'coloured_next_step_date',
-        'due_date',
+        'coloured_due_date',
         'priority',
         'stage',
         'responsible_list',
