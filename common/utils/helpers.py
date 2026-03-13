@@ -31,7 +31,7 @@ CRM_NOTICE = '<i class ="material-icons" style="color: var(--body-quiet-color);\
     font-size: 17px;vertical-align: middle;">message</i>:'
 FRIDAY_SATURDAY_SUNDAY_MSG = _(
     "Attention! Mass mailings are not carried out on: Fridays, Saturdays and Sundays.")
-LEADERS = '- - - - -'
+LEADERS = '- - - -'
 OBJ_DOESNT_EXIT_STR = gettext_lazy("{} with ID '{}' doesn’t exist. "
                                    "Perhaps it was deleted?")
 ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
