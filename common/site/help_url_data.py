@@ -49,6 +49,10 @@ HELP_URLS = {
     # instance page
     "en/crm/deal/i/": "https://djangocrm.github.io/info/help/working-with-deals/",
 
+    # CRM Email model
+    # list page
+    "en/crm/crmemail/l/": "https://djangocrm.github.io/info/help/email-in-crm/",
+
     # Lead model
     # list page
     "en/crm/lead/l/": "https://djangocrm.github.io/info/help/lead-management/",
