@@ -8,7 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.1.0] - 2026-03-15
+
+### Added
+
+- Ability to add files to TransactionQualityEventInline
+- The ability to view and download files attached to TransactionQualityEvent on Deals page by @HaimLee-4869 in #404
+- URL of help page for Email in CRM list page
+- URL of help page for Email Account list page
+- TransactionQualityEvent class for better handling of transaction quality events and related files
+- New uk translations
+
+### Improved
+
+- TransactionQualityEventI objects
+- Refactor stqs method in DealAdmin to simplify total calculation and URL generation
+- Refactor EmailAccountAdmin field titles and enhance main_account display method
+- Refactor MonthlySnapshotSaving logic and imports
+
+### Full Changelog: [v2.0.1...v2.1.0](https://github.com/DjangoCRM/django-crm/compare/v2.0.1...v2.1.0)
 
 ### Improved
 
