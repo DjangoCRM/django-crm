@@ -1,9 +1,14 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from common.admin import FileInline
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+
+
+CATEGORY = _('Category')
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -25,19 +30,27 @@ class ProductAdmin(admin.ModelAdmin):
     ]
     inlines = [FileInline]
     list_display = (
-        'name',
+        'name_icon',
         'price',
         'currency',
-        'type',
-        'product_category'
-        )
-    list_filter = ('type', ('product_category', ScrollRelatedOnlyFieldListFilter))
+        'get_type',
+        'get_category'
+    )
+    list_filter = ('type', ('product_category',
+                   ScrollRelatedOnlyFieldListFilter))
     radio_fields = {"type": admin.HORIZONTAL}
     readonly_fields = ('modified_by', 'creation_date', 'update_date')
     save_on_top = False
     search_fields = ['name', 'description']
 
     # -- ModelAdmin methods -- #
+
+    def changelist_view(self, request, extra_context=None):
+        self.changelist_url = reverse("site:crm_product_changelist")
+        self.query_dict = request.GET.copy()
+        return super().changelist_view(
+            request, extra_context=extra_context,
+        )
 
     def get_list_filter(self, request):
         list_filter = list(self.list_filter)
@@ -62,3 +75,35 @@ class ProductAdmin(admin.ModelAdmin):
         if not obj.department and request.user.department_id:
             obj.department_id = request.user.department_id
         super().save_model(request, obj, form, change)
+
+    # -- ModelAdmin callables -- #
+
+    @admin.display(
+        description=CATEGORY,
+        ordering='product_category__name'
+    )
+    def get_category(self, obj):
+        category = obj.product_category
+        if category:
+            self.query_dict['product_category__id__exact'] = category.id
+            url = f"{self.changelist_url}?{self.query_dict.urlencode()}"
+            return mark_safe(
+                f'<a href="{url}" title="{CATEGORY}">{category.name}</a>'
+            )
+
+    @admin.display(
+        description=_("Type"),
+        ordering='type'
+    )
+    def get_type(self, obj):
+        self.query_dict['type__exact'] = obj.type
+        url = f"{self.changelist_url}?{self.query_dict.urlencode()}"
+        return mark_safe(
+            f'<a href="{url}" title="{_('Type')}">{obj.TYPE_CHOICES[obj.type]}</a>'
+        )
+
+    @admin.display(description=mark_safe(
+        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
+    ), ordering='name')
+    def name_icon(self, obj):
+        return obj.name
