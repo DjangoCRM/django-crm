@@ -13,7 +13,7 @@ class ProductCategory(Base1):
     name = models.CharField(
         max_length=70, default='', blank=False,
         verbose_name=_("Name")
-        )
+    )
     description = models.TextField(
         blank=True, default='',
         verbose_name=_("Description"),
@@ -21,7 +21,7 @@ class ProductCategory(Base1):
     owner = None
 
     modified_by = None
-    
+
     def __str__(self):
         return self.name
 
@@ -31,11 +31,11 @@ class Product(Base1):
         verbose_name = _("Product")
         verbose_name_plural = _("Products")
         ordering = ['name']
-        
+
     name = models.CharField(
         max_length=70, default='', blank=False,
-        verbose_name=_("Name") 
-        )    
+        verbose_name=_("Name")
+    )
     description = models.TextField(
         blank=True, default='',
         verbose_name=_("Description"),
@@ -47,17 +47,17 @@ class Product(Base1):
     currency = models.ForeignKey(
         'Currency', blank=True, null=True, on_delete=models.SET_NULL,
         verbose_name=_("Currency")
-    )         
+    )
     owner = None
     files = GenericRelation('common.TheFile')
     on_sale = models.BooleanField(
         default=True,
         verbose_name=_("On sale")
     )
-    TYPE_CHOICES = (
-        ('G', _('Goods')),
-        ('S', _('Service'))
-    )
+    TYPE_CHOICES = {
+        'G': _('Goods'),
+        'S': _('Service')
+    }
     type = models.CharField(
         null=True,
         max_length=1, choices=TYPE_CHOICES, default='G',
