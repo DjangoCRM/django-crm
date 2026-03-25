@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Improved
+
+- Enhance ProductAdmin: Add handling and improve list display with clickable category and type links
+
+### Changed
+
+- Refactor TYPE_CHOICES in Product model from tuple to dictionary
+
 ## [2.1.0] - 2026-03-15
 
 ### Added
