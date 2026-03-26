@@ -80,35 +80,39 @@ unsubscribed_title = _("Unsubscribed from email newsletters")
 did_not_receive_icon = '<i title="{}" class="material-icons" style="font-size: small;color: var(--orange-fg)">markunread_mailbox</i>'
 did_not_receive_title = _("The recipient has not received any mailings.")
 
+
 class CrmModelAdmin(BaseModelAdmin):
 
     # -- ModelAdmin methods -- #
 
     def changelist_view(self, request, extra_context=None):
+        # Handle content type ID for specific models
         if self.model in (Company, Contact, Lead):
             extra_context = extra_context or {}
             content_type_id = ContentType.objects.get_for_model(self.model).id
             extra_context['content_type_id'] = content_type_id
 
+        # Handle Deal model filtering logic
         elif self.model == Deal:
-            # If the user selected a reason for closing deals in the filter,
-            # check the deals activity filter to eliminate any discrepancies.
-            query_dict = request.GET
-            if "closing_reason__id__exact" in query_dict:
-                active = query_dict.get('active')
+            # If the user has selected a deal filter by closing reason or by stage,
+            # set the activity filter value to "all".
+            if "closing_reason__id__exact" in request.GET or "stage__id__exact" in request.GET:
+                qd = request.GET.copy()  # query dict
+                active = qd.get('active')
                 prev_query_dict = getattr(_thread_local, 'query_dict', {})
-                qd = query_dict.copy()
-                if active in (None, 'all'):
+                if active != 'all':
                     # Has the user selected an activity filter value?
                     prev_active = prev_query_dict.get('active')
                     if prev_active != active:
-                        del qd['closing_reason__id__exact']
+                        qd.pop('closing_reason__id__exact', None)
+                        qd.pop('stage__id__exact', None)
                     elif active is None:
-                        qd['active'] = 'no'
+                        qd['active'] = 'all'
+                    # Redirect with updated query parameters
                     return HttpResponseRedirect(
                         f"{reverse('site:crm_deal_changelist')}?{qd.urlencode()}"
                     )
-
+        # Store current request data for next request
         _thread_local.query_dict = request.GET
         _thread_local.query_path = request.path
         return super().changelist_view(
@@ -186,7 +190,8 @@ class CrmModelAdmin(BaseModelAdmin):
             if obj.massmail and 'massmail' in form.base_fields:
                 label = form.base_fields['massmail'].label
                 icon = subscribed_icon.format(subscribed_title)
-                form.base_fields['massmail'].label = mark_safe(f"{label} {icon}")   
+                form.base_fields['massmail'].label = mark_safe(
+                    f"{label} {icon}")
         return form
 
     def get_list_display(self, request):
@@ -215,7 +220,8 @@ class CrmModelAdmin(BaseModelAdmin):
         if self.model in (Deal, Request, Company, Contact, Lead):
             country_filter_needed = self.get_country_filter_needed(request)
             if country_filter_needed:
-                list_filter.append(('country', ScrollRelatedOnlyFieldListFilter))
+                list_filter.append(
+                    ('country', ScrollRelatedOnlyFieldListFilter))
             if self.model in (Company, Contact, Lead):
                 list_filter.extend(('massmail', ByVIPStatus))
             if hasattr(self.model, 'city'):
@@ -226,7 +232,7 @@ class CrmModelAdmin(BaseModelAdmin):
         if hasattr(self.model, 'tags'):
             if request.user.department_id or request.GET.get('department'):
                 list_filter.append(TagFilter)
-        
+
         return list_filter
 
     def get_queryset(self, request):
@@ -305,8 +311,8 @@ class CrmModelAdmin(BaseModelAdmin):
         return LEADERS
 
     @admin.display(description=mark_safe(
-            '<i class="material-icons" style="color: var(--body-quiet-color)">business</i>'
-        ),
+        '<i class="material-icons" style="color: var(--body-quiet-color)">business</i>'
+    ),
         ordering='company_name'
     )
     def display_company_name(self, instance):
@@ -358,7 +364,7 @@ class CrmModelAdmin(BaseModelAdmin):
                     )
                     mailing_out.save()
                     messages.info(request, _(FRIDAY_SATURDAY_SUNDAY_MSG)
-                    )
+                                  )
                     return HttpResponseRedirect(reverse(
                         'site:massmail_mailingout_change',
                         args=(mailing_out.id,))
@@ -460,7 +466,7 @@ class CrmModelAdmin(BaseModelAdmin):
 
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">contact_mail</i>'
-        ),
+    ),
         ordering='email'
     )
     def the_email(self, instance):
@@ -468,7 +474,7 @@ class CrmModelAdmin(BaseModelAdmin):
 
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">person_outline</i>'
-        ),
+    ),
         ordering='first_name'
     )
     def the_full_name(self, instance):
@@ -482,7 +488,7 @@ class CrmModelAdmin(BaseModelAdmin):
 
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">contact_phone</i>'
-        ),
+    ),
         ordering='phone'
     )
     def the_phone(self, instance):
@@ -511,7 +517,7 @@ class CrmModelAdmin(BaseModelAdmin):
     @admin.display(description=mark_safe(
         f"{_('Mass mailing')} "
         f"{unsubscribed_icon.format(unsubscribed_title)}"
-    )) 
+    ))
     def unsubscribed(instance):
         return unsubscribed_title
 
@@ -602,7 +608,6 @@ class CrmModelAdmin(BaseModelAdmin):
             return 'unsubscribed'
         return 'massmail'
 
-    
     def set_queryset(self, request: WSGIRequest, kwargs,
                      model, order_by_field: str = '') -> None:
         try:
