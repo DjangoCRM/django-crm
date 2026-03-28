@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Improved
 
-- Enhance ProductAdmin: Add handling and improve list display with clickable category and type links
+- Enhance ProductAdmin: Add handling and improve list display with clickable category and type links.
+- Improve the filtering logic of the Deal model by closing reason or stage.
 
 ### Changed
 
