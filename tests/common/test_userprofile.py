@@ -41,6 +41,7 @@ class TestUserProfile(BaseTestCase):
         data = get_adminform_initials(response)
         current_status = self.tanya.is_active
         data['is_active'] = not current_status
+        data['avatar'] = ''
         response = self.client.post(change_url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertNoFormErrors(response)
