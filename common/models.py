@@ -319,14 +319,43 @@ class UserProfile(models.Model):
         max_length=7, default='',
         null=False, blank=True,
     )
+    avatar = models.ImageField(
+        blank=True, null=True,
+        verbose_name=_("Avatar"),
+        upload_to='user_avatars/%Y/%m/%d/%H%M%S/',
+        max_length=250
+    )
+
+    @property
+    def thumbnail_username(self):
+        if self.avatar:
+            return mark_safe(
+                f'<img src="{self.avatar.url}" '
+                'style="vertical-align: middle;'
+                'width:20px;height:20px;border-radius:50%">'
+                f' {self.user.username}'
+            )
+        return mark_safe(
+            f'<i class="material-icons" '
+            'style="font-size:20px;vertical-align:middle;'
+            'border-radius:50%;color:var(--body-quiet-color)"'
+            f'>face</i> {self.user.username}'
+        )
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} ({self.user})"    # NOQA
-    
+
     def get_absolute_url(self):  
         return reverse('site:common_userprofile_change', args=(self.pk,))
-    
+
+    def delete(self, *args, **kwargs):
+        # Delete avatar file when deleting the user profile
+        if self.avatar:
+            self.avatar.delete(save=False)
+        super().delete(*args, **kwargs)
+
     def save(self, *args, **kwargs):
         if not self.language_code:
             self.language_code = settings.LANGUAGE_CODE
+
         super().save(*args, **kwargs)
