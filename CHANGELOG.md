@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.2.0] - 2026-04-05
+
+### Added
+
+- Add the following feature to the user's profile page:
+  - to upload an avatar with automatic resizing and a circular mask
+  - to change CRM interface language
 
 ### Improved
 
@@ -18,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Refactor TYPE_CHOICES in Product model from tuple to dictionary
+
+### Full Changelog: [v2.1.0...v2.2.0](https://github.com/DjangoCRM/django-crm/compare/v2.1.0...v2.2.0)
 
 ## [2.1.0] - 2026-03-15
 
@@ -36,12 +44,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactor stqs method in DealAdmin to simplify total calculation and URL generation
 - Refactor EmailAccountAdmin field titles and enhance main_account display method
 - Refactor MonthlySnapshotSaving logic and imports
+- Enhance EmailAccountAdmin with additional display methods and improve field descriptions
 
 ### Full Changelog: [v2.0.1...v2.1.0](https://github.com/DjangoCRM/django-crm/compare/v2.0.1...v2.1.0)
-
-### Improved
-
-- Enhance EmailAccountAdmin with additional display methods and improve field descriptions
 
 ## [2.0.1] - 2026-02-22
 
