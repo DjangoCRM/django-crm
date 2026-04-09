@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Added avatars to the owner filters
+- Added pillow library to requirements
+
+### Improved
+
+- Improved request counter logic for users who combine the Sales Manager role with other roles
+
 ## [2.2.0] - 2026-04-05
 
 ### Added

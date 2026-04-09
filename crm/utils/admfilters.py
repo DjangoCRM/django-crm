@@ -398,7 +398,8 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
             if hasattr(qs.model, 'co_owner'):
                 q_params |= Q(co_owner=request.user)
             qs = qs.exclude(q_params)
-            lookups = [('all', _('All')), (None, request.user.username)]
+            lookups = [('all', _('All')),
+                       (None, request.user.profile.thumbnail_username)]
 
         lookups.extend(self.get_owner_lookups(qs))
         if qs.filter(owner=None).exists():
@@ -415,10 +416,9 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
         filtered_qs = queryset.filter(q_params)
         owners = USER_MODEL.objects.annotate(
             user=Exists(filtered_qs)
-        ).filter(user=True).values_list(
-            'username', flat=True).order_by('username')
+        ).filter(user=True).order_by('username')
 
-        return [(x, x) for x in owners]
+        return [(u.username, u.profile.thumbnail_username) for u in owners]
 
     def queryset(self, request, queryset):
         if not any((
@@ -434,7 +434,7 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
             )):
                 return self.get_owner_queryset(queryset, request.user.username)
 
-        if self.value() in (x[1] for x in self.lookup_choices):
+        if self.value() in (x[0] for x in self.lookup_choices):
             return self.get_owner_queryset(queryset, self.value())
 
         if self.value() == 'IsNull':
@@ -443,10 +443,12 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
 
     @staticmethod
     def get_owner_queryset(queryset, username):
-        q_params = Q(owner__username=username)
-        if hasattr(queryset.model, 'co_owner'):
-            q_params |= Q(co_owner__username=username)
-        return queryset.filter(q_params)
+        if username not in (None, 'all'):
+            q_params = Q(owner__username=username)
+            if hasattr(queryset.model, 'co_owner'):
+                q_params |= Q(co_owner__username=username)
+            return queryset.filter(q_params)
+        return queryset
 
 
 class ByChangedByChiefs(ChoicesSimpleListFilter):

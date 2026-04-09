@@ -53,8 +53,9 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
                 request.GET.get('project__id__exact')
         )):
             return self.get_owner_queryset(queryset, request.user)
+            # return queryset
 
-        if self.value() in (x[1] for x in self.lookup_choices):
+        if self.value() in (x[0] for x in self.lookup_choices):
             return self.get_owner_queryset(queryset, self.value())
 
         if self.value() == 'IsNull':
@@ -133,9 +134,10 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
             if project_id or task_id:
                 return queryset
 
-            username = request.user.username
-            if queryset.filter(responsible__username=username).exists():
-                return queryset.filter(responsible__username=username)
+            if not request.user.is_chief:
+                username = request.user.username
+                if queryset.filter(responsible__username=username).exists():
+                    return queryset.filter(responsible__username=username)
 
             return queryset
 
@@ -166,10 +168,10 @@ class ByToFilter(admfilters.ChoicesSimpleListFilter):
         users = users.annotate(
             user=Exists(queryset.filter(to=OuterRef('pk')))
         ).filter(user=True).values_list('id', 'username').order_by('username')
-        
+
         lookups.extend([(str(x[0]), x[1]) for x in users])
         if len(lookups) > 9:
-            self.template = "crm/filter_scroll.html"  
+            self.template = "crm/filter_scroll.html"
         return lookups
 
     def queryset(self, request, queryset):
@@ -196,7 +198,7 @@ class TaskTagFilter(admfilters.TagFilter):
             id__in=tag_ids).values_list('id', 'name').order_by('name')
         lookups = [*objects]
         if len(lookups) > 9:
-            self.template = "crm/filter_scroll.html"        
+            self.template = "crm/filter_scroll.html"
         return lookups
 
     def queryset(self, request, queryset):
