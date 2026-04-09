@@ -12,7 +12,8 @@ from django.utils.timezone import now
 from django.utils.translation import get_language
 from django.utils.safestring import mark_safe
 
-from common.models import Reminder, UserProfile
+from common.models import Reminder
+from common.models import UserProfile
 from common.utils.hide_main_tasks import hide_main_tasks
 from common.utils.helpers import LEADERS
 from crm.models import CrmEmail
@@ -39,7 +40,8 @@ def get_url(name: str):
         Return the admin URL to edit the object represented by this log entry.
         """
         if self.content_type and self.object_id:
-            url_name = name % (self.content_type.app_label, self.content_type.model)
+            url_name = name % (self.content_type.app_label,
+                               self.content_type.model)
             try:
                 return reverse(url_name, args=(quote(self.object_id),))
             except NoReverseMatch:
@@ -111,7 +113,7 @@ class BaseSite(admin.AdminSite):
             self.index_template or 'admin/index.html',
             context
         )
-    
+
     def app_index(self, request, app_label, extra_context=None):
         extra_context = extra_context or {}
         app_dict = self._build_app_dict(request, app_label)
@@ -171,8 +173,8 @@ def get_counters(request, app_label, models):
 def get_outbox_email_count(request, models):
     outbox_count = CrmEmail.objects.filter(
         owner=request.user,
-        sent=False, 
-        incoming=False, 
+        sent=False,
+        incoming=False,
         trash=False
     ).count()
     if outbox_count:
@@ -212,7 +214,7 @@ def get_request_count(request, models):
         request.user.is_superoperator,
         request.user.is_superuser,
         request.user.is_chief,
-    )):
+    )) and not request.user.is_manager:
         q_params = Q(owner__groups__name__in=('superoperators', 'operators'))
         q_params |= Q(owner__isnull=True)
         if request.user.department_id:
@@ -236,8 +238,10 @@ def get_task_count(request, models):
     )
     qs = hide_main_tasks(request, qs)
     counts = qs.aggregate(
-        regular=Count('pk', filter=Q(next_step_date__isnull=True) | Q(next_step_date__gte=today)),
-        urgent=Count('pk', filter=Q(next_step_date__isnull=False) & Q(next_step_date__lt=today))
+        regular=Count('pk', filter=Q(next_step_date__isnull=True)
+                      | Q(next_step_date__gte=today)),
+        urgent=Count('pk', filter=Q(next_step_date__isnull=False)
+                     & Q(next_step_date__lt=today))
     )
     if counts['urgent'] or counts['regular']:
         set_counters(Task, models, counts)
@@ -316,7 +320,8 @@ def get_help_url(request) -> str:
         key_default = f"{settings.LANGUAGE_CODE}{params}"
         # Fallback to English help url
         key_en = f"en{params}"
-        help_url = HELP_URLS.get(key) or HELP_URLS.get(key_default) or HELP_URLS.get(key_en, '')
+        help_url = HELP_URLS.get(key) or HELP_URLS.get(
+            key_default) or HELP_URLS.get(key_en, '')
     else:
         if path[0]:
             params = path[0].split('/')
@@ -326,9 +331,9 @@ def get_help_url(request) -> str:
                     model = params[1]  # page of model
                     if model:
                         model = model.title()
-                        page_type = 'l' # list page
+                        page_type = 'l'  # list page
                         if params[2] or app_label == 'analytics':
-                            page_type = 'i' # instance page
+                            page_type = 'i'  # instance page
                 except IndexError:
                     pass  # page of app
         page = Page.objects.filter(
@@ -339,5 +344,5 @@ def get_help_url(request) -> str:
         ).filter(language_code__in=[get_language(), 'en']).first()
         if page:
             help_url = page.get_url(request.user)
-    
+
     return help_url
