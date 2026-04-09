@@ -4,7 +4,7 @@
     attrs==26.1.0
     certifi==2026.2.25
     charset-normalizer==3.4.6
-    Django==6.0.3
+    Django==6.0.4
     et-xmlfile==2.0.0
     frozenlist==1.8.0
     geoip2==5.2.0
