@@ -37,7 +37,8 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
             lookups = [(None, _('All')), *owner_lookups]
             if qs.filter(owner=request.user).exists():
                 lookups.insert(
-                    1, (request.user.username, request.user.username)
+                    1, (request.user.username,
+                        request.user.profile.thumbnail_username)
                 )
 
         if qs.filter(owner=None).exists():
