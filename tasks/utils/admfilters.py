@@ -108,7 +108,8 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
             user_exists=Exists(filtered_qs)
         ).filter(user_exists=True).order_by('username')
         excluded_qs = responsible.exclude(id=request.user.id)
-        resp_lookups = ((x.username, x.username) for x in excluded_qs)
+        resp_lookups = ((x.username, x.profile.thumbnail_username)
+                        for x in excluded_qs)
         if any((task_id, project_id)):
             lookups = [(None, _('All')), *resp_lookups]
         else:
@@ -116,11 +117,12 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
             if request.user.is_chief:
                 lookups = [(None, _('All')), *resp_lookups]
                 if responsible.filter(id=request.user.id).exists():
-                    lookups.insert(1, (username, username))
+                    lookups.insert(
+                        1, (username, request.user.profile.thumbnail_username))
             else:
                 lookups = [('all', _('All')), *resp_lookups]
                 if responsible.filter(id=request.user.id).exists():
-                    lookups.insert(1, (None, username))
+                    lookups.insert(1, (None, request.user.profile.thumbnail_username))
         if qs.filter(responsible=None).exists():
             lookups.append(('IsNull', LEADERS))
         return lookups
