@@ -20,7 +20,7 @@ from crm.models import Currency
 from crm.models import Output
 from crm.models import Rate
 from crm.utils.admfilters import PaymentByDepartmentFilter
-from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+from crm.utils.admfilters import PaymentByOwnerFilter
 from crm.utils.admfilters import CrmDateFieldListFilter
 from crm.utils.helpers import get_counterparty_header
 
@@ -42,7 +42,7 @@ class PaymentAdmin(admin.ModelAdmin):
         'person'
     )
     list_filter = (
-        ('deal__owner', ScrollRelatedOnlyFieldListFilter),
+        PaymentByOwnerFilter,
         'status',
         ('payment_date', CrmDateFieldListFilter),
     )
@@ -120,12 +120,12 @@ class PaymentAdmin(admin.ModelAdmin):
         response.context_data['state_amount'] = round(sta, 2) if sta else 0
         response.context_data['vat_state_amount'] = round(
             sta * vatk, 2
-            ) if sta else 0
+        ) if sta else 0
         mta = total_data['marketing_amount']
         response.context_data['marketing_amount'] = round(mta, 2) if mta else 0
         response.context_data['vat_marketing_amount'] = round(
             mta * vatk, 2
-            ) if mta else 0
+        ) if mta else 0
         response.context_data['rate_type'] = OFFICIAL_RATE \
             if total_data['type'] == 0 else APPROXIMATE_RATE
         response.context_data['state_currency'] = Currency.objects.filter(
@@ -140,8 +140,8 @@ class PaymentAdmin(admin.ModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'currency':
             set_currency_initial(request, kwargs)
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)   
-    
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
     def has_change_permission(self, request, obj=None):
         value = super(admin.ModelAdmin, self).has_change_permission(
             request, obj)
@@ -248,7 +248,7 @@ class PaymentAdmin(admin.ModelAdmin):
     @admin.display(description=get_counterparty_header())
     def counterparty(self, obj):
         return obj.deal.lead if obj.deal.lead else obj.deal.contact
-    
+
     # -- ModelAdmin callables -- #
 
     @admin.display(description=_('Amount'), ordering='amount')
@@ -270,7 +270,7 @@ def set_currency_initial(request, initial, **kwargs) -> None:
     if request.user.department_id:
         initial = Department.objects.get(
             id=request.user.department_id
-        ).default_currency_id                
+        ).default_currency_id
     else:
         initial = Currency.objects.get(
             is_state_currency=True

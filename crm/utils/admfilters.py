@@ -374,6 +374,61 @@ class PaymentByDepartmentFilter(ByDepartmentFilter):
         return queryset.filter(deal__department_id=value)
 
 
+class PaymentByOwnerFilter(ChoicesSimpleListFilter):
+    title = _('Owner')
+    parameter_name = 'deal__owner'
+
+    def lookups(self, request, model_admin):
+        qs = model_admin.get_queryset(request)
+        lookups = [(None, _('All'))]
+        if not any((
+            request.user.is_superuser,
+            request.user.is_chief,
+            request.user.is_accountant
+        )):
+            lookups = [('all', _('All')),
+                       (None, request.user.profile.thumbnail_username)]
+        lookups.extend(self.get_owner_lookups(qs))
+        if len(lookups) > 9:
+            self.template = "crm/filter_scroll.html"
+        return lookups
+
+    @staticmethod
+    def get_owner_lookups(queryset: QuerySet) -> list:
+        q_params = Q(deal__owner=OuterRef('pk'))
+        q_params |= Q(deal__co_owner=OuterRef('pk'))
+        filtered_qs = queryset.filter(q_params)
+        owners = USER_MODEL.objects.annotate(
+            user=Exists(filtered_qs)
+        ).filter(user=True).order_by('username')
+
+        return [(u.username, u.profile.thumbnail_username) for u in owners]
+
+    def queryset(self, request, queryset):
+        if not any((
+                request.user.is_superuser,
+                request.user.is_chief,
+                request.user.is_accountant
+        )):
+            if self.value() is None:
+                return self.get_owner_queryset(queryset, request.user.username)
+
+        if self.value() in (x[0] for x in self.lookup_choices):
+            return self.get_owner_queryset(queryset, self.value())
+
+        if self.value() == 'IsNull':
+            return queryset.filter(owner=None)
+        return queryset
+
+    @staticmethod
+    def get_owner_queryset(queryset, username):
+        if username not in (None, 'all'):
+            q_params = Q(deal__owner__username=username)
+            q_params |= Q(deal__co_owner__username=username)
+            return queryset.filter(q_params)
+        return queryset
+
+
 class ByOwnerFilter(ChoicesSimpleListFilter):
     title = _('Owner')
     parameter_name = 'owner'
