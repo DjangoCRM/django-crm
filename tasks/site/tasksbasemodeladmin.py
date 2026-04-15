@@ -13,6 +13,7 @@ from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
+from django.utils.safestring import SafeString
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
@@ -505,15 +506,11 @@ class TasksBaseModelAdmin(BaseModelAdmin):
 
     @admin.display(description=_("responsible"))
     def responsible_list(self, obj):
-        return mark_safe(
-            f'<b>{", ".join([str(u) for u in obj.responsible.all()])}</b>'
-        )
+        return get_thumbnail_usernames(obj, "responsible")
 
     @admin.display(description=_("subscribers"))
     def subscribers_list(self, obj):
-        return mark_safe(
-            f'<b>{", ".join([str(u) for u in obj.subscribers.all()])}</b>'
-        )
+        return get_thumbnail_usernames(obj, "subscribers")
 
     # -- Custom methods -- #
 
@@ -592,6 +589,16 @@ def exclude_some_users(obj: Task, qs: QuerySet) -> QuerySet:
                 user=Exists(filtered_qs)
             ).exclude(user=True)
     return qs
+
+
+def get_thumbnail_usernames(obj, field: str) -> SafeString:
+    """
+    Get a string of thumbnail usernames for users in
+    the responsible or subscribers field.
+    """
+    return mark_safe(", ".join(
+        [f'{u.profile.thumbnail_username}' for u in getattr(obj, field).all()]
+    ))
 
 
 def notify_co_owner(obj: Union[Task, Project]) -> None:
