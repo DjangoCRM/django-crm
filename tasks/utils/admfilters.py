@@ -122,7 +122,8 @@ class ByResponsibleFilter(admfilters.ChoicesSimpleListFilter):
             else:
                 lookups = [('all', _('All')), *resp_lookups]
                 if responsible.filter(id=request.user.id).exists():
-                    lookups.insert(1, (None, request.user.profile.thumbnail_username))
+                    lookups.insert(
+                        1, (None, request.user.profile.thumbnail_username))
         if qs.filter(responsible=None).exists():
             lookups.append(('IsNull', LEADERS))
         return lookups
@@ -167,12 +168,14 @@ class ByToFilter(admfilters.ChoicesSimpleListFilter):
                 request.user.is_task_operator
         )):
             users = users.exclude(id=request.user.id)
-            lookups = [('all', _('All')), (None, request.user.username)]
+            lookups = [('all', _('All')),
+                       (None, request.user.profile.thumbnail_username)]
         users = users.annotate(
             user=Exists(queryset.filter(to=OuterRef('pk')))
-        ).filter(user=True).values_list('id', 'username').order_by('username')
+        ).filter(user=True).order_by('username')
 
-        lookups.extend([(str(x[0]), x[1]) for x in users])
+        lookups.extend([(str(u.id), u.profile.thumbnail_username)
+                       for u in users])
         if len(lookups) > 9:
             self.template = "crm/filter_scroll.html"
         return lookups
