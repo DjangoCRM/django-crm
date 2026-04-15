@@ -65,6 +65,67 @@ class ByOwnerFilter(admfilters.ByOwnerFilter):
         return queryset
 
 
+class MemoByOwnerFilter(admfilters.ByOwnerFilter):
+
+    def lookups(self, request, model_admin):
+        qs = model_admin.get_queryset(request)
+        lookups = [(None, _('All'))]
+        deal_id = request.GET.get('deal__id__exact')
+        if deal_id:
+            qs = qs.filter(deal_id=int(deal_id))
+        request_id = request.GET.get('request__id__exact')
+        if request_id:
+            qs = qs.filter(request_id=int(request_id))
+        if not any((
+                request.user.is_superuser,
+                request.user.is_superoperator,
+                request.user.is_chief,
+                request.user.is_task_operator,
+        )) and not any((deal_id, request_id)):
+            q_params = Q(owner=request.user)
+            if hasattr(qs.model, 'co_owner'):
+                q_params |= Q(co_owner=request.user)
+            qs = qs.exclude(q_params)
+            lookups = [('all', _('All')),
+                       (None, request.user.profile.thumbnail_username)]
+
+        lookups.extend(self.get_owner_lookups(qs))
+        if qs.filter(owner=None).exists():
+            lookups.append(('IsNull', LEADERS))
+        if len(lookups) > 9:
+            self.template = "crm/filter_scroll.html"
+        return lookups
+
+    def queryset(self, request, queryset):
+        if not any((
+                request.user.is_superuser,
+                request.user.is_superoperator,
+                request.user.is_chief,
+                request.user.is_task_operator,
+        )):
+            if self.value() is None and not any((
+                    request.GET.get('deal__id__exact'),
+                    request.GET.get('request__id__exact')
+            )):
+                return self.get_owner_queryset(queryset, request.user.username)
+
+        if self.value() in (x[0] for x in self.lookup_choices):
+            return self.get_owner_queryset(queryset, self.value())
+
+        if self.value() == 'IsNull':
+            return queryset.filter(owner=None)
+        return queryset
+
+    @staticmethod
+    def get_owner_queryset(queryset, username):
+        if username not in (None, 'all'):
+            q_params = Q(owner__username=username)
+            if hasattr(queryset.model, 'co_owner'):
+                q_params |= Q(co_owner__username=username)
+            return queryset.filter(q_params)
+        return queryset
+
+
 class ByProject(SimpleListFilter):
     title = _('Project')
     parameter_name = 'project'

@@ -32,10 +32,10 @@ from common.utils.helpers import get_verbose_name
 from common.utils.helpers import LEADERS
 from common.utils.helpers import notify_admins_no_email
 from common.utils.helpers import save_message
-from crm.utils.admfilters import ByOwnerFilter
 from tasks.forms import MemoForm
 from tasks.models import Memo
 from tasks.utils.admfilters import ByToFilter
+from tasks.utils.admfilters import MemoByOwnerFilter
 from tasks.utils.admfilters import TaskTagFilter
 
 
@@ -51,6 +51,7 @@ unreviewed_str = _('unreviewed')
 memo_was_written_str = _("The office memo was written")
 you_received_memo_str = _("You've received a office memo")
 
+
 class MemoAdmin(BaseModelAdmin):
     empty_value_display = ''
     filter_horizontal = ('subscribers',)
@@ -59,7 +60,7 @@ class MemoAdmin(BaseModelAdmin):
     list_filter = (
         'stage',
         ByToFilter,
-        ByOwnerFilter,
+        MemoByOwnerFilter,
         'creation_date',
         TaskTagFilter
     )
@@ -361,7 +362,7 @@ class MemoAdmin(BaseModelAdmin):
             save_message(obj.to, message)
             composed_subject = compose_subject(obj, msg)
             email_to_participants(obj, '',
-                        [obj.to], composed_subject)
+                                  [obj.to], composed_subject)
             obj.notified = True
             obj.save(update_fields=['notified'])
 
@@ -373,7 +374,8 @@ class MemoAdmin(BaseModelAdmin):
                 if difference:
                     recipient_list, notified = [], []
                     for user in difference:
-                        trans_msg = get_trans_for_user(subscribers_subject, user)
+                        trans_msg = get_trans_for_user(
+                            subscribers_subject, user)
                         composed_msg = compose_message(obj, trans_msg)
                         save_message(user, composed_msg, "INFO")
                         if getattr(user, "email"):
@@ -403,7 +405,7 @@ class MemoAdmin(BaseModelAdmin):
             return ''
         style, mouseover, mouseout, title = self.get_style(instance)
         li = f'<li><a style="{style}" href="{url}" title="{title}"' \
-             f'onMouseOver="{mouseover}" onMouseOut="{mouseout}">{value}</a></li>'
+            f'onMouseOver="{mouseover}" onMouseOut="{mouseout}">{value}</a></li>'
         return mark_safe(
             '<ul class="object-tools" style="margin-top:0px;'
             f'margin-left:-10px;white-space:nowrap;">{li}</ul>'
@@ -525,7 +527,8 @@ class MemoAdmin(BaseModelAdmin):
 
     def get_style(self, obj) -> tuple:
         stage = obj.stage
-        stage_data = (stage.default, stage.active, stage.done, stage.in_progress)
+        stage_data = (stage.default, stage.active,
+                      stage.done, stage.in_progress)
         title = _(stage.name)
         if obj.due_date:
             if stage_data in ((True, True, False, False), (False, True, False, True)):
