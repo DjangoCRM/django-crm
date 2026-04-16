@@ -168,6 +168,10 @@ class FileInline(GenericStackedInline):
     # -- GenericStackedInline methods -- #
 
     def has_add_permission(self, request, obj):
+        # for memos only the recipient can add files until the memo is reviewed
+        if hasattr(obj, 'REVIEWED') and obj.stage != obj.REVIEWED:
+            if obj.to == request.user:
+                return True
         # who can change a parent object should
         # have permission to add inline
         return self.has_change_permission(request, obj)
