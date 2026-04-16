@@ -330,22 +330,22 @@ class UserProfile(models.Model):
     def thumbnail_username(self):
         if self.avatar:
             return mark_safe(
-                f'<img src="{self.avatar.url}" '
-                'style="vertical-align: middle;'
+                f'<span style="white-space: nowrap;">'
+                f'<img src="{self.avatar.url}" style="vertical-align: middle;'
                 'width:20px;height:20px;border-radius:50%">'
-                f' {self.user.username}'
+                f'&nbsp;{self.user.username}</span>'
             )
         return mark_safe(
-            f'<i class="material-icons" '
-            'style="font-size:20px;vertical-align:middle;'
+            f'<span style="white-space: nowrap;">'
+            '<i class="material-icons" style="font-size:20px;vertical-align:middle;'
             'border-radius:50%;color:var(--body-quiet-color)"'
-            f'>face</i> {self.user.username}'
+            f'>face</i>&nbsp;{self.user.username}</span>'
         )
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} ({self.user})"    # NOQA
 
-    def get_absolute_url(self):  
+    def get_absolute_url(self):
         return reverse('site:common_userprofile_change', args=(self.pk,))
 
     def delete(self, *args, **kwargs):
