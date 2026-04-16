@@ -12,15 +12,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added user avatars to the:
+- Added user avatars to the lookups in:
   - owner filters
   - responsible filters
+  - memo recipient filter ("to")
 - Added filter by owner for payments to use user avatars
+- Refactor responsible and subscribers list methods to add thumbnails to usernames
+- Refactor person method to add thumbnails to usernames for owner and co-owner
 - Added pillow library to requirements
 
 ### Improved
 
 - Improved request counter logic for users who combine the Sales Manager role with other roles
+
+## Fixed
+
+- Fixed owner filter logic in memos for users with the "Chief" role.
+- Fix permission check for file uploads in memos before review
 
 ## [2.2.0] - 2026-04-05
 
