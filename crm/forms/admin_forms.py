@@ -93,17 +93,18 @@ class BaseCallablesForm(forms.ModelForm):
                 self.add_error('city', msg)
                 self.add_error('country', msg)
                 raise forms.ValidationError(msg, code='invalid')
-        
+
     def clean_email(self):
         """
         Validate a string containing a list of email addresses.
-        """        
+        """
         value = self.cleaned_data.get("email")
         if value:
             email_validator = EmailValidator()
             for email in value.split(","):
                 email_validator(parseaddr(email.strip())[1])
         return value
+
 
 class CompanyForm(BaseCallablesForm):
     class Meta:
@@ -116,24 +117,24 @@ class BaseContactForm(BaseCallablesForm):
     def clean(self):
         super().clean()
         first_name = self.cleaned_data.get("first_name")
-        last_name = self.cleaned_data.get("last_name")  
+        last_name = self.cleaned_data.get("last_name")
         if first_name and last_name:
             q_params = Q()
             email = self.cleaned_data.get("email")
             if email:
-                q_params &= Q(email=email)          
+                q_params &= Q(email=email)
             phone = self.cleaned_data.get("phone")
             if phone:
-                q_params |= Q(phone=phone)      
-            mobile = self.cleaned_data.get("mobile") 
+                q_params |= Q(phone=phone)
+            mobile = self.cleaned_data.get("mobile")
             if mobile:
-                q_params |= Q(mobile=mobile)       
-            other_phone = self.cleaned_data.get("other_phone") 
+                q_params |= Q(mobile=mobile)
+            other_phone = self.cleaned_data.get("other_phone")
             if other_phone:
-                q_params |= Q(other_phone=other_phone)     
+                q_params |= Q(other_phone=other_phone)
 
             if q_params:
-                model = self.Meta.model 
+                model = self.Meta.model
                 doubles = model.objects.all()
                 if self.instance:
                     doubles = doubles.exclude(id=self.instance.id)
@@ -153,7 +154,6 @@ class BaseContactForm(BaseCallablesForm):
                         mark_safe(link), code="invalid")
 
 
-
 class ContactForm(BaseContactForm):
     class Meta:
         model = Contact
@@ -164,7 +164,7 @@ class LeadForm(BaseContactForm):
     class Meta:
         model = Lead
         fields = '__all__'
-        
+
     def clean(self):
         super().clean()
         if getattr(self, 'convert', None):
@@ -259,6 +259,12 @@ class RequestForm(forms.ModelForm):
             self.add_error('lead', msg)
             self.add_error('company', msg)
             raise forms.ValidationError(msg, code='invalid')
+        if getattr(self, "products_must_be_specified", False):
+            products = self.cleaned_data.get("products")
+            if not products:
+                msg = _("At least one product must be specified.")
+                self.add_error('products', msg)
+                raise forms.ValidationError(msg, code='invalid')
 
     def clean_country(self):
         country = self.cleaned_data.get('country')

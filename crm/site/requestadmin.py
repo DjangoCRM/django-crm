@@ -26,6 +26,7 @@ from crm.forms.admin_forms import RequestForm
 from crm.models import Currency
 from crm.models import CrmEmail
 from crm.models import Deal
+from crm.models import Product
 from crm.models import Output
 from crm.models import Request
 from crm.models import Stage
@@ -193,7 +194,7 @@ class RequestAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
-        
+
         if obj and getattr(obj, "deal", None):
             if "duplicate" in form.base_fields:
                 form.base_fields["duplicate"].widget = HiddenInput()
@@ -207,6 +208,8 @@ class RequestAdmin(CrmModelAdmin):
             ).works_globally
             if works_globally:
                 form.country_must_be_specified = True
+            form.products_must_be_specified = Product.objects.filter(
+                department_id=department_id).exists()
 
         return form
 
@@ -255,7 +258,7 @@ class RequestAdmin(CrmModelAdmin):
 
         if any((
             '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
-            '_close-case' in request.POST)):
+                '_close-case' in request.POST)):
             obj.pending = False
         elif '_activate-case' in request.POST:
             obj.pending = True

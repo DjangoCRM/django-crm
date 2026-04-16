@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added filter by owner for payments to use user avatars
 - Refactor responsible and subscribers list methods to add thumbnails to usernames
 - Refactor person method to add thumbnails to usernames for owner and co-owner
+- Added validation for product specification in RequestForm
 - Added pillow library to requirements
 
 ### Improved
