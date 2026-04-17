@@ -153,13 +153,22 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     @admin.display(description=safe_person_icon, ordering='owner')
     def person(self, obj):
+        owner_display = None
+        co_owner_display = None
+
+        if obj.owner:
+            owner_display = obj.owner.profile.thumbnail_username
         if getattr(obj, 'co_owner', None):
-            return mark_safe(
-                f'{obj.owner.profile.thumbnail_username}, '
-                f'{obj.co_owner.profile.thumbnail_username}'
-            )
+            co_owner_display = obj.co_owner.profile.thumbnail_username
+
+        if owner_display and co_owner_display:
+            return mark_safe(f'{owner_display}, {co_owner_display}')
+        elif owner_display:
+            return owner_display
+        elif co_owner_display:
+            return co_owner_display
         else:
-            return obj.owner.profile.thumbnail_username
+            return self.empty_value_display
 
     @admin.display(description=mark_safe(
         f'{grey_tag_icon} {TAGS_STR}'
