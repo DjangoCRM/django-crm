@@ -15,6 +15,7 @@ from django.utils.translation import gettext_lazy as _
 
 from common.forms.userprofileform import UserProfileForm
 from common.models import UserProfile
+from common.utils.admfilters import ByDepartmentFilter
 from common.utils.chat_link import get_chat_link
 from common.utils.helpers import add_chat_context
 from common.utils.helpers import annotate_chat
@@ -44,7 +45,9 @@ class UserProfileAdmin(admin.ModelAdmin):
         'contact_email',
         'contact_phone',
         'language',
+        'act'
     ]
+    list_filter = ['user__is_active', ByDepartmentFilter]
     ordering = ('user__username',)
     search_fields = (
         'user__username',
@@ -104,8 +107,6 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     def get_list_display(self, request):
         list_display = self.list_display
-        if request.user.is_superuser:
-            list_display = [*list_display, 'act']
         if settings.SHOW_USER_CURRENT_TIME_ZONE:
             list_display = [*list_display, 'timezone']
         return list_display
@@ -113,9 +114,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         qs = annotate_chat(request, qs)
-        if request.user.is_superuser:
-            return qs
-        return qs.filter(user__is_active=True)
+        return qs
 
     def has_add_permission(self, request):
         return False

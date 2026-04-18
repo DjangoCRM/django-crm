@@ -20,7 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactor responsible and subscribers list methods to add thumbnails to usernames
 - Refactor person method to add thumbnails to usernames for owner and co-owner
 - Added validation for product specification in RequestForm
+- Created ByDepartmentFilter for UserProfileAdmin
 - Added pillow library to requirements
+- New ua translations
 
 ### Improved
 
@@ -30,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed owner filter logic in memos for users with the "Chief" role.
 - Fix permission check for file uploads in memos before review
+- Fix product specification warning in RequestAdmin
 
 ## [2.2.0] - 2026-04-05
 
