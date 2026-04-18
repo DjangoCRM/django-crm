@@ -318,7 +318,7 @@ class ByProductFilter(SimpleListFilter):
         deal_ids = Output.objects.filter(
             product_id=int(self.value())
         ).values_list('deal_id', flat=True)
-        return queryset.filter(id__in=list(deal_ids))
+        return queryset.filter(id__in=deal_ids)
 
 
 class ByDepartmentFilter(SimpleListFilter):
