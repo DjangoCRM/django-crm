@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.3.0] - 2026-04-19
 
 ### Added
 
@@ -33,6 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed owner filter logic in memos for users with the "Chief" role.
 - Fix permission check for file uploads in memos before review
 - Fix product specification warning in RequestAdmin
+
+### Full Changelog: [v2.2.0...v2.3.0](https://github.com/DjangoCRM/django-crm/compare/v2.2.0...v2.3.0)
 
 ## [2.2.0] - 2026-04-05
 
