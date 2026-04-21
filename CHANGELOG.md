@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Fixed
+
+- Fixed getting recipient options in user profile chat
+
 ## [2.3.0] - 2026-04-19
 
 ### Added
@@ -28,13 +34,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Improved request counter logic for users who combine the Sales Manager role with other roles
 
-## Fixed
+### Fixed
 
 - Fixed owner filter logic in memos for users with the "Chief" role.
 - Fix permission check for file uploads in memos before review
 - Fix product specification warning in RequestAdmin
 
-### Full Changelog: [v2.2.0...v2.3.0](https://github.com/DjangoCRM/django-crm/compare/v2.2.0...v2.3.0)
+#### Full Changelog: [v2.2.0...v2.3.0](https://github.com/DjangoCRM/django-crm/compare/v2.2.0...v2.3.0)
 
 ## [2.2.0] - 2026-04-05
 
@@ -53,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Refactor TYPE_CHOICES in Product model from tuple to dictionary
 
-### Full Changelog: [v2.1.0...v2.2.0](https://github.com/DjangoCRM/django-crm/compare/v2.1.0...v2.2.0)
+#### Full Changelog: [v2.1.0...v2.2.0](https://github.com/DjangoCRM/django-crm/compare/v2.1.0...v2.2.0)
 
 ## [2.1.0] - 2026-03-15
 
@@ -74,7 +80,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactor MonthlySnapshotSaving logic and imports
 - Enhance EmailAccountAdmin with additional display methods and improve field descriptions
 
-### Full Changelog: [v2.0.1...v2.1.0](https://github.com/DjangoCRM/django-crm/compare/v2.0.1...v2.1.0)
+#### Full Changelog: [v2.0.1...v2.1.0](https://github.com/DjangoCRM/django-crm/compare/v2.0.1...v2.1.0)
 
 ## [2.0.1] - 2026-02-22
 
@@ -87,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added unit tests for the reload_field view by @omorros
 - Added a "default" column to the signature selection page
 
-### Full Changelog: [v2.0.0...v2.0.1](https://github.com/DjangoCRM/django-crm/compare/v2.0.0...v2.0.1)
+#### Full Changelog: [v2.0.0...v2.0.1](https://github.com/DjangoCRM/django-crm/compare/v2.0.0...v2.0.1)
 
 ## [2.0.0] - 2026-01-08
 
@@ -123,12 +129,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - add exception handling for ProgrammingError in SendMassmail
   - test of chat
 
-# Changed
+### Changed
 
 - In the list of deals, the marking of irrelevant transactions has been changed.
 - Refactor save_to_excel function to use keyword arguments for avoid Panda's FutureWarning
 
-### Full Changelog: [v1.7.0...v2.0.0](https://github.com/DjangoCRM/django-crm/compare/v1.7.0...v2.0.0)
+#### Full Changelog: [v1.7.0...v2.0.0](https://github.com/DjangoCRM/django-crm/compare/v1.7.0...v2.0.0)
 
 ## [1.7.0] - 2025-12-13
 
@@ -145,7 +151,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hide the unused "+ Add" button for Mailing Outs on the CRM home pages by @jroneel.
 - The task reminder test
 
-### Full Changelog: [v1.6.1...v1.7.0](https://github.com/DjangoCRM/django-crm/compare/v1.6.1...v1.7.0)
+#### Full Changelog: [v1.6.1...v1.7.0](https://github.com/DjangoCRM/django-crm/compare/v1.6.1...v1.7.0)
 
 ## [1.6.1] - 2025-10-31
 
@@ -157,7 +163,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Eliminate duplicate requests and cases from analytical reports
 
-### Full Changelog: [v1.6.0...v1.6.1](https://github.com/DjangoCRM/django-crm/compare/v1.6.0...v1.6.1)
+#### Full Changelog: [v1.6.0...v1.6.1](https://github.com/DjangoCRM/django-crm/compare/v1.6.0...v1.6.1)
 
 ## [1.6.0] - 2025-10-18
 
@@ -197,7 +203,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove the unused "+ Add" button for deals on the CRM homepage by @MULTidll.
 
-### Full Changelog: [v1.5.2...v1.6.0](https://github.com/DjangoCRM/django-crm/compare/v1.5.2...v1.6.0)
+#### Full Changelog: [v1.5.2...v1.6.0](https://github.com/DjangoCRM/django-crm/compare/v1.5.2...v1.6.0)
 
 ## [1.5.2] - 2025-08-16
 
@@ -440,7 +446,7 @@ Translations of CRM software into the following languages:
 - The "add reminder" button on the main page has been removed.
 - The display of the "massmail" field in the "Company," "Contact" and "Lead" models has been changed depending on its value.
 
-### Full Changelog: [v0.99...v1.0](https://github.com/DjangoCRM/django-crm/compare/v0.93...v1.0.0)
+#### Full Changelog: [v0.99...v1.0](https://github.com/DjangoCRM/django-crm/compare/v0.93...v1.0.0)
 
 ## [0.93] - 2024-10-20
 

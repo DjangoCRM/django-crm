@@ -30,7 +30,7 @@ from common.models import UserProfile
 from common.utils.get_file_links import get_file_links
 from crm.models import Deal
 from common.admin import FileInline
-from common.utils.helpers import CRM_NOTICE
+from common.utils.helpers import CRM_NOTICE, get_active_users
 from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import LEADERS
 from common.utils.helpers import send_crm_email
@@ -371,7 +371,7 @@ def get_recipients_queryset(request: WSGIRequest) -> QuerySet:
             content_object.to_id
         ]
     elif content_object.__class__ == UserProfile:
-        id_list = [content_object.pk]
+        id_list = get_active_users().values_list('id', flat=True)
 
     q_params = Q(id__in=id_list)  # NOQA
     if content_object.__class__ != UserProfile:
