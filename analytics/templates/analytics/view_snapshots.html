@@ -5,7 +5,7 @@
 input[type="submit"] {display:none;}
 </style>
 {% endif %}
-{% translate 'Data' %}: {{ today|date:"d M Y" }}.&nbsp;&nbsp;
+{% translate 'Date' %}: {{ today|date:"d M Y" }}.&nbsp;&nbsp;
 {% translate 'Snapshots' %}:&nbsp;&nbsp;<a href="{% url 'site:analytics_incomestat_changelist' %}">{% translate 'Now' %},</a>
 {% if snapshots %} {# It's right place #}
 {% for s in snapshots %}
