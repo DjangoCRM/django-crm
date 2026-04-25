@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.for_translation import check_for_translation
@@ -110,7 +111,8 @@ class TaskAdmin(taskadmin.TaskAdmin):
                     ('due_date', 'priority'),
                     'description',
                     'note',
-                    ('stage', 'hide_main_task'),
+                    'stage',
+                    'hide_main_task',
                     'next_step',
                     'next_step_date',
                     'workflow_area',
@@ -133,8 +135,10 @@ class TaskAdmin(taskadmin.TaskAdmin):
             (_('Additional information'), {
                 'classes': ('collapse',),
                 'fields': (
-                    'task', 'project', 'hide_main_task',
-                    'start_date', 'closing_date',
+                    'task',
+                    'project',
+                    'start_date',
+                    'closing_date',
                     'active',
                     'token'
                 )
@@ -142,6 +146,14 @@ class TaskAdmin(taskadmin.TaskAdmin):
         ]
         fieldsets.extend(self.get_tag_fieldsets(obj))
         return fieldsets
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields['task'].widget = ForeignKeyRawIdWidget(
+            Task._meta.get_field('task').remote_field,
+            admin.site,
+        )
+        return form
 
     def get_readonly_fields(self, request, obj=None):
         readonly_fields = super().get_readonly_fields(request, obj=None)
