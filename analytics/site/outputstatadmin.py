@@ -1,5 +1,6 @@
 from django.contrib.admin import SimpleListFilter
 from django.contrib.admin.views.main import PAGE_VAR
+from django.contrib.auth.models import User
 from django.core.handlers.wsgi import WSGIRequest
 from django.core.paginator import EmptyPage
 from django.core.paginator import InvalidPage
@@ -25,7 +26,6 @@ from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_currency_info
 from common.models import Department
 from common.utils.helpers import LEADERS
-from common.utils.helpers import USER_MODEL
 from crm.models import Output
 from crm.models import Payment
 from crm.models import Rate
@@ -129,12 +129,12 @@ class ByOwnerFilter(ChoicesSimpleListFilter):
         return lookups
 
     @staticmethod
-    def get_owner_lookups(queryset: QuerySet[USER_MODEL]) -> list:
+    def get_owner_lookups(queryset: QuerySet[User]) -> list:
         q_params = Q(deal__owner=OuterRef('pk'))
         if hasattr(queryset.model, 'co_owner'):
             q_params |= Q(deal__co_owner=OuterRef('pk'))
         filtered_qs = queryset.filter(q_params)
-        owners = USER_MODEL.objects.annotate(
+        owners = User.objects.annotate(
             user=Exists(filtered_qs)
         ).filter(user=True).values_list(
             'username', flat=True).order_by('username')

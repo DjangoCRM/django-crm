@@ -15,9 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed getting recipient options in user profile chat
 - Fixed translation key for 'Date' in view_snapshots.html
 
-# Improved
+### Improved
 
 - Enhanced TaskAdmin: update field ordering and add custom form for task widget
+
+### Changed
+
+- Refactor owner lookups to use User model directly instead of USER_MODEL in outputstatadmin.py
 
 ## [2.3.0] - 2026-04-19
 
