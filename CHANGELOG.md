@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.3.1] - 2026-04-26
 
 ### Fixed
 
@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Refactor owner lookups to use User model directly instead of USER_MODEL in outputstatadmin.py
+
+#### Full Changelog: [v2.3.0...v2.3.1](https://github.com/DjangoCRM/django-crm/compare/v2.3.0...v2.3.1)
 
 ## [2.3.0] - 2026-04-19
 
