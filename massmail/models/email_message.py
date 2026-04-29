@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 from django.urls import reverse
 
-from common.utils.helpers import USE_HTML
+from common.utils.gettext_messages import USE_HTML
 from massmail.models.baseeml import BaseEml
 
 content_help_text = mark_safe(_(USE_HTML))

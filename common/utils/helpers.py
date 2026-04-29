@@ -38,10 +38,7 @@ ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
 SAFE_ATTACH_FILE_ICON = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>'
 )
-USE_HTML = _("""
-Use HTML. To specify the address of the embedded image, use {% cid_media ‘path/to/pic.png' %}.<br>
-You can embed files uploaded to the CRM server in the ‘media/pics/’ folder.
-""")
+
 USER_MODEL = get_user_model()
 
 

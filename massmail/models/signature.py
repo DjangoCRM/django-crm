@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.models import Base1
-from common.utils.helpers import USE_HTML
+from common.utils.gettext_messages import USE_HTML
 
 content_help_text = mark_safe(_(USE_HTML))
 

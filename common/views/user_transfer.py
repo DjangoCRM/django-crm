@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.urls import reverse
 
+from common.utils.gettext_messages import DATA_WARNING_MESSAGE
 from common.utils.helpers import USER_MODEL
 from crm.models import Company
 from crm.models import Contact
@@ -25,18 +26,9 @@ from massmail.models import MailingOut
 from massmail.models import Signature
 
 
-WARNING_MESSAGE = _("""
-Attention! Data for filters such as: 
-transaction stages, reasons for closing, tags, etc. 
-will be transferred only if the new department has data with the same name.
-Also Output, Payment and Product will not be affected.
-""")
-
-
 objects = (
     {
         'model': Request,
-        # 'fk': (('lead_source', LeadSource),),
         'm2m': (('products', Product),)
     },
     {
@@ -149,6 +141,6 @@ def user_transfer(request):
             opts=USER_MODEL._meta,    # NOQA
             owners=owners,
             departments=departments,
-            warning_message=WARNING_MESSAGE
+            warning_message=DATA_WARNING_MESSAGE
         )
     return render(request, 'common/user_transfer.html', extra_context)

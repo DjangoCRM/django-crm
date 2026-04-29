@@ -8,6 +8,7 @@ from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.core.handlers.wsgi import WSGIRequest
 from django.utils.translation import gettext_lazy as _
 
+from common.utils.gettext_messages import ERROR_CREATED_BEFORE
 from common.utils.helpers import get_today
 from crm.models import ClientType
 from crm.models import Company
@@ -24,10 +25,7 @@ class MassmailFormBase(forms.Form):
         after = cleaned_data.get("after")
 
         if after > before:
-            raise forms.ValidationError(
-                _("""Error: The date you set as 'Created before' has to be later 
-                than the date of 'Created after'.""")
-            )
+            raise forms.ValidationError(ERROR_CREATED_BEFORE)
 
 
 def get_massmail_form(request: WSGIRequest, model: Union[Company, Contact],
@@ -37,7 +35,7 @@ def get_massmail_form(request: WSGIRequest, model: Union[Company, Contact],
     form.base_fields['industries'] = forms.ModelMultipleChoiceField(
         queryset=Industry.objects.filter(
             **{f'{Company._meta.model_name}__owner': request.user}
-            ).distinct().order_by('name'),
+        ).distinct().order_by('name'),
         required=False,
         widget=FilteredSelectMultiple(_("Industries"), False, )
     )

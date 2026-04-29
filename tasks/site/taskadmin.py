@@ -16,6 +16,7 @@ from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 from django.utils.safestring import mark_safe
 
+from common.utils.gettext_messages import THIS_IS_TEAM_TASK
 from common.utils.helpers import add_chat_context
 from common.utils.helpers import set_toggle_tooltip
 from common.utils.helpers import CONTENT_COPY_ICON
@@ -376,12 +377,9 @@ class TaskAdmin(TasksBaseModelAdmin):
              f'<li><a title="{COMPLETED_TITLE}" href="{completed_url}">' \
              f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment_turned_in</i>' \
              f' {completed_button_name}</a></li>'
-        msg = _("""This is a team task.
-            Please create a sub-task for yourself for work.
-            Or press the next button when you have done your job.
-        """)
         button = f'<ul class="object-tools" style=" margin-left: 0px;margin-top: 0px">{li}</ul>'
-        html_msg = linebreaks(f'<span style="color: var(--orange-fg)">{msg}</span>')
+        html_msg = linebreaks(
+            f'<span style="color: var(--orange-fg)">{THIS_IS_TEAM_TASK}</span>')
         return mark_safe(f"{html_msg}{button}")
 
     @staticmethod
