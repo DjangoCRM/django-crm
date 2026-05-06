@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Improved
+
+- Refactor contact admin field layout for improved readability
+
 ## [2.3.1] - 2026-04-26
 
 ### Fixed

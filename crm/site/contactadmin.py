@@ -105,7 +105,8 @@ class ContactAdmin(CrmModelAdmin):
             [None if not obj else f'{obj}', {
                 'fields': (
                     ('first_name', 'middle_name', 'last_name'),
-                    ('title', 'sex'),
+                    'title',
+                    'sex',
                     ('birth_date', 'was_in_touch'),
                     'description',
                     ('disqualified', self.massmail_field_name(obj))
@@ -161,7 +162,7 @@ class ContactAdmin(CrmModelAdmin):
         my_urls = [
             path('make_massmail/',
                  admin.views.decorators.staff_member_required(
-                    self.admin_site.admin_view(self.make_massmail)),
+                     self.admin_site.admin_view(self.make_massmail)),
                  name='contact_make_massmail'
                  ),
         ]
@@ -177,7 +178,7 @@ class ContactAdmin(CrmModelAdmin):
 
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">business</i>'
-        ),
+    ),
         ordering='company'
     )
     def contact_company(self, obj):

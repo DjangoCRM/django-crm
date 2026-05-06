@@ -211,7 +211,8 @@ class ContactAdmin(contactadmin.ContactAdmin):
             [None, {
                 'fields': (
                     ('first_name', 'middle_name', 'last_name'),
-                    ('title', 'sex'),
+                    'title',
+                    'sex',
                     ('birth_date', 'was_in_touch'),
                     ('disqualified', 'massmail')
                 )
