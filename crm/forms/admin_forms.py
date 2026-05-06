@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from common.utils.parse_full_name import parse_full_name
 from crm.models import ClosingReason
 from crm.models import Company
 from crm.models import Contact
@@ -117,6 +118,12 @@ class BaseContactForm(BaseCallablesForm):
     def clean(self):
         super().clean()
         first_name = self.cleaned_data.get("first_name")
+        # Check if a prefix is ​​used instead of the real name
+        if first_name in settings.NAME_PREFIXES:
+            msg = _("Invalid value")
+            self.add_error(
+                'first_name', forms.ValidationError(msg, code='invalid'))
+        
         last_name = self.cleaned_data.get("last_name")
         if first_name and last_name:
             q_params = Q()

@@ -42,12 +42,13 @@ def parse_full_name(full_name: str) -> tuple:
             prefix = prefix[0:1].upper() + prefix[1:] # "PhD".title() -> "Phd"
         split_name = full_name.split(" ")
         split_name = list(filter(None, split_name))
-        if len(split_name) == 1:
+        split_name_len = len(split_name)
+        if split_name_len == 1:
             first_name = full_name
-        elif len(split_name) == 2:
+        elif split_name_len == 2:
             first_name = split_name[0]
             last_name = split_name[1]
-        else:
+        elif split_name_len > 2:
             first_name = split_name[0]
             middle_name = truncatechars(" ".join(split_name[1:-1]), 90)
             last_name = split_name[-1]
