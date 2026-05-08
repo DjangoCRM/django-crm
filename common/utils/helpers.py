@@ -38,6 +38,10 @@ ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
 SAFE_ATTACH_FILE_ICON = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>'
 )
+SAFE_SUBJECT_ICON = mark_safe(
+    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
+)
+
 
 USER_MODEL = get_user_model()
 
