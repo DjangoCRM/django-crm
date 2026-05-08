@@ -8,22 +8,23 @@ window.addEventListener('load', function() {
     // Convert the initialWeights string like "<key>: <value>, <key>: <value>" to the object
     const weightsObj = JSON.parse(initialWeights);
     const qualityFieldset = document.getElementById('transactionqualityevent_set-group');
-    qualityFieldset.addEventListener('change', function() {
-        // Find the all select fields in dynamic formsets
-        const signalFields = document.querySelectorAll(`[id^="${prefixId}"][id$="${suffixId}"]`);
-        // Exclude field with id containing "__prefix__"
-        const filteredSignalFields = Array.from(signalFields).filter(field => !field.id.includes('__prefix__'));
-        // From the resulting list, get the index of the last field
-        const lastSignalField = filteredSignalFields[filteredSignalFields.length - 1];
+    
+    // Use event delegation to listen only to signal field changes
+    qualityFieldset.addEventListener('change', function(event) {
+        // Check if the changed element is a signal field
+        if (!event.target.id.startsWith(prefixId) || !event.target.id.endsWith(suffixId)) {
+            return;
+        }
+        
         // Update the corresponding weight input field
-        const weightInputId = lastSignalField.id.replace(suffixId, '-weight');
-        const lastWeightInput = document.getElementById(weightInputId);
-        if (lastWeightInput) {
-            const selectedSignalId = lastSignalField.value;
+        const weightInputId = event.target.id.replace(suffixId, '-weight');
+        const weightInput = document.getElementById(weightInputId);
+        if (weightInput) {
+            const selectedSignalId = event.target.value;
             if (weightsObj.hasOwnProperty(selectedSignalId)) {
-                lastWeightInput.value = weightsObj[selectedSignalId];
+                weightInput.value = weightsObj[selectedSignalId];
             } else {
-                lastWeightInput.value = '';
+                weightInput.value = '';
             }
         }
     });
