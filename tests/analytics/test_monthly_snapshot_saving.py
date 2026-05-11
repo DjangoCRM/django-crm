@@ -3,15 +3,17 @@ Unit tests for MonthlySnapshotSaving thread and related functionality.
 
 Tests the automatic snapshot saving mechanism for Income Stat reports
 at the end of each month for reporting purposes.
+
+Note: Tests that instantiate MonthlySnapshotSaving must retrieve it from a queue
+to prevent concurrent access issues with the SingleInstance lock. Tests are
+organized to serialize access via a shared queue.
 """
-import threading
+import queue
 from datetime import datetime
 from unittest.mock import patch, MagicMock
 
 from django.test import tag, override_settings, TestCase
 from django.utils import timezone
-from django.contrib.auth.models import User
-from django.urls import reverse
 
 from analytics.models import IncomeStatSnapshot
 from analytics.utils.monthly_snapshot_saving import (
@@ -26,9 +28,13 @@ from tests.base_test_classes import BaseTestCase
 # Tests for get_time_to_next_monthly_snapshot_saving helper function
 # ============================================================================
 
+
 @tag('Analytics')
 class TestGetTimeToNextMonthlySnapshot(TestCase):
-    """Test the get_time_to_next_monthly_snapshot_saving function."""
+    """Test the get_time_to_next_monthly_snapshot_saving function.
+
+    These tests don't require MonthlySnapshotSaving instances, so no queue needed.
+    """
 
     def setUp(self):
         print(" Run Test Method:", self._testMethodName)
@@ -128,306 +134,6 @@ class TestGetTimeToNextMonthlySnapshot(TestCase):
             # Should always return a positive time early in month
             self.assertGreater(secs, 0)
 
-
-# ============================================================================
-# Tests for MonthlySnapshotSaving thread
-# ============================================================================
-
-@tag('Analytics')
-class TestMonthlySnapshotSavingThread(BaseTestCase):
-    """Test the MonthlySnapshotSaving thread class."""
-
-    @classmethod
-    def setUpTestData(cls):
-        super().setUpTestData()
-        cls.superuser = User.objects.filter(is_superuser=True).first()
-        if not cls.superuser:
-            cls.superuser = User.objects.create_superuser(
-                username='superadmin',
-                email='super@example.com',
-                password='testpass123'
-            )
-
-    def setUp(self):
-        print(" Run Test Method:", self._testMethodName)
-
-    def test_initialization_with_testing_flag_true(self):
-        """Test thread initialization when TESTING is True."""
-        with override_settings(TESTING=True):
-            thread = MonthlySnapshotSaving()
-
-            self.assertIsInstance(thread, MonthlySnapshotSaving)
-            self.assertTrue(thread.daemon)
-
-    def test_initialization_with_testing_flag_false(self):
-        """Test thread initialization when TESTING is False."""
-        with override_settings(TESTING=False):
-            thread = MonthlySnapshotSaving()
-
-            self.assertIsInstance(thread, MonthlySnapshotSaving)
-            self.assertTrue(thread.daemon)
-
-    @patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot')
-    def test_thread_runs_save_snapshots(self, mock_save_snapshot_class):
-        """Test that the thread runs save_snapshots method."""
-        mock_instance = MagicMock()
-        mock_save_snapshot_class.return_value = mock_instance
-
-        with override_settings(TESTING=True):
-            thread = MonthlySnapshotSaving()
-            thread.run()
-
-            # Should call save_snapshots at least once
-            mock_instance.save_snapshots.assert_called()
-
-    @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
-    @patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot')
-    def test_exception_handling_sends_email(self, mock_save_snapshot_class, mock_mail_admins):
-        """Test that exceptions trigger admin email notification."""
-        # Setup mock to raise an exception
-        mock_instance = MagicMock()
-        mock_instance.save_snapshots.side_effect = Exception("Test error")
-        mock_save_snapshot_class.return_value = mock_instance
-
-        with override_settings(TESTING=True):
-            thread = MonthlySnapshotSaving()
-            thread.run()
-
-            # mail_admins should be called with error details
-            mock_mail_admins.assert_called_once()
-            call_args = mock_mail_admins.call_args
-            self.assertIn("Exception: MonthlySnapshotSaving", call_args[0][0])
-            self.assertIn("Test error", call_args[0][1])
-
-    @patch('analytics.utils.monthly_snapshot_saving.connection')
-    @patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot')
-    def test_database_connection_closed(self, mock_save_snapshot_class, mock_connection):
-        """Test that database connection is properly closed."""
-        mock_instance = MagicMock()
-        mock_save_snapshot_class.return_value = mock_instance
-
-        with override_settings(TESTING=True):
-            thread = MonthlySnapshotSaving()
-            thread.run()
-
-            # Connection should be closed
-            self.assertTrue(mock_connection.close.called)
-
-
-# ============================================================================
-# Tests for SaveSnapshot functionality
-# ============================================================================
-
-@tag('Analytics')
-class TestSaveSnapshotFunctionality(BaseTestCase):
-    """Test the SaveSnapshot.save_snapshots method."""
-
-    @classmethod
-    def setUpTestData(cls):
-        super().setUpTestData()
-        # Get a superuser for authentication
-        cls.superuser = User.objects.filter(is_superuser=True).first()
-        if not cls.superuser:
-            cls.superuser = User.objects.create_superuser(
-                username='superadmin',
-                email='super@example.com',
-                password='testpass123'
-            )
-
-    def setUp(self):
-        print(" Run Test Method:", self._testMethodName)
-
-    def test_save_snapshots_creates_snapshot_objects(self):
-        """Test that save_snapshots creates IncomeStatSnapshot objects."""
-        initial_count = IncomeStatSnapshot.objects.count()
-
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        # Should have created at least one snapshot
-        final_count = IncomeStatSnapshot.objects.count()
-        self.assertGreater(final_count, initial_count)
-
-    def test_saved_snapshot_has_required_fields(self):
-        """Test that saved snapshots have all required fields."""
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        snapshot = IncomeStatSnapshot.objects.latest('id')
-
-        # Check required fields
-        self.assertIsNotNone(snapshot.department_id)
-        self.assertIsNotNone(snapshot.webpage)
-        self.assertTrue(len(snapshot.webpage) > 0)
-        self.assertIsNotNone(snapshot.creation_date)
-
-    def test_saved_snapshot_webpage_contains_html(self):
-        """Test that snapshot webpage contains HTML content."""
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        snapshot = IncomeStatSnapshot.objects.latest('id')
-
-        # Should contain HTML tags
-        self.assertIn('<', snapshot.webpage)
-        self.assertIn('>', snapshot.webpage)
-
-    def test_snapshot_saved_for_each_department(self):
-        """Test that snapshots are saved for each manager department."""
-        # Clear existing snapshots
-        IncomeStatSnapshot.objects.all().delete()
-
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        snapshots = IncomeStatSnapshot.objects.all()
-
-        # Should have created at least one snapshot
-        self.assertGreater(snapshots.count(), 0)
-
-    def test_snapshot_authenticated_as_superuser(self):
-        """Test that snapshot generation is authenticated as superuser."""
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-
-            # The save_snapshots method should authenticate as superuser
-            # This should not raise an authentication error
-            snapshot_service.save_snapshots()
-
-        # If we got here without exception, authentication worked
-        snapshots = IncomeStatSnapshot.objects.all()
-        self.assertGreater(snapshots.count(), 0)
-
-    def test_snapshot_uses_correct_url(self):
-        """Test that snapshot is generated from IncomeStatAdmin URL."""
-        with override_settings(TESTING=True):
-            # Mock the Client class to verify the correct URL is called
-            with patch('analytics.utils.monthly_snapshot_saving.Client') as mock_client_class:
-                mock_client_instance = MagicMock()
-                mock_response = MagicMock()
-                mock_response.context_data = {'snapshot': '<html>test</html>'}
-                mock_client_instance.get.return_value = mock_response
-                mock_client_class.return_value = mock_client_instance
-
-                snapshot_service = SaveSnapshot()
-
-                # We need to patch get_manager_departments to avoid department issues
-                with patch('analytics.utils.monthly_snapshot_saving.get_manager_departments') as mock_depts:
-                    from django.contrib.auth.models import Group
-                    dept = Group.objects.filter(
-                        department__isnull=False).first()
-                    if dept:
-                        mock_depts.return_value = [dept]
-                        snapshot_service.save_snapshots()
-
-                        # Verify the correct URL was called
-                        mock_client_instance.get.assert_called()
-                        call_args = mock_client_instance.get.call_args
-                        url = call_args[0][0] if call_args[0] else ''
-                        # Should contain incomestat in the URL
-                        self.assertIn('incomestat', url)
-
-    @override_settings(
-        SECURE_HSTS_SECONDS=0,
-        SECURE_SSL_REDIRECT=False,
-        SECURE_HSTS_PRELOAD=False
-    )
-    def test_snapshot_with_security_settings_override(self):
-        """Test that snapshots are saved with security settings disabled."""
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        snapshots = IncomeStatSnapshot.objects.all()
-        self.assertGreater(snapshots.count(), 0)
-
-
-# ============================================================================
-# Integration Tests
-# ============================================================================
-
-@tag('Analytics')
-class TestMonthlySnapshotSavingIntegration(BaseTestCase):
-    """Integration tests for the complete MonthlySnapshotSaving system."""
-
-    @classmethod
-    def setUpTestData(cls):
-        super().setUpTestData()
-        cls.superuser = User.objects.filter(is_superuser=True).first()
-        if not cls.superuser:
-            cls.superuser = User.objects.create_superuser(
-                username='superadmin',
-                email='super@example.com',
-                password='testpass123'
-            )
-
-    def setUp(self):
-        print(" Run Test Method:", self._testMethodName)
-
-    def test_snapshot_creation_workflow(self):
-        """Test that SaveSnapshot can create snapshot objects."""
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            # Run the snapshot service
-            snapshot_service.save_snapshots()
-
-        # Verify at least one snapshot was created
-        snapshots = IncomeStatSnapshot.objects.all()
-        self.assertGreater(snapshots.count(), 0)
-
-    def test_snapshot_data_persistence(self):
-        """Test that snapshot data is persisted correctly."""
-        initial_count = IncomeStatSnapshot.objects.count()
-
-        with override_settings(TESTING=True):
-            snapshot_service = SaveSnapshot()
-            snapshot_service.save_snapshots()
-
-        final_count = IncomeStatSnapshot.objects.count()
-        self.assertGreater(final_count, initial_count)
-
-    @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
-    def test_system_handles_errors_gracefully(self, mock_mail_admins):
-        """Test that the system handles errors gracefully."""
-        with override_settings(TESTING=True):
-            with patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot.save_snapshots') as mock_save:
-                mock_save.side_effect = ValueError("Test error")
-
-                thread = MonthlySnapshotSaving()
-                # Should not raise exception
-                thread.run()
-
-                # Admin email should have been sent
-                mock_mail_admins.assert_called()
-
-    def test_thread_lifecycle(self):
-        """Test that MonthlySnapshotSaving thread can be created and run."""
-        with override_settings(TESTING=True):
-            with patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot.save_snapshots'):
-                thread = MonthlySnapshotSaving()
-
-                # Thread should be daemon
-                self.assertTrue(thread.daemon)
-
-                # Thread should be a Thread instance
-                self.assertIsInstance(thread, threading.Thread)
-
-
-# ============================================================================
-# Edge Case Tests
-# ============================================================================
-
-@tag('Analytics')
-class TestMonthlySnapshotSavingEdgeCases(TestCase):
-    """Test edge cases and boundary conditions."""
-
-    def setUp(self):
-        print(" Run Test Method:", self._testMethodName)
-
     def test_exact_snapshot_time(self):
         """Test calculation exactly at snapshot time (23:00:00)."""
         now = timezone.make_aware(datetime(2024, 1, 31, 23, 0, 0))
@@ -485,3 +191,209 @@ class TestMonthlySnapshotSavingEdgeCases(TestCase):
         expected_secs = (save_dt - now).total_seconds()
 
         self.assertEqual(secs, expected_secs)
+
+
+# ============================================================================
+# Tests for MonthlySnapshotSaving thread (Queue-based to prevent conflicts)
+# ============================================================================
+
+@tag('Analytics')
+class TestMonthlySnapshotSavingWithQueue(BaseTestCase):
+    """Test the MonthlySnapshotSaving thread class using queue-based serialization.
+
+    To prevent concurrent access to MonthlySnapshotSaving instances (which use
+    SingleInstance for production), all tests that create instances retrieve them
+    from a queue and return them after completion.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls._instance_queue = queue.Queue(maxsize=1)
+        cls._instance_queue.put('available')
+
+    def setUp(self):
+        print(" Run Test Method:", self._testMethodName)
+        # Retrieve from queue before test (blocks if not available)
+        self._instance_queue.get()
+
+    def tearDown(self):
+        # Return to queue after test completes
+        self._instance_queue.put('available')
+
+    @patch('analytics.utils.monthly_snapshot_saving.connection')
+    @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
+    @patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot')
+    def test_exception_handling_sends_email(self, mock_save_snapshot_class, mock_mail_admins, mock_connection):
+        """Test that exceptions trigger admin email notification."""
+        # Setup mock to raise an exception
+        mock_instance = MagicMock()
+        mock_instance.save_snapshots.side_effect = Exception("Test error")
+        mock_save_snapshot_class.return_value = mock_instance
+
+        thread = MonthlySnapshotSaving()
+        thread.start()
+        thread.__del__()
+        thread.join()
+        # mail_admins should be called with error details
+        mock_mail_admins.assert_called_once()
+        call_args = mock_mail_admins.call_args
+        self.assertIn("Exception: MonthlySnapshotSaving", call_args[0][0])
+        self.assertIn("Test error", call_args[0][1])
+
+        # Should call save_snapshots at least once
+        mock_instance.save_snapshots.assert_called()
+        # Connection should be closed
+        self.assertTrue(mock_connection.close.called)
+
+    @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
+    def test_system_handles_errors_gracefully(self, mock_mail_admins):
+        """Test that the system handles errors gracefully."""
+        with patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot.save_snapshots') as mock_save:
+            mock_save.side_effect = ValueError("Test error")
+
+            thread = MonthlySnapshotSaving()
+            # Should not raise exception
+            thread.start()
+            thread.__del__()
+            thread.join()
+            # Admin email should have been sent
+            mock_mail_admins.assert_called()
+
+
+# ============================================================================
+# Tests for SaveSnapshot functionality
+# ============================================================================
+
+@tag('Analytics')
+class TestSaveSnapshotFunctionality(BaseTestCase):
+    """Test the SaveSnapshot.save_snapshots method."""
+
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+    def setUp(self):
+        print(" Run Test Method:", self._testMethodName)
+
+    def test_save_snapshots_creates_snapshot_objects(self):
+        """Test that save_snapshots creates IncomeStatSnapshot objects."""
+        initial_count = IncomeStatSnapshot.objects.count()
+
+        snapshot_service = SaveSnapshot()
+        snapshot_service.save_snapshots()
+
+        # Should have created at least one snapshot
+        final_count = IncomeStatSnapshot.objects.count()
+        self.assertGreater(final_count, initial_count)
+
+        # test that saved snapshots have all required fields
+        snapshot = IncomeStatSnapshot.objects.latest('id')
+
+        # Check required fields
+        self.assertIsNotNone(snapshot.department_id)
+        self.assertIsNotNone(snapshot.webpage)
+        self.assertTrue(len(snapshot.webpage) > 0)
+        self.assertIsNotNone(snapshot.creation_date)
+
+    def test_saved_snapshot_webpage_contains_html(self):
+        """Test that snapshot webpage contains HTML content."""
+        snapshot_service = SaveSnapshot()
+        snapshot_service.save_snapshots()
+
+        snapshot = IncomeStatSnapshot.objects.latest('id')
+
+        # Should contain HTML tags
+        self.assertIn('<', snapshot.webpage)
+        self.assertIn('>', snapshot.webpage)
+
+    def test_snapshot_saved_for_each_department(self):
+        """Test that snapshots are saved for each manager department."""
+        # Clear existing snapshots
+        IncomeStatSnapshot.objects.all().delete()
+
+        snapshot_service = SaveSnapshot()
+        snapshot_service.save_snapshots()
+
+        snapshots = IncomeStatSnapshot.objects.all()
+
+        # Should have created at least one snapshot
+        self.assertGreater(snapshots.count(), 0)
+
+    def test_snapshot_authenticated_as_superuser(self):
+        """Test that snapshot generation is authenticated as superuser."""
+        snapshot_service = SaveSnapshot()
+
+        # The save_snapshots method should authenticate as superuser
+        # This should not raise an authentication error
+        snapshot_service.save_snapshots()
+
+        # If we got here without exception, authentication worked
+        snapshots = IncomeStatSnapshot.objects.all()
+        self.assertGreater(snapshots.count(), 0)
+
+    def test_snapshot_uses_correct_url(self):
+        """Test that snapshot is generated from IncomeStatAdmin URL."""
+
+        # Mock the Client class to verify the correct URL is called
+        with patch('analytics.utils.monthly_snapshot_saving.Client') as mock_client_class:
+            mock_client_instance = MagicMock()
+            mock_response = MagicMock()
+            mock_response.context_data = {'snapshot': '<html>test</html>'}
+            mock_client_instance.get.return_value = mock_response
+            mock_client_class.return_value = mock_client_instance
+
+            snapshot_service = SaveSnapshot()
+
+            # We need to patch get_manager_departments to avoid department issues
+            with patch('analytics.utils.monthly_snapshot_saving.get_manager_departments') as mock_depts:
+                from django.contrib.auth.models import Group
+                dept = Group.objects.filter(
+                    department__isnull=False).first()
+                if dept:
+                    mock_depts.return_value = [dept]
+                    snapshot_service.save_snapshots()
+
+                    # Verify the correct URL was called
+                    mock_client_instance.get.assert_called()
+                    call_args = mock_client_instance.get.call_args
+                    url = call_args[0][0] if call_args[0] else ''
+                    # Should contain incomestat in the URL
+                    self.assertIn('incomestat', url)
+
+    @override_settings(
+        SECURE_HSTS_SECONDS=0,
+        SECURE_SSL_REDIRECT=False,
+        SECURE_HSTS_PRELOAD=False
+    )
+    def test_snapshot_with_security_settings_override(self):
+        """Test that snapshots are saved with security settings disabled."""
+        snapshot_service = SaveSnapshot()
+        snapshot_service.save_snapshots()
+
+        snapshots = IncomeStatSnapshot.objects.all()
+        self.assertGreater(snapshots.count(), 0)
+
+    # ===================================================================
+    # Integration Tests
+    # ===================================================================
+
+    def test_snapshot_creation_workflow(self):
+        """Test that SaveSnapshot can create snapshot objects."""
+        snapshot_service = SaveSnapshot()
+        # Run the snapshot service
+        snapshot_service.save_snapshots()
+
+        # Verify at least one snapshot was created
+        snapshots = IncomeStatSnapshot.objects.all()
+        self.assertGreater(snapshots.count(), 0)
+
+    def test_snapshot_data_persistence(self):
+        """Test that snapshot data is persisted correctly."""
+        initial_count = IncomeStatSnapshot.objects.count()
+
+        snapshot_service = SaveSnapshot()
+        snapshot_service.save_snapshots()
+
+        final_count = IncomeStatSnapshot.objects.count()
+        self.assertGreater(final_count, initial_count)

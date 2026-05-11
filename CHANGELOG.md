@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix weight field change handling
+- Fixed weight field change handling
+- Fixed PermissionError occurring when tests access MonthlySnapshotSaving simultaneously
 
 ### Improved
 
