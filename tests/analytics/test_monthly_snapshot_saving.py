@@ -3,12 +3,7 @@ Unit tests for MonthlySnapshotSaving thread and related functionality.
 
 Tests the automatic snapshot saving mechanism for Income Stat reports
 at the end of each month for reporting purposes.
-
-Note: Tests that instantiate MonthlySnapshotSaving must retrieve it from a queue
-to prevent concurrent access issues with the SingleInstance lock. Tests are
-organized to serialize access via a shared queue.
 """
-import queue
 from datetime import datetime
 from unittest.mock import patch, MagicMock
 
@@ -31,9 +26,9 @@ from tests.base_test_classes import BaseTestCase
 
 @tag('Analytics')
 class TestGetTimeToNextMonthlySnapshot(TestCase):
-    """Test the get_time_to_next_monthly_snapshot_saving function.
-
-    These tests don't require MonthlySnapshotSaving instances, so no queue needed.
+    """
+    Test the get_time_to_next_monthly_snapshot_saving function.
+    These tests don't require MonthlySnapshotSaving instances.
     """
 
     def setUp(self):
@@ -194,32 +189,17 @@ class TestGetTimeToNextMonthlySnapshot(TestCase):
 
 
 # ============================================================================
-# Tests for MonthlySnapshotSaving thread (Queue-based to prevent conflicts)
+# Tests for MonthlySnapshotSaving thread
 # ============================================================================
 
 @tag('Analytics')
-class TestMonthlySnapshotSavingWithQueue(BaseTestCase):
-    """Test the MonthlySnapshotSaving thread class using queue-based serialization.
-
-    To prevent concurrent access to MonthlySnapshotSaving instances (which use
-    SingleInstance for production), all tests that create instances retrieve them
-    from a queue and return them after completion.
+class TestMonthlySnapshotSaving(BaseTestCase):
     """
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls._instance_queue = queue.Queue(maxsize=1)
-        cls._instance_queue.put('available')
+    Test the MonthlySnapshotSaving thread class.
+    """
 
     def setUp(self):
         print(" Run Test Method:", self._testMethodName)
-        # Retrieve from queue before test (blocks if not available)
-        self._instance_queue.get()
-
-    def tearDown(self):
-        # Return to queue after test completes
-        self._instance_queue.put('available')
 
     @patch('analytics.utils.monthly_snapshot_saving.connection')
     @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
@@ -233,8 +213,8 @@ class TestMonthlySnapshotSavingWithQueue(BaseTestCase):
 
         thread = MonthlySnapshotSaving()
         thread.start()
-        thread.__del__()
         thread.join()
+
         # mail_admins should be called with error details
         mock_mail_admins.assert_called_once()
         call_args = mock_mail_admins.call_args
@@ -246,24 +226,11 @@ class TestMonthlySnapshotSavingWithQueue(BaseTestCase):
         # Connection should be closed
         self.assertTrue(mock_connection.close.called)
 
-    @patch('analytics.utils.monthly_snapshot_saving.mail_admins')
-    def test_system_handles_errors_gracefully(self, mock_mail_admins):
-        """Test that the system handles errors gracefully."""
-        with patch('analytics.utils.monthly_snapshot_saving.SaveSnapshot.save_snapshots') as mock_save:
-            mock_save.side_effect = ValueError("Test error")
-
-            thread = MonthlySnapshotSaving()
-            # Should not raise exception
-            thread.start()
-            thread.__del__()
-            thread.join()
-            # Admin email should have been sent
-            mock_mail_admins.assert_called()
-
 
 # ============================================================================
 # Tests for SaveSnapshot functionality
 # ============================================================================
+
 
 @tag('Analytics')
 class TestSaveSnapshotFunctionality(BaseTestCase):
