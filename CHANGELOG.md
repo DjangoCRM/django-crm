@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [2.4.0] - 2026-05-216
 
 ### Added
 
@@ -29,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Moved the resize image functionality to common utils
+
+#### Full Changelog: [v2.3.1...v2.4.0](https://github.com/DjangoCRM/django-crm/compare/v2.3.1...v2.4.0)
 
 ## [2.3.1] - 2026-04-26
 
