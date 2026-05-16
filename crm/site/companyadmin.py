@@ -7,6 +7,8 @@ from django.utils.safestring import mark_safe
 from django.urls import path
 from django.urls import reverse
 
+from common.utils.helpers import SAFE_SUBJECT_ICON
+from common.utils.resize_image import resize_image
 from crm.forms.admin_forms import CompanyForm
 from crm.models import Company
 from crm.models import Contact
@@ -46,7 +48,7 @@ class ContactInline(CrmStackedInline):
 class CompanyAdmin(CrmModelAdmin):
     form = CompanyForm
     list_display = [
-        'company',
+        'company_name',
         'type',
         'created',
         'person',
@@ -68,8 +70,8 @@ class CompanyAdmin(CrmModelAdmin):
         'view_website_button',
         'warning',
         'tag_list',
-        'company',
-        'connections_to_phone'
+        'connections_to_phone',
+        'logo_preview'
     )
     actions = [
         make_mailing_out,
@@ -122,6 +124,8 @@ class CompanyAdmin(CrmModelAdmin):
         return [
             (None, {
                 'fields': (
+                    'logo_preview',
+                    'logo',
                     ('full_name', 'disqualified'),
                     ('alternative_names', 
                      self.massmail_field_name(obj)),
@@ -174,6 +178,9 @@ class CompanyAdmin(CrmModelAdmin):
             instance.save()
 
     def save_model(self, request, obj, form, change):
+        # Resize new logo if present
+        if 'logo' in form.changed_data and obj.logo:
+            resize_logo(obj)
         if change:
             if 'owner' in form.changed_data:
                 obj.contacts.update(
@@ -183,6 +190,14 @@ class CompanyAdmin(CrmModelAdmin):
                 change_massconts(obj)
             if 'department' in form.changed_data and 'owner' not in form.changed_data:
                 obj.contacts.update(department=obj.department)        
+            # Delete old logo file if new one is being uploaded
+            if  'logo' in form.changed_data:
+                try:
+                    old_instance = Company.objects.get(pk=obj.pk)
+                    if old_instance.logo and old_instance.logo != obj.logo:
+                        old_instance.logo.delete(save=False)
+                except Company.DoesNotExist:
+                    pass
         check_city(obj, form)
 
         super().save_model(request, obj, form, change)
@@ -210,18 +225,27 @@ class CompanyAdmin(CrmModelAdmin):
 
     # -- ModelAdmin callables -- #
 
+    @admin.display(description=SAFE_SUBJECT_ICON,
+        ordering='full_name'
+    )
+    def company_name(self, obj):
+        return obj.thumbnail_full_name
+
+    @admin.display(description='')
+    def logo_preview(self, obj):
+        if obj.logo:
+            return mark_safe(
+                f'<img src="{obj.logo.url}" style="width:200px;height:200px;">'
+            )
+        return mark_safe(
+            '<i class="material-icons" style="font-size: 200px;vertical-align: middle;'
+            'border-radius:50%;color: var(--body-quiet-color)">business</i>'
+        )
+
     @admin.display(description=_('Warning:'))
     def warning(self, obj):        # NOQA
         txt = _('Owner will also be changed for contact persons.')
         return mark_safe(f'<span style="color: var(--green-fg)">{txt}</span>')
-
-    @admin.display(description=mark_safe(
-        '<i class="material-icons" style="color: var(--body-quiet-color)">business</i>'
-        ),
-        ordering='full_name'
-    )
-    def company(self, obj):
-        return obj.full_name
 
     # -- ModelAdmin actions -- #
 
@@ -233,3 +257,17 @@ class CompanyAdmin(CrmModelAdmin):
         return HttpResponseRedirect(
             reverse('change_owner_companies') + f'?next={url}&ids={ids}'
         )
+
+# -- Custom Methods -- #
+
+
+def resize_logo(obj) -> None:
+    """
+    Resize uploaded logo image to a maximum of 200x200 pixels.
+    """
+    if obj.logo:
+        resized_image = resize_image(obj.logo, circular=False)
+
+        # Create a new File object
+        obj.logo.file = resized_image
+        obj.logo.name = f"{obj.full_name}.png"

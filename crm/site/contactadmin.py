@@ -54,7 +54,8 @@ class ContactAdmin(CrmModelAdmin):
         'connections_to_other_phone',
         'connections_to_mobile',
         'create_email',
-        'unsubscribed'
+        'unsubscribed',
+        'avatar_preview'
     ]
     save_on_top = True
     search_fields = [
@@ -101,17 +102,19 @@ class ContactAdmin(CrmModelAdmin):
             db_field, request, **kwargs)
 
     def get_fieldsets(self, request, obj=None):
+        fields = ['avatar_preview']
+        if obj and request.user == obj.owner or request.user.is_superuser:
+            fields.append('avatar')
+        fields.extend((
+            ('first_name', 'middle_name', 'last_name'),
+            'title',
+            'sex',
+            ('birth_date', 'was_in_touch'),
+            'description',
+            ('disqualified', self.massmail_field_name(obj))
+        ))
         return (
-            [None if not obj else f'{obj}', {
-                'fields': (
-                    ('first_name', 'middle_name', 'last_name'),
-                    'title',
-                    'sex',
-                    ('birth_date', 'was_in_touch'),
-                    'description',
-                    ('disqualified', self.massmail_field_name(obj))
-                )
-            }],
+            [None if not obj else f'{obj}', {'fields': fields}],
             *self.get_tag_fieldsets(obj),
             (_('Contact details'), {
                 'fields': (

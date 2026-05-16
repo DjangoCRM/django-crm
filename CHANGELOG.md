@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Added the ability to add logos to companies
+- Added display of company names in lists with thumbnails of their logos or icons
+- Added the ability to add avatars/photos to leads and contacts
+- Added display of names of leads and contacts in lists with thumbnails of their avatars/photos or an icon
+
 ### Fixed
 
 - Fixed weight field change handling

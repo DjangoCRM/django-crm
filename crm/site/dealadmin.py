@@ -66,23 +66,23 @@ deal_counter_title = _("Deal counter")
 lead_tip = _("View Lead in new tab")
 unanswered_email_str = _('Unanswered email')
 mail_outline_small_icon = f'<i class="material-icons" title="{unanswered_email_str}" ' \
-                          f'style="font-size:small;color: var(--body-quiet-color)">mail_outline</i>'
+    f'style="font-size:small;color: var(--body-quiet-color)">mail_outline</i>'
 mail_outline_safe_icon = mark_safe(icon_str.format('mail_outline'))
 unread_chat_message_str = _('Unread chat message')
 message_icon = f'<i class="material-icons" title="{unread_chat_message_str}" ' \
-               f'style="font-size:small;color: var(--error-fg)">message</i>'
+    f'style="font-size:small;color: var(--error-fg)">message</i>'
 payment_received_str = _('Payment received')
 payment_received_icon = f'<i class="material-icons" title="{payment_received_str}" ' \
-                        f'style="font-size:small;color:green">payments</i>'
+    f'style="font-size:small;color:green">payments</i>'
 specify_shipment_str = _('Specify the date of shipment')
 local_shipping_icon = f'<i class="material-icons" title="{specify_shipment_str}" ' \
-                      f'style="font-size:small;color: var(--body-quiet-color)">local_shipping</i>'
+    f'style="font-size:small;color: var(--body-quiet-color)">local_shipping</i>'
 specify_products_str = _('Specify products')
 add_shopping_cart_icon = f'<i class="material-icons" title="{specify_products_str}" ' \
-                         f'style="font-size:small;color: var(--error-fg)">add_shopping_cart</i>'
+    f'style="font-size:small;color: var(--error-fg)">add_shopping_cart</i>'
 expired_shipment_date_str = _('Expired shipment date')
 expired_local_shipping_icon = f'<i class="material-icons" title="{expired_shipment_date_str}" ' \
-                              f'style="font-size:small;color: var(--error-fg)">local_shipping</i>'
+    f'style="font-size:small;color: var(--error-fg)">local_shipping</i>'
 perm_phone_msg_safe_icon = mark_safe(icon_str.format('perm_phone_msg'))
 person_outline_safe_icon = mark_safe(icon_str.format('person_outline'))
 relevant_deal_str = _('Relevant deal')
@@ -96,7 +96,8 @@ class DealAdmin(CrmModelAdmin):
     actions = ['export_selected']
     empty_value_display = ''
     form = DealForm
-    inlines = [OutputInline, PaymentInline, TransactionQualityEventInline, FileInline]
+    inlines = [OutputInline, PaymentInline,
+               TransactionQualityEventInline, FileInline]
     list_filter = (
         ImportantFilter,
         IsActiveFilter, ByOwnerFilter,
@@ -212,7 +213,7 @@ class DealAdmin(CrmModelAdmin):
             query_dict['closing_reason__id__exact'] = success_reason_id
             success_deals_url = f"{deals_url}?{query_dict.urlencode()}"
         extra_context['success_deals_url'] = success_deals_url
-        
+
         func = getattr(self.__class__, 'dynamic_name')
         title = gettext(
             self.model._meta.get_field("name").help_text._args[0]  # NOQA
@@ -513,7 +514,6 @@ class DealAdmin(CrmModelAdmin):
     def has_add_permission(self, request):
         # Blocks user the ability to add a deal in Home page (Main Menu) and the crm section page (Home > CRM)
         return False
-        
 
     # -- ModelAdmin Callables -- #
 
@@ -539,7 +539,7 @@ class DealAdmin(CrmModelAdmin):
 
     @admin.display(description=get_counterparty_header())
     def counterparty(self, obj):
-        counterparty = obj.lead if obj.lead else obj.company
+        counterparty = obj.lead or obj.company
         if counterparty:
             if hasattr(_thread_local, 'deal_changelist_url'):
                 url = _thread_local.deal_changelist_url
@@ -547,16 +547,18 @@ class DealAdmin(CrmModelAdmin):
                 url = reverse("site:crm_deal_changelist")
                 _thread_local.deal_changelist_url = url
             url += f"?{counterparty._meta.model_name}={counterparty.id}&active=all"  # NOQA
-            name = counterparty.full_name
+            name = getattr(
+                counterparty, 'thumbnail_full_name', None) or counterparty.full_name
             if obj.department:
 
                 if obj.department_id in _thread_local.department_id:
                     works_globally = _thread_local.department_id[obj.department_id]
                 else:
-                    works_globally = Department.objects.get(id=obj.department_id).works_globally
+                    works_globally = Department.objects.get(
+                        id=obj.department_id).works_globally
                     _thread_local.department_id[obj.department_id] = works_globally
                 if works_globally:
-                    name += f", {counterparty.country}"
+                    name += mark_safe(f",<br> {counterparty.country}")
             link = f'<a href="{url}">{name}</a>'
             return mark_safe(link)
         return LEADERS
@@ -588,7 +590,8 @@ class DealAdmin(CrmModelAdmin):
     @staticmethod
     @admin.display(description='')
     def stqs(obj):
-        amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))["s"]
+        amount = obj.transactionqualityevent_set.aggregate(s=Sum("weight"))[
+            "s"]
         if amount is not None:
             total = 100 + amount
             if total >= 95:
@@ -668,16 +671,16 @@ class DealAdmin(CrmModelAdmin):
                 'I have been waiting for an answer to my request for %d days') % days
             if days == 2:
                 icon = f'<i class="material-icons" title="{title}" ' \
-                       f'style="font-size:small;color: var(--body-quiet-color)">sentiment_neutral</i>'
+                    f'style="font-size:small;color: var(--body-quiet-color)">sentiment_neutral</i>'
             elif days in (3, 4):
                 icon = f'<i class="material-icons" title="{title}" ' \
-                       f'style="font-size:small;color: var(--body-quiet-color)">sentiment_dissatisfied</i>'
+                    f'style="font-size:small;color: var(--body-quiet-color)">sentiment_dissatisfied</i>'
             elif days in (5, 6):
                 icon = f'<i class="material-icons" title="{title}" ' \
-                       f'style="font-size:small;color: var(--body-quiet-color)">sentiment_very_dissatisfied</i>'
+                    f'style="font-size:small;color: var(--body-quiet-color)">sentiment_very_dissatisfied</i>'
             elif 7 <= days:
                 icon = f'<i class="material-icons" title="{title}" ' \
-                       f'style="font-size:small;color: var(--error-fg)">mood_bad</i>'
+                    f'style="font-size:small;color: var(--error-fg)">mood_bad</i>'
         elif getattr(instance, 'is_unanswered_email', False):
             icon = mail_outline_small_icon
         icons += icon
@@ -751,14 +754,12 @@ class DealAdmin(CrmModelAdmin):
                 'site:crm_company_change', args=(obj.company_id,)
             )
             li = f'<li><a title="{company_tip}" href="#" onClick="{popup_window(company_url)}">' \
-                 f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i> ' \
-                 f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">edit</i>' \
-                 f'</a></li>'
+                f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">visibility</i> ' \
+                f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">edit</i>' \
+                f'</a></li>'
             return mark_safe(
                 f'{company} <ul class="object-tools" style="margin-left: 0px;margin-top: 0px;">{li}</ul>'
             )
         if obj.lead:
             return _("Contact is Lead (no company)")
         return LEADERS
-
-

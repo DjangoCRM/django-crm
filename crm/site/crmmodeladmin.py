@@ -269,6 +269,14 @@ class CrmModelAdmin(BaseModelAdmin):
 
     # -- ModelAdmin callables -- #
 
+    @admin.display(description='')
+    def avatar_preview(self, obj):
+        if obj.avatar:
+            return mark_safe(f'<img src="{obj.avatar.url}" style="width:200px;height:200px;border-radius:50%">')
+        return mark_safe(
+            '<i class="material-icons" style="font-size: 200px;vertical-align: middle;border-radius:50%;color: var(--body-quiet-color)">face</i>'
+        )
+
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">phone_iphone</i>'
     ))
@@ -480,11 +488,17 @@ class CrmModelAdmin(BaseModelAdmin):
     def the_full_name(self, instance):
         if not instance.first_name:
             return LEADERS
+        name = getattr(instance, 'thumbnail_full_name',
+                       None) or instance.full_name
+        if instance == Request:
+            contact = instance.lead or instance.contact
+            if contact:
+                name = contact.thumbnail_full_name
         if getattr(instance, 'disqualified', None):
             return mark_safe(
-                f'<span  style="color: var(--body-quiet-color)">{instance.full_name}</span>'
+                f'<span  style="color: var(--body-quiet-color)">{name}</span>'
             )
-        return instance.full_name
+        return name
 
     @admin.display(description=mark_safe(
         '<i class="material-icons" style="color: var(--body-quiet-color)">contact_phone</i>'

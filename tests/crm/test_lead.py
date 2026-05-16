@@ -72,6 +72,7 @@ class TestLead(BaseTestCase):
         data = get_adminform_initials(response)
         data['description'] = 'description'
         data['city_name'] = "City name"
+        data.pop('avatar', None)
         response = self.client.post(change_url, data, follow=True)
         self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)

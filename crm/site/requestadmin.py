@@ -366,11 +366,13 @@ class RequestAdmin(CrmModelAdmin):
 
     @admin.display(description=get_counterparty_header())
     def counterparty(self, obj):
-        counterparty = obj.lead if obj.lead else obj.company
+        counterparty = obj.lead or obj.company
         if counterparty:
             url = counterparty.get_crm_url()
+            name = getattr(
+                counterparty, 'thumbnail_full_name', None) or counterparty.full_name
             return mark_safe(
-                f'<a href="{url}">{counterparty.full_name}</a>'
+                f'<a href="{url}">{name}</a>'
             )
         return obj.company_name
 

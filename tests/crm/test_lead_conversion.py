@@ -57,22 +57,22 @@ class TestLeadConversion(BaseTestCase):
         self.lead.contact = self.contact
         self.lead.company = self.company
         self.lead.save()
-        id=self.lead.id
+        id = self.lead.id
         contact_num = Contact.objects.count()
         company_num = Company.objects.count()
         with self.settings(
                 MESSAGE_STORAGE='django.contrib.messages.storage.cookie.CookieStorage'
         ):
-            self.request._messages = default_storage(self.request)        
+            self.request._messages = default_storage(self.request)
             lead_admin.response_post_save_change(
-                        self.request, self.lead)
+                self.request, self.lead)
             self.assertEqual(Contact.objects.count(), contact_num)
             self.assertEqual(Company.objects.count(), company_num)
             self.assertFalse(
                 Lead.objects.filter(id=id),
                 "The Lead is not deleted"
-            )            
-        
+            )
+
     def test_multiple_companies(self):
         """Getting error - Found several companies in the database."""
         Company.objects.create(
@@ -119,6 +119,7 @@ class TestLeadConversion(BaseTestCase):
         data['company_email'] = 'office@company.com'
         # submit '_convert' button
         data['_convert'] = ''
+        data.pop('avatar', None)
         company_num = Company.objects.count()
         response = self.client.post(url, data, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)

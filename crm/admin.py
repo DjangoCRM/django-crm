@@ -84,6 +84,8 @@ class CompanyAdmin(companyadmin.CompanyAdmin):
         return (
             (None, {
                 'fields': (
+                    'logo_preview',
+                    'logo',
                     ('full_name', 'disqualified'),
                     ('alternative_names', 'massmail'),
                     ('type', 'lead_source'),

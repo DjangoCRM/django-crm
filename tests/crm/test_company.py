@@ -63,6 +63,8 @@ class TestCompany(BaseTestCase):
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         self.assertEqual(response.redirect_chain, [])
         data = get_adminform_initials(response)
+        # Remove empty FileField to prevent multipart encoding error
+        data.pop('logo', None)
         data['description'] = 'description'
         data['city_name'] = "City name"
         response = self.client.post(change_url, data, follow=True)
@@ -85,6 +87,8 @@ class TestCompany(BaseTestCase):
         data = get_adminform_initials(response)
         data['description'] = 'description'
         data['city_name'] = "City name"
+        # Remove empty FileField to prevent multipart encoding error
+        data.pop('logo', None)
         response = self.client.post(change_url, data, follow=True)
         self.assertNoFormErrors(response)
         self.assertEqual(response.status_code, 200, response.reason_phrase)

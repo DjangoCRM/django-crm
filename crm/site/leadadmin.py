@@ -59,7 +59,7 @@ class LeadAdmin(CrmModelAdmin):
         'city',
         'contact',
         'company'
-        )
+    )
     readonly_fields = (
         'modified_by',
         'warning',
@@ -72,7 +72,8 @@ class LeadAdmin(CrmModelAdmin):
         'connections_to_phone',
         'connections_to_other_phone',
         'connections_to_mobile',
-        'create_email'
+        'create_email',
+        'avatar_preview'
     )
     search_fields = [
         'first_name',
@@ -108,14 +109,17 @@ class LeadAdmin(CrmModelAdmin):
 
     def get_fieldsets(self, request, obj=None):
         tag_fieldset = self.get_tag_fieldsets(obj)
+        fields = ['avatar_preview']
+        if obj and request.user == obj.owner or request.user.is_superuser:
+            fields.append('avatar')
+        fields.extend(([
+            ('lead_source', 'disqualified',
+             self.massmail_field_name(obj)),
+            ('contact', 'company')
+        ]
+        ))
         fieldsets = (
-            (None, {
-                'fields': [
-                    ('lead_source', 'disqualified', 
-                     self.massmail_field_name(obj)),
-                    ('contact', 'company')
-                ],
-            }),
+            (None, {'fields': fields}),
             (_('Person contact details'), {
                 'fields': (
                     ('first_name', 'middle_name', 'last_name'),

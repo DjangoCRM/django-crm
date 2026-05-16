@@ -2,6 +2,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import get_today
@@ -10,6 +11,9 @@ from massmail.models import MassContact
 
 
 class BaseContact(models.Model):
+    """
+    Common fields for Contact and Lead models
+    """
     class Meta:
         abstract = True
 
@@ -61,7 +65,6 @@ class BaseContact(models.Model):
         max_length=100, blank=True, default='',
         verbose_name=_("Mobile phone")
     )
-
     city_name = models.CharField(
         max_length=50, blank=True, default='',
         verbose_name=_("City")
@@ -77,25 +80,47 @@ class BaseContact(models.Model):
         on_delete=models.SET_NULL,
         verbose_name=_("Country"),
     )
-
-    def was_in_touch_today(self):
-        date = get_today()
-        self.was_in_touch = date
-        self.save()
+    avatar = models.ImageField(
+        blank=True, null=True,
+        verbose_name=_("Avatar"),
+        upload_to='contact_avatars/%Y/%m/%d/%H%M%S/',
+        max_length=250
+    )
 
     @property
     def full_name(self):
         return ' '.join(filter(
-            None, 
+            None,
             (self.first_name, self.middle_name, self.last_name)
         ))
 
     @property
     def first_middle_name(self):
         return ' '.join(filter(
-            None, 
+            None,
             (self.first_name, self.middle_name)
         ))
+
+    @property
+    def thumbnail_full_name(self):
+        if self.avatar:
+            return mark_safe(
+                f'<span style="white-space: nowrap;">'
+                f'<img src="{self.avatar.url}" style="vertical-align: middle;'
+                'width:20px;height:20px;border-radius:50%">'
+                f'&nbsp;{self.full_name}</span>'
+            )
+        return mark_safe(
+            f'<span style="white-space: nowrap;">'
+            '<i class="material-icons" style="font-size:20px;vertical-align:middle;'
+            'border-radius:50%;color:var(--body-quiet-color)"'
+            f'>person_outline</i>&nbsp;{self.full_name}</span>'
+        )
+
+    def was_in_touch_today(self):
+        date = get_today()
+        self.was_in_touch = date
+        self.save()
 
 
 class BaseCounterparty(models.Model):
@@ -112,13 +137,13 @@ class BaseCounterparty(models.Model):
     )
     region = models.CharField(
         max_length=100,
-        blank=True, 
+        blank=True,
         default='',
         verbose_name=_("Region/State")
     )
     district = models.CharField(
         max_length=100,
-        blank=True, 
+        blank=True,
         default='',
         verbose_name=_("District/County")
     )
