@@ -13,6 +13,7 @@ from django.utils.translation import gettext
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_values_over_time
 from common.models import Department
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from crm.utils.admfilters import ByOwnerFilter
 
 page_title = _("Request source statistics")
@@ -23,9 +24,6 @@ year_pcs_title = _("for last 365 days")
 conversion_str = _("conversion")
 total_requests_str = _("Total requests")
 not_specified_str = _("Not specified")
-name_safe_title = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-)
 
 
 class BaseRequestStatAdmin(AnlModelAdmin):
@@ -135,7 +133,8 @@ class RequestStatAdmin(BaseRequestStatAdmin):
                         filter=Q(deal__closing_reason__success_reason=True)
                         | Q(deal__stage__conditional_success_stage=True)
                     ),
-                    year_request_total=Count('pk', filter=Q(creation_date__gte=self.year_ago_date)),
+                    year_request_total=Count('pk', filter=Q(
+                        creation_date__gte=self.year_ago_date)),
                     year_won_deals_total=Count(
                         'pk',
                         filter=(Q(deal__closing_reason__success_reason=True)
@@ -147,14 +146,15 @@ class RequestStatAdmin(BaseRequestStatAdmin):
                         precision=1, output_field=FloatField()
                     ),
                     year_conversion=Round(
-                        F('year_won_deals_total') * 100 / F('year_request_total'),
+                        F('year_won_deals_total') *
+                        100 / F('year_request_total'),
                         precision=1, output_field=FloatField()
                     )
                 ).order_by('-request_total', 'country__name')
 
                 country_table = {
                     'title': country_table_title,
-                    'headers': (name_safe_title, year_pcs_title, all_period_pcs_title),
+                    'headers': (SAFE_SUBJECT_ICON, year_pcs_title, all_period_pcs_title),
                     'body': [
                         (
                             country['country__name'],

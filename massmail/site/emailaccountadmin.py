@@ -4,6 +4,7 @@ from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.models import EmlAccountsQueue
@@ -96,9 +97,7 @@ class EmailAccountAdmin(CrmModelAdmin):
 
     # -- ModelAdmin Callables -- #
 
-    @admin.display(description=mark_safe(
-        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-    ))
+    @admin.display(description=SAFE_SUBJECT_ICON)
     def account(self, obj):
         return obj.name
 

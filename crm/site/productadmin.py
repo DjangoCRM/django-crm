@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from common.admin import FileInline
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 
@@ -102,8 +103,6 @@ class ProductAdmin(admin.ModelAdmin):
             f'<a href="{url}" title="{_('Type')}">{obj.TYPE_CHOICES[obj.type]}</a>'
         )
 
-    @admin.display(description=mark_safe(
-        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-    ), ordering='name')
+    @admin.display(description=SAFE_SUBJECT_ICON, ordering='name')
     def name_icon(self, obj):
         return obj.name

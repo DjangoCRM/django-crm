@@ -9,7 +9,7 @@ from django.urls import reverse
 
 from common.models import Reminder
 from common.views.export_objects import export_selected_objects
-from common.utils.helpers import get_department_id
+from common.utils.helpers import SAFE_SUBJECT_ICON, get_department_id
 from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from common.utils.helpers import get_verbose_name
@@ -145,9 +145,7 @@ class BaseModelAdmin(admin.ModelAdmin):
             f'<div title="{title}">{value}</div>'
         )
 
-    @admin.display(description=mark_safe(
-        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-    ), ordering='name')
+    @admin.display(description=SAFE_SUBJECT_ICON, ordering='name')
     def name_icon(self, obj):
         return obj.name
 

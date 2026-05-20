@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from analytics.models import RequestStat
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_values_over_time
+from common.utils.helpers import SAFE_SUBJECT_ICON
 
 page_title = _("Request source statistics")
 source_table_title = _("Number of requests for each source")
@@ -20,9 +21,6 @@ year_pcs_title = _("for last 365 days")
 conversion_str = _("conversion")
 total_requests_str = _("Total requests")
 not_specified_str = _("Not specified")
-name_safe_title = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-)
 
 
 class LeadSourceStatAdmin(AnlModelAdmin):
@@ -48,7 +46,8 @@ class LeadSourceStatAdmin(AnlModelAdmin):
         total_requests_number = number_requests_with + number_requests_without
 
         year_requests = requests.filter(creation_date__gte=self.year_ago_date)
-        year_requests_with_source = year_requests.filter(lead_source__in=queryset)
+        year_requests_with_source = year_requests.filter(
+            lead_source__in=queryset)
         year_requests_without_source = year_requests.filter(lead_source=None)
         year_number_requests_with = year_requests_with_source.count()
         year_number_requests_without = year_requests_without_source.count()
@@ -65,19 +64,22 @@ class LeadSourceStatAdmin(AnlModelAdmin):
             )
         }
         if total_requests_number:
-            annotate_params['pers'] = F('request_total') / total_requests_number * 100
+            annotate_params['pers'] = F(
+                'request_total') / total_requests_number * 100
         else:
             annotate_params['pers'] = Value(0)
         if year_total_requests_number:
-            annotate_params['year_pers'] = F('year_request_total') / year_total_requests_number * 100
+            annotate_params['year_pers'] = F(
+                'year_request_total') / year_total_requests_number * 100
         else:
             annotate_params['year_pers'] = Value(0)
-        source_qs = queryset.annotate(**annotate_params).order_by('-year_request_total')
+        source_qs = queryset.annotate(
+            **annotate_params).order_by('-year_request_total')
 
         # Add table data
         table = {
             'title': source_table_title,
-            'headers': (name_safe_title, year_pcs_title, all_period_pcs_title),
+            'headers': (SAFE_SUBJECT_ICON, year_pcs_title, all_period_pcs_title),
             'body': [
                 (
                     source.name,

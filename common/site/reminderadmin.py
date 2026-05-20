@@ -8,28 +8,28 @@ from django.utils.safestring import mark_safe
 
 from common.models import Reminder
 from common.forms.reminderform import ReminderForm
+from common.utils.helpers import SAFE_SUBJECT_ICON
 
 icon_str = '<i title="%s" class="material-icons" style="color: var(--body-quiet-color)">%s</i>'
 creation_date_title = Reminder._meta.get_field('creation_date').verbose_name  # NOQA
-creation_date_icon = mark_safe(icon_str % (creation_date_title, 'insert_invitation'))
+creation_date_icon = mark_safe(icon_str % (
+    creation_date_title, 'insert_invitation'))
 reminder_date_title = Reminder._meta.get_field('reminder_date').verbose_name  # NOQA
-reminder_date_icon = mark_safe(icon_str % (reminder_date_title, 'event_available'))
+reminder_date_icon = mark_safe(icon_str % (
+    reminder_date_title, 'event_available'))
 reminders_title = Reminder._meta.verbose_name_plural  # NOQA
 alarm_icon = mark_safe(icon_str % (reminders_title, 'alarm'))
-to_object_icon = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-)
 
 
 class ReminderAdmin(admin.ModelAdmin):
     actions = ('delete_selected',)
     fieldsets = ((None, {
-            'fields': (
-                'to_object', 'subject',
-                'description', 'reminder_date',
+        'fields': (
+            'to_object', 'subject',
+            'description', 'reminder_date',
                 ('active', 'send_notification_email'),
-            )
-        }),)
+        )
+    }),)
     form = ReminderForm
     list_display = (
         'iconed_subject',
@@ -47,7 +47,8 @@ class ReminderAdmin(admin.ModelAdmin):
         extra_context = extra_context or {}
         initial = dict(request.GET.items())
         if initial.get('content_type__id__exact', None):
-            extra_context['content_type_id'] = int(initial.get('content_type__id__exact'))
+            extra_context['content_type_id'] = int(
+                initial.get('content_type__id__exact'))
             extra_context['object_id'] = int(initial.get('object_id'))
         return super().changelist_view(request, extra_context)
 
@@ -64,7 +65,7 @@ class ReminderAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return "add" in request.path or "change" in request.path
-    
+
     def response_add(self, request, obj, post_url_continue=None):
         if '_popup' in request.POST:
             return HttpResponse('<script type="text/javascript">window.close()</script>')
@@ -75,7 +76,8 @@ class ReminderAdmin(admin.ModelAdmin):
             changelist_filters = request.GET.get('_changelist_filters')
             if changelist_filters:
                 data = changelist_filters.split('&')
-                obj.content_type_id = int(data[0].lstrip('content_type__id__exact='))
+                obj.content_type_id = int(
+                    data[0].lstrip('content_type__id__exact='))
                 obj.object_id = int(data[1].lstrip('object_id='))
             else:
                 obj.content_type_id = request.GET.get('content_type')
@@ -104,7 +106,7 @@ class ReminderAdmin(admin.ModelAdmin):
         return obj.subject
 
     @staticmethod
-    @admin.display(description=to_object_icon)
+    @admin.display(description=SAFE_SUBJECT_ICON)
     def to_object(obj):
         instance = obj.content_object
         name = instance._meta.verbose_name  # NOQA

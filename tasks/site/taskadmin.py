@@ -26,6 +26,7 @@ from common.utils.helpers import annotate_chat
 from common.utils.helpers import get_active_users
 from common.utils.helpers import get_delta_date
 from common.utils.helpers import get_today
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from tasks.models import Task
 from tasks.models import TaskStage
 from tasks.forms import TaskForm
@@ -64,7 +65,7 @@ class TaskAdmin(TasksBaseModelAdmin):
         url = reverse("toggle_default_sorting")
         extra_context['toggle_sorting_url'] = f"{url}?model=Task&next_url={next_url}"
         return super().changelist_view(request, extra_context)
-    
+
     def change_view(self, request, object_id, form_url='', extra_context=None):
         url = self.get_url_if_no_object(request, object_id)
         if url:
@@ -87,7 +88,8 @@ class TaskAdmin(TasksBaseModelAdmin):
         )):
             extra_context['show_completed'] = False
             if request.user in task.responsible.all():
-                extra_context['add_subtask_url'] = self.get_add_subtask_url(object_id)
+                extra_context['add_subtask_url'] = self.get_add_subtask_url(
+                    object_id)
         if any((
                 request.user.is_chief,
                 request.user.is_department_head,
@@ -140,7 +142,8 @@ class TaskAdmin(TasksBaseModelAdmin):
                         responsible = task.task.responsible.all()
                         if department_users:
                             responsible = users.filter(
-                                Q(id__in=responsible) | Q(id__in=department_users)
+                                Q(id__in=responsible) | Q(
+                                    id__in=department_users)
                             )
                         else:
                             responsible = users.filter(
@@ -186,7 +189,7 @@ class TaskAdmin(TasksBaseModelAdmin):
         if cl.result_list:
             cl.result_list = annotate_chat(request, cl.result_list)
         return cl
-    
+
     def get_list_filter(self, request, obj=None):
         list_filter = super().get_list_filter(request, obj)
         list_filter.append(ByProject)
@@ -213,14 +216,15 @@ class TaskAdmin(TasksBaseModelAdmin):
                 ),
                 parent_id=Coalesce("task_id", "id"),
             )
-            queryset = qs.order_by("-parent_id", "parent_task", "step_date", "id")
+            queryset = qs.order_by(
+                "-parent_id", "parent_task", "step_date", "id")
         return queryset
 
     def get_readonly_fields(self, request, obj=None):
         readonly_fields = super().get_readonly_fields(request, obj)
         readonly_fields.extend(["lead_time_field", "content_copy"])
         return readonly_fields
-    
+
     def save_model(self, request, obj, form, change):
         main_task_changed = False
         main_task = obj.task
@@ -232,9 +236,10 @@ class TaskAdmin(TasksBaseModelAdmin):
                 obj.co_owner = main_task.task.owner if main_task.task else main_task.owner
                 if request.user in form.cleaned_data['responsible']:
                     if obj.stage.active:
-                        obj.stage = TaskStage.objects.filter(in_progress=True).first()
+                        obj.stage = TaskStage.objects.filter(
+                            in_progress=True).first()
             obj.add_to_workflow(f'{msg}. ({request.user})')
-        
+
         if main_task:
             if main_task.due_date:
                 field = ""
@@ -281,7 +286,8 @@ class TaskAdmin(TasksBaseModelAdmin):
             main_task.save()
         if not change and request.GET.get("parent_project_id"):
             obj.project_id = request.GET.get("parent_project_id")
-            obj.project.add_to_workflow(f'{task_was_created_str} ({request.user})')
+            obj.project.add_to_workflow(
+                f'{task_was_created_str} ({request.user})')
             obj.project.save()
 
     def save_related(self, request, form, formsets, change):
@@ -330,9 +336,7 @@ class TaskAdmin(TasksBaseModelAdmin):
     # -- ModelAdmin callables -- #
 
     @admin.display(
-        description=mark_safe(
-            '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-        ),
+        description=SAFE_SUBJECT_ICON,
         ordering='name'
     )
     def coloured_name(self, obj):
@@ -348,10 +352,11 @@ class TaskAdmin(TasksBaseModelAdmin):
     def content_copy(self, obj):
         url = reverse("site:tasks_task_add") + f"?copy_task={obj.id}"
         return mark_safe(CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON))
-    
+
     @admin.display(
         description=mark_safe(
-            '<div title="{}">{}</div>'.format(_("Lead time"), '<i class="material-icons">hourglass_empty</i>')
+            '<div title="{}">{}</div>'.format(_("Lead time"),
+                                              '<i class="material-icons">hourglass_empty</i>')
         ),
         ordering="lead_time"
     )
@@ -372,11 +377,11 @@ class TaskAdmin(TasksBaseModelAdmin):
             "create_completed_subtask", args=(obj.id,))
         completed_button_name = _('Completed')
         li = f'<li><a title="{subtask_title}" href="{subtask_url}">' \
-             f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment</i>' \
-             f' {subtask_button_name}</a></li>' \
-             f'<li><a title="{COMPLETED_TITLE}" href="{completed_url}">' \
-             f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment_turned_in</i>' \
-             f' {completed_button_name}</a></li>'
+            f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment</i>' \
+            f' {subtask_button_name}</a></li>' \
+            f'<li><a title="{COMPLETED_TITLE}" href="{completed_url}">' \
+            f'<i class="material-icons" style="font-size: 17px;vertical-align: middle;">assignment_turned_in</i>' \
+            f' {completed_button_name}</a></li>'
         button = f'<ul class="object-tools" style=" margin-left: 0px;margin-top: 0px">{li}</ul>'
         html_msg = linebreaks(
             f'<span style="color: var(--orange-fg)">{THIS_IS_TEAM_TASK}</span>')
@@ -401,24 +406,24 @@ class TaskAdmin(TasksBaseModelAdmin):
         }
         add_view_url = add_view_url + f"?{urlencode(params)}"
         return add_view_url
-    
+
     @staticmethod
     def update_next_step_and_workflow(request: WSGIRequest,
                                       obj: Task, form: TaskForm) -> None:
         if "next_step" not in form.changed_data \
                 or obj.next_step == TASK_NEXT_STEP:
-            
+
             field_name = ''
             if obj.stage.in_progress:
-                field_name = 'in_progress'            
+                field_name = 'in_progress'
             elif obj.stage.done:
                 field_name = 'done'
-            
+
             if field_name:
                 obj.next_step = obj.stage._meta.get_field(   # NOQA
                     field_name
                 ).verbose_name
             else:
                 obj.next_step = _(obj.stage.name)
-            
+
             obj.add_to_workflow(f'{obj.next_step}. ({request.user})')

@@ -14,6 +14,7 @@ from common.admin import FileInline
 from common.models import TheFile
 from common.admin import InlineFileForm
 from common.utils.get_signature_preview import get_signature_preview
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from crm.forms.admin_forms import IoMail
 from crm.models import CrmEmail
 from crm.site.crmmodeladmin import CrmModelAdmin
@@ -110,14 +111,18 @@ class CrmEmailAdmin(CrmModelAdmin):
                 return HttpResponseRedirect(url)
             obj = CrmEmail.objects.get(id=object_id)
             if obj.ticket:
-                emails = CrmEmail.objects.filter(ticket=obj.ticket).values('id')
-                next_emails = emails.filter(creation_date__gt=OuterRef('creation_date'))
+                emails = CrmEmail.objects.filter(
+                    ticket=obj.ticket).values('id')
+                next_emails = emails.filter(
+                    creation_date__gt=OuterRef('creation_date'))
                 prev_emails = emails.order_by('-creation_date').filter(
                     creation_date__lt=OuterRef('creation_date')
                 )
                 an_email = emails.filter(id=obj.id).annotate(
-                    next_email=Subquery(next_emails[:1], output_field=IntegerField()),
-                    prev_email=Subquery(prev_emails[:1], output_field=IntegerField())
+                    next_email=Subquery(
+                        next_emails[:1], output_field=IntegerField()),
+                    prev_email=Subquery(
+                        prev_emails[:1], output_field=IntegerField())
                 ).first()
                 if an_email['next_email']:
                     extra_context['next_email_url'] = reverse(
@@ -134,20 +139,21 @@ class CrmEmailAdmin(CrmModelAdmin):
             elif obj.request:
                 extra_context['request_url'] = obj.request.get_absolute_url()
         if request.user.is_superuser:
-            extra_context['admin_url'] = reverse('admin:crm_crmemail_change', args=(object_id,))
+            extra_context['admin_url'] = reverse(
+                'admin:crm_crmemail_change', args=(object_id,))
         return super().change_view(
             request, object_id, form_url, extra_context=extra_context,
         )
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
-        extra_context["title"] = _("Emails in the CRM database.")       
+        extra_context["title"] = _("Emails in the CRM database.")
         mailbox = request.GET.get("mailbox")
         if mailbox == "outbox":
             messages.warning(
                 request,
                 unsent_emails_str
-            )            
+            )
         return super().changelist_view(
             request, extra_context=extra_context,
         )
@@ -201,7 +207,7 @@ class CrmEmailAdmin(CrmModelAdmin):
                 if obj.deal and obj.deal.partner_contact and not obj.sent:
                     fields.insert(1, 'attention')
                 fields.append('read_receipt')
-                
+
                 if obj.owner and request.user != obj.owner:
                     fields.append('readonly_content')
                     fields.append('signature_preview')
@@ -306,20 +312,20 @@ class CrmEmailAdmin(CrmModelAdmin):
                 obj.ticket = ticket
 
             if not obj.deal and deal_id:
-                obj.deal_id = deal_id                
-            
+                obj.deal_id = deal_id
+
             if not obj.request and request_id:
                 obj.request_id = request_id
-                            
+
             if not obj.contact and contact_id:
                 obj.contact_id = contact_id
 
             elif not obj.lead and lead_id:
                 obj.lead_id = lead_id
-            
+
             elif not obj.company and company_id:
                 obj.company_id = company_id
-                
+
         super().save_model(request, obj, form, change)
 
     def save_related(self, request, form, formsets, change):
@@ -355,10 +361,11 @@ class CrmEmailAdmin(CrmModelAdmin):
             '<i class="material-icons" style="color: var(--orange-fg)">info_outline</i>'
         ))
     def attention(self, obj):
-        msg = _('Attention! This deal involves a partner. Please ensure the recipient is correct.')
+        msg = _(
+            'Attention! This deal involves a partner. Please ensure the recipient is correct.')
         html_msg = f'<span style="color: var(--orange-fg)">{msg}</span>'
         return mark_safe(html_msg)
-    
+
     @admin.display(description=_('Box'))
     def box(self, obj):
         parameter_name = MailboxFilter.parameter_name
@@ -367,33 +374,37 @@ class CrmEmailAdmin(CrmModelAdmin):
             if not value:
                 url = self.get_url_for_callable(
                     parameter_name, 'sent')
-                value = mark_safe(f'<a title="{_("sent")}" href="{url}">{sentbox_icon}</a>')
-                setattr(_thread_local, "mailbox=sent", value)                
-            
+                value = mark_safe(
+                    f'<a title="{_("sent")}" href="{url}">{sentbox_icon}</a>')
+                setattr(_thread_local, "mailbox=sent", value)
+
         elif obj.incoming and not obj.trash:
             value = getattr(_thread_local, "mailbox=inbox", None)
             if not value:
                 url = self.get_url_for_callable(
                     parameter_name, 'inbox')
-                value = mark_safe(f'<a title="{_("inbox")}" href="{url}">{inbox_icon}</a>')
-                setattr(_thread_local, "mailbox=inbox", value)           
+                value = mark_safe(
+                    f'<a title="{_("inbox")}" href="{url}">{inbox_icon}</a>')
+                setattr(_thread_local, "mailbox=inbox", value)
 
         elif not any((obj.incoming, obj.sent, obj.trash)):
             value = getattr(_thread_local, "mailbox=outbox", None)
             if not value:
                 url = self.get_url_for_callable(
                     parameter_name, 'outbox')
-                value = mark_safe(f'<a title="{_("outbox")}" href="{url}">{outbox_icon}</a>')
+                value = mark_safe(
+                    f'<a title="{_("outbox")}" href="{url}">{outbox_icon}</a>')
                 setattr(_thread_local, "mailbox=outbox", value)
-                
+
         elif obj.trash:
             value = getattr(_thread_local, "mailbox=trash", None)
             if not value:
                 url = self.get_url_for_callable(
                     parameter_name, 'trash')
-                value = mark_safe(f'<a title="{_("trash")}" href="{url}">{trashbox_icon}</a>')
+                value = mark_safe(
+                    f'<a title="{_("trash")}" href="{url}">{trashbox_icon}</a>')
                 setattr(_thread_local, "mailbox=trash", value)
-                
+
         return value    # NOQA
 
     @admin.display(description=_('Content'))
@@ -426,9 +437,7 @@ class CrmEmailAdmin(CrmModelAdmin):
     def the_creation_date(self, obj):
         return obj.creation_date
 
-    @admin.display(description=mark_safe(
-        '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-    ), ordering='subject')
+    @admin.display(description=SAFE_SUBJECT_ICON, ordering='subject')
     def the_subject(self, obj):
         if not obj.subject:
             obj.subject = _('No subject')

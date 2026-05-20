@@ -20,6 +20,7 @@ from common.utils.helpers import get_delta_date
 from common.utils.helpers import LEADERS
 from common.utils.helpers import get_formatted_short_date
 from common.utils.helpers import get_department_id
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from common.utils.notify_user import notify_user
 from common.utils.parse_full_name import parse_contacts_name
 from crm.forms.admin_forms import RequestForm
@@ -89,9 +90,6 @@ REQUEST_OWNER_NOTICE = _("You received the request")
 pending_str = _('pending')
 processed_str = _('processed')
 status_str = _('Status')
-subject_safe_icon = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-)
 subsequent_title = _("Subsequent request")
 today_safe_icon = mark_safe(
     '<i class="material-icons" style="color: var(--body-quiet-color)">today</i>'
@@ -422,7 +420,7 @@ class RequestAdmin(CrmModelAdmin):
         return mark_safe('&nbsp;')
 
     @admin.display(
-        description=subject_safe_icon,
+        description=SAFE_SUBJECT_ICON,
         ordering='request_for'
     )
     def request_subject(self, obj):
