@@ -28,8 +28,10 @@ class OutputInline(CrmStackedInline):
             kwargs["queryset"] = Product.objects.filter(
                 department_id=request.user.department_id
             )
+        if db_field.name == 'currency':
+            kwargs["required"] = False
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
-       
+
     def get_formset(self, request, obj=None, **kwargs):
         formset = super().get_formset(request, obj, **kwargs)
         add_id_to_raw_id_field_label(self, formset.form)

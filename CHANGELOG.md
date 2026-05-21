@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Changed
+
+- The "currency" field in OutputInline becomes mandatory only when the user fills in the "amount" field.
+
+
 ## [2.4.0] - 2026-05-216
 
 ### Added

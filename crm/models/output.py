@@ -55,9 +55,12 @@ class Output(BasePayment):
         # A quantity of zero is not allowed
         if self.quantity == 0:
             raise ValidationError({
-                "quantity": _("Quantity is required.")
+                "quantity": "This field is required."
             })
-
+        if not self.currency and self.amount:
+            raise ValidationError({
+                "currency": "This field is required."
+            })
 
     def __str__(self):
         return f"{self.product} - {self.quantity}{self.pcs}"
