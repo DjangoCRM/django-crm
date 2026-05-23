@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Getting a queryset using a filter by department for superusers in Request Change View
+
 ### Changed
 
 - The "currency" field in OutputInline becomes mandatory only when the user fills in the "amount" field.

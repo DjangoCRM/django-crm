@@ -190,6 +190,13 @@ class RequestAdmin(CrmModelAdmin):
             request, extra_context=extra_context,
         )
 
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if request.user.is_superuser and db_field.name == "products":
+            department_id = request.user.department_id
+            kwargs["queryset"] = Product.objects.filter(
+                department_id=department_id)
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
+
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
 
