@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
 from common.admin import FileInline
@@ -442,7 +443,7 @@ class CrmEmailAdmin(CrmModelAdmin):
         if not obj.subject:
             obj.subject = _('No subject')
         if obj.inquiry:
-            return mark_safe(
-                f'<span style="color: var(--green-fg);">{obj.subject}</span>'
+            return format_html(
+                '<span style="color: var(--green-fg);">{}</span>', obj.subject
             )
         return obj.subject
