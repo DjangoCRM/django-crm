@@ -200,8 +200,10 @@ SECRET_CRM_PREFIX = '123/'
 SECRET_ADMIN_PREFIX = '456-admin/'
 SECRET_LOGIN_PREFIX = '789-login/'
 
-# Specify ip of host to avoid importing emails sent by CRM
+# Please specify the IP address and hostname of your CRM
+# to avoid importing emails sent from your CRM.
 CRM_IP = "127.0.0.1"
+CRM_HOST = "my_crm_host_name"
 
 CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
 

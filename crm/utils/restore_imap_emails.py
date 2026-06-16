@@ -119,7 +119,8 @@ class RestoreImapEmails(threading.Thread):
                 if eml_already_exists(email_message, uid):
                     continue
                 try:
-                    self.crm_eml_save(crm_eml, t, uid_data, uid, ea, email_message)
+                    self.crm_eml_save(crm_eml, t, uid_data,
+                                      uid, ea, email_message)
                     self.eml_queue.task_done()
                 except IntegrityError as e:
                     raise e
@@ -129,7 +130,8 @@ class RestoreImapEmails(threading.Thread):
                             crm_eml.content = '--- ERROR importing content of the email ---'
                         elif f'{e}'.count('subject'):
                             crm_eml.subject = '--- ERROR importing content of the email ---'
-                        self.crm_eml_save(crm_eml, t, uid_data, uid, ea, email_message)
+                        self.crm_eml_save(crm_eml, t, uid_data,
+                                          uid, ea, email_message)
                     raise e
 
             except Exception as e:
@@ -176,7 +178,8 @@ class RestoreImapEmails(threading.Thread):
 
             msg_str = f"{f_date} - {formated_msg}\n"
             Deal.objects.filter(ticket=crm_eml.ticket).update(
-                workflow=Concat(Value(msg_str), F('workflow'),  output_field=TextField())
+                workflow=Concat(Value(msg_str), F('workflow'),
+                                output_field=TextField())
             )
 
 
@@ -201,10 +204,15 @@ def update_ea(ea: EmailAccount, uid_data: dict, t: str, uid: str) -> None:
 
 def received_from_crm(email_message: email.message.Message) -> bool:
     """ Checks if a letter was received from CRM"""
-    received = email_message['Received']
-    if received:
-        if received.count(settings.CRM_IP):
-            return True
+    value = ''
+    if email_message['Received']:
+        value = email_message['Received']
+    if email_message['Message-ID']:
+        value += email_message['Message-ID']
+    if value and value.count(settings.CRM_IP):
+        return True
+    if value and value.count(settings.CRM_HOST):
+        return True
     return False
 
 
@@ -273,7 +281,7 @@ def eml_already_exists(email_message, uid) -> bool:
     if email_message['Message-ID']:
         return CrmEmail.objects.filter(
             message_id=email_message['Message-ID']).exists()
-    
+
     if email_message['Date'] or email_message['Delivery-date']:
         return CrmEmail.objects.filter(
             uid=int(uid),
@@ -283,7 +291,7 @@ def eml_already_exists(email_message, uid) -> bool:
     return CrmEmail.objects.filter(
         uid=int(uid),
         subject=ensure_decoding(email_message['Subject']),
-    ).exists()   
+    ).exists()
 
 
 def update_with_deal_and_request(crm_eml: CrmEmail, ticket: str) -> None:
