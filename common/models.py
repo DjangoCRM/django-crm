@@ -1,5 +1,3 @@
-import os
-
 from django.conf import settings
 from django.contrib.auth.models import Group
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -211,7 +209,8 @@ class TheFile(models.Model):
 
     def __str__(self):
         if self.file.name:
-            return self.file.name.split(os.sep)[-1]
+            return self.file.name.replace("\\", "/").rsplit("/", 1)[-1]
+
         return 'File'
 
     def delete(self, *args, **kwargs):
