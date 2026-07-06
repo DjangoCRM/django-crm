@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.template import Template
+from django.shortcuts import get_object_or_404
 
 from massmail.models import EmlMessage
 from settings.models import MassmailSettings
@@ -8,7 +9,17 @@ from settings.models import MassmailSettings
 
 def message_preview(request, message_id):
     
-    message = EmlMessage.objects.get(id=message_id)
+    if any((
+        request.user.is_superuser,
+        request.user.is_chief,
+    )):
+        message = get_object_or_404(EmlMessage, id=message_id)
+    else:
+        message = get_object_or_404(
+            EmlMessage,
+            id=message_id,
+            department_id=request.user.department_id
+        )
     signature = message.signature
     signature_content = signature.content if signature else ''
     content = f"""
