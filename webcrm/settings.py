@@ -9,6 +9,11 @@ from tasks.settings import *        # NOQA
 from voip.settings import *         # NOQA
 from .datetime_settings import *    # NOQA
 
+from dotenv import load_dotenv # load library for database settings in .env
+import os
+
+# load .env files
+load_dotenv()
 # ---- Django settings ---- #
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,10 +42,11 @@ DATABASES = {
         # "ENGINE": "django.db.backends.postgresql",
         # 'PORT': '5432',
 
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': 'crmpass',
-        'HOST': 'localhost',
+        # get db setting in .env files
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
     }
 }
 
