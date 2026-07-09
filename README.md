@@ -196,6 +196,8 @@ For testing and evaluation:
 
 * No external database required
 * SQLite works out of the box
+* If you want to refer to the `settings.py` file and change your database model...
+* If you need to use other databases, copy the `.env.example` file to `.env` and enter your database settings
 
 📘 Documentation:
 
