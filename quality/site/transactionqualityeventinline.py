@@ -31,7 +31,6 @@ class TransactionQualityEventInline(CrmStackedInline):
             'fields': (
                 ('signal', 'weight'),
                 'details',
-                'file_links',
             )
         }),
     )
@@ -41,6 +40,7 @@ class TransactionQualityEventInline(CrmStackedInline):
     name_plural = model._meta.verbose_name_plural
     readonly_fields = ('file_links',)
     show_change_link = True
+    template = 'admin/quality/transactionqualityevent/stacked.html'
     verbose_name_plural = f'{icon} {name_plural}'
 
     # -- ModelAdmin methods -- #
@@ -55,6 +55,8 @@ class TransactionQualityEventInline(CrmStackedInline):
 
     @admin.display(description=SAFE_ATTACH_FILE_ICON)
     def file_links(self, obj):
+        if obj is None:
+            return ''
         files = obj.files.all()
         if files:
             return get_file_links(files)
