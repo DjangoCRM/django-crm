@@ -92,13 +92,12 @@ class BaseSite(admin.AdminSite):
                 None
             )
             if app:
-                app_list.append(app)
-                get_counters(request, app_label, app['models'])
-
                 if app_label in settings.MODEL_ON_INDEX_PAGE:
-                    set_app_models(app, app_label)
+                    app = set_app_models(app, app_label)
                 else:
                     app['models'].sort(key=lambda x: x['name'])
+                app_list.append(app)
+                get_counters(request, app_label, app['models'])
 
         context = {
             **self.each_context(request),
@@ -247,7 +246,7 @@ def get_task_count(request, models):
         set_counters(Task, models, counts)
 
 
-def set_app_models(app: dict, app_label: str) -> None:
+def set_app_models(app: dict, app_label: str) -> dict:
     models = []
     for object_name in settings.MODEL_ON_INDEX_PAGE[app_label]['app_model_list']:
         model = next((
@@ -257,8 +256,11 @@ def set_app_models(app: dict, app_label: str) -> None:
         )
         if model:
             models.append(model)
-    app['models'] = models
-    app['name'] = mark_safe(f"{app['name']} &ldca;")
+
+    updated_app = dict(app)
+    updated_app['models'] = models
+    updated_app['name'] = mark_safe(f"{updated_app['name']} &ldca;")
+    return updated_app
 
 
 def set_icon(klass, models, icon) -> None:
