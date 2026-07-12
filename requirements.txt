@@ -3,8 +3,8 @@
     asgiref==3.11.1
     attrs==26.1.0
     certifi==2026.6.17
-    charset-normalizer==3.4.7
-    Django==6.0.6
+    charset-normalizer==3.4.9
+    Django==6.0.7
     django-environ==0.11.2
     et-xmlfile==2.0.0
     frozenlist==1.8.0
