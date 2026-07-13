@@ -92,5 +92,7 @@ For example, if a new permission is added or removed for a model, update the cor
 >
 > 2. Check whether the **email address** used for commit authorship in the pull request is **associated with your GitHub account**.
 > Otherwise, GitHub will not be able to add you to the list of **project contributors**.
+>
+> 3. Please refrain from making **changes** that would **complicate the initial installation** of the CRM project for new users.
 
 😎👌🔥 We appreciate any contribution and starring ⭐️!
