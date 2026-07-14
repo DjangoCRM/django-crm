@@ -9,10 +9,20 @@ from tasks.settings import *        # NOQA
 from voip.settings import *         # NOQA
 from .datetime_settings import *    # NOQA
 
+import environ # load library for database settings in .env
+import os
+
 # ---- Django settings ---- #
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# Take environment variables from .env file
+environ.Env.read_env(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # To get new value of key use code:
@@ -25,23 +35,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Database
 DATABASES = {
-    'default': {
-        # for SQLite3
-        'ENGINE': 'django.db.backends.sqlite3',
-
-        # for MySQl
-        #'ENGINE': 'django.db.backends.mysql',
-        #'PORT': '3306',
-
-        # for PostgreSQL
-        # "ENGINE": "django.db.backends.postgresql",
-        # 'PORT': '5432',
-
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': 'crmpass',
-        'HOST': 'localhost',
-    }
+    # read os.environ['DATABASE_URL']
+    'default': env.db(default=f'sqlite:///{BASE_DIR.as_posix()}/db.sqlite3')
 }
 
 EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
