@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.template.defaultfilters import linebreaks
+from django.urls import reverse
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from common.utils.helpers import CONTENT_COPY_ICON
+from common.utils.helpers import CONTENT_COPY_LINK
+from common.utils.helpers import COPY_STR
 from common.utils.helpers import SAFE_SUBJECT_ICON
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
@@ -25,6 +29,26 @@ MAIN = _("main")
 MAIN_TITLE = _("Default email account for all customer correspondence")
 MASS_MAILING = _("mass mailing")
 MASS_MAILING_TITLE = _("Email account availability for mass mailing")
+COPIED_FIELDS = (
+    'name',
+    'massmail',
+    'do_import',
+    'email_host',
+    'imap_host',
+    'email_host_user',
+    'email_host_password',
+    'email_app_password',
+    'email_port',
+    'from_email',
+    'email_use_tls',
+    'email_use_ssl',
+    'email_imail_ssl_certfile',
+    'email_imail_ssl_keyfile',
+    'refresh_token',
+    'owner',
+    'co_owner',
+    'department',
+)
 
 
 class EmailAccountAdmin(CrmModelAdmin):
@@ -57,6 +81,23 @@ class EmailAccountAdmin(CrmModelAdmin):
     search_fields = ('name', "email_host", "email_host_user")
 
     # -- ModelAdmin methods -- #
+
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        email_account_id = request.GET.get('copy_email_account')
+        if email_account_id:
+            email_account = self.get_object(request, email_account_id)
+            if email_account:
+                for field in COPIED_FIELDS:
+                    initial[field] = getattr(email_account, field)
+                initial['main'] = False
+        return initial
+
+    def get_list_display(self, request):
+        list_display = list(super().get_list_display(request))
+        if self.has_add_permission(request):
+            list_display.append('content_copy')
+        return list_display
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
@@ -96,6 +137,15 @@ class EmailAccountAdmin(CrmModelAdmin):
                     qobj.remove_id(obj.pk)
 
     # -- ModelAdmin Callables -- #
+
+    @admin.display(description='')
+    def content_copy(self, obj):
+        url = reverse(
+            "site:massmail_emailaccount_add"
+        ) + f"?copy_email_account={obj.id}"
+        return mark_safe(
+            CONTENT_COPY_LINK.format(url, COPY_STR, CONTENT_COPY_ICON)
+        )
 
     @admin.display(description=SAFE_SUBJECT_ICON)
     def account(self, obj):
