@@ -10,7 +10,7 @@
     {% else %}
         <input type="submit" value="{% translate 'Activate' %}" name="_activate-case" >
     {% endif %}
-{% elif not original.deal and has_change_deal_perm %}
+{% elif not original.deal and has_change_deal_perm and not original.duplicate and not original.case %}
     <input type="submit" value="{% translate 'Create deal' %}" name="_create-deal" >
 {% endif %}
 {% if show_close %}
