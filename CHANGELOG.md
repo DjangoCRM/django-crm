@@ -13,11 +13,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Getting a queryset using a filter by department for superusers in Request Change View
+- Add "Late response" TransactionQualitySignal
+- Added a copy email account button by @oiahoon 
+- Added unit tests for file upload view by @sarkarshrayan2-max
+
+### Improved
+
+- Enhance email import logic: Add CRM_HOST setting and update received_from_crm function to 
+  check for CRM_HOST in addition to CRM_IP to avoid accidentally importing emails sent from CRM.
+- Hide attachment icon on TransactionQualityEvent inlines when no files exist by @mo-hossam-stack
+- Escape inquiry e-mail subject in CRM admin change-list. By @tonghuaroot
+- Restrict the scope of `message_preview` to the user's department by @dizconnectz
+- Hide Create Deal button for duplicate or case requests by @muralisanjith
 
 ### Changed
 
 - The "currency" field in OutputInline becomes mandatory only when the user fills in the "amount" field.
 
+### Fixed
+
+- TheFile.__str__ to always return the filename by krsahil8825
+- Add Company relationship to Request during Lead conversion by @surajthedev
 
 ## [2.4.0] - 2026-05-216
 
@@ -154,7 +170,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Control over the user's `is_active` field in UserProfileAdmin for superusers.
 - SALES MANAGER user creation to setupdata command
 - Query string to delete duplicates URL by @tibisabau
-- Automatically adds the name of the deleted duplicate city to the list of alternative names of the original city instance by @DARK-1926.
+- Automatically adds the name of the deleted duplicate city to the list of alternative names of
+  the original city instance by @DARK-1926.
 - Unit tests for the get_search_results method of LogEntrytAdmin class by @adityashirsatrao007
 - Unit tests for the ByVIPStatus filter by @mariami57
 - Unit tests for the City model and CityAdmin functionality @tibisabau
@@ -300,7 +317,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added visualization of mailing messages:
   - on the list page of these messages
   - on mailing list page
-- The site for administrators has been expanded to provide access to logs of user actions on CRM objects. In addition to searching and filtering by many parameters, this allows administrators to see the history of all objects, including deleted ones.
+- The site for administrators has been expanded to provide access to logs of user actions on CRM objects.
+  In addition to searching and filtering by many parameters, this allows administrators to see the history of
+  all objects, including deleted ones.
 - Added the URL of the page "you have unsubscribed successfully" to the context of the preview of messages for the mailing.
 - The ability to rewrite the date and time format for a more compact data presentation.  
   This can be done in the `webcrm/datetime_settings.py` file.
@@ -498,13 +517,15 @@ Translations of CRM software into the following languages:
 
 ### Added
 
-- Visualization of the counterparty (Lead, Company, Company Contact) status as a recipient of newsletters: 'subscribed' / 'unsubscribed'
+- Visualization of the counterparty (Lead, Company, Company Contact) status as a recipient of newsletters:
+  'subscribed' / 'unsubscribed'
 - A filter by a custom date range has been added to the Payments, Shipments and Sales Report views
 - The `get_crm_url` method to `BaseContact` model
 - A detailed guide on how to update Django CRM software
 - The 'disqualified' and 'massmail' fields to the counterparty models as well as to the export settings
 - New public email domains to database (fixture)
-- The filtering logic to exclude disqualified massmail recipients. Introduced new warning and error messages for handling excluded recipients and cases where no valid recipients remain.
+- The filtering logic to exclude disqualified massmail recipients. Introduced new warning and error messages for
+  handling excluded recipients and cases where no valid recipients remain.
 
 
 ### Changed
@@ -518,7 +539,8 @@ Translations of CRM software into the following languages:
 
 ### Improve
 
-- Request owner change logic to check if the owner is part of the sales managers group before updating related objects (Lead, Company, Company Contact)
+- Request owner change logic to check if the owner is part of the sales managers group before updating
+  related objects (Lead, Company, Company Contact)
 - The unsubscribe function to handle cases where the recipient does not exist.
 
 ### Fixed

@@ -101,7 +101,7 @@
 },
 {
     "model": "quality.transactionqualitysignal",
-    "pk": 9,
+    "pk": 11,
     "fields": {
         "name": "Reputational losses in front of a partner",
         "weight": -15,
@@ -111,11 +111,31 @@
 },
 {
     "model": "quality.transactionqualitysignal",
-    "pk": 10,
+    "pk": 12,
     "fields": {
         "name": "Reputational losses in front of a partner",
         "weight": -15,
         "notes": "The problematic transaction involving a partner.",
+        "department": 10
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 13,
+    "fields": {
+        "name": "Late response",
+        "weight": -10,
+        "notes": "Delayed response to the client.",
+        "department": 9
+    }
+},
+{
+    "model": "quality.transactionqualitysignal",
+    "pk": 14,
+    "fields": {
+        "name": "Late response",
+        "weight": -10,
+        "notes": "Delayed response to the client.",
         "department": 10
     }
 }
