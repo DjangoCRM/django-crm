@@ -177,11 +177,16 @@ class TestRequestMethods(BaseTestCase):
 
     def test_creation_new_lead(self):
         self.new_lead_request.owner = self.owner
+        self.new_lead_request.website = 'https://bruno.example.com'
         self.new_lead_request.get_or_create_contact_or_lead()
         msg = "Found the wrong contact"
         self.assertFalse(self.new_lead_request.contact, msg)
         msg = "New lead has not been created"
-        self.assertTrue(self.new_lead_request.lead, msg)         
+        self.assertTrue(self.new_lead_request.lead, msg)
+        self.assertEqual(
+            self.new_lead_request.lead.website,
+            self.new_lead_request.website,
+        )
         
     def test_creation_new_contact(self):
         new_contact_request = Request(
