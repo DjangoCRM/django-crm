@@ -1,3 +1,6 @@
+from io import BytesIO
+
+from PIL import Image, ImageDraw
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
@@ -251,12 +254,31 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 # -- Custom Methods -- #
 
+
 def resize_avatar(obj) -> None:
     """
     Resize uploaded avatar image to a maximum of 200x200 pixels.
     """
     if obj.avatar:
-        resized_image = resize_image(obj.avatar)
+
+        img = Image.open(obj.avatar)
+        img.thumbnail((200, 200), Image.Resampling.LANCZOS)
+
+        # Convert to RGB if necessary (for PNG with transparency)
+        if img.mode in ('LA', 'P'):
+            img = img.convert('RGB')
+
+        # Create circular mask
+        size = img.size
+        mask = Image.new('L', size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse([0, 0, size[0], size[1]], fill=255)
+        img.putalpha(mask)
+
+        # Save to BytesIO
+        resized_image = BytesIO()
+        img.save(resized_image, format='PNG', quality=85)
+        resized_image.seek(0)
 
         # Create a new File object
         obj.avatar.file = resized_image
