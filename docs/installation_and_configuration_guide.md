@@ -145,7 +145,7 @@ It is recommended to first create a virtual environment:
 | action   | on Unix/macOS                 | on Windows                |
 |----------|-------------------------------|---------------------------|
 | create   | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
-| activate | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
+| activate | `source myvenv/bin/activate` | `myvenv\Scripts\activate` |
 
 #### Then install the project requirements:
 
