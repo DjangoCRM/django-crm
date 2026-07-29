@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
 - Add "Late response" TransactionQualitySignal
 - Added a copy email account button by @oiahoon 
