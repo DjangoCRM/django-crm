@@ -6,6 +6,11 @@ from django.utils.translation import gettext_lazy as _
 
 from webcrm.config import config
 from webcrm.database_config import build_databases
+from webcrm.mail_config import (
+    build_admin_recipients,
+    build_crm_identity_settings,
+    build_mail_settings,
+)
 
 from crm.settings import *          # NOQA
 from common.settings import *       # NOQA
@@ -40,19 +45,22 @@ CSRF_TRUSTED_ORIGINS = config.get_list(
 
 DATABASES = build_databases(BASE_DIR)
 
-EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
-EMAIL_HOST_PASSWORD = '<specify password>'
-EMAIL_HOST_USER = 'crm@example.com'
-EMAIL_PORT = 587
-EMAIL_SUBJECT_PREFIX = 'CRM: '
-EMAIL_USE_TLS = True
-
-SERVER_EMAIL = 'test@example.com'
-DEFAULT_FROM_EMAIL = 'test@example.com'
-
-ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
-
 DEBUG = config.get_bool('DJANGO_DEBUG', default=False)
+
+_mail_settings = build_mail_settings(debug=DEBUG)
+EMAIL_BACKEND = _mail_settings.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = _mail_settings['EMAIL_HOST']
+EMAIL_HOST_USER = _mail_settings['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = _mail_settings['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = _mail_settings['EMAIL_PORT']
+EMAIL_USE_TLS = _mail_settings['EMAIL_USE_TLS']
+EMAIL_USE_SSL = _mail_settings['EMAIL_USE_SSL']
+DEFAULT_FROM_EMAIL = _mail_settings['DEFAULT_FROM_EMAIL']
+SERVER_EMAIL = _mail_settings['SERVER_EMAIL']
+
+EMAIL_SUBJECT_PREFIX = 'CRM: '
+
+ADMINS, MANAGERS = build_admin_recipients(debug=DEBUG)
 
 FORMS_URLFIELD_ASSUME_HTTPS = True
 
@@ -204,8 +212,9 @@ SECRET_LOGIN_PREFIX = '789-login/'
 
 # Please specify the IP address and hostname of your CRM
 # to avoid importing emails sent from your CRM.
-CRM_IP = "127.0.0.1"
-CRM_HOST = "my_crm_host_name"
+_crm_identity = build_crm_identity_settings()
+CRM_IP = _crm_identity['CRM_IP']
+CRM_HOST = _crm_identity['CRM_HOST']
 
 CRM_REPLY_TO = ["'Do not reply' <crm@example.com>"]
 
@@ -254,8 +263,8 @@ VAT = 0    # %
 
 # 2-Step Verification Credentials for Google Accounts.
 #  OAuth 2.0
-CLIENT_ID = ''
-CLIENT_SECRET = ''
+CLIENT_ID = _crm_identity['CLIENT_ID']
+CLIENT_SECRET = _crm_identity['CLIENT_SECRET']
 OAUTH2_DATA = {
     'smtp.gmail.com': {
         'scope': "https://mail.google.com/",

@@ -6,7 +6,12 @@ from unittest import mock
 from django.core.exceptions import ImproperlyConfigured
 from django.test import SimpleTestCase
 
-from tests.fixtures.settings_env import DEBUG_ENV, INCOMPLETE_ENV, VALID_PRODUCTION_ENV
+from tests.fixtures.settings_env import (
+    DEBUG_ENV,
+    INCOMPLETE_ENV,
+    PRODUCTION_STARTUP_ENV,
+    VALID_PRODUCTION_ENV,
+)
 from webcrm.config import ConfigAccessor
 
 
@@ -18,18 +23,14 @@ class SettingsExternalizationTests(SimpleTestCase):
                 return importlib.reload(importlib.import_module('webcrm.settings'))
 
     def test_debug_defaults_to_false_when_unset(self):
-        env = {
-            'DJANGO_SECRET_KEY': 'local-dev-secret-key',
-            'DJANGO_ALLOWED_HOSTS': 'localhost',
-        }
-        settings = self._reload_settings(env)
+        settings = self._reload_settings(PRODUCTION_STARTUP_ENV)
         self.assertFalse(settings.DEBUG)
 
     def test_debug_casts_affirmative_values(self):
         for value in ('true', 'TRUE', '1', 'yes', 'on'):
             with self.subTest(value=value):
                 env = {
-                    'DJANGO_SECRET_KEY': 'local-dev-secret-key',
+                    **DEBUG_ENV,
                     'DJANGO_DEBUG': value,
                 }
                 settings = self._reload_settings(env)
@@ -39,7 +40,7 @@ class SettingsExternalizationTests(SimpleTestCase):
         for value in ('false', 'False', '0', 'no', 'off', ''):
             with self.subTest(value=value):
                 env = {
-                    'DJANGO_SECRET_KEY': 'local-dev-secret-key',
+                    **PRODUCTION_STARTUP_ENV,
                     'DJANGO_DEBUG': value,
                 }
                 settings = self._reload_settings(env)
@@ -56,7 +57,7 @@ class SettingsExternalizationTests(SimpleTestCase):
 
     def test_allowed_hosts_parses_comma_separated_values(self):
         env = {
-            'DJANGO_SECRET_KEY': 'local-dev-secret-key',
+            **PRODUCTION_STARTUP_ENV,
             'DJANGO_ALLOWED_HOSTS': ' localhost ,127.0.0.1, ,crm.example.com',
         }
         settings = self._reload_settings(env)
