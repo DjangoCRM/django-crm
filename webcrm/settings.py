@@ -1,7 +1,11 @@
 import sys
+import warnings
 from pathlib import Path
 from datetime import datetime as dt
 from django.utils.translation import gettext_lazy as _
+
+from webcrm.config import config
+from webcrm.database_config import build_databases
 
 from crm.settings import *          # NOQA
 from common.settings import *       # NOQA
@@ -14,35 +18,27 @@ from .datetime_settings import *    # NOQA
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# To get new value of key use code:
-# from django.core.management.utils import get_random_secret_key
-# print(get_random_secret_key())
-SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
+if config.is_testing():
+    from django.core.management.utils import get_random_secret_key
 
-# Add your hosts to the list.
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    warnings.warn(
+        'Generating ephemeral DJANGO_SECRET_KEY for the test runner.',
+        stacklevel=1,
+    )
+    SECRET_KEY = get_random_secret_key()
+else:
+    SECRET_KEY = config.require('DJANGO_SECRET_KEY', secret=True)
 
-# Database
-DATABASES = {
-    'default': {
-        # for SQLite3
-        'ENGINE': 'django.db.backends.sqlite3',
+ALLOWED_HOSTS = config.get_list(
+    'DJANGO_ALLOWED_HOSTS',
+    default='localhost,127.0.0.1',
+)
+CSRF_TRUSTED_ORIGINS = config.get_list(
+    'DJANGO_CSRF_TRUSTED_ORIGINS',
+    default='http://localhost,http://127.0.0.1',
+)
 
-        # for MySQl
-        #'ENGINE': 'django.db.backends.mysql',
-        #'PORT': '3306',
-
-        # for PostgreSQL
-        # "ENGINE": "django.db.backends.postgresql",
-        # 'PORT': '5432',
-
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': 'crmpass',
-        'HOST': 'localhost',
-    }
-}
+DATABASES = build_databases(BASE_DIR)
 
 EMAIL_HOST = '<specify host>'   # 'smtp.example.com'
 EMAIL_HOST_PASSWORD = '<specify password>'
@@ -56,8 +52,7 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 
 ADMINS = [("<Admin1>", "<admin1_box@example.com>")]   # specify admin
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.get_bool('DJANGO_DEBUG', default=False)
 
 FORMS_URLFIELD_ASSUME_HTTPS = True
 
@@ -183,14 +178,21 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 SITE_ID = 1
 
-SECURE_HSTS_SECONDS = 0  # set to 31536000 for the production server
-# Set all the following to True for the production server
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
 SECURE_HSTS_PRELOAD = False
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+if DEBUG:
+    _secure_default = False
+    _hsts_default = 0
+else:
+    _secure_default = True
+    _hsts_default = 31536000
+
+SECURE_SSL_REDIRECT = config.get_bool('DJANGO_SECURE_SSL_REDIRECT', default=_secure_default)
+SESSION_COOKIE_SECURE = config.get_bool('DJANGO_SESSION_COOKIE_SECURE', default=_secure_default)
+CSRF_COOKIE_SECURE = config.get_bool('DJANGO_CSRF_COOKIE_SECURE', default=_secure_default)
+SECURE_HSTS_SECONDS = config.get_int('DJANGO_SECURE_HSTS_SECONDS', default=_hsts_default)
 
 # ---- CRM settings ---- #
 
@@ -310,7 +312,7 @@ PROJECT_NAME = "Django-CRM"
 PROJECT_SITE = "https://djangocrm.github.io/info/"
 
 
-TESTING = sys.argv[1:2] == ['test']
+TESTING = config.is_testing()
 if TESTING:
     SECURE_SSL_REDIRECT = False
     LANGUAGE_CODE = 'en'
