@@ -104,6 +104,8 @@ celerybeat-schedule
 env/
 venv/
 ENV/
+!tests/fixtures/env/
+!tests/fixtures/env/**
 env.bak/
 venv.bak/
 
@@ -130,3 +132,10 @@ dmypy.json
 .vscode/
 pytest.ini
 .push.settings.jsonc
+
+# Forge local artifacts (never commit)
+.forge-commit-ready
+.forge/project-id
+.cursor/hooks.json
+.cursor/hooks/
+.cursor/rules/forge-workflow.mdc
