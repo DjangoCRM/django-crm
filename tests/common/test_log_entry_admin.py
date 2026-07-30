@@ -26,6 +26,7 @@ from common.utils.helpers import USER_MODEL
 from tests.base_test_classes import BaseTestCase
 from tests.common.log_entry_parity import assert_search_parity
 from tests.common.log_entry_parity import capture_search_pks
+from tests.common.log_entry_parity import parity_queryset
 from tests.common.log_entry_parity_seed import PARITY_LOG_ENTRY_PKS
 
 # manage.py test tests.common.test_log_entry_admin --keepdb
@@ -269,6 +270,62 @@ class LogEntrySearchParityTests(BaseTestCase):
         result_list = response.context['cl'].result_list
         rendered_pks = sorted(entry.pk for entry in result_list)
         self.assertEqual(rendered_pks, expected_pks)
+
+    def test_search_executes_bounded_query_count(self):
+        """Database-side search must not scale queries with row count."""
+        request = self.factory.get('/')
+        queryset = parity_queryset()
+        with self.assertNumQueries(1):
+            list(self.model_admin.get_search_results(request, queryset, 'Email')[0])
+
+        user = self.staff_user
+        content_type = ContentType.objects.get_for_model(USER_MODEL)
+        admin.models.LogEntry.objects.bulk_create([
+            admin.models.LogEntry(
+                user=user,
+                content_type=content_type,
+                object_id=str(offset),
+                object_repr='Bulk audit row',
+                action_flag=admin.models.CHANGE,
+                change_message='Unrelated bulk note',
+            )
+            for offset in range(9200, 9300)
+        ])
+        large_queryset = admin.models.LogEntry.objects.filter(
+            pk__in=PARITY_LOG_ENTRY_PKS,
+        ) | admin.models.LogEntry.objects.filter(pk__range=(9200, 9299))
+        with self.assertNumQueries(1):
+            list(
+                self.model_admin.get_search_results(
+                    request,
+                    large_queryset,
+                    'Email',
+                )[0],
+            )
+
+    def test_admin_changelist_search_terms_match_parity(self):
+        """Reuses the committed WO-021 corpus without additional fixtures."""
+        changelist_url = f'/{settings.SECRET_ADMIN_PREFIX}admin/logentry/'
+        self.client.force_login(self.staff_user)
+        cases = (
+            ('ID9009', [9009]),
+            ('North Region', [9008]),
+            ('', sorted(PARITY_LOG_ENTRY_PKS)),
+            ('xyzzy_nonexistent', []),
+        )
+        for term, expected_pks in cases:
+            with self.subTest(term=term):
+                response = self.client.get(
+                    changelist_url,
+                    data={'q': term},
+                    HTTP_ACCEPT_LANGUAGE='en',
+                    follow=True,
+                )
+                self.assertEqual(response.status_code, 200)
+                rendered_pks = sorted(
+                    entry.pk for entry in response.context['cl'].result_list
+                )
+                self.assertEqual(rendered_pks, expected_pks)
 
 
 class GetUrlTestCase(TestCase):

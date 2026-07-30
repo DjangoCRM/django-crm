@@ -2,7 +2,6 @@ import re
 from django import forms
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
-from django.db.models import Q
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -16,6 +15,7 @@ from common.site import userprofileadmin
 from common.utils.helpers import SAFE_ATTACH_FILE_ICON
 from crm.site.crmadminsite import crm_site
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+from sharedkernel.search import AuditSearchService
 
 
 class DepartmentAdmin(admin.ModelAdmin):
@@ -41,16 +41,10 @@ class LogEntryAdmin(admin.ModelAdmin):
     search_fields = ('change_message',)
 
     def get_search_results(self, request, queryset, search_term):
-        if search_term:
-            st = " ".join(search_term.splitlines()).strip()
-            if re.match(r"^[iI][dD]\s*\d+$", st):
-                return self.model.objects.filter(Q(object_id=st[2:]) | Q(id=st[2:])), True
-            ids = []
-            for obj in queryset.iterator():
-                if obj.get_change_message().find(search_term) != -1:
-                    ids.append(obj.id)
-            return queryset.filter(id__in=ids), True
-        return super().get_search_results(request, queryset, search_term)
+        normalized = ' '.join(search_term.splitlines()).strip()
+        if not normalized:
+            return super().get_search_results(request, queryset, search_term)
+        return AuditSearchService.search(queryset, search_term)
 
     def has_add_permission(self, request, obj=None):
         return False
