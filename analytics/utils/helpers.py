@@ -1,9 +1,10 @@
-from abc import ABC
 from decimal import Decimal
 from dateutil.relativedelta import relativedelta
 from typing import Tuple
 from django.db.models import Aggregate
 from django.db.models import CharField
+from django.db.models import TextField
+from django.db.models.functions import Cast
 from django.db.models.functions import Trunc
 from django.db.models import Count
 from django.db.models import Case
@@ -17,6 +18,7 @@ from django.db.models.query import QuerySet
 from django.db.models import Subquery
 from django.db.models import Sum
 from django.db.models import When
+from django.db.utils import NotSupportedError
 from django.core.handlers.wsgi import WSGIRequest
 
 from common.utils.helpers import get_today
@@ -24,19 +26,65 @@ from crm.models import Currency
 from crm.models import Rate
 
 
-class GroupConcat(Aggregate, ABC):
+class GroupConcat(Aggregate):
+    """
+    Database-portable string aggregation.
+
+    Compiles to GROUP_CONCAT on MySQL, STRING_AGG on PostgreSQL, and
+    group_concat on SQLite while preserving equivalent semantics.
+    """
+
     function = 'GROUP_CONCAT'
-    template = '%(function)s(%(distinct)s%(expressions)s%(ordering)s%(separator)s)'
+    allow_distinct = True
 
     def __init__(self, expression, distinct=False, ordering=None, separator=', ', **extra):
+        self.ordering = ordering
+        self.separator = separator
         super().__init__(
             expression,
-            distinct='DISTINCT ' if distinct else '',
-            ordering=' ORDER BY %s' % ordering if ordering is not None else '',
-            separator=' SEPARATOR "%s"' % separator,
+            distinct=distinct,
             output_field=CharField(),
             **extra
         )
+
+    def _compile_source(self, compiler, connection):
+        return compiler.compile(self.source_expressions[0])
+
+    def _ordering_sql(self, compiler, connection):
+        if self.ordering is None:
+            return '', []
+        order_sql, order_params = compiler.compile(self.ordering)
+        return f' ORDER BY {order_sql}', order_params
+
+    def as_mysql(self, compiler, connection, **extra_context):
+        sql, params = self._compile_source(compiler, connection)
+        distinct_sql = 'DISTINCT ' if self.distinct else ''
+        ordering_sql, ordering_params = self._ordering_sql(compiler, connection)
+        return (
+            f'GROUP_CONCAT({distinct_sql}{sql}{ordering_sql} SEPARATOR %s)',
+            params + ordering_params + (self.separator,),
+        )
+
+    def as_postgresql(self, compiler, connection, **extra_context):
+        cast_expr = Cast(self.source_expressions[0], output_field=TextField())
+        sql, params = compiler.compile(cast_expr)
+        distinct_sql = 'DISTINCT ' if self.distinct else ''
+        ordering_sql, ordering_params = self._ordering_sql(compiler, connection)
+        return (
+            f'STRING_AGG({distinct_sql}{sql}{ordering_sql}, %s)',
+            params + ordering_params + (self.separator,),
+        )
+
+    def as_sqlite(self, compiler, connection, **extra_context):
+        if self.distinct and self.separator != ',':
+            raise NotSupportedError(
+                'GroupConcat does not support DISTINCT with a custom separator '
+                'on SQLite; use the default comma separator or omit DISTINCT.'
+            )
+        sql, params = self._compile_source(compiler, connection)
+        if self.distinct:
+            return f'group_concat(DISTINCT {sql})', params
+        return f'group_concat({sql}, %s)', params + (self.separator,)
 
 
 def get_currency_info(request: WSGIRequest) -> Tuple[str, str, str]:

@@ -1,0 +1,5 @@
+{
+  "description": "Expected GroupConcat inputs loaded by tests/fixtures/group_concat_data.py",
+  "order_numbers": ["ORD-100", "ORD-200", "ORD-300"],
+  "separator": ", "
+}
