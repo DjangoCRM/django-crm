@@ -202,10 +202,8 @@ And also if an aggregation or annotation error occurs when running the tests, yo
 
 #### Optimizing PostgreSQL's configuration
 
-You'll need the [psycopg](https://www.psycopg.org/install/) package
-```cmd
-pip install psycopg[binary]
-```
+The PostgreSQL driver (`psycopg[binary]`) is declared in `requirements.txt` and installed automatically with `pip install -r requirements.txt`. On platforms without a prebuilt wheel, install `psycopg[c]` or build from source instead.
+
 Set the timezone to 'UTC' (when USE_TZ is True),
 default_transaction_isolation: 'read committed'.  
 You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`

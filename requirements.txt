@@ -17,6 +17,7 @@
     pandas==3.0.4
     pillow==12.3.0
     polib==1.2.0
+    psycopg[binary]==3.2.13
     python-dateutil==2.9.0.post0
     pytz==2026.2
     requests==2.34.2

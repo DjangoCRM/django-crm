@@ -216,10 +216,8 @@ Y también si ocurre un error de agregación o anotación al ejecutar las prueba
 
 #### Optimización de la configuración de PostgreSQL
 
-Necesitarás el paquete [psycopg](https://www.psycopg.org/install/)
-```cmd
-pip install psycopg[binary]
-```
+El controlador de PostgreSQL (`psycopg[binary]`) está declarado en `requirements.txt` y se instala automáticamente con `pip install -r requirements.txt`. En plataformas sin wheel precompilado, instala `psycopg[c]` o compila desde el código fuente.
+
 Configura la zona horaria a 'UTC' (cuando USE_TZ es True),
 default_transaction_isolation: 'read committed'.  
 Puedes configurarlos directamente en postgresql.conf `(/etc/postgresql/<versión>/main/)`
