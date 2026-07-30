@@ -13,34 +13,29 @@ from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.template.defaultfilters import truncatechars
 from django.utils.translation import gettext_lazy as _
-from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.safestring import SafeString
 from django.utils.timezone import localtime
 from django.utils.timezone import now
 from django.utils.translation import gettext
-from django.utils.translation import gettext_lazy
 from django.utils.translation import override
 
 from chat.models import ChatMessage
 
-COPY_STR = gettext_lazy("Copy")
-CONTENT_COPY_ICON = '<i class="material-icons"style="font-size: 17px;vertical-align: middle;">content_copy</i>'
-CONTENT_COPY_LINK = '<a href="{}" title="{}">{}</a>'
-CRM_NOTICE = '<i class ="material-icons" style="color: var(--body-quiet-color);\
-    font-size: 17px;vertical-align: middle;">message</i>:'
-FRIDAY_SATURDAY_SUNDAY_MSG = _(
-    "Attention! Mass mailings are not carried out on: Fridays, Saturdays and Sundays.")
-LEADERS = '- - - -'
-OBJ_DOESNT_EXIT_STR = gettext_lazy("{} with ID '{}' doesn’t exist. "
-                                   "Perhaps it was deleted?")
-ONCLICK_STR = "window.open('{}', '{}','width=800,height=700'); return false;"
-SAFE_ATTACH_FILE_ICON = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>'
-)
-SAFE_SUBJECT_ICON = mark_safe(
-    '<i class="material-icons" style="color: var(--body-quiet-color)">subject</i>'
-)
+# Temporary compatibility re-exports — import from sharedkernel.presentation instead.
+from sharedkernel.presentation import CONTENT_COPY_ICON
+from sharedkernel.presentation import CONTENT_COPY_LINK
+from sharedkernel.presentation import COPY_STR
+from sharedkernel.presentation import CRM_NOTICE
+from sharedkernel.presentation import FRIDAY_SATURDAY_SUNDAY_MSG
+from sharedkernel.presentation import LEADERS
+from sharedkernel.presentation import OBJ_DOESNT_EXIT_STR
+from sharedkernel.presentation import ONCLICK_STR
+from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import get_formatted_short_date
+from sharedkernel.presentation import get_verbose_name
+from sharedkernel.presentation import popup_window
 
 
 USER_MODEL = get_user_model()
@@ -112,14 +107,6 @@ def get_department_id(user):
     return department.id if department else None
 
 
-def get_formatted_short_date():
-    return date_format(
-        get_today(),
-        format='SHORT_DATE_FORMAT',
-        use_l10n=True
-    )
-
-
 def get_trans_for_lang(text: str, language_code: str) -> str:
     """Get translation for a specific language"""
     with override(language_code):
@@ -136,22 +123,6 @@ def get_user_language_code(user) -> str:
     if settings.USE_I18N:
         return user.profile.language_code or settings.LANGUAGE_CODE
     return settings.LANGUAGE_CODE
-
-
-def get_verbose_name(model, field: str) -> str:
-    """Returns the translated verbose name of the model field."""
-    verbose_name = model._meta.get_field(field).verbose_name  # NOQA
-    if hasattr(verbose_name, '_proxy____args'):
-        title = gettext(verbose_name._args[0])  # NOQA
-    else:
-        title = gettext(verbose_name)
-    return title
-
-
-def popup_window(url: str, window_name: str = '') -> str:
-    """Return onClick value for a link tag."""
-    window_name = window_name or 'WindowName'
-    return ONCLICK_STR.format(url, window_name)
 
 
 def notify_admins_no_email(user) -> None:
