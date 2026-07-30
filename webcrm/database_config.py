@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlparse
 
 from django.core.exceptions import ImproperlyConfigured
 
-from webcrm.config import ENV_REMEDIATION, MISSING, config
+from webcrm.config import ENV_REMEDIATION, MISSING, SECRET_MASK, config
 
 _ENGINE_BACKENDS = {
     'sqlite': 'django.db.backends.sqlite3',
@@ -18,6 +18,28 @@ _ENGINE_BACKENDS = {
     'mysql': 'django.db.backends.mysql',
     'mariadb': 'django.db.backends.mysql',
 }
+
+_DEFAULT_PORTS = {
+    'django.db.backends.postgresql': '5432',
+    'django.db.backends.mysql': '3306',
+}
+
+_TEST_NAMES = {
+    'django.db.backends.sqlite3': 'test_crm_db',
+    'django.db.backends.postgresql': 'test_crm_db_pg',
+    'django.db.backends.mysql': 'test_crm_db_mysql',
+}
+
+
+def mask_database_config(databases: dict) -> dict:
+    """Return a copy of DATABASES with passwords redacted for diagnostics."""
+    masked: dict = {}
+    for alias, settings in databases.items():
+        entry = dict(settings)
+        if entry.get('PASSWORD'):
+            entry['PASSWORD'] = SECRET_MASK
+        masked[alias] = entry
+    return masked
 
 
 def _engine_backend(engine: str) -> str:
@@ -31,6 +53,40 @@ def _engine_backend(engine: str) -> str:
     return backend
 
 
+def _sqlite_name(parsed_path: str, base_dir: Path) -> str:
+    if parsed_path in ('', '/'):
+        return str(base_dir / 'crm_db')
+    decoded = unquote(parsed_path.lstrip('/'))
+    if decoded == ':memory:':
+        return ':memory:'
+    return decoded
+
+
+def _finalize_database(database: dict) -> dict:
+    engine = database['ENGINE']
+    if engine.endswith('sqlite3'):
+        database.setdefault('TEST', {'NAME': _TEST_NAMES[engine]})
+        return database
+
+    if 'PORT' not in database:
+        database['PORT'] = _DEFAULT_PORTS[engine]
+
+    database['CONN_MAX_AGE'] = 0
+    database.setdefault('TEST', {'NAME': _TEST_NAMES[engine]})
+
+    if engine.endswith('mysql'):
+        database['OPTIONS'] = {
+            'charset': 'utf8mb4',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
+    elif engine.endswith('postgresql'):
+        database['OPTIONS'] = {
+            'connect_timeout': 10,
+        }
+
+    return database
+
+
 def _database_from_url(database_url: str, base_dir: Path) -> dict:
     parsed = urlparse(database_url)
     scheme = parsed.scheme.lower()
@@ -42,32 +98,31 @@ def _database_from_url(database_url: str, base_dir: Path) -> dict:
 
     engine = _ENGINE_BACKENDS[scheme]
     if engine.endswith('sqlite3'):
-        if parsed.path in ('', '/'):
-            name = str(base_dir / 'crm_db')
-        elif parsed.path == '/:memory:':
-            name = ':memory:'
-        else:
-            name = unquote(parsed.path.lstrip('/'))
-        return {'default': {'ENGINE': engine, 'NAME': name}}
+        sqlite_path = parsed.path
+        if not sqlite_path and parsed.netloc == ':memory:':
+            sqlite_path = '/:memory:'
+        database = {'ENGINE': engine, 'NAME': _sqlite_name(sqlite_path, base_dir)}
+        return {'default': _finalize_database(database)}
 
     if not parsed.path or parsed.path == '/':
         raise ImproperlyConfigured(
             f"DATABASE_URL for {scheme!r} must include a database name. {ENV_REMEDIATION}"
         )
 
-    database: dict[str, str | int] = {
+    database: dict[str, str | int | dict] = {
         'ENGINE': engine,
         'NAME': unquote(parsed.path.lstrip('/')),
     }
-    if parsed.username:
+    if parsed.username is not None:
         database['USER'] = unquote(parsed.username)
-    if parsed.password:
+    if parsed.password is not None:
         database['PASSWORD'] = unquote(parsed.password)
     if parsed.hostname:
         database['HOST'] = parsed.hostname
     if parsed.port:
         database['PORT'] = str(parsed.port)
-    return {'default': database}
+
+    return {'default': _finalize_database(database)}
 
 
 def build_databases(base_dir: Path) -> dict:
@@ -80,9 +135,10 @@ def build_databases(base_dir: Path) -> dict:
 
     if backend.endswith('sqlite3'):
         name = config.get('DJANGO_DB_NAME', default=str(base_dir / 'crm_db'))
-        return {'default': {'ENGINE': backend, 'NAME': name}}
+        database = {'ENGINE': backend, 'NAME': name}
+        return {'default': _finalize_database(database)}
 
-    database: dict[str, str | int] = {
+    database: dict[str, str | int | dict] = {
         'ENGINE': backend,
         'NAME': config.require('DJANGO_DB_NAME'),
     }
@@ -97,4 +153,4 @@ def build_databases(base_dir: Path) -> dict:
         port_default = '5432'
     database['PORT'] = config.get('DJANGO_DB_PORT', default=port_default)
 
-    return {'default': database}
+    return {'default': _finalize_database(database)}
