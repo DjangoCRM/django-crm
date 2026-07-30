@@ -1,4 +1,3 @@
-import secrets
 from django.contrib.auth import get_user_model
 
 # Temporary compatibility re-exports — import from common.queries instead.

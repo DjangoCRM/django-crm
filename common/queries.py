@@ -11,11 +11,14 @@ from django.db.models import OuterRef
 from django.db.models import Q
 from django.db.models.query import QuerySet
 
-from chat.models import ChatMessage
+
+def _chat_message_model():
+    return apps.get_model('chat', 'ChatMessage')
 
 
 def add_chat_context(request, extra_context, object_id, content_type):
-    chat = ChatMessage.objects.filter(
+    chat_message = _chat_message_model()
+    chat = chat_message.objects.filter(
         object_id=object_id,
         content_type=content_type,
     )
@@ -40,7 +43,8 @@ def add_phone_q_params(phone: str, q_params: Q = None) -> Q:
 
 def annotate_chat(request: WSGIRequest, queryset: QuerySet) -> QuerySet:
     content_type = ContentType.objects.get_for_model(queryset.model)
-    chat = ChatMessage.objects.filter(
+    chat_message = _chat_message_model()
+    chat = chat_message.objects.filter(
         object_id=OuterRef('pk'),
         content_type=content_type,
     )
