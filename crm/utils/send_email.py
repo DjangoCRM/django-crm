@@ -18,6 +18,7 @@ from crm.models import CrmEmail
 from crm.utils.counterparty_name import get_counterparty_name
 from massmail.utils.email_creators import email_creator
 from massmail.models import EmailAccount
+from sharedkernel.credentials import CredentialAccessor, MissingCredentialError
 
 EMAIL_SENT_TO_str = _('The Email has been sent to "%s"')
 
@@ -35,6 +36,18 @@ def send_email(request: WSGIRequest, obj: CrmEmail) -> HttpResponseRedirect:
         )
     if msg_error:
         messages.error(request, msg_error)
+        return HttpResponseRedirect(
+            reverse("site:crm_crmemail_change", args=(obj.id,))
+        )
+    try:
+        CredentialAccessor.for_smtp(eac)
+    except MissingCredentialError:
+        messages.error(
+            request,
+            gettext(
+                "The main email account is missing SMTP credentials."
+            ),
+        )
         return HttpResponseRedirect(
             reverse("site:crm_crmemail_change", args=(obj.id,))
         )
