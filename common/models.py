@@ -347,6 +347,10 @@ class UserProfile(models.Model):
     def get_absolute_url(self):
         return reverse('site:common_userprofile_change', args=(self.pk,))
 
+    def append_message(self, msg: str, level: str = 'INFO') -> None:
+        self.messages.extend([msg, level])
+        self.save(update_fields=['messages'])
+
     def delete(self, *args, **kwargs):
         # Delete avatar file when deleting the user profile
         if self.avatar:

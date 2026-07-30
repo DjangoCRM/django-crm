@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 121,
+  "helpers_fan_in_count": 123,
   "violations": [
     {
       "imported_module": "crm.site.crmadminsite",
