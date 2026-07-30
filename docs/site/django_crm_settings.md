@@ -51,6 +51,8 @@ Use either:
 
 The default development configuration uses SQLite (`DJANGO_DB_ENGINE=sqlite3`, `DJANGO_DB_NAME=crm_db`).
 
+PostgreSQL and MySQL drivers are declared in `requirements.txt` (`psycopg[binary]` and `mysqlclient` respectively) and install with `pip install -r requirements.txt`.
+
 For MySQL and PostgreSQL tuning notes, see the [installation guide](../installation_and_configuration_guide.md).
 
 ### Mail configuration
