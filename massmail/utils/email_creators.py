@@ -14,6 +14,7 @@ from crm.models.crmemail import CrmEmail
 from massmail.models import EmlMessage
 from massmail.backends.smtp import OAuth2EmailBackend
 from massmail.models.email_account import EmailAccount
+from sharedkernel.credentials import AuthKind, CredentialAccessor
 
 prev_corr_blockquote = '<blockquote style="padding-left:1ex; border-left:#ccc 1px' \
                 ' solid; margin:0px 0px 0px 0.8ex">{}</blockquote>'
@@ -112,14 +113,15 @@ def _get_msg(force_multipart, html_content, data,
 
 
 def email_connection(email_account: EmailAccount):
-    if email_account.refresh_token:
-        connection = OAuth2EmailBackend(refresh_token=email_account.refresh_token)
+    credential = CredentialAccessor.for_smtp(email_account)
+    if credential.auth_kind is AuthKind.OAUTH2:
+        connection = OAuth2EmailBackend(refresh_token=credential.secret)
     else:
         connection = mail.get_connection()
-        connection.password = email_account.email_app_password or email_account.email_host_password
+        connection.password = credential.secret
         connection.use_tls = email_account.email_use_tls
         connection.use_ssl = email_account.email_use_ssl
-    connection.username = email_account.email_host_user
+    connection.username = credential.user
     connection.host = email_account.email_host
     connection.port = email_account.email_port
     return connection

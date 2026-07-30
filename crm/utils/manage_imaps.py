@@ -13,6 +13,11 @@ from crm.settings import IMAP_CONNECTION_IDLE
 from crm.settings import IMAP_NOOP_PERIOD
 from crm.utils.crm_imap import CrmIMAP
 from massmail.models import EmailAccount
+from sharedkernel.credentials import (
+    CREDENTIAL_MASK,
+    CredentialAccessor,
+    MissingCredentialError,
+)
 
 delta_period = timedelta(seconds=30)
 idle_period = timedelta(days=IMAP_CONNECTION_IDLE)
@@ -42,6 +47,22 @@ class CrmImapManager(threading.Thread):
                 self._keep_in_touch()
     
     def _create_crmimap(self, ea: EmailAccount) -> Optional[CrmIMAP]:
+        try:
+            CredentialAccessor.for_imap(ea)
+        except MissingCredentialError as err:
+            site = Site.objects.get_current()
+            mail_admins(
+                'Missing mailbox credential at CrmImapManager._create_crmimap',
+                f'''Missing mailbox credential for Email account: {ea}
+                \nAccount id: {err.account_id}
+                \nOwner id: {err.owner_id}
+                \nExpected field: {err.field_name}
+                \nCredential: {CREDENTIAL_MASK}
+                \nSite {site.domain}
+                \nProcess: {os.getpid()}''',
+                fail_silently=True,
+            )
+            return None
         crmimap = CrmIMAP(ea.email_host_user)
         if ea.email_host_user not in self.crmimap_storage:
             if settings.REUSE_IMAP_CONNECTION:

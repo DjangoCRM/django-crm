@@ -11,6 +11,11 @@ from django.contrib.sites.models import Site
 from django.core.mail import mail_admins
 
 from massmail.models import EmailAccount
+from sharedkernel.credentials import (
+    CREDENTIAL_MASK,
+    CredentialAccessor,
+    MissingCredentialError,
+)
 
 
 if sys.platform != "win32":
@@ -314,10 +319,23 @@ class CrmIMAP:
             )
 
     def _log_in(self) -> None:
+        try:
+            credential = CredentialAccessor.for_imap(self.ea)
+        except MissingCredentialError as err:
+            self.error = err
+            mail_admins(
+                'Missing mailbox credential at CrmIMAP._log_in',
+                f'''Missing mailbox credential for Email account: {self.ea}
+                \nAccount id: {err.account_id}
+                \nOwner id: {err.owner_id}
+                \nExpected field: {err.field_name}
+                \nCredential: {CREDENTIAL_MASK}''',
+                fail_silently=True,
+            )
+            return
         self._execute(
             self.connection.login,
-            (self.ea.email_host_user,
-             self.ea.email_app_password or self.ea.email_host_password),
+            (credential.user, credential.secret),
             'Exception at CrmIMAP.LOGIN'
         )
         if self.error:
