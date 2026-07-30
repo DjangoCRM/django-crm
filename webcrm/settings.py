@@ -11,6 +11,7 @@ from webcrm.mail_config import (
     build_crm_identity_settings,
     build_mail_settings,
 )
+from webcrm.security_config import build_recaptcha_settings, build_url_prefix_settings
 
 from crm.settings import *          # NOQA
 from common.settings import *       # NOQA
@@ -206,9 +207,10 @@ SECURE_HSTS_SECONDS = config.get_int('DJANGO_SECURE_HSTS_SECONDS', default=_hsts
 
 # For more security, replace the url prefixes
 # with your own unique value.
-SECRET_CRM_PREFIX = '123/'
-SECRET_ADMIN_PREFIX = '456-admin/'
-SECRET_LOGIN_PREFIX = '789-login/'
+_url_prefixes = build_url_prefix_settings()
+SECRET_CRM_PREFIX = _url_prefixes['SECRET_CRM_PREFIX']
+SECRET_ADMIN_PREFIX = _url_prefixes['SECRET_ADMIN_PREFIX']
+SECRET_LOGIN_PREFIX = _url_prefixes['SECRET_LOGIN_PREFIX']
 
 # Please specify the IP address and hostname of your CRM
 # to avoid importing emails sent from your CRM.
@@ -277,8 +279,9 @@ OAUTH2_DATA = {
 REDIRECT_URI = ''
 
 # Credentials for Google reCAPTCHA.
-GOOGLE_RECAPTCHA_SITE_KEY = ''
-GOOGLE_RECAPTCHA_SECRET_KEY = ''
+_recaptcha = build_recaptcha_settings()
+GOOGLE_RECAPTCHA_SITE_KEY = _recaptcha['GOOGLE_RECAPTCHA_SITE_KEY']
+GOOGLE_RECAPTCHA_SECRET_KEY = _recaptcha['GOOGLE_RECAPTCHA_SECRET_KEY']
 
 GEOIP = False
 GEOIP_PATH = MEDIA_ROOT / 'geodb'

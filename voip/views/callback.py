@@ -75,10 +75,15 @@ class ConnectionView(FormView):
 def get_callback(connection: Connection, to_number: str) -> str:
     """Make callback through Connection of VoIP backend"""
     backends = settings.VOIP
-    backend = next(
-        backend for backend in backends
-        if backend["PROVIDER"] == connection.provider
-    )
+    if not backends:
+        return _('VoIP is not configured. Please contact your administrator.')
+    try:
+        backend = next(
+            backend for backend in backends
+            if backend["PROVIDER"] == connection.provider
+        )
+    except StopIteration:
+        return _('VoIP provider is not configured. Please contact your administrator.')
     backend_cls = import_string(backend['BACKEND'])
     voip = backend_cls(
         key=backend['OPTIONS']['key'],

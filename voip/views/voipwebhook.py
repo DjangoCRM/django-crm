@@ -1,4 +1,5 @@
 import hmac
+import logging
 import requests
 from hashlib import sha1
 from base64 import b64decode
@@ -17,6 +18,38 @@ from crm.models import Contact
 from crm.models import Deal
 from crm.models import Lead
 
+logger = logging.getLogger(__name__)
+
+
+def _client_ip(request: HttpRequest) -> str:
+    return request.META.get('REMOTE_ADDR', '')
+
+
+def _get_zadarma_backend() -> dict | None:
+    for backend in settings.VOIP:
+        if backend.get('PROVIDER') == 'Zadarma':
+            return backend
+    return None
+
+
+def _is_ip_allowed(request: HttpRequest, backend: dict) -> bool:
+    ip = _client_ip(request)
+    allowlist = backend.get('ALLOWLIST') or settings.ZADARMA_PROVIDER_ALLOWLIST
+    if ip in allowlist:
+        return True
+    forwarding_ip = settings.VOIP_FORWARDING_IP
+    return bool(forwarding_ip and ip == forwarding_ip)
+
+
+def _deny_voip_request(request: HttpRequest, *, operation: str, reason: str) -> HttpResponse:
+    logger.warning(
+        'VoIP request denied: actor=%s resource=voip.webhook operation=%s reason=%s',
+        _client_ip(request),
+        operation,
+        reason,
+    )
+    return HttpResponse('Forbidden', status=403)
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class VoIPWebHook(View):
@@ -24,10 +57,21 @@ class VoIPWebHook(View):
 
     @staticmethod
     def get(request):
+        backend = _get_zadarma_backend()
+        if backend is None:
+            return _deny_voip_request(request, operation='echo', reason='voip_not_configured')
+        if not _is_ip_allowed(request, backend):
+            return _deny_voip_request(request, operation='echo', reason='ip_not_allowlisted')
         return HttpResponse(request.GET.get('zd_echo'), '')
 
     @staticmethod
     def post(request):
+        backend = _get_zadarma_backend()
+        if backend is None:
+            return _deny_voip_request(request, operation='notify', reason='voip_not_configured')
+        if not _is_ip_allowed(request, backend):
+            return _deny_voip_request(request, operation='notify', reason='ip_not_allowlisted')
+
         phone: str = ''
         entry: str = ''
         data: str = ''
@@ -56,7 +100,7 @@ class VoIPWebHook(View):
             call_start = request.POST.get('call_start')
             data = phone + called_did + call_start            
             
-        if is_authenticated(request, data):
+        if is_authenticated(request, data, backend):
             duration = round(int(request.POST.get('duration'))/60, 1)
             # if phone:
             contact, lead, deal, e = find_objects_by_phone(phone)
@@ -80,19 +124,11 @@ class VoIPWebHook(View):
         return HttpResponse('')
     
 
-def is_authenticated(request: HttpRequest, data: str) -> bool:
+def is_authenticated(request: HttpRequest, data: str, backend: dict) -> bool:
     """Authenticate request"""
     if not data:
         return False
     signature = request.headers.get('Signature')
-    backend = next(
-        b for b in settings.VOIP 
-        if b['PROVIDER'] == 'Zadarma'
-    )
-    ip = request.META['REMOTE_ADDR']
-    if ip != backend['IP']:
-        if ip != settings.VOIP_FORWARDING_IP:
-            return False
     secret = backend['OPTIONS']['secret']
     hmac_h = hmac.new(
         secret.encode(), 

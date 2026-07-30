@@ -1,21 +1,8 @@
+from webcrm.voip_config import build_voip_settings
 
-
-SECRET_ZADARMA_KEY = '123'
-SECRET_ZADARMA = 'secret'
-VOIP = [
-    {
-        'BACKEND': 'voip.backends.zadarmabackend.ZadarmaAPI',
-        'PROVIDER': 'Zadarma',
-        'IP': '185.45.152.42',
-        'OPTIONS': {
-            'key': SECRET_ZADARMA_KEY,
-            'secret': SECRET_ZADARMA
-        }
-    }
-]
-
-VOIP_FORWARD_DATA = False
-VOIP_FORWARDING_IP = ''
-
-
-VOIP_FORWARD_URL = 'Url to forward'
+_voip_settings = build_voip_settings()
+VOIP = _voip_settings['VOIP']
+VOIP_FORWARD_DATA = _voip_settings['VOIP_FORWARD_DATA']
+VOIP_FORWARDING_IP = _voip_settings['VOIP_FORWARDING_IP']
+VOIP_FORWARD_URL = _voip_settings['VOIP_FORWARD_URL']
+ZADARMA_PROVIDER_ALLOWLIST = _voip_settings['ZADARMA_PROVIDER_ALLOWLIST']
