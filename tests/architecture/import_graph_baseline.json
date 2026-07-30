@@ -1,0 +1,2477 @@
+{
+  "helpers_fan_in_count": 120,
+  "violations": [
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "analytics/admin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/models.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models.request",
+      "importing_file": "analytics/site/anlmodeladmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site",
+      "importing_file": "analytics/site/anlmodeladmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/closingreasonstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/closingreasonstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/dealstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "analytics/site/incomestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/site/leadsourcestatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.shipmentadmin",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "analytics/site/outputstatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "analytics/site/requeststatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/site/requeststatadmin.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/requeststatadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "analytics/site/salesfunnelsadmin.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/utils/helpers.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/utils/helpers.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "analytics/utils/helpers.py",
+      "source_app": "analytics",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "analytics/utils/monthly_snapshot_saving.py",
+      "source_app": "analytics",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "chat/admin.py",
+      "source_app": "chat",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.get_file_links",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "source_app": "chat",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "common/admin.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "common/admin.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "webcrm.secret_literal_scanner",
+      "importing_file": "common/management/commands/check_secrets.py",
+      "source_app": "common",
+      "target_app": "webcrm"
+    },
+    {
+      "imported_module": "webcrm.config",
+      "importing_file": "common/management/commands/show_config.py",
+      "source_app": "common",
+      "target_app": "webcrm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "common/site/basemodeladmin.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/site/crmsite.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/site/crmsite.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "help.models",
+      "importing_file": "common/site/crmsite.py",
+      "source_app": "common",
+      "target_app": "help"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "common/site/crmsite.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "common/site/crmsite.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "common/templatetags/util.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.site.taskadmin",
+      "importing_file": "common/templatetags/util.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/utils/get_signature_preview.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.views.signature_previews",
+      "importing_file": "common/utils/get_signature_preview.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "chat.models",
+      "importing_file": "common/utils/helpers.py",
+      "source_app": "common",
+      "target_app": "chat"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "common/utils/hide_main_tasks.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "crm.forms.admin_forms",
+      "importing_file": "common/utils/remind_me.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "common/utils/remind_me.py",
+      "source_app": "common",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "tasks.forms",
+      "importing_file": "common/utils/remind_me.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "tasks.forms",
+      "importing_file": "common/utils/remind_me.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "common/utils/reminders_sender.py",
+      "source_app": "common",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "crm.utils.create_email_request",
+      "importing_file": "common/utils/worker_runtime.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.import_emails",
+      "importing_file": "common/utils/worker_runtime.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.manage_imaps",
+      "importing_file": "common/utils/worker_runtime.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.rates_loader",
+      "importing_file": "common/utils/worker_runtime.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.restore_imap_emails",
+      "importing_file": "common/utils/worker_runtime.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "common/views/copy_department.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/export_objects.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/export_objects.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/export_objects.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/export_objects.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "common/views/export_objects.py",
+      "source_app": "common",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "massmail.views.signature_previews",
+      "importing_file": "common/views/reload_field.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/select_email_account.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "common/views/select_email_account.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "massmail.forms.radio_select_form",
+      "importing_file": "common/views/select_email_account.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/select_email_account.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.helpers",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.import_emails",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.import_emails",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/select_emails_import.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "common/views/user_transfer.py",
+      "source_app": "common",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/admin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.for_translation",
+      "importing_file": "crm/admin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/admin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.worker_runtime",
+      "importing_file": "crm/apps.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.worker_runtime",
+      "importing_file": "crm/apps.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.worker_runtime",
+      "importing_file": "crm/apps.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/forms/admin_forms.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "tasks.forms",
+      "importing_file": "crm/forms/admin_forms.py",
+      "source_app": "crm",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/forms/contact_form.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/migrations/0001_initial.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/models/base_contact.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/models/base_contact.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/models/base_contact.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/company.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/contact.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models.baseeml",
+      "importing_file": "crm/models/crmemail.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/deal.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/lead.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/others.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/product.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/models/request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/models/request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/models/tag.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.resize_image",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/companyadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/site/contactadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/contactadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/contactadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/contactadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.site.crmsite",
+      "importing_file": "crm/site/crmadminsite.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.get_signature_preview",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/site/crmemailadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.site.basemodeladmin",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "chat.models",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "chat"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.remind_me",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "quality.site.transactionqualityeventinline",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "quality"
+    },
+    {
+      "imported_module": "tasks.models",
+      "importing_file": "crm/site/dealadmin.py",
+      "source_app": "crm",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/site/leadadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/leadadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/leadadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.admin_actions",
+      "importing_file": "crm/site/leadadmin.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/paymentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/paymentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/productadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/productadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.copy_files",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.notify_user",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/site/requestadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.email_to_participants",
+      "importing_file": "crm/site/shipmentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/shipmentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/shipmentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/shipmentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/site/shipmentadmin.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.views.export_objects",
+      "importing_file": "crm/urls.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/utils/admfilters.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/admfilters.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/admfilters.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/admfilters.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/admfilters.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/change_massconts.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/change_massconts.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/change_massconts.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.copy_files",
+      "importing_file": "crm/utils/create_email_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/utils/create_email_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/create_email_request.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/utils/create_form_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/create_form_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/create_form_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/create_form_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.parse_full_name",
+      "importing_file": "crm/utils/create_form_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/create_objects.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/crm_imap.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/helpers.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/helpers.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "crm/utils/helpers.py",
+      "source_app": "crm",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "crm/utils/helpers.py",
+      "source_app": "crm",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "crm/utils/helpers.py",
+      "source_app": "crm",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/import_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/import_emails.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.gettext_messages",
+      "importing_file": "crm/utils/make_massmail_form.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/make_massmail_form.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/manage_imaps.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.templatetags.util",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/utils/send_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.utils.email_creators",
+      "importing_file": "crm/utils/send_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/views/add_request.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/views/change_owner_companies.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/views/change_owner_companies.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/views/create_email.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/views/create_email.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/create_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/create_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "crm/views/delete_duplicate_object.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/delete_duplicate_object.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/delete_duplicate_object.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/download_original_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/got_massmails.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.copy_files",
+      "importing_file": "crm/views/reply_email.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/reply_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/reply_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "crm/views/view_original_email.py",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "massmail.models",
+      "importing_file": "crm/views/view_original_email.py",
+      "source_app": "crm",
+      "target_app": "massmail"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "help/admin.py",
+      "source_app": "help",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "help/admin.py",
+      "source_app": "help",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "massmail/admin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmmodeladmin",
+      "importing_file": "massmail/admin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/admin_actions.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "massmail/models/baseeml.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "massmail/models/email_account.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.gettext_messages",
+      "importing_file": "massmail/models/email_message.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "massmail/models/mailing_out.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "massmail/models/signature.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.gettext_messages",
+      "importing_file": "massmail/models/signature.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmmodeladmin",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "massmail/site/emailaccountadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.copy_files",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.get_signature_preview",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmmodeladmin",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "massmail/site/emlmessageadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/mailingoutadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/site/mailingoutadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmmodeladmin",
+      "importing_file": "massmail/site/mailingoutadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "massmail/site/mailingoutadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "massmail/site/mailingoutadmin.py",
+      "source_app": "massmail",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "common.utils.get_signature_preview",
+      "importing_file": "massmail/site/signatureadmin.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmmodeladmin",
+      "importing_file": "massmail/site/signatureadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "massmail/site/signatureadmin.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models.crmemail",
+      "importing_file": "massmail/utils/email_creators.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.get_signature_preview",
+      "importing_file": "massmail/utils/helpers.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "massmail/utils/sendmassmail.py",
+      "source_app": "massmail",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "massmail/views/message_previews.py",
+      "source_app": "massmail",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/views/select_recipient_type.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/views/select_recipient_type.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "massmail/views/select_recipient_type.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "massmail/views/select_recipient_type.py",
+      "source_app": "massmail",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "settings.models",
+      "importing_file": "massmail/views/unsubscribes.py",
+      "source_app": "massmail",
+      "target_app": "settings"
+    },
+    {
+      "imported_module": "crm.admin",
+      "importing_file": "quality/admin.py",
+      "source_app": "quality",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.admin",
+      "importing_file": "quality/admin.py",
+      "source_app": "quality",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "quality/models/transaction_quality.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "quality/site/transactionqualityeventadmin.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.get_file_links",
+      "importing_file": "quality/site/transactionqualityeventadmin.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "quality/site/transactionqualityeventadmin.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.get_file_links",
+      "importing_file": "quality/site/transactionqualityeventinline.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "quality/site/transactionqualityeventinline.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmstackedinline",
+      "importing_file": "quality/site/transactionqualityeventinline.py",
+      "source_app": "quality",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "quality/templatetags/quality_inline.py",
+      "source_app": "quality",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "settings/admin.py",
+      "source_app": "settings",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.for_translation",
+      "importing_file": "tasks/admin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.site.crmadminsite",
+      "importing_file": "tasks/admin.py",
+      "source_app": "tasks",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/forms.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/migrations/0001_initial.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "tasks/models/memo.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.email_to_participants",
+      "importing_file": "tasks/models/memo.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/models/task.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/models/task.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "tasks/models/taskbase.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/models/taskbase.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/models/taskbase.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.site.basemodeladmin",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.chat_link",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.email_to_participants",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/memoadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/projectadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/projectadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/projectadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/projectadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.gettext_messages",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.admin",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.models",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.site.basemodeladmin",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.chat_link",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.email_to_participants",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.notify_user",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.remind_me",
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/utils/admfilters.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/utils/admfilters.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.hide_main_tasks",
+      "importing_file": "tasks/utils/admfilters.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.utils",
+      "importing_file": "tasks/utils/admfilters.py",
+      "source_app": "tasks",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.utils.adminform_helpers",
+      "importing_file": "tasks/views/create_completed_subtask.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/views/create_completed_subtask.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.adminform_helpers",
+      "importing_file": "tasks/views/task_completed.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/views/task_completed.py",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.utils.admfilters",
+      "importing_file": "voip/admin.py",
+      "source_app": "voip",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "webcrm.voip_config",
+      "importing_file": "voip/settings.py",
+      "source_app": "voip",
+      "target_app": "webcrm"
+    },
+    {
+      "imported_module": "common.utils.helpers",
+      "importing_file": "voip/views/voipwebhook.py",
+      "source_app": "voip",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "voip/views/voipwebhook.py",
+      "source_app": "voip",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "voip/views/voipwebhook.py",
+      "source_app": "voip",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "crm.models",
+      "importing_file": "voip/views/voipwebhook.py",
+      "source_app": "voip",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "common.settings",
+      "importing_file": "webcrm/settings.py",
+      "source_app": "webcrm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.settings",
+      "importing_file": "webcrm/settings.py",
+      "source_app": "webcrm",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "tasks.settings",
+      "importing_file": "webcrm/settings.py",
+      "source_app": "webcrm",
+      "target_app": "tasks"
+    },
+    {
+      "imported_module": "voip.settings",
+      "importing_file": "webcrm/settings.py",
+      "source_app": "webcrm",
+      "target_app": "voip"
+    },
+    {
+      "imported_module": "common.views.favicon",
+      "importing_file": "webcrm/urls.py",
+      "source_app": "webcrm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "common.views.serve_media",
+      "importing_file": "webcrm/urls.py",
+      "source_app": "webcrm",
+      "target_app": "common"
+    },
+    {
+      "imported_module": "crm.views.contact_form",
+      "importing_file": "webcrm/urls.py",
+      "source_app": "webcrm",
+      "target_app": "crm"
+    },
+    {
+      "imported_module": "massmail.views.get_oauth2_tokens",
+      "importing_file": "webcrm/urls.py",
+      "source_app": "webcrm",
+      "target_app": "massmail"
+    }
+  ]
+}
