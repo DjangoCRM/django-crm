@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ea0e6b9213786755a4bc2 # v4.2.2
-      - uses: actions/setup-python@0a5c615913736483325b8909a392763783753107 # v5.8.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: "3.12"
           cache: pip
@@ -58,8 +58,8 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ea0e6b9213786755a4bc2 # v4.2.2
-      - uses: actions/setup-python@0a5c615913736483325b8909a392763783753107 # v5.8.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: "3.12"
           cache: pip
@@ -95,8 +95,8 @@ jobs:
           --health-timeout 5s
           --health-retries 3
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ea0e6b9213786755a4bc2 # v4.2.2
-      - uses: actions/setup-python@0a5c615913736483325b8909a392763783753107 # v5.8.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: "3.12"
           cache: pip
