@@ -19,7 +19,7 @@ from common.utils.helpers import USER_MODEL
 from tasks.models import Task
 from tasks.models import TaskStage
 from tasks.site.taskadmin import TaskAdmin
-from tests.utils.helpers import get_adminform_initials
+from common.utils.adminform_helpers import get_adminform_initials
 
 
 def check_subtasks(object_id: int, request: WSGIRequest) -> str:

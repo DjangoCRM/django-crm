@@ -12,7 +12,7 @@ from django.utils.translation import gettext as _
 from common.utils.helpers import USER_MODEL
 from tasks.models import Task
 from tasks.models import TaskStage
-from tests.utils.helpers import get_adminform_initials
+from common.utils.adminform_helpers import get_adminform_initials
 
 
 def task_completed(request: WSGIRequest, token: str,
