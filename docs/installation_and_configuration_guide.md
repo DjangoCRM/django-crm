@@ -169,30 +169,23 @@ These include the use of an SQLite3 database, so there's no need to install any 
 > [!WARNING]
 > SQLite3 is not suitable for regular CRM work. Use MySQL or PostgreSQL instead.
 
-Project settings are contained in files `settings.py`.  
-The main project settings are contained in the file  
-`webcrm/settings.py`  
-The syntax of the data in these files must match the syntax of the Python language.
+Project settings are resolved from **environment variables** documented in `.env.example` at the repository root. The Python modules under `webcrm/` assemble Django settings from those variables through a `ConfigAccessor`; do not edit tracked files for credentials.
 
-Most of the project settings are Django framework settings.
-Their full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/).  
-The settings missing in this list are CRM-specific settings. Explanations can be found in the comments to them.  
-Most of the settings can be left at their default values.
+### Environment configuration workflow
 
-The default settings are for running the project on a development server.
-Change them for the production server.  
+```cmd
+cp .env.example .env
+python manage.py generate_secret_key
+python manage.py show_config
+```
 
-To start using CRM regularly, specify the `DATABASES` settings in the `webcrm/settings.py` file
-and at least the `EMAIL_HOST` and `ADMINS` settings.
+Fill in `.env` using the comments in `.env.example`. Django aborts at startup with a named error if a mandatory variable is missing. For production, also configure database and mail variables as described below and in [django_crm_settings.md](site/django_crm_settings.md).
 
 ### DATABASES settings
 
-Provide data to connect to the database:
+Provide database connection values in `.env` using either `DATABASE_URL` or discrete `DJANGO_DB_*` variables (see `.env.example`). The default development configuration uses SQLite (`DJANGO_DB_ENGINE=sqlite3`).
 
-- `ENGINE` and `PORT` are specified by default for MySQL database. Change them for PostgreSQL
-- Specify `PASSWORD`
-
-Detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES). 
+Detailed Django reference [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES).
 
 In the database, configure the `USER` (by default 'crm_user') specified in the `DATABASES` setting 
 to have the right to create and drop databases (running tests will create
@@ -219,16 +212,18 @@ You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/m
 
 ### EMAIL_HOST settings
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.  
+Specify SMTP connection details in `.env`:
 
-- `EMAIL_HOST` (smtp server)
-- `EMAIL_HOST_PASSWORD`
+- `EMAIL_HOST` (SMTP server)
+- `EMAIL_HOST_PASSWORD` (secret)
 - `EMAIL_HOST_USER` (login)
+- `EMAIL_PORT`, `EMAIL_USE_TLS`, `DEFAULT_FROM_EMAIL`, `SERVER_EMAIL`
 
 ### ADMINS settings
 
-Add the addresses of CRM administrators to the list, so they can receive error logs.  
-`ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
+Add CRM administrator notification addresses in `.env`:
+
+`DJANGO_ADMINS=Admin Name <admin@example.com>,Other Admin <other@example.com>`
 
 ## CRM and database testing
 
@@ -298,7 +293,7 @@ The pattern of URL is as follows:
 `<your CRM host>/<LANGUAGE_CODE>/<SECRET_ADMIN_PREFIX>`
 
 Users without the superuser role are automatically redirected to the CRM website when attempting to access the administrator site.
-The values ​​of the `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX` parameters can be changed in the `webcrm/settings.py` file.
+The values of `SECRET_CRM_PREFIX` and `SECRET_ADMIN_PREFIX` can be changed in `.env` (see `.env.example`).
 
 > [!NOTE]
 > Do not attempt to access the bare `<your CRM host>` address (`http://127.0.0.1:8000/`).  
@@ -310,12 +305,10 @@ The values ​​of the `LANGUAGE_CODE`, `SECRET_CRM_PREFIX` and `SECRET_ADMIN_P
 By default, CRM software is configured to work on a domain "localhost" (ip: 127.0.0.1).  
 To work on another domain (or IP address), you need to do the following:  
 
-- In the SITES section for administrators (superusers):  
-`(ADMIN site) Home > Sites > Sites`  
-Add a CRM site and specify its domain name.
-- In the file `webcrm/settings.py`:
-  - specify its id in the setting `SITE_ID`,
-  - add it to the setting `ALLOWED_HOSTS`.
+- In `.env`:
+  - add the site domain to `DJANGO_ALLOWED_HOSTS`,
+  - configure `DJANGO_CSRF_TRUSTED_ORIGINS` when using HTTPS.
+- In the SITES section for administrators (superusers), add a CRM site and specify its domain name, then set `SITE_ID` in environment or local overrides if needed.
 
 ## Updating Django CRM software
 
@@ -726,16 +719,12 @@ If a reply to a mailing is a commercial request, import it using the button on t
 A properly configured application allows you to make calls directly from Django CRM.
 This application allows you to integrate CRM with the services of VoIP provider ZADARMA.  But it can also be used to create integration files with other providers.
 
-It is necessary to receive from the provider (zadarma.com) and to specify in `voip/settings.py` file the following values: SECRET_ZADARMA_KEY, SECRET_ZADARMA.
-FORWARD settings are specified independently, but only if you have a second instance of working CRM (for example, for a subsidiary company).
+Receive API credentials from the provider (zadarma.com) and set `ZADARMA_KEY`, `ZADARMA_SECRET`, and `ZADARMA_PROVIDER_ALLOWLIST` in `.env` (see `.env.example`). FORWARD settings are optional and only needed when forwarding webhook data to a second CRM instance.
 
 Then add Connections objects for users in the  
  `(ADMIN site) Home > Voip > Connections`
 
-To connect to a different provider, you must create new files for its
-backend (`voip/backends`) and (`voip/views`).  
-And also add provider data to the VOIP list in the file  
-`voip/settings.py`
+To connect to a different provider, create new backend and view modules under `voip/backends` and `voip/views`, then extend the VOIP configuration pattern in `webcrm/voip_config.py`.
 
 ## CRM integration with messengers
 

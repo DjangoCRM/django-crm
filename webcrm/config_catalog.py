@@ -1,0 +1,65 @@
+"""Canonical environment variables documented in .env.example."""
+
+from __future__ import annotations
+
+MANDATORY_ENV_VARIABLES = frozenset({
+    'DJANGO_SECRET_KEY',
+})
+
+DOCUMENTED_ENV_VARIABLES = frozenset({
+    'DJANGO_SECRET_KEY',
+    'DJANGO_DEBUG',
+    'DJANGO_ALLOWED_HOSTS',
+    'DJANGO_CSRF_TRUSTED_ORIGINS',
+    'DJANGO_SECURE_SSL_REDIRECT',
+    'DJANGO_SESSION_COOKIE_SECURE',
+    'DJANGO_CSRF_COOKIE_SECURE',
+    'DJANGO_SECURE_HSTS_SECONDS',
+    'DATABASE_URL',
+    'DJANGO_DB_ENGINE',
+    'DJANGO_DB_NAME',
+    'DJANGO_DB_USER',
+    'DJANGO_DB_PASSWORD',
+    'DJANGO_DB_HOST',
+    'DJANGO_DB_PORT',
+    'EMAIL_HOST',
+    'EMAIL_PORT',
+    'EMAIL_HOST_USER',
+    'EMAIL_HOST_PASSWORD',
+    'EMAIL_USE_TLS',
+    'EMAIL_USE_SSL',
+    'DEFAULT_FROM_EMAIL',
+    'SERVER_EMAIL',
+    'DJANGO_ADMINS',
+    'DJANGO_MANAGERS',
+    'CRM_IP',
+    'CRM_HOST',
+    'GOOGLE_OAUTH2_CLIENT_ID',
+    'GOOGLE_OAUTH2_CLIENT_SECRET',
+    'ZADARMA_KEY',
+    'ZADARMA_SECRET',
+    'ZADARMA_PROVIDER_ALLOWLIST',
+    'VOIP_FORWARD_DATA',
+    'VOIP_FORWARDING_IP',
+    'VOIP_FORWARD_URL',
+    'GOOGLE_RECAPTCHA_SITE_KEY',
+    'GOOGLE_RECAPTCHA_SECRET_KEY',
+    'SECRET_CRM_PREFIX',
+    'SECRET_ADMIN_PREFIX',
+    'SECRET_LOGIN_PREFIX',
+    'DJANGO_SECRETS_DIR',
+})
+
+FORBIDDEN_ENV_EXAMPLE_VALUES = frozenset({
+    '123',
+    'secret',
+    'crm@example.com',
+    'test@example.com',
+    'admin1_box@example.com',
+    '185.45.152.42',
+    '456-admin',
+    '789-login',
+    'my_crm_host_name',
+    'change-me-to-a-long-random-string',
+    'change-me',
+})

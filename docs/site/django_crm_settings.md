@@ -1,81 +1,104 @@
 ## Settings of Django CRM
 
-Project settings are contained in files `settings.py`.  
-The main project settings are contained in the file  
-`webcrm/settings.py`  (*view on [GitHub](https://github.com/DjangoCRM/django-crm/blob/main/webcrm/settings.py){target="_blank"}*). 
+Django-CRM configuration is supplied through **environment variables** (or secret files), not by editing credential literals in tracked `settings.py` files.
 
-!!! IMPORTANT
+### Quick start
 
-    The syntax of the data in these files must match the syntax of the [<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} language.
+1. Copy the template:
 
-The settings file is divided into two parts:
+```cmd
+cp .env.example .env
+```
 
-- Django settings
-- CRM settings
+2. Generate a signing key and paste it into `.env`:
 
-Most of the project settings are Django framework settings (full list is [here](https://docs.djangoproject.com/en/dev/ref/settings/){target="_blank"}).  
-Explanations for CRM [settings](https://github.com/DjangoCRM/django-crm/blob/main/webcrm/settings.py){target="_blank"} are in the comments to them.  
-Most of the settings can be left at their default values.
+```cmd
+python manage.py generate_secret_key
+```
 
-The default settings are for running the project on a development server.
-Change them for the production server.  
+3. Fill in the remaining values in `.env` using the comments in `.env.example` as a guide.
 
-To start the project for the first time, you can use the default settings (the built-in SQLite3 database will be used).
-To continue using the CRM, please specify other `DATABASES` settings in the file  
-`webcrm/settings.py`  
-and at least specify the `EMAIL_HOST` and `ADMINS` settings.
+4. Verify what the process will load (secrets are masked):
 
-### DATABASES settings
+```cmd
+python manage.py show_config
+```
 
-Check the `DATABASES` settings to connect to the database (detailed instructions [here](https://docs.djangoproject.com/en/dev/ref/settings/#std-setting-DATABASES){target="_blank"}).  
-Configure the `USER` (specified in the `DATABASES`) in your database backend to have the right to create and drop databases.  
-Running tests will create
-and then destroy a separate [test database](https://docs.djangoproject.com/en/dev/topics/testing/overview/#the-test-database){target="_blank"}.
+If a mandatory variable is missing, Django aborts at startup with an `ImproperlyConfigured` error naming the variable. Fix the value in `.env` (or provide a secret file) and restart.
 
-#### MySQL database
+### Mandatory variables
 
-<img src="../icons/mysql_logo.svg" alt="mysql logo" width="30" height="30"> For MySQL database, it is recommended to:
+| Variable | Required when | Default |
+|----------|---------------|---------|
+| `DJANGO_SECRET_KEY` | Always (except the test runner) | none |
 
-- setup the timezone table
-- set the extended encoding:
-    - charset `utf8mb4`
-    - collation  `utf8mb4_general_ci`
+All other variables are optional for local development with `DJANGO_DEBUG=true`. Production deployments must also supply mail settings when outbound email is enabled, and database settings when not using the default SQLite file.
 
-And also if an aggregation or annotation error occurs when running the tests, you need to change sql_mode to `ONLY_FULL_GROUP_BY`.
+See `.env.example` for the full list grouped by concern (core Django, database, mail, integrations, URL prefixes).
 
-#### PostgreSQL
+### Secret files instead of `.env`
 
-<img src="../icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30"> Optimizing PostgreSQL's configuration:
+Set `DJANGO_SECRETS_DIR` (default `/run/secrets`) and create one file per variable using the lowercase variable name (for example `/run/secrets/django_secret_key`). Environment variables take precedence over secret files.
 
-- Install the [psycopg](https://www.psycopg.org/install/){target="_blank"} package  
-    ```cmd
-    pip install psycopg[binary]
-    ```
-- Set the timezone to 'UTC' (when USE_TZ is True)
-- `default_transaction_isolation`: 'read committed'
+`show_config` reports the source tier for each key: `environment`, `secret_file`, or `default`.
 
-You can configure them directly in postgresql.conf `(/etc/postgresql/<version>/main/)`
+### Database configuration
 
-### EMAIL_HOST settings
+Use either:
 
-Specify details for connecting to an email account through which CRM will be able to send notifications to users and administrators.
+- `DATABASE_URL` (for example `postgresql://user:pass@localhost/dbname`), or
+- discrete `DJANGO_DB_*` variables (see `.env.example`).
 
-| setting               | description   |
-|-----------------------|---------------|
-| `EMAIL_HOST`          | *smtp server* |
-| `EMAIL_HOST_PASSWORD` | *password*    |
-| `EMAIL_HOST_USER`     | *user login*  |
+The default development configuration uses SQLite (`DJANGO_DB_ENGINE=sqlite3`, `DJANGO_DB_NAME=crm_db`).
 
-### ADMINS settings
+For MySQL and PostgreSQL tuning notes, see the [installation guide](../installation_and_configuration_guide.md).
 
-Add the addresses of CRM administrators to the list, so they can receive error logs.  
-`ADMINS = [("<Admin1 name>", "<admin1_box@example.com>"), (...)]`
+### Mail configuration
+
+Configure outbound mail through `.env`:
+
+| Variable | Purpose |
+|----------|---------|
+| `EMAIL_HOST` | SMTP server hostname |
+| `EMAIL_HOST_USER` | SMTP username |
+| `EMAIL_HOST_PASSWORD` | SMTP password (secret) |
+| `EMAIL_PORT` | SMTP port (default `587`) |
+| `EMAIL_USE_TLS` | Enable TLS (default `true`) |
+| `DEFAULT_FROM_EMAIL` | From address |
+| `SERVER_EMAIL` | Server error address |
+| `DJANGO_ADMINS` | Admin notifications (`Name <email>`) |
+
+When `DJANGO_DEBUG=false` and any mail variable is set, all mail variables must be supplied together.
+
+### Integrations
+
+Optional integration variables (VoIP, reCAPTCHA, Google OAuth2, URL prefixes) are documented in `.env.example`.
 
 ### CRM email marketing
 
 This is the **mailing CRM**, so email campaigns are allowed by default.  
 If you do not intend to use them, set the `MAILING` parameter to `False` (recommended).  
 Learn more about this [CRM and email marketing](https://djangocrm.github.io/info/features/massmail-app-features/){target="_blank"}.
+
+## Upgrade note (environment-variable migration)
+
+If you previously edited `webcrm/settings.py`, `voip/settings.py`, or related files for credentials, migrate to environment variables:
+
+| Legacy location | New variable(s) |
+|-----------------|-----------------|
+| `SECRET_KEY` | `DJANGO_SECRET_KEY` |
+| `DEBUG` | `DJANGO_DEBUG` |
+| `ALLOWED_HOSTS` | `DJANGO_ALLOWED_HOSTS` |
+| `CSRF_TRUSTED_ORIGINS` | `DJANGO_CSRF_TRUSTED_ORIGINS` |
+| `DATABASES` block | `DATABASE_URL` or `DJANGO_DB_*` |
+| `EMAIL_*`, `ADMINS` | `EMAIL_*`, `DJANGO_ADMINS` |
+| `CRM_IP`, `CRM_HOST` | `CRM_IP`, `CRM_HOST` |
+| `CLIENT_ID`, `CLIENT_SECRET` | `GOOGLE_OAUTH2_CLIENT_ID`, `GOOGLE_OAUTH2_CLIENT_SECRET` |
+| `GOOGLE_RECAPTCHA_*` | `GOOGLE_RECAPTCHA_SITE_KEY`, `GOOGLE_RECAPTCHA_SECRET_KEY` |
+| Zadarma literals in `voip/settings.py` | `ZADARMA_KEY`, `ZADARMA_SECRET`, `ZADARMA_PROVIDER_ALLOWLIST` |
+| `SECRET_*_PREFIX` | `SECRET_CRM_PREFIX`, `SECRET_ADMIN_PREFIX`, `SECRET_LOGIN_PREFIX` |
+
+Copy `.env.example` to `.env`, transfer your values, run `python manage.py show_config`, then remove any credential literals from local overrides such as `local_settings.py`.
 
 ## CRM and database testing
 

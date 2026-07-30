@@ -25,6 +25,8 @@ class ConfigAccessor:
         self._secrets_dir_override = secrets_dir
         self._secret_names: set[str] = set()
         self._access_registry: dict[str, str] = {}
+        self._source_registry: dict[str, str] = {}
+        self._mandatory_names: set[str] = set()
 
     def register_secret(self, name: str) -> None:
         self._secret_names.add(name)
@@ -39,14 +41,22 @@ class ConfigAccessor:
             self._secret_names.add(name)
         return name in self._secret_names
 
-    def _record_access(self, name: str, value: str, *, secret: bool) -> None:
+    def _record_access(
+        self,
+        name: str,
+        value: str,
+        *,
+        secret: bool,
+        source: str,
+    ) -> None:
         stored = SECRET_MASK if self._is_secret(name, secret) else value
         self._access_registry[name] = stored
-        logger.debug('Resolved configuration key %s=%s', name, stored)
+        self._source_registry[name] = source
+        logger.debug('Resolved configuration key %s=%s (%s)', name, stored, source)
 
-    def _resolve_raw(self, name: str, default: Any = MISSING) -> str | None:
+    def _resolve_raw(self, name: str, default: Any = MISSING) -> tuple[str | None, str]:
         if name in os.environ:
-            return os.environ[name]
+            return os.environ[name], 'environment'
 
         secret_path = os.path.join(self._secrets_directory(), name.lower())
         if os.path.isfile(secret_path):
@@ -59,14 +69,14 @@ class ConfigAccessor:
                     f"{ENV_REMEDIATION}"
                 ) from exc
             if secret_value:
-                return secret_value
+                return secret_value, 'secret_file'
 
         if default is not MISSING:
             if default is None:
-                return None
-            return str(default)
+                return None, 'default'
+            return str(default), 'default'
 
-        return None
+        return None, 'missing'
 
     def _missing_message(self, name: str) -> str:
         return (
@@ -81,19 +91,22 @@ class ConfigAccessor:
         *,
         secret: bool = False,
     ) -> str:
-        raw = self._resolve_raw(name, default)
+        if default is MISSING:
+            self._mandatory_names.add(name)
+        raw, source = self._resolve_raw(name, default)
         if raw is None:
             raise ImproperlyConfigured(self._missing_message(name))
 
-        self._record_access(name, raw, secret=secret)
+        self._record_access(name, raw, secret=secret, source=source)
         return raw
 
     def require(self, name: str, *, secret: bool = False) -> str:
-        raw = self._resolve_raw(name)
+        self._mandatory_names.add(name)
+        raw, source = self._resolve_raw(name)
         if raw is None:
             raise ImproperlyConfigured(self._missing_message(name))
 
-        self._record_access(name, raw, secret=secret)
+        self._record_access(name, raw, secret=secret, source=source)
         return raw
 
     def get_bool(
@@ -103,13 +116,15 @@ class ConfigAccessor:
         *,
         secret: bool = False,
     ) -> bool:
-        raw = self._resolve_raw(name, default)
+        if default is MISSING:
+            self._mandatory_names.add(name)
+        raw, source = self._resolve_raw(name, default)
         if raw is None:
             raise ImproperlyConfigured(self._missing_message(name))
 
         normalized = raw.strip().lower()
         value = normalized in {'true', '1', 'yes', 'on'}
-        self._record_access(name, raw, secret=secret)
+        self._record_access(name, raw, secret=secret, source=source)
         return value
 
     def get_int(
@@ -119,7 +134,9 @@ class ConfigAccessor:
         *,
         secret: bool = False,
     ) -> int:
-        raw = self._resolve_raw(name, default)
+        if default is MISSING:
+            self._mandatory_names.add(name)
+        raw, source = self._resolve_raw(name, default)
         if raw is None:
             raise ImproperlyConfigured(self._missing_message(name))
 
@@ -131,7 +148,7 @@ class ConfigAccessor:
                 f"received {raw!r}. {ENV_REMEDIATION}"
             ) from exc
 
-        self._record_access(name, raw, secret=secret)
+        self._record_access(name, raw, secret=secret, source=source)
         return value
 
     def get_list(
@@ -141,7 +158,9 @@ class ConfigAccessor:
         *,
         secret: bool = False,
     ) -> list[str]:
-        raw = self._resolve_raw(name, default)
+        if default is MISSING:
+            self._mandatory_names.add(name)
+        raw, source = self._resolve_raw(name, default)
         if raw is None:
             raise ImproperlyConfigured(self._missing_message(name))
 
@@ -151,7 +170,7 @@ class ConfigAccessor:
             values = [part.strip() for part in raw.split(',')]
             values = [part for part in values if part]
 
-        self._record_access(name, raw, secret=secret)
+        self._record_access(name, raw, secret=secret, source=source)
         return values
 
     def is_testing(self) -> bool:
@@ -159,6 +178,18 @@ class ConfigAccessor:
 
     def diagnostics(self) -> dict[str, str]:
         return dict(self._access_registry)
+
+    def source_diagnostics(self) -> dict[str, str]:
+        return dict(self._source_registry)
+
+    def mandatory_names(self) -> frozenset[str]:
+        return frozenset(self._mandatory_names)
+
+    def unresolved_mandatory(self) -> list[str]:
+        return sorted(
+            name for name in self._mandatory_names
+            if name not in self._access_registry
+        )
 
     def __repr__(self) -> str:
         return f'ConfigAccessor({self.diagnostics()})'
