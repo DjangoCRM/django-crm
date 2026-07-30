@@ -1,0 +1,158 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 9001,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1001",
+      "object_repr": "Acme Corporation deal",
+      "action_flag": 1,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9002,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1002",
+      "object_repr": "Contact record",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9003,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1003",
+      "object_repr": "Legacy contact row",
+      "action_flag": 2,
+      "change_message": "Updated the phone number manually"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9004,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1004",
+      "object_repr": "Removed item snapshot",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9005,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1005",
+      "object_repr": "Société café résumé",
+      "action_flag": 2,
+      "change_message": "naïve legacy note about café"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9006,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1006",
+      "object_repr": "wildcard_test row",
+      "action_flag": 2,
+      "change_message": "Progress is 100% complete"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9007,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1007",
+      "object_repr": "underscore_name row",
+      "action_flag": 2,
+      "change_message": "field_name updated"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9008,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1008",
+      "object_repr": "North Region Office",
+      "action_flag": 2,
+      "change_message": "Assigned North Region Office territory"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9009,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "9009",
+      "object_repr": "Identifier branch row",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9010,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1010",
+      "object_repr": "No-match decoy",
+      "action_flag": 2,
+      "change_message": "Unrelated audit note"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9011,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1011",
+      "object_repr": "Billing profile",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"billing address\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9012,
+    "fields": {
+      "action_time": "2024-01-15T12:00:00Z",
+      "user": 1,
+      "content_type": ["auth", "user"],
+      "object_id": "1012",
+      "object_repr": "Accent corpus row",
+      "action_flag": 2,
+      "change_message": "Adjusted naïve café résumé wording"
+    }
+  }
+]

@@ -1,3 +1,14 @@
+"""Tests for LogEntryAdmin and related admin utilities.
+
+LogEntry search parity contract
+-------------------------------
+The ``LogEntrySearchParityTests`` class captures the current behaviour of
+``LogEntryAdmin.get_search_results`` against a committed fixture corpus.
+These assertions are a **parity contract** for the planned database-side
+rewrite and must **not** be relaxed or modified when the implementation is
+replaced; only an intentional corpus revision may change expected primary keys.
+"""
+
 from common.site.crmsite import get_url
 from django.urls import NoReverseMatch
 from django.test import TestCase
@@ -6,12 +17,16 @@ from unittest.mock import patch
 from django.contrib import admin
 from django.contrib.admin.sites import AdminSite
 from django.contrib.contenttypes.models import ContentType
+from django.conf import settings
 from django.test import RequestFactory
 from django.test import tag
 
 from common.admin import LogEntryAdmin
 from common.utils.helpers import USER_MODEL
 from tests.base_test_classes import BaseTestCase
+from tests.common.log_entry_parity import assert_search_parity
+from tests.common.log_entry_parity import capture_search_pks
+from tests.common.log_entry_parity_seed import PARITY_LOG_ENTRY_PKS
 
 # manage.py test tests.common.test_log_entry_admin --keepdb
 
@@ -144,6 +159,116 @@ class TestLogEntryAdmin(BaseTestCase):
         
         self.assertTrue(use_distinct)
         self.assertEqual(list(results), [])
+
+
+@tag('TestCase')
+class LogEntrySearchParityTests(BaseTestCase):
+    """Characterization harness for LogEntryAdmin.get_search_results."""
+
+    fixtures = BaseTestCase.fixtures + ('log_entries_parity.json',)
+
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+        admin.models.LogEntry.objects.exclude(
+            pk__in=PARITY_LOG_ENTRY_PKS,
+        ).delete()
+        cls.staff_user = USER_MODEL.objects.get(username='Adam.Admin')
+
+    def setUp(self):
+        self.model_admin = LogEntryAdmin(admin.models.LogEntry, AdminSite())
+        self.factory = RequestFactory()
+
+    def test_parity_object_repr_term_currently_matches_via_change_message_only(self):
+        """Corpus row 9001: object_repr text is not searched today (expect no hits)."""
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, 'Acme', [], True)
+
+    def test_parity_json_change_message(self):
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, 'Email', [9002], True)
+
+    def test_parity_legacy_change_message(self):
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, 'phone', [9003], True)
+
+    def test_parity_id_prefix_branch(self):
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, 'ID9009', [9009], True)
+
+    def test_parity_multi_word_term(self):
+        request = self.factory.get('/')
+        assert_search_parity(
+            self,
+            self.model_admin,
+            request,
+            'North Region',
+            [9008],
+            True,
+        )
+
+    def test_parity_empty_search_term(self):
+        request = self.factory.get('/')
+        pks, may_have_duplicates = capture_search_pks(
+            self.model_admin,
+            request,
+            '',
+        )
+        self.assertEqual(pks, sorted(PARITY_LOG_ENTRY_PKS))
+        self.assertFalse(may_have_duplicates)
+
+    def test_parity_no_match(self):
+        request = self.factory.get('/')
+        assert_search_parity(
+            self,
+            self.model_admin,
+            request,
+            'xyzzy_nonexistent',
+            [],
+            True,
+        )
+
+    def test_parity_sql_wildcard_characters_in_term(self):
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, '100%', [9006], True)
+        assert_search_parity(self, self.model_admin, request, 'field_name', [9007], True)
+
+    def test_parity_unicode_and_accented_terms(self):
+        request = self.factory.get('/')
+        assert_search_parity(self, self.model_admin, request, 'café', [9005, 9012], True)
+        assert_search_parity(self, self.model_admin, request, 'naïve', [9005, 9012], True)
+
+    def test_parity_json_field_label_substring(self):
+        request = self.factory.get('/')
+        assert_search_parity(
+            self,
+            self.model_admin,
+            request,
+            'billing address',
+            [9011],
+            True,
+        )
+
+    def test_parity_admin_changelist_result_count(self):
+        changelist_url = (
+            f'/{settings.SECRET_ADMIN_PREFIX}admin/logentry/'
+        )
+        self.client.force_login(self.staff_user)
+        expected_pks, _ = capture_search_pks(
+            self.model_admin,
+            self.factory.get('/'),
+            'Email',
+        )
+        response = self.client.get(
+            changelist_url,
+            data={'q': 'Email'},
+            HTTP_ACCEPT_LANGUAGE='en',
+            follow=True,
+        )
+        self.assertEqual(response.status_code, 200)
+        result_list = response.context['cl'].result_list
+        rendered_pks = sorted(entry.pk for entry in result_list)
+        self.assertEqual(rendered_pks, expected_pks)
 
 
 class GetUrlTestCase(TestCase):
