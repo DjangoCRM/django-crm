@@ -1,3 +1,31 @@
 [build-system]
 requires = ['setuptools>=83.0.0']
 build-backend = 'setuptools.build_meta'
+
+[tool.coverage.run]
+branch = true
+source = [
+    "common",
+    "crm",
+    "analytics",
+    "tasks",
+    "massmail",
+    "chat",
+    "voip",
+    "quality",
+    "help",
+    "settings",
+    "webcrm",
+]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "*/static/*",
+    "*/media/*",
+    "*/venv/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+# fail_under = 90  # Enable later to enforce the coverage threshold.

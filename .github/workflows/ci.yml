@@ -29,15 +29,47 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
       - name: Generate signing key
         run: echo "DJANGO_SECRET_KEY=$(python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')" >> "$GITHUB_ENV"
       - name: Startup smoke
         run: python manage.py check
-      - name: Run tests
-        run: python manage.py test tests/ --noinput
+      - name: Run tests with coverage
+        id: tests
+        run: |
+          set +e
+          coverage run manage.py test tests/ --noinput 2>&1 | tee test-output.log
+          exit_code=${PIPESTATUS[0]}
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          exit "${exit_code}"
+      - name: Generate coverage reports
+        if: always() && steps.tests.outcome != 'cancelled'
+        run: |
+          coverage json -o coverage.json
+          coverage xml -o coverage.xml
+          coverage html -d htmlcov
+      - name: Write coverage summary
+        if: always() && steps.tests.outcome != 'cancelled'
+        run: python .github/scripts/write_coverage_summary.py
+      - name: Upload coverage reports
+        if: always() && steps.tests.outcome != 'cancelled'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: coverage-sqlite
+          path: |
+            coverage.xml
+            coverage.json
+            htmlcov/
+          retention-days: 30
+      - name: Write leg summary
+        if: always()
+        run: bash .github/scripts/write_leg_summary.sh sqlite "${{ steps.tests.outputs.exit_code || 1 }}"
 
   test-postgres:
     name: test (postgres)
@@ -73,9 +105,18 @@ jobs:
           DATABASE_URL: postgresql://crm:crm@127.0.0.1:5432/crm_test
         run: python manage.py check
       - name: Run tests
+        id: tests
         env:
           DATABASE_URL: postgresql://crm:crm@127.0.0.1:5432/crm_test
-        run: python manage.py test tests/ --noinput
+        run: |
+          set +e
+          python manage.py test tests/ --noinput 2>&1 | tee test-output.log
+          exit_code=${PIPESTATUS[0]}
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          exit "${exit_code}"
+      - name: Write leg summary
+        if: always()
+        run: bash .github/scripts/write_leg_summary.sh postgres "${{ steps.tests.outputs.exit_code || 1 }}"
 
   test-mysql:
     name: test (mysql)
@@ -110,6 +151,15 @@ jobs:
           DATABASE_URL: mysql://root@127.0.0.1:3306/crm_test
         run: python manage.py check
       - name: Run tests
+        id: tests
         env:
           DATABASE_URL: mysql://root@127.0.0.1:3306/crm_test
-        run: python manage.py test tests/ --noinput
+        run: |
+          set +e
+          python manage.py test tests/ --noinput 2>&1 | tee test-output.log
+          exit_code=${PIPESTATUS[0]}
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          exit "${exit_code}"
+      - name: Write leg summary
+        if: always()
+        run: bash .github/scripts/write_leg_summary.sh mysql "${{ steps.tests.outputs.exit_code || 1 }}"

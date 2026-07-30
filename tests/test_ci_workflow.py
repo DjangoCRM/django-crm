@@ -22,6 +22,9 @@ class TestCIWorkflow(SimpleTestCase):
         self.assertIn('pg_isready', workflow)
         self.assertIn('mysqladmin ping', workflow)
         self.assertIn('python manage.py check', workflow)
-        self.assertIn('python manage.py test tests/ --noinput', workflow)
+        self.assertIn('coverage run manage.py test tests/ --noinput', workflow)
+        self.assertIn('write_leg_summary.sh', workflow)
+        self.assertIn('write_coverage_summary.py', workflow)
+        self.assertIn('requirements-dev.txt', workflow)
         sqlite_section = workflow.split('test-sqlite:', 1)[1].split('test-postgres:', 1)[0]
         self.assertNotIn('services:', sqlite_section)
