@@ -11,7 +11,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import get_formatted_short_date
+from sharedkernel.presentation import get_formatted_short_date
 
 
 class Base(models.Model):
