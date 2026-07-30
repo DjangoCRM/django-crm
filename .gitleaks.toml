@@ -1,0 +1,16 @@
+title = "django-crm gitleaks config"
+
+[allowlist]
+description = "Documented placeholders and security test fixtures"
+paths = [
+  '''\.env\.example$''',
+  '''^docs/''',
+  '''^tests/fixtures/security/''',
+  '''^tests/fixtures/env/''',
+]
+
+[allowlist.regexes]
+description = "Angle-bracket placeholders"
+regexes = [
+  '''=<[^>]+>$''',
+]

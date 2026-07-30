@@ -163,3 +163,43 @@ jobs:
       - name: Write leg summary
         if: always()
         run: bash .github/scripts/write_leg_summary.sh mysql "${{ steps.tests.outputs.exit_code || 1 }}"
+
+  supply-chain:
+    name: supply-chain
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+      - name: Generate signing key
+        run: echo "DJANGO_SECRET_KEY=$(python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')" >> "$GITHUB_ENV"
+      - name: Settings secret literal scan
+        run: python manage.py check_secrets
+      - name: Dependency vulnerability audit
+        run: |
+          # Fail on HIGH or CRITICAL advisories. To ignore temporarily, add:
+          # --ignore-vuln CVE-YYYY-NNNN with a dated comment in this step.
+          pip-audit -r requirements.txt --severity high
+      - name: Supply-chain tests
+        id: supply_chain_tests
+        run: python manage.py test tests.security.test_no_secret_literals tests.test_settings_no_secrets tests.test_workflow_action_pins --noinput
+      - name: Write leg summary
+        if: always()
+        run: bash .github/scripts/write_leg_summary.sh supply-chain "$([ '${{ steps.supply_chain_tests.outcome }}' = 'success' ] && echo 0 || echo 1)"
