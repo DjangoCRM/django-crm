@@ -32,7 +32,7 @@
                     <a href="{% url 'download_original_email' email.id %}" title="{% translate 'Download the original email as an EML file.' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">file_download</i></a>
                   </li>&nbsp;&nbsp;
                 {% endif %}
-                  <li><a href="{%  url 'site:crm_crmemail_change' email.id %}" title="{% translate 'Change' %}"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">border_color</i></a></li>
+                  <li><a href="{% url 'site:crm_crmemail_change' email.id %}" title="{% translate 'Change' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">border_color</i></a></li>
                   <li><a href="{%  url 'reply_email' email.id %}?act=reply" title="{% translate 'reply' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply</i></a></li>
                   <li><a href="{%  url 'reply_email' email.id %}?act=reply-all" title="{% translate 'reply all' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply_all</i></a></li>
                   <li><a href="{%  url 'reply_email' email.id %}?act=forward" title="{% translate 'forward' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">forward</i></a></li>
