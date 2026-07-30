@@ -142,3 +142,4 @@ pytest.ini
 .cursor/hooks.json
 .cursor/hooks/
 .cursor/rules/forge-workflow.mdc
+__pycache__/

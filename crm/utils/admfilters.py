@@ -16,9 +16,9 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from common.models import Department
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from crm.models import Contact
 from crm.models import Product
 from crm.models import Tag

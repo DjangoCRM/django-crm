@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from crm.site.crmadminsite import crm_site
 from help.models import Page
 from help.models import Paragraph

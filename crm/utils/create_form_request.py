@@ -2,9 +2,9 @@ from django.conf import settings
 from django.db.models import Q
 
 from common.models import Department
-from common.utils.helpers import get_active_users
-from common.utils.helpers import get_today
-from common.utils.helpers import send_crm_email
+from common.queries import get_active_users
+from common.services.datetimes import get_today
+from common.services.notifications import send_crm_email
 from common.utils.parse_full_name import parse_full_name
 from crm.forms.contact_form import ContactForm
 from crm.models import Country

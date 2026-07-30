@@ -4,8 +4,8 @@ from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.http import HttpResponseForbidden
 
-from common.utils.helpers import get_active_users
-from common.utils.helpers import get_department_id
+from common.queries import get_active_users
+from common.queries import get_department_id
 from massmail.views.signature_previews import signature_preview
 
 

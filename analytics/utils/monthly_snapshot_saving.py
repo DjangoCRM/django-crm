@@ -14,7 +14,7 @@ from django.utils import timezone
 from django.urls import reverse
 
 from analytics.models import IncomeStatSnapshot
-from common.utils.helpers import get_manager_departments
+from common.queries import get_manager_departments
 
 
 class MonthlySnapshotSaving(threading.Thread, SingleInstance):

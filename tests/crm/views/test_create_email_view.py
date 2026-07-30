@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.test import tag
 from django.urls import reverse
 
-from common.utils.helpers import get_delta_date
-from common.utils.helpers import get_department_id
+from common.services.datetimes import get_delta_date
+from common.queries import get_department_id
 from crm.models import Company
 from crm.models import Contact
 from crm.models import CrmEmail

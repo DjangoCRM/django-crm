@@ -6,10 +6,10 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.utils.translation import gettext as _
 from django.utils.translation import override
 
-from common.utils.helpers import compose_message
-from common.utils.helpers import compose_subject
-from common.utils.helpers import notify_admins_no_email
-from common.utils.helpers import save_message
+from common.services.messaging import compose_message
+from common.services.messaging import compose_subject
+from common.services.notifications import notify_admins_no_email
+from common.services.notifications import save_message
 from common.utils.email_to_participants import email_to_participants
 
 SessionStore = import_module(settings.SESSION_ENGINE).SessionStore

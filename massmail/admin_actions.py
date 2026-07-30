@@ -10,7 +10,7 @@ from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
+from sharedkernel.presentation import FRIDAY_SATURDAY_SUNDAY_MSG
 from massmail.models import EmailAccount
 from massmail.models import MailingOut
 from massmail.models import MassContact

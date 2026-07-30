@@ -13,7 +13,7 @@ from django.utils.translation import gettext as _
 from typing import Optional
 from typing import Tuple
 
-from common.utils.helpers import add_phone_q_params
+from common.queries import add_phone_q_params
 from crm.models import Contact
 from crm.models import Deal
 from crm.models import Lead

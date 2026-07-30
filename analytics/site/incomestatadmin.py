@@ -30,8 +30,8 @@ from analytics.utils.helpers import get_current_currency_amount
 from analytics.utils.helpers import get_income_over_time
 from analytics.utils.helpers import get_currency_info
 from analytics.utils.helpers import GroupConcat
-from common.utils.helpers import get_today
-from common.utils.helpers import LEADERS
+from common.services.datetimes import get_today
+from sharedkernel.presentation import LEADERS
 from crm.models import Output
 from crm.models import Payment
 from crm.models import Rate

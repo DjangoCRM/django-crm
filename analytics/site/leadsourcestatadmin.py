@@ -11,7 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from analytics.models import RequestStat
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_values_over_time
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 
 page_title = _("Request source statistics")
 source_table_title = _("Number of requests for each source")

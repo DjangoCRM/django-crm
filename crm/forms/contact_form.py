@@ -3,7 +3,7 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import send_crm_email
+from common.services.notifications import send_crm_email
 from crm.models import LeadSource
 
 

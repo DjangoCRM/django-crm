@@ -9,9 +9,9 @@ from django.urls import reverse
 
 from common.models import TheFile
 from common.templatetags.util import FILE_ERROR_SUBJ
-from common.utils.helpers import get_delta_date
+from common.services.datetimes import get_delta_date
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from crm.models import Deal
 from crm.models import CrmEmail
 from crm.site.crmemailadmin import CrmEmailAdmin

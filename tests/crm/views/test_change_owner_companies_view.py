@@ -5,9 +5,9 @@ from crm.models import Company
 from crm.models import Contact
 from crm.models import Country
 from tests.base_test_classes import BaseTestCase
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 
 # manage.py test tests.crm.views.test_change_owner_companies_view --keepdb
 # manage.py test --tag=TestCase --keepdb

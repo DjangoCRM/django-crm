@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from common.admin import FileInline
 from common.utils.get_file_links import get_file_links
-from common.utils.helpers import SAFE_ATTACH_FILE_ICON
+from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
 
 
 class TransactionQualityEventAdmin(admin.ModelAdmin):

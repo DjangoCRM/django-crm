@@ -15,7 +15,7 @@ from common.admin import FileInline
 from common.models import TheFile
 from common.admin import InlineFileForm
 from common.utils.get_signature_preview import get_signature_preview
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.forms.admin_forms import IoMail
 from crm.models import CrmEmail
 from crm.site.crmmodeladmin import CrmModelAdmin

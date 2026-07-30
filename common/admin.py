@@ -12,7 +12,7 @@ from common.models import TheFile
 from common.models import UserProfile
 from common.site import reminderadmin
 from common.site import userprofileadmin
-from common.utils.helpers import SAFE_ATTACH_FILE_ICON
+from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
 from crm.site.crmadminsite import crm_site
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from sharedkernel.search import AuditSearchService

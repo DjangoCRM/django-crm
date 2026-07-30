@@ -8,10 +8,10 @@ from django.urls import reverse
 from django.utils.formats import date_format
 
 from common.models import Reminder
-from common.utils.helpers import get_delta_date
+from common.services.datetimes import get_delta_date
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import get_department_id
-from common.utils.helpers import get_now
+from common.queries import get_department_id
+from common.services.datetimes import get_now
 from crm.models import Currency
 from crm.models import Deal
 from crm.models import CrmEmail

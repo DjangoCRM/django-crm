@@ -15,7 +15,7 @@ from django.utils.safestring import mark_safe
 from common.models import Reminder
 from common.models import UserProfile
 from common.utils.hide_main_tasks import hide_main_tasks
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from crm.models import CrmEmail
 from crm.models import Request
 from help.models import Page

@@ -7,9 +7,9 @@ from django.utils.translation import gettext_lazy as _
 from common.admin import FileInline
 from common.utils.copy_files import copy_files
 from common.utils.get_signature_preview import get_signature_preview
-from common.utils.helpers import CONTENT_COPY_ICON
-from common.utils.helpers import CONTENT_COPY_LINK
-from common.utils.helpers import COPY_STR
+from sharedkernel.presentation import CONTENT_COPY_ICON
+from sharedkernel.presentation import CONTENT_COPY_LINK
+from sharedkernel.presentation import COPY_STR
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.models import EmlMessage

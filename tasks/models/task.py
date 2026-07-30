@@ -5,7 +5,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from common.utils.helpers import USER_MODEL
 from tasks.models.taskbase import TaskBase
 

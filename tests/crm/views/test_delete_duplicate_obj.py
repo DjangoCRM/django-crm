@@ -4,7 +4,7 @@ from django.test import RequestFactory
 from django.urls import reverse
 from common.models import TheFile
 
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from crm.models import CrmEmail, Industry
 from crm.models import Lead

@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 
 from crm.models import Lead
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from massmail.models.email_account import EmailAccount
 from massmail.models.eml_accounts_queue import EmlAccountsQueue

@@ -8,7 +8,7 @@ from django.utils.http import urlencode
 from django.utils.translation import gettext as _
 
 from common.models import TheFile
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from crm.forms.add_files_form import AddFilesForm
 from crm.models import CrmEmail
 from crm.utils.ticketproc import get_ticket_str

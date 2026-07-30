@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.core import mail
 from django.test import tag
 
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from crm.forms.admin_forms import COUNTRY_WARNING
 from crm.models import Company

@@ -25,7 +25,7 @@ from django.urls import reverse
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_currency_info
 from common.models import Department
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from crm.models import Output
 from crm.models import Payment
 from crm.models import Rate

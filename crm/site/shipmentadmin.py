@@ -9,9 +9,9 @@ from django.utils.formats import date_format
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.email_to_participants import email_to_participants
-from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import get_today
-from common.utils.helpers import LEADERS
+from common.services.translations import get_trans_for_user
+from common.services.datetimes import get_today
+from sharedkernel.presentation import LEADERS
 from crm.models import Payment
 from crm.models import Shipment
 from crm.models import Stage
@@ -21,7 +21,7 @@ from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from crm.utils.helpers import get_counterparty_header
 from crm.utils.helpers import NO_DEAL_AMOUNT_STR
 from crm.utils.helpers import get_owner_header
-from common.utils.helpers import save_message
+from common.services.notifications import save_message
 
 actual_date_str = _('actual')
 actual_date_title = _("Actual shipping date.")

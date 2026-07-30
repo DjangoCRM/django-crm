@@ -5,8 +5,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import get_today
-from common.utils.helpers import token_default
+from common.services.datetimes import get_today
+from common.services.tokens import token_default
 from massmail.models import MassContact
 
 

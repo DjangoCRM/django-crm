@@ -1,6 +1,6 @@
 from django import template
 
-from common.utils.helpers import SAFE_ATTACH_FILE_ICON
+from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
 
 register = template.Library()
 

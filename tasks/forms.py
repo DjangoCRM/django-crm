@@ -6,7 +6,7 @@ from django.forms import Textarea
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from tasks.models import Memo
 from tasks.models import Project
 from tasks.models import Task

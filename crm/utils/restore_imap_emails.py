@@ -19,9 +19,9 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.templatetags.util import replace_lang
-from common.utils.helpers import get_formatted_short_date
-from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import save_message
+from sharedkernel.presentation import get_formatted_short_date
+from common.services.translations import get_trans_for_user
+from common.services.notifications import save_message
 from common.models import TheFile
 from crm.models import CrmEmail
 from crm.models import Deal

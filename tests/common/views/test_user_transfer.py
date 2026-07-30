@@ -11,7 +11,7 @@ from crm.models import Product
 from crm.models import ClosingReason
 from crm.models import Request
 from crm.models import Tag
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from tests.crm.test_deal import get_contact_request
 from tests.crm.test_deal import get_test_deal

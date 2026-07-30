@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core import mail
 from django.test import TransactionTestCase
 
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from crm.models import CrmEmail, Deal, Request
 from crm.utils.restore_imap_emails import EXCEPT_SUBJECT
 from crm.utils.ticketproc import get_ticket_str

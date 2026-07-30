@@ -12,7 +12,7 @@ from django.test import tag
 from django.urls import reverse
 
 from analytics.utils.helpers import GroupConcat
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from crm.models import Currency
 from crm.models import Payment

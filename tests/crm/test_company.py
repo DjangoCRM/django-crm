@@ -2,7 +2,7 @@ from django.test import tag
 from django.urls import reverse
 
 from crm.models import Company
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from tests.base_test_classes import BaseTestCase
 from tests.utils.helpers import get_adminform_initials, get_country_instance

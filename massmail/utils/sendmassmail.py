@@ -27,9 +27,9 @@ from django.utils.formats import date_format
 from django.utils.translation import gettext_lazy as _
 from django.db.utils import OperationalError
 
-from common.utils.helpers import get_formatted_short_date
-from common.utils.helpers import get_now
-from common.utils.helpers import get_trans_for_user
+from sharedkernel.presentation import get_formatted_short_date
+from common.services.datetimes import get_now
+from common.services.translations import get_trans_for_user
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Lead

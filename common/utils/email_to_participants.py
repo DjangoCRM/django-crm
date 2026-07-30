@@ -5,8 +5,8 @@ from django.template import loader
 from django.utils.translation import gettext as _
 from django.utils.translation import override
 
-from common.utils.helpers import compose_subject
-from common.utils.helpers import send_crm_email
+from common.services.messaging import compose_subject
+from common.services.notifications import send_crm_email
 
 
 def email_to_participants(obj, subject: str, recipient_list: List[User],

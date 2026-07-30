@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from common.utils.helpers import send_crm_email
+from common.services.notifications import send_crm_email
 from crm.forms.contact_form import ContactForm
 from crm.models import LeadSource
 from crm.utils.create_form_request import create_form_request

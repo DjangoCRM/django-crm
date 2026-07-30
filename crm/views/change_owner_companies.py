@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 from crm.site.crmadminsite import crm_site
 from crm.models import Company, Contact
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 
 

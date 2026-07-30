@@ -16,7 +16,7 @@ from django.utils.translation import gettext
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 
-from common.utils.helpers import popup_window
+from sharedkernel.presentation import popup_window
 from crm.models import CrmEmail
 from crm.utils.crm_imap import CrmIMAP
 from crm.utils.helpers import ensure_decoding

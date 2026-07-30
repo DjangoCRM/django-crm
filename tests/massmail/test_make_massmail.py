@@ -6,7 +6,7 @@ from crm.models import Contact
 from crm.models import Country
 from crm.models import ClientType
 from crm.models import Industry
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from massmail.models import MailingOut, EmlMessage
 from massmail.models.email_account import EmailAccount

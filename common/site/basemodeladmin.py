@@ -9,11 +9,12 @@ from django.urls import reverse
 
 from common.models import Reminder
 from common.views.export_objects import export_selected_objects
-from common.utils.helpers import SAFE_SUBJECT_ICON, get_department_id
-from common.utils.helpers import SAFE_ATTACH_FILE_ICON
-from common.utils.helpers import OBJ_DOESNT_EXIT_STR
-from common.utils.helpers import get_verbose_name
-from common.utils.helpers import get_today
+from common.queries import get_department_id
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
+from sharedkernel.presentation import OBJ_DOESNT_EXIT_STR
+from sharedkernel.presentation import get_verbose_name
+from common.services.datetimes import get_today
 from crm.utils.helpers import add_id_to_raw_id_field_label
 
 TAGS_STR = _('Tags')

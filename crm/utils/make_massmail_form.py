@@ -9,7 +9,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.gettext_messages import ERROR_CREATED_BEFORE
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from crm.models import ClientType
 from crm.models import Company
 from crm.models import Contact

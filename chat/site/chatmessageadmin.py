@@ -31,12 +31,13 @@ from common.models import UserProfile
 from common.utils.get_file_links import get_file_links
 from crm.models import Deal
 from common.admin import FileInline
-from common.utils.helpers import CRM_NOTICE, get_active_users
-from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import LEADERS
-from common.utils.helpers import send_crm_email
+from common.queries import get_active_users
+from sharedkernel.presentation import CRM_NOTICE
+from common.services.translations import get_trans_for_user
+from sharedkernel.presentation import LEADERS
+from common.services.notifications import send_crm_email
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import save_message
+from common.services.notifications import save_message
 from tasks.models import Memo
 from tasks.models import Project
 from tasks.models import Task

@@ -10,7 +10,7 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 
 from common.models import Department
-from common.utils.helpers import get_trans_for_user
+from common.services.translations import get_trans_for_user
 from common.utils.helpers import USER_MODEL
 from crm.models.others import LeadSource
 from crm.models import City

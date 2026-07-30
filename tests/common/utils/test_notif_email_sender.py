@@ -4,7 +4,7 @@ from time import sleep
 from django.core import mail
 from django.test import SimpleTestCase
 
-from common.utils.helpers import send_crm_email
+from common.services.notifications import send_crm_email
 
 # manage.py test tests.common.utils.test_notification_email_sender --keepdb
 

@@ -8,7 +8,7 @@ from django.utils.safestring import mark_safe
 
 from common.models import Reminder
 from common.forms.reminderform import ReminderForm
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 
 icon_str = '<i title="%s" class="material-icons" style="color: var(--body-quiet-color)">%s</i>'
 creation_date_title = Reminder._meta.get_field('creation_date').verbose_name  # NOQA

@@ -7,7 +7,7 @@ from django.utils.safestring import mark_safe
 from django.urls import path
 from django.urls import reverse
 
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from common.utils.resize_image import resize_image
 from crm.forms.admin_forms import CompanyForm
 from crm.models import Company

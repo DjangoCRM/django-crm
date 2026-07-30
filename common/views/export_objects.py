@@ -10,8 +10,8 @@ from django.db.models.query import QuerySet
 from django.utils.encoding import escape_uri_path
 from django.utils.formats import date_format
 
-from common.utils.helpers import get_today
-from common.utils.helpers import get_verbose_name
+from common.services.datetimes import get_today
+from sharedkernel.presentation import get_verbose_name
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Deal

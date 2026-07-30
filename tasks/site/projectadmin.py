@@ -4,10 +4,10 @@ from django.http import HttpResponseRedirect
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import add_chat_context
-from common.utils.helpers import get_active_users
-from common.utils.helpers import get_delta_date
-from common.utils.helpers import get_today
+from common.queries import add_chat_context
+from common.queries import get_active_users
+from common.services.datetimes import get_delta_date
+from common.services.datetimes import get_today
 from tasks.models import Project
 from tasks.models import ProjectStage
 from tasks.models import Task

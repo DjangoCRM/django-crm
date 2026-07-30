@@ -10,8 +10,8 @@ from django.urls import reverse
 from crm.models import Company
 from crm.models import Contact
 from common.views.export_objects import get_file_path
-from common.utils.helpers import get_department_id
-from common.utils.helpers import get_today
+from common.queries import get_department_id
+from common.services.datetimes import get_today
 from tests.utils.helpers import get_user
 
 # manage.py test tests.crm.test_import_export --keepdb

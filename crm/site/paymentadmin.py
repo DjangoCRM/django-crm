@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 
 from common.models import Department
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from crm.models import Currency
 from crm.models import Output
 from crm.models import Rate

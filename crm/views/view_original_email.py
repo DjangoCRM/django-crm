@@ -12,7 +12,7 @@ from django.shortcuts import render
 from django.template.defaultfilters import linebreaks
 from django.http import HttpResponse
 
-from common.utils.helpers import OBJ_DOESNT_EXIT_STR
+from sharedkernel.presentation import OBJ_DOESNT_EXIT_STR
 from crm.models import CrmEmail
 from crm.utils.crm_imap import CrmIMAP
 from crm.utils.helpers import ensure_decoding

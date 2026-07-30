@@ -2,7 +2,7 @@ from django.contrib.auth.models import Permission
 from django.test import tag
 from django.urls import reverse
 
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from massmail.models import EmailAccount
 from tests.base_test_classes import BaseTestCase

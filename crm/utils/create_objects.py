@@ -13,7 +13,7 @@ from crm.models import Industry
 from crm.models import LeadSource
 from crm.utils.helpers import DateForm
 from crm.utils.helpers import get_owner
-from common.utils.helpers import save_message
+from common.services.notifications import save_message
 
 
 class HashMyAttr:

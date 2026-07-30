@@ -13,7 +13,7 @@ from django.utils.translation import gettext
 from analytics.site.anlmodeladmin import AnlModelAdmin
 from analytics.utils.helpers import get_values_over_time
 from common.models import Department
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.utils.admfilters import ByOwnerFilter
 
 page_title = _("Request source statistics")

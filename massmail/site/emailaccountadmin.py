@@ -5,10 +5,10 @@ from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import CONTENT_COPY_ICON
-from common.utils.helpers import CONTENT_COPY_LINK
-from common.utils.helpers import COPY_STR
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from sharedkernel.presentation import CONTENT_COPY_ICON
+from sharedkernel.presentation import CONTENT_COPY_LINK
+from sharedkernel.presentation import COPY_STR
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.models import EmlAccountsQueue

@@ -8,8 +8,8 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from common.models import Base1
-from common.utils.helpers import add_phone_q_params
-from common.utils.helpers import get_department_id
+from common.queries import add_phone_q_params
+from common.queries import get_department_id
 from crm.utils.helpers import get_email_domain
 from crm.utils.ticketproc import new_ticket
 

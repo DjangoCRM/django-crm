@@ -17,9 +17,9 @@ from common.models import UserProfile
 from common.utils.resize_image import resize_image
 from common.utils.admfilters import ByDepartmentFilter
 from common.utils.chat_link import get_chat_link
-from common.utils.helpers import add_chat_context
-from common.utils.helpers import annotate_chat
-from common.utils.helpers import LEADERS
+from common.queries import add_chat_context
+from common.queries import annotate_chat
+from sharedkernel.presentation import LEADERS
 
 icon_str = '<i class="material-icons" style="color: var(--body-quiet-color)">%s</i>'
 contact_mail_icon = mark_safe(icon_str % 'contact_mail')

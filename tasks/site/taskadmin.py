@@ -17,16 +17,16 @@ from django.utils.translation import gettext_lazy
 from django.utils.safestring import mark_safe
 
 from common.utils.gettext_messages import THIS_IS_TEAM_TASK
-from common.utils.helpers import add_chat_context
-from common.utils.helpers import set_toggle_tooltip
-from common.utils.helpers import CONTENT_COPY_ICON
-from common.utils.helpers import CONTENT_COPY_LINK
-from common.utils.helpers import COPY_STR
-from common.utils.helpers import annotate_chat
-from common.utils.helpers import get_active_users
-from common.utils.helpers import get_delta_date
-from common.utils.helpers import get_today
-from common.utils.helpers import SAFE_SUBJECT_ICON
+from common.queries import add_chat_context
+from common.services.notifications import set_toggle_tooltip
+from sharedkernel.presentation import CONTENT_COPY_ICON
+from sharedkernel.presentation import CONTENT_COPY_LINK
+from sharedkernel.presentation import COPY_STR
+from common.queries import annotate_chat
+from common.queries import get_active_users
+from common.services.datetimes import get_delta_date
+from common.services.datetimes import get_today
+from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from tasks.models import Task
 from tasks.models import TaskStage
 from tasks.forms import TaskForm

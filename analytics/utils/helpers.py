@@ -21,7 +21,7 @@ from django.db.models import When
 from django.db.utils import NotSupportedError
 from django.core.handlers.wsgi import WSGIRequest
 
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from crm.models import Currency
 from crm.models import Rate
 

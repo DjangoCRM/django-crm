@@ -2,7 +2,8 @@ from django.conf import settings
 from django.contrib.auth.models import Group
 from django.test import TestCase
 
-from common.utils.helpers import save_message, USER_MODEL
+from common.services.notifications import save_message
+from common.utils.helpers import USER_MODEL
 
 
 # manage.py test tests.common.utils.test_save_message --keepdb

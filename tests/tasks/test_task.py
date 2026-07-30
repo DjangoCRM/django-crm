@@ -10,10 +10,10 @@ from django.utils.formats import date_format
 from django.utils.translation import override
 
 from common.models import TheFile
-from common.utils.helpers import get_active_users
-from common.utils.helpers import get_trans_for_lang
+from common.queries import get_active_users
+from common.services.translations import get_trans_for_lang
 from common.utils.helpers import USER_MODEL
-from common.utils.helpers import get_today
+from common.services.datetimes import get_today
 from common.utils.usermiddleware import set_user_groups
 from tasks.site.taskadmin import TaskAdmin
 from tasks.site.tasksbasemodeladmin import subscribers_subject

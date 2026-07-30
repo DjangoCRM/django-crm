@@ -10,7 +10,7 @@ from crm.models import Lead
 from crm.models import Request
 from crm.site.leadadmin import LeadAdmin
 from crm.site.crmadminsite import crm_site
-from common.utils.helpers import get_department_id
+from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from tests.crm.test_request_methods import populate_db
 from tests.base_test_classes import BaseTestCase

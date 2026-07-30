@@ -4,7 +4,7 @@ from django.db.models import OuterRef
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from common.utils.helpers import USER_MODEL
 from common.utils.hide_main_tasks import hide_main_tasks
 from crm.utils import admfilters

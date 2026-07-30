@@ -13,6 +13,8 @@ import warnings
 
 from django.contrib.auth import get_user_model
 
+from common.services.tokens import token_default
+
 _REMOVAL_RELEASE = '3.0.0'
 _OLD_MODULE = 'common.utils.helpers'
 
@@ -45,13 +47,12 @@ _LEGACY_EXPORTS: dict[str, str] = {
     'save_message': 'common.services.notifications',
     'send_crm_email': 'common.services.notifications',
     'set_toggle_tooltip': 'common.services.notifications',
-    'token_default': 'common.services.tokens',
     'get_trans_for_lang': 'common.services.translations',
     'get_trans_for_user': 'common.services.translations',
     'get_user_language_code': 'common.services.translations',
 }
 
-__all__ = sorted(_LEGACY_EXPORTS) + ['USER_MODEL']
+__all__ = sorted(_LEGACY_EXPORTS) + ['USER_MODEL', 'token_default']
 
 _warned_symbols: set[str] = set()
 

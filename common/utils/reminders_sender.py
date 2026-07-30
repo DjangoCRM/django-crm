@@ -11,9 +11,9 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import override
 
 from common.models import Reminder
-from common.utils.helpers import get_trans_for_user
-from common.utils.helpers import save_message
-from common.utils.helpers import send_crm_email
+from common.services.translations import get_trans_for_user
+from common.services.notifications import save_message
+from common.services.notifications import send_crm_email
 from settings.models import Reminders
 
 regarding_str = _('Regarding')

@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 123,
+  "helpers_fan_in_count": 68,
   "violations": [
     {
       "importing_file": "analytics/admin.py",
@@ -75,13 +75,7 @@
     },
     {
       "importing_file": "analytics/site/incomestatadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "analytics",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "analytics/site/incomestatadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "analytics",
       "target_app": "common"
     },
@@ -126,22 +120,10 @@
       "imported_module": "crm.utils.helpers",
       "source_app": "analytics",
       "target_app": "crm"
-    },
-    {
-      "importing_file": "analytics/site/leadsourcestatadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "analytics",
-      "target_app": "common"
     },
     {
       "importing_file": "analytics/site/outputstatadmin.py",
       "imported_module": "common.models",
-      "source_app": "analytics",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "analytics/site/outputstatadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "analytics",
       "target_app": "common"
     },
@@ -207,12 +189,6 @@
     },
     {
       "importing_file": "analytics/site/requeststatadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "analytics",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "analytics/site/requeststatadmin.py",
       "imported_module": "crm.utils.admfilters",
       "source_app": "analytics",
       "target_app": "crm"
@@ -225,7 +201,7 @@
     },
     {
       "importing_file": "analytics/utils/helpers.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "analytics",
       "target_app": "common"
     },
@@ -243,7 +219,7 @@
     },
     {
       "importing_file": "analytics/utils/monthly_snapshot_saving.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "analytics",
       "target_app": "common"
     },
@@ -267,37 +243,31 @@
     },
     {
       "importing_file": "chat/site/chatmessageadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "chat/site/chatmessageadmin.py",
+      "imported_module": "common.services.translations",
+      "source_app": "chat",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "chat/site/chatmessageadmin.py",
       "imported_module": "common.utils.get_file_links",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "chat",
       "target_app": "common"
     },
@@ -746,12 +716,6 @@
       "target_app": "common"
     },
     {
-      "importing_file": "crm/admin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
       "importing_file": "crm/apps.py",
       "imported_module": "common.utils.worker_runtime",
       "source_app": "crm",
@@ -783,7 +747,7 @@
     },
     {
       "importing_file": "crm/forms/contact_form.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.notifications",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -795,13 +759,13 @@
     },
     {
       "importing_file": "crm/models/base_contact.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/models/base_contact.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.tokens",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -861,13 +825,13 @@
     },
     {
       "importing_file": "crm/models/request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/models/request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -880,12 +844,6 @@
     {
       "importing_file": "crm/site/companyadmin.py",
       "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/companyadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -969,12 +927,6 @@
     },
     {
       "importing_file": "crm/site/crmemailadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmemailadmin.py",
       "imported_module": "massmail.models",
       "source_app": "crm",
       "target_app": "massmail"
@@ -994,48 +946,30 @@
     {
       "importing_file": "crm/site/crmmodeladmin.py",
       "imported_module": "common.models",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "imported_module": "common.queries",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "imported_module": "common.queries",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/crmmodeladmin.py",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/site/crmmodeladmin.py",
       "imported_module": "common.site.basemodeladmin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmmodeladmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1077,37 +1011,25 @@
     },
     {
       "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.notifications",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1161,19 +1083,13 @@
     },
     {
       "importing_file": "crm/site/paymentadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/site/productadmin.py",
       "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/productadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1191,55 +1107,19 @@
     },
     {
       "importing_file": "crm/site/requestadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/requestadmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/requestadmin.py",
       "imported_module": "common.utils.copy_files",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1257,31 +1137,25 @@
     },
     {
       "importing_file": "crm/site/shipmentadmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/shipmentadmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/shipmentadmin.py",
+      "imported_module": "common.services.translations",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/site/shipmentadmin.py",
       "imported_module": "common.utils.email_to_participants",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/shipmentadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/shipmentadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/shipmentadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/shipmentadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1299,13 +1173,7 @@
     },
     {
       "importing_file": "crm/utils/admfilters.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/utils/admfilters.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1365,19 +1233,19 @@
     },
     {
       "importing_file": "crm/utils/create_form_request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/utils/create_form_request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/utils/create_form_request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.notifications",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1389,7 +1257,7 @@
     },
     {
       "importing_file": "crm/utils/create_objects.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.notifications",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1431,25 +1299,19 @@
     },
     {
       "importing_file": "crm/utils/import_emails.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/utils/import_emails.py",
       "imported_module": "massmail.models",
       "source_app": "crm",
       "target_app": "massmail"
     },
     {
       "importing_file": "crm/utils/make_massmail_form.py",
-      "imported_module": "common.utils.gettext_messages",
+      "imported_module": "common.services.datetimes",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/utils/make_massmail_form.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.utils.gettext_messages",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1467,25 +1329,19 @@
     },
     {
       "importing_file": "crm/utils/restore_imap_emails.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/utils/restore_imap_emails.py",
+      "imported_module": "common.services.translations",
+      "source_app": "crm",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "crm/utils/restore_imap_emails.py",
       "imported_module": "common.templatetags.util",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/utils/restore_imap_emails.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/utils/restore_imap_emails.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/utils/restore_imap_emails.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1509,13 +1365,13 @@
     },
     {
       "importing_file": "crm/views/add_request.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.notifications",
       "source_app": "crm",
       "target_app": "common"
     },
     {
       "importing_file": "crm/views/change_owner_companies.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1533,7 +1389,7 @@
     },
     {
       "importing_file": "crm/views/create_email.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1599,21 +1455,9 @@
     },
     {
       "importing_file": "crm/views/view_original_email.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/views/view_original_email.py",
       "imported_module": "massmail.models",
       "source_app": "crm",
       "target_app": "massmail"
-    },
-    {
-      "importing_file": "help/admin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "help",
-      "target_app": "common"
     },
     {
       "importing_file": "help/admin.py",
@@ -1632,12 +1476,6 @@
       "imported_module": "crm.site.crmmodeladmin",
       "source_app": "massmail",
       "target_app": "crm"
-    },
-    {
-      "importing_file": "massmail/admin_actions.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
     },
     {
       "importing_file": "massmail/models/baseeml.py",
@@ -1677,30 +1515,6 @@
     },
     {
       "importing_file": "massmail/site/emailaccountadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emailaccountadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emailaccountadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emailaccountadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emailaccountadmin.py",
       "imported_module": "crm.site.crmmodeladmin",
       "source_app": "massmail",
       "target_app": "crm"
@@ -1731,24 +1545,6 @@
     },
     {
       "importing_file": "massmail/site/emlmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emlmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emlmessageadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emlmessageadmin.py",
       "imported_module": "crm.site.crmmodeladmin",
       "source_app": "massmail",
       "target_app": "crm"
@@ -1761,13 +1557,7 @@
     },
     {
       "importing_file": "massmail/site/mailingoutadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/mailingoutadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "massmail",
       "target_app": "common"
     },
@@ -1821,19 +1611,13 @@
     },
     {
       "importing_file": "massmail/utils/sendmassmail.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "massmail",
       "target_app": "common"
     },
     {
       "importing_file": "massmail/utils/sendmassmail.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/utils/sendmassmail.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.translations",
       "source_app": "massmail",
       "target_app": "common"
     },
@@ -1928,20 +1712,8 @@
       "target_app": "common"
     },
     {
-      "importing_file": "quality/site/transactionqualityeventadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "quality",
-      "target_app": "common"
-    },
-    {
       "importing_file": "quality/site/transactionqualityeventinline.py",
       "imported_module": "common.utils.get_file_links",
-      "source_app": "quality",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "quality/site/transactionqualityeventinline.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "quality",
       "target_app": "common"
     },
@@ -1950,12 +1722,6 @@
       "imported_module": "crm.site.crmstackedinline",
       "source_app": "quality",
       "target_app": "crm"
-    },
-    {
-      "importing_file": "quality/templatetags/quality_inline.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "quality",
-      "target_app": "common"
     },
     {
       "importing_file": "settings/admin.py",
@@ -1977,7 +1743,7 @@
     },
     {
       "importing_file": "tasks/forms.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2001,7 +1767,7 @@
     },
     {
       "importing_file": "tasks/models/task.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2019,19 +1785,73 @@
     },
     {
       "importing_file": "tasks/models/taskbase.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/models/taskbase.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.tokens",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/site/memoadmin.py",
       "imported_module": "common.admin",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.messaging",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.messaging",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/memoadmin.py",
+      "imported_module": "common.services.translations",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2060,176 +1880,68 @@
       "target_app": "common"
     },
     {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/projectadmin.py",
+      "imported_module": "common.queries",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/site/projectadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/site/projectadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/site/projectadmin.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.services.datetimes",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
-      "importing_file": "tasks/site/projectadmin.py",
-      "imported_module": "common.utils.helpers",
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/taskadmin.py",
+      "imported_module": "common.services.notifications",
       "source_app": "tasks",
       "target_app": "common"
     },
     {
       "importing_file": "tasks/site/taskadmin.py",
       "imported_module": "common.utils.gettext_messages",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/taskadmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2247,6 +1959,48 @@
     },
     {
       "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.queries",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.services.datetimes",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.services.messaging",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.services.notifications",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
+      "imported_module": "common.services.translations",
+      "source_app": "tasks",
+      "target_app": "common"
+    },
+    {
+      "importing_file": "tasks/site/tasksbasemodeladmin.py",
       "imported_module": "common.site.basemodeladmin",
       "source_app": "tasks",
       "target_app": "common"
@@ -2260,60 +2014,6 @@
     {
       "importing_file": "tasks/site/tasksbasemodeladmin.py",
       "imported_module": "common.utils.email_to_participants",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2332,12 +2032,6 @@
     {
       "importing_file": "tasks/site/tasksbasemodeladmin.py",
       "imported_module": "common.utils.remind_me",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/utils/admfilters.py",
-      "imported_module": "common.utils.helpers",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -2397,7 +2091,7 @@
     },
     {
       "importing_file": "voip/views/voipwebhook.py",
-      "imported_module": "common.utils.helpers",
+      "imported_module": "common.queries",
       "source_app": "voip",
       "target_app": "common"
     },

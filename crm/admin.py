@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 from common.models import Department
 from common.utils.for_translation import check_for_translation
-from common.utils.helpers import LEADERS
+from sharedkernel.presentation import LEADERS
 from crm.models import Company
 from crm.models import City
 from crm.models import Contact

@@ -9,8 +9,8 @@ from crm.models import Currency
 from crm.models import Deal
 from crm.models import Rate
 from crm.models import Payment
-from common.utils.helpers import get_delta_date
-from common.utils.helpers import get_department_id
+from common.services.datetimes import get_delta_date
+from common.queries import get_department_id
 from crm.utils.rates_loader import RatesLoader
 from tests.utils.helpers import get_user
 

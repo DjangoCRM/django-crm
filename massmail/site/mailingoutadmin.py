@@ -8,8 +8,8 @@ from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 
-from common.utils.helpers import FRIDAY_SATURDAY_SUNDAY_MSG
-from common.utils.helpers import get_today
+from sharedkernel.presentation import FRIDAY_SATURDAY_SUNDAY_MSG
+from common.services.datetimes import get_today
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 from massmail.admin_actions import merge_mailing_outs

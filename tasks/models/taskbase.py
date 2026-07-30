@@ -5,8 +5,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from common.models import Base
-from common.utils.helpers import get_delta_date
-from common.utils.helpers import token_default
+from common.services.datetimes import get_delta_date
+from common.services.tokens import token_default
 
 
 class TaskBase(Base):
