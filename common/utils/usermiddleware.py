@@ -21,8 +21,9 @@ class UserMiddleware:
             set_user_timezone(profile)
             set_user_groups(request, groups)
             set_user_department(request, groups)
-            iem = apps.get_app_config('crm')
-            iem.import_emails(request.user)
+            if settings.RUN_INLINE_EMAIL_IMPORT:
+                iem = apps.get_app_config('crm')
+                iem.import_emails(request.user)
             activate_stored_messages_to_user(request, profile)
             check_user_language(profile)
         return self.get_response(request)
