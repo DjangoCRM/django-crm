@@ -1,11 +1,12 @@
 """
-Portable GroupConcat aggregate tests (WO-008).
+Portable GroupConcat aggregate tests (WO-018).
 
 Covers SQL compilation per database vendor, aggregate semantics on seeded
 fixture data, and the Income Stat admin changelist integration boundary.
 """
 from django.contrib.auth.models import Group
 from django.db import connection
+from django.db.models import CharField
 from django.db.utils import NotSupportedError
 from django.test import tag
 from django.urls import reverse
@@ -23,7 +24,7 @@ from tests.fixtures.group_concat_data import GROUP_CONCAT_ORDER_NUMBERS
 from tests.fixtures.group_concat_data import seed_group_concat_payments
 
 
-# python manage.py test tests.analytics.test_portable_aggregates --keepdb
+# python manage.py test tests.analytics.test_group_concat_portability --keepdb
 
 
 def _group_concat_query(**kwargs):
@@ -51,6 +52,10 @@ class TestGroupConcatCompilation(BaseTestCase):
 
     def setUp(self):
         print(' Run Test Method:', self._testMethodName)
+
+    def test_output_field_is_charfield(self):
+        aggregate = GroupConcat('order_number')
+        self.assertIsInstance(aggregate.output_field, CharField)
 
     def test_mysql_compilation(self):
         if connection.vendor != 'mysql':
