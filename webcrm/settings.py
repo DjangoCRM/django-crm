@@ -199,6 +199,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 SERVE_MEDIA_FILES = config.get_bool('SERVE_MEDIA_FILES', default=True)
 
+RUN_BACKGROUND_WORKERS = config.get_bool('RUN_BACKGROUND_WORKERS', default=True)
+RUN_INLINE_EMAIL_IMPORT = config.get_bool('RUN_INLINE_EMAIL_IMPORT', default=True)
+
 FIXTURE_DIRS = ['tests/fixtures']
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

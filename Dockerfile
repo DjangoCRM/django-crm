@@ -44,7 +44,7 @@ RUN pip install --no-index --find-links=/wheels -r requirements.txt \
     && rm -rf /wheels
 
 COPY --chown=10001:10001 . .
-RUN chmod +x /app/docker/entrypoint.sh \
+RUN chmod +x /app/docker/entrypoint.sh /app/docker/worker.sh \
     && mkdir -p /app/static /app/media /app/data \
     && chown -R 10001:10001 /app/static /app/media /app/data
 

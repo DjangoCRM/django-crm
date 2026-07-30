@@ -30,9 +30,9 @@ class ComposeContractTests(SimpleTestCase):
         cls.compose = _load_compose(COMPOSE_FILE)
         cls.override = _load_compose(COMPOSE_OVERRIDE)
 
-    def test_compose_defines_app_and_db_services(self):
+    def test_compose_defines_app_db_and_worker_services(self):
         services = self.compose['services']
-        self.assertEqual(set(services.keys()), {'app', 'db'})
+        self.assertEqual(set(services.keys()), {'app', 'db', 'worker'})
 
     def test_db_service_has_no_published_ports(self):
         db_service = self.compose['services']['db']
@@ -59,6 +59,25 @@ class ComposeContractTests(SimpleTestCase):
         self.assertEqual(network['name'], 'crm_internal')
         for service in self.compose['services'].values():
             self.assertIn('crm_internal', service['networks'])
+
+    def test_worker_service_waits_for_healthy_database(self):
+        depends_on = self.compose['services']['worker']['depends_on']
+        self.assertEqual(depends_on['db']['condition'], 'service_healthy')
+
+    def test_worker_service_disables_migrations_and_collectstatic(self):
+        environment = self.compose['services']['worker']['environment']
+        self.assertEqual(environment['RUN_MIGRATIONS'], '0')
+        self.assertEqual(environment['RUN_COLLECTSTATIC'], '0')
+        self.assertEqual(environment['RUN_BACKGROUND_WORKERS'], 'false')
+
+    def test_app_service_disables_background_workers_and_inline_import(self):
+        environment = self.compose['services']['app']['environment']
+        self.assertEqual(environment['RUN_BACKGROUND_WORKERS'], 'false')
+        self.assertEqual(environment['RUN_INLINE_EMAIL_IMPORT'], 'false')
+
+    def test_worker_service_mounts_shared_media_volume(self):
+        volumes = self.compose['services']['worker']['volumes']
+        self.assertIn('media:/app/media', volumes)
 
     def test_named_volumes_include_pgdata_media_and_staticfiles(self):
         volumes = set(self.compose['volumes'].keys())
