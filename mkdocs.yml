@@ -15,6 +15,7 @@ nav:
   - Home: index.md
   - Installation and configuration:
     - CRM Software installation: installation.md
+    - Docker deployment runbook: deployment-docker.md
     - Django CRM settings: django_crm_settings.md
     - Run CRM: start_crm.md
     - Updating Django CRM software: updating_crm_software.md
