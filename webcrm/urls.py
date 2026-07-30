@@ -7,6 +7,7 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 
 from common.views.favicon import FaviconRedirect
+from common.views.serve_media import serve_protected_media
 from crm.views.contact_form import contact_form
 from massmail.views.get_oauth2_tokens import get_refresh_token
 
@@ -21,9 +22,19 @@ urlpatterns = [
     ),   
 ]
 
-urlpatterns += static(
-    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-)
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
+else:
+    media_prefix = settings.MEDIA_URL.lstrip('/')
+    urlpatterns += [
+        path(
+            f'{media_prefix}<path:path>',
+            serve_protected_media,
+            name='serve_protected_media',
+        ),
+    ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [

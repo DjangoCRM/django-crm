@@ -127,6 +127,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -175,11 +176,28 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+# WhiteNoise serves collected static files when DEBUG=False. We use
+# CompressedStaticFilesStorage rather than CompressedManifestStaticFilesStorage
+# because several admin templates reference assets that are not declared in
+# staticfiles manifests; a missing manifest entry would fail collectstatic or
+# raise at request time in production.
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+    },
+}
+WHITENOISE_MAX_AGE = 31536000
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+SERVE_MEDIA_FILES = config.get_bool('SERVE_MEDIA_FILES', default=True)
 
 FIXTURE_DIRS = ['tests/fixtures']
 
