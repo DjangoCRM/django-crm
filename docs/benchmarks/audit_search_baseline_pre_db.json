@@ -1,0 +1,17 @@
+{
+  "note": "Pre-change in-memory baseline captured on SQLite with 500 seeded rows before WO-024 rewiring. Post-change runs should beat these p95 values at equal row counts.",
+  "database_vendor": "sqlite",
+  "seeded_rows": 500,
+  "implementation": "in_memory_get_change_message_scan",
+  "terms": [
+    {
+      "term_length": 5,
+      "matched_rows": 167,
+      "latency_ms": {
+        "p50": 12.5,
+        "p95": 18.0,
+        "p99": 20.0
+      }
+    }
+  ]
+}

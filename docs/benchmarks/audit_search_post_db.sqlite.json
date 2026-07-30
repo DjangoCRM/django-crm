@@ -1,0 +1,7 @@
+{
+  "note": "Post-change database-side baseline placeholder. Run `python manage.py benchmark_audit_search --rows 500 --output docs/benchmarks/audit_search_post_db.sqlite.json` on a disposable database to refresh.",
+  "database_vendor": "sqlite",
+  "seeded_rows": 500,
+  "implementation": "audit_search_service",
+  "terms": []
+}

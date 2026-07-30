@@ -125,3 +125,32 @@ def build_parity_corpus(user=None, content_type=None):
         )
         created.append(entry)
     return created
+
+
+def seed_benchmark_log_entries(count: int, start_pk: int = 100_000):
+    """Seed additional LogEntry rows for audit-search benchmarks."""
+    user = USER_MODEL.objects.order_by('pk').first()
+    content_type = ContentType.objects.get_for_model(USER_MODEL)
+    action_time = datetime(2024, 6, 1, 8, 0, 0, tzinfo=dt_timezone.utc)
+    templates = (
+        ('benchmark row', admin.models.CHANGE, 'Updated the Email field'),
+        ('bulk audit row', admin.models.ADDITION, ''),
+        ('region row', admin.models.CHANGE, 'Assigned North Region Office territory'),
+    )
+    entries = []
+    for offset in range(count):
+        label, action_flag, change_message = templates[offset % len(templates)]
+        entries.append(
+            admin.models.LogEntry(
+                pk=start_pk + offset,
+                user=user,
+                content_type=content_type,
+                object_id=str(start_pk + offset),
+                object_repr=f'{label} {offset}',
+                action_flag=action_flag,
+                change_message=change_message,
+                action_time=action_time,
+            ),
+        )
+    admin.models.LogEntry.objects.bulk_create(entries, batch_size=1000)
+    return len(entries)
