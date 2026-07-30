@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - media:/app/media
+      - staticfiles:/app/static
+    ports:
+      - "${APP_PUBLISHED_PORT:-8000}:8000"
+    restart: unless-stopped
+    networks:
+      - crm_internal
+
+  db:
+    image: postgres:16-bookworm@sha256:92620daddcd947f8d5ab5ba66e848702fe443d87fed30c4cea8e389fd78dfc55
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - crm_internal
+
+networks:
+  crm_internal:
+    name: crm_internal
+    driver: bridge
+
+volumes:
+  pgdata:
+  media:
+  staticfiles:

@@ -1,0 +1,8 @@
+services:
+  app:
+    volumes:
+      - .:/app
+    ports:
+      - "${APP_PUBLISHED_PORT:-8000}:8000"
+    environment:
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-true}
