@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 120,
+  "helpers_fan_in_count": 121,
   "violations": [
     {
       "imported_module": "crm.site.crmadminsite",
@@ -356,6 +356,12 @@
       "target_app": "webcrm"
     },
     {
+      "imported_module": "chat.models",
+      "importing_file": "common/queries.py",
+      "source_app": "common",
+      "target_app": "chat"
+    },
+    {
       "imported_module": "crm.utils.helpers",
       "importing_file": "common/site/basemodeladmin.py",
       "source_app": "common",
@@ -414,12 +420,6 @@
       "importing_file": "common/utils/get_signature_preview.py",
       "source_app": "common",
       "target_app": "massmail"
-    },
-    {
-      "imported_module": "chat.models",
-      "importing_file": "common/utils/helpers.py",
-      "source_app": "common",
-      "target_app": "chat"
     },
     {
       "imported_module": "tasks.models",
