@@ -1,0 +1,6 @@
+{
+  "expected_diffs": [
+    "extra in requirements_right.txt: requests==2.34.2",
+    "missing in requirements_right.txt: pillow==12.3.0"
+  ]
+}
