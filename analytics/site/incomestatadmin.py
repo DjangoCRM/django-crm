@@ -2,7 +2,6 @@ from dateutil.relativedelta import relativedelta
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.handlers.wsgi import WSGIRequest
-from django.db import connection
 from django.db.models import Case
 from django.db.models import DecimalField
 from django.db.models import Exists
@@ -384,11 +383,10 @@ class IncomeStatAdmin(AnlModelAdmin):
             "next2_month_sum": Subquery(next2_month_sum.values('value')),
             "next2_month_through_rep": Exists(next2_month_through_rep),
         }
-        if connection.vendor == 'mysql':    # for compatibility with postgresql
-            annotate_params['orders'] = Subquery(
-                payments.annotate(orders=GroupConcat(
-                    'order_number')).values('orders')
-            )
+        annotate_params['orders'] = Subquery(
+            payments.annotate(orders=GroupConcat(
+                'order_number')).values('orders')
+        )
         deals = deals_qs.annotate(**annotate_params)
         table = {
             'title': title,
@@ -426,14 +424,6 @@ class IncomeStatAdmin(AnlModelAdmin):
             )
         )
         for d in deals:
-            if connection.vendor != 'mysql':    # for compatibility with postgresql
-                order_number = Payment.objects.filter(
-                    deal=d,
-                    status=status,
-                    order_number__isnull=False
-                ).values_list('order_number', flat=True)
-                d.orders = ", ".join(order_number) if order_number else ''
-
             row = (
                 get_payment_link(d),
                 get_products(d),
