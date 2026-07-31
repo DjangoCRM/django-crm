@@ -107,13 +107,13 @@ LOGIN_URL = '/admin/login/'
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.sites',
+    'sharedkernel.apps.SharedKernelConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sharedkernel.apps.SharedKernelConfig',
     'crm.apps.CrmConfig',
     'massmail.apps.MassmailConfig',
     'analytics.apps.AnalyticsConfig',

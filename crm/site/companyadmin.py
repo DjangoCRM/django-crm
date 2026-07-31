@@ -23,7 +23,7 @@ from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from massmail.admin_actions import make_mailing_out
 from massmail.admin_actions import remove_vip_status
 from massmail.admin_actions import specify_vip_recipients
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 
 you_can_view_warning = _(
     'Attention! You can only view companies associated with your department.')

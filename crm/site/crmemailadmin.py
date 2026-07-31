@@ -1,9 +1,11 @@
 import threading
+from django import forms
 from django.contrib import admin
 from django.contrib import messages
 from django.db.models import IntegerField
 from django.db.models import OuterRef
 from django.db.models import Subquery
+from django.forms import ModelForm
 from django.http import HttpResponseRedirect
 from django.template.defaultfilters import linebreaks
 from django.urls import reverse
@@ -11,9 +13,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.models import TheFile
-from common.admin import InlineFileForm
 from common.utils.get_signature_preview import get_signature_preview
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.forms.admin_forms import IoMail
@@ -45,9 +46,17 @@ blank_help_texts = {
 }
 
 
-class TheMailFileForm(InlineFileForm):
-    class Meta(InlineFileForm.Meta):
+class _MailFileWidget(forms.ClearableFileInput):
+    initial_text = ''
+    template_name = 'common/widgets/clearable_file_input.html'
+
+
+class TheMailFileForm(ModelForm):
+    class Meta:
+        model = TheFile
         fields = ('attached_to_deal', 'file')
+        widgets = {'file': _MailFileWidget}
+        labels = {'file': ''}
 
 
 class MailFileInline(FileInline):

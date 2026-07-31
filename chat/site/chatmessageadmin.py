@@ -30,7 +30,7 @@ from chat.models import ChatMessage
 from common.models import UserProfile
 from common.utils.get_file_links import get_file_links
 from crm.models import Deal
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.queries import get_active_users
 from sharedkernel.presentation import CRM_NOTICE
 from common.services.translations import get_trans_for_user

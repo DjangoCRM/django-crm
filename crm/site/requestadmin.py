@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.models import Department
 from common.utils.copy_files import copy_files
 from sharedkernel.presentation import CONTENT_COPY_ICON

@@ -20,6 +20,15 @@ class CrmConfig(AppConfig):
 
         register_admin_site(CRM_SITE_NAME, crm_site)
 
+        from django.apps import apps
+        from django.contrib import admin
+        from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+
+        Reminder = apps.get_model('common', 'Reminder')
+        reminder_admin = admin.site._registry.get(Reminder)
+        if reminder_admin is not None:
+            type(reminder_admin).owner_list_filter = ScrollRelatedOnlyFieldListFilter
+
         if settings.TESTING:
             from crm.utils.create_email_request import CreateEmailInquiry
             from crm.utils.restore_imap_emails import RestoreImapEmails

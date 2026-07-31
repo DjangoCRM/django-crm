@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.utils.copy_files import copy_files
 from common.utils.get_signature_preview import get_signature_preview
 from sharedkernel.presentation import CONTENT_COPY_ICON

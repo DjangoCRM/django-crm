@@ -3,7 +3,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter

@@ -17,7 +17,7 @@ from django.utils.safestring import SafeString
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.models import TheFile
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.chat_link import get_chat_link
