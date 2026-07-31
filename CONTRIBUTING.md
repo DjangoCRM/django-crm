@@ -90,6 +90,12 @@ For example, if a new permission is added or removed for a model, update the cor
 >   python manage.py test tests/ --noinput
 > ```
 >
+> The layering gate in `tests/architecture/test_import_graph.py` enforces the
+> import contract documented in `docs/layering.md`. If your change introduces a
+> tolerated cross-app import, add an entry to
+> `tests/architecture/allowed_exceptions_data.json` with a reason and owner in the
+> same pull request.
+>
 > 2. Check whether the **email address** used for commit authorship in the pull request is **associated with your GitHub account**.
 > Otherwise, GitHub will not be able to add you to the list of **project contributors**.
 >

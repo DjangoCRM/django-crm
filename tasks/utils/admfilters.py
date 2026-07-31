@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from sharedkernel.presentation import LEADERS
 from common.utils.helpers import USER_MODEL
-from common.utils.hide_main_tasks import hide_main_tasks
+from tasks.utils.hide_main_tasks import hide_main_tasks
 from crm.utils import admfilters
 from tasks.models import Project
 from tasks.models import Tag

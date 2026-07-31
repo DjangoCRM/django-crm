@@ -2,17 +2,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.urls import path
 
-from common.views.copy_department import copy_department
 from common.views.debugs import debug
 from common.views.reload_field import reload_field
 from common.views.toggle_default_sorting import toggle_default_sorting
 
 urlpatterns = [
-    path(
-        'copy-department/',
-        login_required(copy_department),
-        name='copy_department'
-    ),
     path(
         'debug/',
         login_required(debug),

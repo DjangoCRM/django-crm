@@ -1,0 +1,33 @@
+{
+  "epic": "REQ-006 break common/crm circular imports",
+  "work_order": "WO-039",
+  "before": {
+    "cross_app_violation_count": 314,
+    "helpers_module_fan_in_count": 71,
+    "relocated_helpers_symbol_importers": "not tracked"
+  },
+  "after": {
+    "cross_app_violation_count": 294,
+    "helpers_module_fan_in_count": 71,
+    "relocated_helpers_symbol_importers": 0,
+    "helpers_relocated_symbol_count": 31,
+    "shared_module_fan_in": {
+      "common.queries": 44,
+      "common.services.datetimes": 31,
+      "common.services.messaging": 6,
+      "common.services.notifications": 18,
+      "common.services.tokens": 5,
+      "common.services.translations": 11,
+      "sharedkernel.admin_labels": 4,
+      "sharedkernel.admin_urls": 2,
+      "sharedkernel.adminsites": 3,
+      "sharedkernel.credentials": 5,
+      "sharedkernel.dashboard": 6,
+      "sharedkernel.inlines": 12,
+      "sharedkernel.presentation": 39,
+      "sharedkernel.search": 2
+    },
+    "core_rule_violation_count": 0,
+    "allowed_exception_count": 294
+  }
+}

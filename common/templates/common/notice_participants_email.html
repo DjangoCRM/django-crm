@@ -1,5 +1,5 @@
 {% extends "common/email_notification_base.html" %}
-{% load i18n util %}
+{% load i18n util tasks_util %}
 
 {% block header %}
 	<h3>{{ obj|verbose_name }}: {{ obj.name }}{{ obj.request_for }}</h3>

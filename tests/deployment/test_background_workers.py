@@ -54,7 +54,7 @@ class WorkerManagementCommandTests(SimpleTestCase):
     @patch('common.management.commands.run_mail_workers.wait_for_shutdown')
     @patch('common.management.commands.run_mail_workers.register_signal_handlers')
     @patch(
-        'common.management.commands.run_mail_workers.start_crm_mail_workers',
+        'crm.utils.worker_runtime.start_crm_mail_workers',
         return_value=['import_emails'],
     )
     @patch('common.management.commands.run_mail_workers.stop_tracked_threads')
@@ -73,7 +73,7 @@ class WorkerManagementCommandTests(SimpleTestCase):
     @patch('common.management.commands.run_schedulers.wait_for_shutdown')
     @patch('common.management.commands.run_schedulers.register_signal_handlers')
     @patch(
-        'common.management.commands.run_schedulers.start_crm_schedulers',
+        'crm.utils.worker_runtime.start_crm_schedulers',
         return_value=['rates_loader'],
     )
     @patch(

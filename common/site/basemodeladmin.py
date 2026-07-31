@@ -1,3 +1,4 @@
+import importlib
 import re
 from django.contrib import admin
 from django.contrib import messages
@@ -8,7 +9,6 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from common.models import Reminder
-from crm.views.export_objects import export_selected_objects
 from common.queries import get_department_id
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
@@ -95,6 +95,9 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     @admin.display(description=export_selected_str)
     def export_selected(self, request, queryset):
+        export_selected_objects = importlib.import_module(
+            'crm.views.export_objects',
+        ).export_selected_objects
         return export_selected_objects(request, queryset)
 
     # -- ModelAdmin Callables -- #

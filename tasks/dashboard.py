@@ -6,7 +6,7 @@ from django.utils.safestring import mark_safe
 from django.utils.timezone import localtime
 from django.utils.timezone import now
 
-from common.utils.hide_main_tasks import hide_main_tasks
+from tasks.utils.hide_main_tasks import hide_main_tasks
 from sharedkernel.dashboard import register_counter
 from sharedkernel.dashboard import set_counters
 from tasks.models import Memo

@@ -1,4 +1,5 @@
 from typing import Union
+import importlib
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
@@ -6,7 +7,6 @@ from django.http import HttpResponseForbidden
 
 from common.queries import get_active_users
 from common.queries import get_department_id
-from massmail.views.signature_previews import signature_preview
 
 
 def reload_field(request: WSGIRequest) -> Union[HttpResponse, HttpResponseForbidden, JsonResponse]:
@@ -17,6 +17,9 @@ def reload_field(request: WSGIRequest) -> Union[HttpResponse, HttpResponseForbid
     #    return HttpResponseForbidden()
         
     if 'signature' in request.GET:
+        signature_preview = importlib.import_module(
+            'massmail.views.signature_previews',
+        ).signature_preview
         return signature_preview(request)
     
     department_id = request.GET.get('department')

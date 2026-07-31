@@ -6,6 +6,7 @@ from django.urls import include
 from django.urls import path
 from django.views.generic.detail import DetailView
 
+from crm.views.copy_department import copy_department
 from crm.views.export_objects import export_objects_view
 from crm.views.select_emails_import import select_emails_import
 from crm.views.user_transfer import user_transfer
@@ -36,6 +37,12 @@ urlpatterns = [
     path(
         'export-objects/', staff_member_required(export_objects_view),
         name="export_objects"
+    ),
+
+    path(
+        'copy-department/',
+        login_required(copy_department),
+        name='copy_department'
     ),
 
     path(
