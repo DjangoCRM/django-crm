@@ -48,7 +48,7 @@ class CrmImapManager(threading.Thread):
     
     def _create_crmimap(self, ea: EmailAccount) -> Optional[CrmIMAP]:
         try:
-            CredentialAccessor.get_imap_credentials(ea)
+            credentials = CredentialAccessor.get_imap_credentials(ea)
         except MissingMailCredentialError as err:
             site = Site.objects.get_current()
             mail_admins(
@@ -63,17 +63,18 @@ class CrmImapManager(threading.Thread):
                 fail_silently=True,
             )
             return None
-        crmimap = CrmIMAP(ea.email_host_user)
-        if ea.email_host_user not in self.crmimap_storage:
+        pool_key = credentials.user
+        crmimap = CrmIMAP(pool_key)
+        if pool_key not in self.crmimap_storage:
             if settings.REUSE_IMAP_CONNECTION:
-                self.crmimap_storage[ea.email_host_user] = crmimap
-            boxes = self.boxes_storage.get(ea.email_host_user)
+                self.crmimap_storage[pool_key] = crmimap
+            boxes = self.boxes_storage.get(pool_key)
             crmimap.get_in(boxes, ea)
             if not crmimap.error:
                 if not boxes:
-                    self.boxes_storage[ea.email_host_user] = crmimap.boxes
+                    self.boxes_storage[pool_key] = crmimap.boxes
         else:
-            crmimap = self.crmimap_storage.get(ea.email_host_user)
+            crmimap = self.crmimap_storage.get(pool_key)
         crmimap.last_request_time = dt.now()
         return crmimap
 
@@ -84,7 +85,8 @@ class CrmImapManager(threading.Thread):
     def _get_crmimap(self, ea: EmailAccount) -> Optional[CrmIMAP]:
         crmimap = None
         if settings.REUSE_IMAP_CONNECTION:
-            crmimap = self.crmimap_storage.get(ea.email_host_user)
+            pool_key = CredentialAccessor.get_imap_credentials(ea).user
+            crmimap = self.crmimap_storage.get(pool_key)
             if crmimap:
                 crmimap.lock()
                 if not crmimap.error:

@@ -24,6 +24,7 @@ from crm.utils.helpers import get_crmimap
 from crm.utils.helpers import get_email_date
 from crm.utils.helpers import get_uid_data
 from massmail.models import EmailAccount
+from sharedkernel.credentials import CredentialAccessor, MissingMailCredentialError
 
 app_config = apps.get_app_config('crm')
 control_period = timedelta(seconds=120)
@@ -44,8 +45,12 @@ class ImportEmails(threading.Thread):
             do_import=True, owner=user,
         )
         for ea in eas:
+            try:
+                pool_key = CredentialAccessor.get_imap_credentials(ea).user
+            except MissingMailCredentialError:
+                continue
             if not settings.REUSE_IMAP_CONNECTION or \
-                    ea.email_host_user not in self.crmimap_storage:
+                    pool_key not in self.crmimap_storage:
                 if ea not in list(self.ea_queue.queue):
                     self.ea_queue.put(ea)
 
