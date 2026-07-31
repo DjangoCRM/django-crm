@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 68,
+  "helpers_fan_in_count": 69,
   "violations": [
     {
       "importing_file": "analytics/admin.py",
@@ -231,12 +231,6 @@
     },
     {
       "importing_file": "chat/site/chatmessageadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "chat",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "chat/site/chatmessageadmin.py",
       "imported_module": "common.models",
       "source_app": "chat",
       "target_app": "common"
@@ -300,12 +294,6 @@
       "imported_module": "tasks.models",
       "source_app": "chat",
       "target_app": "tasks"
-    },
-    {
-      "importing_file": "common/admin.py",
-      "imported_module": "crm.utils.admfilters",
-      "source_app": "common",
-      "target_app": "crm"
     },
     {
       "importing_file": "common/management/commands/check_secrets.py",
@@ -837,12 +825,6 @@
     },
     {
       "importing_file": "crm/site/companyadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/companyadmin.py",
       "imported_module": "common.utils.resize_image",
       "source_app": "crm",
       "target_app": "common"
@@ -892,18 +874,6 @@
     {
       "importing_file": "crm/site/crmadminsite.py",
       "imported_module": "common.site.crmsite",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmemailadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/crmemailadmin.py",
-      "imported_module": "common.admin",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -993,12 +963,6 @@
     },
     {
       "importing_file": "crm/site/dealadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/dealadmin.py",
       "imported_module": "common.models",
       "source_app": "crm",
       "target_app": "common"
@@ -1078,18 +1042,6 @@
     {
       "importing_file": "crm/site/paymentadmin.py",
       "imported_module": "common.services.datetimes",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/productadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "crm",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "crm/site/requestadmin.py",
-      "imported_module": "common.admin",
       "source_app": "crm",
       "target_app": "common"
     },
@@ -1521,12 +1473,6 @@
     },
     {
       "importing_file": "massmail/site/emlmessageadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "massmail",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "massmail/site/emlmessageadmin.py",
       "imported_module": "common.utils.copy_files",
       "source_app": "massmail",
       "target_app": "common"
@@ -1695,12 +1641,6 @@
     },
     {
       "importing_file": "quality/site/transactionqualityeventadmin.py",
-      "imported_module": "common.admin",
-      "source_app": "quality",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "quality/site/transactionqualityeventadmin.py",
       "imported_module": "common.utils.get_file_links",
       "source_app": "quality",
       "target_app": "common"
@@ -1786,12 +1726,6 @@
     {
       "importing_file": "tasks/models/taskbase.py",
       "imported_module": "common.services.tokens",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/memoadmin.py",
-      "imported_module": "common.admin",
       "source_app": "tasks",
       "target_app": "common"
     },
@@ -1936,12 +1870,6 @@
     {
       "importing_file": "tasks/site/taskadmin.py",
       "imported_module": "common.utils.gettext_messages",
-      "source_app": "tasks",
-      "target_app": "common"
-    },
-    {
-      "importing_file": "tasks/site/tasksbasemodeladmin.py",
-      "imported_module": "common.admin",
       "source_app": "tasks",
       "target_app": "common"
     },

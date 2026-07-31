@@ -1,7 +1,6 @@
 import re
 from django import forms
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericStackedInline
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -12,8 +11,6 @@ from common.models import TheFile
 from common.models import UserProfile
 from common.site import reminderadmin
 from common.site import userprofileadmin
-from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
-from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from sharedkernel.search import AuditSearchService
 
 
@@ -56,16 +53,13 @@ class LogEntryAdmin(admin.ModelAdmin):
 
 
 class ReminderAdmin(admin.ModelAdmin):
+    owner_list_filter = admin.RelatedFieldListFilter
     list_display = (
         'subject',
         'reminder_date',
         'active',
         'owner',
         'content_type'
-    )
-    list_filter = (
-        'active',
-        ('owner', ScrollRelatedOnlyFieldListFilter)
     )
     raw_id_fields = ('owner', 'content_type')
     save_on_top = True
@@ -84,18 +78,11 @@ class ReminderAdmin(admin.ModelAdmin):
         }),
     )
 
-
-class TheFileWidget(forms.ClearableFileInput):
-    initial_text = ''
-    template_name = 'common/widgets/clearable_file_input.html'
-
-
-class InlineFileForm(ModelForm):
-    class Meta:
-        model = TheFile
-        fields = ('file',)
-        widgets = {'file': TheFileWidget}
-        labels = {'file': ''}
+    def get_list_filter(self, request):
+        return (
+            'active',
+            ('owner', self.owner_list_filter),
+        )
 
 
 class TheFileForm(ModelForm):
@@ -147,66 +134,6 @@ class TheFileAdmin(admin.ModelAdmin):
     @staticmethod
     def file_name(instance):
         return instance.file.name
-
-
-class FileInline(GenericStackedInline):
-    form = InlineFileForm
-    model = TheFile
-    icon = SAFE_ATTACH_FILE_ICON
-    name_plural = model._meta.verbose_name_plural
-    verbose_name_plural = mark_safe(f'{icon} {name_plural}')
-    fields = ('file',)
-    extra = 0
-
-    # -- GenericStackedInline methods -- #
-
-    def has_add_permission(self, request, obj):
-        # for memos only the recipient can add files until the memo is reviewed
-        if hasattr(obj, 'REVIEWED') and obj.stage != obj.REVIEWED:
-            if obj.to == request.user:
-                return True
-        # who can change a parent object should
-        # have permission to add inline
-        return self.has_change_permission(request, obj)
-
-    def has_change_permission(self, request, obj=None):
-        value = super().has_change_permission(request, obj)
-        if not value or not obj:
-            return value
-        return self.clarify_permission(request, obj)
-
-    def has_delete_permission(self, request, obj=None):
-        # who can change a parent object should
-        # have permission to delete inline
-        return self.has_change_permission(request, obj)
-
-    # -- Custom methods -- #
-
-    @staticmethod
-    def clarify_permission(request, obj):
-        if hasattr(obj, 'owner'):
-            if obj.owner == request.user or not obj.owner:
-                if any((hasattr(obj, 'REVIEWED') and obj.stage == obj.REVIEWED,
-                        hasattr(obj, 'incoming') and obj.incoming,
-                        hasattr(obj, 'uid') and obj.uid,
-                        not obj.owner and request.user.is_chief)):
-                    return False
-                return True
-        else:
-            return True
-
-        if hasattr(obj, 'co_owner') and obj.co_owner == request.user \
-                or request.user.is_superoperator \
-                or request.user.is_task_operator \
-                or request.user.is_superuser \
-                or hasattr(obj, 'department') and request.user.is_operator \
-                and obj.department_id == request.user.department_id \
-                or hasattr(obj, 'responsible') and obj.responsible.count() == 1 \
-                and request.user in (obj.responsible.all()) \
-                or hasattr(obj, 'win_closing_date') and request.user.is_chief:
-            return True
-
-        return False
 
 
 class UserProfileAdmin(userprofileadmin.UserProfileAdmin):

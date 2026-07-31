@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.formats import date_format
 from django.utils.safestring import mark_safe
 
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
 from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants

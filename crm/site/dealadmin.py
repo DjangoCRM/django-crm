@@ -19,7 +19,7 @@ from django.utils.translation import gettext
 from django.urls import reverse
 
 from chat.models import ChatMessage
-from common.admin import FileInline
+from sharedkernel.inlines import FileInline
 from common.models import Department
 from common.queries import add_chat_context
 from common.services.notifications import set_toggle_tooltip
