@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib import messages
 from django.template.defaultfilters import linebreaks
 from django.urls import reverse
 from django.utils.formats import date_format
@@ -9,8 +10,10 @@ from sharedkernel.presentation import CONTENT_COPY_ICON
 from sharedkernel.presentation import CONTENT_COPY_LINK
 from sharedkernel.presentation import COPY_STR
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
+from sharedkernel.credentials import SECRET_FIELD_NAMES
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
+from massmail.forms.email_account_form import EmailAccountAdminForm
 from massmail.models import EmlAccountsQueue
 
 
@@ -29,7 +32,11 @@ MAIN = _("main")
 MAIN_TITLE = _("Default email account for all customer correspondence")
 MASS_MAILING = _("mass mailing")
 MASS_MAILING_TITLE = _("Email account availability for mass mailing")
-COPIED_FIELDS = (
+COPY_CREDENTIALS_WARNING = _(
+    "Credentials were intentionally not copied. "
+    "Re-enter passwords or tokens before this account can send or import mail."
+)
+_COPY_SOURCE_FIELDS = (
     'name',
     'massmail',
     'do_import',
@@ -49,9 +56,13 @@ COPIED_FIELDS = (
     'co_owner',
     'department',
 )
+COPIED_FIELDS = tuple(
+    field for field in _COPY_SOURCE_FIELDS if field not in SECRET_FIELD_NAMES
+)
 
 
 class EmailAccountAdmin(CrmModelAdmin):
+    form = EmailAccountAdminForm
     list_display = (
         'account', 'main_account', 'perform_import', 'mass_mailing', 'last_import_date',
         'last_mailing_date', 'emails_sent', 'notifications',  'owner'
@@ -81,6 +92,11 @@ class EmailAccountAdmin(CrmModelAdmin):
     search_fields = ('name', "email_host", "email_host_user")
 
     # -- ModelAdmin methods -- #
+
+    def add_view(self, request, form_url='', extra_context=None):
+        if request.GET.get('copy_email_account'):
+            self.message_user(request, COPY_CREDENTIALS_WARNING, messages.WARNING)
+        return super().add_view(request, form_url, extra_context)
 
     def get_changeform_initial_data(self, request):
         initial = super().get_changeform_initial_data(request)
