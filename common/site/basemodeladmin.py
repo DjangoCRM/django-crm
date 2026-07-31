@@ -15,7 +15,7 @@ from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
 from sharedkernel.presentation import OBJ_DOESNT_EXIT_STR
 from sharedkernel.presentation import get_verbose_name
 from common.services.datetimes import get_today
-from crm.utils.helpers import add_id_to_raw_id_field_label
+from sharedkernel.admin_labels import noop_raw_id_label_decorator
 
 TAGS_STR = _('Tags')
 add_tags_str = _("Add tags")
@@ -40,6 +40,7 @@ class BaseModelAdmin(admin.ModelAdmin):
     empty_value_display = ''
     show_facets = admin.ShowFacets.NEVER
     save_on_top = True
+    raw_id_label_decorator = staticmethod(noop_raw_id_label_decorator)
 
     # -- ModelAdmin methods -- #
 
@@ -67,7 +68,7 @@ class BaseModelAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
-        add_id_to_raw_id_field_label(self, form)
+        self.raw_id_label_decorator(self, form)
         return form
 
     def get_search_results(self, request, queryset, search_term):

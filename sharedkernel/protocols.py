@@ -1,5 +1,10 @@
-"""Protocol and typing contracts shared across project apps.
+"""Protocol and typing contracts shared across project apps."""
 
-Later stories define structural typing helpers here for services that
-must stay independent of Django model classes in domain apps.
-"""
+from typing import Protocol
+
+
+class RawIdLabelDecorator(Protocol):
+    """Decorate raw-id field labels on a ModelAdmin change/add form."""
+
+    def __call__(self, admin_obj: object, form: object) -> None:
+        """Apply label decoration for raw-id fields on the given form."""

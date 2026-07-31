@@ -15,6 +15,7 @@ from django.utils.safestring import mark_safe
 
 from sharedkernel.inlines import FileInline
 from common.site.basemodeladmin import BaseModelAdmin
+from sharedkernel.admin_labels import append_id_to_raw_id_field_labels
 from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.queries import add_chat_context
@@ -53,6 +54,7 @@ you_received_memo_str = _("You've received a office memo")
 
 
 class MemoAdmin(BaseModelAdmin):
+    raw_id_label_decorator = staticmethod(append_id_to_raw_id_field_labels)
     empty_value_display = ''
     filter_horizontal = ('subscribers',)
     form = MemoForm
