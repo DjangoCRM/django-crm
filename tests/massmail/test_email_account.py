@@ -1,3 +1,4 @@
+from django.contrib import admin as django_admin
 from django.contrib.auth.models import Permission
 from django.test import tag
 from django.urls import reverse
@@ -5,7 +6,10 @@ from django.urls import reverse
 from common.queries import get_department_id
 from common.utils.helpers import USER_MODEL
 from massmail.models import EmailAccount
+from massmail.site.emailaccountadmin import COPIED_FIELDS, EmailAccountAdmin
+from sharedkernel.credentials import SECRET_FIELD_NAMES
 from tests.base_test_classes import BaseTestCase
+from tests.utils.helpers import get_adminform_initials
 
 
 # python manage.py test tests.massmail.test_email_account --keepdb
@@ -31,7 +35,11 @@ class TestEmailAccountCopy(BaseTestCase):
             Permission.objects.get(
                 codename='add_emailaccount',
                 content_type__app_label='massmail',
-            )
+            ),
+            Permission.objects.get(
+                codename='change_emailaccount',
+                content_type__app_label='massmail',
+            ),
         )
         cls.account = EmailAccount.objects.create(
             name='Primary account',
@@ -57,6 +65,10 @@ class TestEmailAccountCopy(BaseTestCase):
             start_incoming_uid=42,
         )
         cls.add_url = reverse("site:massmail_emailaccount_add")
+        cls.change_url = reverse(
+            "site:massmail_emailaccount_change",
+            args=(cls.account.id,),
+        )
         cls.changelist_url = reverse(
             "site:massmail_emailaccount_changelist"
         )
@@ -110,13 +122,8 @@ class TestEmailAccountCopy(BaseTestCase):
         self.assertEqual(
             initial['email_host_user'], self.account.email_host_user
         )
-        self.assertEqual(
-            initial['email_host_password'],
-            self.account.email_host_password,
-        )
-        self.assertEqual(
-            initial['email_app_password'], self.account.email_app_password
-        )
+        for field_name in SECRET_FIELD_NAMES:
+            self.assertNotIn(field_name, initial)
         self.assertEqual(initial['email_port'], self.account.email_port)
         self.assertEqual(initial['from_email'], self.account.from_email)
         self.assertIs(initial['email_use_tls'], True)
@@ -125,17 +132,114 @@ class TestEmailAccountCopy(BaseTestCase):
             initial['email_imail_ssl_certfile'],
             self.account.email_imail_ssl_certfile,
         )
-        self.assertEqual(
-            initial['email_imail_ssl_keyfile'],
-            self.account.email_imail_ssl_keyfile,
-        )
-        self.assertEqual(initial['refresh_token'], self.account.refresh_token)
         self.assertEqual(initial['owner'], self.account.owner)
         self.assertEqual(initial['co_owner'], self.account.co_owner)
         self.assertEqual(initial['department'], self.account.department)
         self.assertNotIn('report', initial)
         self.assertNotIn('today_count', initial)
         self.assertNotIn('start_incoming_uid', initial)
+
+    def test_copy_flow_shows_credential_warning(self):
+        response = self.client.get(
+            self.add_url,
+            {'copy_email_account': self.account.id},
+        )
+
+        self.assertContains(
+            response,
+            'Credentials were intentionally not copied',
+        )
+
+    def test_change_form_does_not_echo_stored_secrets(self):
+        response = self.client.get(self.change_url)
+
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode()
+        self.assertNotIn('app-password', content)
+        self.assertNotIn('refresh-token', content)
+        self.assertNotIn('/certs/account.key', content)
+
+    def test_blank_secret_fields_preserve_existing_values(self):
+        response = self.client.get(self.change_url)
+        data = get_adminform_initials(response)
+        data['email_host_password'] = ''
+        data['email_app_password'] = ''
+        data['refresh_token'] = ''
+        data['email_imail_ssl_keyfile'] = ''
+
+        response = self.client.post(self.change_url, data, follow=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.account.refresh_from_db()
+        self.assertEqual(self.account.email_host_password, 'password')
+        self.assertEqual(self.account.email_app_password, 'app-password')
+        self.assertEqual(self.account.refresh_token, 'refresh-token')
+        self.assertEqual(
+            self.account.email_imail_ssl_keyfile,
+            '/certs/account.key',
+        )
+
+    def test_updated_secret_fields_replace_existing_values(self):
+        response = self.client.get(self.change_url)
+        data = get_adminform_initials(response)
+        data['email_host_password'] = 'rotated-host-password'
+        data['email_app_password'] = 'rotated-app-password'
+
+        response = self.client.post(self.change_url, data, follow=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.account.refresh_from_db()
+        self.assertEqual(self.account.email_host_password, 'rotated-host-password')
+        self.assertEqual(self.account.email_app_password, 'rotated-app-password')
+
+    def test_search_fields_exclude_secret_columns(self):
+        model_admin = EmailAccountAdmin(EmailAccount, django_admin.site)
+        for field_name in SECRET_FIELD_NAMES:
+            self.assertNotIn(field_name, model_admin.search_fields)
+
+    def test_changelist_search_does_not_surface_secret_values(self):
+        response = self.client.get(
+            self.changelist_url,
+            {'q': 'app-password'},
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '0 results')
+        self.assertNotContains(response, 'Primary account')
+
+    def test_non_owner_cannot_open_another_users_change_form(self):
+        foreign_account = EmailAccount.objects.create(
+            name='Foreign account',
+            email_host='smtp.foreign.example.com',
+            email_host_user='foreign@example.com',
+            email_host_password='password',
+            from_email='foreign@example.com',
+            owner=self.other_user,
+            department_id=get_department_id(self.other_user),
+        )
+        foreign_change_url = reverse(
+            "site:massmail_emailaccount_change",
+            args=(foreign_account.id,),
+        )
+
+        response = self.client.get(foreign_change_url)
+
+        if response.status_code == 302:
+            response = self.client.get(response.url, follow=True)
+        self.assertNotContains(response, 'Foreign account')
+        self.assertIn(response.status_code, (200, 404))
+
+    def test_non_owner_changelist_excludes_other_users_accounts(self):
+        self.client.force_login(self.other_user)
+
+        response = self.client.get(self.changelist_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, self.account.name)
+
+    def test_copied_fields_exclude_secret_field_names(self):
+        for field_name in SECRET_FIELD_NAMES:
+            self.assertNotIn(field_name, COPIED_FIELDS)
 
     def test_copy_does_not_read_another_users_account(self):
         inaccessible_account = EmailAccount.objects.create(
