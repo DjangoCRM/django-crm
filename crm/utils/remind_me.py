@@ -9,8 +9,8 @@ from django.utils import timezone
 from common.models import Reminder
 from crm.forms.admin_forms import DealForm
 from settings.models import MassmailSettings
-from tasks.forms import TaskForm
 from tasks.forms import ProjectForm
+from tasks.forms import TaskForm
 
 
 def remind_me(request: WSGIRequest,

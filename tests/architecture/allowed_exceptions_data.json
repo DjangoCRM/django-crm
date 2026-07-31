@@ -1,0 +1,1766 @@
+[
+  {
+    "importing_file": "analytics/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "common.models",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/models.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/anlmodeladmin.py",
+    "imported_module": "crm.models.request",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/anlmodeladmin.py",
+    "imported_module": "crm.site",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/closingreasonstatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/closingreasonstatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/dealstatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.utils.helpers",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/incomestatadmin.py",
+    "imported_module": "crm.utils.helpers",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "common.models",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.site.shipmentadmin",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.utils.helpers",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.utils.helpers",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/outputstatadmin.py",
+    "imported_module": "crm.utils.helpers",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/requeststatadmin.py",
+    "imported_module": "common.models",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/requeststatadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/site/salesfunnelsadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/utils/helpers.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/utils/helpers.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/utils/helpers.py",
+    "imported_module": "crm.models",
+    "reason": "Analytics dashboards read CRM aggregates; decouple in REQ-008 follow-up.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "analytics/utils/monthly_snapshot_saving.py",
+    "imported_module": "common.queries",
+    "reason": "Analytics reuses shared admin/query helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Chat threads attach to CRM objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.models",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.services.translations",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.utils.get_file_links",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Chat reuses generic models and admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "crm.models",
+    "reason": "Chat threads attach to CRM objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "tasks.models",
+    "reason": "Chat threads attach to tasks.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "tasks.models",
+    "reason": "Chat threads attach to tasks.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "chat/site/chatmessageadmin.py",
+    "imported_module": "tasks.models",
+    "reason": "Chat threads attach to tasks.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "common/management/commands/check_secrets.py",
+    "imported_module": "webcrm.secret_literal_scanner",
+    "reason": "Common reads project-level configuration.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "common/management/commands/show_config.py",
+    "imported_module": "webcrm.config",
+    "reason": "Common reads project-level configuration.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "common/utils/reminders_sender.py",
+    "imported_module": "settings.models",
+    "reason": "Common reads MassmailSettings for reminders.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/admin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/admin.py",
+    "imported_module": "common.utils.for_translation",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/apps.py",
+    "imported_module": "common.utils.worker_runtime",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/forms/admin_forms.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/forms/admin_forms.py",
+    "imported_module": "tasks.forms",
+    "reason": "CRM objects link to task workflows.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/forms/contact_form.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/migrations/0001_initial.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/base_contact.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/base_contact.py",
+    "imported_module": "common.services.tokens",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/base_contact.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/company.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/contact.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/crmemail.py",
+    "imported_module": "massmail.models.baseeml",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/deal.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/lead.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/others.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/product.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/request.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/request.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/request.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/models/tag.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/companyadmin.py",
+    "imported_module": "common.utils.resize_image",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/companyadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/companyadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/companyadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/contactadmin.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/contactadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/contactadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/contactadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmadminsite.py",
+    "imported_module": "common.site.crmsite",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmemailadmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmemailadmin.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmemailadmin.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmemailadmin.py",
+    "imported_module": "massmail.utils.get_signature_preview",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "common.site.basemodeladmin",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/crmmodeladmin.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "chat.models",
+    "reason": "CRM chat context integration.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "quality.site.transactionqualityeventinline",
+    "reason": "CRM quality integration hooks.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/dealadmin.py",
+    "imported_module": "tasks.models",
+    "reason": "CRM objects link to task workflows.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/leadadmin.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/leadadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/leadadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/leadadmin.py",
+    "imported_module": "massmail.admin_actions",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/paymentadmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/paymentadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.utils.copy_files",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.utils.notify_user",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/requestadmin.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/shipmentadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/shipmentadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/shipmentadmin.py",
+    "imported_module": "common.services.translations",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/site/shipmentadmin.py",
+    "imported_module": "common.utils.email_to_participants",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/admfilters.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/admfilters.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/admfilters.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/admfilters.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/change_massconts.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/change_massconts.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/change_massconts.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_email_request.py",
+    "imported_module": "common.utils.copy_files",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_email_request.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_email_request.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_form_request.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_form_request.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_form_request.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_form_request.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_form_request.py",
+    "imported_module": "common.utils.parse_full_name",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/create_objects.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/crm_imap.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/helpers.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/helpers.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/helpers.py",
+    "imported_module": "settings.models",
+    "reason": "CRM reads tenant settings models.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/helpers.py",
+    "imported_module": "settings.models",
+    "reason": "CRM reads tenant settings models.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/helpers.py",
+    "imported_module": "settings.models",
+    "reason": "CRM reads tenant settings models.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/import_emails.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/make_massmail_form.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/make_massmail_form.py",
+    "imported_module": "common.utils.gettext_messages",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/manage_imaps.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/remind_me.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/remind_me.py",
+    "imported_module": "settings.models",
+    "reason": "CRM reads tenant settings models.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/remind_me.py",
+    "imported_module": "tasks.forms",
+    "reason": "CRM objects link to task workflows.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/remind_me.py",
+    "imported_module": "tasks.forms",
+    "reason": "CRM objects link to task workflows.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/restore_imap_emails.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/restore_imap_emails.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/restore_imap_emails.py",
+    "imported_module": "common.services.translations",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/restore_imap_emails.py",
+    "imported_module": "common.templatetags.util",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/restore_imap_emails.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/send_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/send_email.py",
+    "imported_module": "massmail.utils.email_creators",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/utils/worker_runtime.py",
+    "imported_module": "common.utils.worker_runtime",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/add_request.py",
+    "imported_module": "common.services.notifications",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/change_owner_companies.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/change_owner_companies.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/copy_department.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/create_email.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/create_email.py",
+    "imported_module": "common.queries",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/create_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/create_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/delete_duplicate_object.py",
+    "imported_module": "common.models",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/delete_duplicate_object.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/delete_duplicate_object.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/download_original_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/export_objects.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/export_objects.py",
+    "imported_module": "tasks.models",
+    "reason": "CRM objects link to task workflows.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/got_massmails.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/reply_email.py",
+    "imported_module": "common.utils.copy_files",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/reply_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/reply_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/select_emails_import.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "common.utils.gettext_messages",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "CRM admin and views compose generic common primitives.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/user_transfer.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "crm/views/view_original_email.py",
+    "imported_module": "massmail.models",
+    "reason": "CRM email flows integrate with massmail accounts and signatures.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "help/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Help pages deep-link to CRM admin objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/admin.py",
+    "imported_module": "crm.site.crmmodeladmin",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/baseeml.py",
+    "imported_module": "common.models",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/email_account.py",
+    "imported_module": "common.models",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/email_message.py",
+    "imported_module": "common.utils.gettext_messages",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/mailing_out.py",
+    "imported_module": "common.models",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/signature.py",
+    "imported_module": "common.models",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/models/signature.py",
+    "imported_module": "common.utils.gettext_messages",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/emailaccountadmin.py",
+    "imported_module": "crm.site.crmmodeladmin",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/emailaccountadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/emlmessageadmin.py",
+    "imported_module": "common.utils.copy_files",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/emlmessageadmin.py",
+    "imported_module": "crm.site.crmmodeladmin",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/emlmessageadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/mailingoutadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/mailingoutadmin.py",
+    "imported_module": "crm.site.crmmodeladmin",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/mailingoutadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/mailingoutadmin.py",
+    "imported_module": "settings.models",
+    "reason": "Massmail reads tenant settings.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/signatureadmin.py",
+    "imported_module": "crm.site.crmmodeladmin",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/site/signatureadmin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/email_creators.py",
+    "imported_module": "crm.models.crmemail",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "common.services.translations",
+    "reason": "Massmail reuses generic admin and file helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/utils/sendmassmail.py",
+    "imported_module": "settings.models",
+    "reason": "Massmail reads tenant settings.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/message_previews.py",
+    "imported_module": "settings.models",
+    "reason": "Massmail reads tenant settings.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_email_account.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_email_account.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_recipient_type.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_recipient_type.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_recipient_type.py",
+    "imported_module": "crm.models",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/select_recipient_type.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Massmail campaigns target CRM recipients.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "massmail/views/unsubscribes.py",
+    "imported_module": "settings.models",
+    "reason": "Massmail reads tenant settings.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/admin.py",
+    "imported_module": "crm.admin",
+    "reason": "Quality records reference CRM entities.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/admin.py",
+    "imported_module": "crm.admin",
+    "reason": "Quality records reference CRM entities.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/models/transaction_quality.py",
+    "imported_module": "common.models",
+    "reason": "Quality checks reuse generic admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/site/transactionqualityeventadmin.py",
+    "imported_module": "common.utils.get_file_links",
+    "reason": "Quality checks reuse generic admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/site/transactionqualityeventinline.py",
+    "imported_module": "common.utils.get_file_links",
+    "reason": "Quality checks reuse generic admin helpers.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "quality/site/transactionqualityeventinline.py",
+    "imported_module": "crm.site.crmstackedinline",
+    "reason": "Quality records reference CRM entities.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "settings/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Settings app references CRM configuration models.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/admin.py",
+    "imported_module": "common.utils.for_translation",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/admin.py",
+    "imported_module": "crm.site.crmadminsite",
+    "reason": "Task workflows reference CRM objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/forms.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/migrations/0001_initial.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/memo.py",
+    "imported_module": "common.models",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/memo.py",
+    "imported_module": "common.utils.email_to_participants",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/task.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/task.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/taskbase.py",
+    "imported_module": "common.models",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/taskbase.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/models/taskbase.py",
+    "imported_module": "common.services.tokens",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.messaging",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.messaging",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.services.translations",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.site.basemodeladmin",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.utils.chat_link",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.utils.email_to_participants",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/memoadmin.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/projectadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/projectadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/projectadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/projectadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/taskadmin.py",
+    "imported_module": "common.utils.gettext_messages",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.models",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.queries",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.services.datetimes",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.services.messaging",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.services.notifications",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.services.translations",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.site.basemodeladmin",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.utils.chat_link",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.utils.email_to_participants",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "common.utils.notify_user",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/site/tasksbasemodeladmin.py",
+    "imported_module": "crm.utils.remind_me",
+    "reason": "Task workflows reference CRM objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/utils/admfilters.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/utils/admfilters.py",
+    "imported_module": "crm.utils",
+    "reason": "Task workflows reference CRM objects.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/views/create_completed_subtask.py",
+    "imported_module": "common.utils.adminform_helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/views/create_completed_subtask.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/views/task_completed.py",
+    "imported_module": "common.utils.adminform_helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "tasks/views/task_completed.py",
+    "imported_module": "common.utils.helpers",
+    "reason": "Tasks reuse generic admin, queries and notifications.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/admin.py",
+    "imported_module": "crm.utils.admfilters",
+    "reason": "VoIP call logs attach to CRM contacts.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/settings.py",
+    "imported_module": "webcrm.voip_config",
+    "reason": "VoIP settings read project URL configuration.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/views/voipwebhook.py",
+    "imported_module": "common.queries",
+    "reason": "VoIP integration reuses generic utilities.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/views/voipwebhook.py",
+    "imported_module": "crm.models",
+    "reason": "VoIP call logs attach to CRM contacts.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/views/voipwebhook.py",
+    "imported_module": "crm.models",
+    "reason": "VoIP call logs attach to CRM contacts.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "voip/views/voipwebhook.py",
+    "imported_module": "crm.models",
+    "reason": "VoIP call logs attach to CRM contacts.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/settings.py",
+    "imported_module": "common.settings",
+    "reason": "Project shell mounts generic URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/settings.py",
+    "imported_module": "crm.settings",
+    "reason": "Project shell mounts CRM URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/settings.py",
+    "imported_module": "tasks.settings",
+    "reason": "Project shell mounts tasks URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/settings.py",
+    "imported_module": "voip.settings",
+    "reason": "Project shell mounts VoIP URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/urls.py",
+    "imported_module": "common.views.favicon",
+    "reason": "Project shell mounts generic URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/urls.py",
+    "imported_module": "common.views.serve_media",
+    "reason": "Project shell mounts generic URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/urls.py",
+    "imported_module": "crm.views.contact_form",
+    "reason": "Project shell mounts CRM URL routes.",
+    "owner": "REQ-006 architecture"
+  },
+  {
+    "importing_file": "webcrm/urls.py",
+    "imported_module": "massmail.views.get_oauth2_tokens",
+    "reason": "Project shell mounts massmail URL routes.",
+    "owner": "REQ-006 architecture"
+  }
+]

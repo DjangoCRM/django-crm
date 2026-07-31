@@ -10,7 +10,7 @@ def get_signature_preview(obj: Signature) -> Template:
     Used as callable field in CrmEmailAdmin and EmlMessageAdmin.
     """
     template = get_template(obj)
-    context = Context({'preview': True}) 
+    context = Context({'preview': True})
     return get_rendered_context(template, context)
 
 

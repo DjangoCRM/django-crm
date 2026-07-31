@@ -3,9 +3,9 @@ from queue import Queue
 from django.apps import AppConfig
 from django.conf import settings
 
+from crm.utils.worker_runtime import start_crm_mail_workers
+from crm.utils.worker_runtime import start_crm_schedulers
 from common.utils.worker_runtime import should_start_background_workers
-from common.utils.worker_runtime import start_crm_mail_workers
-from common.utils.worker_runtime import start_crm_schedulers
 
 
 class CrmConfig(AppConfig):

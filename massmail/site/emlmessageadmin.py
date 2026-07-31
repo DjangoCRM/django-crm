@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from sharedkernel.inlines import FileInline
 from common.utils.copy_files import copy_files
-from common.utils.get_signature_preview import get_signature_preview
+from massmail.utils.get_signature_preview import get_signature_preview
 from sharedkernel.presentation import CONTENT_COPY_ICON
 from sharedkernel.presentation import CONTENT_COPY_LINK
 from sharedkernel.presentation import COPY_STR

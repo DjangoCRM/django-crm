@@ -34,7 +34,7 @@ from sharedkernel.presentation import LEADERS
 from common.services.notifications import notify_admins_no_email
 from common.utils.notify_user import notify_user
 from common.services.notifications import save_message
-from common.utils.remind_me import remind_me
+from crm.utils.remind_me import remind_me
 from tasks.models import Memo
 from tasks.models import Project
 from tasks.models import Task

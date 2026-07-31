@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from common.utils.get_signature_preview import get_signature_preview
+from massmail.utils.get_signature_preview import get_signature_preview
 from crm.site.crmmodeladmin import CrmModelAdmin
 from crm.utils.admfilters import ByOwnerFilter
 

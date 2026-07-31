@@ -15,7 +15,7 @@ from django.utils.safestring import mark_safe
 
 from sharedkernel.inlines import FileInline
 from common.models import TheFile
-from common.utils.get_signature_preview import get_signature_preview
+from massmail.utils.get_signature_preview import get_signature_preview
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from crm.forms.admin_forms import IoMail
 from crm.models import CrmEmail

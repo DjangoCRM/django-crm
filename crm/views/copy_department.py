@@ -50,4 +50,4 @@ def copy_department(request):
             opts=Department._meta,
             departments=departments,
         )
-    return render(request, 'common/copy_department.html', extra_context)
+    return render(request, 'crm/copy_department.html', extra_context)

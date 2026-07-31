@@ -27,7 +27,7 @@ from common.services.datetimes import get_now
 from sharedkernel.presentation import LEADERS
 from common.services.datetimes import get_today
 from sharedkernel.presentation import popup_window
-from common.utils.remind_me import remind_me
+from crm.utils.remind_me import remind_me
 from crm.forms.admin_forms import DealForm
 from crm.models import ClosingReason
 from crm.models import CrmEmail

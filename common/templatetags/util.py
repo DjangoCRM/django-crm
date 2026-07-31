@@ -8,8 +8,6 @@ from django.utils.translation import gettext as _
 from django.utils.safestring import mark_safe
 
 from common.models import TheFile
-from tasks.models import Task
-from tasks.site.taskadmin import COMPLETED_TITLE
 
 register = Library()
 FILE_ERROR_SUBJ = "TheFile error: ID{}"
@@ -100,31 +98,6 @@ def stage(obj) -> str:
         elif isinstance(field, models.CharField):
             return obj.get_stage_display()
     return ''
-
-
-@register.filter
-def task_completed_button(obj: Task, responsible) -> str:
-    """It is used to generate the button code in the template 
-    of the notification email to the responsible (user)."""
-    button_code = ''
-    if obj.__class__ == Task:
-        site = Site.objects.get_current()
-        if obj.responsible.count() == 1:
-            path_name = "task_completed"
-            button_name = _("Task completed")
-            title = _("I completed the task")
-        else:
-            path_name = "email-subtask_completed"
-            button_name = _("Completed")
-            title = COMPLETED_TITLE
-        complete_url = reverse(path_name, args=(obj.token, responsible.id))
-        button_code = mark_safe(
-            f'<a title="{title}" href="https://{site.domain}{complete_url}">'
-            f'<button>{button_name}</button></a>&emsp;'
-        )
-    return button_code
-
-
 @register.filter
 def verbose_name(obj):
     return obj._meta.verbose_name   # NoQA

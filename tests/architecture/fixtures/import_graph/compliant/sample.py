@@ -1,0 +1,1 @@
+from sharedkernel.presentation import CRM_NOTICE
