@@ -5,6 +5,8 @@ from smtplib import SMTP
 from django.conf import settings
 from django.core.mail.backends.smtp import EmailBackend
 
+from sharedkernel.credentials import AUTH_MECHANISM_OAUTH2, SmtpCredentials
+
 
 class OAuth2EmailBackend(EmailBackend):
     def __init__(self, host=None, port=None, username=None, password=None,
@@ -16,6 +18,28 @@ class OAuth2EmailBackend(EmailBackend):
                          timeout=timeout, ssl_keyfile=ssl_keyfile, ssl_certfile=ssl_certfile,
                          **kwargs)
         self.refresh_token = refresh_token
+
+    @classmethod
+    def from_smtp_credentials(
+        cls,
+        credentials: SmtpCredentials,
+        *,
+        fail_silently: bool = False,
+        timeout=None,
+        ssl_keyfile=None,
+        ssl_certfile=None,
+    ) -> 'OAuth2EmailBackend':
+        return cls(
+            host=credentials.host,
+            port=credentials.port,
+            username=credentials.user,
+            use_tls=credentials.use_tls,
+            fail_silently=fail_silently,
+            timeout=timeout,
+            ssl_keyfile=ssl_keyfile,
+            ssl_certfile=ssl_certfile,
+            refresh_token=credentials.password,
+        )
         
     def get_access_token(self) -> str:
         params = {

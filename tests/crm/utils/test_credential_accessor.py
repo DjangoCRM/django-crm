@@ -35,7 +35,10 @@ CALL_SITE_FILES = (
     PROJECT_ROOT / 'crm/utils/crm_imap.py',
     PROJECT_ROOT / 'crm/utils/manage_imaps.py',
     PROJECT_ROOT / 'crm/utils/send_email.py',
+    PROJECT_ROOT / 'crm/utils/import_emails.py',
     PROJECT_ROOT / 'massmail/utils/email_creators.py',
+    PROJECT_ROOT / 'massmail/utils/sendmassmail.py',
+    PROJECT_ROOT / 'massmail/backends/smtp.py',
 )
 
 
@@ -244,6 +247,7 @@ class EmailConnectionStubTests(SimpleTestCase):
         account = oauth2_account()
         with mock.patch('massmail.utils.email_creators.OAuth2EmailBackend') as mock_backend:
             backend = mock.Mock()
-            mock_backend.return_value = backend
+            mock_backend.from_smtp_credentials.return_value = backend
             email_connection(account)
-        mock_backend.assert_called_once_with(refresh_token='oauth-refresh-token-value')
+        credentials = CredentialAccessor.get_smtp_credentials(account)
+        mock_backend.from_smtp_credentials.assert_called_once_with(credentials)
