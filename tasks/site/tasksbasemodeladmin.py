@@ -20,6 +20,7 @@ from django.utils.translation import gettext_lazy as _
 from sharedkernel.inlines import FileInline
 from common.models import TheFile
 from common.site.basemodeladmin import BaseModelAdmin
+from sharedkernel.admin_labels import append_id_to_raw_id_field_labels
 from common.utils.chat_link import get_chat_link
 from common.utils.email_to_participants import email_to_participants
 from common.services.messaging import compose_message
@@ -61,6 +62,7 @@ responsible_subject = _("You have a new task assigned")
 
 
 class TasksBaseModelAdmin(BaseModelAdmin):
+    raw_id_label_decorator = staticmethod(append_id_to_raw_id_field_labels)
     inlines = [FileInline]
     list_per_page = 50
     search_fields = ("name", "description", "workflow")

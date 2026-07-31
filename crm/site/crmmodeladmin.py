@@ -45,6 +45,7 @@ from crm.utils.admfilters import ByVIPStatus
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from crm.utils.admfilters import TagFilter
 from crm.utils.clarify_permission import clarify_permission
+from crm.utils.helpers import add_id_to_raw_id_field_label
 from crm.utils.helpers import html2txt
 from crm.utils.admfilters import ByCityFilter
 from crm.utils.admfilters import ByDepartmentFilter
@@ -82,6 +83,7 @@ did_not_receive_title = _("The recipient has not received any mailings.")
 
 
 class CrmModelAdmin(BaseModelAdmin):
+    raw_id_label_decorator = staticmethod(add_id_to_raw_id_field_label)
 
     # -- ModelAdmin methods -- #
 

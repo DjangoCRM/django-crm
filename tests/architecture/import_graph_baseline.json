@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 69,
+  "helpers_fan_in_count": 70,
   "violations": [
     {
       "importing_file": "analytics/admin.py",
@@ -306,12 +306,6 @@
       "imported_module": "webcrm.config",
       "source_app": "common",
       "target_app": "webcrm"
-    },
-    {
-      "importing_file": "common/site/basemodeladmin.py",
-      "imported_module": "crm.utils.helpers",
-      "source_app": "common",
-      "target_app": "crm"
     },
     {
       "importing_file": "common/site/crmsite.py",
