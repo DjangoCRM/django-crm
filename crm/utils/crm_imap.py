@@ -14,7 +14,7 @@ from massmail.models import EmailAccount
 from sharedkernel.credentials import (
     CREDENTIAL_MASK,
     CredentialAccessor,
-    MissingCredentialError,
+    MissingMailCredentialError,
 )
 
 
@@ -320,14 +320,14 @@ class CrmIMAP:
 
     def _log_in(self) -> None:
         try:
-            credential = CredentialAccessor.for_imap(self.ea)
-        except MissingCredentialError as err:
+            credential = CredentialAccessor.get_imap_credentials(self.ea)
+        except MissingMailCredentialError as err:
             self.error = err
             mail_admins(
                 'Missing mailbox credential at CrmIMAP._log_in',
                 f'''Missing mailbox credential for Email account: {self.ea}
                 \nAccount id: {err.account_id}
-                \nOwner id: {err.owner_id}
+                \nOwner id: {self.ea.owner_id}
                 \nExpected field: {err.field_name}
                 \nCredential: {CREDENTIAL_MASK}''',
                 fail_silently=True,
@@ -335,7 +335,7 @@ class CrmIMAP:
             return
         self._execute(
             self.connection.login,
-            (credential.user, credential.secret),
+            (credential.user, credential.password),
             'Exception at CrmIMAP.LOGIN'
         )
         if self.error:

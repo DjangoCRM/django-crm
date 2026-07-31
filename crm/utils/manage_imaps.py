@@ -16,7 +16,7 @@ from massmail.models import EmailAccount
 from sharedkernel.credentials import (
     CREDENTIAL_MASK,
     CredentialAccessor,
-    MissingCredentialError,
+    MissingMailCredentialError,
 )
 
 delta_period = timedelta(seconds=30)
@@ -48,14 +48,14 @@ class CrmImapManager(threading.Thread):
     
     def _create_crmimap(self, ea: EmailAccount) -> Optional[CrmIMAP]:
         try:
-            CredentialAccessor.for_imap(ea)
-        except MissingCredentialError as err:
+            CredentialAccessor.get_imap_credentials(ea)
+        except MissingMailCredentialError as err:
             site = Site.objects.get_current()
             mail_admins(
                 'Missing mailbox credential at CrmImapManager._create_crmimap',
                 f'''Missing mailbox credential for Email account: {ea}
                 \nAccount id: {err.account_id}
-                \nOwner id: {err.owner_id}
+                \nOwner id: {ea.owner_id}
                 \nExpected field: {err.field_name}
                 \nCredential: {CREDENTIAL_MASK}
                 \nSite {site.domain}

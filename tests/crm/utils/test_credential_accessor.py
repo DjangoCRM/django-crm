@@ -20,7 +20,7 @@ from sharedkernel.credentials import (
     AuthKind,
     CredentialAccessor,
     MailboxCredential,
-    MissingCredentialError,
+    MissingMailCredentialError,
 )
 from tests.base_test_classes import BaseTestCase
 from tests.fixtures.email_account_credentials import (
@@ -54,10 +54,9 @@ class CredentialAccessorUnitTests(SimpleTestCase):
 
     def test_missing_credential_raises_named_error(self):
         account = no_credential_account()
-        with self.assertRaises(MissingCredentialError) as ctx:
+        with self.assertRaises(MissingMailCredentialError) as ctx:
             CredentialAccessor.for_imap(account)
         self.assertEqual(ctx.exception.account_id, 3)
-        self.assertEqual(ctx.exception.owner_id, 12)
 
     def test_oauth2_account_returns_token_auth_kind(self):
         account = oauth2_account()
@@ -134,6 +133,7 @@ class CrmImapCredentialIntegrationTests(BaseTestCase):
         )
         self.crmimap = CrmIMAP(self.email_account.email_host_user)
         self.crmimap.ea = self.email_account
+        self.crmimap.error = None
 
     @mock.patch('crm.utils.crm_imap.CrmIMAP._execute')
     def test_login_uses_app_password_precedence(self, mock_execute):
@@ -149,7 +149,7 @@ class CrmImapCredentialIntegrationTests(BaseTestCase):
         self.crmimap.ea.email_host_password = ''
         self.crmimap.ea.refresh_token = ''
         self.crmimap._log_in()
-        self.assertIsInstance(self.crmimap.error, MissingCredentialError)
+        self.assertIsInstance(self.crmimap.error, MissingMailCredentialError)
         body = mock_mail_admins.call_args[0][1]
         self.assertIn(CREDENTIAL_MASK, body)
         self.assertNotIn('host-password', body)
