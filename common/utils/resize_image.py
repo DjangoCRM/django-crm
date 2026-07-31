@@ -1,29 +1,36 @@
 from PIL import Image
-from PIL import ImageDraw
 from io import BytesIO
 
 from django.db.models import ImageField
 
 
-def resize_image(image_field: ImageField, circular: bool = True) -> None:
+def resize_image(image_field: ImageField) -> BytesIO:
     """
-    Resize image to a maximum of 200x200 pixels.
+    Resize image based on aspect ratio conditions.
     """
 
     img = Image.open(image_field)
-    img.thumbnail((200, 200), Image.Resampling.LANCZOS)
+
+    # Calculate aspect ratio (width / height)
+    width, height = img.size
+    aspect_ratio = width / height
+
+    if aspect_ratio <= 2.0:
+        # Ratio ≤ 1:2 — resize to 200x200
+        new_width, new_height = 200, 200
+    elif aspect_ratio <= 5.0:
+        # Ratio > 1:2 but ≤ 5.0 — height = 200, width proportional
+        new_height = 200
+        new_width = int(width * (new_height / height))
+    else:
+        # Ratio > 5.0 — height = 200, width = 1000
+        new_width, new_height = 800, 200
+
+    img.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
 
     # Convert to RGB if necessary (for PNG with transparency)
     if img.mode in ('LA', 'P'):
         img = img.convert('RGB')
-
-    if circular:
-        # Create circular mask
-        size = img.size
-        mask = Image.new('L', size, 0)
-        draw = ImageDraw.Draw(mask)
-        draw.ellipse([0, 0, size[0], size[1]], fill=255)
-        img.putalpha(mask)
 
     # Save to BytesIO
     resized_image = BytesIO()

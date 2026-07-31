@@ -121,7 +121,7 @@ def select_emails_import(request: WSGIRequest):
             return HttpResponseRedirect(next_url)
         return TemplateResponse(
             request,
-            "common/select_emails.html",
+            "crm/select_emails.html",
             context
         )
 

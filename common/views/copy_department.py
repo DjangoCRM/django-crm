@@ -5,19 +5,8 @@ from django.utils.translation import gettext as _
 from django.urls import reverse
 
 from common.models import Department
-from crm.models import ClientType
-from crm.models import Industry
-from crm.models import LeadSource
-from crm.models import Product
-from crm.models import ClosingReason
-from crm.models import Stage
+from crm.department_clone import get_department_clone_models
 from crm.site.crmadminsite import crm_site
-
-
-MODELS = [
-    Product, Stage, ClosingReason,
-    ClientType, Industry, LeadSource
-]
 
 
 def copy_department(request):
@@ -32,7 +21,7 @@ def copy_department(request):
             default_currency=department.default_currency,
             works_globally=department.works_globally
         )
-        for model in MODELS:
+        for model in get_department_clone_models():
             objects = model.objects.filter(
                 department_id=department_id
             )
