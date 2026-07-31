@@ -16,6 +16,7 @@ def app_password_account(**overrides: Any) -> SimpleNamespace:
         email_host_password='host-secret',
         email_app_password='app-secret',
         refresh_token='',
+        co_owner_id=None,
         email_port=587,
         email_use_tls=True,
         email_use_ssl=False,
@@ -34,6 +35,7 @@ def host_password_account(**overrides: Any) -> SimpleNamespace:
         email_host_password='host-only-secret',
         email_app_password='',
         refresh_token='',
+        co_owner_id=None,
         email_port=587,
         email_use_tls=True,
         email_use_ssl=False,
@@ -52,6 +54,10 @@ def no_credential_account(**overrides: Any) -> SimpleNamespace:
         email_host_password='',
         email_app_password='',
         refresh_token='',
+        co_owner_id=None,
+        email_port=587,
+        email_use_tls=True,
+        email_use_ssl=False,
     )
     account.__dict__.update(overrides)
     return account
@@ -67,6 +73,7 @@ def oauth2_account(**overrides: Any) -> SimpleNamespace:
         email_host_password='ignored-host-secret',
         email_app_password='ignored-app-secret',
         refresh_token='oauth-refresh-token-value',
+        co_owner_id=None,
         email_port=587,
         email_use_tls=True,
         email_use_ssl=False,

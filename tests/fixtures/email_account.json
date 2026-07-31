@@ -1,0 +1,40 @@
+[
+  {
+    "_comment": "Placeholder credentials only — not real secrets.",
+    "model": "massmail.emailaccount",
+    "pk": 9001,
+    "fields": {
+      "name": "Fixture Credential Account",
+      "main": false,
+      "massmail": true,
+      "do_import": true,
+      "email_host": "smtp.example.com",
+      "imap_host": "imap.example.com",
+      "email_host_user": "fixture-user@example.com",
+      "email_host_password": "placeholder-host-password",
+      "email_app_password": "placeholder-app-password",
+      "email_port": 587,
+      "from_email": "fixture-user@example.com",
+      "email_use_tls": true,
+      "email_use_ssl": false,
+      "email_imail_ssl_certfile": "",
+      "email_imail_ssl_keyfile": "",
+      "refresh_token": "",
+      "report": "",
+      "today_count": 0,
+      "start_incoming_uid": 1,
+      "start_sent_uid": 1,
+      "inbox_uidvalidity": 0,
+      "inbox_uidnext": 0,
+      "sent_uidvalidity": 0,
+      "sent_uidnext": 0,
+      "creation_date": "2026-01-01T00:00:00Z",
+      "update_date": "2026-01-01T00:00:00Z",
+      "last_import_dt": "2026-01-01T00:00:00Z",
+      "owner": 1,
+      "modified_by": null,
+      "department": 1,
+      "co_owner": null
+    }
+  }
+]
