@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
 - Add "Late response" TransactionQualitySignal
 - Added a copy email account button by @oiahoon 
@@ -25,15 +26,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Escape inquiry e-mail subject in CRM admin change-list. By @tonghuaroot
 - Restrict the scope of `message_preview` to the user's department by @dizconnectz
 - Hide Create Deal button for duplicate or case requests by @muralisanjith
+- Add copying of the website address from the Request to a new Lead by @snowyukitty
 
 ### Changed
 
 - The "currency" field in OutputInline becomes mandatory only when the user fills in the "amount" field.
+- Refactor image resizing logic to adjust dimensions based on aspect ratio conditions
 
 ### Fixed
 
 - TheFile.__str__ to always return the filename by krsahil8825
 - Add Company relationship to Request during Lead conversion by @surajthedev
+- Fix Installation Doc by @picklesin
 
 ## [2.4.0] - 2026-05-216
 

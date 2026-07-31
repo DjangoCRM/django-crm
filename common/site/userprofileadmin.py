@@ -14,7 +14,6 @@ from django.utils.translation import gettext_lazy as _
 
 from common.forms.userprofileform import UserProfileForm
 from common.models import UserProfile
-from common.utils.resize_image import resize_image
 from common.utils.admfilters import ByDepartmentFilter
 from common.utils.chat_link import get_chat_link
 from common.queries import add_chat_context
@@ -87,6 +86,7 @@ class UserProfileAdmin(admin.ModelAdmin):
                 ['language_code', ('utc_timezone',  'activate_timezone')])
         else:
             fields.extend(['language', 'show_timezone'])
+        fields.append('crm_email_notifications')
         return [(None, {"fields": fields})]
 
     def get_form(self, request, obj=None, **kwargs):
@@ -115,6 +115,12 @@ class UserProfileAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
         qs = annotate_chat(request, qs)
         return qs
+
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = list(self.readonly_fields)
+        if obj and not request.user == obj.user:
+            readonly_fields.append("crm_email_notifications")
+        return readonly_fields
 
     def has_add_permission(self, request):
         return False

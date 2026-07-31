@@ -310,6 +310,11 @@ class UserProfile(models.Model):
         default=False,
         verbose_name=_("Activate this time zone"),
     )
+    crm_email_notifications = models.BooleanField(
+        default=True,
+        verbose_name=_("CRM email notifications"),
+        help_text=_("Disabling will stop receiving emails from the CRM system.")
+    )
     messages = models.JSONField(
         default=messages_default,
         help_text=_("Field for temporary storage of messages to the user")
