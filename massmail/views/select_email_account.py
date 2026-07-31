@@ -32,4 +32,4 @@ def select_email_account(request: WSGIRequest):
             form=form
         )
 
-    return render(request, 'common/select_object.html', extra_context)
+    return render(request, 'massmail/select_object.html', extra_context)

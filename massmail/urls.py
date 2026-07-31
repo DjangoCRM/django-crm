@@ -8,6 +8,7 @@ from massmail.views.file_upload import file_upload
 from massmail.views.get_oauth2_tokens import request_authorization_code
 from massmail.views.message_previews import message_preview
 from massmail.views.recipient_ids import view_recipient_ids
+from massmail.views.select_email_account import select_email_account
 from massmail.views.select_recipient_type import select_recipient_type
 from massmail.views.send_failed_recipients import send_failed_recipients
 from massmail.views.send_tests import send_test
@@ -17,6 +18,11 @@ from massmail.views.unsubscribes import unsubscribe
 
 
 urlpatterns = [
+    path(
+        'select-email-account/',
+        staff_member_required(select_email_account),
+        name='select_email_account'
+    ),
     path(
         'message-preview/<int:message_id>/',
         login_required(message_preview),

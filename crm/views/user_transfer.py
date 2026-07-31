@@ -26,7 +26,7 @@ from massmail.models import MailingOut
 from massmail.models import Signature
 
 
-objects = (
+objects = USER_TRANSFER_OBJECTS = (
     {
         'model': Request,
         'm2m': (('products', Product),)
@@ -72,7 +72,7 @@ def user_transfer(request):
         )
         owner.groups.remove(old_department)
         owner.groups.add(new_department)
-        for item in objects:
+        for item in USER_TRANSFER_OBJECTS:
             changed_num = item['model'].objects.filter(owner=owner).update(
                 department=new_department
             )
@@ -143,4 +143,8 @@ def user_transfer(request):
             departments=departments,
             warning_message=DATA_WARNING_MESSAGE
         )
-    return render(request, 'common/user_transfer.html', extra_context)
+    return render(request, 'crm/user_transfer.html', extra_context)
+
+
+def get_user_transfer_objects():
+    return USER_TRANSFER_OBJECTS

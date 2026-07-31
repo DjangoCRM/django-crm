@@ -2,7 +2,7 @@ from django.contrib.auth.models import Group
 from django.contrib.contenttypes.models import ContentType
 from django.test import tag
 from django.urls import reverse
-from common.views.copy_department import MODELS
+from crm.department_clone import get_department_clone_models
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Deal
@@ -104,8 +104,9 @@ class TestUserTransfer(BaseTestCase):
                 ).exists(),
                 f"The {model.__name__} is not transferred to another department."
             )
-        MODELS.append(Tag)
-        for model in MODELS:
+        clone_models = list(get_department_clone_models())
+        clone_models.append(Tag)
+        for model in clone_models:
             self.assertEqual(
                 True,
                 model.objects.filter(department=new_department).exists(),

@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 
 from common.models import Reminder
-from common.views.export_objects import export_selected_objects
+from crm.views.export_objects import export_selected_objects
 from common.queries import get_department_id
 from sharedkernel.presentation import SAFE_SUBJECT_ICON
 from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON

@@ -1,11 +1,14 @@
 from django.apps import apps
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from crm.site.crmadminsite import crm_site
 from django.urls import include
 from django.urls import path
 from django.views.generic.detail import DetailView
 
-from common.views.export_objects import export_objects_view
+from crm.views.export_objects import export_objects_view
+from crm.views.select_emails_import import select_emails_import
+from crm.views.user_transfer import user_transfer
 from crm.views.create_email import create_email
 from crm.views.add_request import add_request
 from crm.views.delete_duplicate_object import DeleteDuplicateObject
@@ -33,6 +36,17 @@ urlpatterns = [
     path(
         'export-objects/', staff_member_required(export_objects_view),
         name="export_objects"
+    ),
+
+    path(
+        'select-emails-import/request/',
+        staff_member_required(select_emails_import),
+        name='select_emails_import_request'
+    ),
+    path(
+        'user-transfer/',
+        login_required(user_transfer),
+        name='user_transfer'
     ),
 
     path(

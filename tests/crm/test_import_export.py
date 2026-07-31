@@ -9,7 +9,7 @@ from django.urls import reverse
 
 from crm.models import Company
 from crm.models import Contact
-from common.views.export_objects import get_file_path
+from crm.views.export_objects import get_file_path
 from common.queries import get_department_id
 from common.services.datetimes import get_today
 from tests.utils.helpers import get_user
