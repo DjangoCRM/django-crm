@@ -1,5 +1,5 @@
 {
-  "helpers_fan_in_count": 70,
+  "helpers_fan_in_count": 71,
   "violations": [
     {
       "importing_file": "analytics/admin.py",
@@ -306,36 +306,6 @@
       "imported_module": "webcrm.config",
       "source_app": "common",
       "target_app": "webcrm"
-    },
-    {
-      "importing_file": "common/site/crmsite.py",
-      "imported_module": "crm.models",
-      "source_app": "common",
-      "target_app": "crm"
-    },
-    {
-      "importing_file": "common/site/crmsite.py",
-      "imported_module": "crm.models",
-      "source_app": "common",
-      "target_app": "crm"
-    },
-    {
-      "importing_file": "common/site/crmsite.py",
-      "imported_module": "help.models",
-      "source_app": "common",
-      "target_app": "help"
-    },
-    {
-      "importing_file": "common/site/crmsite.py",
-      "imported_module": "tasks.models",
-      "source_app": "common",
-      "target_app": "tasks"
-    },
-    {
-      "importing_file": "common/site/crmsite.py",
-      "imported_module": "tasks.models",
-      "source_app": "common",
-      "target_app": "tasks"
     },
     {
       "importing_file": "common/templatetags/util.py",
@@ -1668,6 +1638,12 @@
       "imported_module": "crm.site.crmadminsite",
       "source_app": "tasks",
       "target_app": "crm"
+    },
+    {
+      "importing_file": "tasks/dashboard.py",
+      "imported_module": "common.utils.hide_main_tasks",
+      "source_app": "tasks",
+      "target_app": "common"
     },
     {
       "importing_file": "tasks/forms.py",

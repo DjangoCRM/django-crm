@@ -29,6 +29,10 @@ class CrmConfig(AppConfig):
         if reminder_admin is not None:
             type(reminder_admin).owner_list_filter = ScrollRelatedOnlyFieldListFilter
 
+        from crm.dashboard import register_crm_dashboard_providers
+
+        register_crm_dashboard_providers()
+
         if settings.TESTING:
             from crm.utils.create_email_request import CreateEmailInquiry
             from crm.utils.restore_imap_emails import RestoreImapEmails
