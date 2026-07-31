@@ -1,0 +1,9 @@
+From: sender@example.com
+To: recipient@example.com
+Subject: Sentinel MIME fixture
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Confidential patient note for Jane Example
+Password hint: sentinel-host-password-xyz
+App password: sentinel-app-password-abc

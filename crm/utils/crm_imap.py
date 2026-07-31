@@ -8,14 +8,10 @@ from time import sleep
 from typing import Optional
 from django.conf import settings
 from django.contrib.sites.models import Site
-from django.core.mail import mail_admins
 
 from massmail.models import EmailAccount
-from sharedkernel.credentials import (
-    CREDENTIAL_MASK,
-    CredentialAccessor,
-    MissingMailCredentialError,
-)
+from sharedkernel.credentials import CredentialAccessor, MissingMailCredentialError
+from sharedkernel.mail_diagnostics import report_mail_incident
 
 
 if sys.platform != "win32":
@@ -121,18 +117,19 @@ class CrmIMAP:
                 if not counter:
                     n = release_limit * sleep_time_sec
                     msg = f"The CrmIMAP.{self} was not released within {n} seconds"
-                    site = Site.objects.get_current()
-                    mail_admins(
-                        msg,
-                        f'''{msg}\n
-                        \nSite {site.domain}
-                        \nEmail account:_____{self.ea}
-                        \ncreate_time:_______{self.create_time}
-                        \nLast_Noop_time:___{self.noop_time}
-                        \nLast_request_time:_{self.last_request_time}
-                        \nException time:____{dt.now()}
-                        \nLog: \n{self._parse_log()}
-                        ''',
+                    report_mail_incident(
+                        account=self.ea,
+                        operation='imap_lock_timeout',
+                        exception=RuntimeError(msg),
+                        context={
+                            'site': Site.objects.get_current().domain,
+                            'create_time': self.create_time,
+                            'noop_time': self.noop_time,
+                            'last_request_time': self.last_request_time,
+                            'exception_time': dt.now(),
+                            'log': self._parse_log(),
+                        },
+                        subject=msg,
                     )
                     raise RuntimeError(msg)
         self.locked = True
@@ -211,21 +208,21 @@ class CrmIMAP:
                     os.unlink(self.lockfile)
         except Exception as err:     # FileNotFoundError
             msg = f"The lockfile of {self} was deleted already?"
-            site = Site.objects.get_current()
-            mail_admins(
-                msg,
-                f'''{msg}\n
-                \nException: {err} 
-                \nSite {site.domain}
-                \nThread: {threading.current_thread()}
-                \nProcess: {os.getpid()}\n                
-                \nEmail account:_____{self.ea}
-                \ncreate_time:_______{self.create_time}
-                \nLast_Noop_time:___{self.noop_time}
-                \nLast_request_time:_{self.last_request_time}
-                \nException time:____{dt.now()}
-                \nLog: \n{self._parse_log()}
-                ''',
+            report_mail_incident(
+                account=self.ea,
+                operation='imap_lockfile_release',
+                exception=err,
+                context={
+                    'site': Site.objects.get_current().domain,
+                    'thread': str(threading.current_thread()),
+                    'process_id': os.getpid(),
+                    'create_time': self.create_time,
+                    'noop_time': self.noop_time,
+                    'last_request_time': self.last_request_time,
+                    'exception_time': dt.now(),
+                    'log': self._parse_log(),
+                },
+                subject=msg,
             )
 
     def _complete_init(self, boxes: dict, ea: EmailAccount):
@@ -310,12 +307,12 @@ class CrmIMAP:
             self.connection = imaplib.IMAP4_SSL(self.ea.imap_host)
         except Exception as err:
             self.error = err
-            mail_admins(
-                'IMAP4_SSL exception at CrmIMAP._connect',
-                f'''imaplib.IMAP4_SSL({self.ea.imap_host})
-                \nEmail account: {self.ea}
-                \nException: {self.error}''',
-                fail_silently=True,
+            report_mail_incident(
+                account=self.ea,
+                operation='imap_connect',
+                exception=err,
+                context={'imap_host': self.ea.imap_host},
+                subject='IMAP4_SSL exception at CrmIMAP._connect',
             )
 
     def _log_in(self) -> None:
@@ -323,14 +320,12 @@ class CrmIMAP:
             credential = CredentialAccessor.get_imap_credentials(self.ea)
         except MissingMailCredentialError as err:
             self.error = err
-            mail_admins(
-                'Missing mailbox credential at CrmIMAP._log_in',
-                f'''Missing mailbox credential for Email account: {self.ea}
-                \nAccount id: {err.account_id}
-                \nOwner id: {self.ea.owner_id}
-                \nExpected field: {err.field_name}
-                \nCredential: {CREDENTIAL_MASK}''',
-                fail_silently=True,
+            report_mail_incident(
+                account=self.ea,
+                operation='imap_login',
+                exception=err,
+                context={'expected_field': err.field_name},
+                subject='Missing mailbox credential at CrmIMAP._log_in',
             )
             return
         self._execute(
@@ -347,27 +342,26 @@ class CrmIMAP:
 
     def _mail_admins(self, command: str, params: Optional[tuple],
                      msg: str, result, data) -> None:
-        site = Site.objects.get_current()
-        mail_admins(
-            msg,
-            f'''{msg}
-            \nThe connection will be restored automatically.\n
-            Site {site.domain}\n
-            Process: {os.getpid()}\n
-            CrmIMAP._execute({command}, {params})\n
-            Email account:     {self.ea}\n
-            Exception:         {self.error}\n
-            Type Exception:    {type(self.error)}\n
-            Result:            {result}\n
-            Data:              {data}\n
-            \nCreate_time:_______{self.create_time}\n
-            Last_Noop_time:____{self.noop_time}\n
-            Last_request_time:_{self.last_request_time}\n
-            Exception time:____{dt.now()}\n
-            Thread: {threading.current_thread()}\n
-            \nLog: \n{self._parse_log()}
-            ''',
-            fail_silently=True,
+        report_mail_incident(
+            account=self.ea,
+            operation=f'imap_execute:{command}',
+            exception=self.error,
+            context={
+                'site': Site.objects.get_current().domain,
+                'process_id': os.getpid(),
+                'command': command,
+                'params': params,
+                'message': msg,
+                'result': result,
+                'data': data,
+                'create_time': self.create_time,
+                'noop_time': self.noop_time,
+                'last_request_time': self.last_request_time,
+                'exception_time': dt.now(),
+                'thread': str(threading.current_thread()),
+                'log': self._parse_log(),
+            },
+            subject=msg,
         )
 
     def _open_lockfile(self) -> None:
@@ -403,19 +397,19 @@ class CrmIMAP:
 
         n = lockfile_limit * sleep_time_sec2
         msg = f"The lockfile of {self} was not released within {n} seconds"
-        site = Site.objects.get_current()
-        mail_admins(
-            msg,
-            f'''{msg}\n
-            \nThe connection will be restored automatically.\n
-            \nSite {site.domain}\n
-            Email account:_____{self.ea}\n
-            \ncreate_time:_______{self.create_time}\n
-            Last_Noop_time:___{self.noop_time}\n
-            Last_request_time:_{self.last_request_time}\n
-            Exception time:____{dt.now()}\n
-            \nLog: \n{self._parse_log()}
-            ''',
+        report_mail_incident(
+            account=self.ea,
+            operation='imap_lockfile_timeout',
+            exception=RuntimeError(msg),
+            context={
+                'site': Site.objects.get_current().domain,
+                'create_time': self.create_time,
+                'noop_time': self.noop_time,
+                'last_request_time': self.last_request_time,
+                'exception_time': dt.now(),
+                'log': self._parse_log(),
+            },
+            subject=msg,
         )
         raise RuntimeError(msg)
 

@@ -119,9 +119,9 @@ class TestCrmImapConnect(BaseTestCase):
         mock_imap4_ssl.assert_called_once_with('imap.example.com')
         self.assertEqual(self.crmimap.connection, mock_connection)
 
-    @patch('crm.utils.crm_imap.mail_admins')
+    @patch('crm.utils.crm_imap.report_mail_incident')
     @patch('crm.utils.crm_imap.imaplib.IMAP4_SSL')
-    def test_connect_failure(self, mock_imap4_ssl, mock_mail_admins):
+    def test_connect_failure(self, mock_imap4_ssl, mock_report):
         """Test handling of connection failure."""
         mock_imap4_ssl.side_effect = Exception("Connection failed")
 
@@ -131,7 +131,7 @@ class TestCrmImapConnect(BaseTestCase):
         self.crmimap._connect()
 
         self.assertIsNotNone(self.crmimap.error)
-        mock_mail_admins.assert_called_once()
+        mock_report.assert_called_once()
 
 
 @tag('TestCase')
@@ -179,9 +179,9 @@ class TestCrmImapLogin(BaseTestCase):
         self.assertIn('login', str(call_args).lower())
         self.assertIsNone(self.crmimap.error)
 
-    @patch('crm.utils.crm_imap.mail_admins')
+    @patch('crm.utils.crm_imap.report_mail_incident')
     @patch('crm.utils.crm_imap.CrmIMAP._execute')
-    def test_login_with_app_password(self, mock_execute, mock_mail_admins):
+    def test_login_with_app_password(self, mock_execute, mock_report):
         """Test login uses app password if available."""
         self.email_account.email_app_password = 'app_password'
         mock_execute.return_value = ('OK', None, None)
@@ -254,11 +254,11 @@ class TestCrmImapLock(BaseTestCase):
 
         self.assertTrue(self.crmimap.locked)
 
-    @patch('crm.utils.crm_imap.mail_admins')
+    @patch('crm.utils.crm_imap.report_mail_incident')
     @patch('crm.utils.crm_imap.Site')
     @patch('crm.utils.crm_imap.release_limit', 1)
     @patch('crm.utils.crm_imap.sleep')
-    def test_lock_timeout_raises_error(self, mock_sleep, mock_site, mock_mail_admins):
+    def test_lock_timeout_raises_error(self, mock_sleep, mock_site, mock_report):
         """Test lock raises RuntimeError on timeout."""
         self.crmimap.locked = True
         self.crmimap.ea = MagicMock()
@@ -267,7 +267,7 @@ class TestCrmImapLock(BaseTestCase):
         with self.assertRaises(RuntimeError):
             self.crmimap.lock()
 
-        mock_mail_admins.assert_called_once()
+        mock_report.assert_called_once()
 
 
 @tag('TestCase')

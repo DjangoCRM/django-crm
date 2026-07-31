@@ -12,7 +12,7 @@ from django.db import transaction
 from django.conf import settings
 from django.contrib import messages
 from django.core.files import File
-from django.core.mail import mail_admins
+from sharedkernel.mail_diagnostics import report_mail_incident
 from django.template.defaultfilters import truncatechars
 from django.utils import timezone
 from django.utils.safestring import mark_safe
@@ -135,17 +135,16 @@ class RestoreImapEmails(threading.Thread):
                     raise e
 
             except Exception as e:
-                mail_admins(
-                    EXCEPT_SUBJECT,
-                    f"""
-                    \nEmail account: {ea}
-                    \nEmail account: {ea.owner}
-                    \nException: {e}
-                    \nType: {t}
-                    \nUID: {uid}
-                    \nraw_content: {raw_content}
-                    """,
-                    fail_silently=True,
+                report_mail_incident(
+                    account=ea,
+                    operation='restore_imap_emails',
+                    exception=e,
+                    context={
+                        'folder': t,
+                        'uid': uid,
+                        'raw_content': raw_content,
+                    },
+                    subject=EXCEPT_SUBJECT,
                 )
                 self.eml_queue.task_done()
 
@@ -232,28 +231,31 @@ def get_raw_content(richest, ea: EmailAccount, t: str, uid: str, subj: str):
                 is_html = True
             else:
                 raw_content = f"-- Unknown format --\n{richest}"
-                mail_admins(
-                    'RestoreImapEmails Exception - Unknown format',
-                    f'''\nEmail account: {ea}
-                        \nOwner: {ea.owner}
-                        \nType: {t}
-                        \nUID: {uid}
-                        \n Subject: {subj}
-                        \n{raw_content}''',
-                    fail_silently=True,
+                report_mail_incident(
+                    account=ea,
+                    operation='restore_imap_unknown_format',
+                    context={
+                        'folder': t,
+                        'uid': uid,
+                        'subject': subj,
+                        'payload': raw_content,
+                        'content_type': richest.get_content_type(),
+                    },
+                    subject='RestoreImapEmails Exception - Unknown format',
                 )
     except Exception as e:
         err = e
-        # LookupError: unknown encoding: windows-874
-        mail_admins(
-            f'RestoreImapEmails.get_raw_content Exception - {e}',
-            f'''\nEmail account: {ea}
-            \nOwner: {ea.owner}
-            \nType: {t}
-            \nUID: {uid}
-            \n Subject: {subj}
-            \n richest: {richest}''',
-            fail_silently=True,
+        report_mail_incident(
+            account=ea,
+            operation='restore_imap_get_raw_content',
+            exception=e,
+            context={
+                'folder': t,
+                'uid': uid,
+                'subject': subj,
+                'richest': richest,
+            },
+            subject=f'RestoreImapEmails.get_raw_content Exception - {type(e).__name__}',
         )
     return raw_content, is_html, err
 

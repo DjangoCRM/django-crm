@@ -250,8 +250,8 @@ class MailCredentialNegativePathTests(BaseTestCase):
             defaults={'email': 'credential_negative_owner@example.com'},
         )
 
-    @mock.patch('crm.utils.crm_imap.mail_admins')
-    def test_missing_imap_credentials_skip_login(self, mock_mail_admins):
+    @mock.patch('crm.utils.crm_imap.report_mail_incident')
+    def test_missing_imap_credentials_skip_login(self, mock_report):
         account = EmailAccount.objects.create(
             name='Missing IMAP Account',
             email_host='smtp.example.com',
@@ -272,10 +272,10 @@ class MailCredentialNegativePathTests(BaseTestCase):
         crmimap._log_in()
         self.assertEqual(FakeIMAP4SSL.login_calls, [])
         self.assertIsInstance(crmimap.error, MissingMailCredentialError)
-        mock_mail_admins.assert_called_once()
+        mock_report.assert_called_once()
 
-    @mock.patch('crm.utils.manage_imaps.mail_admins')
-    def test_manage_imaps_returns_none_without_login_attempt(self, mock_mail_admins):
+    @mock.patch('crm.utils.manage_imaps.report_mail_incident')
+    def test_manage_imaps_returns_none_without_login_attempt(self, mock_report):
         account = EmailAccount.objects.create(
             name='Missing Pool Account',
             email_host='smtp.example.com',
@@ -293,7 +293,7 @@ class MailCredentialNegativePathTests(BaseTestCase):
             result = manager._create_crmimap(account)
         self.assertIsNone(result)
         mock_crmimap_class.assert_not_called()
-        mock_mail_admins.assert_called_once()
+        mock_report.assert_called_once()
 
 
 @tag('TestCase')

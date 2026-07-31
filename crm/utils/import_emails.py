@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Optional
 from django.apps import apps
 from django.conf import settings
-from django.core.mail import mail_admins
+from sharedkernel.mail_diagnostics import report_mail_incident
 from django.core.paginator import EmptyPage
 from django.core.paginator import InvalidPage
 from django.core.paginator import Paginator
@@ -140,10 +140,11 @@ class ImportEmails(threading.Thread):
                     ea.save(update_fields=upd_fields)
 
             except Exception as e:
-                mail_admins(
-                    'ImportEmails Exception',
-                    f'\nEmail account: {ea}\nException: {e}',
-                    fail_silently=True,
+                report_mail_incident(
+                    account=ea,
+                    operation='import_emails',
+                    exception=e,
+                    subject='ImportEmails Exception',
                 )
 
 
@@ -253,19 +254,24 @@ def set_new_start_uid(crmimap: CrmIMAP, t: str) -> None:
     setattr(crmimap.ea, f"start_{t}_uid", int(start_uid))
 
 
-def parse_message_bytes(uid: bytes, data: list) -> Optional[bytes]:
+def parse_message_bytes(
+        uid: bytes,
+        data: list,
+        ea: EmailAccount | None = None) -> Optional[bytes]:
     tmpl = f"UID {uid.decode()} RFC822".encode('utf8')
     b_msg = next((
         x[1] for x in data if type(x) is tuple and tmpl in x[0]
     ), None)
     if type(b_msg) is int:  # FIXME: fix and remove
-        mail_admins(
-            f"The data[0][1] is int at _parse_message_bytes(",
-            f'''
-            \nData: {data}
-            \nb_msg: {b_msg}
-            ''',
-            fail_silently=True,
+        report_mail_incident(
+            account=ea,
+            operation='parse_message_bytes',
+            context={
+                'uid': uid.decode(),
+                'data': data,
+                'b_msg_type': type(b_msg).__name__,
+            },
+            subject='Unexpected parse_message_bytes payload shape',
         )
         b_msg = None
     return b_msg
