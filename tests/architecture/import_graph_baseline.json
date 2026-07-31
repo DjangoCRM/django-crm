@@ -303,12 +303,6 @@
     },
     {
       "importing_file": "common/admin.py",
-      "imported_module": "crm.site.crmadminsite",
-      "source_app": "common",
-      "target_app": "crm"
-    },
-    {
-      "importing_file": "common/admin.py",
       "imported_module": "crm.utils.admfilters",
       "source_app": "common",
       "target_app": "crm"

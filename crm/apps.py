@@ -14,6 +14,12 @@ class CrmConfig(AppConfig):
     default_auto_field = 'django.db.models.AutoField'
 
     def ready(self):
+        from crm.site.crmadminsite import crm_site
+        from sharedkernel.adminsites import CRM_SITE_NAME
+        from sharedkernel.adminsites import register_admin_site
+
+        register_admin_site(CRM_SITE_NAME, crm_site)
+
         if settings.TESTING:
             from crm.utils.create_email_request import CreateEmailInquiry
             from crm.utils.restore_imap_emails import RestoreImapEmails

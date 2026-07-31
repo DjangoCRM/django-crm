@@ -13,7 +13,6 @@ from common.models import UserProfile
 from common.site import reminderadmin
 from common.site import userprofileadmin
 from sharedkernel.presentation import SAFE_ATTACH_FILE_ICON
-from crm.site.crmadminsite import crm_site
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from sharedkernel.search import AuditSearchService
 
@@ -235,8 +234,14 @@ class UserProfileAdmin(userprofileadmin.UserProfileAdmin):
         return obj.user.is_superuser
 
 
-crm_site.register(Reminder, reminderadmin.ReminderAdmin)
-crm_site.register(UserProfile, userprofileadmin.UserProfileAdmin)
+def register_shared_models_on_crm_site() -> None:
+    from sharedkernel.adminsites import CRM_SITE_NAME
+    from sharedkernel.adminsites import get_admin_site
+
+    crm_admin_site = get_admin_site(CRM_SITE_NAME)
+    crm_admin_site.register(Reminder, reminderadmin.ReminderAdmin)
+    crm_admin_site.register(UserProfile, userprofileadmin.UserProfileAdmin)
+
 
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(admin.models.LogEntry, LogEntryAdmin)
