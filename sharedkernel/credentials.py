@@ -38,6 +38,33 @@ class MissingMailCredentialError(Exception):
         super().__init__(f'EmailAccount {account_id} is missing {field_name}')
 
 
+class OAuthTokenExchangeError(Exception):
+    """Raised when a provider token exchange fails without echoing response bodies."""
+
+    def __init__(
+        self,
+        status_code: int,
+        provider_error: str,
+        *,
+        account_id: int | str | None = None,
+    ) -> None:
+        self.status_code = status_code
+        self.provider_error = provider_error
+        self.account_id = account_id
+        super().__init__(
+            f'OAuth token exchange failed with status {status_code} '
+            f'and error {provider_error}'
+        )
+
+
+class MissingOAuthConfigError(Exception):
+    """Raised when OAuth client configuration is absent."""
+
+    def __init__(self, setting_name: str) -> None:
+        self.setting_name = setting_name
+        super().__init__(f'Missing OAuth configuration: {setting_name}')
+
+
 MissingCredentialError = MissingMailCredentialError
 
 
@@ -95,6 +122,25 @@ class SmtpCredentials:
             f'SmtpCredentials(host={self.host!r}, port={self.port!r}, user={self.user!r}, '
             f'password={CREDENTIAL_MASK}, use_tls={self.use_tls!r}, '
             f'auth_mechanism={self.auth_mechanism!r})'
+        )
+
+    def __str__(self) -> str:
+        return repr(self)
+
+
+@dataclass(frozen=True)
+class OAuthCredentials:
+    client_id: str
+    client_secret: str
+    refresh_token: str
+    token_endpoint: str
+    scope: str
+
+    def __repr__(self) -> str:
+        return (
+            f'OAuthCredentials(client_id={self.client_id!r}, '
+            f'client_secret={CREDENTIAL_MASK}, refresh_token={CREDENTIAL_MASK}, '
+            f'token_endpoint={self.token_endpoint!r}, scope={self.scope!r})'
         )
 
     def __str__(self) -> str:
@@ -221,6 +267,66 @@ class CredentialAccessor:
             auth_kind=AuthKind(auth_mechanism),
             _secret=password,
         )
+
+    @staticmethod
+    def get_oauth_credentials(email_account: EmailAccountLike) -> OAuthCredentials:
+        from django.conf import settings
+
+        client_id = getattr(settings, 'CLIENT_ID', '') or ''
+        client_secret = getattr(settings, 'CLIENT_SECRET', '') or ''
+        if not client_id:
+            raise MissingOAuthConfigError('GOOGLE_OAUTH2_CLIENT_ID')
+        if not client_secret:
+            raise MissingOAuthConfigError('GOOGLE_OAUTH2_CLIENT_SECRET')
+
+        provider_settings = settings.OAUTH2_DATA.get(email_account.email_host)
+        if not provider_settings:
+            raise MissingOAuthConfigError('OAUTH2_DATA')
+
+        token_endpoint = (
+            f"{provider_settings['accounts_base_url']}/"
+            f"{provider_settings['token_command']}"
+        )
+        credentials = OAuthCredentials(
+            client_id=client_id,
+            client_secret=client_secret,
+            refresh_token=getattr(email_account, 'refresh_token', '') or '',
+            token_endpoint=token_endpoint,
+            scope=provider_settings['scope'],
+        )
+        logger.info(
+            'Resolved OAuth credentials account_id=%s owner_id=%s credential=%s',
+            email_account.pk,
+            email_account.owner_id,
+            credentials,
+            extra={
+                'account_id': email_account.pk,
+                'owner_id': email_account.owner_id,
+                'credential': str(credentials),
+            },
+        )
+        return credentials
+
+    @staticmethod
+    def store_refresh_token(email_account: EmailAccountLike, token: str) -> None:
+        email_account.refresh_token = token
+        email_account.save(update_fields=['refresh_token'])
+
+    @staticmethod
+    def store_access_token(
+        email_account: EmailAccountLike,
+        token: str,
+        expires_at=None,
+    ) -> None:
+        update_fields = []
+        if hasattr(email_account, 'access_token'):
+            email_account.access_token = token
+            update_fields.append('access_token')
+        if hasattr(email_account, 'access_token_expires_at') and expires_at is not None:
+            email_account.access_token_expires_at = expires_at
+            update_fields.append('access_token_expires_at')
+        if update_fields:
+            email_account.save(update_fields=update_fields)
 
 
 def _imap_port(email_account: EmailAccountLike) -> int:

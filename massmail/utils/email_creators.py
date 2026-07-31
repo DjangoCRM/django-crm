@@ -115,7 +115,10 @@ def _get_msg(force_multipart, html_content, data,
 def email_connection(email_account: EmailAccount):
     credential = CredentialAccessor.get_smtp_credentials(email_account)
     if credential.auth_mechanism == AUTH_MECHANISM_OAUTH2:
-        return OAuth2EmailBackend.from_smtp_credentials(credential)
+        return OAuth2EmailBackend.from_smtp_credentials(
+            credential,
+            email_account=email_account,
+        )
     connection = mail.get_connection()
     connection.password = credential.password
     connection.use_tls = credential.use_tls

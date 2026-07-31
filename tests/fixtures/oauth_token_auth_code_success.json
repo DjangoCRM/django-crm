@@ -1,0 +1,6 @@
+{
+  "access_token": "stub-access-token-value",
+  "refresh_token": "stub-refresh-token-value",
+  "expires_in": 3600,
+  "token_type": "Bearer"
+}

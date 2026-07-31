@@ -61,15 +61,16 @@ IMAPFE and pass it as the second argument to the AUTHENTICATE command.
 
 import base64
 import imaplib
-import json
 from optparse import OptionParser
 import smtplib
 import sys
 import urllib
 import urllib.request
 import urllib.parse
-import requests
 from django.conf import settings
+
+from sharedkernel.credentials import OAuthCredentials, OAuthTokenExchangeError
+from sharedkernel.oauth_exchange import exchange_authorization_code, exchange_refresh_token
 
 
 def SetupOptionParser():
@@ -190,6 +191,32 @@ def GeneratePermissionUrl(client_id, scope='https://mail.google.com/'):
                       FormatUrlParams(params))
 
 
+def _cli_oauth_credentials(
+    client_id: str,
+    client_secret: str,
+    *,
+    refresh_token: str = '',
+    scope: str = 'https://mail.google.com/',
+) -> OAuthCredentials:
+    return OAuthCredentials(
+        client_id=client_id,
+        client_secret=client_secret,
+        refresh_token=refresh_token,
+        token_endpoint=AccountsUrl('o/oauth2/token'),
+        scope=scope,
+    )
+
+
+def _token_response_as_dict(response) -> dict:
+    payload = {
+        'access_token': response.access_token,
+        'expires_in': response.expires_in,
+    }
+    if response.refresh_token:
+        payload['refresh_token'] = response.refresh_token
+    return payload
+
+
 def AuthorizeTokens(client_id, client_secret, authorization_code):
     """Obtains OAuth access token and refresh token.
 
@@ -205,22 +232,17 @@ def AuthorizeTokens(client_id, client_secret, authorization_code):
     The decoded response from the Google Accounts server, as a dict. Expected
     fields include 'access_token', 'expires_in', and 'refresh_token'.
   """
-    params = {}
-    params['client_id'] = client_id
-    params['client_secret'] = client_secret
-    params['code'] = authorization_code
-    params['redirect_uri'] = REDIRECT_URI
-    params['grant_type'] = 'authorization_code'
-    request_url = AccountsUrl('o/oauth2/token')
-
-    # response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params)).read()
-    # data = urllib.parse.urlencode(params)
-    # data = data.encode('ascii')
-    # response = urllib.request.urlopen(request_url, data)
-    # value = response.read().decode('utf-8')
-    result = requests.post(request_url, params)
-    print(result.text)
-    return json.loads(result.text)
+    credentials = _cli_oauth_credentials(client_id, client_secret)
+    try:
+        response = exchange_authorization_code(
+            credentials,
+            authorization_code=authorization_code,
+            redirect_uri=REDIRECT_URI,
+        )
+    except OAuthTokenExchangeError as err:
+        print(f'OAuth error: {err.provider_error} (status {err.status_code})')
+        raise
+    return _token_response_as_dict(response)
 
 
 def RefreshToken(client_id, client_secret, refresh_token):
@@ -236,15 +258,13 @@ def RefreshToken(client_id, client_secret, refresh_token):
     The decoded response from the Google Accounts server, as a dict. Expected
     fields include 'access_token', 'expires_in', and 'refresh_token'.
   """
-    params = {}
-    params['client_id'] = client_id
-    params['client_secret'] = client_secret
-    params['refresh_token'] = refresh_token
-    params['grant_type'] = 'refresh_token'
-    request_url = AccountsUrl('o/oauth2/token')
-
-    response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params)).read()
-    return json.loads(response)
+    credentials = _cli_oauth_credentials(
+        client_id,
+        client_secret,
+        refresh_token=refresh_token,
+    )
+    response = exchange_refresh_token(credentials)
+    return _token_response_as_dict(response)
 
 
 def GenerateOAuth2String(username, access_token, base64_encode=True):

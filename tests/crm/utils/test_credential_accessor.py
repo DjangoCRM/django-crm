@@ -249,4 +249,7 @@ class EmailConnectionStubTests(SimpleTestCase):
             mock_backend.from_smtp_credentials.return_value = backend
             email_connection(account)
         credentials = CredentialAccessor.get_smtp_credentials(account)
-        mock_backend.from_smtp_credentials.assert_called_once_with(credentials)
+        mock_backend.from_smtp_credentials.assert_called_once_with(
+            credentials,
+            email_account=account,
+        )

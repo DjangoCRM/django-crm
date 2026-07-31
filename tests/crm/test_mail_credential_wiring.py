@@ -102,7 +102,10 @@ class MailCredentialCharacterizationTests(SimpleTestCase):
             mock_backend.from_smtp_credentials.return_value = backend
             result = email_connection(account)
         credentials = CredentialAccessor.get_smtp_credentials(account)
-        mock_backend.from_smtp_credentials.assert_called_once_with(credentials)
+        mock_backend.from_smtp_credentials.assert_called_once_with(
+            credentials,
+            email_account=account,
+        )
         self.assertIs(result, backend)
         self.assertEqual(credentials.auth_mechanism, AUTH_MECHANISM_OAUTH2)
 
