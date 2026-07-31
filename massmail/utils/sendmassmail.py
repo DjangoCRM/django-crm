@@ -17,7 +17,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
-from django.core.mail import mail_admins
+from sharedkernel.mail_diagnostics import report_mail_incident, sanitize_text
 from django.core.mail.message import BadHeaderError
 from django.db import connection
 from django.db.utils import ProgrammingError
@@ -151,12 +151,10 @@ def send_massmail(massmail_settings: MassmailSettings) -> None:
                 if not settings.TESTING:
                     time.sleep(random.randint(15, 35))
     except Exception as err:
-        msg = f"Exception at send_massmail"
-        mail_admins(
-            msg,
-            f'''{msg}\n
-            \nException:____{err}
-            ''',
+        report_mail_incident(
+            operation='send_massmail',
+            exception=err,
+            subject='Exception at send_massmail',
         )
 
 
@@ -273,7 +271,7 @@ def report(
     )
     report_str = f"""
 {formatted_now}
-{error}
+{sanitize_text(str(error))}
 {mc.content_object}
 {email_account.email_host_user}\n\n
 """
@@ -281,14 +279,20 @@ def report(
     if off:
         email_account.massmail = False
         report_str = '\nAccount OFF!\n' + report_str
-        email_account.report = report_str + email_account.report
+        email_account.report = sanitize_text(report_str) + email_account.report
         email_account.save()
     mailing_out.report = report_str + mailing_out.report
     mailing_out.status = 'E'
     if off:
         mailing_out.save()
         subj = 'Massmail error: ' + f'{mc.content_object}'
-        mail_admins(subj, mailing_out.report, fail_silently=True)
+        report_mail_incident(
+            account=email_account,
+            operation='massmail_provider_error',
+            exception=error,
+            context={'mailing_out_id': mailing_out.pk},
+            subject=subj,
+        )
     else:
         mailing_out.move_to_failed_ids(mc.object_id)
 

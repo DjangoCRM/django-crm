@@ -146,16 +146,15 @@ class CrmImapCredentialIntegrationTests(BaseTestCase):
         params = mock_execute.call_args[0][1]
         self.assertEqual(params[1], 'app-password')
 
-    @mock.patch('crm.utils.crm_imap.mail_admins')
-    def test_missing_credential_skips_transport_login(self, mock_mail_admins):
+    @mock.patch('crm.utils.crm_imap.report_mail_incident')
+    def test_missing_credential_skips_transport_login(self, mock_report):
         self.crmimap.ea.email_app_password = ''
         self.crmimap.ea.email_host_password = ''
         self.crmimap.ea.refresh_token = ''
         self.crmimap._log_in()
         self.assertIsInstance(self.crmimap.error, MissingMailCredentialError)
-        body = mock_mail_admins.call_args[0][1]
-        self.assertIn(CREDENTIAL_MASK, body)
-        self.assertNotIn('host-password', body)
+        mock_report.assert_called_once()
+        self.assertEqual(mock_report.call_args.kwargs['operation'], 'imap_login')
 
 
 @tag('TestCase')
@@ -169,9 +168,9 @@ class ManageImapsCredentialIntegrationTests(BaseTestCase):
             defaults={'email': 'credential_manage_owner@example.com'},
         )
 
-    @mock.patch('crm.utils.manage_imaps.mail_admins')
+    @mock.patch('crm.utils.manage_imaps.report_mail_incident')
     @override_settings(REUSE_IMAP_CONNECTION=True)
-    def test_missing_credential_returns_none(self, mock_mail_admins):
+    def test_missing_credential_returns_none(self, mock_report):
         account = EmailAccount.objects.create(
             name='Missing Credential Account',
             email_host='smtp.example.com',
@@ -186,8 +185,8 @@ class ManageImapsCredentialIntegrationTests(BaseTestCase):
         manager = CrmImapManager(mock.Mock())
         result = manager._create_crmimap(account)
         self.assertIsNone(result)
-        body = mock_mail_admins.call_args[0][1]
-        self.assertIn(CREDENTIAL_MASK, body)
+        mock_report.assert_called_once()
+        self.assertEqual(mock_report.call_args.kwargs['operation'], 'create_crmimap')
 
 
 @tag('TestCase')

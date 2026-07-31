@@ -509,16 +509,16 @@ class TestCrmImapManagerSaveCrmImap(BaseTestCase):
         mock_crmimap.noop.assert_not_called()
         mock_crmimap.release.assert_called_once()
 
-    @patch('crm.utils.manage_imaps.mail_admins')
+    @patch('crm.utils.manage_imaps.report_mail_incident')
     @patch('crm.utils.manage_imaps.Site')
-    def test_serve_crmimap_exception_handling(self, mock_site, mock_mail_admins):
+    def test_serve_crmimap_exception_handling(self, mock_site, mock_report):
         """Test _serve_crmimap handles exceptions and sends admin mail."""
         mock_crmimap = MagicMock()
         mock_crmimap.email_host_user = 'test@example.com'
         
         # Configure the mock to raise an exception when accessing certain attributes
         type(mock_crmimap).last_request_time = PropertyMock(
-            side_effect=Exception("Test exception")
+            side_effect=AttributeError("Test exception")
         )
         
         self.manager.crmimap_storage['test@example.com'] = mock_crmimap
@@ -527,10 +527,13 @@ class TestCrmImapManagerSaveCrmImap(BaseTestCase):
         # The method should catch the exception and send admin mail
         self.manager._serve_crmimap('test@example.com')
         
-        # Verify that mail_admins was called
-        mock_mail_admins.assert_called_once()
-        call_args = mock_mail_admins.call_args
-        self.assertIn("Exception CrmImapManager._serve_crmimap()", call_args[0][0])
+        mock_report.assert_called_once()
+        call_kwargs = mock_report.call_args.kwargs
+        self.assertEqual(call_kwargs['operation'], 'serve_crmimap')
+        self.assertEqual(
+            call_kwargs['subject'],
+            'Exception CrmImapManager._serve_crmimap()',
+        )
 
 
 @tag('TestCase')

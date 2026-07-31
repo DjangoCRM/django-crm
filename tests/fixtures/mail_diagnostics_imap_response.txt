@@ -1,0 +1,6 @@
+* OK IMAP4rev1 Service Ready
+a001 LOGIN operator@example.com sentinel-host-password-xyz
+a001 OK LOGIN completed
+a002 AUTHENTICATE PLAIN sentinel-app-password-abc
+a002 OK AUTHENTICATE completed
+refresh_token=sentinel-refresh-token-value access_token=oauth-access-token-value client_secret=oauth-client-secret-value

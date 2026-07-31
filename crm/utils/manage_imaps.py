@@ -1,3 +1,4 @@
+import imaplib
 import os
 import threading
 from datetime import datetime as dt
@@ -7,17 +8,13 @@ from time import sleep
 from typing import Optional
 from django.conf import settings
 from django.contrib.sites.models import Site
-from django.core.mail import mail_admins
 
 from crm.settings import IMAP_CONNECTION_IDLE
 from crm.settings import IMAP_NOOP_PERIOD
 from crm.utils.crm_imap import CrmIMAP
 from massmail.models import EmailAccount
-from sharedkernel.credentials import (
-    CREDENTIAL_MASK,
-    CredentialAccessor,
-    MissingMailCredentialError,
-)
+from sharedkernel.credentials import CredentialAccessor, MissingMailCredentialError
+from sharedkernel.mail_diagnostics import report_mail_incident
 
 delta_period = timedelta(seconds=30)
 idle_period = timedelta(days=IMAP_CONNECTION_IDLE)
@@ -50,17 +47,16 @@ class CrmImapManager(threading.Thread):
         try:
             credentials = CredentialAccessor.get_imap_credentials(ea)
         except MissingMailCredentialError as err:
-            site = Site.objects.get_current()
-            mail_admins(
-                'Missing mailbox credential at CrmImapManager._create_crmimap',
-                f'''Missing mailbox credential for Email account: {ea}
-                \nAccount id: {err.account_id}
-                \nOwner id: {ea.owner_id}
-                \nExpected field: {err.field_name}
-                \nCredential: {CREDENTIAL_MASK}
-                \nSite {site.domain}
-                \nProcess: {os.getpid()}''',
-                fail_silently=True,
+            report_mail_incident(
+                account=ea,
+                operation='create_crmimap',
+                exception=err,
+                context={
+                    'expected_field': err.field_name,
+                    'site': Site.objects.get_current().domain,
+                    'process_id': os.getpid(),
+                },
+                subject='Missing mailbox credential at CrmImapManager._create_crmimap',
             )
             return None
         pool_key = credentials.user
@@ -119,6 +115,7 @@ class CrmImapManager(threading.Thread):
             sleep(IMAP_NOOP_PERIOD)
 
     def _serve_crmimap(self, key) -> None:
+        ea = None
         try:
             crmimap = self.crmimap_storage[key]
             now = dt.now()
@@ -139,14 +136,39 @@ class CrmImapManager(threading.Thread):
 
             crmimap.release()
             self.ea_queue.put(ea)
-        except Exception as err:  # FIXME: remove after a while
-            site = Site.objects.get_current()
-            mail_admins(
-                "Exception CrmImapManager._serve_crmimap()",
-                f"""\nException:__{err}\n
-                \nException time:____{dt.now().time()}
-                \nSite {site.domain}
-                \nThread: {threading.current_thread()}
-                \nProcess: {os.getpid()}\n
-                """
-            )        
+        except (
+            AttributeError,
+            ConnectionResetError,
+            KeyError,
+            RuntimeError,
+            imaplib.IMAP4.abort,
+            imaplib.IMAP4.error,
+        ) as err:
+            report_mail_incident(
+                account=ea,
+                operation='serve_crmimap',
+                exception=err,
+                context={
+                    'pool_key': key,
+                    'site': Site.objects.get_current().domain,
+                    'thread': str(threading.current_thread()),
+                    'process_id': os.getpid(),
+                    'exception_time': dt.now().time(),
+                },
+                subject='Exception CrmImapManager._serve_crmimap()',
+            )
+        except Exception as err:
+            report_mail_incident(
+                account=ea,
+                operation='serve_crmimap',
+                exception=err,
+                context={
+                    'pool_key': key,
+                    'site': Site.objects.get_current().domain,
+                    'thread': str(threading.current_thread()),
+                    'process_id': os.getpid(),
+                    'exception_time': dt.now().time(),
+                },
+                subject='Exception CrmImapManager._serve_crmimap()',
+            )
+            raise
