@@ -222,7 +222,7 @@ class UserProfileAdmin(userprofileadmin.UserProfileAdmin):
     # -- ModelAdmin methods -- #
 
     def get_list_display(self, request):
-        list_display = super().get_list_display(request)
+        list_display = list(super().get_list_display(request))
         list_display.extend(('staff', 'superuser'))
         return list_display
 

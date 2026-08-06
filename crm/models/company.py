@@ -15,8 +15,8 @@ class Company(BaseCounterparty, Base1):
         unique_together = (('full_name', 'country'),)
 
     full_name = models.CharField(
-        max_length=200, 
-        null=False, 
+        max_length=200,
+        null=False,
         blank=False,
         verbose_name=_("Company name")
     )
@@ -28,8 +28,8 @@ class Company(BaseCounterparty, Base1):
         help_text=_("Separate them with commas.")
     )
     website = models.CharField(
-        max_length=200, 
-        blank=True, 
+        max_length=200,
+        blank=True,
         default='',
         verbose_name=_("Website")
     )
@@ -39,48 +39,48 @@ class Company(BaseCounterparty, Base1):
         verbose_name=_("Active"),
     )
     phone = models.CharField(
-        max_length=100, 
-        blank=True, 
+        max_length=100,
+        blank=True,
         default='',
         verbose_name=_("Phone")
     )
     city_name = models.CharField(
-        max_length=100, 
-        blank=True, 
+        max_length=100,
+        blank=True,
         default='',
         verbose_name=_("City name")
     )
     city = models.ForeignKey(
-        'City', 
-        blank=True, 
+        'City',
+        blank=True,
         null=True,
         verbose_name=_("City"),
         on_delete=models.SET_NULL
     )
     registration_number = models.CharField(
-        max_length=30, 
-        default='', 
+        max_length=30,
+        default='',
         blank=True,
         verbose_name=_("Registration number"),
         help_text=_("Registration number of Company")
     )
     country = models.ForeignKey(
-        'Country', 
-        blank=True, 
-        null=True, 
+        'Country',
+        blank=True,
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_("country"),
         help_text=_("Company Country")
     )
     type = models.ForeignKey(
-        'ClientType', 
-        blank=True, 
-        null=True, 
+        'ClientType',
+        blank=True,
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_("Type of company")
     )
     industry = models.ManyToManyField(
-        'Industry', 
+        'Industry',
         blank=True,
         verbose_name=_("Industry of company")
     )
@@ -98,16 +98,31 @@ class Company(BaseCounterparty, Base1):
             self.logo.delete(save=False)
         super().delete(*args, **kwargs)
 
-    def get_absolute_url(self):  
+    def get_absolute_url(self):
         return reverse('admin:crm_company_change', args=(self.id,))
 
     @property
     def thumbnail_full_name(self):
+        """Returns a thumbnail of the company logo and name."""
+
         if self.logo:
+            try:
+                dims = self.logo._get_image_dimensions() or (1, 1)
+                width, height = dims[0], dims[1]
+                is_wide = width > 2 * height
+            except Exception:
+                is_wide = False
+
+            if is_wide:
+                return mark_safe(
+                    f'<div style="display:inline-flex; flex-direction:column; align-items:flex-start; width:fit-content; padding:2px;">'
+                    f'<img src="{self.logo.url}" style="width:auto;height:20px;" alt="Logo">'
+                    f'<span style="white-space:nowrap;">{self.full_name}</span></div>'
+                )
             return mark_safe(
                 f'<span style="white-space: nowrap;">'
                 f'<img src="{self.logo.url}" style="vertical-align: middle;'
-                'width:20px;height:20px;">'
+                'width:20px;height:20px;" alt="Logo">'
                 f'&nbsp;{self.full_name}</span>'
             )
         return mark_safe(

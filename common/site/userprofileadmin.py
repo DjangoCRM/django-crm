@@ -1,3 +1,6 @@
+from io import BytesIO
+
+from PIL import Image, ImageDraw
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
@@ -11,7 +14,6 @@ from django.utils.translation import gettext_lazy as _
 
 from common.forms.userprofileform import UserProfileForm
 from common.models import UserProfile
-from common.utils.resize_image import resize_image
 from common.utils.admfilters import ByDepartmentFilter
 from common.utils.chat_link import get_chat_link
 from common.utils.helpers import add_chat_context
@@ -84,6 +86,7 @@ class UserProfileAdmin(admin.ModelAdmin):
                 ['language_code', ('utc_timezone',  'activate_timezone')])
         else:
             fields.extend(['language', 'show_timezone'])
+        fields.append('crm_email_notifications')
         return [(None, {"fields": fields})]
 
     def get_form(self, request, obj=None, **kwargs):
@@ -112,6 +115,12 @@ class UserProfileAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
         qs = annotate_chat(request, qs)
         return qs
+
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = list(self.readonly_fields)
+        if obj and not request.user == obj.user:
+            readonly_fields.append("crm_email_notifications")
+        return readonly_fields
 
     def has_add_permission(self, request):
         return False
@@ -251,12 +260,31 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 # -- Custom Methods -- #
 
+
 def resize_avatar(obj) -> None:
     """
     Resize uploaded avatar image to a maximum of 200x200 pixels.
     """
     if obj.avatar:
-        resized_image = resize_image(obj.avatar)
+
+        img = Image.open(obj.avatar)
+        img.thumbnail((200, 200), Image.Resampling.LANCZOS)
+
+        # Convert to RGB if necessary (for PNG with transparency)
+        if img.mode in ('LA', 'P'):
+            img = img.convert('RGB')
+
+        # Create circular mask
+        size = img.size
+        mask = Image.new('L', size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse([0, 0, size[0], size[1]], fill=255)
+        img.putalpha(mask)
+
+        # Save to BytesIO
+        resized_image = BytesIO()
+        img.save(resized_image, format='PNG', quality=85)
+        resized_image.seek(0)
 
         # Create a new File object
         obj.avatar.file = resized_image

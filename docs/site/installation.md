@@ -44,10 +44,10 @@ You can download the CRM software as a zip file and then unzip it to a directory
 To run CRM software on your computer/server, you need to install certain dependencies.  
 It is recommended to first create and activate a Python virtual environment:
 
-| Action   | Unix/macOS                    | Windows                   |
-|----------|-------------------------------|---------------------------|
-| create   | `python3 -m venv myvenv`      | `py -m venv myvenv`       |
-| activate | `source /myvenv/bin/activate` | `myvenv\Scripts\activate` |
+| Action   | Unix/macOS                     | Windows                   |
+|----------|--------------------------------|---------------------------|
+| create   | `python3 -m venv myvenv`       | `py -m venv myvenv`       |
+| activate | `source ./myvenv/bin/activate` | `myvenv\Scripts\activate` |
 
 #### Then install the project requirements
 

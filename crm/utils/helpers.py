@@ -6,6 +6,7 @@ from email.header import make_header
 from email.message import Message
 from email.utils import parsedate_to_datetime
 from email.utils import parseaddr
+import html as html_module
 from typing import Optional
 from django import forms
 from django.apps import apps
@@ -49,7 +50,7 @@ def add_id_to_raw_id_field_label(admin_obj, form) -> None:
 
 def delete3enters(text):
     text = re.sub(r"[\xc2\xa0\x8b]|cid:[a-zA-Z0-9.@]+", '', text)
-    return re.sub(r"[\r\n]+\s+[\r\n]+", '\r\n\r\n', text)
+    return re.sub(r"[\r\n]+\s+[\r\n]+", '\n\n', text)
 
 
 def ensure_decoding(string):
@@ -68,8 +69,8 @@ def get_counterparty_header() -> SafeString:
 
 def get_crmimap(ea: EmailAccount, box: Optional[str] = None) -> Optional[CrmIMAP]:
     app_config = apps.get_app_config('crm')
-    return app_config.mci.get_crmimap(ea, box)    
-    
+    return app_config.mci.get_crmimap(ea, box)
+
 
 def get_email_date(msg: Message) -> datetime:
     if msg['Date']:
@@ -141,21 +142,27 @@ def get_uid_data(ea: EmailAccount) -> dict:
 
 
 def html2txt(html: str) -> str:
-    html = html.replace('&lt;', '<')
-    html = html.replace('&gt;', '>')
-    html = html.replace('&apos;', "'")
-    html = html.replace('&quot;', '"')
-    html = html.replace('&nbsp;', " ")
-    html = html.replace(u'\xa0', " ")
-    html = re.sub(r'\r\n\s?', '', html)
-    html = re.sub(r'<br\s?/?>|</p>|</div>', '\r\n', html)
-    return delete3enters(strip_tags(html).strip())
+    # Decode HTML entities properly (handles &lt;, &gt;, &amp;, &#8230;, etc.)
+    txt = html_module.unescape(html)
+
+    # Remove script and style blocks to avoid raw code in output
+    txt = re.sub(r'<(script|style)[^>]*>.*?</\1>',
+                 '', txt, flags=re.IGNORECASE | re.DOTALL)
+
+    # Collapse \r\n with optional whitespace into nothing
+    txt = re.sub(r'\r\n\s?', '', txt)
+
+    # Convert block-level structural tags and line-breaks to newlines
+    txt = re.sub(
+        r'</?(?:p|div|h[1-6]|ul|ol|li|br|hr)[^>]*/?>', '\n', txt, flags=re.IGNORECASE)
+
+    return delete3enters(strip_tags(txt).strip())
 
 
 def is_company_banned(data: dict) -> bool:
     return BannedCompanyName.objects.annotate(
-                company=Value(data['company'], CharField())
-            ).filter(
+        company=Value(data['company'], CharField())
+    ).filter(
         company__icontains=F('name')
     ).exists()
 

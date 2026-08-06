@@ -19,6 +19,7 @@ from django.template.defaultfilters import linebreaks
 from django.http import HttpResponseRedirect
 from django.http import QueryDict
 from django.http import HttpResponse
+from django.utils import html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
@@ -246,7 +247,7 @@ class ChatMessageAdmin(admin.ModelAdmin):
     @staticmethod
     def message(obj):
         if obj.content:
-            text = linebreaks(obj.content)
+            text = linebreaks(html.escape(obj.content))
             if getattr(obj, 'is_unread', None):
                 text = f'<span style="font-weight:bold;font-size:120%;">{text}</span>'
             if not obj.answer_to:
@@ -412,5 +413,3 @@ class MyModelMultipleChoiceField(forms.ModelMultipleChoiceField):
         if obj.groups.filter(name='task_operators').exists():
             return f"{obj.username} ({task_operator_str})"
         return obj.username
-
-

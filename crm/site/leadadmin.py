@@ -247,7 +247,7 @@ class LeadAdmin(CrmModelAdmin):
             Deal.objects.filter(lead=obj).update(
                 lead=None, contact=contact, company=contact.company)
             Request.objects.filter(lead=obj).update(
-                lead=None, contact=contact)
+                lead=None, contact=contact, company=contact.company)
             CrmEmail.objects.filter(lead=obj).update(
                 lead=None, contact=contact, company=contact.company)
             messages.success(

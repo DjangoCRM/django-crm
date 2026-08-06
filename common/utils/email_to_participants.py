@@ -10,13 +10,15 @@ from common.utils.helpers import send_crm_email
 
 
 def email_to_participants(obj, subject: str, recipient_list: List[User],
-                          composed_subject: str = '', responsible: User =None) -> None:
-    
+                          composed_subject: str = '', responsible: User = None) -> None:
+
     template = loader.get_template("common/notice_participants_email.html")
     site = Site.objects.get_current()
     context = {'obj': obj, 'domain': site.domain, 'responsible': responsible}
     while recipient_list:
         user = recipient_list.pop()
+        if not user.profile.crm_email_notifications:
+            continue
         to = [user.email]
         code = user.profile.language_code   # NOQA
         with override(code):
@@ -27,7 +29,7 @@ def email_to_participants(obj, subject: str, recipient_list: List[User],
         temp_list = []
         while recipient_list:
             u = recipient_list.pop()
-            if u.profile.language_code == code: # NOQA
+            if u.profile.language_code == code:  # NOQA
                 to.append(u.email)
             else:
                 temp_list.append(u)

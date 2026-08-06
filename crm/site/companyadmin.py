@@ -62,7 +62,7 @@ class CompanyAdmin(CrmModelAdmin):
         'update_date',
         ('industry', ScrollRelatedOnlyFieldListFilter),
         ('type', admin.RelatedOnlyFieldListFilter),
-    ]    
+    ]
     readonly_fields = (
         'modified_by',
         'creation_date',
@@ -127,7 +127,7 @@ class CompanyAdmin(CrmModelAdmin):
                     'logo_preview',
                     'logo',
                     ('full_name', 'disqualified'),
-                    ('alternative_names', 
+                    ('alternative_names',
                      self.massmail_field_name(obj)),
                     ('type', 'lead_source'),
                     'registration_number',
@@ -189,9 +189,9 @@ class CompanyAdmin(CrmModelAdmin):
                 )
                 change_massconts(obj)
             if 'department' in form.changed_data and 'owner' not in form.changed_data:
-                obj.contacts.update(department=obj.department)        
+                obj.contacts.update(department=obj.department)
             # Delete old logo file if new one is being uploaded
-            if  'logo' in form.changed_data:
+            if 'logo' in form.changed_data:
                 try:
                     old_instance = Company.objects.get(pk=obj.pk)
                     if old_instance.logo and old_instance.logo != obj.logo:
@@ -226,8 +226,8 @@ class CompanyAdmin(CrmModelAdmin):
     # -- ModelAdmin callables -- #
 
     @admin.display(description=SAFE_SUBJECT_ICON,
-        ordering='full_name'
-    )
+                   ordering='full_name'
+                   )
     def company_name(self, obj):
         return obj.thumbnail_full_name
 
@@ -235,7 +235,7 @@ class CompanyAdmin(CrmModelAdmin):
     def logo_preview(self, obj):
         if obj.logo:
             return mark_safe(
-                f'<img src="{obj.logo.url}" style="width:200px;height:200px;">'
+                f'<img src="{obj.logo.url}">'
             )
         return mark_safe(
             '<i class="material-icons" style="font-size: 200px;vertical-align: middle;'
@@ -266,7 +266,7 @@ def resize_logo(obj) -> None:
     Resize uploaded logo image to a maximum of 200x200 pixels.
     """
     if obj.logo:
-        resized_image = resize_image(obj.logo, circular=False)
+        resized_image = resize_image(obj.logo)
 
         # Create a new File object
         obj.logo.file = resized_image

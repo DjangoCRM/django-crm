@@ -4,3 +4,4 @@
 {% translate "Incompleteness" %}
 {% translate "Non‑functional product" %}
 {% translate "Reputational losses in front of a partner" %}
+{% translate "Late response" %}

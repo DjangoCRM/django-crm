@@ -1,4 +1,6 @@
 import sys
+from copy import deepcopy
+
 import django
 from django.conf import settings
 from django.test import tag
@@ -8,6 +10,7 @@ from common.utils.helpers import USER_MODEL
 from tests.base_test_classes import BaseTestCase
 from tests.main_menu_data import DATA
 from tests.main_menu_data import ADMIN_DATA
+
 
 # manage.py test tests.test_base --keepdb
 # manage.py test tests.test_base --noinput
@@ -44,6 +47,24 @@ class MyTests(BaseTestCase):
         if int(django_version[1]) < 0:
             self.fail("Must be using Django > 5.0")
 
+    def test_set_app_models_does_not_mutate_input(self):
+        app = next((
+            app for _, app_list in DATA
+            for app in app_list
+            if app.get('app_label') in getattr(settings, 'MODEL_ON_INDEX_PAGE', {})
+        ), None)
+        if app is None:
+            self.skipTest('No suitable app data found for regression test')
+
+        original_name = app['name']
+        original_models = deepcopy(app['models'])
+
+        updated_app = set_app_models(app, app['app_label'])
+
+        self.assertEqual(app['name'], original_name)
+        self.assertEqual(app['models'], original_models)
+        self.assertIsNot(updated_app, app)
+
     def test_apps_models_perms(self):
         """
         Test for users with different roles access to some of apps, models
@@ -57,24 +78,28 @@ class MyTests(BaseTestCase):
         # convert_group_fixture()
 
         for username, correct_app_list in DATA:
+            expected_app_list = deepcopy(correct_app_list)
             if hasattr(settings, 'MODEL_ON_INDEX_PAGE'):
                 for app_label in settings.APP_ON_INDEX_PAGE:
                     app = next((
-                        a for a in correct_app_list
+                        a for a in expected_app_list
                         if app_label == a['app_label']), None
                     )
                     if app:
-                        set_app_models(app, app_label)
+                        updated_app = set_app_models(app, app_label)
                         # Adding a reminder is not allowed on the home page.
-                        if app['app_label'] == 'common':
+                        if updated_app['app_label'] == 'common':
                             reminder_model = next((
-                                m for m in app['models']
+                                m for m in updated_app['models']
                                 if m['object_name'] == 'Reminder'
-                            ))
-                            reminder_model['perms']['add'] = False
-                            reminder_model['add_url'] = None
+                            ), None)
+                            if reminder_model:
+                                reminder_model['perms']['add'] = False
+                                reminder_model['add_url'] = None
+                        index = expected_app_list.index(app)
+                        expected_app_list[index] = updated_app
             self.client.force_login(self.users.get(username=username))
-            
+
             response = self.client.get(
                 '/' + settings.SECRET_CRM_PREFIX,
                 HTTP_ACCEPT_LANGUAGE='en',
@@ -83,7 +108,7 @@ class MyTests(BaseTestCase):
             context_app_list = response.context['app_list']
             self.assertEqual(response.status_code, 200, response.reason_phrase)
 
-            self.check_app_availability_and_model_permissions(username, correct_app_list, context_app_list)
+            self.check_app_availability_and_model_permissions(username, expected_app_list, context_app_list)
 
     def test_apps_menu_changelists(self):
         """
@@ -117,11 +142,11 @@ class MyTests(BaseTestCase):
         and permissions at home page of admin (with 'en' language code).
         """
 
-        correct_app_list = ADMIN_DATA
+        expected_app_list = deepcopy(ADMIN_DATA)
         user = self.users.filter(is_superuser=True).first()
         username = user.username
         self.client.force_login(user)
-        
+
         response = self.client.get(
             '/' + settings.SECRET_ADMIN_PREFIX,
             HTTP_ACCEPT_LANGUAGE='en',
@@ -132,7 +157,7 @@ class MyTests(BaseTestCase):
         """ 
         # Adding a reminder is not allowed on the home page.
         app = next((
-            a for a in correct_app_list
+            a for a in expected_app_list
             if a['name'] == 'Common'
         ), None)
         if app:
@@ -142,7 +167,7 @@ class MyTests(BaseTestCase):
             ))
             reminder['perms']['add'] = False
         """
-        self.check_app_availability_and_model_permissions(username, correct_app_list, context_app_list)
+        self.check_app_availability_and_model_permissions(username, expected_app_list, context_app_list)
 
     def check_app_availability_and_model_permissions(self, username, correct_app_list, context_app_list):
         # Check that the available
@@ -190,7 +215,7 @@ class MyTests(BaseTestCase):
                 msg = f"App list does not match for user {username}."
                 self.assertEqual(correct_app_list, context_app_list, msg)
 
-        self.client.logout()        
+        self.client.logout()
 
     def check_response(self, url: str, username: str) -> None:
         response = self.client.get(url, HTTP_ACCEPT_LANGUAGE='en')

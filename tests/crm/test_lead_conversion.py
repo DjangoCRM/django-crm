@@ -7,6 +7,7 @@ from django.urls import reverse
 from crm.models import Company
 from crm.models import Contact
 from crm.models import Lead
+from crm.models import Request
 from crm.site.leadadmin import LeadAdmin
 from crm.site.crmadminsite import crm_site
 from common.utils.helpers import get_department_id
@@ -160,6 +161,33 @@ class TestLeadConversion(BaseTestCase):
                 Lead.objects.filter(id=lead.id).exists(),
                 "The Lead not deleted"
             )
+
+    def test_lead_conversion_links_company_to_request(self):
+        """After conversion, a Request that was linked to the Lead must
+        also get the Company relationship (not just the Contact)."""
+        self.lead.contact = self.contact
+        self.lead.company = self.company
+        self.lead.save()
+        request_obj = Request.objects.create(
+            request_for='Test request',
+            first_name=self.lead.first_name,
+            lead=self.lead,
+        )
+        with self.settings(
+                MESSAGE_STORAGE='django.contrib.messages.storage.cookie.CookieStorage'
+        ):
+            self.request._messages = default_storage(self.request)
+            lead_admin.response_post_save_change(self.request, self.lead)
+        request_obj.refresh_from_db()
+        self.assertIsNone(request_obj.lead, "The Request must be unlinked from the Lead")
+        self.assertEqual(
+            request_obj.contact, self.contact,
+            "The Request must be linked to the Contact"
+        )
+        self.assertEqual(
+            request_obj.company, self.company,
+            "The Request must be linked to the Company, not only to the Contact"
+        )
 
     def test_form_not_enough_data_to_convert(self):
         """Test for clearing a form with insufficient data to convert a Lead"""
