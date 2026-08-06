@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from common.admin import FileInline
 from common.utils.helpers import SAFE_SUBJECT_ICON
+from common.utils.resize_image import resize_image
 from crm.utils.admfilters import ByDepartmentFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 
@@ -16,6 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {
             'fields': (
+                'main_image_preview', 'main_image',
                 'name', 'type',
                 'product_category',
                 'description', ('price', 'currency')
@@ -40,7 +42,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('type', ('product_category',
                    ScrollRelatedOnlyFieldListFilter))
     radio_fields = {"type": admin.HORIZONTAL}
-    readonly_fields = ('modified_by', 'creation_date', 'update_date')
+    readonly_fields = ('modified_by', 'creation_date', 'update_date',
+        'main_image_preview'
+    )
     save_on_top = False
     search_fields = ['name', 'description']
 
@@ -72,6 +76,17 @@ class ProductAdmin(admin.ModelAdmin):
         return qs
 
     def save_model(self, request, obj, form, change):
+        # Resize new main image if present
+        if 'main_image' in form.changed_data and obj.main_image:
+            resize_main_image(obj)
+        if change and 'main_image' in form.changed_data:
+            # Delete old main image file if a new one is being uploaded
+            try:
+                old_instance = self.model.objects.get(pk=obj.pk)
+                if old_instance.main_image and old_instance.main_image != obj.main_image:
+                    old_instance.main_image.delete(save=False)
+            except self.model.DoesNotExist:
+                pass
         obj.modified_by = request.user
         if not obj.department and request.user.department_id:
             obj.department_id = request.user.department_id
@@ -103,6 +118,36 @@ class ProductAdmin(admin.ModelAdmin):
             f'<a href="{url}" title="{_('Type')}">{obj.TYPE_CHOICES[obj.type]}</a>'
         )
 
+    @admin.display(description='')
+    def main_image_preview(self, obj):
+        if obj.main_image:
+            return mark_safe(
+                f'<img src="{obj.main_image.url}" style="width:200px;height:200px;">'
+            )
+        return mark_safe(
+            '<i class="material-icons" style="font-size: 200px;vertical-align: middle;'
+            'border-radius:50%;color: var(--body-quiet-color)">inventory_2</i>'
+        )
+
     @admin.display(description=SAFE_SUBJECT_ICON, ordering='name')
     def name_icon(self, obj):
+        if obj.main_image:
+            return mark_safe(
+                f'<span style="white-space: nowrap;">'
+                f'<img src="{obj.main_image.url}" style="vertical-align: middle;'
+                'width:20px;height:20px;">'
+                f'&nbsp;{obj.name}</span>'
+            )
         return obj.name
+
+
+def resize_main_image(obj) -> None:
+    """
+    Resize uploaded main image to a maximum of 200x200 pixels.
+    """
+    if obj.main_image:
+        resized_image = resize_image(obj.main_image, circular=False)
+
+        # Create a new File object
+        obj.main_image.file = resized_image
+        obj.main_image.name = f"{obj.name}.png"
