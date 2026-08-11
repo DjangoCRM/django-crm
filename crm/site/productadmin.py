@@ -146,7 +146,7 @@ def resize_main_image(obj) -> None:
     Resize uploaded main image to a maximum of 200x200 pixels.
     """
     if obj.main_image:
-        resized_image = resize_image(obj.main_image, circular=False)
+        resized_image = resize_image(obj.main_image)
 
         # Create a new File object
         obj.main_image.file = resized_image
