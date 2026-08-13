@@ -386,7 +386,7 @@ class IndustryAdmin(TranslateNameModelAdmin):
 
 
 class ProductAdmin(productadmin.ProductAdmin):
-    list_display = ('name', 'price', 'currency', 'department')
+    list_display = ('name_icon', 'price', 'currency', 'department')
 
     # -- ModelAdmin methods -- #
 

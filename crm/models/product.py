@@ -68,6 +68,18 @@ class Product(Base1):
         on_delete=models.SET_NULL,
         verbose_name=_("Product category")
     )
+    main_image = models.ImageField(
+        blank=True, null=True,
+        verbose_name=_("Main image"),
+        upload_to='product_images/%Y/%m/%d/%H%M%S/',
+        max_length=250
+    )
+
+    def delete(self, *args, **kwargs):
+        # Delete main image file when deleting the product
+        if self.main_image:
+            self.main_image.delete(save=False)
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.name

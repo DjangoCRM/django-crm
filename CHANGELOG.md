@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
+- Added the ability to add a main image to products by @mo-hossam-stack 
 - Add "Late response" TransactionQualitySignal
 - Added a copy email account button by @oiahoon 
 - Added unit tests for file upload view by @sarkarshrayan2-max
