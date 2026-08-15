@@ -130,6 +130,65 @@ class TestDeal(BaseTestCase):
         response = self.client.get(self.deal_change_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
 
+    def test_inline_emails_display_cc_only_for_incoming_email(self):
+        visible_cc = 'visible-cc@example.com'
+        hidden_ccs = (
+            'sent-hidden-cc@example.com',
+            'unsent-hidden-cc@example.com',
+        )
+        self.contact_request.owner = self.owner
+        self.contact_request.department = self.department
+        self.contact_request.save(update_fields=['owner', 'department'])
+
+        incoming_email = CrmEmail.objects.get(
+            deal=self.deal,
+            incoming=True,
+        )
+        incoming_email.cc = visible_cc
+        incoming_email.request = self.contact_request
+        incoming_email.save(update_fields=['cc', 'request'])
+
+        for subject, incoming, sent, cc, days_ago in (
+            ('Incoming without CC', True, False, '', 6),
+            ('Sent outgoing with CC', False, True, hidden_ccs[0], 5),
+            ('Unsent outgoing with CC', False, False, hidden_ccs[1], 4),
+        ):
+            CrmEmail.objects.create(
+                to='sale@crm.com',
+                from_field='customer@example.com',
+                subject=subject,
+                content='',
+                incoming=incoming,
+                sent=sent,
+                cc=cc,
+                department=self.department,
+                owner=self.owner,
+                deal=self.deal,
+                request=self.contact_request,
+                is_html=False,
+                creation_date=self.now - timedelta(days=days_ago),
+            )
+
+        for url in (self.deal_change_url,
+                    self.contact_request.get_absolute_url()):
+            with self.subTest(url=url):
+                response = self.client.get(url, follow=True)
+
+                self.assertEqual(
+                    response.status_code, 200, response.reason_phrase
+                )
+                for subject in (
+                    'test inquiry',
+                    'Incoming without CC',
+                    'Sent outgoing with CC',
+                    'Unsent outgoing with CC',
+                ):
+                    self.assertContains(response, subject)
+                self.assertContains(response, 'field-cc', count=1)
+                self.assertContains(response, visible_cc)
+                for hidden_cc in hidden_ccs:
+                    self.assertNotContains(response, hidden_cc)
+
     def test_for_chief(self):
         """
         Test the availability of the fields 'important' and 'translation' for the chief.
