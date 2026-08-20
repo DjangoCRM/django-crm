@@ -47,6 +47,11 @@
                 <div class="form-row field-to">
                     <div class="readonly"><b>{% translate 'To' %}:</b> &nbsp{{ email.to }}</div>
                 </div>
+                {% if email.incoming and email.cc %}
+                <div class="form-row field-cc">
+                    <div class="readonly"><b>{% translate 'CC' %}:</b> &nbsp{{ email.cc }}</div>
+                </div>
+                {% endif %}
                 <div class="form-row field-creation_date">
                 <div class="readonly"><b>{% translate 'Date' %}:</b> &nbsp{{ email.creation_date }}</div>
                 </div>
