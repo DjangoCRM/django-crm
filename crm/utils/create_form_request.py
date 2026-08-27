@@ -11,6 +11,7 @@ from crm.models import Country
 from crm.models import LeadSource
 from crm.models import CrmEmail
 from crm.models import Request
+from crm.models.request import ATTRIBUTION_FIELDS
 from crm.site.requestadmin import notify_request_owners
 from crm.utils.check_city import check_city
 from crm.utils.helpers import is_text_relevant
@@ -80,6 +81,10 @@ def _create_request(data: dict, lead_source: LeadSource,
                     department: Department, ticket: str) -> Request:
 
     first_name, middle_name, last_name = parse_full_name(data['name'])
+    attribution = {
+        field: data.get(field) or None
+        for field in ATTRIBUTION_FIELDS
+    }
     return Request(
         first_name=first_name,
         middle_name=middle_name,
@@ -94,7 +99,8 @@ def _create_request(data: dict, lead_source: LeadSource,
         receipt_date=get_today(),
         lead_source=lead_source,
         ticket=ticket,
-        city_name=data.get('city', '')
+        city_name=data.get('city', ''),
+        **attribution,
     )
 
 

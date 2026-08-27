@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add optional UTM and ad click ID fields to Requests and contact forms
 - Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
 - Added the ability to add a main image to products by @mo-hossam-stack 
