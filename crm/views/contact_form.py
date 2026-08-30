@@ -12,6 +12,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.decorators.csrf import csrf_exempt
 
 from crm.forms.contact_form import ContactForm
+from crm.forms.contact_form import get_attribution_data
 from crm.models import LeadSource
 from crm.utils.create_form_request import create_form_request
 from crm.utils.helpers import is_company_banned
@@ -40,7 +41,10 @@ def contact_form(request, uuid):
             response = render(request, template, {"msg": thanks_message})
             return response
     else:
-        form = ContactForm(initial={'leadsource_token': uuid})
+        form = ContactForm(initial={
+            'leadsource_token': uuid,
+            **get_attribution_data(request.GET),
+        })
     template = lead_source.form_template
     site = Site.objects.get_current()
     uri = reverse('contact_form', args=(uuid,))

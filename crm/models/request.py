@@ -14,6 +14,18 @@ from crm.utils.helpers import get_email_domain
 from crm.utils.ticketproc import new_ticket
 
 
+ATTRIBUTION_FIELDS = (
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_term',
+    'utm_content',
+    'gclid',
+    'fbclid',
+)
+ATTRIBUTION_MAX_LENGTH = 200
+
+
 class Request(Base1):
     class Meta:
         verbose_name = _("Request")
@@ -49,6 +61,48 @@ class Request(Base1):
         on_delete=models.SET_NULL,
         verbose_name=_("Lead source"),
         help_text=_("Lead Source")
+    )
+    utm_source = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("UTM source"),
+    )
+    utm_medium = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("UTM medium"),
+    )
+    utm_campaign = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("UTM campaign"),
+    )
+    utm_term = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("UTM term"),
+    )
+    utm_content = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("UTM content"),
+    )
+    gclid = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("Google click ID"),
+    )
+    fbclid = models.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        blank=True,
+        null=True,
+        verbose_name=_("Facebook click ID"),
     )
     company_name = models.CharField(
         max_length=200, blank=True, default='',
