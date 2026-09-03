@@ -64,6 +64,20 @@ class TestContact(BaseTestCase):
         self.assertEqual(self.response.status_code, 200,
                          self.response.reason_phrase)
 
+    def test_contact_list_displays_company_name_and_logo(self):
+        self.company.logo = "company_logos/test-logo.png"
+        self.company.save(update_fields=['logo'])
+        Contact.objects.create(
+            **{**self.contact_data, 'company': self.company}
+        )
+
+        response = self.client.get(self.changelist_url)
+
+        self.assertContains(response, "Test company")
+        self.assertContains(
+            response, '<img src="/media/company_logos/test-logo.png"', html=False
+        )
+
     def test_change_contact(self):
         contact_data = self.contact_data.copy()
         contact_data['company'] = self.company
