@@ -185,4 +185,4 @@ class ContactAdmin(CrmModelAdmin):
         ordering='company'
     )
     def contact_company(self, obj):
-        return obj.company
+        return obj.company.thumbnail_full_name
