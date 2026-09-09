@@ -12,6 +12,7 @@ from django.utils.translation import gettext as _
 from common.models import Department
 from common.utils.helpers import get_trans_for_user
 from common.utils.helpers import USER_MODEL
+from crm.forms.contact_form import get_attribution_data
 from crm.models.others import LeadSource
 from crm.models import City
 from crm.models import CrmEmail
@@ -168,6 +169,72 @@ class TestRequestReceiving(BaseTestCase):
             ).exists(),
             'The Email does not exist in db'
         )
+
+    def test_attribution_data_is_saved(self):
+        attribution = {
+            'utm_source': 'newsletter',
+            'utm_medium': 'email',
+            'utm_campaign': 'spring-launch',
+            'utm_term': 'crm',
+            'utm_content': 'cta',
+            'gclid': 'google-click-id',
+            'fbclid': 'facebook-click-id',
+        }
+        self.data.update(attribution)
+
+        response = self.client.post(self.add_request_url, self.data)
+
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        request = Request.objects.get(
+            request_for=self.data['subject'],
+            email=self.data['email'],
+        )
+        for field, value in attribution.items():
+            self.assertEqual(getattr(request, field), value)
+
+        response = self.client.get(
+            reverse("site:crm_request_change", args=(request.id,))
+        )
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        self.assertContains(response, 'name="utm_campaign"')
+        self.assertContains(response, 'value="spring-launch"')
+
+    def test_attribution_query_params_are_allowlisted_and_bounded(self):
+        attribution = get_attribution_data({
+            'utm_source': ' newsletter ',
+            'gclid': 'google-click-id',
+            'unknown': 'not stored',
+            'utm_campaign': 'x' * 201,
+        })
+
+        self.assertEqual(attribution, {
+            'utm_source': 'newsletter',
+            'gclid': 'google-click-id',
+        })
+
+    def test_contact_form_prefills_attribution_from_query_params(self):
+        lead_source = LeadSource.objects.filter(
+            name="website form (iframe)"
+        ).first()
+        site = Site.objects.get_current()
+        uri = reverse('contact_form', args=(lead_source.uuid,))
+        request_url = f"https://{site.domain}{uri}"
+        factory = RequestFactory()
+        request = factory.get(
+            f"{request_url}?utm_source=newsletter&"
+            "utm_campaign=spring-launch&gclid=google-click-id"
+        )
+        request.user = AnonymousUser()
+
+        response = contact_form(request, lead_source.uuid)
+
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        self.assertContains(response, 'name="utm_source"')
+        self.assertContains(response, 'value="newsletter"')
+        self.assertContains(response, 'name="utm_campaign"')
+        self.assertContains(response, 'value="spring-launch"')
+        self.assertContains(response, 'name="gclid"')
+        self.assertContains(response, 'value="google-click-id"')
 
     def test_the_lead(self):
         self.client.post(self.add_request_url, self.data)

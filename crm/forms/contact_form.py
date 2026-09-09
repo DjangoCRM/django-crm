@@ -5,6 +5,17 @@ from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import send_crm_email
 from crm.models import LeadSource
+from crm.models.request import ATTRIBUTION_FIELDS
+from crm.models.request import ATTRIBUTION_MAX_LENGTH
+
+
+def get_attribution_data(query_params):
+    attribution = {}
+    for field in ATTRIBUTION_FIELDS:
+        value = (query_params.get(field, '') or '').strip()
+        if value and len(value) <= ATTRIBUTION_MAX_LENGTH:
+            attribution[field] = value
+    return attribution
 
 
 class ContactForm(forms.Form):
@@ -45,6 +56,41 @@ class ContactForm(forms.Form):
     )
     leadsource_token = forms.UUIDField(
         widget=forms.HiddenInput
+    )
+    utm_source = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    utm_medium = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    utm_campaign = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    utm_term = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    utm_content = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    gclid = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
+    )
+    fbclid = forms.CharField(
+        max_length=ATTRIBUTION_MAX_LENGTH,
+        required=False,
+        widget=forms.HiddenInput,
     )
 
     def clean(self):
