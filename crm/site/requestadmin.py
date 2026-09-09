@@ -151,7 +151,7 @@ class RequestAdmin(CrmModelAdmin):
     list_filter = [
         'pending', ByOwnerFilter, 'receipt_date',
         ('products', ScrollRelatedOnlyFieldListFilter),
-        'subsequent', 'utm_source', 'utm_medium', 'utm_campaign'
+        'subsequent',    # 'utm_source', 'utm_medium', 'utm_campaign'
     ]
     list_per_page = 30
     raw_id_fields = ('lead', 'contact', 'company', 'deal')
