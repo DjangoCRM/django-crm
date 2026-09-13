@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [3.0.0] - 2026-09-13
 
 ### Added
 
@@ -18,9 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add optional UTM and ad click ID fields to Requests and contact forms by @Atroci 
 - Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
-- Added the ability to add a main image to products by @mo-hossam-stack 
+- Added the ability to add a main image to products by @mo-hossam-stack
+- Add display of the CC field (if not empty) for incoming inline emails by @PozziTiv4ik
 - Add "Late response" TransactionQualitySignal
-- Added a copy email account button by @oiahoon 
+- Added a copy email account button by @oiahoon
+- Add display of company logos (if any) along with their names to the contact list page by @w3lld1
 - Added unit tests for file upload view by @sarkarshrayan2-max
 
 ### Improved
@@ -37,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The Output.currency field is no longer available to the user. The value of Deal.currency is stored in it
 - Refactor image resizing logic to adjust dimensions based on aspect ratio conditions
+- On the Request and Deal Edit pages, change the inline email edit button (pencil icon) so
+  that clicking it opens the email edit page in a new tab (not pop-up) by @Sowaiba-01
 
 ### Fixed
 
@@ -44,7 +48,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Company relationship to Request during Lead conversion by @surajthedev
 - Fix Installation Doc by @picklesin
 
-## [2.4.0] - 2026-05-216
+#### Full Changelog: [v2.4.0...v3.0.0](https://github.com/DjangoCRM/django-crm/compare/v2.4.0...v3.0.0)
+
+## [2.4.0] - 2026-05-16
 
 ### Added
 
