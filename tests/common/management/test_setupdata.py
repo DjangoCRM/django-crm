@@ -31,16 +31,22 @@ class TestSetupData(TransactionTestCase):
         self.assertTrue(Currency.objects.filter(name="USD").exists())
         self.assertTrue(Group.objects.filter(name="managers").exists())
         self.assertTrue(Resolution.objects.filter(name="on approval").exists())
-        self.assertTrue(Department.objects.filter(name="Global sales").exists())
-        self.assertTrue(Stage.objects.filter(name="analysis of request").exists())
-        self.assertTrue(ProjectStage.objects.filter(name="in progress").exists())
+        self.assertTrue(Department.objects.filter(
+            name="Global sales").exists())
+        self.assertTrue(Stage.objects.filter(
+            name="analysis of request").exists())
+        self.assertTrue(ProjectStage.objects.filter(
+            name="in progress").exists())
         self.assertTrue(TaskStage.objects.filter(name="in progress").exists())
         self.assertTrue(ClientType.objects.filter(name="reseller").exists())
-        self.assertTrue(ClosingReason.objects.filter(name="The deal was closed successfully").exists())
+        self.assertTrue(ClosingReason.objects.filter(
+            name="The deal was closed successfully").exists())
         self.assertTrue(Industry.objects.filter(name="metallurgy").exists())
-        self.assertTrue(LeadSource.objects.filter(name="website form").exists())
+        self.assertTrue(LeadSource.objects.filter(
+            name="website form").exists())
         self.assertTrue(Site.objects.filter(domain="localhost:8000").exists())
         self.assertTrue(Reminders.objects.filter(check_interval=300).exists())
         usernames = User.objects.values_list('username', flat=True)
         self.assertIn("IamSUPER", usernames)
-        self.assertIn("IamSALES", usernames)
+        self.assertIn("IamGlobalSALES", usernames)
+        self.assertIn("IamLocalSALES", usernames)

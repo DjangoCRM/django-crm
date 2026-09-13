@@ -62,6 +62,10 @@ class Output(BasePayment):
                 "currency": "This field is required."
             })
 
+    def save(self, *args, **kwargs):
+        self.currency = self.deal.currency
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.product} - {self.quantity}{self.pcs}"
 

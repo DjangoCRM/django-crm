@@ -469,6 +469,18 @@ Los siguientes departamentos están preinstalados en CRM:
 
 Puedes renombrarlos o agregar nuevos.
 
+#### Normas para establecer niveles de precios por departamento (novedad en la versión 3.0)
+
+Para los departamentos y las categorías de productos, se pueden establecer reglas para la creación de niveles de precios de los productos.
+En los departamentos hay reglas preestablecidas del tipo «margen» para los siguientes niveles:
+- consumidor final
+- revendedor
+- concesionario
+- distribuidor
+En función de estas reglas, se añadirán niveles de precio a los productos y se calcularán automáticamente sus valores.
+Estos niveles se corresponden con los tipos (grupos) preestablecidos de consumidores (empresas).
+Por lo tanto, en las empresas se debe indicar su tipo; de este modo, en las transacciones con dichas empresas se seleccionará automáticamente el nivel de precio de los productos (y servicios) que les corresponda.
+
 ### Agregar usuarios
 
 `(sitio ADMIN) Inicio > Autenticación y Autorización > Usuarios`
@@ -665,11 +677,28 @@ El token de actualización también se puede obtener por separado del CRM, por e
 Agregue categorías de los productos, bienes o servicios de su empresa.  
 `(ADMIN) Inicio > Crm > Categorías de productos`
 
+### Reglas de niveles de precios (novedad en la versión 3.0)
+
+Las reglas se crean dentro del departamento para establecer automáticamente diferentes niveles de precios para los productos
+(y servicios). No obstante, puedes establecer reglas diferentes para categorías específicas de productos
+(véase «[Departamentos](#departamentos)»).
+
 ## Productos de la empresa
 
 Agregue los productos, servicios o bienes de su empresa
 (esto puede hacerse más tarde por los gerentes de ventas).  
 `(ADMIN) Inicio > Crm > Productos`
+
+### Niveles de precios de los productos (novedad en la v3.0)
+
+Se pueden añadir precios a cada producto según las reglas de niveles de precios
+especificadas en la categoría del producto (si las hay) o en el departamento
+(el administrador del CRM puede configurar estas reglas; véase «[Departamentos](#departamentos)»).  
+Para añadir precios, haz clic en el botón «Añadir nivel de precios». Se te pedirá
+que selecciones un nombre y que establezcas el precio de nivel básico.  
+Al hacer clic de nuevo en el botón «Añadir nivel de precios», se añadirán y calcularán
+automáticamente los precios restantes de acuerdo con las reglas de niveles aplicables.  
+En la página de la lista de productos, utiliza el menú «Acción» para exportar una lista de precios de los productos seleccionados (o de todos los productos) a un archivo de Excel. Las listas de precios se agruparán por categoría y se colocarán en páginas separadas dentro del archivo de Excel.
 
 ## Monedas
 

@@ -235,6 +235,18 @@ def send_crm_email(
     app_config.nes.send_msg(subject, body, to)
 
 
+def set_modified_by(request, formsets, model) -> None:
+    # Set who modified inline instances
+    model_formset = next((
+        formset for formset in formsets
+        if formset.model == model
+    ), None)
+    if model_formset:
+        for form in model_formset.forms:
+            if form.changed_data:
+                form.instance.modified_by = request.user
+
+
 def set_toggle_tooltip(key: str, request: WSGIRequest, extra_context: dict) -> None:
     if key in request.session:
         extra_context['toggle_title'] = _("sort by creation date")

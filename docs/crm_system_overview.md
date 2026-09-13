@@ -74,6 +74,13 @@ It provides a comprehensive suite of features to handle various business objects
 - Integrates with email communication, tagging, and reminders for seamless deal handling.
 - Provides real-time status updates through intuitive icons.
 
+### Pricing framework
+
+- Automatic calculation of product prices in deals based on the price tier corresponding to the customer type (company) and the transaction currency.
+- Setting different price tier rules for departments and individual product categories (goods and services).
+- Exporting product price lists to an Excel file, grouped by category.
+
+
 ### Integrated Communication Tools
 
 - Centralizes email correspondence by linking emails to relevant Requests and Deals.

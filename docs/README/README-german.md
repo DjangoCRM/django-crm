@@ -77,6 +77,7 @@ Die CRM-Software-Suite besteht aus den folgenden **Hauptanwendungen** und ihren 
   - Deals (wie "Opportunities")
   - E-Mail-Nachrichten (Synchronisierung mit Benutzer-E-Mail-Konten)
   - Produkte (Waren und Dienstleistungen)
+  - Preissystem
   - Zahlungen (erhalten, garantiert, hohe und niedrige Wahrscheinlichkeit)
   - ... (*+ 12 weitere <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">Modelle</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytischer CRM-Bericht" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

@@ -25,6 +25,7 @@ from common.utils.notify_user import notify_user
 from common.utils.parse_full_name import parse_contacts_name
 from crm.forms.admin_forms import RequestForm
 from crm.models import Currency
+from crm.models import DepartmentPriceRule
 from crm.models import CrmEmail
 from crm.models import Deal
 from crm.models import Product
@@ -217,7 +218,8 @@ class RequestAdmin(CrmModelAdmin):
                 form.base_fields["case"].widget = HiddenInput()
 
         if request.method == "POST" and '_create-deal' in request.POST:
-            department_id = request.user.department_id
+            department_id = request.user.department_id or request.POST.get(
+                'department')
             works_globally = Department.objects.get(
                 id=department_id
             ).works_globally
@@ -583,6 +585,12 @@ def _get_or_create_deal(obj: Request, request: WSGIRequest) -> Deal:
         if obj.contact:
             deal.contact = obj.contact
             deal.company = obj.contact.company
+            client_type = obj.contact.company.type
+            if client_type and DepartmentPriceRule.objects.filter(
+                department_id=department_id,
+                tier_name=client_type
+            ).exists():
+                deal.tier_name = client_type
             if deal.company:
                 deal.country = deal.company.country
                 deal.city = deal.company.city

@@ -464,6 +464,21 @@ The following departments are preinstalled in CRM:
 
 You can rename them or add new ones.
 
+#### Rules for setting price tiers by Department (new in v3.0)
+
+You can set rules for creating product price tiers for departments and product categories.
+Departments have predefined “markup” rules for the following levels:
+
+- end consumer
+- reseller
+- dealer
+- distributor
+
+Based on these rules, price tiers will be added to products, and their values will be calculated automatically.
+These levels correspond to predefined types (groups) of customers (companies).
+Therefore, you should specify the type of company when creating a company record;
+this ensures that the appropriate price level for products (and services) will be automatically selected in deals with that company.
+
 ### Adding users
 
 `(ADMIN site) Home > Authentication and Authorization > Users`
@@ -661,11 +676,27 @@ The refresh token can also be obtained separately from the CRM, for example, usi
 Add categories of your company's products, goods or services.  
 `(ADMIN site) Home > Crm > Product categories`
 
+### Price tier rules (new in v3.0)
+
+Rules are created within the department to automatically set different price tiers for products
+(and services). However, you can set different rules for specific product categories
+(see “[Departments](#departments)”).
+
 ## Company products
 
 Add your company's products, services or goods
 (this can be done later by sales managers).  
 `(ADMIN site) Home > Crm > Products`
+
+### Product price tiers (new in v3.0)
+
+Prices can be added to each product according to the price tier rules specified in the product
+category (if any) or in the department (the CRM administrator can set these rules, see “[Departments](#departments)).  
+To add prices, click the “Add Price Tier” button. You will be prompted to select a name and
+set the base-level price.  
+Clicking the “Add Price Tier” button again will add and automatically calculate the remaining
+prices in accordance with the applicable tier rules.  
+On the product list page, use the “Action” menu to export a price list for selected products (or all products) to an Excel file. The price lists will be grouped by category and placed on separate pages within the Excel file.
 
 ## Currencies
 

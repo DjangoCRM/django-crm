@@ -7,6 +7,7 @@ from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from crm.forms.department_pricing_tier_formset import DepartmentPriceRuleFormSet
 from common.models import Department
 from common.models import Reminder
 from common.models import TheFile
@@ -14,8 +15,45 @@ from common.models import UserProfile
 from common.site import reminderadmin
 from common.site import userprofileadmin
 from common.utils.helpers import SAFE_ATTACH_FILE_ICON
+from crm.models.others import ClientType
+from crm.models.pricingtier import DepartmentPriceRule
 from crm.site.crmadminsite import crm_site
+from crm.site.crmstackedinline import CrmStackedInline
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
+
+
+class DepartmentPriceRuleInline(CrmStackedInline):
+    extra = 0
+    formset = DepartmentPriceRuleFormSet
+    fieldsets = (
+        (None, {
+            'fields': [
+                'tier_name',
+                'price_type',
+                'base_tier', 'percentage',
+                ('update_date', 'modified_by')
+            ]
+        }),
+    )
+    model = DepartmentPriceRule
+    readonly_fields = ('update_date', 'modified_by')
+    verbose_name_plural = "Price Rules"
+
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super().get_formset(request, obj, **kwargs)
+
+        tier_name_field = formset.form.base_fields.get('tier_name')
+        if tier_name_field is None:
+            return formset
+
+        if obj is not None:
+            # obj — current Department
+            tier_name_field.queryset = ClientType.objects.filter(
+                department=obj)
+        else:
+            tier_name_field.queryset = ClientType.objects.none()
+
+        return formset
 
 
 class DepartmentAdmin(admin.ModelAdmin):
@@ -31,6 +69,7 @@ class DepartmentAdmin(admin.ModelAdmin):
             )
         }),
     )
+    inlines = [DepartmentPriceRuleInline]
 
 
 class LogEntryAdmin(admin.ModelAdmin):

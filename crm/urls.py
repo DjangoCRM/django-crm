@@ -26,6 +26,14 @@ urlpatterns = [
         staff_member_required(DeleteDuplicateObject.as_view()),
         name='delete_duplicate'
     ),
+    # endpoint used by admin JS to fetch product price tier and currency rates
+    path(
+        'product-price-info/',
+        staff_member_required(
+            __import__('crm.views.product_price_info', fromlist=['product_price_info']).product_price_info
+        ),
+        name='product_price_info'
+    ),
 
     path('change-owner-companies/', staff_member_required(change_owner_companies),
          name='change_owner_companies'),

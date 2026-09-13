@@ -71,6 +71,7 @@ La suite logicielle CRM se compose des **applications principales** suivantes et
   - Affaires (comme des "Opportunités")
   - Messages électroniques (synchronisation avec les comptes de messagerie des utilisateurs)
   - Produits (biens et services)
+  - Système de tarification
   - Paiements (reçus, garantis, haute et basse probabilité)
   - ... (*+ 12 autres <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">modèles</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Rapport analytique crm" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

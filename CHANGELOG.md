@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Pricing framework added: Defining rules at the department and product category levels,
+  creating product price tiers, recalculating the total value of products in a deal based
+  on the price tier and deal currency, exporting the price list to an Excel file.
 - Add optional UTM and ad click ID fields to Requests and contact forms by @Atroci 
 - Add CRM email notifications toggle and respect it in outgoing emails
 - Getting a queryset using a filter by department for superusers in Request Change View
@@ -32,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The "currency" field in OutputInline becomes mandatory only when the user fills in the "amount" field.
+- The Output.currency field is no longer available to the user. The value of Deal.currency is stored in it
 - Refactor image resizing logic to adjust dimensions based on aspect ratio conditions
 
 ### Fixed

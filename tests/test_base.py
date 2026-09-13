@@ -108,7 +108,8 @@ class MyTests(BaseTestCase):
             context_app_list = response.context['app_list']
             self.assertEqual(response.status_code, 200, response.reason_phrase)
 
-            self.check_app_availability_and_model_permissions(username, expected_app_list, context_app_list)
+            self.check_app_availability_and_model_permissions(
+                username, expected_app_list, context_app_list)
 
     def test_apps_menu_changelists(self):
         """
@@ -167,7 +168,8 @@ class MyTests(BaseTestCase):
             ))
             reminder['perms']['add'] = False
         """
-        self.check_app_availability_and_model_permissions(username, expected_app_list, context_app_list)
+        self.check_app_availability_and_model_permissions(
+            username, expected_app_list, context_app_list)
 
     def check_app_availability_and_model_permissions(self, username, correct_app_list, context_app_list):
         # Check that the available
@@ -181,7 +183,8 @@ class MyTests(BaseTestCase):
                             continue
                         if x != 'models':
                             msg = f'"{x}" does not match in "{context_app["name"]}" app for user {username}.'
-                            self.assertEqual(correct_app[x], context_app[x], msg)
+                            self.assertEqual(
+                                correct_app[x], context_app[x], msg)
                         else:
                             if len(context_app['models']) == len(correct_app['models']):
                                 for context_model, correct_model \
@@ -193,21 +196,26 @@ class MyTests(BaseTestCase):
                                             continue
                                         if y != 'perms':
                                             msg = f'"{y}" of "{context_model["name"]}" model does ' \
-                                                  f'not match in "{context_app["name"]}" app for user {username}.'
-                                            self.assertEqual(correct_model[y], context_model[y], msg)
+                                                f'not match in "{context_app["name"]}" app for user {username}.'
+                                            self.assertEqual(
+                                                correct_model[y], context_model[y], msg)
                                         else:
                                             for z in correct_model['perms'].keys():
                                                 msg = f'"{z}" permission of "{context_model["name"]}" does not ' \
-                                                      f'match in "{context_app["name"]}" app for user {username}.'
+                                                    f'match in "{context_app["name"]}" app for user {username}.'
                                                 self.assertIs(correct_model['perms'][z], context_model['perms'][z],
                                                               msg)
                             else:
-                                correct_models = [model['name'] for model in correct_app['models']]
-                                context_models = [model['name'] for model in context_app['models']]
-                                difference = set(context_models) ^ set(correct_models)
+                                correct_models = [model['name']
+                                                  for model in correct_app['models']]
+                                context_models = [model['name']
+                                                  for model in context_app['models']]
+                                difference = set(context_models) ^ set(
+                                    correct_models)
                                 msg = f"Models list does not match in '{context_app['name']}' app " \
-                                      f"for user {username}. The difference is {difference} model."
-                                self.assertEqual(correct_models, context_models, msg)
+                                    f"for user {username}. The difference is {difference} model."
+                                self.assertEqual(
+                                    correct_models, context_models, msg)
             else:
                 # correct_app_names = [app['name'] for app in correct_app_list]
                 # context_app_names = [app['name'] for app in context_app_list]
@@ -219,16 +227,13 @@ class MyTests(BaseTestCase):
 
     def check_response(self, url: str, username: str) -> None:
         response = self.client.get(url, HTTP_ACCEPT_LANGUAGE='en')
-        if username == 'Adam.Admin' and "settings/reminders/" in url:
-            self.assertEqual(response.status_code, 302,
-                             "User {} got response status_code {} at url {}".format(
-                                 username, response.status_code, url
-                             ))
-        elif username == 'Adam.Admin' and "settings/massmailsettings/" in url:
-            self.assertEqual(response.status_code, 302,
-                             "User {} got response status_code {} at url {}".format(
-                                 username, response.status_code, url
-                             ))
+        if username == 'Adam.Admin':
+            if "settings/reminders/" in url or "settings/massmailsettings/" in url:
+                self.assertEqual(response.status_code, 302,
+                                 "User {} got response status_code {} at url {}".format(
+                                     username, response.status_code, url
+                                 ))
+
         else:
             # Check that the response status code is 200
             # and the page is accessible for the user.

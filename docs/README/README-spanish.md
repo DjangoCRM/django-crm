@@ -82,9 +82,10 @@ En lugar de reinventar un framework de interfaz, Django-CRM se centra en la **l�
 * Empresas y personas de contacto
 * Negocios (pipeline de ventas)
 * Productos y pagos
+* Sistema de precios
 * Correos electrónicos vinculados a objetos CRM
 
-➡️ Más de 20 modelos CRM interconectados para flujos de ventas complejos.
+➡️ Más de 80 modelos CRM interconectados para flujos de ventas complejos.
 
 ---
 

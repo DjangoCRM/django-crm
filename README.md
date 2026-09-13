@@ -84,9 +84,10 @@ Instead of reinventing a UI framework, Django-CRM focuses on **business logic**,
 * Companies and contact persons
 * Deals (sales pipeline)
 * Products and payments
+* Pricing framework
 * Email messages linked to CRM objects
 
-➡️ Over 20 interconnected CRM models for complex sales workflows.
+➡️ Over 80 interconnected CRM models for complex sales workflows.
 
 ---
 

@@ -17,3 +17,6 @@ from crm.models.tag import Tag
 from crm.models.product import Product
 from crm.models.output import Output
 from crm.models.output import Shipment
+from crm.models.pricingtier import ProductPriceTier
+from crm.models.pricingtier import CategoryPriceRule
+from crm.models.pricingtier import DepartmentPriceRule

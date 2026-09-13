@@ -1,0 +1,98 @@
+[
+{
+    "model": "crm.departmentpricerule",
+    "pk": 1,
+    "fields": {
+        "department": 9,
+        "price_type": "F",
+        "tier_name": 1,
+        "base_tier": true,
+        "percentage": null,
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 2,
+    "fields": {
+        "department": 9,
+        "price_type": "M",
+        "tier_name": 2,
+        "base_tier": false,
+        "percentage": "25.00",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 3,
+    "fields": {
+        "department": 9,
+        "price_type": "M",
+        "tier_name": 3,
+        "base_tier": false,
+        "percentage": "11.11",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 4,
+    "fields": {
+        "department": 9,
+        "price_type": "M",
+        "tier_name": 4,
+        "base_tier": false,
+        "percentage": "42.86",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 5,
+    "fields": {
+        "department": 10,
+        "price_type": "F",
+        "tier_name": 6,
+        "base_tier": true,
+        "percentage": null,
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 6,
+    "fields": {
+        "department": 10,
+        "price_type": "M",
+        "tier_name": 7,
+        "base_tier": false,
+        "percentage": "25.00",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 7,
+    "fields": {
+        "department": 10,
+        "price_type": "M",
+        "tier_name": 8,
+        "base_tier": false,
+        "percentage": "11.11",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+},
+{
+    "model": "crm.departmentpricerule",
+    "pk": 8,
+    "fields": {
+        "department": 10,
+        "price_type": "M",
+        "tier_name": 9,
+        "base_tier": false,
+        "percentage": "42.86",
+        "update_date": "2000-01-01T00:00:00.000Z"
+    }
+}
+]

@@ -76,6 +76,7 @@ O pacote de software CRM consiste nas seguintes **principais aplicações** e se
   - Negócios (como "Oportunidades")
   - Mensagens de email (sincronização com contas de email do usuário)
   - Produtos (bens e serviços)
+  - Estrutura de preços
   - Pagamentos (recebidos, garantidos, alta e baixa probabilidade)
   - ... (*+ 12 mais <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">modelos</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Relatório analítico crm" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

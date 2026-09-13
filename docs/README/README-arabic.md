@@ -75,6 +75,7 @@ Django هو إطار عمل موثق بشكل ممتاز مع الكثير من 
   - الصفقات (مثل "الفرص")
   - رسائل البريد الإلكتروني (مزامنة مع حسابات البريد الإلكتروني للمستخدمين)
   - المنتجات (السلع والخدمات)
+  - نظام التسعير
   - المدفوعات (المستلمة، المضمونة، ذات الاحتمالية العالية والمنخفضة)
   - ... (*+ 12 نموذجًا آخر <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">نماذج</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="تقرير تحليلي لنظام إدارة علاقات العملاء" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

@@ -1,13 +1,16 @@
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.options import BaseModelAdmin
-from django.db.models import F
 from django.contrib.auth.models import Group
+from django.db.models import F
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from crm.forms.department_pricing_tier_formset import DepartmentPriceRuleFormSet
 from common.models import Department
 from common.utils.for_translation import check_for_translation
 from common.utils.helpers import LEADERS
+from common.utils.helpers import set_modified_by
 from crm.models import Company
 from crm.models import City
 from crm.models import Contact
@@ -20,6 +23,8 @@ from crm.models import Industry
 from crm.models import Lead
 from crm.models import LeadSource
 from crm.models import Payment
+from crm.models.pricingtier import CategoryPriceRule
+from crm.models.pricingtier import DepartmentPriceRule
 from crm.models.product import Product
 from crm.models.product import ProductCategory
 from crm.models import Rate
@@ -37,6 +42,7 @@ from crm.site import requestadmin
 from crm.site import productadmin
 from crm.site import tagadmin
 from crm.site import cityadmin
+from crm.site.crmstackedinline import CrmStackedInline
 from crm.site.currencyadmin import CurrencyAdmin
 from crm.site.paymentadmin import PaymentAdmin
 from crm.site.shipmentadmin import ShipmentAdmin
@@ -164,7 +170,8 @@ class DealAdmin(dealadmin.DealAdmin):
             }),
             (' ', {
                 'fields': (
-                    'stage', ('amount', 'currency'),
+                    ('stage', 'tier_name'),
+                    ('amount', 'currency'),
                     'next_step', 'next_step_date', 'workflow', 'description',
                     'stages_dates',
                 )
@@ -336,10 +343,7 @@ class RequestAdmin(requestadmin.RequestAdmin):
                     ('country', 'city_name'),
                     ('description', 'translation'),
                     'remark',
-                    'products',
-                    ('utm_source', 'utm_medium', 'utm_campaign'),
-                    ('utm_term', 'utm_content'),
-                    ('gclid', 'fbclid')
+                    'products'
                 ]
             }),
             (_('Relations'), {
@@ -401,6 +405,75 @@ class ProductAdmin(productadmin.ProductAdmin):
         return fieldsets
 
 
+class CategoryPriceRuleFormSet(DepartmentPriceRuleFormSet):
+    model = CategoryPriceRule
+
+
+class CategoryPriceRuleInline(CrmStackedInline):
+    extra = 0
+    fieldsets = (
+        (None, {
+            'fields': [
+                'tier_name',
+                'price_type',
+                'base_tier',
+                'percentage',
+                ('update_date', 'modified_by')
+            ]
+        }),
+    )
+    formset = CategoryPriceRuleFormSet
+    model = CategoryPriceRule
+    readonly_fields = ('update_date', 'modified_by', "error_message")
+    verbose_name_plural = "Price Rules"
+
+    # -- ModelAdmin methods -- #
+
+    def get_fieldsets(self, request, obj=None):
+        fields = [
+            'tier_name',
+            'price_type',
+            'base_tier',
+            'percentage',
+            ('update_date', 'modified_by')
+        ]
+        if obj:
+            tier_ids = DepartmentPriceRule.objects.filter(
+                department_id=obj.department_id
+            ).values_list('tier_name_id', flat=True)
+            obj.tier_queryset = ClientType.objects.filter(
+                pk__in=tier_ids).order_by('name')
+            if not obj.tier_queryset.exists():
+                fields.insert(0, "error_message")
+
+        return ((None, {'fields': fields}),)
+
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super().get_formset(request, obj, **kwargs)
+        if obj:
+            # Limit choices for the `tier_name` field to the
+            # same department as the obj.department
+            tier_field = formset.form.base_fields.get('tier_name')
+            if obj.tier_queryset.exists():
+                tier_field.queryset = obj.tier_queryset
+            else:
+                tier_field.queryset = ClientType.objects.none()
+            tier_field.widget.choices = tier_field.choices
+        return formset
+
+    # -- ModelAdmin Callables -- #
+
+    @staticmethod
+    @admin.display(description=mark_safe(
+        '<i class="material-icons" style="color: var(--orange-fg)">info_outline</i>'
+    ))
+    def error_message(obj):
+        msg = _(
+            'First set department-level price rules for this department.'
+        )
+        return mark_safe(f'<span style="color: var(--orange-fg)">{msg}</span>')
+
+
 class ProductCategoryAdmin(TranslateNameModelAdmin):
     fieldsets = (
         (None, {
@@ -413,7 +486,20 @@ class ProductCategoryAdmin(TranslateNameModelAdmin):
         }),
     )
     list_display = ('name', 'id', 'department')
+    save_on_top = True
     readonly_fields = ('creation_date',)
+
+    # -- ModelAdmin methods -- #
+
+    def get_inlines(self, request, obj=None):
+        if obj:
+            return [CategoryPriceRuleInline]
+        return []
+
+    def save_related(self, request, form, formsets, change):
+        # Save who modified the category price rule instances.
+        set_modified_by(request, formsets, CategoryPriceRule)
+        super().save_related(request, form, formsets, change)
 
 
 class ClosingReasonAdmin(TranslateNameModelAdmin):

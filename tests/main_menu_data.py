@@ -7,7 +7,7 @@ ADMIN_PREFIX = settings.SECRET_ADMIN_PREFIX
 reminder_iconed_name = 'Reminders <i class="material-icons" ' \
                        'style="font-size: 17px;vertical-align: middle;">alarm</i>'
 userprofile_iconed_name = 'User profiles <i class="material-icons" ' \
-                           'style="font-size: 17px;vertical-align: middle;">people</i>'
+    'style="font-size: 17px;vertical-align: middle;">people</i>'
 
 
 def get_perms(add: bool = True,
@@ -70,7 +70,7 @@ def get_contact_model_data(prefix: str = '',
 
 
 def get_deal_model_data(prefix: str = '',
-                            perms: dict = {'add':False},   # NOQA
+                            perms: dict = {'add': False},   # NOQA
                             view_only: bool = True,
                             is_add_url: bool = False,
                             ) -> dict:
@@ -173,7 +173,8 @@ def get_userprofile_model_data(name: str = '',
                                perms: dict = {},
                                is_add_url: bool = False,
                                view_only: bool = True,) -> dict:
-    perms = get_perms(**perms) if perms else get_perms(add=False, change=False, delete=False)
+    perms = get_perms(**perms) if perms else get_perms(add=False,
+                                                       change=False, delete=False)
     prefix = prefix or PREFIX
     name = name or "User profiles"
     add_url = f'/en/{prefix}common/userprofile/add/' if is_add_url else None
@@ -379,7 +380,8 @@ DATA = [
     (
         'Olga.Co-worker.Global',  # 'username'
         [
-            get_task_app_data(add_models=(get_memo_model_data(is_add_url=True),)),
+            get_task_app_data(add_models=(
+                get_memo_model_data(is_add_url=True),)),
             get_common_app_data()
         ]  # 'correct_app_list'
     ),
@@ -397,7 +399,8 @@ DATA = [
                 'app_url': f'/en/{PREFIX}crm/',
                 'has_module_perms': True,
                 'models': [
-                    get_shipment_model_data(perms={'add': False, 'change': False, 'delete': False}),
+                    get_shipment_model_data(
+                        perms={'add': False, 'change': False, 'delete': False}),
                 ]
             },
             get_common_app_data()
@@ -406,16 +409,20 @@ DATA = [
     (
         'Garry.Chief',
         [
-            get_task_app_data(add_models=(get_memo_model_data(is_add_url=True),)),
+            get_task_app_data(add_models=(
+                get_memo_model_data(is_add_url=True),)),
             {
                 'name': 'Crm',
                 'app_label': 'crm',
                 'app_url': f'/en/{PREFIX}crm/',
                 'has_module_perms': True,
                 'models': [
-                    get_company_model_data(perms={'add': False, 'change': False, 'delete': False}),
-                    get_contact_model_data(perms={'add': False, 'change': False, 'delete': False}),
-                    get_deal_model_data(perms={'add': False, 'delete': False}, view_only=False),
+                    get_company_model_data(
+                        perms={'add': False, 'change': False, 'delete': False}),
+                    get_contact_model_data(
+                        perms={'add': False, 'change': False, 'delete': False}),
+                    get_deal_model_data(
+                        perms={'add': False, 'delete': False}, view_only=False),
                     {
                         'name': 'Emails in CRM',
                         'object_name': 'CrmEmail',
@@ -491,7 +498,8 @@ DATA = [
     (
         'Valeria.Operator.Global',
         [
-            get_task_app_data(add_models=(get_memo_model_data(is_add_url=True),)),
+            get_task_app_data(add_models=(
+                get_memo_model_data(is_add_url=True),)),
             {
                 'name': 'Crm',
                 'app_label': 'crm',
@@ -811,10 +819,11 @@ DATA = [
                 get_reminder_model_data(name=reminder_iconed_name),
                 get_userprofile_model_data(
                     name=userprofile_iconed_name,
-                    perms={'add': False, 'change': True, 'delete': True, 'view': True},
+                    perms={'add': False, 'change': True,
+                           'delete': True, 'view': True},
                     view_only=False,
                     is_add_url=False
-                ),                
+                ),
             )),
             {
                 'name': 'Settings',
@@ -844,7 +853,8 @@ DATA = [
     (
         "Sergey.Co-worker.Head.Bookkeeping",
         [
-            get_task_app_data(add_models=(get_memo_model_data(is_add_url=True),),),
+            get_task_app_data(add_models=(
+                get_memo_model_data(is_add_url=True),),),
             get_common_app_data()
         ]
     )
@@ -928,7 +938,7 @@ ADMIN_DATA = [
                 'admin_url': f'/en/{ADMIN_PREFIX}chat/chatmessage/',
                 'add_url': f'/en/{ADMIN_PREFIX}chat/chatmessage/add/',
                 'view_only': False
-            }]
+        }]
     },
     get_common_app_data(
         add_models=(
@@ -937,7 +947,8 @@ ADMIN_DATA = [
             get_reminder_model_data(prefix=ADMIN_PREFIX, add=True),
             get_userprofile_model_data(
                 prefix=ADMIN_PREFIX,
-                perms={'add': False, 'change': True, 'delete': True, 'view': True},
+                perms={'add': False, 'change': True,
+                       'delete': True, 'view': True},
                 view_only=False,
                 is_add_url=False
             ),
@@ -966,8 +977,10 @@ ADMIN_DATA = [
                 'add_url': f'/en/{ADMIN_PREFIX}crm/closingreason/add/',
                 'view_only': False
             },
-            get_company_model_data(prefix=ADMIN_PREFIX, is_add_url=True, view_only=False),
-            get_contact_model_data(prefix=ADMIN_PREFIX, is_add_url=True, view_only=False),
+            get_company_model_data(prefix=ADMIN_PREFIX,
+                                   is_add_url=True, view_only=False),
+            get_contact_model_data(prefix=ADMIN_PREFIX,
+                                   is_add_url=True, view_only=False),
             {
                 'name': 'Countries',
                 'object_name': 'Country',
@@ -1232,7 +1245,7 @@ ADMIN_DATA = [
                 'admin_url': f'/en/{ADMIN_PREFIX}sites/site/',
                 'add_url': f'/en/{ADMIN_PREFIX}sites/site/add/',
                 'view_only': False
-            }]
+        }]
     },
     {
         'name': 'Tasks',
@@ -1306,6 +1319,6 @@ ADMIN_DATA = [
                 'admin_url': f'/en/{ADMIN_PREFIX}voip/connection/',
                 'add_url': f'/en/{ADMIN_PREFIX}voip/connection/add/',
                 'view_only': False
-            }]
+        }]
     }
 ]

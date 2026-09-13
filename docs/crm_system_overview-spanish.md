@@ -74,6 +74,12 @@ Proporciona un conjunto completo de funciones para manejar diversos objetos empr
 - Se integra con la comunicación por correo electrónico, etiquetas y recordatorios para una gestión fluida.
 - Proporciona actualizaciones de estado en tiempo real mediante iconos intuitivos.
 
+### Estructura de precios
+
+- Cálculo automático de los precios de los productos en las operaciones en función del nivel de precios correspondiente al tipo de cliente (empresa) y a la moneda de la transacción.
+- Configuración de diferentes reglas de niveles de precios para departamentos y categorías de productos concretas (bienes y servicios).
+- Exportación de listas de precios de productos a un archivo de Excel, agrupadas por categoría.
+
 ### Herramientas de Comunicación Integradas
 
 - Centraliza la correspondencia por correo electrónico vinculando los correos a las solicitudes y oportunidades relevantes.

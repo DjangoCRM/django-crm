@@ -4,6 +4,7 @@
     "pk": 9,
     "fields": {
         "name": "Global sales",
+        "default_currency": 1,
         "works_globally": true
     }
 },

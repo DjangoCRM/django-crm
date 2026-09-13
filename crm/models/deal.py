@@ -183,6 +183,13 @@ class Deal(Base1):
         verbose_name=_("Co-owner"),
         related_name="%(app_label)s_%(class)s_co_owner_related",
     )
+    tier_name = models.ForeignKey(
+        "crm.ClientType",
+        null=True, blank=True,
+        on_delete=models.CASCADE,
+        related_name="%(app_label)s_%(class)s_tier_name_related",
+        verbose_name=_("Price tier"),
+    )
     files = GenericRelation('common.TheFile')
 
     def change_stage_data(self, date):

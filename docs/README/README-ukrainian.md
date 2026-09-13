@@ -76,6 +76,7 @@ Django - це чудово задокументований фреймворк �
   - Угоди (як "Можливості")
   - Електронні листи (синхронізація з обліковими записами користувачів)
   - Продукти (товари та послуги)
+  - Система ціноутворення
   - Платежі (отримані, гарантовані, з високою та низькою ймовірністю)
   - ... (*+ ще 12 <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">моделей</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Аналітичний звіт crm" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

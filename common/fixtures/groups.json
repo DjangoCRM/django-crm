@@ -65,6 +65,10 @@
                 ["change_tag", "crm", "tag"],
                 ["delete_tag", "crm", "tag"],
                 ["view_tag", "crm", "tag"],
+                ["add_productpricetier", "crm", "productpricetier"],
+                ["change_productpricetier", "crm", "productpricetier"],
+                ["delete_productpricetier", "crm", "productpricetier"],
+                ["view_productpricetier", "crm", "productpricetier"],
 
                 ["view_emailaccount", "massmail","emailaccount"],
                 ["add_emlmessage", "massmail", "emlmessage"],
@@ -192,6 +196,10 @@
                 ["view_product", "crm", "product"],
                 ["view_request","crm", "request"],
                 ["view_shipment", "crm", "shipment"],
+                ["add_productpricetier", "crm", "productpricetier"],
+                ["change_productpricetier", "crm", "productpricetier"],
+                ["delete_productpricetier", "crm", "productpricetier"],
+                ["view_productpricetier", "crm", "productpricetier"],
 
                 ["view_emlmessage", "massmail", "emlmessage"],
                 ["view_mailingout", "massmail", "mailingout"],

@@ -73,6 +73,7 @@ De CRM-software suite bestaat uit de volgende **hoofdtoepassingen** en hun model
   - Deals (zoals "Kansen")
   - E-mailberichten (sync met gebruikers e-mailaccounts)
   - Producten (goederen en diensten)
+  - Prijssysteem
   - Betalingen (ontvangen, gegarandeerd, hoge en lage waarschijnlijkheid)
   - ... (*+ 12 meer <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">modellen</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Analytisch crm rapport" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)

@@ -30,6 +30,7 @@ from common.utils.helpers import popup_window
 from common.utils.remind_me import remind_me
 from crm.forms.admin_forms import DealForm
 from crm.models import ClosingReason
+from crm.models import DepartmentPriceRule
 from crm.models import CrmEmail
 from crm.models import Deal
 from crm.models import Output
@@ -324,7 +325,7 @@ class DealAdmin(CrmModelAdmin):
             }),
             (' ', {
                 'fields': (
-                    'stage',
+                    ('stage', 'tier_name'),
                     ('amount', 'currency'),
                     ('paid', 'expected'),
                     'next_step', ('next_step_date', 'remind_me'),
@@ -353,6 +354,22 @@ class DealAdmin(CrmModelAdmin):
                 )
             }),
         )
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if obj:
+            price_rules = DepartmentPriceRule.objects.filter(
+                department_id=obj.department_id
+            )
+            choices = [
+                (price_rule.tier_name.id, str(price_rule.tier_name))
+                for price_rule in price_rules
+            ]
+            form.base_fields["tier_name"].choices = [('', '---------')] + choices
+            # for outputinline.js
+            url = reverse('product_price_info')
+            form.base_fields["tier_name"].widget.attrs["product_price_info_url"] = url
+        return form
 
     def get_list_display(self, request):
         list_display = [
