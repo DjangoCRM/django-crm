@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Fixed
+
+- Change innerHTML to innerText for safer text assignment in outputinline.js
+- Fix get_form to check for tier_name in base_fields before accessing price rules
+
 ## [3.0.0] - 2026-09-13
 
 **### Added
