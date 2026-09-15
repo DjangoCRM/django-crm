@@ -357,7 +357,7 @@ class DealAdmin(CrmModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
-        if obj:
+        if obj and "tier_name" in form.base_fields:
             price_rules = DepartmentPriceRule.objects.filter(
                 department_id=obj.department_id
             )
@@ -365,7 +365,8 @@ class DealAdmin(CrmModelAdmin):
                 (price_rule.tier_name.id, str(price_rule.tier_name))
                 for price_rule in price_rules
             ]
-            form.base_fields["tier_name"].choices = [('', '---------')] + choices
+            form.base_fields["tier_name"].choices = [
+                ('', '---------')] + choices
             # for outputinline.js
             url = reverse('product_price_info')
             form.base_fields["tier_name"].widget.attrs["product_price_info_url"] = url
