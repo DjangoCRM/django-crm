@@ -73,7 +73,7 @@
                 if (el.textContent !== undefined) {
                     el.textContent = value;
                 } else {
-                    el.innerHTML = value;
+                    el.innerText = value;
                 }
             });
         });
