@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [3.0.1] - 2026-09-16
 
 ### Fixed
 
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.0] - 2026-09-13
 
-**### Added
+### Added
 
 - Pricing framework added: Defining rules at the department and product category levels,
   creating product price tiers, recalculating the total value of products in a deal based
@@ -56,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Company relationship to Request during Lead conversion by @surajthedev
 - Fix Installation Doc by @picklesin
 
-#### Full Changelog: [v2.4.0...v3.0.0](https://github.com/DjangoCRM/django-crm/compare/v2.4.0...v3.0.0)**
+#### Full Changelog: [v2.4.0...v3.0.0](https://github.com/DjangoCRM/django-crm/compare/v2.4.0...v3.0.0)
 
 ## [2.4.0] - 2026-05-16
 
