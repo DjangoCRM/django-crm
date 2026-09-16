@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Change innerHTML to innerText for safer text assignment in outputinline.js
 - Fix get_form to check for tier_name in base_fields before accessing price rules
+- Fix: Ensure currency is set from deal in clean_fields and save methods
 
 ## [3.0.0] - 2026-09-13
 
