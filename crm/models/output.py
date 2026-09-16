@@ -1,7 +1,8 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
+
 from .payment import BasePayment
 
 
@@ -61,6 +62,11 @@ class Output(BasePayment):
             raise ValidationError({
                 "currency": "This field is required."
             })
+
+    def clean_fields(self, exclude=None):
+        if not self.currency and self.deal_id:
+            self.currency = self.deal.currency
+        super().clean_fields(exclude=exclude)
 
     def save(self, *args, **kwargs):
         self.currency = self.deal.currency
