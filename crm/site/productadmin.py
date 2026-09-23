@@ -109,7 +109,8 @@ class ProductAdmin(admin.ModelAdmin):
                 self._format_price_sheet(sheets[category_name])
 
             # department = getattr(product, 'department', None)
-            currency = getattr(product.department.department.default_currency, 'name', '')
+            currency = getattr(
+                product.department.department.default_currency, 'name', '')
 
             sheet = sheets[category_name]
             sheet.append([
@@ -393,13 +394,18 @@ class ProductAdmin(admin.ModelAdmin):
                     tier_name=base_rule.tier_name,
                     price=0.00,
                     product=obj,
+                    department=obj.department,
                     modified_by=request.user,
                 )
-
-            messages.warning(
-                request,
-                _("Specify the price value in the created price tier."),
-            )
+                messages.warning(
+                    request,
+                    _("Specify the price value in the created price tier."),
+                )
+            else:
+                messages.error(
+                    request,
+                    _("First, add rules for creating price tiers."),
+                )
         elif not base_price_tier.price:
             messages.warning(
                 request,
@@ -429,6 +435,7 @@ class ProductAdmin(admin.ModelAdmin):
                     tier_name=price_rule.tier_name,
                     price=price,
                     product=obj,
+                    department=obj.department,
                     modified_by=request.user,
                 )
         if 'admin' in request.path:
