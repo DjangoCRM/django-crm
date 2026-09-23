@@ -9,7 +9,7 @@
     {% url opts|admin_urlname:'changelist' as changelist_url %}
     <a role="button" href="{% add_preserved_filters changelist_url %}" class="closelink">{% translate 'Close' %}</a>
 {% endif %}
-{% if show_add_product_price_tier %}
+{% if show_add_price_tier %}
     <input type="submit" value="{% translate 'Add Price Tier' %}" name="_add-product-price-tier">
 {% endif %}
 {% if show_delete_link and original %}

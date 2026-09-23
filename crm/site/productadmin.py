@@ -250,13 +250,16 @@ class ProductAdmin(admin.ModelAdmin):
 
     def add_view(self, request, form_url='', extra_context=None):
         extra_context = extra_context or {}
-        extra_context["show_add_product_price_tier"] = True
+        extra_context["show_add_price_tier"] = True
         return super().add_view(request, form_url, extra_context=extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         extra_context = extra_context or {}
         counters = self._get_counters(object_id)
-        extra_context["show_add_product_price_tier"] = counters["product_price_tier"] < counters["department_price_rule"]
+        if counters["price_rule"] == 0:
+            extra_context["show_add_price_tier"] = True
+        else:
+            extra_context["show_add_price_tier"] = counters["price_tier"] < counters["price_rule"]
         return super().change_view(request, object_id, form_url, extra_context=extra_context)
 
     def changelist_view(self, request, extra_context=None):
@@ -483,12 +486,12 @@ class ProductAdmin(admin.ModelAdmin):
         category_count = product.category_price_rule or 0
 
         return {
-            "department_price_rule": (
+            "price_rule": (
                 category_count
                 or product.department_price_rule
                 or 0
             ),
-            "product_price_tier": product.product_price_tier or 0,
+            "price_tier": product.product_price_tier or 0,
         }
 
 # -- Custom functions -- #

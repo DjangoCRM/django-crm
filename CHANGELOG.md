@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Fixed
+
+- Add department to price tier creation and improve warning messages
+- Fix the logic for adding a price tier in ProductAdmin.change_view()
+
 ## [3.0.1] - 2026-09-16
 
 ### Fixed
