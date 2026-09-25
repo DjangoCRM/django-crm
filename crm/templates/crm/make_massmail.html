@@ -3,6 +3,11 @@
 
 {% block extrastyle %}
 {{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script src="{% url 'admin:jsi18n' %}"></script>
 {{ form.media }}
 {% endblock %}
 
@@ -16,26 +21,45 @@
 
 {% block content %}
     <h1>{% translate "Make a choice" %}</h1>
-    <div id="content-main"><fieldset class="module aligned ">
+    <div id="content-main">
     <form action="" method="post">
         {% csrf_token %}
         {{ form.non_field_errors }}
+        <fieldset class="module aligned">
         {% for field in form %}
-            <div class="form-row">
-                <div class="fieldWrapper">
-                    {{ field.errors }}
+            <div class="form-row{% if field.errors %} errors{% endif %} field-{{ field.name }}">
+                {% if field.errors %}{{ field.errors }}{% endif %}
+                {% if field.use_fieldset %}
+                <fieldset{% if field.help_text %} aria-describedby="{{ field.id_for_label }}_helptext"{% endif %}>
+                    {{ field.legend_tag }}
+                    <div>
+                        <div class="flex-container">
+                            {{ field }}
+                        </div>
+                        {% if field.help_text %}
+                        <div class="help" id="{{ field.id_for_label }}_helptext">
+                            <div>{{ field.help_text|safe }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </fieldset>
+                {% else %}
+                <div class="flex-container">
                     {{ field.label_tag }}
-                <div class="related-widget-wrapper">
                     {{ field }}
                 </div>
-                    {% if field.help_text %}
-                    <p class="help">{{ field.help_text|safe }}</p>
-                    {% endif %}
+                {% if field.help_text %}
+                <div class="help" id="{{ field.id_for_label }}_helptext">
+                    <div>{{ field.help_text|safe }}</div>
                 </div>
+                {% endif %}
+                {% endif %}
             </div>
         {% endfor %}
-        <br>
-        <input type="submit" value="Submit">
+        </fieldset>
+        <div class="submit-row">
+            <input type="submit" value="{% translate 'Submit' %}">
+        </div>
     </form>
-    </fieldset></div>
+    </div>
 {% endblock %}
