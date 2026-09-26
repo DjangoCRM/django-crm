@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- The discount type and value fields to Deal model and update related logic
+
 ## [3.0.2] - 2026-09-26
 
 ### Fixed

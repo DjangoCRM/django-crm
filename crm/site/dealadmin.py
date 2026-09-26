@@ -327,6 +327,7 @@ class DealAdmin(CrmModelAdmin):
                 'fields': (
                     ('stage', 'tier_name'),
                     ('amount', 'currency'),
+                    ('discount_value', 'discount_type'),
                     ('paid', 'expected'),
                     'next_step', ('next_step_date', 'remind_me'),
                     'workflow_area', 'description',

@@ -1,7 +1,6 @@
 from decimal import Decimal
 from django.apps import apps
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 
 
@@ -14,6 +13,8 @@ def product_price_info(request):
     - quantity: numeric quantity
     - tier_name: id of ClientType (price tier)
     - deal_currency: id of Currency used in deal
+    - discount_type: 'F' for fixed unit price or 'D' for percentage discount
+    - discount_value: fixed unit price or discount percentage
 
     Returns JSON: {'ok': True, 'amount': '123.45'} or {'ok': False, 'error': '...'}
     """
@@ -25,6 +26,8 @@ def product_price_info(request):
     quantity = request.GET.get('quantity')
     tier_name = request.GET.get('tier_name')
     deal_currency_id = request.GET.get('deal_currency')
+    discount_type = request.GET.get('discount_type', 'D')
+    discount_value = request.GET.get('discount_value')
 
     # validate inputs
     if not product_id or not tier_name or not deal_currency_id:
@@ -32,13 +35,21 @@ def product_price_info(request):
 
     try:
         product = Product.objects.get(pk=int(product_id))
-    except Exception:
+    except Product.DoesNotExist:
         return JsonResponse({'ok': False, 'error': 'product_not_found'})
 
     try:
         qty = Decimal(quantity) if quantity is not None and quantity != '' else Decimal(0)
     except Exception:
         return JsonResponse({'ok': False, 'error': 'bad_quantity'})
+
+    try:
+        discount = Decimal(discount_value) if discount_value else None
+    except Exception:
+        return JsonResponse({'ok': False, 'error': 'bad_discount_value'})
+
+    if discount_type not in ('F', 'D', ''):
+        return JsonResponse({'ok': False, 'error': 'bad_discount_type'})
 
     # Determine currency of the price tier: prefer product.currency, else department.default_currency
     product_currency = None
@@ -74,7 +85,7 @@ def product_price_info(request):
 
     # if product_currency is missing, assume price already in deal currency
     if not product_currency:
-        amount = (price * qty).quantize(Decimal('0.01'))
+        amount = _calculate_amount(price, qty, discount_type, discount)
         return JsonResponse({'ok': True, 'amount': str(amount)})
 
     # convert price from product_currency -> state -> deal_currency
@@ -86,7 +97,16 @@ def product_price_info(request):
         if rate_deal == 0:
             return JsonResponse({'ok': False, 'error': 'zero_deal_rate'})
         price_in_deal = (price * rate_prod / rate_deal)
-        amount = (price_in_deal * qty).quantize(Decimal('0.01'))
+        amount = _calculate_amount(price_in_deal, qty, discount_type, discount)
         return JsonResponse({'ok': True, 'amount': str(amount)})
     except Exception:
         return JsonResponse({'ok': False, 'error': 'calc_error'})
+
+
+def _calculate_amount(price, quantity, discount_type, discount)-> Decimal:
+    if discount is not None:
+        if discount_type == 'F':
+            price -= discount
+        elif discount_type == 'D':
+            price *= Decimal(1) - discount / Decimal(100)
+    return (price * quantity).quantize(Decimal('0.01'))

@@ -13,6 +13,11 @@ class Deal(Base1):
         verbose_name = _("Deal")
         verbose_name_plural = _("Deals")
 
+    discount_type_choices = {
+        'F': _('Fixed Price'),
+        'D': _('Discount percentage')
+    }
+
     name = models.CharField(
         max_length=250, null=False, blank=False,
         verbose_name=_("Name"),
@@ -189,6 +194,18 @@ class Deal(Base1):
         on_delete=models.CASCADE,
         related_name="%(app_label)s_%(class)s_tier_name_related",
         verbose_name=_("Price tier"),
+    )
+    discount_type = models.CharField(
+        max_length=1, blank=True,
+        default='D',
+        choices=discount_type_choices,
+        verbose_name=_("Discount type")
+    )
+    discount_value = models.DecimalField(
+        blank=True, null=True,
+        max_digits=5, decimal_places=2,
+        default=0.00,
+        verbose_name=_("Discount")
     )
     files = GenericRelation('common.TheFile')
 

@@ -1,5 +1,5 @@
 (function(){
-    // Recalculate amount for an inline output row when product or quantity changes.
+    // Recalculate amount for an inline output row when product, quantity, or deal pricing changes.
     // Listens to changes on inputs named like "<prefix>-product" and "<prefix>-quantity".
     // Fetches product tier price by calling the server endpoint with current deal tier and deal currency.
 
@@ -22,10 +22,30 @@
     var debounceTimers = {};
     // keep last seen values for product/quantity inputs to detect programmatic changes
     var prevValues = {};
+    var dealFieldIds = [
+        'id_tier_name',
+        'id_currency',
+        'id_discount_type',
+        'id_discount_value'
+    ];
+
+    function getDealField(fieldId) {
+        var field = document.getElementById(fieldId);
+        if (!field) {
+            field = document.querySelector('[name="' + fieldId.replace(/^id_/, '') + '"]');
+        }
+        return field;
+    }
+
+    function isDealField(field) {
+        return dealFieldIds.some(function(fieldId) {
+            return getDealField(fieldId) === field;
+        });
+    }
 
     function getDealPriceContext() {
-        var tierEl = document.getElementById('id_tier_name');
-        var dealCurrencyEl = document.getElementById('id_currency');
+        var tierEl = getDealField('id_tier_name');
+        var dealCurrencyEl = getDealField('id_currency');
         if (!tierEl || !dealCurrencyEl) return null;
 
         var tierId = tierEl.value;
@@ -34,10 +54,14 @@
 
         var base = tierEl.getAttribute('product_price_info_url');
         if (!base) return null;
+        var discountTypeEl = getDealField('id_discount_type');
+        var discountValueEl = getDealField('id_discount_value');
 
         return {
             tierId: tierId,
             dealCurrencyId: dealCurrencyId,
+            discountType: discountTypeEl ? discountTypeEl.value : '',
+            discountValue: discountValueEl ? discountValueEl.value : '',
             base: base
         };
     }
@@ -92,16 +116,21 @@
         var priceContext = getDealPriceContext();
         if (!priceContext) return;
 
-        var params = new URLSearchParams({
-            product: productId,
-            quantity: quantity,
-            tier_name: priceContext.tierId,
-            deal_currency: priceContext.dealCurrencyId
-        });
-        var url = priceContext.base + '?' + params.toString();
-
         if (debounceTimers[prefix]) clearTimeout(debounceTimers[prefix]);
         debounceTimers[prefix] = setTimeout(function(){
+            // Read the deal fields when sending, so the request always uses the latest discount.
+            var latestContext = getDealPriceContext();
+            if (!latestContext) return;
+            var params = new URLSearchParams({
+                product: productId,
+                quantity: quantity,
+                tier_name: latestContext.tierId,
+                deal_currency: latestContext.dealCurrencyId,
+                discount_type: latestContext.discountType,
+                discount_value: latestContext.discountValue
+            });
+            var url = latestContext.base + '?' + params.toString();
+
             fetch(url, {credentials: 'same-origin'})
                 .then(function(resp){ return resp.json(); })
                 .then(function(data){
@@ -180,16 +209,25 @@
         });
 
         function handleDealFieldChange(){
+            dealFieldIds.forEach(function(fieldId){
+                var field = getDealField(fieldId);
+                if (field) prevValues[fieldId] = field.value;
+            });
             updateOutputCurrencyReadonlyFields();
             setTimeout(recalculateAllOutputAmounts, 100);
         }
 
-        ['id_tier_name', 'id_currency'].forEach(function(fieldId){
-            var field = document.getElementById(fieldId);
-            if (!field) return;
-            field.addEventListener('change', handleDealFieldChange);
-            field.addEventListener('input', handleDealFieldChange);
+        dealFieldIds.forEach(function(fieldId){
+            var field = getDealField(fieldId);
+            if (field) prevValues[fieldId] = field.value;
         });
+        function handleDealFieldEvent(e) {
+            if (isDealField(e.target)) {
+                handleDealFieldChange();
+            }
+        }
+        document.addEventListener('change', handleDealFieldEvent);
+        document.addEventListener('input', handleDealFieldEvent);
 
         // MutationObserver as fallback to detect programmatic value changes
         var observer = new MutationObserver(function(muts){
@@ -198,7 +236,7 @@
                 if (target && target.name && (target.name.indexOf('-product') !== -1 || target.name.indexOf('-quantity') !== -1)) {
                     onChangeProductOrQuantity({target: target});
                 }
-                if (target && (target.id === 'id_tier_name' || target.id === 'id_currency')) {
+                if (target && isDealField(target)) {
                     handleDealFieldChange();
                 }
             });
@@ -208,8 +246,8 @@
         inputs.forEach(function(inp){
             observer.observe(inp, {attributes: true, attributeFilter: ['value']});
         });
-        ['id_tier_name', 'id_currency'].forEach(function(fieldId){
-            var field = document.getElementById(fieldId);
+        dealFieldIds.forEach(function(fieldId){
+            var field = getDealField(fieldId);
             if (field) {
                 observer.observe(field, {attributes: true, attributeFilter: ['value']});
             }
@@ -243,6 +281,15 @@
                     prevValues[name] = val;
                     // call handler with element
                     onChangeProductOrQuantity(inp);
+                }
+            });
+
+            dealFieldIds.forEach(function(fieldId){
+                var field = getDealField(fieldId);
+                if (!field) return;
+                if (prevValues[fieldId] !== field.value) {
+                    prevValues[fieldId] = field.value;
+                    handleDealFieldChange();
                 }
             });
         }, 500);
