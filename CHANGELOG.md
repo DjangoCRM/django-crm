@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [3.0.2] - 2026-09-26
 
 ### Fixed
 
+- Fix mass mailing creation form display by @IdiotCoffee
 - Add department to price tier creation and improve warning messages
 - Fix the logic for adding a price tier in ProductAdmin.change_view()
 
