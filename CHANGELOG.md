@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The discount type and value fields to Deal model and update related logic
 
+### Fixed
+
+- The `product_price_info` view returned a server error for a non-numeric product or deal currency id, returned the amount "NaN" for a quantity or discount of `NaN`, and returned a server error for `Infinity` on a product with no currency. It now answers with its usual JSON errors.
+- Unit tests for the `product_price_info` view (#526).
+
 ## [3.0.2] - 2026-09-26
 
 ### Fixed
