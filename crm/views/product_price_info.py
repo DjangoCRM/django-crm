@@ -35,17 +35,23 @@ def product_price_info(request):
 
     try:
         product = Product.objects.get(pk=int(product_id))
-    except Product.DoesNotExist:
+    except (ValueError, Product.DoesNotExist):
         return JsonResponse({'ok': False, 'error': 'product_not_found'})
 
     try:
         qty = Decimal(quantity) if quantity is not None and quantity != '' else Decimal(0)
     except Exception:
         return JsonResponse({'ok': False, 'error': 'bad_quantity'})
+    # Decimal() accepts 'NaN' and 'Infinity'. NaN would come back as the
+    # amount "NaN", and Infinity fails in the calculation below.
+    if not qty.is_finite():
+        return JsonResponse({'ok': False, 'error': 'bad_quantity'})
 
     try:
         discount = Decimal(discount_value) if discount_value else None
     except Exception:
+        return JsonResponse({'ok': False, 'error': 'bad_discount_value'})
+    if discount is not None and not discount.is_finite():
         return JsonResponse({'ok': False, 'error': 'bad_discount_value'})
 
     if discount_type not in ('F', 'D', ''):
@@ -79,7 +85,10 @@ def product_price_info(request):
     price = price_tier.price
 
     # find deal currency rates
-    deal_currency = Currency.objects.filter(pk=int(deal_currency_id)).first()
+    try:
+        deal_currency = Currency.objects.filter(pk=int(deal_currency_id)).first()
+    except ValueError:
+        deal_currency = None
     if not deal_currency:
         return JsonResponse({'ok': False, 'error': 'deal_currency_not_found'})
 
