@@ -13,8 +13,8 @@ def change_owner_companies(request):
     if request.method == "POST":
         owner_id = int(request.POST.get('owner'))
         owner = USER_MODEL.objects.get(id=owner_id)
-        ids_str = request.GET.get('ids')
-        ids = [int(x) for x in ids_str.split(',')]
+        session_data = request.session['change_owner_companies']
+        ids = session_data['ids']
         companies = Company.objects.filter(id__in=ids)
         department_id = get_department_id(owner)
         # "update_date" field needs to be updated
@@ -32,7 +32,8 @@ def change_owner_companies(request):
             request,
             _("Owner changed successfully")
         )
-        return HttpResponseRedirect(request.GET.get('next'))
+        request.session.pop('change_owner_companies')
+        return HttpResponseRedirect(session_data['next'])
     else:
         owners = USER_MODEL.objects.filter(
             is_active=True,
