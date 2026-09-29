@@ -198,7 +198,16 @@ class LeadAdmin(CrmModelAdmin):
                     try:
                         company = create_company(obj)
                         company.industry.add(*obj.industry.all())
+                        messages.success(
+                            request,
+                            mark_safe(
+                                gettext('Company "{}" has been added.').format(
+                                    f'<a href="{company.get_absolute_url()}">{company}</a>'
+                                )
+                            )
+                        )
                     except IntegrityError:
+                        
                         messages.error(
                             request,
                             gettext(THE_SAME_COMPANY_NAME_MSG.format(
