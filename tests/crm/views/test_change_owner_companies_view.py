@@ -1,4 +1,5 @@
 from random import random
+from django.contrib.messages import get_messages
 from django.test import tag
 from django.urls import reverse
 from crm.models import Company
@@ -133,3 +134,21 @@ class TestChangeOwnerView(BaseTestCase):
             [self.company1.id, self.company2.id],
         )
         self.assertEqual(session_data['next'], url)
+
+    def test_change_owner_view_handles_expired_session(self):
+        change_owner_url = reverse('change_owner_companies')
+        response = self.client.post(
+            change_owner_url,
+            {'owner': str(self.new_owner.id)},
+        )
+
+        self.assertRedirects(
+            response,
+            reverse('site:crm_company_changelist'),
+        )
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]),
+            'The company selection has expired. Please select the companies again.',
+        )

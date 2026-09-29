@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils.translation import gettext as _
 
 from crm.site.crmadminsite import crm_site
@@ -11,9 +12,25 @@ from common.utils.helpers import USER_MODEL
 
 def change_owner_companies(request):
     if request.method == "POST":
+        session_data = request.session.get('change_owner_companies')
+        if (
+            not session_data
+            or not session_data.get('ids')
+            or not session_data.get('next')
+        ):
+            messages.error(
+                request,
+                _(
+                    'The company selection has expired. '
+                    'Please select the companies again.'
+                )
+            )
+            return HttpResponseRedirect(
+                reverse('site:crm_company_changelist')
+            )
+
         owner_id = int(request.POST.get('owner'))
         owner = USER_MODEL.objects.get(id=owner_id)
-        session_data = request.session['change_owner_companies']
         ids = session_data['ids']
         companies = Company.objects.filter(id__in=ids)
         department_id = get_department_id(owner)
