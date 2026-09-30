@@ -14,6 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The discount type and value fields to Deal model and update related logic
 
+### Fixed
+
+- Fix the `set_queryset` method for cases where an object is added by a superuser or super-operator.
+
+### Changed
+
+- Refactor pending status logic in RequestAdmin and extract to helper function
+
 ## [3.0.2] - 2026-09-26
 
 ### Fixed

@@ -58,7 +58,8 @@ _fields = {
     'type': {'model': ClientType},
     'lead_source': {'model': LeadSource, 'order_by_field': '-name'},
     'stage': {'model': Stage},
-    'closing_reason': {'model': ClosingReason}
+    'closing_reason': {'model': ClosingReason},
+    'industry': {'model': Industry}
 }
 
 website_tip = _("View website in new tab")
@@ -127,7 +128,8 @@ class CrmModelAdmin(BaseModelAdmin):
                     Q(groups__name__in=('managers', 'operators', 'superoperators'))
                 ).distinct()
             elif db_field.name in _fields:
-                self.set_queryset(request, kwargs, **_fields[db_field.name])
+                self.set_queryset(db_field, request, kwargs,
+                                  **_fields[db_field.name])
         else:
             if db_field.name in ('owner', 'co_owner'):
                 kwargs["queryset"] = get_active_users().filter(
@@ -149,9 +151,9 @@ class CrmModelAdmin(BaseModelAdmin):
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
-        if request.user.is_superuser:
+        if request.user.is_superuser or request.user.is_superoperator:
             if db_field.name == "industry":
-                self.set_queryset(request, kwargs, Industry)
+                self.set_queryset(db_field, request, kwargs, Industry)
         else:
             if db_field.name == "industry":
                 kwargs["queryset"] = Industry.objects.filter(
@@ -622,7 +624,7 @@ class CrmModelAdmin(BaseModelAdmin):
             return 'unsubscribed'
         return 'massmail'
 
-    def set_queryset(self, request: WSGIRequest, kwargs,
+    def set_queryset(self, db_field, request: WSGIRequest, kwargs,
                      model, order_by_field: str = '') -> None:
         try:
             obj_id = request.resolver_match.kwargs['object_id']
@@ -639,7 +641,10 @@ class CrmModelAdmin(BaseModelAdmin):
                 kwargs["queryset"] = kwargs["queryset"].order_by(
                     order_by_field)
         except KeyError:
-            pass
+            if db_field.name in _fields:
+                kwargs["queryset"] = _fields[db_field.name]['model'].objects.filter(
+                    department_id=request.user.department_id
+                )
 
 
 def get_phone_number(obj: Union[Contact, Deal, Lead], attr: str) -> str:
