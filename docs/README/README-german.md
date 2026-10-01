@@ -169,7 +169,14 @@ Django-CRM kann einfach als reguläres Django-Projekt bereitgestellt werden.
 
 Wenn Sie Django-CRM hilfreich finden, bitte ⭐️ **markieren** Sie dieses Repository auf GitHub, um sein Wachstum zu unterstützen!
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Django-CRM Sternverlauf" align="center" style="float: center"/>
+## REST-API
+
+Django-CRM basiert auf Django Admin, daher konzentrieren sich die Benutzeroberfläche und die Geschäftslogik in erster Linie auf Admin-Bildschirme, die Modellverwaltung und serverseitige Workflows und nicht auf eine integrierte, eigenständige REST-API.
+
+Da Django-CRM vollständig auf Django Admin basiert, lässt sich eine vollständige REST-API mithilfe von Drittanbieter-Paketen hinzufügen, die für Django Admin entwickelt wurden. In der Praxis bedeutet dies, dass vorgefertigte REST-API-Lösungen für Django-Modelle und Admin-Workflows verwendet werden, anstatt eine separate, benutzerdefinierte API-Schicht von Grund auf neu zu erstellen.
+
+Dieser Ansatz bewahrt die Kernarchitektur des CRM und ermöglicht gleichzeitig externe Integrationen, mobile Apps oder Headless-Clients über eine Standard-API-Schicht, die von externen Django-Paketen bereitgestellt wird. Die Authentifizierung basiert weiterhin auf dem nativen Auth/Session-Modell von Django, und Funktionen, die ausschließlich Mitarbeitern vorbehalten sind, stützen sich weiterhin auf die Berechtigungen und die Admin-Zugriffskontrolle von Django.
+
 
 ### Kompatibilität
 

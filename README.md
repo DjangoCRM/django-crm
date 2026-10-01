@@ -207,6 +207,16 @@ For testing and evaluation:
 
 ---
 
+## REST API
+
+Django-CRM is built around Django Admin, so its main user interface and business logic are centered on admin screens, model management, and server-side workflows rather than on a built-in standalone REST API.
+
+Because Django-CRM is fully based on Django Admin, a **full REST API** can be added using third-party packages **designed for Django Admin**. In practice, this means using ready-made REST API solutions for Django models/admin workflows rather than creating a separate custom API layer from scratch.
+
+This approach keeps the core CRM architecture intact while enabling external integrations, mobile apps, or headless clients through a standard API layer provided by external Django packages. Authentication remains based on Django's native auth/session model, and staff-only functionality continues to rely on Django permissions and admin access control.
+
+---
+
 ## Compatibility
 
 * <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 6.0+

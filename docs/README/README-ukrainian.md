@@ -167,9 +167,15 @@ Django-CRM можна легко розгорнути як звичайний п
 
 Якщо ви вважаєте Django-CRM корисним, будь ласка, ⭐️ **поставте зірочку** цьому репозиторію на GitHub, щоб підтримати його розвиток!
 
-<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/Django-CRM_star_history.png" alt="Історія зірочок Django-CRM" align="center" style="float: center"/>
+## REST API
 
-### Сумісність
+Django-CRM побудовано на базі Django Admin, тому його основний користувацький інтерфейс та бізнес-логіка зосереджені на екранах адмін-панелі, управлінні моделями та серверних робочих процесах, а не на вбудованому автономному REST API.
+
+Оскільки Django-CRM повністю базується на Django Admin, повноцінний REST API можна додати за допомогою сторонніх пакетів, розроблених для Django Admin. На практиці це означає використання готових рішень REST API для моделей Django та адміністративних робочих процесів замість створення окремого власного рівня API з нуля.
+
+Такий підхід дозволяє зберегти основну архітектуру CRM незмінною, водночас забезпечуючи можливість зовнішньої інтеграції, роботи мобільних додатків або безінтерфейсних клієнтів через стандартний рівень API, що надається зовнішніми пакетами Django. Аутентифікація, як і раніше, базується на вбудованій моделі авторизації та сесій Django, а функціонал, доступний лише для персоналу, продовжує спиратися на права доступу та контроль доступу адміністратора в Django.
+
+## Сумісність
 
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+

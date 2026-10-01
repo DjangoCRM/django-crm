@@ -160,7 +160,7 @@ Django-CRM kan eenvoudig worden geïmplementeerd als een regulier Django-project
 - [Installatie- en Configuratiehandleiding](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [Gebruikershandleiding](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
 
-### Compatibiliteit
+## Compatibiliteit
 
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+

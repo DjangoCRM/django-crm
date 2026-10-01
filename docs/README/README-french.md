@@ -159,7 +159,14 @@ Django-CRM peut être facilement déployé comme un projet Django régulier.
 - [Guide d'installation et de configuration](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
 - [Guide utilisateur](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
 
-### Compatibilité
+## API REST
+Django-CRM s'articule autour de Django Admin ; ainsi, son interface utilisateur principale et sa logique métier s'appuient sur les écrans d'administration, la gestion des modèles et les workflows côté serveur, plutôt que sur une API REST autonome intégrée.
+
+Django-CRM reposant entièrement sur Django Admin, il est possible d'ajouter une API REST complète à l'aide de bibliothèques tierces conçues pour Django Admin. Concrètement, cela implique d’utiliser des solutions d’API REST prêtes à l’emploi pour les modèles Django et les workflows d’administration, plutôt que de créer de toutes pièces une couche API personnalisée distincte.
+
+Cette approche préserve l’architecture CRM de base tout en permettant des intégrations externes, des applications mobiles ou des clients « headless » grâce à une couche API standard fournie par des paquets Django externes. L’authentification reste basée sur le modèle d’authentification et de session natif de Django, et les fonctionnalités réservées au personnel continuent de s’appuyer sur les autorisations Django et le contrôle d’accès à l’administration.
+
+## Compatibilité
 
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="logo django" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="logo python" width="30" height="30" style="vertical-align: middle"> Python 3.10+

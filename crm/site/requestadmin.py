@@ -273,12 +273,8 @@ class RequestAdmin(CrmModelAdmin):
             if request.user.is_manager:
                 obj.subsequent = True
 
-        if any((
-            '_create-deal' in request.POST or 'duplicate' in form.changed_data and obj.duplicate,
-                '_close-case' in request.POST)):
-            obj.pending = False
-        elif '_activate-case' in request.POST:
-            obj.pending = True
+        _checking_pending_status(obj, request, form)
+
         if not obj.pending:
             if not obj.owner:
                 obj.owner = request.user
@@ -514,6 +510,18 @@ def check_for_counterparty_assignment(request: WSGIRequest, object_id: int) -> N
                     tag,
                     f"{msg} {username}"
                 )
+
+
+
+def _checking_pending_status(obj: Request, request: WSGIRequest, form) -> None:
+    if any((
+        '_create-deal' in request.POST,
+        'duplicate' in form.changed_data and obj.duplicate,
+        '_close-case' in request.POST,
+            'deal' in form.changed_data and obj.deal and (obj.lead or obj.contact and obj.company))):
+        obj.pending = False
+    elif '_activate-case' in request.POST:
+        obj.pending = True
 
 
 def copy_attrs(obj: Request, attr: str, attr_list) -> None:

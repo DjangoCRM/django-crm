@@ -17,7 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - The `product_price_info` view returned a server error for a non-numeric product or deal currency id, returned the amount "NaN" for a quantity or discount of `NaN`, and returned a server error for `Infinity` on a product with no currency. It now answers with its usual JSON errors.
-- Unit tests for the `product_price_info` view (#526).
+- Unit tests for the `product_price_info` view by @vaibhav8a (#526).
+- Fix the `set_queryset` method for cases where an object is added by a superuser or super-operator.
+
+### Changed
+
+- Refactor pending status logic in RequestAdmin and extract to helper function
 
 ## [3.0.2] - 2026-09-26
 
