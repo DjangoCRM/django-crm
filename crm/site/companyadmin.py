@@ -251,12 +251,11 @@ class CompanyAdmin(CrmModelAdmin):
 
     @admin.display(description=_("Change owner of selected Companies"))
     def change_owner(self, request, queryset):
-        selected = queryset.values_list('pk', flat=True)
-        url = request.get_full_path()
-        ids = ','.join(str(pk) for pk in selected)
-        return HttpResponseRedirect(
-            reverse('change_owner_companies') + f'?next={url}&ids={ids}'
-        )
+        request.session['change_owner_companies'] = {
+            'ids': list(queryset.values_list('pk', flat=True)),
+            'next': request.get_full_path(),
+        }
+        return HttpResponseRedirect(reverse('change_owner_companies'))
 
 # -- Custom Methods -- #
 
