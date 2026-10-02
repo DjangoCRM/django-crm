@@ -3,7 +3,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 from crm.site.crmadminsite import crm_site
 from django.urls import include
 from django.urls import path
-from django.views.generic.detail import DetailView
 
 from common.views.export_objects import export_objects_view
 from crm.views.create_email import create_email
@@ -16,6 +15,7 @@ from crm.views.got_massmails import got_contacts_massmails
 from crm.views.got_massmails import got_leads_massmails
 from crm.views.view_original_email import view_original_email
 from crm.views.change_owner_companies import change_owner_companies
+from crm.views.print_object import PrintObjectView
 
 
 urlpatterns = [
@@ -53,7 +53,7 @@ urlpatterns = [
 
     path(
         'print-email/<int:object_id>',
-        staff_member_required(DetailView.as_view(
+        staff_member_required(PrintObjectView.as_view(
             model=apps.get_model('crm', 'CrmEmail'),
             pk_url_kwarg='object_id',
             template_name='crm/print_email.html'
@@ -62,7 +62,7 @@ urlpatterns = [
     ),
     path(
         'print-request/<int:object_id>',
-        staff_member_required(DetailView.as_view(
+        staff_member_required(PrintObjectView.as_view(
             model=apps.get_model('crm', 'Request'),
             pk_url_kwarg='object_id',
             template_name='crm/print_request.html'
