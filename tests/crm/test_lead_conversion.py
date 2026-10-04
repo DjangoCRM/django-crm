@@ -139,6 +139,40 @@ class TestLeadConversion(BaseTestCase):
         self.assertEqual(contact.region, 'west')
         self.assertEqual(contact.district, 'district 9')
 
+    def test_lead_conversion_success_message_for_new_company(self):
+        """After converting a lead that creates a new company, a success
+        message naming the company with a link must be shown."""
+        lead = Lead.objects.create(
+            first_name='Nora',
+            email='Nora@newcorp.com',
+            phone='+0182345679',
+            company_name='Newcorp LLC',
+            country=self.country,
+            department_id=self.department_id,
+            owner=self.owner
+        )
+        self.client.force_login(self.owner)
+        url = reverse("site:crm_lead_change", args=(lead.id,))
+        response = self.client.get(url, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        data = get_adminform_initials(response)
+        data['last_name'] = 'Newman'
+        data['company_email'] = 'office@newcorp.com'
+        data['_convert'] = ''
+        data.pop('avatar', None)
+        response = self.client.post(url, data, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+
+        company = Company.objects.get(full_name='Newcorp LLC')
+        messages = list(response.context['messages'])
+        matching = [m for m in messages if 'has been added' in str(m)]
+        self.assertTrue(
+            matching,
+            f"Expected a 'has been added' message, got: {[str(m) for m in messages]}"
+        )
+        self.assertIn(str(company), str(matching[0]))
+        self.assertIn(company.get_absolute_url(), str(matching[0]))
+
     def test_lead_conversion_new_contact(self):
         """Converting a lead with the creation of a new contact for an existing company."""
         lead = Lead.objects.create(
