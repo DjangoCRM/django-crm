@@ -1,6 +1,8 @@
 import threading
 from django.contrib import admin
 from django.contrib import messages
+from django.contrib.admin.filters import BooleanFieldListFilter
+from django.contrib.admin.filters import DateFieldListFilter
 from django.contrib.auth import get_user_model
 from django.core.handlers.wsgi import WSGIRequest
 from django.forms.widgets import HiddenInput
@@ -39,6 +41,31 @@ from crm.utils.check_city import check_city
 from crm.utils.admfilters import ByOwnerFilter
 from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 from crm.utils.helpers import get_counterparty_header
+
+
+class NoFacetsBooleanFieldListFilter(BooleanFieldListFilter):
+    """Same as Django's boolean filter, but never appends (N) counts."""
+
+    def choices(self, changelist):
+        add_facets = changelist.add_facets
+        changelist.add_facets = False
+        try:
+            yield from super().choices(changelist)
+        finally:
+            changelist.add_facets = add_facets
+
+
+class NoFacetsDateFieldListFilter(DateFieldListFilter):
+    """Same as Django's date filter, but never appends (N) counts."""
+
+    def choices(self, changelist):
+        add_facets = changelist.add_facets
+        changelist.add_facets = False
+        try:
+            yield from super().choices(changelist)
+        finally:
+            changelist.add_facets = add_facets
+
 
 ATTR_LIST = (
     'lead',
@@ -108,6 +135,7 @@ _thread_local = threading.local()
 
 class RequestAdmin(CrmModelAdmin):
     empty_value_display = ''
+    show_facets = admin.ShowFacets.ALLOW
     fieldsets = [
         (None, {
             'fields': [
@@ -150,7 +178,9 @@ class RequestAdmin(CrmModelAdmin):
     form = RequestForm
     inlines = [FileInline]
     list_filter = [
-        'pending', ByOwnerFilter, 'receipt_date',
+        ('pending', NoFacetsBooleanFieldListFilter),
+        ByOwnerFilter,
+        ('receipt_date', NoFacetsDateFieldListFilter),
         ('products', ScrollRelatedOnlyFieldListFilter),
         'subsequent',    # 'utm_source', 'utm_medium', 'utm_campaign'
     ]

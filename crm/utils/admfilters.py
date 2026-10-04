@@ -13,6 +13,7 @@ from django.db.models.functions import Cast
 from django.db.models.functions import Concat
 from django.db.models.query import QuerySet
 from django.utils import timezone
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 from common.models import Department
@@ -28,6 +29,20 @@ from massmail.models import MassContact
 
 # Lookup parameters must be removed from the querystring when
 # the corresponding filter is executed!
+
+
+def label_with_facet_count(label, facet_counts, index):
+    """Append (N) to a filter label when 'Show counts' is active.
+
+    facet_counts is None when counts are hidden. Django stores each
+    option's total under the key '{index}__c'.
+    """
+    if facet_counts is None:
+        return label
+    count = facet_counts.get(f"{index}__c", -1)
+    if count == -1:
+        return format_html("{} (-)", label)
+    return format_html("{} ({})", label, count)
 
 
 class ByCityFilter(SimpleListFilter):
@@ -117,13 +132,14 @@ class ChoicesSimpleListFilter(SimpleListFilter):
     """
 
     def choices(self, cl):
-        for lookup, title in self.lookup_choices:
+        facet_counts = self.get_facet_queryset(cl) if cl.add_facets else None
+        for index, (lookup, title) in enumerate(self.lookup_choices):
             yield {
                 'selected': self.value() == lookup,
                 'query_string': cl.get_query_string({
                     self.parameter_name: lookup,
                 }, []),
-                'display': title,
+                'display': label_with_facet_count(title, facet_counts, index),
             }
 
     def lookups(self, request, model_admin):
@@ -343,11 +359,14 @@ class ByDepartmentFilter(SimpleListFilter):
         return [('all', _('All')), *departments]
 
     def choices(self, changelist):
-        for lookup, title in self.lookup_choices:
+        facet_counts = (
+            self.get_facet_queryset(changelist) if changelist.add_facets else None
+        )
+        for index, (lookup, title) in enumerate(self.lookup_choices):
             yield {
                 'selected': self.value() == lookup or not self.value() and lookup == 'all',
                 'query_string': changelist.get_query_string({self.parameter_name: lookup}),
-                'display': title,
+                'display': label_with_facet_count(title, facet_counts, index),
             }
 
     def queryset(self, request, queryset):
