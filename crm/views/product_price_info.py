@@ -13,8 +13,8 @@ def product_price_info(request):
     - quantity: numeric quantity
     - tier_name: id of ClientType (price tier)
     - deal_currency: id of Currency used in deal
-    - discount_type: 'F' for fixed unit price or 'D' for percentage discount
-    - discount_value: fixed unit price or discount percentage
+    - discount_type: 'F' for fixed value or 'D' for percentage discount
+    - discount_value: fixed value or discount percentage
 
     Returns JSON: {'ok': True, 'amount': '123.45'} or {'ok': False, 'error': '...'}
     """

@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - The discount type and value fields to Deal model and update related logic
+- Add success message with company link after Lead conversion by @riddhikale
+- Check view permissions in the print views by @choksi2212
 
 ### Fixed
 
@@ -23,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Refactor pending status logic in RequestAdmin and extract to helper function
+- Update discount type terminology from 'Fixed Price' to 'Fixed Value' in Deal model and related documentation
 
 ## [3.0.2] - 2026-09-26
 

@@ -14,7 +14,7 @@ class Deal(Base1):
         verbose_name_plural = _("Deals")
 
     discount_type_choices = {
-        'F': _('Fixed Price'),
+        'F': _('Fixed Value'),
         'D': _('Discount percentage')
     }
 
