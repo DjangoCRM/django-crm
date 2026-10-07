@@ -948,9 +948,9 @@
     "model": "crm.country",
     "pk": 106,
     "fields": {
-        "name": "Macedonia",
-        "alternative_names": "",
-        "url_name": "Macedonia"
+        "name": "North Macedonia",
+        "alternative_names": "Macedonia",
+        "url_name": "North-Macedonia"
     }
 },
 {
