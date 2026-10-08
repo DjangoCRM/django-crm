@@ -13,6 +13,7 @@ from django.http import HttpResponseRedirect
 from django.template.defaultfilters import truncatechars
 from django.utils import timezone
 from django.utils.formats import date_format
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
@@ -769,6 +770,16 @@ class DealAdmin(CrmModelAdmin):
             company = ', '.join(
                 (obj.company.full_name, obj.company.country.name)
             )
+            if obj.company.logo:
+                # The company's logo, if it has one, beside its name: the
+                # deal page is where the counterparty is recognised at a
+                # glance, and the logo is the quickest way to do it (#544).
+                company = format_html(
+                    '<img src="{}" alt="{}" style="max-height:40px;'
+                    'max-width:160px;width:auto;vertical-align:middle;'
+                    'margin-right:8px;">',
+                    obj.company.logo.url, _('Logo')
+                ) + company
             company_url = reverse(
                 'site:crm_company_change', args=(obj.company_id,)
             )
