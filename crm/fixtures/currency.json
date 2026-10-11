@@ -20,5 +20,16 @@
 	"is_state_currency": true,
 	"is_marketing_currency": false	
   }
+},
+{
+  "model": "crm.currency",
+  "pk": 3,
+  "fields": {
+    "name": "GBP",
+	"rate_to_state_currency": "1.15",
+	"rate_to_marketing_currency": "1.38",
+	"is_state_currency": false,
+	"is_marketing_currency": false
+  }
 }
 ]
