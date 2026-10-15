@@ -10,11 +10,15 @@ from crm.forms.department_pricing_tier_formset import DepartmentPriceRuleFormSet
 from common.models import Department
 from common.utils.for_translation import check_for_translation
 from common.utils.helpers import LEADERS
+from common.utils.helpers import SAFE_SUBJECT_ICON
 from common.utils.helpers import set_modified_by
 from crm.models import Company
 from crm.models import City
 from crm.models import Contact
 from crm.models import ClientType
+from crm.models import ContinentalRegion
+from crm.models import SubRegion
+from crm.models import IntermediaryRegion
 from crm.models import Country
 from crm.models import CrmEmail
 from crm.models import Currency
@@ -250,9 +254,47 @@ class ContactAdmin(contactadmin.ContactAdmin):
         )
 
 
+class ContinentalRegionAdmin(admin.ModelAdmin):
+    pass
+
+
+class SubRegionAdmin(admin.ModelAdmin):
+    list_display = ('name', "continental_region")
+    ordering = ["continental_region", 'name']
+
+
+class IntermediaryRegionAdmin(admin.ModelAdmin):
+    list_display = ('name', "subregion")
+    ordering = ["subregion", 'name']
+
+
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    class Media:
+        css = {
+            "all": ["css/flag-icons.css"],
+        }
+    fieldsets = (
+        (None, {'fields': [
+            'name', "alternative_names",
+            'subregion', 'intermediary_region',
+            'owner', 'iso_code', 'phone_code'
+        ],}),
+        (_('Additional information'), {
+            'classes': ('collapse',),
+            'fields': ("url_name",)
+        }),
+    )
+    list_display = ('flag_and_name', 'subregion',
+                    'owner', 'iso_code', 'phone_code')
+    ordering = ["name"]
     search_fields = ('name',)
+    
+    # -- ModelAdmin Callables -- #
+
+    @staticmethod
+    @admin.display(description=SAFE_SUBJECT_ICON)
+    def flag_and_name(obj):
+        return obj.flag_and_name
 
 
 class LeadAdmin(leadadmin.LeadAdmin):
@@ -542,12 +584,14 @@ class RateAdmin(admin.ModelAdmin):
 admin.site.register(City, cityadmin.CityAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(ClientType, ClientTypeAdmin)
+admin.site.register(ContinentalRegion, ContinentalRegionAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(CrmEmail, CrmEmailAdmin)
 admin.site.register(Currency, CurrencyAdmin)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Industry, IndustryAdmin)
+admin.site.register(IntermediaryRegion, IntermediaryRegionAdmin)
 admin.site.register(Lead, LeadAdmin)
 admin.site.register(LeadSource, LeadSourceAdmin)
 admin.site.register(Payment, PaymentAdmin)
@@ -558,6 +602,7 @@ admin.site.register(Rate, RateAdmin)
 admin.site.register(Request, RequestAdmin)
 admin.site.register(Shipment, ShipmentAdmin)
 admin.site.register(Stage, StageAdmin)
+admin.site.register(SubRegion, SubRegionAdmin)
 admin.site.register(Tag, tagadmin.TagAdmin)
 
 crm_site.register(City, cityadmin.CityAdmin)

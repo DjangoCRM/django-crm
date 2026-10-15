@@ -78,6 +78,7 @@ def get_deal_model_data(prefix: str = '',
     prefix = prefix or PREFIX
     add_url = f'/en/{prefix}crm/deal/add/' if is_add_url else None
     return {
+        'name': 'Deals',
         'object_name': 'Deal',
         'perms': perms,
         'admin_url': f'/en/{prefix}crm/deal/',
@@ -95,6 +96,7 @@ def get_shipment_model_data(prefix: str = '',
     prefix = prefix or PREFIX
     add_url = f'/en/{prefix}crm/shipment/add/' if is_add_url else None
     return {
+        'name': 'Shipments',
         'object_name': 'Shipment',
         'perms': perms,
         'admin_url': f'/en/{prefix}crm/shipment/',
@@ -982,6 +984,14 @@ ADMIN_DATA = [
             get_contact_model_data(prefix=ADMIN_PREFIX,
                                    is_add_url=True, view_only=False),
             {
+                'name': 'Continental regions',
+                'object_name': 'ContinentalRegion',
+                'perms': get_perms(),
+                'admin_url': f'/en/{ADMIN_PREFIX}crm/continentalregion/',
+                'add_url': f'/en/{ADMIN_PREFIX}crm/continentalregion/add/',
+                'view_only': False
+            },
+            {
                 'name': 'Countries',
                 'object_name': 'Country',
                 'perms': get_perms(),
@@ -1022,6 +1032,14 @@ ADMIN_DATA = [
                 'perms': get_perms(),
                 'admin_url': f'/en/{ADMIN_PREFIX}crm/industry/',
                 'add_url': f'/en/{ADMIN_PREFIX}crm/industry/add/',
+                'view_only': False
+            },
+            {
+                'name': 'Intermediary regions',
+                'object_name': 'IntermediaryRegion',
+                'perms': get_perms(),
+                'admin_url': f'/en/{ADMIN_PREFIX}crm/intermediaryregion/',
+                'add_url': f'/en/{ADMIN_PREFIX}crm/intermediaryregion/add/',
                 'view_only': False
             },
             {
@@ -1085,6 +1103,14 @@ ADMIN_DATA = [
                 'perms': get_perms(),
                 'admin_url': f'/en/{ADMIN_PREFIX}crm/stage/',
                 'add_url': f'/en/{ADMIN_PREFIX}crm/stage/add/',
+                'view_only': False
+            },
+            {
+                'name': 'Subregions',
+                'object_name': 'SubRegion',
+                'perms': get_perms(),
+                'admin_url': f'/en/{ADMIN_PREFIX}crm/subregion/',
+                'add_url': f'/en/{ADMIN_PREFIX}crm/subregion/add/',
                 'view_only': False
             },
             {

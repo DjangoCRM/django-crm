@@ -13,7 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - The discount type and value fields to Deal model and update related logic
-- Add support for different favicons for the CRM and Admin sites.
+- Added support for different favicons for the CRM and Admin sites
+- Enhance CRM functionality regarding countries
+  - Added country regions: Continental, Sub and Intermediary
+  - Added country codes:ISO 3166-1 alpha-2 code, Phone code
+  - Added country flags to the country model and display them in the CRM interface
+  - Added the ability to assign a user
+- The 'no_reply_needed' field has been added to the CrmEmail model
 - Add success message with company link after Lead conversion by @riddhikale
 - Check view permissions in the print views by @choksi2212
 
