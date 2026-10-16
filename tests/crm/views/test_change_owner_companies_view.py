@@ -1,4 +1,5 @@
 from random import random
+from django.contrib.messages import get_messages
 from django.test import tag
 from django.urls import reverse
 from crm.models import Company
@@ -91,9 +92,13 @@ class TestChangeOwnerView(BaseTestCase):
 
     def test_change_owner_view(self):
         url = reverse('site:crm_company_changelist')
-        ids = ','.join(str(pk) for pk in (self.company1.id, self.company2.id))
-        change_owner_url = reverse(
-            'change_owner_companies') + f'?next={url}&ids={ids}'
+        session = self.client.session
+        session['change_owner_companies'] = {
+            'ids': [self.company1.id, self.company2.id],
+            'next': url,
+        }
+        session.save()
+        change_owner_url = reverse('change_owner_companies')
         response = self.client.get(change_owner_url, follow=True)
         self.assertEqual(response.status_code, 200, response.reason_phrase)
         data = {'owner': str(self.new_owner.id)}
@@ -109,3 +114,41 @@ class TestChangeOwnerView(BaseTestCase):
         self.assertEqual(self.new_owner, self.contact1.owner)
         self.contact2.refresh_from_db()
         self.assertEqual(self.new_owner, self.contact2.owner)
+        self.assertNotIn('change_owner_companies', self.client.session)
+
+    def test_change_owner_action_stores_selection_in_session(self):
+        url = reverse('site:crm_company_changelist')
+        response = self.client.post(url, {
+            'action': 'change_owner',
+            '_selected_action': [self.company1.id, self.company2.id],
+        })
+
+        self.assertRedirects(
+            response,
+            reverse('change_owner_companies'),
+            fetch_redirect_response=False,
+        )
+        session_data = self.client.session['change_owner_companies']
+        self.assertCountEqual(
+            session_data['ids'],
+            [self.company1.id, self.company2.id],
+        )
+        self.assertEqual(session_data['next'], url)
+
+    def test_change_owner_view_handles_expired_session(self):
+        change_owner_url = reverse('change_owner_companies')
+        response = self.client.post(
+            change_owner_url,
+            {'owner': str(self.new_owner.id)},
+        )
+
+        self.assertRedirects(
+            response,
+            reverse('site:crm_company_changelist'),
+        )
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]),
+            'The company selection has expired. Please select the companies again.',
+        )
