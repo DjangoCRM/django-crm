@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [3.1.0] - 2026-10-17
 
 ### Added
 
@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The 'no_reply_needed' field has been added to the CrmEmail model
 - Add success message with company link after Lead conversion by @riddhikale
 - Check view permissions in the print views by @choksi2212
+- Add "Show counts" to the commercial requests list by @IdiotCoffee
 
 ### Fixed
 
@@ -33,6 +34,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Refactor pending status logic in RequestAdmin and extract to helper function
 - Update discount type terminology from 'Fixed Price' to 'Fixed Value' in Deal model and related documentation
+- To avoid the limitation on the length of the "Request-URI" when performing the "Change owner of selected Companies" action
+  on a large set of companies, the method for transmitting selected company IDs has been changed by @mmaxjr
+
+#### Full Changelog: [v3.0.2...v3.1.0](https://github.com/DjangoCRM/django-crm/compare/v3.0.2...v3.1.0)
 
 ## [3.0.2] - 2026-09-26
 
