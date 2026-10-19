@@ -10,7 +10,6 @@ from crm.forms.department_pricing_tier_formset import DepartmentPriceRuleFormSet
 from common.models import Department
 from common.utils.for_translation import check_for_translation
 from common.utils.helpers import LEADERS
-from common.utils.helpers import SAFE_SUBJECT_ICON
 from common.utils.helpers import set_modified_by
 from crm.models import Company
 from crm.models import City
@@ -46,6 +45,7 @@ from crm.site import requestadmin
 from crm.site import productadmin
 from crm.site import tagadmin
 from crm.site import cityadmin
+from crm.site.countryadmin import CountryAdmin
 from crm.site.crmstackedinline import CrmStackedInline
 from crm.site.currencyadmin import CurrencyAdmin
 from crm.site.paymentadmin import PaymentAdmin
@@ -266,35 +266,6 @@ class SubRegionAdmin(admin.ModelAdmin):
 class IntermediaryRegionAdmin(admin.ModelAdmin):
     list_display = ('name', "subregion")
     ordering = ["subregion", 'name']
-
-
-class CountryAdmin(admin.ModelAdmin):
-    class Media:
-        css = {
-            "all": ["css/flag-icons.css"],
-        }
-    fieldsets = (
-        (None, {'fields': [
-            'name', "alternative_names",
-            'subregion', 'intermediary_region',
-            'owner', 'iso_code', 'phone_code'
-        ],}),
-        (_('Additional information'), {
-            'classes': ('collapse',),
-            'fields': ("url_name",)
-        }),
-    )
-    list_display = ('flag_and_name', 'subregion',
-                    'owner', 'iso_code', 'phone_code')
-    ordering = ["name"]
-    search_fields = ('name',)
-    
-    # -- ModelAdmin Callables -- #
-
-    @staticmethod
-    @admin.display(description=SAFE_SUBJECT_ICON)
-    def flag_and_name(obj):
-        return obj.flag_and_name
 
 
 class LeadAdmin(leadadmin.LeadAdmin):
@@ -608,6 +579,7 @@ admin.site.register(Tag, tagadmin.TagAdmin)
 crm_site.register(City, cityadmin.CityAdmin)
 crm_site.register(Company, companyadmin.CompanyAdmin)
 crm_site.register(Contact, contactadmin.ContactAdmin)
+crm_site.register(Country, CountryAdmin)
 crm_site.register(CrmEmail, crmemailadmin.CrmEmailAdmin)
 crm_site.register(Currency, CurrencyAdmin)
 crm_site.register(Deal, dealadmin.DealAdmin)
