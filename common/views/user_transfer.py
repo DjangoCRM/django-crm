@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.models import Group
+from django.http import HttpResponseForbidden
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.translation import gettext as _
@@ -61,6 +62,9 @@ objects = (
 def user_transfer(request):
     """Change user's and its documents department. 
     But no change Output, Payment and Product."""
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     if request.method == "POST":
         owner_id = int(request.POST.get('owner'))
         owner = USER_MODEL.objects.get(id=owner_id)
