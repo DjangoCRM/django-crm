@@ -1,7 +1,6 @@
 {% load i18n util %}
 {% if emails %}
 <div>
-    {# <fieldset class="module collapse"> #}
     <fieldset class="module" id="Emails">
     <h2><i class="material-icons" style="color: var(--primary-fg)">mail_outline</i> {% translate 'Last few letters' %}</h2>
     {% for email in emails %}
@@ -18,7 +17,6 @@
                     <b>{% translate 'Email' %}:</b>&nbsp;
                 <span class="inline_label">{% if email.inquiry %}<span style="color: var(--green-fg)">{{ email.subject }}</span>{% else %}{{ email.subject }}{% endif %}&nbsp;&nbsp;&nbsp;
                     {% if email.is_attachment %}<i class="material-icons" style="color: var(--body-quiet-color)">attach_file</i>&nbsp;&nbsp;{% endif %}
-                
 				</span>
             </h3>
 			
@@ -34,7 +32,9 @@
                 {% endif %}
                   <li><a href="{% url 'site:crm_crmemail_change' email.id %}" title="{% translate 'Change' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">border_color</i></a></li>
                   <li><a href="{%  url 'reply_email' email.id %}?act=reply" title="{% translate 'reply' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply</i></a></li>
-                  <li><a href="{%  url 'reply_email' email.id %}?act=reply-all" title="{% translate 'reply all' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply_all</i></a></li>
+                  {% if email.cc or email.bcc %}
+                    <li><a href="{%  url 'reply_email' email.id %}?act=reply-all" title="{% translate 'reply all' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">reply_all</i></a></li>
+                  {% endif %}
                   <li><a href="{%  url 'reply_email' email.id %}?act=forward" title="{% translate 'forward' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">forward</i></a></li>
                   <li><a href="{%  url 'print_email' email.id %}" title="{% translate 'Print preview' %}" target="_blank"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">print</i></a></li>
                 </ul>
@@ -47,7 +47,7 @@
                 <div class="form-row field-to">
                     <div class="readonly"><b>{% translate 'To' %}:</b> &nbsp{{ email.to }}</div>
                 </div>
-                {% if email.incoming and email.cc %}
+                {% if email.cc %}
                 <div class="form-row field-cc">
                     <div class="readonly"><b>{% translate 'CC' %}:</b> &nbsp{{ email.cc }}</div>
                 </div>
@@ -74,4 +74,4 @@
     {% endfor %}
     </fieldset>
 {% endif %}
-		</div>
+</div>
