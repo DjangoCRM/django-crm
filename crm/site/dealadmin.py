@@ -577,8 +577,8 @@ class DealAdmin(CrmModelAdmin):
                     works_globally = Department.objects.get(
                         id=obj.department_id).works_globally
                     _thread_local.department_id[obj.department_id] = works_globally
-                if works_globally:
-                    name += mark_safe(f",<br> {counterparty.country}")
+                if works_globally and counterparty.country:
+                    name += mark_safe(f",<br> {counterparty.country.flag_and_name}")
             link = f'<a href="{url}">{name}</a>'
             return mark_safe(link)
         return LEADERS

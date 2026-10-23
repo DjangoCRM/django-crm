@@ -7,6 +7,24 @@
     {{ title }} | {{ site_title }}
 {% endblock %}
 
+{% block extrahead %}
+    {{ block.super }}
+    {# CRM: Add support for different favicons for the CRM and Admin sites #}
+    {% if request.resolver_match.namespace == "site" %}
+        {% if favicon_debug %}
+            <link rel="icon" href="{% static 'common/favicon_dev.ico' %}" type="image/x-icon">
+        {% else %}
+            <link rel="icon" href="{% static 'common/favicon.ico' %}" type="image/x-icon">
+        {% endif %}
+    {% else %}
+        {% if favicon_debug %}
+            <link rel="icon" href="{% static 'common/favicon_adm_dev.ico' %}" type="image/x-icon">
+        {% else %}
+            <link rel="icon" href="{% static 'common/favicon_adm.ico' %}" type="image/x-icon">
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
 {% block branding %}
 <div id="site-name"><a href="{% url 'admin:index' %}">
     {# CRM: add Django-CRM Logo #}

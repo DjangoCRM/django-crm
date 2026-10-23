@@ -1,3 +1,4 @@
+from crm.models.country import ContinentalRegion, SubRegion, IntermediaryRegion
 from crm.models.country import Country, City
 from crm.models.others import ClosingReason
 from crm.models.others import LeadSource

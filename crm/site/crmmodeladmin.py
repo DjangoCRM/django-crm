@@ -84,6 +84,11 @@ did_not_receive_title = _("The recipient has not received any mailings.")
 
 class CrmModelAdmin(BaseModelAdmin):
 
+    class Media:
+        css = {
+            "all": ["css/flag-icons.css"],
+        }
+
     # -- ModelAdmin methods -- #
 
     def changelist_view(self, request, extra_context=None):
@@ -470,7 +475,8 @@ class CrmModelAdmin(BaseModelAdmin):
         if not value:
             url = self.get_url_for_callable(
                 'country__id__exact', obj.country.id)
-            value = mark_safe(f'<a href="{url}">{obj.country.name}</a>')
+            value = mark_safe(
+                f'<a href="{url}">{obj.country.flag_and_name}</a>')
             setattr(_thread_local, url_name, value)
         return value
 

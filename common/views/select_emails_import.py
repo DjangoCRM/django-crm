@@ -56,18 +56,24 @@ def select_emails_import(request: WSGIRequest):
 
     else:  # request.method == 'GET'
         deal_name = deal_url = inquiry_name = inquiry_url = ''
+        ea = None
         next_url = request.GET.get('next')
         deal_id = request.GET.get('deal_id')
         request_id = request.GET.get('request_id')
         ticket = request.GET.get('ticket')
         ea_id = request.GET.get('ea')
-        ea = EmailAccount.objects.get(id=ea_id) if ea_id else None
+        q_params = Q(owner=request.user) | Q(co_owner=request.user)
+        eas = EmailAccount.objects.filter(q_params)
+        if ea_id:
+            try:
+                ea = eas.get(id=ea_id)
+            except EmailAccount.DoesNotExist:
+                pass
         if not ea:
-            q_params = Q(owner=request.user) | Q(co_owner=request.user)
             q_params = q_params & Q(do_import=True)
             if request.user.department_id:  # NOQA
                 q_params = q_params & Q(department_id=request.user.department_id)   # NOQA
-            eas = EmailAccount.objects.filter(q_params)
+            eas = eas.filter(q_params)
 
             if len(eas) > 1:
                 return select_ea_view(
@@ -141,7 +147,7 @@ def emails_import(data: dict, request: WSGIRequest,
             sleep(0.7)
 
     return HttpResponseRedirect(url)
-    
+
 
 def select_ea_view(eas: QuerySet, next_url: str, ticket: str,
                    deal_id, request_id) -> HttpResponseRedirect:
@@ -175,7 +181,8 @@ def _get_emails_by_uid(request: WSGIRequest, ea: EmailAccount, t: str, uids: lis
                         b_msg = parse_message_bytes(uid, data)
                     if b_msg:
                         crm_conf = apps.get_app_config('crm')
-                        crm_conf.eml_queue.put((b_msg, ea, t, uid, ticket, request))
+                        crm_conf.eml_queue.put(
+                            (b_msg, ea, t, uid, ticket, request))
                 if result != 'OK' or not data[0] or err:
                     mail_admins(
                         f"The result is {result} at get_emails_by_uid",

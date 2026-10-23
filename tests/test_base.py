@@ -206,9 +206,9 @@ class MyTests(BaseTestCase):
                                                 self.assertIs(correct_model['perms'][z], context_model['perms'][z],
                                                               msg)
                             else:
-                                correct_models = [model['name']
+                                correct_models = [model['object_name']
                                                   for model in correct_app['models']]
-                                context_models = [model['name']
+                                context_models = [model['object_name']
                                                   for model in context_app['models']]
                                 difference = set(context_models) ^ set(
                                     correct_models)

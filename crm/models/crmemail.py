@@ -79,6 +79,11 @@ class CrmEmail(BaseEml):
         max_length=200, null=False, blank=True,
         default='',
     )
+    no_reply_needed = models.BooleanField(
+        default=False,
+        verbose_name=_("No reply needed"),
+        help_text=_("Check this box if this email does not require a reply.")
+    )
     files = GenericRelation('common.TheFile')
 
     def __str__(self):

@@ -1,11 +1,243 @@
 [
 {
+    "model": "crm.continentalregion",
+    "pk": 1,
+    "fields": {
+        "name": "Africa"
+    }
+},
+{
+    "model": "crm.continentalregion",
+    "pk": 2,
+    "fields": {
+        "name": "Americas"
+    }
+},
+{
+    "model": "crm.continentalregion",
+    "pk": 3,
+    "fields": {
+        "name": "Asia"
+    }
+},
+{
+    "model": "crm.continentalregion",
+    "pk": 4,
+    "fields": {
+        "name": "Europe"
+    }
+},
+{
+    "model": "crm.continentalregion",
+    "pk": 5,
+    "fields": {
+        "name": "Oceania"
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 1,
+    "fields": {
+        "name": "Northern Africa",
+        "continental_region": 1
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 2,
+    "fields": {
+        "name": "Sub-Saharan Africa",
+        "continental_region": 1
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 3,
+    "fields": {
+        "name": "Latin America and the Caribbean",
+        "continental_region": 2
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 4,
+    "fields": {
+        "name": "Northern America",
+        "continental_region": 2
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 5,
+    "fields": {
+        "name": "Central Asia",
+        "continental_region": 3
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 6,
+    "fields": {
+        "name": "Eastern Asia",
+        "continental_region": 3
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 7,
+    "fields": {
+        "name": "South-eastern Asia",
+        "continental_region": 3
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 8,
+    "fields": {
+        "name": "Southern Asia",
+        "continental_region": 3
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 9,
+    "fields": {
+        "name": "Western Asia",
+        "continental_region": 3
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 10,
+    "fields": {
+        "name": "Eastern Europe",
+        "continental_region": 4
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 11,
+    "fields": {
+        "name": "Northern Europe",
+        "continental_region": 4
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 12,
+    "fields": {
+        "name": "Southern Europe",
+        "continental_region": 4
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 13,
+    "fields": {
+        "name": "Western Europe",
+        "continental_region": 4
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 14,
+    "fields": {
+        "name": "Australia and New Zealand",
+        "continental_region": 5
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 15,
+    "fields": {
+        "name": "Melanesia",
+        "continental_region": 5
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 16,
+    "fields": {
+        "name": "Micronesia",
+        "continental_region": 5
+    }
+},
+{
+    "model": "crm.subregion",
+    "pk": 17,
+    "fields": {
+        "name": "Polynesia",
+        "continental_region": 5
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 1,
+    "fields": {
+        "name": "Caribbean",
+        "subregion": 3
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 2,
+    "fields": {
+        "name": "Central America",
+        "subregion": 3
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 3,
+    "fields": {
+        "name": "South America",
+        "subregion": 3
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 4,
+    "fields": {
+        "name": "Eastern Africa",
+        "subregion": 2
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 5,
+    "fields": {
+        "name": "Middle Africa",
+        "subregion": 2
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 6,
+    "fields": {
+        "name": "Southern Africa",
+        "subregion": 2
+    }
+},
+{
+    "model": "crm.intermediaryregion",
+    "pk": 7,
+    "fields": {
+        "name": "Western Africa",
+        "subregion": 2
+    }
+},
+{
     "model": "crm.country",
     "pk": 1,
     "fields": {
         "name": "Afghanistan",
         "alternative_names": "",
-        "url_name": "Afghanistan"
+        "url_name": "Afghanistan",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "af",
+        "phone_code": "93"
     }
 },
 {
@@ -14,7 +246,12 @@
     "fields": {
         "name": "Albania",
         "alternative_names": "",
-        "url_name": "Albania"
+        "url_name": "Albania",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "al",
+        "phone_code": "355"
     }
 },
 {
@@ -23,7 +260,12 @@
     "fields": {
         "name": "Algeria",
         "alternative_names": "",
-        "url_name": "Algeria"
+        "url_name": "Algeria",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "dz",
+        "phone_code": "21"
     }
 },
 {
@@ -32,7 +274,12 @@
     "fields": {
         "name": "Andorra",
         "alternative_names": "",
-        "url_name": "Andorra"
+        "url_name": "Andorra",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ad",
+        "phone_code": "376"
     }
 },
 {
@@ -41,7 +288,12 @@
     "fields": {
         "name": "Angola",
         "alternative_names": "",
-        "url_name": "Angola"
+        "url_name": "Angola",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "ao",
+        "phone_code": "244"
     }
 },
 {
@@ -50,7 +302,12 @@
     "fields": {
         "name": "Antigua and Barbuda",
         "alternative_names": "",
-        "url_name": "Antigua_and_Barbuda"
+        "url_name": "Antigua_and_Barbuda",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "ag",
+        "phone_code": "1268"
     }
 },
 {
@@ -59,7 +316,12 @@
     "fields": {
         "name": "Argentina",
         "alternative_names": "",
-        "url_name": "Argentina"
+        "url_name": "Argentina",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "ar",
+        "phone_code": "54"
     }
 },
 {
@@ -68,7 +330,12 @@
     "fields": {
         "name": "Armenia",
         "alternative_names": "",
-        "url_name": "Armenia"
+        "url_name": "Armenia",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "am",
+        "phone_code": "374"
     }
 },
 {
@@ -77,7 +344,12 @@
     "fields": {
         "name": "Australia",
         "alternative_names": "",
-        "url_name": "Australia"
+        "url_name": "Australia",
+        "subregion": 14,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "au",
+        "phone_code": "61"
     }
 },
 {
@@ -86,7 +358,12 @@
     "fields": {
         "name": "Austria",
         "alternative_names": "",
-        "url_name": "Austria"
+        "url_name": "Austria",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "at",
+        "phone_code": "43"
     }
 },
 {
@@ -95,7 +372,12 @@
     "fields": {
         "name": "Azerbaijan",
         "alternative_names": "",
-        "url_name": "Azerbaijan"
+        "url_name": "Azerbaijan",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "az",
+        "phone_code": "994"
     }
 },
 {
@@ -104,7 +386,12 @@
     "fields": {
         "name": "Bahamas",
         "alternative_names": "",
-        "url_name": "Bahamas"
+        "url_name": "Bahamas",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "bs",
+        "phone_code": "1242"
     }
 },
 {
@@ -113,7 +400,12 @@
     "fields": {
         "name": "Bahrain",
         "alternative_names": "",
-        "url_name": "Bahrain"
+        "url_name": "Bahrain",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "bh",
+        "phone_code": "973"
     }
 },
 {
@@ -122,7 +414,12 @@
     "fields": {
         "name": "Bangladesh",
         "alternative_names": "",
-        "url_name": "Bangladesh"
+        "url_name": "Bangladesh",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "bd",
+        "phone_code": "880"
     }
 },
 {
@@ -131,7 +428,12 @@
     "fields": {
         "name": "Barbados",
         "alternative_names": "",
-        "url_name": "Barbados"
+        "url_name": "Barbados",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "bb",
+        "phone_code": "1246"
     }
 },
 {
@@ -140,7 +442,12 @@
     "fields": {
         "name": "Belarus",
         "alternative_names": "",
-        "url_name": "Belarus"
+        "url_name": "Belarus",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "by",
+        "phone_code": "375"
     }
 },
 {
@@ -149,7 +456,12 @@
     "fields": {
         "name": "Belgium",
         "alternative_names": "",
-        "url_name": "Belgium"
+        "url_name": "Belgium",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "be",
+        "phone_code": "32"
     }
 },
 {
@@ -158,7 +470,12 @@
     "fields": {
         "name": "Belize",
         "alternative_names": "",
-        "url_name": "Belize"
+        "url_name": "Belize",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "bz",
+        "phone_code": "501"
     }
 },
 {
@@ -167,7 +484,12 @@
     "fields": {
         "name": "Benin",
         "alternative_names": "",
-        "url_name": "Benin"
+        "url_name": "Benin",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "bj",
+        "phone_code": "229"
     }
 },
 {
@@ -176,7 +498,12 @@
     "fields": {
         "name": "Bhutan",
         "alternative_names": "",
-        "url_name": "Bhutan"
+        "url_name": "Bhutan",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "bt",
+        "phone_code": "975"
     }
 },
 {
@@ -185,7 +512,12 @@
     "fields": {
         "name": "Bolivia",
         "alternative_names": "",
-        "url_name": "Bolivia"
+        "url_name": "Bolivia",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "bo",
+        "phone_code": "591"
     }
 },
 {
@@ -194,7 +526,12 @@
     "fields": {
         "name": "Bosnia and Herzegovina",
         "alternative_names": "",
-        "url_name": "Bosnia_and_Herzegovina"
+        "url_name": "Bosnia_and_Herzegovina",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ba",
+        "phone_code": "387"
     }
 },
 {
@@ -203,7 +540,12 @@
     "fields": {
         "name": "Botswana",
         "alternative_names": "",
-        "url_name": "Botswana"
+        "url_name": "Botswana",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "bw",
+        "phone_code": "267"
     }
 },
 {
@@ -212,7 +554,12 @@
     "fields": {
         "name": "Brazil",
         "alternative_names": "",
-        "url_name": "Brazil"
+        "url_name": "Brazil",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "br",
+        "phone_code": "55"
     }
 },
 {
@@ -220,8 +567,13 @@
     "pk": 25,
     "fields": {
         "name": "Brunei",
-        "alternative_names": "",
-        "url_name": "Brunei"
+        "alternative_names": "Brunei Darussalam",
+        "url_name": "Brunei",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "bn",
+        "phone_code": "673"
     }
 },
 {
@@ -230,7 +582,12 @@
     "fields": {
         "name": "Bulgaria",
         "alternative_names": "",
-        "url_name": "Bulgaria"
+        "url_name": "Bulgaria",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "bg",
+        "phone_code": "359"
     }
 },
 {
@@ -239,7 +596,12 @@
     "fields": {
         "name": "Burkina Faso",
         "alternative_names": "",
-        "url_name": "Burkina_Faso"
+        "url_name": "Burkina_Faso",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "bf",
+        "phone_code": "226"
     }
 },
 {
@@ -248,7 +610,12 @@
     "fields": {
         "name": "Myanmar",
         "alternative_names": "",
-        "url_name": "Myanmar"
+        "url_name": "Myanmar",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mm",
+        "phone_code": "95"
     }
 },
 {
@@ -257,7 +624,12 @@
     "fields": {
         "name": "Burundi",
         "alternative_names": "",
-        "url_name": "Burundi"
+        "url_name": "Burundi",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "bi",
+        "phone_code": "257"
     }
 },
 {
@@ -266,7 +638,12 @@
     "fields": {
         "name": "Cabo Verde",
         "alternative_names": "",
-        "url_name": "Cabo_Verde"
+        "url_name": "Cabo_Verde",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "cv",
+        "phone_code": "238"
     }
 },
 {
@@ -275,7 +652,12 @@
     "fields": {
         "name": "Cambodia",
         "alternative_names": "",
-        "url_name": "Cambodia"
+        "url_name": "Cambodia",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kh",
+        "phone_code": "855"
     }
 },
 {
@@ -284,7 +666,12 @@
     "fields": {
         "name": "Cameroon",
         "alternative_names": "",
-        "url_name": "Cameroon"
+        "url_name": "Cameroon",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "cm",
+        "phone_code": "237"
     }
 },
 {
@@ -293,7 +680,12 @@
     "fields": {
         "name": "Canada",
         "alternative_names": "",
-        "url_name": "Canada"
+        "url_name": "Canada",
+        "subregion": 4,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ca",
+        "phone_code": "1"
     }
 },
 {
@@ -302,7 +694,12 @@
     "fields": {
         "name": "Central African Republic",
         "alternative_names": "",
-        "url_name": "Central_African_Republic"
+        "url_name": "Central_African_Republic",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "cf",
+        "phone_code": "236"
     }
 },
 {
@@ -311,7 +708,12 @@
     "fields": {
         "name": "Chad",
         "alternative_names": "",
-        "url_name": "Chad"
+        "url_name": "Chad",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "td",
+        "phone_code": "235"
     }
 },
 {
@@ -320,7 +722,12 @@
     "fields": {
         "name": "Chile",
         "alternative_names": "",
-        "url_name": "Chile"
+        "url_name": "Chile",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "cl",
+        "phone_code": "56"
     }
 },
 {
@@ -329,7 +736,12 @@
     "fields": {
         "name": "China",
         "alternative_names": "",
-        "url_name": "China"
+        "url_name": "China",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "cn",
+        "phone_code": "86"
     }
 },
 {
@@ -338,7 +750,12 @@
     "fields": {
         "name": "Colombia",
         "alternative_names": "",
-        "url_name": "Colombia"
+        "url_name": "Colombia",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "co",
+        "phone_code": "57"
     }
 },
 {
@@ -347,7 +764,12 @@
     "fields": {
         "name": "Comoros",
         "alternative_names": "",
-        "url_name": "Comoros"
+        "url_name": "Comoros",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "km",
+        "phone_code": "269"
     }
 },
 {
@@ -356,7 +778,12 @@
     "fields": {
         "name": "Congo, Republic of the",
         "alternative_names": "",
-        "url_name": "Congo_CF"
+        "url_name": "Congo_CF",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "cg",
+        "phone_code": "242"
     }
 },
 {
@@ -364,8 +791,13 @@
     "pk": 41,
     "fields": {
         "name": "Congo, Democratic Republic of the",
-        "alternative_names": "",
-        "url_name": "Congo_CG"
+        "alternative_names": "Democratic Republic of the Congo",
+        "url_name": "Congo_CG",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "cd",
+        "phone_code": "243"
     }
 },
 {
@@ -374,7 +806,12 @@
     "fields": {
         "name": "Costa Rica",
         "alternative_names": "",
-        "url_name": "Costa_Rica"
+        "url_name": "Costa_Rica",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "cr",
+        "phone_code": "506"
     }
 },
 {
@@ -383,7 +820,12 @@
     "fields": {
         "name": "Cote d'Ivoire",
         "alternative_names": "",
-        "url_name": "Cote_dIvoire"
+        "url_name": "Cote_dIvoire",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "ci",
+        "phone_code": "225"
     }
 },
 {
@@ -392,7 +834,12 @@
     "fields": {
         "name": "Croatia",
         "alternative_names": "",
-        "url_name": "Croatia"
+        "url_name": "Croatia",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "hr",
+        "phone_code": "385"
     }
 },
 {
@@ -401,7 +848,12 @@
     "fields": {
         "name": "Cuba",
         "alternative_names": "",
-        "url_name": "Cuba"
+        "url_name": "Cuba",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "cu",
+        "phone_code": "53"
     }
 },
 {
@@ -410,7 +862,12 @@
     "fields": {
         "name": "Cyprus",
         "alternative_names": "",
-        "url_name": "Cyprus"
+        "url_name": "Cyprus",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "cy",
+        "phone_code": "357"
     }
 },
 {
@@ -419,7 +876,12 @@
     "fields": {
         "name": "Czechia",
         "alternative_names": "",
-        "url_name": "Czechia"
+        "url_name": "Czechia",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "cz",
+        "phone_code": "420"
     }
 },
 {
@@ -428,7 +890,12 @@
     "fields": {
         "name": "Denmark",
         "alternative_names": "",
-        "url_name": "Denmark"
+        "url_name": "Denmark",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "dk",
+        "phone_code": "45"
     }
 },
 {
@@ -437,7 +904,12 @@
     "fields": {
         "name": "Djibouti",
         "alternative_names": "",
-        "url_name": "Djibouti"
+        "url_name": "Djibouti",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "dj",
+        "phone_code": "253"
     }
 },
 {
@@ -446,7 +918,12 @@
     "fields": {
         "name": "Dominica",
         "alternative_names": "",
-        "url_name": "Dominica"
+        "url_name": "Dominica",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "dm",
+        "phone_code": "1767"
     }
 },
 {
@@ -455,16 +932,12 @@
     "fields": {
         "name": "Dominican Republic",
         "alternative_names": "",
-        "url_name": "Dominican_Republic"
-    }
-},
-{
-    "model": "crm.country",
-    "pk": 52,
-    "fields": {
-        "name": "East Timor",
-        "alternative_names": "",
-        "url_name": "East_Timor"
+        "url_name": "Dominican_Republic",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "do",
+        "phone_code": "1809"
     }
 },
 {
@@ -473,7 +946,12 @@
     "fields": {
         "name": "Ecuador",
         "alternative_names": "",
-        "url_name": "Ecuador"
+        "url_name": "Ecuador",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "ec",
+        "phone_code": "593"
     }
 },
 {
@@ -482,7 +960,12 @@
     "fields": {
         "name": "Egypt",
         "alternative_names": "",
-        "url_name": "Egypt"
+        "url_name": "Egypt",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "eg",
+        "phone_code": "20"
     }
 },
 {
@@ -491,7 +974,12 @@
     "fields": {
         "name": "El Salvador",
         "alternative_names": "",
-        "url_name": "El_Salvador"
+        "url_name": "El_Salvador",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "sv",
+        "phone_code": "503"
     }
 },
 {
@@ -500,7 +988,12 @@
     "fields": {
         "name": "Equatorial Guinea",
         "alternative_names": "",
-        "url_name": "Equatorial_Guinea"
+        "url_name": "Equatorial_Guinea",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "gq",
+        "phone_code": "240"
     }
 },
 {
@@ -509,7 +1002,12 @@
     "fields": {
         "name": "Eritrea",
         "alternative_names": "",
-        "url_name": "Eritrea"
+        "url_name": "Eritrea",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "er",
+        "phone_code": "291"
     }
 },
 {
@@ -518,7 +1016,12 @@
     "fields": {
         "name": "Estonia",
         "alternative_names": "",
-        "url_name": "Estonia"
+        "url_name": "Estonia",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ee",
+        "phone_code": "372"
     }
 },
 {
@@ -527,7 +1030,12 @@
     "fields": {
         "name": "Ethiopia",
         "alternative_names": "",
-        "url_name": "Ethiopia"
+        "url_name": "Ethiopia",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "et",
+        "phone_code": "251"
     }
 },
 {
@@ -536,7 +1044,12 @@
     "fields": {
         "name": "Fiji",
         "alternative_names": "",
-        "url_name": "Fiji"
+        "url_name": "Fiji",
+        "subregion": 15,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "fj",
+        "phone_code": "679"
     }
 },
 {
@@ -545,7 +1058,12 @@
     "fields": {
         "name": "Finland",
         "alternative_names": "",
-        "url_name": "Finland"
+        "url_name": "Finland",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "fi",
+        "phone_code": "358"
     }
 },
 {
@@ -554,7 +1072,12 @@
     "fields": {
         "name": "France",
         "alternative_names": "",
-        "url_name": "France"
+        "url_name": "France",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "fr",
+        "phone_code": "33"
     }
 },
 {
@@ -563,7 +1086,12 @@
     "fields": {
         "name": "Gabon",
         "alternative_names": "",
-        "url_name": "Gabon"
+        "url_name": "Gabon",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "ga",
+        "phone_code": "241"
     }
 },
 {
@@ -572,7 +1100,12 @@
     "fields": {
         "name": "Gambia",
         "alternative_names": "",
-        "url_name": "Gambia"
+        "url_name": "Gambia",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "gm",
+        "phone_code": "220"
     }
 },
 {
@@ -581,7 +1114,12 @@
     "fields": {
         "name": "Georgia",
         "alternative_names": "",
-        "url_name": "Georgia"
+        "url_name": "Georgia",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ge",
+        "phone_code": "995"
     }
 },
 {
@@ -590,7 +1128,12 @@
     "fields": {
         "name": "Germany",
         "alternative_names": "",
-        "url_name": "Germany"
+        "url_name": "Germany",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "de",
+        "phone_code": "49"
     }
 },
 {
@@ -599,7 +1142,12 @@
     "fields": {
         "name": "Ghana",
         "alternative_names": "",
-        "url_name": "Ghana"
+        "url_name": "Ghana",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "gh",
+        "phone_code": "233"
     }
 },
 {
@@ -608,7 +1156,12 @@
     "fields": {
         "name": "Greece",
         "alternative_names": "",
-        "url_name": "Greece"
+        "url_name": "Greece",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "gr",
+        "phone_code": "30"
     }
 },
 {
@@ -617,7 +1170,12 @@
     "fields": {
         "name": "Grenada",
         "alternative_names": "",
-        "url_name": "Grenada"
+        "url_name": "Grenada",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "gd",
+        "phone_code": "1473"
     }
 },
 {
@@ -626,7 +1184,12 @@
     "fields": {
         "name": "Guatemala",
         "alternative_names": "",
-        "url_name": "Guatemala"
+        "url_name": "Guatemala",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "gt",
+        "phone_code": "502"
     }
 },
 {
@@ -635,7 +1198,12 @@
     "fields": {
         "name": "Guinea",
         "alternative_names": "",
-        "url_name": "Guinea"
+        "url_name": "Guinea",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "gn",
+        "phone_code": "224"
     }
 },
 {
@@ -644,7 +1212,12 @@
     "fields": {
         "name": "Guinea-Bissau",
         "alternative_names": "",
-        "url_name": "Guinea_Bissau"
+        "url_name": "Guinea_Bissau",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "gw",
+        "phone_code": "245"
     }
 },
 {
@@ -653,7 +1226,12 @@
     "fields": {
         "name": "Guyana",
         "alternative_names": "",
-        "url_name": "Guyana"
+        "url_name": "Guyana",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "gy",
+        "phone_code": "592"
     }
 },
 {
@@ -662,7 +1240,12 @@
     "fields": {
         "name": "Haiti",
         "alternative_names": "",
-        "url_name": "Haiti"
+        "url_name": "Haiti",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "ht",
+        "phone_code": "509"
     }
 },
 {
@@ -671,7 +1254,12 @@
     "fields": {
         "name": "Holy See",
         "alternative_names": "",
-        "url_name": "Holy_See"
+        "url_name": "Holy_See",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "va",
+        "phone_code": "379"
     }
 },
 {
@@ -680,7 +1268,12 @@
     "fields": {
         "name": "Honduras",
         "alternative_names": "",
-        "url_name": "Honduras"
+        "url_name": "Honduras",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "hn",
+        "phone_code": "504"
     }
 },
 {
@@ -689,7 +1282,12 @@
     "fields": {
         "name": "Hungary",
         "alternative_names": "",
-        "url_name": "Hungary"
+        "url_name": "Hungary",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "hu",
+        "phone_code": "36"
     }
 },
 {
@@ -698,7 +1296,12 @@
     "fields": {
         "name": "Iceland",
         "alternative_names": "",
-        "url_name": "Iceland"
+        "url_name": "Iceland",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "is",
+        "phone_code": "354"
     }
 },
 {
@@ -707,7 +1310,12 @@
     "fields": {
         "name": "India",
         "alternative_names": "",
-        "url_name": "India"
+        "url_name": "India",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "in",
+        "phone_code": "91"
     }
 },
 {
@@ -716,7 +1324,12 @@
     "fields": {
         "name": "Indonesia",
         "alternative_names": "",
-        "url_name": "Indonesia"
+        "url_name": "Indonesia",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "id",
+        "phone_code": "62"
     }
 },
 {
@@ -725,7 +1338,12 @@
     "fields": {
         "name": "Iran",
         "alternative_names": "",
-        "url_name": "Iran"
+        "url_name": "Iran",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ir",
+        "phone_code": "98"
     }
 },
 {
@@ -734,7 +1352,12 @@
     "fields": {
         "name": "Iraq",
         "alternative_names": "",
-        "url_name": "Iraq"
+        "url_name": "Iraq",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "iq",
+        "phone_code": "964"
     }
 },
 {
@@ -743,7 +1366,12 @@
     "fields": {
         "name": "Ireland",
         "alternative_names": "",
-        "url_name": "Ireland"
+        "url_name": "Ireland",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ie",
+        "phone_code": "353"
     }
 },
 {
@@ -752,7 +1380,12 @@
     "fields": {
         "name": "Israel",
         "alternative_names": "",
-        "url_name": "Israel"
+        "url_name": "Israel",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "il",
+        "phone_code": "972"
     }
 },
 {
@@ -761,7 +1394,12 @@
     "fields": {
         "name": "Italy",
         "alternative_names": "",
-        "url_name": "Italy"
+        "url_name": "Italy",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "it",
+        "phone_code": "39"
     }
 },
 {
@@ -770,7 +1408,12 @@
     "fields": {
         "name": "Jamaica",
         "alternative_names": "",
-        "url_name": "Jamaica"
+        "url_name": "Jamaica",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "jm",
+        "phone_code": "1876"
     }
 },
 {
@@ -779,7 +1422,12 @@
     "fields": {
         "name": "Japan",
         "alternative_names": "",
-        "url_name": "Japan"
+        "url_name": "Japan",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "jp",
+        "phone_code": "81"
     }
 },
 {
@@ -788,7 +1436,12 @@
     "fields": {
         "name": "Jordan",
         "alternative_names": "",
-        "url_name": "Jordan"
+        "url_name": "Jordan",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "jo",
+        "phone_code": "962"
     }
 },
 {
@@ -797,7 +1450,12 @@
     "fields": {
         "name": "Kazakhstan",
         "alternative_names": "",
-        "url_name": "Kazakhstan"
+        "url_name": "Kazakhstan",
+        "subregion": 5,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kz",
+        "phone_code": "7"
     }
 },
 {
@@ -806,7 +1464,12 @@
     "fields": {
         "name": "Kenya",
         "alternative_names": "",
-        "url_name": "Kenya"
+        "url_name": "Kenya",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "ke",
+        "phone_code": "254"
     }
 },
 {
@@ -815,7 +1478,12 @@
     "fields": {
         "name": "Kiribati",
         "alternative_names": "",
-        "url_name": "Kiribati"
+        "url_name": "Kiribati",
+        "subregion": 16,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ki",
+        "phone_code": "686"
     }
 },
 {
@@ -824,7 +1492,12 @@
     "fields": {
         "name": "North Korea",
         "alternative_names": "",
-        "url_name": "North-Korea"
+        "url_name": "North-Korea",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kp",
+        "phone_code": "850"
     }
 },
 {
@@ -833,16 +1506,12 @@
     "fields": {
         "name": "South Korea",
         "alternative_names": "",
-        "url_name": "South-Korea"
-    }
-},
-{
-    "model": "crm.country",
-    "pk": 94,
-    "fields": {
-        "name": "Kosovo",
-        "alternative_names": "",
-        "url_name": "Kosovo"
+        "url_name": "South-Korea",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kr",
+        "phone_code": "82"
     }
 },
 {
@@ -851,7 +1520,12 @@
     "fields": {
         "name": "Kuwait",
         "alternative_names": "",
-        "url_name": "Kuwait"
+        "url_name": "Kuwait",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kw",
+        "phone_code": "965"
     }
 },
 {
@@ -860,7 +1534,12 @@
     "fields": {
         "name": "Kyrgyzstan",
         "alternative_names": "",
-        "url_name": "Kyrgyzstan"
+        "url_name": "Kyrgyzstan",
+        "subregion": 5,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "kg",
+        "phone_code": "996"
     }
 },
 {
@@ -868,8 +1547,13 @@
     "pk": 97,
     "fields": {
         "name": "Laos",
-        "alternative_names": "",
-        "url_name": "Laos"
+        "alternative_names": "Lao People's Democratic Republic",
+        "url_name": "Laos",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "la",
+        "phone_code": "856"
     }
 },
 {
@@ -878,7 +1562,12 @@
     "fields": {
         "name": "Latvia",
         "alternative_names": "",
-        "url_name": "Latvia"
+        "url_name": "Latvia",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "lv",
+        "phone_code": "371"
     }
 },
 {
@@ -887,7 +1576,12 @@
     "fields": {
         "name": "Lebanon",
         "alternative_names": "",
-        "url_name": "Lebanon"
+        "url_name": "Lebanon",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "lb",
+        "phone_code": "961"
     }
 },
 {
@@ -896,7 +1590,12 @@
     "fields": {
         "name": "Lesotho",
         "alternative_names": "",
-        "url_name": "Lesotho"
+        "url_name": "Lesotho",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "ls",
+        "phone_code": "266"
     }
 },
 {
@@ -905,7 +1604,12 @@
     "fields": {
         "name": "Liberia",
         "alternative_names": "",
-        "url_name": "Liberia"
+        "url_name": "Liberia",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "lr",
+        "phone_code": "231"
     }
 },
 {
@@ -914,7 +1618,12 @@
     "fields": {
         "name": "Libya",
         "alternative_names": "",
-        "url_name": "Libya"
+        "url_name": "Libya",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ly",
+        "phone_code": "21"
     }
 },
 {
@@ -923,7 +1632,12 @@
     "fields": {
         "name": "Liechtenstein",
         "alternative_names": "",
-        "url_name": "Liechtenstein"
+        "url_name": "Liechtenstein",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "li",
+        "phone_code": "41"
     }
 },
 {
@@ -932,7 +1646,12 @@
     "fields": {
         "name": "Lithuania",
         "alternative_names": "",
-        "url_name": "Lithuania"
+        "url_name": "Lithuania",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "lt",
+        "phone_code": "370"
     }
 },
 {
@@ -941,16 +1660,26 @@
     "fields": {
         "name": "Luxembourg",
         "alternative_names": "",
-        "url_name": "Luxembourg"
+        "url_name": "Luxembourg",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "lu",
+        "phone_code": "352"
     }
 },
 {
     "model": "crm.country",
     "pk": 106,
     "fields": {
-        "name": "North Macedonia",
-        "alternative_names": "Macedonia",
-        "url_name": "North-Macedonia"
+        "name": "Macedonia",
+        "alternative_names": "North Macedonia",
+        "url_name": "Macedonia",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mk",
+        "phone_code": "389"
     }
 },
 {
@@ -959,7 +1688,12 @@
     "fields": {
         "name": "Madagascar",
         "alternative_names": "",
-        "url_name": "Madagascar"
+        "url_name": "Madagascar",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "mg",
+        "phone_code": "261"
     }
 },
 {
@@ -968,7 +1702,12 @@
     "fields": {
         "name": "Malawi",
         "alternative_names": "",
-        "url_name": "Malawi"
+        "url_name": "Malawi",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "mw",
+        "phone_code": "265"
     }
 },
 {
@@ -977,7 +1716,12 @@
     "fields": {
         "name": "Malaysia",
         "alternative_names": "",
-        "url_name": "Malaysia"
+        "url_name": "Malaysia",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "my",
+        "phone_code": "60"
     }
 },
 {
@@ -986,7 +1730,12 @@
     "fields": {
         "name": "Maldives",
         "alternative_names": "",
-        "url_name": "Maldives"
+        "url_name": "Maldives",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mv",
+        "phone_code": "960"
     }
 },
 {
@@ -995,7 +1744,12 @@
     "fields": {
         "name": "Mali",
         "alternative_names": "",
-        "url_name": "Mali"
+        "url_name": "Mali",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "ml",
+        "phone_code": "223"
     }
 },
 {
@@ -1004,7 +1758,12 @@
     "fields": {
         "name": "Malta",
         "alternative_names": "",
-        "url_name": "Malta"
+        "url_name": "Malta",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mt",
+        "phone_code": "356"
     }
 },
 {
@@ -1013,7 +1772,12 @@
     "fields": {
         "name": "Marshall Islands",
         "alternative_names": "",
-        "url_name": "Marshall_Islands"
+        "url_name": "Marshall_Islands",
+        "subregion": 16,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mh",
+        "phone_code": "692"
     }
 },
 {
@@ -1022,7 +1786,12 @@
     "fields": {
         "name": "Mauritania",
         "alternative_names": "",
-        "url_name": "Mauritania"
+        "url_name": "Mauritania",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "mr",
+        "phone_code": "222"
     }
 },
 {
@@ -1031,7 +1800,12 @@
     "fields": {
         "name": "Mauritius",
         "alternative_names": "",
-        "url_name": "Mauritius"
+        "url_name": "Mauritius",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "mu",
+        "phone_code": "230"
     }
 },
 {
@@ -1040,7 +1814,12 @@
     "fields": {
         "name": "Mexico",
         "alternative_names": "",
-        "url_name": "Mexico"
+        "url_name": "Mexico",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "mx",
+        "phone_code": "52"
     }
 },
 {
@@ -1049,7 +1828,12 @@
     "fields": {
         "name": "Micronesia",
         "alternative_names": "",
-        "url_name": "Micronesia"
+        "url_name": "Micronesia",
+        "subregion": 16,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "fm",
+        "phone_code": "691"
     }
 },
 {
@@ -1057,8 +1841,13 @@
     "pk": 118,
     "fields": {
         "name": "Moldova",
-        "alternative_names": "",
-        "url_name": "Moldova"
+        "alternative_names": "Republic of Moldova",
+        "url_name": "Moldova",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "md",
+        "phone_code": "373"
     }
 },
 {
@@ -1067,7 +1856,12 @@
     "fields": {
         "name": "Monaco",
         "alternative_names": "",
-        "url_name": "Monaco"
+        "url_name": "Monaco",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mc",
+        "phone_code": "377"
     }
 },
 {
@@ -1076,7 +1870,12 @@
     "fields": {
         "name": "Mongolia",
         "alternative_names": "",
-        "url_name": "Mongolia"
+        "url_name": "Mongolia",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "mn",
+        "phone_code": "976"
     }
 },
 {
@@ -1085,7 +1884,12 @@
     "fields": {
         "name": "Montenegro",
         "alternative_names": "",
-        "url_name": "Montenegro"
+        "url_name": "Montenegro",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "me",
+        "phone_code": "382"
     }
 },
 {
@@ -1094,7 +1898,12 @@
     "fields": {
         "name": "Morocco",
         "alternative_names": "",
-        "url_name": "Morocco"
+        "url_name": "Morocco",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ma",
+        "phone_code": "212"
     }
 },
 {
@@ -1103,7 +1912,12 @@
     "fields": {
         "name": "Mozambique",
         "alternative_names": "",
-        "url_name": "Mozambique"
+        "url_name": "Mozambique",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "mz",
+        "phone_code": "258"
     }
 },
 {
@@ -1112,7 +1926,12 @@
     "fields": {
         "name": "Namibia",
         "alternative_names": "",
-        "url_name": "Namibia"
+        "url_name": "Namibia",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "na",
+        "phone_code": "264"
     }
 },
 {
@@ -1121,7 +1940,12 @@
     "fields": {
         "name": "Nauru",
         "alternative_names": "",
-        "url_name": "Nauru"
+        "url_name": "Nauru",
+        "subregion": 16,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "nr",
+        "phone_code": "674"
     }
 },
 {
@@ -1130,7 +1954,12 @@
     "fields": {
         "name": "Nepal",
         "alternative_names": "",
-        "url_name": "Nepal"
+        "url_name": "Nepal",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "np",
+        "phone_code": "977"
     }
 },
 {
@@ -1139,7 +1968,12 @@
     "fields": {
         "name": "Netherlands",
         "alternative_names": "",
-        "url_name": "Netherlands"
+        "url_name": "Netherlands",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "nl",
+        "phone_code": "31"
     }
 },
 {
@@ -1148,7 +1982,12 @@
     "fields": {
         "name": "New Zealand",
         "alternative_names": "",
-        "url_name": "New_Zealand"
+        "url_name": "New_Zealand",
+        "subregion": 14,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "nz",
+        "phone_code": "64"
     }
 },
 {
@@ -1157,7 +1996,12 @@
     "fields": {
         "name": "Nicaragua",
         "alternative_names": "",
-        "url_name": "Nicaragua"
+        "url_name": "Nicaragua",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "ni",
+        "phone_code": "505"
     }
 },
 {
@@ -1166,7 +2010,12 @@
     "fields": {
         "name": "Niger",
         "alternative_names": "",
-        "url_name": "Niger"
+        "url_name": "Niger",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "ne",
+        "phone_code": "234"
     }
 },
 {
@@ -1175,7 +2024,12 @@
     "fields": {
         "name": "Nigeria",
         "alternative_names": "",
-        "url_name": "Nigeria"
+        "url_name": "Nigeria",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "ng",
+        "phone_code": "234"
     }
 },
 {
@@ -1184,7 +2038,12 @@
     "fields": {
         "name": "Norway",
         "alternative_names": "",
-        "url_name": "Norway"
+        "url_name": "Norway",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "no",
+        "phone_code": "47"
     }
 },
 {
@@ -1193,7 +2052,12 @@
     "fields": {
         "name": "Oman",
         "alternative_names": "",
-        "url_name": "Oman"
+        "url_name": "Oman",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "om",
+        "phone_code": "968"
     }
 },
 {
@@ -1202,7 +2066,12 @@
     "fields": {
         "name": "Pakistan",
         "alternative_names": "",
-        "url_name": "Pakistan"
+        "url_name": "Pakistan",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "pk",
+        "phone_code": "92"
     }
 },
 {
@@ -1211,7 +2080,12 @@
     "fields": {
         "name": "Palau",
         "alternative_names": "",
-        "url_name": "Palau"
+        "url_name": "Palau",
+        "subregion": 16,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "pw",
+        "phone_code": "680"
     }
 },
 {
@@ -1219,8 +2093,13 @@
     "pk": 136,
     "fields": {
         "name": "Palestine",
-        "alternative_names": "",
-        "url_name": "Palestine"
+        "alternative_names": "State of Palestine",
+        "url_name": "Palestine",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ps",
+        "phone_code": "970"
     }
 },
 {
@@ -1229,7 +2108,12 @@
     "fields": {
         "name": "Panama",
         "alternative_names": "",
-        "url_name": "Panama"
+        "url_name": "Panama",
+        "subregion": 3,
+        "intermediary_region": 2,
+        "owner": null,
+        "iso_code": "pa",
+        "phone_code": "507"
     }
 },
 {
@@ -1238,7 +2122,12 @@
     "fields": {
         "name": "Papua New Guinea",
         "alternative_names": "",
-        "url_name": "Papua_New_Guinea"
+        "url_name": "Papua_New_Guinea",
+        "subregion": 15,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "pg",
+        "phone_code": "675"
     }
 },
 {
@@ -1247,7 +2136,12 @@
     "fields": {
         "name": "Paraguay",
         "alternative_names": "",
-        "url_name": "Paraguay"
+        "url_name": "Paraguay",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "py",
+        "phone_code": "595"
     }
 },
 {
@@ -1256,7 +2150,12 @@
     "fields": {
         "name": "Peru",
         "alternative_names": "",
-        "url_name": "Peru"
+        "url_name": "Peru",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "pe",
+        "phone_code": "51"
     }
 },
 {
@@ -1265,7 +2164,12 @@
     "fields": {
         "name": "Philippines",
         "alternative_names": "",
-        "url_name": "Philippines"
+        "url_name": "Philippines",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ph",
+        "phone_code": "63"
     }
 },
 {
@@ -1274,7 +2178,12 @@
     "fields": {
         "name": "Poland",
         "alternative_names": "",
-        "url_name": "Poland"
+        "url_name": "Poland",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "pl",
+        "phone_code": "48"
     }
 },
 {
@@ -1283,7 +2192,12 @@
     "fields": {
         "name": "Portugal",
         "alternative_names": "",
-        "url_name": "Portugal"
+        "url_name": "Portugal",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "pt",
+        "phone_code": "351"
     }
 },
 {
@@ -1292,7 +2206,12 @@
     "fields": {
         "name": "Qatar",
         "alternative_names": "",
-        "url_name": "Qatar"
+        "url_name": "Qatar",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "qa",
+        "phone_code": "974"
     }
 },
 {
@@ -1301,7 +2220,12 @@
     "fields": {
         "name": "Romania",
         "alternative_names": "",
-        "url_name": "Romania"
+        "url_name": "Romania",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ro",
+        "phone_code": "40"
     }
 },
 {
@@ -1309,8 +2233,13 @@
     "pk": 146,
     "fields": {
         "name": "Russia",
-        "alternative_names": "",
-        "url_name": "Russia"
+        "alternative_names": "Russian Federation",
+        "url_name": "Russia",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ru",
+        "phone_code": "7"
     }
 },
 {
@@ -1319,16 +2248,12 @@
     "fields": {
         "name": "Rwanda",
         "alternative_names": "",
-        "url_name": "Rwanda"
-    }
-},
-{
-    "model": "crm.country",
-    "pk": 148,
-    "fields": {
-        "name": "Saint Kitts and Nevis",
-        "alternative_names": "",
-        "url_name": "Saint_Kitts_and_Nevis"
+        "url_name": "Rwanda",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "rw",
+        "phone_code": "250"
     }
 },
 {
@@ -1337,7 +2262,12 @@
     "fields": {
         "name": "Saint Lucia",
         "alternative_names": "",
-        "url_name": "Saint_Lucia"
+        "url_name": "Saint_Lucia",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "lc",
+        "phone_code": "1758"
     }
 },
 {
@@ -1346,7 +2276,12 @@
     "fields": {
         "name": "Saint Vincent and the Grenadines",
         "alternative_names": "",
-        "url_name": "Saint_Vincent"
+        "url_name": "Saint_Vincent",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "vc",
+        "phone_code": "1784"
     }
 },
 {
@@ -1355,7 +2290,12 @@
     "fields": {
         "name": "Samoa",
         "alternative_names": "",
-        "url_name": "Samoa"
+        "url_name": "Samoa",
+        "subregion": 17,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "as",
+        "phone_code": "685"
     }
 },
 {
@@ -1364,7 +2304,12 @@
     "fields": {
         "name": "San Marino",
         "alternative_names": "",
-        "url_name": "San_Marino"
+        "url_name": "San_Marino",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sm",
+        "phone_code": "39"
     }
 },
 {
@@ -1373,7 +2318,12 @@
     "fields": {
         "name": "Sao Tome and Principe",
         "alternative_names": "",
-        "url_name": "Sao_Tome_and_Principe"
+        "url_name": "Sao_Tome_and_Principe",
+        "subregion": 2,
+        "intermediary_region": 5,
+        "owner": null,
+        "iso_code": "st",
+        "phone_code": "239"
     }
 },
 {
@@ -1382,7 +2332,12 @@
     "fields": {
         "name": "Saudi Arabia",
         "alternative_names": "",
-        "url_name": "Saudi_Arabia"
+        "url_name": "Saudi_Arabia",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sa",
+        "phone_code": "966"
     }
 },
 {
@@ -1391,7 +2346,12 @@
     "fields": {
         "name": "Senegal",
         "alternative_names": "",
-        "url_name": "Senegal"
+        "url_name": "Senegal",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "sn",
+        "phone_code": "221"
     }
 },
 {
@@ -1400,7 +2360,12 @@
     "fields": {
         "name": "Serbia",
         "alternative_names": "",
-        "url_name": "Serbia"
+        "url_name": "Serbia",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "rs",
+        "phone_code": "381"
     }
 },
 {
@@ -1409,7 +2374,12 @@
     "fields": {
         "name": "Seychelles",
         "alternative_names": "",
-        "url_name": "Seychelles"
+        "url_name": "Seychelles",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "se",
+        "phone_code": "248"
     }
 },
 {
@@ -1418,7 +2388,12 @@
     "fields": {
         "name": "Sierra Leone",
         "alternative_names": "",
-        "url_name": "Sierra_Leone"
+        "url_name": "Sierra_Leone",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "sl",
+        "phone_code": "232"
     }
 },
 {
@@ -1427,7 +2402,12 @@
     "fields": {
         "name": "Singapore",
         "alternative_names": "",
-        "url_name": "Singapore"
+        "url_name": "Singapore",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sg",
+        "phone_code": "65"
     }
 },
 {
@@ -1436,7 +2416,12 @@
     "fields": {
         "name": "Slovakia",
         "alternative_names": "",
-        "url_name": "Slovakia"
+        "url_name": "Slovakia",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sk",
+        "phone_code": "421"
     }
 },
 {
@@ -1445,7 +2430,12 @@
     "fields": {
         "name": "Slovenia",
         "alternative_names": "",
-        "url_name": "Slovenia"
+        "url_name": "Slovenia",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "si",
+        "phone_code": "386"
     }
 },
 {
@@ -1454,7 +2444,12 @@
     "fields": {
         "name": "Solomon Islands",
         "alternative_names": "",
-        "url_name": "Solomon_Islands"
+        "url_name": "Solomon_Islands",
+        "subregion": 15,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sb",
+        "phone_code": "677"
     }
 },
 {
@@ -1463,7 +2458,12 @@
     "fields": {
         "name": "Somalia",
         "alternative_names": "",
-        "url_name": "Somalia"
+        "url_name": "Somalia",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "so",
+        "phone_code": "252"
     }
 },
 {
@@ -1472,7 +2472,12 @@
     "fields": {
         "name": "South Africa",
         "alternative_names": "",
-        "url_name": "South_Africa"
+        "url_name": "South_Africa",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "za",
+        "phone_code": "27"
     }
 },
 {
@@ -1481,7 +2486,12 @@
     "fields": {
         "name": "South Sudan",
         "alternative_names": "",
-        "url_name": "South_Sudan"
+        "url_name": "South_Sudan",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "ss",
+        "phone_code": "211"
     }
 },
 {
@@ -1490,7 +2500,12 @@
     "fields": {
         "name": "Spain",
         "alternative_names": "",
-        "url_name": "Spain"
+        "url_name": "Spain",
+        "subregion": 12,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "es",
+        "phone_code": "34"
     }
 },
 {
@@ -1499,7 +2514,12 @@
     "fields": {
         "name": "Sri Lanka",
         "alternative_names": "",
-        "url_name": "Sri_Lanka"
+        "url_name": "Sri_Lanka",
+        "subregion": 8,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "lk",
+        "phone_code": "94"
     }
 },
 {
@@ -1508,7 +2528,12 @@
     "fields": {
         "name": "Sudan",
         "alternative_names": "",
-        "url_name": "Sudan"
+        "url_name": "Sudan",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sd",
+        "phone_code": "249"
     }
 },
 {
@@ -1517,16 +2542,26 @@
     "fields": {
         "name": "Suriname",
         "alternative_names": "",
-        "url_name": "Suriname"
+        "url_name": "Suriname",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "sr",
+        "phone_code": "597"
     }
 },
 {
     "model": "crm.country",
     "pk": 170,
     "fields": {
-        "name": "Swaziland",
-        "alternative_names": "",
-        "url_name": "Swaziland"
+        "name": "Eswatini",
+        "alternative_names": "Swaziland",
+        "url_name": "Eswatini",
+        "subregion": 2,
+        "intermediary_region": 6,
+        "owner": null,
+        "iso_code": "sz",
+        "phone_code": "268"
     }
 },
 {
@@ -1535,7 +2570,12 @@
     "fields": {
         "name": "Sweden",
         "alternative_names": "",
-        "url_name": "Sweden"
+        "url_name": "Sweden",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "se",
+        "phone_code": "46"
     }
 },
 {
@@ -1544,7 +2584,12 @@
     "fields": {
         "name": "Switzerland",
         "alternative_names": "",
-        "url_name": "Switzerland"
+        "url_name": "Switzerland",
+        "subregion": 13,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ch",
+        "phone_code": "41"
     }
 },
 {
@@ -1552,8 +2597,13 @@
     "pk": 173,
     "fields": {
         "name": "Syria",
-        "alternative_names": "",
-        "url_name": "Syria"
+        "alternative_names": "Syrian Arab Republic",
+        "url_name": "Syria",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "sy",
+        "phone_code": "963"
     }
 },
 {
@@ -1562,7 +2612,12 @@
     "fields": {
         "name": "Taiwan",
         "alternative_names": "",
-        "url_name": "Taiwan"
+        "url_name": "Taiwan",
+        "subregion": 6,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tw",
+        "phone_code": "886"
     }
 },
 {
@@ -1571,7 +2626,12 @@
     "fields": {
         "name": "Tajikistan",
         "alternative_names": "",
-        "url_name": "Tajikistan"
+        "url_name": "Tajikistan",
+        "subregion": 5,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tj",
+        "phone_code": "992"
     }
 },
 {
@@ -1579,8 +2639,13 @@
     "pk": 176,
     "fields": {
         "name": "Tanzania",
-        "alternative_names": "",
-        "url_name": "Tanzania"
+        "alternative_names": "United Republic of Tanzania",
+        "url_name": "Tanzania",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "tz",
+        "phone_code": "255"
     }
 },
 {
@@ -1589,7 +2654,12 @@
     "fields": {
         "name": "Thailand",
         "alternative_names": "",
-        "url_name": "Thailand"
+        "url_name": "Thailand",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "th",
+        "phone_code": "66"
     }
 },
 {
@@ -1598,7 +2668,12 @@
     "fields": {
         "name": "Timor-Leste",
         "alternative_names": "",
-        "url_name": "Timor_Leste"
+        "url_name": "Timor_Leste",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tl",
+        "phone_code": "670"
     }
 },
 {
@@ -1607,7 +2682,12 @@
     "fields": {
         "name": "Togo",
         "alternative_names": "",
-        "url_name": "Togo"
+        "url_name": "Togo",
+        "subregion": 2,
+        "intermediary_region": 7,
+        "owner": null,
+        "iso_code": "tg",
+        "phone_code": "228"
     }
 },
 {
@@ -1616,7 +2696,12 @@
     "fields": {
         "name": "Tonga",
         "alternative_names": "",
-        "url_name": "Tonga"
+        "url_name": "Tonga",
+        "subregion": 17,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "to",
+        "phone_code": "1868"
     }
 },
 {
@@ -1625,7 +2710,12 @@
     "fields": {
         "name": "Trinidad and Tobago",
         "alternative_names": "",
-        "url_name": "Trinidad_and_Tobago"
+        "url_name": "Trinidad_and_Tobago",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "tt",
+        "phone_code": "1-86"
     }
 },
 {
@@ -1634,7 +2724,12 @@
     "fields": {
         "name": "Tunisia",
         "alternative_names": "",
-        "url_name": "Tunisia"
+        "url_name": "Tunisia",
+        "subregion": 1,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tn",
+        "phone_code": "21"
     }
 },
 {
@@ -1643,7 +2738,12 @@
     "fields": {
         "name": "Turkiye",
         "alternative_names": "Turkey",
-        "url_name": "Turkiye"
+        "url_name": "Turkiye",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tr",
+        "phone_code": "90"
     }
 },
 {
@@ -1652,7 +2752,12 @@
     "fields": {
         "name": "Turkmenistan",
         "alternative_names": "",
-        "url_name": "Turkmenistan"
+        "url_name": "Turkmenistan",
+        "subregion": 5,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tm",
+        "phone_code": "993"
     }
 },
 {
@@ -1661,7 +2766,12 @@
     "fields": {
         "name": "Tuvalu",
         "alternative_names": "",
-        "url_name": "Tuvalu"
+        "url_name": "Tuvalu",
+        "subregion": 17,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "tv",
+        "phone_code": "688"
     }
 },
 {
@@ -1670,7 +2780,12 @@
     "fields": {
         "name": "Uganda",
         "alternative_names": "",
-        "url_name": "Uganda"
+        "url_name": "Uganda",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "ug",
+        "phone_code": "256"
     }
 },
 {
@@ -1679,7 +2794,12 @@
     "fields": {
         "name": "Ukraine",
         "alternative_names": "",
-        "url_name": "Ukraine"
+        "url_name": "Ukraine",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ua",
+        "phone_code": "380"
     }
 },
 {
@@ -1688,7 +2808,12 @@
     "fields": {
         "name": "United Arab Emirates",
         "alternative_names": "",
-        "url_name": "United_Arab_Emirates"
+        "url_name": "United_Arab_Emirates",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ae",
+        "phone_code": "971"
     }
 },
 {
@@ -1697,7 +2822,12 @@
     "fields": {
         "name": "United Kingdom",
         "alternative_names": "",
-        "url_name": "United_Kingdom"
+        "url_name": "United_Kingdom",
+        "subregion": 11,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "gb",
+        "phone_code": "44"
     }
 },
 {
@@ -1705,8 +2835,13 @@
     "pk": 190,
     "fields": {
         "name": "United States",
-        "alternative_names": "",
-        "url_name": "United_States"
+        "alternative_names": "United States of America",
+        "url_name": "United_States",
+        "subregion": 4,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "us",
+        "phone_code": "1"
     }
 },
 {
@@ -1715,7 +2850,12 @@
     "fields": {
         "name": "Uruguay",
         "alternative_names": "",
-        "url_name": "Uruguay"
+        "url_name": "Uruguay",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "uy",
+        "phone_code": "598"
     }
 },
 {
@@ -1724,7 +2864,12 @@
     "fields": {
         "name": "Uzbekistan",
         "alternative_names": "",
-        "url_name": "Uzbekistan"
+        "url_name": "Uzbekistan",
+        "subregion": 5,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "uz",
+        "phone_code": "998"
     }
 },
 {
@@ -1733,7 +2878,12 @@
     "fields": {
         "name": "Vanuatu",
         "alternative_names": "",
-        "url_name": "Vanuatu"
+        "url_name": "Vanuatu",
+        "subregion": 15,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "vu",
+        "phone_code": "678"
     }
 },
 {
@@ -1742,16 +2892,26 @@
     "fields": {
         "name": "Venezuela",
         "alternative_names": "",
-        "url_name": "Venezuela"
+        "url_name": "Venezuela",
+        "subregion": 3,
+        "intermediary_region": 3,
+        "owner": null,
+        "iso_code": "ve",
+        "phone_code": "58"
     }
 },
 {
     "model": "crm.country",
     "pk": 195,
     "fields": {
-        "name": "Vietnam",
-        "alternative_names": "",
-        "url_name": "Vietnam"
+        "name": "Viet Nam",
+        "alternative_names": "Vietnam",
+        "url_name": "Vietnam",
+        "subregion": 7,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "vn",
+        "phone_code": "84"
     }
 },
 {
@@ -1760,7 +2920,12 @@
     "fields": {
         "name": "Yemen",
         "alternative_names": "",
-        "url_name": "Yemen"
+        "url_name": "Yemen",
+        "subregion": 9,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "ye",
+        "phone_code": "967"
     }
 },
 {
@@ -1769,7 +2934,12 @@
     "fields": {
         "name": "Zambia",
         "alternative_names": "",
-        "url_name": "Zambia"
+        "url_name": "Zambia",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "zm",
+        "phone_code": "260"
     }
 },
 {
@@ -1778,7 +2948,12 @@
     "fields": {
         "name": "Zimbabwe",
         "alternative_names": "",
-        "url_name": "Zimbabwe"
+        "url_name": "Zimbabwe",
+        "subregion": 2,
+        "intermediary_region": 4,
+        "owner": null,
+        "iso_code": "zw",
+        "phone_code": "263"
     }
 },
 {
@@ -1787,7 +2962,12 @@
     "fields": {
         "name": "Puerto Rico",
         "alternative_names": "",
-        "url_name": "Puerto_Rico"
+        "url_name": "Puerto_Rico",
+        "subregion": 3,
+        "intermediary_region": 1,
+        "owner": null,
+        "iso_code": "pr",
+        "phone_code": "1787"
     }
 },
 {
@@ -1796,16 +2976,12 @@
     "fields": {
         "name": "(not set)",
         "alternative_names": "",
-        "url_name": "not_set"
-    }
-},
-{
-    "model": "crm.country",
-    "pk": 201,
-    "fields": {
-        "name": "Cape Verde",
-        "alternative_names": "",
-        "url_name": "Cape_Verde"
+        "url_name": "not_set",
+        "subregion": 10,
+        "intermediary_region": null,
+        "owner": null,
+        "iso_code": "xx",
+        "phone_code": "00"
     }
 }
 ]

@@ -15,6 +15,9 @@ from crm.models import Company
 from crm.models import City
 from crm.models import Contact
 from crm.models import ClientType
+from crm.models import ContinentalRegion
+from crm.models import SubRegion
+from crm.models import IntermediaryRegion
 from crm.models import Country
 from crm.models import CrmEmail
 from crm.models import Currency
@@ -42,6 +45,7 @@ from crm.site import requestadmin
 from crm.site import productadmin
 from crm.site import tagadmin
 from crm.site import cityadmin
+from crm.site.countryadmin import CountryAdmin
 from crm.site.crmstackedinline import CrmStackedInline
 from crm.site.currencyadmin import CurrencyAdmin
 from crm.site.paymentadmin import PaymentAdmin
@@ -250,9 +254,18 @@ class ContactAdmin(contactadmin.ContactAdmin):
         )
 
 
-class CountryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
+class ContinentalRegionAdmin(admin.ModelAdmin):
+    pass
+
+
+class SubRegionAdmin(admin.ModelAdmin):
+    list_display = ('name', "continental_region")
+    ordering = ["continental_region", 'name']
+
+
+class IntermediaryRegionAdmin(admin.ModelAdmin):
+    list_display = ('name', "subregion")
+    ordering = ["subregion", 'name']
 
 
 class LeadAdmin(leadadmin.LeadAdmin):
@@ -542,12 +555,14 @@ class RateAdmin(admin.ModelAdmin):
 admin.site.register(City, cityadmin.CityAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(ClientType, ClientTypeAdmin)
+admin.site.register(ContinentalRegion, ContinentalRegionAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(CrmEmail, CrmEmailAdmin)
 admin.site.register(Currency, CurrencyAdmin)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Industry, IndustryAdmin)
+admin.site.register(IntermediaryRegion, IntermediaryRegionAdmin)
 admin.site.register(Lead, LeadAdmin)
 admin.site.register(LeadSource, LeadSourceAdmin)
 admin.site.register(Payment, PaymentAdmin)
@@ -558,11 +573,13 @@ admin.site.register(Rate, RateAdmin)
 admin.site.register(Request, RequestAdmin)
 admin.site.register(Shipment, ShipmentAdmin)
 admin.site.register(Stage, StageAdmin)
+admin.site.register(SubRegion, SubRegionAdmin)
 admin.site.register(Tag, tagadmin.TagAdmin)
 
 crm_site.register(City, cityadmin.CityAdmin)
 crm_site.register(Company, companyadmin.CompanyAdmin)
 crm_site.register(Contact, contactadmin.ContactAdmin)
+crm_site.register(Country, CountryAdmin)
 crm_site.register(CrmEmail, crmemailadmin.CrmEmailAdmin)
 crm_site.register(Currency, CurrencyAdmin)
 crm_site.register(Deal, dealadmin.DealAdmin)

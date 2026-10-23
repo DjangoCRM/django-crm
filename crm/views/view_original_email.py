@@ -14,6 +14,7 @@ from django.http import HttpResponse
 
 from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from crm.models import CrmEmail
+from crm.site.crmadminsite import crm_site
 from crm.utils.crm_imap import CrmIMAP
 from crm.utils.helpers import ensure_decoding
 from crm.utils.helpers import get_crmimap
@@ -24,22 +25,25 @@ not_enough_data_str = _("Not enough data to identify the "
 something_wrong_str = _("Something went wrong")
 
 
-def view_original_email(request: WSGIRequest, object_id=None, ea_id=None, uid=None):  
-    ea, eml, uid, err = get_ea_eml_uid(object_id, ea_id, uid)
+def view_original_email(request: WSGIRequest, object_id=None, ea_id=None, uid=None):
+    ea, eml, uid, err = _get_ea_eml_uid(request, object_id, ea_id, uid)
     if not err:
         box = 'INBOX' if ea_id or eml.incoming else 'Sent'
         crmimap = get_crmimap(ea, box)
         err = something_wrong_str
         if crmimap:
-            result, data, err = crmimap.uid_fetch(str(uid).encode('utf8'), '(BODY[])')
+            result, data, err = crmimap.uid_fetch(
+                str(uid).encode('utf8'), '(BODY[])')
             if result != 'OK' and not err or not data[0]:
                 err = not_enough_data_str
             elif result == 'OK' and not err:
                 b_msg = parse_message_bytes(uid, data)
                 if b_msg:
-                    msg = email.message_from_bytes(b_msg, policy=policy.default)
+                    msg = email.message_from_bytes(
+                        b_msg, policy=policy.default)
                     if object_id and eml.message_id != '':
-                        err = update_eml_uid(eml, msg, crmimap)     # run crmimap.release()
+                        # run crmimap.release()
+                        err = update_eml_uid(eml, msg, crmimap)
                     else:
                         crmimap.release()
                     if not err:
@@ -48,7 +52,7 @@ def view_original_email(request: WSGIRequest, object_id=None, ea_id=None, uid=No
                             return render(request, 'crm/email.html', context)
                 err = something_wrong_str
             crmimap.release()
-    return HttpResponse(f"Error: {err}")    
+    return HttpResponse(f"Error: {err}")
 
 
 def get_context(msg: Message):
@@ -76,16 +80,19 @@ def get_context(msg: Message):
                     for part in richest.iter_attachments():
                         filename = part.get_filename()
                         if filename:
-                            extension = os.path.splitext(part.get_filename())[1]
+                            extension = os.path.splitext(
+                                part.get_filename())[1]
                         else:
-                            extension = mimetypes.guess_extension(part.get_content_type())
+                            extension = mimetypes.guess_extension(
+                                part.get_content_type())
                         encoding = part.get('Content-Transfer-Encoding')
                         src = f"cid:{part.get('Content-ID').strip('<, >')}"
                         if part.get('Content-ID'):
                             if encoding == 'base64':
                                 payload = part.get_payload()
                             else:
-                                payload = b64encode(part.get_payload(decode=True)).decode()
+                                payload = b64encode(
+                                    part.get_payload(decode=True)).decode()
                             new_src = f'data:{filename}/{extension};base64,{payload}'
                             body = body.replace(src, new_src)
         context['from_field'] = msg['From']
@@ -100,34 +107,52 @@ def get_context(msg: Message):
     return context, err
 
 
-def get_ea_eml_uid(object_id: int, ea_id, uid: Optional[int]) -> tuple:
+def _get_ea_eml_uid(request: WSGIRequest, object_id: int, ea_id, uid: Optional[int]) -> tuple:
     ea = eml = err = None
     if object_id:   # crmemail.id
-        eml = CrmEmail.objects.get(id=object_id)
+        eml_admin = crm_site._registry[CrmEmail]
+        eml = eml_admin.get_queryset(request).filter(id=object_id).first()
+        if not eml or not eml_admin.has_view_permission(request, eml):
+            err = OBJ_DOESNT_EXIT_STR.format(
+                CrmEmail._meta.verbose_name, object_id
+            )
+            return None, None, uid, err
         uid = eml.uid
-        ea = EmailAccount.objects.filter(email_host_user=eml.email_host_user).first()
+        ea = EmailAccount.objects.filter(
+            email_host_user=eml.email_host_user).first()
     elif ea_id:
         ea = EmailAccount.objects.get(id=ea_id)
+    if ea:
+        ea_admin = crm_site._registry[EmailAccount]
+        if not (
+                ea_admin.get_queryset(request).filter(id=ea.id).exists()
+                and ea_admin.has_view_permission(request, ea)
+        ):
+            err = OBJ_DOESNT_EXIT_STR.format(
+                EmailAccount._meta.verbose_name, ea.id
+            )
+            return None, eml, uid, err
     if not ea:
         err = OBJ_DOESNT_EXIT_STR.format(
             EmailAccount._meta.verbose_name, ea_id  # NOQA
         )
     return ea, eml, uid, err
-        
-        
+
+
 def parse_message_bytes(uid: int, data: list) -> Optional[bytes]:
     tmpl = f"UID {uid}".encode('utf8')
     return next((
         x[1] for x in data
         if type(x) is tuple and tmpl in x[0] and b"BODY[]" in x[0]
-    ), None)    
+    ), None)
 
 
 def update_eml_uid(eml: CrmEmail, msg: Message, crmimap: CrmIMAP) -> str:
     """Update the uid value of the email message. Run crmimap.release()"""
     err = ''
     if eml.message_id != msg['Message-ID']:
-        result, data, err = crmimap.search(f'(HEADER Message-ID "{eml.message_id}")')
+        result, data, err = crmimap.search(
+            f'(HEADER Message-ID "{eml.message_id}")')
         crmimap.release()
         if result == 'OK':
             uids = data[0].split()

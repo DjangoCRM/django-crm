@@ -8,14 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
-## Unreleased
+## [3.1.0] - 2026-10-17
 
 ### Added
 
 - The discount type and value fields to Deal model and update related logic
+- Added support for different favicons for the CRM and Admin sites
+- Enhance CRM functionality regarding countries
+  - Added country regions: Continental, Sub and Intermediary
+  - Added country codes:ISO 3166-1 alpha-2 code, Phone code
+  - Added country flags to the country model and display them in the CRM interface
+  - Added the ability to assign a user
+- The 'no_reply_needed' field has been added to the CrmEmail model
 - Add success message with company link after Lead conversion by @riddhikale
 - Check view permissions in the print views by @choksi2212
 - Show the company logo, if it has one, in the Contact info section of the deal page by @vaibhav8a
+- Add "Show counts" to the commercial requests list by @IdiotCoffee
 
 ### Fixed
 
@@ -27,6 +35,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Refactor pending status logic in RequestAdmin and extract to helper function
 - Update discount type terminology from 'Fixed Price' to 'Fixed Value' in Deal model and related documentation
+- To avoid the limitation on the length of the "Request-URI" when performing the "Change owner of selected Companies" action
+  on a large set of companies, the method for transmitting selected company IDs has been changed by @mmaxjr
+
+#### Full Changelog: [v3.0.2...v3.1.0](https://github.com/DjangoCRM/django-crm/compare/v3.0.2...v3.1.0)
 
 ## [3.0.2] - 2026-09-26
 
