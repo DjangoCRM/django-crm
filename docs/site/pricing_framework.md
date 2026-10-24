@@ -1,7 +1,9 @@
-# Pricing framework
+# Product pricing
 
-The pricing framework, (new in v3.0), lets you define product price lists and calculate deal item amounts automatically.
-The calculation uses the product's price tier, the deal currency, the quantity, and any additional discount applied to the deal item.
+Product price tiers are generated from price rules configured for each sales
+department (new in v3.0). These tiers are used in deals to calculate item amounts
+automatically. The calculation uses the product's price tier, the deal
+currency, the quantity, and any additional discount applied to the deal item.
 The price is converted to the deal currency when the amount is calculated.
 
 You can export price lists for all products or selected products to an Excel workbook.
@@ -13,10 +15,10 @@ Django CRM supports multiple sales departments.
 Each department can maintain its own products and services, and products can be assigned to categories.
 First, [add product categories and products](adding_products_and_services.md), and assign each product to the appropriate department and category.
 
-## Configure price rules
+## Configure department price rules
 
-Create price rules for each sales department.
-Set the department's default currency, then add a rule for each price tier.
+Create price rules in each sales department's settings.
+Set the department's default currency and define a rule for each price tier.
 Each department must have one base tier. Its price type is **Fixed Price**.
 The other tiers are calculated from the base tier, and all non-base rules in a department must use the same price type.
 
@@ -32,9 +34,13 @@ For example, configure these department rules:
 The available price types are **Fixed Price**, **Discount percentage**, and **Markup percentage**.
 For discount and markup rules, enter the percentage relative to the base price.
 
-If products in a category need different pricing rules, add rules to that category.
-Category rules take precedence over the department's rules for products in that category.
-Configure department-level rules first; category rules use the department's price tiers.
+## Configure category price rules
+
+After creating the department price rules, you can add **Price Rules** as inline
+items when editing a product category. Category rules can adjust the price
+tiers for products in that category and take precedence over the department's
+rules. The category rule tier choices are limited to tiers already configured
+for the category's department.
 
 ## Add price tiers to products
 
