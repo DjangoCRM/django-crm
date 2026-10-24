@@ -23,13 +23,21 @@ Newly created requests receive the status "pending" (pending processing).
 When a request is created, it is assigned a unique ticket.  
 This ticket is subsequently assigned to the deal and all emails.
 
-When processing a request, it is important to check that the contact details are correct and complete. It is necessary to request missing data from the client.  
-When creating a request, as well as each time you save its changes, CRM performs a comparison of all contact details specified in the request with the data accumulated in the database. This is done to link the request to the company and contact person or lead already created in the database. The result will be reflected in the "Relations" section.
-You can set the links by yourself. To do this, you should press the magnifying glass <span style="vertical-align: baseline"><img src="../icons/magnifying-glass.svg" alt="Magnifying glass icon" width="17" height="17"></span> icon near the corresponding field and select an object from the list that appears. Or you can specify the ID of this object.
+When processing a request, it is important to check that the contact details are correct and complete.
+It is necessary to request missing data from the client.  
+When creating a request, as well as each time you save its changes,
+CRM performs a comparison of all contact details specified in the request with the data accumulated in the database.
+This is done to link the request to the company and contact person or lead already created in the database.
+The result will be reflected in the "Relations" section.
+You can set the links by yourself.
+To do this, you should press the magnifying glass <span style="vertical-align: baseline"><img src="../icons/magnifying-glass.svg" alt="Magnifying glass icon" width="17" height="17"></span>
+icon near the corresponding field and select an object from the list that appears. Or you can specify the ID of this object.
 
-After the request processing is completed, you should select a sales manager who will work with the deal object created on the basis of this request. This can be done in the drop-down menu of the "owner" field.  
+After the request processing is completed, you should select a sales manager who will work with the deal object created on the basis of this request.
+This can be done in the drop-down menu of the "owner" field.  
 Then create the [Deal](guide_for_sales_manager.md#deal-object) object by pressing the corresponding button.
-If at this point the links to the objects: company, contact person or lead are not set, a new lead will be created. The request and deal will be linked to this lead. And the sales manager will be notified about the new deal.
+If at this point the links to the objects: company, contact person or lead are not set, a new lead will be created.
+The request and deal will be linked to this lead. And the sales manager will be notified about the new deal.
 
 !!! Note
     The object of the deal is not a sign of concluding an agreement with the counterparty.  
@@ -43,7 +51,8 @@ CRM operators and administrators have the permissions to delete requests.
 
 ### Geolocation of the counterparty's country and city by its IP
 
-In Django CRM can be configured and activated geolocation of the country and city of the counterparty by its IP. In this case, the country and city will be automatically filled in the requests. But in cases where VPN is used, this data may be unreliable.
+In Django CRM can be configured and activated geolocation of the country and city of the counterparty by its IP.
+In this case, the country and city will be automatically filled in the requests. But in cases where VPN is used, this data may be unreliable.
 
 ### <span style="vertical-align: baseline"><img src="../icons/magnifying-glass.svg" alt="Magnifying glass icon" width="17" height="17"></span> Search for objects by ticket
 
@@ -64,10 +73,25 @@ This allows you to see the list:
 
 On the company object page you can:
 
-- create an email and send it to the company,
-- contact the company by phone,
-- go to the company's website,
-- add the object of a new contact person.
+- create an email and send it to the company
+- contact the company by phone
+- go to the company's website
+- add the object of a new contact person
+- assign a type
+
+The following client types are pre-installed in the CRM:
+
+- distributor
+- dealer
+- reseller
+- end customer
+- competitor
+
+You can change them to suit your business type.
+
+!!! Important
+
+    Specify a type for companies added to the database. This will allow the [pricing framework](pricing_framework.md) to automatically select the price level for a deal.
 
 It is important to avoid creating duplicate objects of the same company.
 This happens when the data specified in the request does not match the data in the company object.  

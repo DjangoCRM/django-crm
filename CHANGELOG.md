@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Types of changes: Added, Changed, Deprecated, Improved, Fixed, Removed, -->
 <!-- ## Unreleased -->
 
+## Unreleased
+
+### Added
+
+- Show the company logo, if it has one, in the Contact info section of the deal page by @vaibhav8a
+
 ## [3.1.0] - 2026-10-17
 
 ### Added
@@ -22,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The 'no_reply_needed' field has been added to the CrmEmail model
 - Add success message with company link after Lead conversion by @riddhikale
 - Check view permissions in the print views by @choksi2212
-- Show the company logo, if it has one, in the Contact info section of the deal page by @vaibhav8a
 - Add "Show counts" to the commercial requests list by @IdiotCoffee
 
 ### Fixed
