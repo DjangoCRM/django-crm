@@ -5,6 +5,7 @@ from django.utils.encoding import escape_uri_path
 from django.utils.translation import gettext
 
 from crm.models import CrmEmail
+from crm.site.crmadminsite import crm_site
 from crm.utils.helpers import ensure_decoding
 from crm.utils.helpers import get_crmimap
 from massmail.models import EmailAccount
@@ -15,7 +16,10 @@ err_msg = gettext('Not enough data to identify the email or email has been delet
 def download_original_email(request: WSGIRequest, object_id: int) -> HttpResponse:
     """Downloads original email from IMAP server by uid or message_id."""
 
-    crm_email = CrmEmail.objects.get(id=object_id)
+    eml_admin = crm_site._registry[CrmEmail]
+    crm_email = eml_admin.get_queryset(request).filter(id=object_id).first()
+    if not crm_email or not eml_admin.has_view_permission(request, crm_email):
+        return HttpResponse(err_msg)
     ea = EmailAccount.objects.get(
         imap_host=crm_email.imap_host,
         email_host_user=crm_email.email_host_user
