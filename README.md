@@ -209,11 +209,22 @@ For testing and evaluation:
 
 ## REST API
 
-Django-CRM is built around Django Admin, so its main user interface and business logic are centered on admin screens, model management, and server-side workflows rather than on a built-in standalone REST API.
+Django-CRM is built around Django Admin, so its main user interface and business logic are centered on admin screens,
+model management, and server-side workflows rather than on a built-in standalone REST API.
 
-Because Django-CRM is fully based on Django Admin, a **full REST API** can be added using third-party packages **designed for Django Admin**. In practice, this means using ready-made REST API solutions for Django models/admin workflows rather than creating a separate custom API layer from scratch.
+Because Django-CRM is fully based on Django Admin, a **full REST API** can be added using third-party packages
+**designed for Django Admin**. In practice, this means using ready-made REST API solutions for Django models/admin
+workflows rather than creating a separate custom API layer from scratch.
 
-This approach keeps the core CRM architecture intact while enabling external integrations, mobile apps, or headless clients through a standard API layer provided by external Django packages. Authentication remains based on Django's native auth/session model, and staff-only functionality continues to rely on Django permissions and admin access control.
+This approach keeps the core CRM architecture intact while enabling external integrations, mobile apps,
+or headless clients through a standard API layer provided by external Django packages. Authentication remains based
+on Django's native auth/session model, and staff-only functionality continues to rely on Django permissions and admin access control.
+
+## AI Assistant Integrations
+
+The same Django Admin foundation also makes it possible to use third-party **AI assistant** applications
+and integrations developed for Django Admin with Django-CRM.
+Their compatibility depends on the package's supported Django version and the models and workflows it integrates with.
 
 ---
 
