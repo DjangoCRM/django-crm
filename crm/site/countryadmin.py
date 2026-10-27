@@ -27,6 +27,11 @@ class CountryAdmin(admin.ModelAdmin):
     readonly_fields = ('flag_preview',)
     search_fields = ('name', "alternative_names", 'iso_code', 'phone_code')
 
+    def get_search_results(self, request, queryset, search_term):
+        if search_term.isdigit():
+            return queryset.filter(phone_code__startswith=search_term), False
+        return super().get_search_results(request, queryset, search_term)
+
     # -- ModelAdmin Callables -- #
 
     @staticmethod

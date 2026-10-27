@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enforce view permission in download_original_email view by @kats1123
 - Multilingual support for help URLs in help_url_data.py
 
+### Improved
+
+- Search countries by the beginning of their phone code when the search contains only digits by @ect2000
+
 ## [3.1.0] - 2026-10-17
 
 ### Added
