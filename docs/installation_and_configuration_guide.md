@@ -464,20 +464,23 @@ The following departments are preinstalled in CRM:
 
 You can rename them or add new ones.
 
-#### Rules for setting price tiers by Department (new in v3.0)
+#### Rules for setting product price tiers by department (new in v3.0)
 
-You can set rules for creating product price tiers for departments and product categories.
-Departments have predefined “markup” rules for the following levels:
+Each sales department can have its own product price tiers and price rules. Configure
+the department's default currency and define a rule for every tier. Each department
+must have one base tier, which uses the **Fixed Price** type. Other tiers are
+calculated from the base tier, and all non-base rules in a department must use the
+same price type. Available types are **Fixed Price**, **Discount percentage**, and
+**Markup percentage**; discount and markup percentages are relative to the base price.
 
-- end consumer
-- reseller
-- dealer
-- distributor
+For example, the end customer tier can be the base tier, with reseller, dealer,
+and distributor tiers configured as discounts of 10%, 20%, and 30%, respectively.
+When a product is assigned to the department, these rules are used to generate its
+price tiers unless rules for its category override them.
 
-Based on these rules, price tiers will be added to products, and their values will be calculated automatically.
-These levels correspond to predefined types (groups) of customers (companies).
-Therefore, you should specify the type of company when creating a company record;
-this ensures that the appropriate price level for products (and services) will be automatically selected in deals with that company.
+Price tiers correspond to customer types. Set the appropriate type when creating
+a company so CRM can select the corresponding price tier when adding products to
+deals with that company.
 
 ### Adding users
 
@@ -678,9 +681,10 @@ Add categories of your company's products, goods or services.
 
 ### Price tier rules (new in v3.0)
 
-Rules are created within the department to automatically set different price tiers for products
-(and services). However, you can set different rules for specific product categories
-(see “[Departments](#departments)”).
+Department price rules provide the defaults for products in that department. You
+can add **Price Rules** to a product category to adjust the available tiers for
+products in that category. Category rules take precedence over department rules,
+and can only use tiers already configured for the category's department.
 
 ## Company products
 
@@ -690,13 +694,29 @@ Add your company's products, services or goods
 
 ### Product price tiers (new in v3.0)
 
-Prices can be added to each product according to the price tier rules specified in the product
-category (if any) or in the department (the CRM administrator can set these rules, see “[Departments](#departments)).  
-To add prices, click the “Add Price Tier” button. You will be prompted to select a name and
-set the base-level price.  
-Clicking the “Add Price Tier” button again will add and automatically calculate the remaining
-prices in accordance with the applicable tier rules.  
-On the product list page, use the “Action” menu to export a price list for selected products (or all products) to an Excel file. The price lists will be grouped by category and placed on separate pages within the Excel file.
+Before adding prices, configure price rules for the product's department and,
+optionally, its category (see [Departments](#departments) and
+[Company product categories](#company-product-categories)). Then assign the product
+to a department and category.
+
+To add prices, click **Add Price Tier**. If the product has no price tiers, CRM
+creates the department's base tier with a zero price. Enter the base price in the
+**Product Price Tiers** section; the price is denominated in the department's
+default currency. Click **Add Price Tier** again to create and calculate the
+remaining tiers using the applicable department or category rules. Price tiers
+can also have a minimum quantity, validity dates, and a description.
+
+When a product is added to a deal, CRM calculates its amount from the selected
+price tier and quantity, converts the price to the deal's currency, and applies
+any additional deal-item discount. A deal-item discount can be a fixed value or
+a percentage. The amount is recalculated when relevant values change, including
+the deal currency, price tier, quantity, or discount.
+
+To export price lists, select products on the products page (or apply the action
+to all products), then choose **Export price lists to Excel** from the **Action**
+menu. The workbook contains a separate worksheet for each product category;
+products without a category are placed on a worksheet named **Without category**.
+For the full pricing workflow, see the [Product pricing guide](https://django-crm-admin.readthedocs.io/en/latest/pricing_framework/).
 
 ## Currencies
 

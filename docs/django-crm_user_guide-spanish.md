@@ -24,6 +24,7 @@
   - [Objeto de correo electrónico](#objeto-de-correo-electrónico)
 - [Guía para el gerente de ventas](#guía-para-el-gerente-de-ventas)
   - [Objeto de acuerdo](#objeto-de-acuerdo)
+  - [Precios de productos](#precios-de-productos)
   - [Objeto de pago](#objeto-de-pago)
   - [Lista de acuerdos](#lista-de-acuerdos)
   - [Boletín de la empresa](#boletín-de-la-empresa)
@@ -311,6 +312,63 @@ Los datos especificados en los acuerdos se utilizan en análisis. Por ejemplo, l
  `Inicio > Análisis > Embudo de ventas`
 
 Actualmente, hay ocho informes diferentes disponibles en la sección "Análisis".
+
+### Precios de productos
+
+Los precios de los productos se organizan en niveles según las reglas de precios
+configuradas para cada departamento de ventas (disponible desde la versión 3.0).
+El administrador de CRM configura las reglas de los departamentos y, si es
+necesario, las reglas específicas de cada categoría de productos.
+
+#### Configurar reglas de precios
+
+Cada departamento debe tener una moneda predeterminada y un nivel base. El nivel
+base utiliza el tipo **Precio fijo**. Los demás niveles se calculan a partir del
+precio base y deben usar el mismo tipo de regla dentro del departamento. Los tipos
+disponibles son **Precio fijo**, **Porcentaje de descuento** y **Porcentaje de
+recargo**. Los porcentajes de descuento y recargo se calculan respecto al precio
+base.
+
+Por ejemplo, el nivel de cliente final puede ser el nivel base y los niveles de
+revendedor, concesionario y distribuidor pueden tener descuentos del 10 %, 20 %
+y 30 %, respectivamente. Las reglas de una categoría tienen prioridad sobre las
+reglas del departamento y solo pueden usar niveles configurados para el
+departamento de esa categoría.
+
+Los niveles de precio pueden corresponder a tipos de empresa. Al crear una
+empresa, seleccione el tipo adecuado para que CRM pueda seleccionar el nivel de
+precio correspondiente al agregar productos a un acuerdo.
+
+#### Añadir niveles de precio a productos
+
+Configure primero las reglas del departamento y, si corresponde, de la categoría.
+Después, asigne el producto a un departamento y una categoría.
+
+1. Abra el producto y haga clic en **Add Price Tier**. Si aún no tiene niveles de
+   precio, CRM crea el nivel base con precio cero.
+2. Introduzca el precio base en la sección **Product Price Tiers**. La moneda del
+   precio es la moneda predeterminada del departamento.
+3. Vuelva a hacer clic en **Add Price Tier** para crear los demás niveles según
+   las reglas aplicables.
+
+Por ejemplo, con un precio base de 100 y las reglas de descuento anteriores, los
+precios serán 100 para el cliente final, 90 para el revendedor, 80 para el
+concesionario y 70 para el distribuidor. Un nivel también puede incluir una
+cantidad mínima, fechas de validez y una descripción.
+
+#### Importes en acuerdos y exportación de listas de precios
+
+Al añadir un producto a un acuerdo, CRM calcula el importe según el nivel de
+precio seleccionado y la cantidad, convierte el precio a la moneda del acuerdo y
+aplica cualquier descuento adicional de la línea del producto. El descuento
+puede ser un importe fijo o un porcentaje. El importe se vuelve a calcular cuando
+cambian datos pertinentes, como la moneda del acuerdo, el nivel de precio, la
+cantidad o el descuento.
+
+Para exportar una lista de precios, seleccione los productos en la página de
+productos (o aplique la acción a todos) y elija **Export price lists to Excel**
+en el menú **Action**. El archivo de Excel contiene una hoja por categoría; los
+productos sin categoría aparecen en una hoja llamada **Without category**.
 
 ### Objeto de pago
 

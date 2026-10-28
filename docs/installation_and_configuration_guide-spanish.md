@@ -469,17 +469,26 @@ Los siguientes departamentos están preinstalados en CRM:
 
 Puedes renombrarlos o agregar nuevos.
 
-#### Normas para establecer niveles de precios por departamento (novedad en la versión 3.0)
+#### Reglas para establecer niveles de precios por departamento (novedad en la versión 3.0)
 
-Para los departamentos y las categorías de productos, se pueden establecer reglas para la creación de niveles de precios de los productos.
-En los departamentos hay reglas preestablecidas del tipo «margen» para los siguientes niveles:
-- consumidor final
-- revendedor
-- concesionario
-- distribuidor
-En función de estas reglas, se añadirán niveles de precio a los productos y se calcularán automáticamente sus valores.
-Estos niveles se corresponden con los tipos (grupos) preestablecidos de consumidores (empresas).
-Por lo tanto, en las empresas se debe indicar su tipo; de este modo, en las transacciones con dichas empresas se seleccionará automáticamente el nivel de precio de los productos (y servicios) que les corresponda.
+Cada departamento de ventas puede tener sus propios niveles y reglas de precios
+para productos y servicios. Configure la moneda predeterminada del departamento
+y defina una regla para cada nivel. Cada departamento debe tener un nivel base,
+cuyo tipo de precio debe ser **Precio fijo**. Los demás niveles se calculan a
+partir del nivel base y todas las reglas que no sean base de un mismo departamento
+deben usar el mismo tipo de precio. Los tipos disponibles son **Precio fijo**,
+**Porcentaje de descuento** y **Porcentaje de margen**; los porcentajes de
+descuento y margen se calculan con respecto al precio base.
+
+Por ejemplo, el nivel de consumidor final puede ser el nivel base y los niveles
+de revendedor, concesionario y distribuidor pueden configurarse con descuentos
+del 10 %, 20 % y 30 %, respectivamente. Estas reglas se utilizan para generar
+los niveles de precios de los productos asignados al departamento, salvo que
+existan reglas específicas para la categoría del producto.
+
+Los niveles pueden corresponder a tipos de empresas. Indique el tipo adecuado al
+crear una empresa para que CRM pueda seleccionar el nivel de precio
+correspondiente al añadir productos a los acuerdos con esa empresa.
 
 ### Agregar usuarios
 
@@ -679,9 +688,12 @@ Agregue categorías de los productos, bienes o servicios de su empresa.
 
 ### Reglas de niveles de precios (novedad en la versión 3.0)
 
-Las reglas se crean dentro del departamento para establecer automáticamente diferentes niveles de precios para los productos
-(y servicios). No obstante, puedes establecer reglas diferentes para categorías específicas de productos
-(véase «[Departamentos](#departamentos)»).
+Las reglas de precios del departamento sirven como valores predeterminados para
+los productos de ese departamento. Al editar una categoría, puedes añadir
+**Reglas de precios** para ajustar los niveles de precios de los productos de esa
+categoría. Las reglas de categoría tienen prioridad sobre las del departamento
+y solo pueden utilizar niveles ya configurados para el departamento de la
+categoría.
 
 ## Productos de la empresa
 
@@ -691,14 +703,31 @@ Agregue los productos, servicios o bienes de su empresa
 
 ### Niveles de precios de los productos (novedad en la v3.0)
 
-Se pueden añadir precios a cada producto según las reglas de niveles de precios
-especificadas en la categoría del producto (si las hay) o en el departamento
-(el administrador del CRM puede configurar estas reglas; véase «[Departamentos](#departamentos)»).  
-Para añadir precios, haz clic en el botón «Añadir nivel de precios». Se te pedirá
-que selecciones un nombre y que establezcas el precio de nivel básico.  
-Al hacer clic de nuevo en el botón «Añadir nivel de precios», se añadirán y calcularán
-automáticamente los precios restantes de acuerdo con las reglas de niveles aplicables.  
-En la página de la lista de productos, utiliza el menú «Acción» para exportar una lista de precios de los productos seleccionados (o de todos los productos) a un archivo de Excel. Las listas de precios se agruparán por categoría y se colocarán en páginas separadas dentro del archivo de Excel.
+Antes de añadir precios, configure las reglas del departamento del producto y,
+si corresponde, de su categoría (véanse [Departamentos](#departamentos) y
+[Categorías de productos de la empresa](#categorías-de-productos-de-la-empresa)).
+Después, asigne el producto a un departamento y una categoría.
+
+Para añadir precios, haga clic en **Añadir nivel de precios**. Si el producto
+aún no tiene niveles de precio, CRM crea el nivel base con precio cero.
+Introduzca el precio base en la sección **Niveles de precios del producto**; la
+moneda del precio corresponde a la moneda predeterminada del departamento. Haga
+clic de nuevo en **Añadir nivel de precios** para crear y calcular los demás
+niveles según las reglas aplicables. Cada nivel también puede incluir una
+cantidad mínima, fechas de validez y una descripción.
+
+Al añadir un producto a un acuerdo, CRM calcula el importe según el nivel de
+precio seleccionado y la cantidad, convierte el precio a la moneda del acuerdo y
+aplica cualquier descuento adicional de la línea del producto. El descuento
+puede ser un importe fijo o un porcentaje. El importe se vuelve a calcular
+cuando cambian datos pertinentes, como la moneda del acuerdo, el nivel de precio,
+la cantidad o el descuento.
+
+Para exportar listas de precios, seleccione los productos en la página de
+productos (o aplique la acción a todos) y elija **Exportar listas de precios a
+Excel** en el menú **Acción**. El archivo contiene una hoja por categoría; los
+productos sin categoría aparecen en una hoja llamada **Sin categoría**. Para
+consultar el flujo completo de precios, véase la [guía de precios de productos](https://django-crm-admin.readthedocs.io/en/latest/pricing_framework/).
 
 ## Monedas
 

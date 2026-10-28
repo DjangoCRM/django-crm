@@ -24,6 +24,7 @@
   - [Email Object](#email-object)
 - [Guide for sales manager](#guide-for-sales-manager)
   - [Deal object](#deal-object)
+  - [Product pricing](#product-pricing)
   - [Payment object](#payment-object)
   - [List of Deals](#list-of-deals)
   - [Company Newsletter](#company-newsletter)
@@ -314,6 +315,59 @@ The data specified in deals is used in analytics. For example, the stages of a t
 
 
 At the moment, there are eight different reports available in the "Analytics" section.
+
+### Product pricing
+
+Product prices are organized into tiers according to price rules configured for
+each sales department (available since v3.0). The CRM administrator configures
+department rules and, if needed, rules specific to product categories.
+
+#### Configure price rules
+
+Each department must have a default currency and a base tier. The base tier uses
+the **Fixed Price** type. Other tiers are calculated from the base price, and
+all non-base rules in a department must use the same price type. Available types
+are **Fixed Price**, **Discount percentage**, and **Markup percentage**.
+Discount and markup percentages are calculated relative to the base price.
+
+For example, the end customer tier can be the base tier, with reseller, dealer,
+and distributor tiers set to discounts of 10%, 20%, and 30%, respectively.
+Category rules take precedence over department rules and can only use tiers
+configured for the category's department.
+
+Price tiers can correspond to company types. Set the appropriate type when
+creating a company so CRM can select the corresponding price tier when adding
+products to a deal.
+
+#### Add price tiers to products
+
+Configure the department rules and, if applicable, category rules first. Then
+assign the product to a department and category.
+
+1. Open a product and click **Add Price Tier**. If it has no price tiers yet,
+   CRM creates the base tier with a zero price.
+2. Enter the base price in the **Product Price Tiers** section. The price uses
+   the department's default currency.
+3. Click **Add Price Tier** again to create the remaining tiers according to
+   the applicable rules.
+
+For example, with a base price of 100 and the discounts above, prices are 100
+for the end customer, 90 for the reseller, 80 for the dealer, and 70 for the
+distributor. A tier can also include a minimum quantity, validity dates, and a
+description.
+
+#### Deal amounts and exporting price lists
+
+When a product is added to a deal, CRM calculates the amount using the selected
+price tier and quantity, converts the price to the deal's currency, and applies
+any additional discount for the deal item. The discount can be a fixed amount
+or a percentage. The amount is recalculated when relevant values change, such
+as the deal currency, price tier, quantity, or discount.
+
+To export price lists, select products on the products page (or apply the action
+to all products), then choose **Export price lists to Excel** from the **Action**
+menu. The workbook has a separate worksheet for each category; products without
+a category are placed on a worksheet named **Without category**.
 
 ### Payment object
 
