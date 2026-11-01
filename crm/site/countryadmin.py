@@ -14,15 +14,15 @@ class CountryAdmin(admin.ModelAdmin):
         (None, {'fields': [
             'flag_preview', 'name', "alternative_names",
             'subregion', 'intermediary_region',
-            'owner',
+            'owner', 'notes'
         ], }),
         (_('Additional information'), {
             'classes': ('collapse',),
-            'fields': ('iso_code', 'phone_code', "url_name")
+            'fields': ('currency', 'iso_code', 'phone_code', "url_name")
         }),
     )
     list_display = ('flag_and_name', 'subregion',
-                    'owner', 'iso_code', 'phone_code')
+                    'currency', 'iso_code', 'phone_code', 'owner')
     ordering = ["name"]
     readonly_fields = ('flag_preview',)
     search_fields = ('name', "alternative_names", 'iso_code', 'phone_code')

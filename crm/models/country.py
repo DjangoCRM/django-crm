@@ -113,7 +113,15 @@ class Country(BaseModel):
         default='',
         verbose_name=_("Phone code")
     )
-
+    currency = models.CharField(
+        max_length=3, default='', blank=True,
+        help_text=_("Alphabetic Code for the Representation of Currencies.")
+    )
+    notes = models.TextField(
+        blank=True,
+        default='',
+        verbose_name=_("Notes"),
+    )
     @property
     def flag_and_name(self):
         return mark_safe(f'<span class="fi fi-{self.iso_code}"></span> {self.name}')
