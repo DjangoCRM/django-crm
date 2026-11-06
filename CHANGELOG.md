@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Search countries by the beginning of their phone code when the search contains only digits by @ect2000
 
+### Fixed
+
+- Improve error handling in clean method of RequestForm and restore department if changed
+
 ## [3.1.0] - 2026-10-17
 
 ### Added

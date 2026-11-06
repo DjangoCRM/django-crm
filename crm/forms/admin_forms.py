@@ -244,34 +244,45 @@ class RequestForm(forms.ModelForm):
         }
 
     def clean(self):
-        super().clean()
-        company = self.cleaned_data.get("company")
-        contact = self.cleaned_data.get("contact")
-        lead = self.cleaned_data.get("lead")
-        if any((contact, lead)) and 'first_name' in self._errors:
-            del self._errors['first_name']
-        if contact and company:
-            if contact.company_id != company.id:
-                msg = _("Contact does not match the company")
+        try:
+            super().clean()
+            company = self.cleaned_data.get("company")
+            contact = self.cleaned_data.get("contact")
+            lead = self.cleaned_data.get("lead")
+            if any((contact, lead)) and 'first_name' in self._errors:
+                del self._errors['first_name']
+            if contact and company:
+                if contact.company_id != company.id:
+                    msg = _("Contact does not match the company")
+                    self.add_error('contact', msg)
+                    self.add_error('company', msg)
+                    raise forms.ValidationError(msg, code='invalid')
+            if contact and lead:
+                msg = _("Select only Contact or only Lead")
                 self.add_error('contact', msg)
+                self.add_error('lead', msg)
+                raise forms.ValidationError(msg, code='invalid')
+            if company and lead:
+                msg = _("Select only Company or only Lead")
+                self.add_error('lead', msg)
                 self.add_error('company', msg)
                 raise forms.ValidationError(msg, code='invalid')
-        if contact and lead:
-            msg = _("Select only Contact or only Lead")
-            self.add_error('contact', msg)
-            self.add_error('lead', msg)
-            raise forms.ValidationError(msg, code='invalid')
-        if company and lead:
-            msg = _("Select only Company or only Lead")
-            self.add_error('lead', msg)
-            self.add_error('company', msg)
-            raise forms.ValidationError(msg, code='invalid')
-        if getattr(self, "products_must_be_specified", False):
-            products = self.cleaned_data.get("products")
-            if not products:
-                msg = _("At least one product must be specified.")
-                self.add_error('products', msg)
-                raise forms.ValidationError(msg, code='invalid')
+            if getattr(self, "products_must_be_specified", False):
+                products = self.cleaned_data.get("products")
+                if not products:
+                    msg = _("At least one product must be specified.")
+                    self.add_error('products', msg)
+                    raise forms.ValidationError(msg, code='invalid')
+        except forms.ValidationError:
+            self._restore_department_if_changed()
+            raise
+
+        if self.errors:
+            self._restore_department_if_changed()
+
+    def _restore_department_if_changed(self):
+        if 'department' in self.changed_data:
+            self.cleaned_data['department'] = self.instance.department
 
     def clean_country(self):
         country = self.cleaned_data.get('country')
