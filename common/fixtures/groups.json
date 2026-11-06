@@ -18,6 +18,7 @@
                 ["change_city", "crm", "city" ],
                 ["delete_city", "crm", "city"],
                 ["view_city", "crm", "city"],
+                ["view_country", "crm", "country"],
                 ["add_company", "crm", "company"],
                 ["change_company", "crm", "company"],
                 ["delete_company", "crm", "company"],
@@ -185,6 +186,7 @@
                 ["view_requeststat", "analytics", "requeststat"],
                 ["view_salesfunnel", "analytics", "salesfunnel"],
 
+                ["view_country", "crm", "country"],
                 ["view_company", "crm", "company"],
                 ["view_contact", "crm", "contact"],
                 ["change_deal", "crm", "deal"],

@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.helpers import SAFE_SUBJECT_ICON
+from crm.utils.admfilters import ScrollRelatedOnlyFieldListFilter
 
 
 class CountryAdmin(admin.ModelAdmin):
@@ -23,6 +24,9 @@ class CountryAdmin(admin.ModelAdmin):
     )
     list_display = ('flag_and_name', 'subregion',
                     'currency', 'iso_code', 'phone_code', 'owner')
+    list_filter = (
+        ('owner', ScrollRelatedOnlyFieldListFilter),
+        'subregion', 'intermediary_region')
     ordering = ["name"]
     readonly_fields = ('flag_preview',)
     search_fields = ('name', "alternative_names", 'iso_code', 'phone_code')
