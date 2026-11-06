@@ -18,7 +18,7 @@
     pillow==13.0.0
     polib==1.2.0
     python-dateutil==3.0.0
-    pytz==2026.5
+    pytz==2026.6
     requests==2.34.2
     six==1.17.0
     sqlparse==0.6.0
