@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import messages
+from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.translation import gettext as _
@@ -65,8 +66,12 @@ class DeleteDuplicateObject(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             self.original_id = request.POST.get(self.field)
-            self.original = self.model.objects.get(id=self.original_id)
-            self.duplicate = self.model.objects.get(id=self.duplicate_id)
+            model_admin = crm_site._registry[self.model]
+            qs = model_admin.get_queryset(request)
+            self.original = qs.filter(id=self.original_id).first()
+            self.duplicate = qs.filter(id=self.duplicate_id).first()
+            if not self.original or not self.duplicate:
+                raise Http404
             self.relate_to()
             self.update_fields()
 
