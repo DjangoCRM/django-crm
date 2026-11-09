@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Improve error handling in clean method of RequestForm and restore department if changed
+- Fix user transfer crashing when a deal's stage or closing reason has no same-named counterpart in the new department
 
 ## [3.1.0] - 2026-10-17
 

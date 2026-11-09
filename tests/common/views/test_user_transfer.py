@@ -10,6 +10,7 @@ from crm.models import Lead
 from crm.models import Product
 from crm.models import ClosingReason
 from crm.models import Request
+from crm.models import Stage
 from crm.models import Tag
 from common.utils.helpers import get_department_id
 from common.utils.helpers import USER_MODEL
@@ -111,3 +112,29 @@ class TestUserTransfer(BaseTestCase):
                 model.objects.filter(department=new_department).exists(),
                 f"The {model.__name__} is not copied to another department."
             )
+
+    def test_user_transfer_stage_missing_in_new_department(self):
+        """A deal stage without a same-named counterpart in the new
+        department must not break the transfer."""
+        url = reverse('copy_department')
+        data = {"department": str(self.department.id)}
+        self.client.post(url, data, follow=True)
+        new_department = Group.objects.get(name="Global sales (copy)")
+        stage = Stage.objects.create(
+            name="Stage only in the old department",
+            department=self.department
+        )
+        self.deal.stage = stage
+        self.deal.save(update_fields=['stage'])
+
+        url = reverse('user_transfer')
+        data = {
+            "owner": str(self.owner.id),
+            "department": str(new_department.id)
+        }
+        response = self.client.post(url, data, follow=True)
+        self.assertEqual(response.status_code, 200, response.reason_phrase)
+        self.assertEqual(new_department.id, get_department_id(self.owner))
+        self.deal.refresh_from_db()
+        self.assertEqual(self.deal.department_id, new_department.id)
+        self.assertEqual(self.deal.stage, stage)

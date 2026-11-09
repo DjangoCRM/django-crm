@@ -95,7 +95,7 @@ def user_transfer(request):
                                     )
                                     setattr(instance, attr, new_attr_value)
                                     is_instance_changed = True
-                                except ClientType.DoesNotExist:
+                                except related_model.DoesNotExist:
                                     pass
                         if is_instance_changed:
                             instance.save()
