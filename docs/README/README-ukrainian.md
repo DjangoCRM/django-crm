@@ -33,7 +33,7 @@ CRM також повністю використовує адміністрат�
 | ☑️ **Аналітика продажів**           | ☑️ **Інтеграція внутрішнього чату**                | ☑️ **Дизайн, зручний для мобільних пристроїв** |
 | ☑️ **Налаштовувані звіти**          | ☑️ **Автоматична синхронізація електронної пошти** | ☑️ **Підтримка мультивалютності**              |
 
-Дізнайтеся більше про [можливості програмного забезпечення](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+Дізнайтеся більше про [можливості програмного забезпечення](https://djangocrm.github.io/info/uk/features/overview/).
 
 Django CRM - це програмне забезпечення для управління взаємовідносинами з клієнтами з відкритим вихідним кодом.  
 Ця CRM написана на <a href="https://www.python.org" target="_blank"><img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" style="vertical-align: middle" alt="логотип python" width="25" height="25"> Python</a>.  
@@ -62,7 +62,7 @@ Django - це чудово задокументований фреймворк �
 
 - **Додаток управління ЗАВДАННЯМИ**:
   (доступний для всіх користувачів за замовчуванням, незалежно від їх ролі)
-  - Завдання (з пов'язаними: файлами, чатом, нагадуваннями, тегами - див. [функції завдань](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md))
+  - Завдання (з пов'язаними: файлами, чатом, нагадуваннями, тегами - див. [функції завдань](https://djangocrm.github.io/info/uk/features/tasks-app-features/))
     - підзавдання
   - Пам'ятка (службова записка) - див. [функції Пам'ятки](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_memo_features.md)
     - завдання / проект
@@ -80,7 +80,7 @@ Django - це чудово задокументований фреймворк �
   - Платежі (отримані, гарантовані, з високою та низькою ймовірністю)
   - ... (*+ ще 12 <a href="https://github.com/DjangoCRM/django-crm/tree/main/crm/models" target="_blank">моделей</a>*)
 [<img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/pics/income_summary_thumbnail.png" alt="Аналітичний звіт crm" align="right" width="190px" style="float: right"/>](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)
-- **АНАЛІТИЧНИЙ додаток**: ([детальний огляд програмного забезпечення](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md))
+- **АНАЛІТИЧНИЙ додаток**: ([детальний огляд програмного забезпечення](https://djangocrm.github.io/info/uk/features/analytics-app-features/))
   - Звіт про доходи (*див. [скріншот](https://github.com/DjangoCRM/django-crm/blob/main/docs/pics/income_summary_screenshot.png)*)
   - Звіт про воронку продажів
   - Звіт про джерела лідів
@@ -90,6 +90,8 @@ Django - це чудово задокументований фреймворк �
   - Електронні листи (розсилки)
   - Підписи електронної пошти (підписи користувачів)
   - Розсилки
+
+  [CRM email-маркетинг](https://djangocrm.github.io/info/uk/features/massmail-app-features/)
 
 ## Підтримуючі додатки
 
@@ -160,10 +162,16 @@ Django CRM повністю підтримує переклад інтерфей
 
 Django-CRM можна легко розгорнути як звичайний проект Django.
 
+Для тестування та оцінювання:
+
+* Зовнішня база даних не потрібна
+* SQLite працює одразу після встановлення
+
 📚 Будь ласка, зверніться до:
 
 - [Посібник з установки та налаштування](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
-- [Посібник користувача](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+- [Онлайн-документація](https://django-crm-admin.readthedocs.io)
+- [Посібник користувача](https://djangocrm.github.io/info/uk/help/)
 
 Якщо ви вважаєте Django-CRM корисним, будь ласка, ⭐️ **поставте зірочку** цьому репозиторію на GitHub, щоб підтримати його розвиток!
 
@@ -175,12 +183,18 @@ Django-CRM побудовано на базі Django Admin, тому його о
 
 Такий підхід дозволяє зберегти основну архітектуру CRM незмінною, водночас забезпечуючи можливість зовнішньої інтеграції, роботи мобільних додатків або безінтерфейсних клієнтів через стандартний рівень API, що надається зовнішніми пакетами Django. Аутентифікація, як і раніше, базується на вбудованій моделі авторизації та сесій Django, а функціонал, доступний лише для персоналу, продовжує спиратися на права доступу та контроль доступу адміністратора в Django.
 
+## Інтеграція AI-асистентів
+
+Та сама базова платформа Django Admin також дає змогу використовувати сторонні додатки **AI-асистентів**
+та інтеграції, розроблені для Django Admin, разом із Django-CRM.
+Їхня сумісність залежить від версії Django, яку підтримує пакет, а також від моделей і робочих процесів, з якими він інтегрується.
+
 ## Сумісність
 
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 5.1.x
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.10+
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/django-logo.svg" alt="django logo" width="30" height="30" style="vertical-align: middle"> Django 6.0+
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/python-logo.svg" alt="python logo" width="30" height="30" style="vertical-align: middle"> Python 3.12+
 - <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/mysql_logo.svg" alt="mysql logo" width="30" height="30" style="vertical-align: middle"> MySQL 8.0.11+
-- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 12+  
+- <img src="https://github.com/DjangoCRM/django-crm/raw/main/docs/site/icons/postgresql_logo.svg" alt="postgresql logo" width="30" height="30" style="vertical-align: middle"> PostgreSQL 14+  
 
 ## Внесок
 
