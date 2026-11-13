@@ -56,7 +56,7 @@ Django CRM combina CRM y software de gestión de tareas, CRM con integración de
 | Control de acceso por roles     | Recordatorios y archivos | Soporte SMTP / IMAP          |
 | Analítica CRM                   | Memos internos           | Automatización de campañas   |
 
-🔎 Más información en el [resumen del sistema CRM](https://github.com/DjangoCRM/django-crm/blob/main/docs/crm_system_overview.md).
+🔎 Más información en el [resumen del sistema CRM](https://djangocrm.github.io/info/es/features/overview/).
 
 ---
 
@@ -99,7 +99,7 @@ Un módulo completo de **CRM y gestión de tareas**:
 * Chat, archivos, recordatorios, etiquetas
 * Asignación de tareas individual y por equipo
 
-🔗 [Funciones de tareas](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_task_features.md)
+🔗 [Funciones de tareas](https://djangocrm.github.io/info/es/features/tasks-app-features/)
 
 ---
 
@@ -114,7 +114,7 @@ Software de **analítica CRM integrado** para obtener información accionable:
 * Analítica de fuentes de leads
 * Resumen de solicitudes
 
-🔗 [Resumen de la aplicación de analítica](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_analytics_app_overview.md)
+🔗 [Resumen de la aplicación de analítica](https://djangocrm.github.io/info/es/features/analytics-app-features/)
 
 ---
 
@@ -129,6 +129,7 @@ El módulo de Mailing CRM incluye un sistema completo de CRM y email marketing:
 * Segmentación de contactos
 
 Esto convierte a Django-CRM en un CRM con integración de correo electrónico y cliente de email interno.
+[Email marketing integrado en el CRM](https://djangocrm.github.io/info/es/features/massmail-app-features/)
 
 ---
 
@@ -198,7 +199,7 @@ Para pruebas y evaluación:
 📘 Documentación:
 
 * [Instalación y Configuración](https://github.com/DjangoCRM/django-crm/blob/main/docs/installation_and_configuration_guide.md)
-* [Guía de Usuario](https://github.com/DjangoCRM/django-crm/blob/main/docs/django-crm_user_guide.md)
+* [Guía de Usuario](https://djangocrm.github.io/info/es/help/)
 * [Documentación Online](https://django-crm-admin.readthedocs.io)
 * [Registro de Cambios](https://github.com/DjangoCRM/django-crm/blob/main/CHANGELOG.md)
 
@@ -210,6 +211,12 @@ Django-CRM se basa en Django Admin, por lo que su interfaz de usuario principal 
 Dado que Django-CRM se basa íntegramente en Django Admin, es posible añadir una API REST completa utilizando paquetes de terceros diseñados para Django Admin. En la práctica, esto significa utilizar soluciones de API REST ya preparadas para los modelos de Django y los flujos de trabajo de administración, en lugar de crear desde cero una capa de API personalizada independiente.
 
 Este enfoque mantiene intacta la arquitectura central del CRM, al tiempo que permite integraciones externas, aplicaciones móviles o clientes «headless» a través de una capa de API estándar proporcionada por paquetes externos de Django. La autenticación sigue basándose en el modelo nativo de autenticación y sesión de Django, y las funcionalidades exclusivas para el personal continúan dependiendo de los permisos de Django y del control de acceso de administración.
+
+## Integraciones de asistentes de IA
+
+La misma base de Django Admin también permite utilizar aplicaciones de **asistentes de IA** de terceros
+e integraciones desarrolladas para Django Admin con Django-CRM.
+Su compatibilidad depende de la versión de Django que admita el paquete y de los modelos y flujos de trabajo con los que se integre.
 
 ---
 
