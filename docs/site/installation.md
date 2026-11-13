@@ -1,7 +1,7 @@
 ## installation of CRM Software 
 
 To deploy the customer CRM software, you will need
-[<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} 3.10+.  
+[<img src="../icons/python-logo.svg" alt="python logo" width="30" height="30"> Python](https://www.python.org/){target="_blank"} 3.12+.  
 For initial familiarization with the CRM, you can use the built-in SQLite3 database (default settings),
 but it is not suitable for regular use.  
 This [Python CRM software](https://github.com/DjangoCRM/django-crm/){target="_blank"} is developed taking into account compatibility with databases:
