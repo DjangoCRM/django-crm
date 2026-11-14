@@ -1,11 +1,13 @@
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
+from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from common.utils.copy_files import copy_files
 from crm.models import CrmEmail
+from crm.site.crmadminsite import crm_site
 from crm.settings import KEEP_TICKET
 from crm.utils.helpers import html2txt
 from crm.utils.ticketproc import get_ticket
@@ -26,7 +28,10 @@ def reply_email(request: WSGIRequest,
     if not ea:
         return _get_warning(request, object_id)
 
-    rep_eml = CrmEmail.objects.get(id=object_id)
+    eml_admin = crm_site._registry[CrmEmail]
+    rep_eml = eml_admin.get_queryset(request).filter(id=object_id).first()
+    if not rep_eml or not eml_admin.has_view_permission(request, rep_eml):
+        raise Http404
     subject = " ".join(rep_eml.subject.splitlines())
     signature = Signature.objects.filter(
         owner=request.user, default=True

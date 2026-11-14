@@ -1,3 +1,5 @@
+import os
+
 from django import forms
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
@@ -27,7 +29,10 @@ def file_upload(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES["file"]
-            path = settings.MEDIA_ROOT / 'pics' / file.name
+            # Strip any directory components from the client-supplied
+            # filename so a crafted name cannot write outside pics/.
+            safe_name = os.path.basename(file.name)
+            path = settings.MEDIA_ROOT / 'pics' / safe_name
             with open(path, "wb+") as destination:
                 for chunk in file.chunks():
                     destination.write(chunk)
