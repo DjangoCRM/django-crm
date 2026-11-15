@@ -21,11 +21,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Improved
 
 - Search countries by the beginning of their phone code when the search contains only digits by @ect2000
+- Scope DeleteDuplicateObject lookups to the department-filtered queryset @isazajuancarlos
 
 ### Fixed
 
 - Improve error handling in clean method of RequestForm and restore department if changed
-- Fix user transfer crashing when a deal's stage or closing reason has no same-named counterpart in the new department
+- Fix user transfer crashing when a deal's stage or closing reason has no same-named counterpart in the new department by @ggranberry
+
 
 ## [3.1.0] - 2026-10-17
 
