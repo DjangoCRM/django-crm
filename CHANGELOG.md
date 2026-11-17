@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Improve error handling in clean method of RequestForm and restore department if changed
 - Fix user transfer crashing when a deal's stage or closing reason has no same-named counterpart in the new department by @ggranberry
+- Scope reply_email to the permitted queryset and sanitize picture upload filename by @p-w
 
 
 ## [3.1.0] - 2026-10-17
