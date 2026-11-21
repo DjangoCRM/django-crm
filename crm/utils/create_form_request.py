@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db.models import Q
+from django.utils.html import escape
 
 from common.models import Department
 from common.utils.helpers import get_active_users
@@ -19,7 +20,10 @@ from crm.utils.ticketproc import new_ticket
 
 
 def create_form_request(lead_source: LeadSource, form: ContactForm) -> None:
-    data = form.cleaned_data
+    data = {
+        key: escape(value) if isinstance(value, str) else value
+        for key, value in form.cleaned_data.items()
+    }
     ticket = new_ticket()
     department = lead_source.department
     if is_text_relevant(", ".join((data['subject'], data['message']))):

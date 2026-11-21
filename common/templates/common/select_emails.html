@@ -54,7 +54,7 @@
 						<input type="checkbox" name="{{ email.uid }}" id="is_exists" value="{{ email.is_exists }}">
 					{% else %} {% endif %}</td>
 					<td>{% if email.is_exists %}<img title="{% translate "This email is already imported." %}" src="/static/admin/img/icon-yes.svg" alt="True">{% else %} {% endif %}</td>
-					<td>{% if email.unseen %}<b>{{ email.subject }}</b>{% else %}{{ email.subject }}{% endif %}</td>
+					<td>{% if email.unseen %}<b>{% endif %}<a href="{{ email.url }}" target="_blank" rel="noopener noreferrer">{{ email.subject }}</a>{% if email.unseen %}</b>{% endif %}</td>
 					<td>{{ email.from }}</td>
 					<td>{{ email.to }}</td>
 					<td>{{ email.date }}</td>

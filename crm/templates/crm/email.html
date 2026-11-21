@@ -21,9 +21,13 @@
         {% if attachments %}<i class="material-icons" style="font-size: small; color: var(--body-quiet-color);">attach_file</i> {% endif %}
         <b>Subject:</b> {{ subject }}</p>
 	<hr><br>
-	<div>
-	{{ body }}
-	</div><br>
+	<iframe
+		title="Email body"
+		sandbox=""
+		referrerpolicy="no-referrer"
+		style="width: 100%; height: 70vh; border: 0;"
+		srcdoc="<!doctype html><html><head><meta charset='utf-8'><meta http-equiv='Content-Security-Policy' content=&quot;default-src 'none'; img-src data:; style-src 'unsafe-inline'; font-src data:; media-src data:&quot;></head><body>{{ body|force_escape }}</body></html>"
+	></iframe><br>
 	<hr>
 	{% if attachments %}
 		<h4>{{ attachments|length }} {% translate 'Attachments' %}</h4>

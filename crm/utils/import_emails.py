@@ -12,8 +12,8 @@ from django.core.paginator import EmptyPage
 from django.core.paginator import InvalidPage
 from django.core.paginator import Paginator
 from django.utils import timezone
-from django.utils.translation import gettext 
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html
+from django.utils.translation import gettext
 from django.urls import reverse
 
 from common.utils.helpers import popup_window
@@ -35,7 +35,7 @@ class ImportEmails(threading.Thread):
         threading.Thread.__init__(self)
         self.daemon = True
         self.close = False
-        self.crmimap_storage = app_config.mci.crmimap_storage
+        self.crmimap_storage = getattr(app_config, 'mci').crmimap_storage
         self.ea_queue = ea_queue
         self.eml_queue = eml_queue
 
@@ -143,7 +143,7 @@ class ImportEmails(threading.Thread):
 
 
 def get_email_headers_page(ea: EmailAccount, page_num) -> tuple:
-    unseen_list, emails, uids_str, err = [], [], '', ''
+    unseen_list, emails, uids_str, err = [], [], b'', ''
     page = paginator = None
     per_page = 40
     if not settings.TESTING:
@@ -194,8 +194,10 @@ def get_email_headers_page(ea: EmailAccount, page_num) -> tuple:
                         url = reverse('view_original_email_uid', args=(ea.id, int(uid)))
                         win_id = 'Window' + uid.decode()
                         onclick = popup_window(url, win_id)
-                        subject_str = mark_safe(
-                            f'<a href="#" onClick="{onclick}">{subject}</a>'
+                        subject_str = format_html(
+                            '<a href="#" onClick="{}">{}</a>',
+                            onclick,
+                            subject,
                         )
                         is_exists = CrmEmail.objects.filter(
                             incoming=True,

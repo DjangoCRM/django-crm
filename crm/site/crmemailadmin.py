@@ -412,7 +412,7 @@ class CrmEmailAdmin(CrmModelAdmin):
     def readonly_content(self, obj):
         content = obj.content
         if not obj.is_html:
-            content = linebreaks(content)
+            content = linebreaks(content, autoescape=True)
         return mark_safe(
             f'<div style="overflow:auto; width:600px;'
             f' height:200px;">{content}</div>'

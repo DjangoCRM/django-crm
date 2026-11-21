@@ -6,10 +6,9 @@ from email import policy
 from email.message import Message
 from typing import Optional
 from django.core.handlers.wsgi import WSGIRequest
-from django.utils.safestring import mark_safe
+from django.utils.html import linebreaks
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render
-from django.template.defaultfilters import linebreaks
 from django.http import HttpResponse
 
 from common.utils.helpers import OBJ_DOESNT_EXIT_STR
@@ -65,7 +64,7 @@ def get_context(msg: Message):
             body = body or simplest.get_content()
             if simplest['content-type'] and simplest['content-type'].maintype == 'text':
                 if simplest['content-type'].subtype == 'plain':
-                    body = linebreaks(body)
+                    body = linebreaks(body, autoescape=True)
 
         if msg.is_multipart():
             for richest in msg.walk():
@@ -100,7 +99,7 @@ def get_context(msg: Message):
         context['to'] = msg['To']
         context['cc'] = msg['CC']
         context['subject'] = ensure_decoding(msg['Subject'])
-        context['body'] = mark_safe(body)
+        context['body'] = body
         context['attachments'] = attachments
     except Exception as e:
         err = e
