@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -11,6 +12,9 @@ from common.utils.helpers import USER_MODEL
 
 
 def change_owner_companies(request):
+    if not request.user.is_superuser:
+        raise PermissionDenied
+
     if request.method == "POST":
         session_data = request.session.get('change_owner_companies')
         if (

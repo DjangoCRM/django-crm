@@ -50,3 +50,24 @@ class TestMessagePreview(BaseTestCase):
                          r'src=\"\S+media\S+1x1image\.pgm\"')
         self.assertRegex(response_content,
                          r'src=\"\S+static\S+1x1image\.pgm\"')
+
+    def test_message_from_another_department_is_not_previewed(self):
+        owner = USER_MODEL.objects.get(username="Andrew.Manager.Global")
+        other_user = USER_MODEL.objects.get(
+            username="Masha.Co-worker.Bookkeeping"
+        )
+        message = EmlMessage.objects.create(
+            subject='Private message',
+            content='Not available',
+            owner=other_user,
+            department_id=get_department_id(other_user)
+        )
+        self.client.force_login(owner)
+        response = self.client.get(
+            reverse("message_preview", args=(message.id,))
+        )
+        self.assertRedirects(
+            response,
+            reverse("site:massmail_emlmessage_changelist"),
+            fetch_redirect_response=False,
+        )

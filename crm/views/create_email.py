@@ -16,6 +16,7 @@ from crm.site.crmadminsite import crm_site
 from crm.settings import KEEP_TICKET
 from massmail.models import EmailAccount
 from massmail.models import Signature
+from common.utils.permissions import object_not_found_response
 
 
 def create_email(request, **kwargs):
@@ -26,8 +27,19 @@ def create_email(request, **kwargs):
     content_type = ContentType.objects.get(
         app_label='crm', model=data.get('object')
     )
+    model = content_type.model_class()
+    model_admin = crm_site._registry[model]
+    obj = model_admin.get_queryset(request).filter(
+        pk=kwargs['object_id']
+    ).first()
+    if not obj or not model_admin.has_view_permission(request, obj):
+        return object_not_found_response(
+            request, model_admin, kwargs['object_id']
+        )
+    if not crm_site._registry[CrmEmail].has_add_permission(request):
+        raise PermissionDenied
     if data.get('object') == 'deal':
-        deal = content_type.model_class().objects.get(id=kwargs['object_id'])
+        deal = obj
         subject = 'Re: ' + deal.name
         content = KEEP_TICKET % deal.ticket
         recipient = getattr(deal, data.get('recipient'))
@@ -54,8 +66,7 @@ def create_email(request, **kwargs):
         if data.get('recipient') == 'partner_contact':
             data['recipient'] = 'contact'
     else:
-        recipient = content_type.model_class(
-        ).objects.get(id=kwargs['object_id'])
+        recipient = obj
     signature_id = Signature.objects.filter(
         owner=request.user, default=True).values_list('id', flat=True).first()
     ea = EmailAccount.objects.filter(owner=request.user, main=True).first()

@@ -7,7 +7,15 @@ from django.contrib.sites.models import Site
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext as _
 from django.urls import reverse
+from crm.site.crmadminsite import crm_site
+from common.utils.permissions import object_not_found_response
 from massmail.models import EmailAccount
+
+
+def _get_email_account(request, **filters):
+    email_admin = crm_site._registry[EmailAccount]
+    email_account = EmailAccount.objects.filter(**filters).first()
+    return email_admin, email_account
 
 
 def get_redirect_uri(ea: EmailAccount) -> str:
@@ -17,7 +25,9 @@ def get_redirect_uri(ea: EmailAccount) -> str:
 
 
 def request_authorization_code(request, email_account_id):
-    ea = EmailAccount.objects.get(id=email_account_id)
+    email_admin, ea = _get_email_account(request, pk=email_account_id)
+    if not ea or not email_admin.has_view_permission(request, ea):
+        return object_not_found_response(request, email_admin, email_account_id)
     data = settings.OAUTH2_DATA.get(ea.email_host, None)
     if data:
         redirect_uri = get_redirect_uri(ea)
@@ -43,7 +53,13 @@ def request_authorization_code(request, email_account_id):
 def get_refresh_token(request):
     authorization_code = request.GET.get('code')
     email_host_user = request.GET.get('user')
-    ea = EmailAccount.objects.get(email_host_user=email_host_user)
+    email_admin, ea = _get_email_account(
+        request, email_host_user=email_host_user
+    )
+    if not ea or not email_admin.has_view_permission(request, ea):
+        return object_not_found_response(
+            request, email_admin, email_host_user
+        )
     redirect_uri = get_redirect_uri(ea)
     data = settings.OAUTH2_DATA[ea.email_host]
     if authorization_code:

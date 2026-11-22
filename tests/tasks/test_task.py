@@ -198,6 +198,25 @@ class TestTask(BaseTestCase):
         task.refresh_from_db()
         self.assertEqual(task.stage.done, True)
         self.assertEqual(mail.outbox[0].to, [task.owner.email])
+
+    def test_task_completion_link_rejects_unassigned_user(self):
+        task = Task.objects.create(
+            name='Task completion permission check',
+            stage=self.default_stage,
+            owner=self.chief,
+            next_step='Complete task'
+        )
+        task.responsible.add(self.sergey)
+        complete_url = reverse(
+            "task_completed", args=(task.token, self.masha.id)
+        )
+
+        response = self.client.get(complete_url)
+
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b"The Task does not exist", response.content)
+        task.refresh_from_db()
+        self.assertEqual(task.stage, self.default_stage)
         
     def test_completed_button(self):
         content = random()

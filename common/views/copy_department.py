@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.translation import gettext as _
@@ -22,6 +23,9 @@ MODELS = [
 
 def copy_department(request):
     """Creates a copy of the selected department."""
+    if not request.user.is_superuser:
+        raise PermissionDenied
+
     if request.method == "POST":
         department_id = int(request.POST.get('department'))
         department = Department.objects.get(id=department_id)

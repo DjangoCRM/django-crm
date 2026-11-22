@@ -46,6 +46,8 @@ class TestCreateEmailView(BaseTestCase):
             email="office@company.com"
         )
         populate_db(cls)
+        cls.company.department_id = cls.department_id
+        cls.company.save(update_fields=['department'])
         stage = Stage.objects.filter(department=cls.department_id).first()
         request = Request.objects.create(
             request_for="Mock request for test email creation",
@@ -137,6 +139,27 @@ class TestCreateEmailView(BaseTestCase):
 
     def test_create_email_to_company(self):
         self.get_test(self.company)
+
+    def test_create_email_rejects_inaccessible_recipient(self):
+        other_user = User.objects.get(
+            username="Masha.Co-worker.Bookkeeping"
+        )
+        inaccessible_company = Company.objects.create(
+            full_name="Inaccessible Company",
+            email="office@example.com",
+            owner=other_user,
+            department_id=get_department_id(other_user),
+        )
+        url = reverse('create_email', args=(inaccessible_company.id,))
+        url += "?object=company&recipient=company"
+
+        response = self.client.get(url)
+
+        self.assertRedirects(
+            response,
+            reverse("site:crm_company_changelist"),
+            fetch_redirect_response=False,
+        )
 
     def test_create_email_to_contact(self):
         contact = Contact.objects.create(

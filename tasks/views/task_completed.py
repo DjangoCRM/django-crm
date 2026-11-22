@@ -25,6 +25,10 @@ def task_completed(request: WSGIRequest, token: str,
         user = USER_MODEL.objects.get(id=object_id)
     except USER_MODEL.DoesNotExist:
         return HttpResponse(_("The user does not exist"))
+    if task.responsible.count() != 1 or not task.responsible.filter(
+        pk=user.pk
+    ).exists():
+        return HttpResponse(_("The Task does not exist"), status=404)
     tc = TaskCompleted()
     tc.do(task, user)
     msg = _("The task is closed")

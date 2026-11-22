@@ -72,6 +72,10 @@ def email_subtask_completion(request: WSGIRequest, token: str, object_id: int
         user = USER_MODEL.objects.get(id=object_id)
     except USER_MODEL.DoesNotExist:
         return HttpResponse(_("The user does not exist"))
+    if task.responsible.count() <= 1 or not task.responsible.filter(
+        pk=user.pk
+    ).exists():
+        return HttpResponse(_("The Task does not exist"), status=404)
     add_subtask_url = TaskAdmin.get_add_subtask_url(task.id)
     cs = CreateSubtask()
     err = cs.do(add_subtask_url, user)

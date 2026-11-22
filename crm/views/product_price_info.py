@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.apps import apps
 from django.http import JsonResponse
 from django.contrib.admin.views.decorators import staff_member_required
+from crm.site.crmadminsite import crm_site
 
 
 @staff_member_required
@@ -34,8 +35,12 @@ def product_price_info(request):
         return JsonResponse({'ok': False, 'error': 'missing_params'})
 
     try:
-        product = Product.objects.get(pk=int(product_id))
-    except (ValueError, Product.DoesNotExist):
+        product_pk = int(product_id)
+    except ValueError:
+        return JsonResponse({'ok': False, 'error': 'product_not_found'})
+    product_admin = crm_site._registry[Product]
+    product = product_admin.get_queryset(request).filter(pk=product_pk).first()
+    if not product or not product_admin.has_view_permission(request, product):
         return JsonResponse({'ok': False, 'error': 'product_not_found'})
 
     try:

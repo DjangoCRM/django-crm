@@ -1,9 +1,11 @@
 from random import random
 from django.conf import settings
+from django.contrib.messages import get_messages
 from django.test import tag
 from django.urls import reverse
 
 from common.utils.helpers import get_department_id
+from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from common.utils.helpers import USER_MODEL
 from massmail.models import Signature
 from tests.base_test_classes import BaseTestCase
@@ -74,6 +76,33 @@ class TestSignaturePreview(BaseTestCase):
                          response.reason_phrase)
         response_content = response.content.decode()
         self.assertIn(str(self.random_value), response_content)
+
+    def test_signature_from_another_department_is_not_previewed(self):
+        other_user = USER_MODEL.objects.get(
+            username="Masha.Co-worker.Bookkeeping"
+        )
+        signature = Signature.objects.create(
+            name='Private signature',
+            content='Not available',
+            owner=other_user,
+            department_id=get_department_id(other_user)
+        )
+        response = self.client.get(
+            reverse("signature_preview"),
+            {'signature': signature.id}
+        )
+        self.assertRedirects(
+            response,
+            reverse("site:massmail_signature_changelist"),
+            fetch_redirect_response=False,
+        )
+        self.assertEqual(
+            str(list(get_messages(response.wsgi_request))[0]),
+            str(OBJ_DOESNT_EXIT_STR.format(
+                Signature._meta.verbose_name,
+                signature.id
+            ))
+        )
 
     @classmethod
     def tearDownClass(cls):

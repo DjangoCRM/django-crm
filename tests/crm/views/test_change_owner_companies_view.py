@@ -152,3 +152,10 @@ class TestChangeOwnerView(BaseTestCase):
             str(messages[0]),
             'The company selection has expired. Please select the companies again.',
         )
+
+    def test_non_superuser_cannot_change_company_owner(self):
+        self.client.force_login(self.owner)
+
+        response = self.client.get(reverse('change_owner_companies'))
+
+        self.assertEqual(response.status_code, 403)

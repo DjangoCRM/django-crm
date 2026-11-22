@@ -71,18 +71,30 @@ class TestPrintObjectView(BaseTestCase):
         self.client.force_login(self.co_worker)
         url = reverse('print_request', args=(self.request.id,))
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 403)
+        self.assertRedirects(
+            response,
+            reverse("site:crm_request_changelist"),
+            fetch_redirect_response=False,
+        )
 
     def test_print_email_denied_without_view_permission(self):
         # a co-worker has no crm.view_crmemail permission
         self.client.force_login(self.co_worker)
         url = reverse('print_email', args=(self.email.id,))
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 403)
+        self.assertRedirects(
+            response,
+            reverse("site:crm_crmemail_changelist"),
+            fetch_redirect_response=False,
+        )
 
     def test_print_request_from_another_department_not_found(self):
         # a manager of Global sales must not see Bookkeeping objects
         self.client.force_login(self.manager)
         url = reverse('print_request', args=(self.foreign_request.id,))
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 404)
+        self.assertRedirects(
+            response,
+            reverse("site:crm_request_changelist"),
+            fetch_redirect_response=False,
+        )

@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import messages
-from django.http import Http404
+from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.translation import gettext as _
@@ -22,6 +22,7 @@ from crm.models.country import City
 from crm.site.crmadminsite import crm_site
 from massmail.models import MailingOut
 from massmail.models import MassContact
+from common.utils.permissions import object_not_found_response
 
 
 class DeleteDuplicateObject(View):
@@ -55,6 +56,17 @@ class DeleteDuplicateObject(View):
         self.duplicate_id = kwargs['object_id']
 
     def get(self, request, *args, **kwargs):
+        model_admin = crm_site._registry[self.model]
+        self.duplicate = model_admin.get_queryset(request).filter(
+            pk=self.duplicate_id
+        ).first()
+        if (
+            not self.duplicate
+            or not model_admin.has_delete_permission(request, self.duplicate)
+        ):
+            return object_not_found_response(
+                request, model_admin, self.duplicate_id
+            )
         context = dict(
             crm_site.each_context(request),
             opts=Request._meta,
@@ -63,23 +75,44 @@ class DeleteDuplicateObject(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+        model_admin = crm_site._registry[self.model]
+        self.duplicate = model_admin.get_queryset(request).filter(
+            pk=self.duplicate_id
+        ).first()
+        if (
+            not self.duplicate
+            or not model_admin.has_delete_permission(request, self.duplicate)
+        ):
+            return object_not_found_response(
+                request, model_admin, self.duplicate_id
+            )
         form = self.form_class(request.POST)
         if form.is_valid():
             self.original_id = request.POST.get(self.field)
-            model_admin = crm_site._registry[self.model]
             qs = model_admin.get_queryset(request)
             self.original = qs.filter(id=self.original_id).first()
-            self.duplicate = qs.filter(id=self.duplicate_id).first()
-            if not self.original or not self.duplicate:
-                raise Http404
-            self.relate_to()
-            self.update_fields()
+            if (
+                not self.original
+                or not model_admin.has_change_permission(request, self.original)
+                or not model_admin.has_delete_permission(request, self.duplicate)
+            ):
+                return object_not_found_response(
+                    request,
+                    model_admin,
+                    self.original_id or self.duplicate_id
+                )
+            unavailable_response = self.get_unavailable_related_object(request)
+            if unavailable_response:
+                return unavailable_response
+            with transaction.atomic():
+                self.relate_to()
+                self.update_fields()
 
-            self.duplicate.delete()
-            MassContact.objects.filter(
-                content_type=self.content_type,
-                object_id=self.duplicate_id,
-            ).delete()
+                self.duplicate.delete()
+                MassContact.objects.filter(
+                    content_type=self.content_type,
+                    object_id=self.duplicate_id,
+                ).delete()
             messages.success(
                 request,
                 _('The duplicate object has been correctly deleted.')
@@ -94,6 +127,28 @@ class DeleteDuplicateObject(View):
                 url = f"{url}?{current_query_string}"
             
             return HttpResponseRedirect(url)
+
+    def get_unavailable_related_object(self, request):
+        field, models = self.get_data(self.model)
+        for model in models:
+            kwarg1 = {field: self.duplicate_id}
+            objects = model.objects.filter(**kwarg1)
+            model_admin = crm_site._registry[model]
+            for obj in objects.iterator():
+                if not model_admin.has_change_permission(request, obj):
+                    return object_not_found_response(
+                        request, model_admin, obj.pk
+                    )
+
+        re_str = fr"^{self.duplicate_id},|,{self.duplicate_id},|,{self.duplicate_id}$"
+        mailing_outs = MailingOut.objects.filter(recipient_ids__regex=re_str)
+        mailingout_admin = crm_site._registry[MailingOut]
+        for mailing_out in mailing_outs.iterator():
+            if not mailingout_admin.has_change_permission(request, mailing_out):
+                return object_not_found_response(
+                    request, mailingout_admin, mailing_out.pk
+                )
+        return None
 
     def relate_to(self) -> None:
         field, models = self.get_data(self.model)

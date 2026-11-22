@@ -113,6 +113,14 @@ class TestUserTransfer(BaseTestCase):
                 f"The {model.__name__} is not copied to another department."
             )
 
+    def test_non_superuser_cannot_copy_department(self):
+        manager = USER_MODEL.objects.get(username="Andrew.Manager.Global")
+        self.client.force_login(manager)
+
+        response = self.client.get(reverse('copy_department'))
+
+        self.assertEqual(response.status_code, 403)
+
     def test_user_transfer_stage_missing_in_new_department(self):
         """A deal stage without a same-named counterpart in the new
         department must not break the transfer."""

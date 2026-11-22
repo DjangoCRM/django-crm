@@ -156,6 +156,12 @@ class TestProductPriceInfo(BaseTestCase):
     def test_unknown_product(self):
         self.assertError('product_not_found', product=2147483647)
 
+    def test_product_outside_users_department_is_not_found(self):
+        user = USER_MODEL.objects.get(
+            username="Masha.Co-worker.Bookkeeping")
+        self.client.force_login(user)
+        self.assertError('product_not_found', product=self.eur_product.id)
+
     def test_a_product_id_that_is_not_a_number_is_refused_not_a_500(self):
         self.assertError('product_not_found', product='abc')
 

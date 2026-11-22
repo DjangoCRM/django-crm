@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Search countries by the beginning of their phone code when the search contains only digits by @ect2000
 - Scope DeleteDuplicateObject lookups to the department-filtered queryset @isazajuancarlos
+- Enhance HTML safety and formatting in email handling
+- Enforce permission checks for various admin actions
 
 ### Fixed
 

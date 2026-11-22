@@ -1,8 +1,9 @@
 from django.apps import apps
-from django.core.exceptions import PermissionDenied
+from django.http import Http404
 from django.views.generic.detail import DetailView
 
 from crm.site.crmadminsite import crm_site
+from common.utils.permissions import object_not_found_response
 
 
 class PrintObjectView(DetailView):
@@ -21,11 +22,18 @@ class PrintObjectView(DetailView):
         model_admin = crm_site._registry[self.model]
         return model_admin.get_queryset(self.request)
 
-    def get_object(self, queryset=None):
-        obj = super().get_object(queryset)
-        if not self.has_view_permission(obj):
-            raise PermissionDenied
-        return obj
+    def get(self, request, *args, **kwargs):
+        try:
+            obj = super().get_object(self.get_queryset())
+        except Http404:
+            obj = None
+        if not obj or not self.has_view_permission(obj):
+            return object_not_found_response(
+                request,
+                crm_site._registry[self.model],
+                kwargs[self.pk_url_kwarg]
+            )
+        return super().get(request, *args, **kwargs)
 
     def has_view_permission(self, obj) -> bool:
         model_admin = crm_site._registry[self.model]

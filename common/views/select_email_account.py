@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.db.models import Q
 
 from crm.models import Request
 from crm.site.crmadminsite import crm_site
@@ -22,6 +23,7 @@ def select_email_account(request: WSGIRequest):
         ids_str = request.GET.get('eas')
         ids = ids_str.split(',')
         eas = EmailAccount.objects.filter(
+            Q(owner=request.user) | Q(co_owner=request.user),
             id__in=ids
         ).distinct().order_by('name').values_list('id', 'name')
         form = RadioSelectForm(eas)

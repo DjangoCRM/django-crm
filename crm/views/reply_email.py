@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import Http404
 from django.http import HttpResponseRedirect
@@ -14,6 +15,7 @@ from crm.utils.ticketproc import get_ticket
 from crm.utils.ticketproc import get_ticket_str
 from massmail.models import EmailAccount
 from massmail.models import Signature
+from common.utils.permissions import object_not_found_response
 
 
 def reply_email(request: WSGIRequest,
@@ -31,7 +33,9 @@ def reply_email(request: WSGIRequest,
     eml_admin = crm_site._registry[CrmEmail]
     rep_eml = eml_admin.get_queryset(request).filter(id=object_id).first()
     if not rep_eml or not eml_admin.has_view_permission(request, rep_eml):
-        raise Http404
+        return object_not_found_response(request, eml_admin, object_id)
+    if not crm_site._registry[CrmEmail].has_add_permission(request):
+        raise PermissionDenied
     subject = " ".join(rep_eml.subject.splitlines())
     signature = Signature.objects.filter(
         owner=request.user, default=True

@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.sites.models import Site
 from django.utils.translation import gettext as _
 from smtplib import SMTPRecipientsRefused
+from crm.site.crmadminsite import crm_site
+from common.utils.permissions import object_not_found_response
 from massmail.utils.email_creators import create_test_email
 from massmail.models import EmailAccount, EmlMessage
 
@@ -12,7 +14,10 @@ NEED_TWO_EML_ACCOUNTS = 'To send a test message you need to register at least tw
 
 
 def send_test(request, message_id):
-    mg = EmlMessage.objects.get(id=message_id)
+    message_admin = crm_site._registry[EmlMessage]
+    mg = message_admin.get_queryset(request).filter(pk=message_id).first()
+    if not mg or not message_admin.has_change_permission(request, mg):
+        return object_not_found_response(request, message_admin, message_id)
     eas = EmailAccount.objects.filter(owner=mg.owner, massmail=True)
     if eas.count() < 2:
         messages.error(

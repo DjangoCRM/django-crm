@@ -11,9 +11,9 @@ from common.models import Reminder
 from common.views.export_objects import export_selected_objects
 from common.utils.helpers import SAFE_SUBJECT_ICON, get_department_id
 from common.utils.helpers import SAFE_ATTACH_FILE_ICON
-from common.utils.helpers import OBJ_DOESNT_EXIT_STR
 from common.utils.helpers import get_verbose_name
 from common.utils.helpers import get_today
+from common.utils.permissions import object_not_found_response
 from crm.utils.helpers import add_id_to_raw_id_field_label
 
 TAGS_STR = _('Tags')
@@ -215,18 +215,10 @@ class BaseModelAdmin(admin.ModelAdmin):
         try:
             self.model.objects.get(id=object_id)
         except self.model.DoesNotExist:
-            messages.error(
-                request,
-                OBJ_DOESNT_EXIT_STR.format(
-                    self.model._meta.verbose_name, object_id    # NOQA
-                )
+            response = object_not_found_response(
+                request, self, object_id
             )
-            return (
-                reverse(
-                    f"site:{self.opts.app_label}_"
-                    f"{self.model.__name__.lower()}_changelist"
-                )
-            )
+            return response.url
         return ''
 
     def set_callable_description(self, callable_name: str, field: str, icon_name: str = '') -> None:

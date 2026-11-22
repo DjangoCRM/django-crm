@@ -23,6 +23,7 @@ from crm.utils.import_emails import get_email_headers_page
 from crm.utils.import_emails import parse_message_bytes
 from crm.site.crmadminsite import crm_site
 from massmail.models import EmailAccount
+from common.utils.permissions import object_not_found_response
 
 
 @csrf_protect
@@ -30,7 +31,13 @@ def select_emails_import(request: WSGIRequest):
     if request.method == 'POST':
         data = request.POST.copy()
         ea_id = int(data.pop('ea_id')[0])
-        ea = EmailAccount.objects.get(id=ea_id)
+        ea = EmailAccount.objects.filter(
+            Q(owner=request.user) | Q(co_owner=request.user)
+        ).filter(pk=ea_id).first()
+        if not ea:
+            return object_not_found_response(
+                request, crm_site._registry[EmailAccount], ea_id
+            )
         data.pop('csrfmiddlewaretoken', None)
         action = data.pop('action')[0]
         if action == 'import':
@@ -84,13 +91,33 @@ def select_emails_import(request: WSGIRequest):
 
         if ea:
             if deal_id:
-                deal = Deal.objects.get(id=deal_id)
+                deal_admin = crm_site._registry[Deal]
+                deal = deal_admin.get_queryset(request).filter(
+                    pk=deal_id
+                ).first()
+                if (
+                    not deal
+                    or not deal_admin.has_view_permission(request, deal)
+                ):
+                    return object_not_found_response(
+                        request, deal_admin, deal_id
+                    )
                 deal_name = deal.name
                 deal_url = deal.get_absolute_url()
                 opts = Deal._meta  # NOQA
 
             elif request_id:
-                inquiry = Request.objects.get(id=request_id)
+                request_admin = crm_site._registry[Request]
+                inquiry = request_admin.get_queryset(request).filter(
+                    pk=request_id
+                ).first()
+                if (
+                    not inquiry
+                    or not request_admin.has_view_permission(request, inquiry)
+                ):
+                    return object_not_found_response(
+                        request, request_admin, request_id
+                    )
                 inquiry_name = inquiry.request_for
                 inquiry_url = inquiry.get_absolute_url()
                 opts = Request._meta  # NOQA
